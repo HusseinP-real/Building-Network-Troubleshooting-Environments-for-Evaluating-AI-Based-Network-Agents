@@ -1,67 +1,86 @@
-# haosenpeng 的组合故障：错误网关 + ICMP 丢包
+# haosenpeng Compound Fault: Wrong Gateway and ICMP Filtering
 
-场景：[`kath3-laptop0-wrong-gateway-and-icmp-drop`](../dataset/kath3_Q/custom/kath3-laptop0-wrong-gateway-and-icmp-drop.txt)。
+Scenario: [`kath3-laptop0-wrong-gateway-and-icmp-drop`](../dataset/kath3_Q/custom/kath3-laptop0-wrong-gateway-and-icmp-drop.txt).
 
-## 谁写命令，谁负责排查？
+## Scenario Author and Troubleshooting Agent Responsibilities
 
-场景作者同时写工单 `[PROMPT-TO-AGENT]` 和确定性的注入命令 `[INJECTION]`。
-执行器运行注入命令；排障 agent 只收到工单和拓扑概览，然后自己调用诊断工具。
-agent 不负责把作者的故障想法翻译成注入命令，也不会收到标准答案。
-`[GROUND-TRUTH]`、`[FIX]`、`[SCORING-AXES]` 是诊断评分依据。
+The scenario author writes both the trouble ticket in `[PROMPT-TO-AGENT]`
+and the deterministic injection commands in `[INJECTION]`. The harness
+executes those commands. The troubleshooting agent receives the ticket and
+a topology overview, then uses diagnostic tools to investigate. It does not
+translate the author's fault description into injection commands or receive
+the reference diagnosis. `[GROUND-TRUTH]`, `[FIX]`, and `[SCORING-AXES]`
+provide the reference material for scoring the diagnosis.
 
-## 这个新故障组合了什么？
+## Fault Composition
 
-1. 将 Kath3 的 Laptop0 默认网关从 `172.16.20.1` 改成未分配的 `172.16.20.99`。
-2. 在同一主机的 iptables `OUTPUT` 链加入针对 `192.168.100.1` 的 ICMP DROP 规则。
+1. Change Laptop0's default gateway in Kath3 from `172.16.20.1` to the
+   unassigned address `172.16.20.99`.
+2. Add an ICMP DROP rule to the same host's iptables `OUTPUT` chain,
+   targeting `192.168.100.1`.
 
-第一项来自现有 `kath3-laptop0-wrong-gateway`；第二项借鉴现有
-`simple-bgp-router2-iptables-icmp-drop` 的过滤机制，但改为主机 `OUTPUT`，
-并限制到一个目的地址。它不是原 BGP 路由器的 `FORWARD` 规则。
-两个故障放在同一设备，因此可以直接使用当前单设备的场景注入格式。
+The first component comes from `kath3-laptop0-wrong-gateway`. The second
+adapts the filtering mechanism in `simple-bgp-router2-iptables-icmp-drop`
+to a host's `OUTPUT` chain and a single destination. The original BGP
+scenario uses a router's `FORWARD` chain. Both components affect one device,
+so the compound fault works with the existing single-device injection format.
 
-| 阶段 | Laptop0 → 网关 .1 | Laptop0 → PC4 | Laptop0 → 192.168.100.1 | PC4 → 192.168.100.1 |
+| Stage | Laptop0 to gateway .1 | Laptop0 to PC4 | Laptop0 to 192.168.100.1 | PC4 to 192.168.100.1 |
 |---|---|---|---|---|
-| 正常 | 通 | 通 | 通 | 通 |
-| 双故障 | 通 | 不通 | 不通 | 通 |
-| 只修网关 | 通 | 通 | 不通 | 通 |
-| 只删过滤规则 | 通 | 不通 | 不通 | 通 |
-| 两个都修复 | 通 | 通 | 通 | 通 |
+| Healthy baseline | Reachable | Reachable | Reachable | Reachable |
+| Both faults injected | Reachable | Unreachable | Unreachable | Reachable |
+| Gateway repaired only | Reachable | Reachable | Unreachable | Reachable |
+| Filter removed only | Reachable | Unreachable | Unreachable | Reachable |
+| Both faults repaired | Reachable | Reachable | Reachable | Reachable |
 
-“只修网关”阶段，过滤规则的包计数应增加。这证明第二个故障实际在丢包，
-而不是仅仅在配置里出现。工单没有泄露根因；评分要求找出两个问题。
+During the gateway-only repair stage, the filter's packet counter should
+increase. This demonstrates that the second fault actually drops traffic.
+The ticket does not reveal the root causes; scoring requires identifying
+both problems.
 
-## 一条命令运行网络实测
+## Run the Live Network Validation
 
-先启动 Docker，安装 Python 3.12+ 和 Kathara CLI。以下命令从 `FaulT-Bench/` 执行：
+Start Docker and install Python 3.12+ and the Kathara CLI. Run these commands
+from `FaulT-Bench/`:
 
 ```bash
 python3 tools/validate_haosenpeng_fault.py --check-only
 python3 tools/validate_haosenpeng_fault.py
 ```
 
-不需要 SADE、Python Kathara API 或 LLM API key。第二条命令：
+SADE, the Python Kathara API, and LLM API keys are not required. The second
+command performs the following steps:
 
-1. 复制完整 Kath3 到唯一临时目录，并启动隔离实验；不挂载 hosthome/shared。
-2. 等待健康基线的配置与连通性检查通过；基线不通过则不注入。
-3. 使用 repo 的 `parse_scenario` 读取并执行场景命令及六条注入后检查。
-4. 再注入一次，确认标记规则没有重复添加。
-5. 验证两种单项修复、DROP 计数和两种完整恢复顺序。
-6. 无论成功或失败，都尝试只清理本次临时实验，并输出 JSON 证据。
+1. Copy the complete Kath3 topology into a unique temporary directory and
+   start an isolated lab without hosthome/shared mounts.
+2. Wait for the healthy baseline configuration and connectivity checks to
+   pass. Do not inject faults if the baseline fails.
+3. Use the repository's `parse_scenario` to read the scenario, execute its
+   injection commands, and run its six post-injection checks.
+4. Repeat the injection to verify that the tagged rule is not duplicated.
+5. Verify both partial repairs, the DROP counter, and both complete repair
+   orders.
+6. Attempt to clean up only this temporary lab on either success or failure,
+   and write the evidence to a JSON report.
 
-默认输出：`faultbench/runs/haosenpeng-validation.json`（gitignored）。
-可用 `--output /path/to/report.json` 自选位置。部署失败时报告保留错误，
-临时拓扑配置会留在报告里的 `temporary_lab` 路径以便排查。
-若清理失败，可对该**具体临时目录**执行 `kathara lclean -d /path/to/temporary/Kath3`。
+The default output is `faultbench/runs/haosenpeng-validation.json`
+(gitignored). Use `--output /path/to/report.json` to choose another location.
+Deployment errors are retained in the report. The temporary topology
+configuration remains at the report's `temporary_lab` path for inspection.
+If cleanup fails, run `kathara lclean -d /path/to/temporary/Kath3` against
+that specific temporary directory.
 
-这是一项真实容器网络实验，不是 mock，也不是一次 LLM agent benchmark；
-不会生成 agent 分数。严格验证器要求真实设备退出码和 ping 丢包率，
-对无输出、超时和未知检查条件不会自动判通过。
+This validator exercises a live container network and does not run an LLM
+agent benchmark or produce agent scores. It requires actual device command
+exit codes and ping packet-loss output. Missing output, timeouts, and
+unknown expectations do not automatically pass.
 
-## 手工注入和排查
+## Manual Injection and Troubleshooting
 
-若要一步一步做，先在 `topology_kathara/Kath3/` 执行
-`kathara lstart --noterminals`，确认没有其他人正在使用这一目录对应的实验，
-再执行以下命令。每次注入前先验证上表正常行。
+For a step-by-step experiment, first confirm that nobody else is using the
+lab associated with `topology_kathara/Kath3/`. From that directory, run
+`kathara lstart --noterminals`, then execute the commands below. Verify the
+healthy baseline row in the table before every injection.
 
 ```bash
 kathara exec laptop0 -- ip route show default
@@ -71,8 +90,8 @@ kathara exec laptop0 -- ping -W2 -c2 192.168.100.1
 kathara exec pc4 -- ping -W2 -c2 192.168.100.1
 ```
 
-运行 `kathara connect laptop0`，将场景 `[INJECTION]` 的 `cmd` 内容粘贴到设备 shell。
-通过 `exit` 返回宿主机终端。
+Run `kathara connect laptop0` and paste the scenario's `[INJECTION]` `cmd`
+contents into the device shell. Use `exit` to return to the host terminal.
 
 ```bash
 kathara exec laptop0 -- ip route show default
@@ -81,7 +100,8 @@ kathara exec laptop0 -- iptables -S OUTPUT
 kathara exec laptop0 -- iptables -L OUTPUT -n -v -x
 ```
 
-先修网关，再重复两条远端 ping，观察一个恢复、另一个仍失败：
+Repair the gateway first, then repeat both off-subnet pings. One destination
+should become reachable while the other remains blocked:
 
 ```bash
 kathara exec laptop0 -- ip route replace default via 172.16.20.1
@@ -90,7 +110,8 @@ kathara exec laptop0 -- ping -W2 -c2 192.168.100.1
 kathara exec laptop0 -- iptables -L OUTPUT -n -v -x
 ```
 
-精确删除实验规则，然后复测。不要清空整张防火墙：
+Remove the specific experimental rule and repeat the probes. Preserve all
+other firewall rules:
 
 ```bash
 kathara exec laptop0 -- iptables -D OUTPUT -d 192.168.100.1/32 -p icmp -m comment --comment haosenpeng-compound-icmp -j DROP
@@ -99,33 +120,45 @@ kathara exec laptop0 -- ping -W2 -c2 192.168.100.1
 kathara lclean
 ```
 
-## 接入 agent benchmark
+## Run the Agent Benchmark
 
-自定义场景放在 `dataset/kath3_Q/custom/`，独立于论文原始 560 个场景，
-避免改变 `base80.csv` 的实验定义。当前 `resolve_scenario` 会搜索这个目录，
-但 `list --scope base` 和 `sweep --scope base` 不包含它；请使用场景 ID 或专属 manifest。
+The custom scenario lives in `dataset/kath3_Q/custom/`, separately from the
+paper's original 560 scenarios, preserving the definition of `base80.csv`.
+The current `resolve_scenario` searches this directory, but
+`list --scope base` and `sweep --scope base` do not include it. Use the
+scenario ID or the dedicated manifest.
 
-安装主 README 中的 SADE 环境和 API key 后，从 `faultbench/` 执行：
+After setting up the SADE environment and API keys described in the main
+README, run the following commands from `faultbench/`:
 
 ```bash
 ./fb.sh bench --manifest benchmarks/haosenpeng.csv --agents cc-baseline --dry-run
 ./fb.sh bench --manifest benchmarks/haosenpeng.csv --agents cc-baseline --runs-root runs/haosenpeng_p1
 ```
 
-自动 benchmark 会自行部署、注入、检查、运行 agent、评分和清理。
-它使用 Python API 注册实验名，和本教程手工 CLI 启动的临时实验不同。
-运行自动 benchmark 前先结束手工实验；现有 harness 的容器计数/清理辅助逻辑
-按一次一张网络设计。完整 benchmark 需要外部 agent 环境；网络实测脚本不需要。
+The benchmark deploys the network, injects and checks the fault, runs the
+agent, scores its diagnosis, and cleans up. It registers the lab name through
+the Python API; the temporary manual experiments use the CLI. Finish manual
+experiments before running the benchmark because the existing harness's
+container-counting and cleanup helpers assume one network at a time. The
+full benchmark requires the external agent environment; the live validation
+script does not.
 
-## 本次验证证据
+## Validation Evidence
 
 [`validation/haosenpeng-compound-fault.json`](validation/haosenpeng-compound-fault.json)
-记录场景/拓扑 SHA-256、软件版本、各阶段原始命令输出、设备退出码、判定、
-规则计数和清理结果。`kind` 明确标记为 `live-network-validation-without-llm`。
+records scenario and topology SHA-256 hashes, software versions, raw command
+outputs for each stage, device exit codes, check results, rule counters, and
+cleanup results. Its `kind` is explicitly
+`live-network-validation-without-llm`.
 
-本机复跑时也观察到一次**注入前**的 Kath3 基线失败：router1 的 `ripd` 进程
-存在，但 `show ip rip` 返回 `RIP instance not found`，导致 router0 没有远端
-路由。验证器在基线超时后拒绝注入并清理了该实验；失败记录留在本地
-`faultbench/runs/haosenpeng-baseline-rejected.json`。这类部署/初始化失败不能
-记成故障注入成功。若遇到相同问题，先检查 RIP 进程、running-config 和路由，
-清理对应临时实验后重新运行；不要跳过基线门槛。
+One local rerun also encountered a Kath3 baseline failure before injection:
+router1's `ripd` process was running, but `show ip rip` returned
+`RIP instance not found`, leaving router0 without remote routes. The validator
+refused to inject after the baseline timeout and cleaned up that lab. The
+failure report was retained locally at
+`faultbench/runs/haosenpeng-baseline-rejected.json`. Such deployment or
+initialization failures must not count as successful fault injection. If this
+occurs, inspect the RIP processes, running configuration, and routing tables;
+clean up the corresponding temporary lab and rerun. Do not bypass the
+baseline checks.
