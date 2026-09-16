@@ -2,6 +2,6 @@
 set -eu
 ip link set lo up
 ip link set eth0 up
-ip address replace 10.10.10.11/24 dev eth0
-ip route replace default via 10.10.10.1
+ip address replace 10.10.1.11/24 dev eth0
+ip route replace default via 10.10.1.1
 touch /tmp/p20-ready

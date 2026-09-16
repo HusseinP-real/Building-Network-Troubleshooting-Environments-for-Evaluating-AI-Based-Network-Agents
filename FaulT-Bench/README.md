@@ -329,11 +329,15 @@ Leftover containers after a killed run:
 
 ### Custom P20Enterprise topology
 
-The [P20Enterprise guide](docs/p20-enterprise/README.md) introduces a new nine-device,
-six-subnet lab with three routers and forward/return static routes. It includes
-native custom fault cases, an isolated network validator and the
-`benchmarks/p20-enterprise.csv` manifest. This is separate from the imported
-Kath3 topology. All four project cases passed three live cycles on 16 September 2026; the guide links the evidence. Agent evaluation remains pending.
+The [P20Enterprise v2 guide](docs/p20-enterprise/README.md) covers 40 devices
+(16 routers, 16 PCs, eight server endpoints), 29 subnets, five OSPF areas and
+redundant site uplinks. Six native scenarios include verified-next-hop failover,
+site isolation, advertisement withdrawal, server-interface and gateway faults,
+and a healthy control. The `benchmarks/p20-enterprise.csv` manifest selects v2 cases.
+See [versioned validation evidence](docs/p20-enterprise/validation/status.md):
+the original nine-device report is historical v1 evidence only. These additions
+remain separate from the published datasets and frozen agent results.
+
 
 ### Project client demo
 

@@ -4,7 +4,7 @@ P20 builds reproducible network troubleshooting environments for evaluating AI-b
 
 ## New custom topology
 
-[P20Enterprise](FaulT-Bench/docs/p20-enterprise/README.md) adds actual network configuration: three routers, four PCs, two server endpoints and six subnets. It includes server-interface, missing-return-route and wrong-gateway fault scenarios with an isolated validator. All four cases passed three live test cycles on 16 September 2026, including recovery and cleanup. See the topology guide for saved evidence. NIKA/SADE evaluation remains pending.
+[P20Enterprise v2](FaulT-Bench/docs/p20-enterprise/README.md) expands April's topology to **40 devices: 16 routers, 16 PCs and eight server endpoints**, with 29 subnets, five OSPF areas and redundant site uplinks. Six scenarios cover failover, site isolation, OSPF advertisement withdrawal, a server-interface fault, a wrong gateway and a healthy control. See the [versioned validation status](FaulT-Bench/docs/p20-enterprise/validation/status.md); the old nine-device report applies only to v1. NIKA/SADE evaluation remains separate.
 
 From `FaulT-Bench/`:
 
@@ -13,7 +13,7 @@ python3 tools/validate_p20_enterprise.py --check-only
 python3 tools/validate_p20_enterprise.py --repeat 3
 ```
 
-The second command requires Docker, Kathara and the `kathara/base` image. The guide covers topology, use cases, tests, configuration changes and NIKA reference mapping.
+The second command requires Docker, Kathara and the `kathara/base` and `kathara/frr` images. The guide covers topology, use cases, tests, configuration changes and NIKA reference mapping.
 
 ## Existing Kath3 client deployment and demo
 
