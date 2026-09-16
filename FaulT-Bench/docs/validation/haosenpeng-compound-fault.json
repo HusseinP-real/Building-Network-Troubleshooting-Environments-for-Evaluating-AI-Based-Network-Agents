@@ -1,0 +1,435 @@
+{
+  "scenario_id": "kath3-laptop0-wrong-gateway-and-icmp-drop",
+  "started_at": "2026-09-05T10:56:19.508030+00:00",
+  "kind": "live-network-validation-without-llm",
+  "passed": true,
+  "stages": [
+    {
+      "name": "baseline",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.1'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "rules=$(iptables -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}'",
+          "expect": "0",
+          "rc": 0,
+          "output": "0",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=1.47 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=0.476 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 0.476/0.973/1.470/0.497 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n64 bytes from 172.16.10.4: icmp_seq=1 ttl=63 time=2.33 ms\n64 bytes from 172.16.10.4: icmp_seq=2 ttl=63 time=1.33 ms\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 1.325/1.829/2.333/0.504 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.939 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=2.63 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1053ms\nrtt min/avg/max/mdev = 0.939/1.786/2.633/0.847 ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.925 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=1.78 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1060ms\nrtt min/avg/max/mdev = 0.925/1.351/1.777/0.426 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "both-faults",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.99'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "iptables -S OUTPUT | grep -c haosenpeng-compound-icmp",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=0.518 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=4.77 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1030ms\nrtt min/avg/max/mdev = 0.518/2.641/4.765/2.123 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1043ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1044ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.794 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=3.37 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1061ms\nrtt min/avg/max/mdev = 0.794/2.083/3.372/1.289 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "repeat-injection-no-duplicate-rule",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.99'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "iptables -S OUTPUT | grep -c haosenpeng-compound-icmp",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=0.489 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=0.875 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1052ms\nrtt min/avg/max/mdev = 0.489/0.682/0.875/0.193 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1033ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1019ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.786 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=2.98 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1040ms\nrtt min/avg/max/mdev = 0.786/1.884/2.982/1.098 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "gateway-fixed-filter-remains",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.1'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "rules=$(iptables -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=0.464 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=2.57 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1029ms\nrtt min/avg/max/mdev = 0.464/1.516/2.568/1.052 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n64 bytes from 172.16.10.4: icmp_seq=1 ttl=63 time=0.960 ms\n64 bytes from 172.16.10.4: icmp_seq=2 ttl=63 time=2.62 ms\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 0.960/1.789/2.619/0.829 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1044ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.739 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=1.96 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1055ms\nrtt min/avg/max/mdev = 0.739/1.348/1.958/0.609 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "both-fixed-route-first",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.1'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "rules=$(iptables -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}'",
+          "expect": "0",
+          "rc": 0,
+          "output": "0",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=0.836 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=1.52 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1037ms\nrtt min/avg/max/mdev = 0.836/1.179/1.523/0.343 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n64 bytes from 172.16.10.4: icmp_seq=1 ttl=63 time=1.07 ms\n64 bytes from 172.16.10.4: icmp_seq=2 ttl=63 time=1.84 ms\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 1.065/1.453/1.841/0.388 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=1.02 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=3.59 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1002ms\nrtt min/avg/max/mdev = 1.023/2.304/3.585/1.281 ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.995 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=4.58 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1005ms\nrtt min/avg/max/mdev = 0.995/2.789/4.583/1.794 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "filter-fixed-wrong-gateway-remains",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.99'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "rules=$(iptables -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}'",
+          "expect": "0",
+          "rc": 0,
+          "output": "0",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=0.444 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=1.00 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1026ms\nrtt min/avg/max/mdev = 0.444/0.723/1.002/0.279 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1024ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "loss>0",
+          "rc": 1,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1038ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.707 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=0.818 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1024ms\nrtt min/avg/max/mdev = 0.707/0.762/0.818/0.055 ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "both-fixed-filter-first",
+      "passed": true,
+      "checks": [
+        {
+          "device": "laptop0",
+          "command": "ip route show default | grep -c 'via 172.16.20.1'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "rules=$(iptables -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}'",
+          "expect": "0",
+          "rc": 0,
+          "output": "0",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.20.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=2.06 ms\n64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=0.753 ms\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1002ms\nrtt min/avg/max/mdev = 0.753/1.408/2.064/0.655 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 172.16.10.4",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 172.16.10.4 (172.16.10.4) 56(84) bytes of data.\n64 bytes from 172.16.10.4: icmp_seq=1 ttl=63 time=1.02 ms\n64 bytes from 172.16.10.4: icmp_seq=2 ttl=63 time=3.41 ms\n\n--- 172.16.10.4 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1000ms\nrtt min/avg/max/mdev = 1.022/2.214/3.407/1.192 ms",
+          "passed": true
+        },
+        {
+          "device": "laptop0",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.740 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=2.19 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1060ms\nrtt min/avg/max/mdev = 0.740/1.466/2.193/0.726 ms",
+          "passed": true
+        },
+        {
+          "device": "pc4",
+          "command": "ping -W2 -c2 192.168.100.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=0.831 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=1.89 ms\n\n--- 192.168.100.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1035ms\nrtt min/avg/max/mdev = 0.831/1.361/1.891/0.530 ms",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "scenario_sha256": "9d6de971e9aeaeeac4c00682e0267f52336473b323de616b90dad1383453930f",
+  "topology_sha256": {
+    "lab.conf": "12ec93e24c8f2397e07f487ed7301b7344e9a37ea9d2d7484808d26fe490b0e9",
+    "laptop0.startup": "0d6f3f7d58ec720a8f21bb4bfca5567845c835303f57a9ef85242c7592295186",
+    "laptop2.startup": "70153cb7e16c4ec20784f32b1967eb0a85750c1b9cdd4dd6c2f17fbfec795a21",
+    "laptop3.startup": "5909c9d8fe97ec9dc5ba22d5a830035322df80471bf8a0f07e7ff0a26bdc8b3b",
+    "laptop4.startup": "eefc166f6cad5434a01f684b6eecef5aae00764a9b873a56a6fcd35088207bf0",
+    "laptop5.startup": "4258a2eb9799aa6c2c1a2587cb2a029c76766ea5a71e2a6d41884e0783f30ab8",
+    "mswitch1.startup": "ed01cb607af183bb189ea84a02b1f6cf1a1cf199b9282d16bff7bcaa65ed7c64",
+    "mswitch2.startup": "2bd97b19adf015654c3f9b01257fa5775ed5206aec55dd4be0cbc537d83f17b5",
+    "pc11.startup": "629cea48dfea49d45cd95f26448658341e6b5f9be5d8d9220821c7be5e29ff90",
+    "pc12.startup": "ca4d2142d88793445684c86921e9bbe28ef05466c20340caa3358a66afc65f8b",
+    "pc13.startup": "0428fbf2f4aed17ad8686991967d0baece62792482f72be346abbb45258414b2",
+    "pc14.startup": "8943f0b490bbbbb4fe99c9ad87942ce491069aaa7a05e9e88d9bb0f8b53f9467",
+    "pc15.startup": "0c3a16dab1c11916274c5a0bd04316a6209009b5a98e156a6b7623fb367e1aa2",
+    "pc16.startup": "13a66c98b8a51c0a3a0fc06e23f83e2faec7ee27860c02450d805536afbb1a6a",
+    "pc17.startup": "2c386572bafbfe1b9eb0ec616ae40e047413b14b302d7934ae9e66116f541a52",
+    "pc18.startup": "28f3248a13ea36e1b532280b777467f7a95b4d5f69bf054f8315636962b722ed",
+    "pc4.startup": "b1ba6b8883bc9f2fe38a3fc33a042b00570640ba7e2dfea17f3086e8ee099718",
+    "pc5.startup": "b6b57cbfb26d313a257efe658cb90dd3b1edfd5d5bd410761ea3d54f3c0d4af4",
+    "router0.startup": "ef8ef68d7598bd2c31e80950d9e978a9377aa037a34f9bce19a136cd71919d86",
+    "router1.startup": "05cf6c7917adf6e72cea16cac05a8fdac5074dd87204846892b43fae6bef86ec",
+    "router2.startup": "4e1868c555f07c8fbe09b0ac55e68a3aefef4c2b0a1f1a44a346720e5abfc3b4",
+    "router3.startup": "ab45d67dbfc93d3d8aa1983a9010ac9ef8cf16ae1bf62f0fb4a5438ffbe0797f",
+    "router4.startup": "48c41c0d285c411f0c617765620928b7a50c570a38376e2abbcf51ed16050580",
+    "router5.startup": "a12bac788551631448866896e29d478dd39b2029fed3e775f4700b940104a2f4",
+    "router6.startup": "71f3d87072414667f8320768f33f244eeda4a58a3767e70edb135ac1f4ef9fae",
+    "switch1.startup": "1efcbcbaca17d3d6b9ffcb0fcaf11b2738b2fc5617ae31936f6fc4ef51e82a54",
+    "switch10.startup": "1bcf557e863c129ff8a1b8c80ff380de2caf54d85829cbd8c7a42f1a13a0dfd8",
+    "switch11.startup": "d24a17eda4fa2e1a9f1bca63323f663e56e946f47f1dd1100ccb12c45a2ee5dd",
+    "switch2.startup": "2adda1aa49f1e938f081a2e55e186e1d94d3b0492937c63dd7d1489f9ae6f221",
+    "switch4.startup": "dc7d496b03d975a22863a476ca076b115a950d776d1b9a3692ca10fbddae8d33",
+    "switch5.startup": "254cc8a4a1c1d244cba2174b181f4f3b2886813b62df45e1132038f43fa5c0c2",
+    "switch6.startup": "ef1fa6123cef404c802acd2fae0aca380244a1cfca27afdc01d5e0928b9e7698",
+    "switch9.startup": "b49e41bf762b0ec30bacd3aa73a075fa3dc97b616629fe049d72c67a22978574"
+  },
+  "docker_version": "29.7.2",
+  "kathara_version": "Current version: 3.8.3",
+  "temporary_lab": "/var/folders/wl/jm97lmtd44j_mj55hthnh5qh0000gn/T/faultbench-haosenpeng-y73uo2gc/Kath3",
+  "deploy": {
+    "rc": 0,
+    "output": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                          Starting Network Scenario                           │\n└──────────────────────────────────────────────────────────────────────────────┘\n[Deploying collision domains]   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136/136\n[Deploying devices]   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 32/32\n"
+  },
+  "filter_counters_after_route_repair": "Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)\n    pkts      bytes target     prot opt in     out     source               destination         \n       2      168 DROP       1    --  *      *       0.0.0.0/0            192.168.100.1        /* haosenpeng-compound-icmp */",
+  "cleanup": {
+    "rc": 0,
+    "output": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                          Stopping Network Scenario                           │\n└──────────────────────────────────────────────────────────────────────────────┘\n[Deleting devices]   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 32/32\n[Deleting collision domains]   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136/136\n"
+  },
+  "finished_at": "2026-09-05T10:57:44.990165+00:00"
+}

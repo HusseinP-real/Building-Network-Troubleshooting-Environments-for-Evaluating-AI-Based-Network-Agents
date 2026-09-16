@@ -1,0 +1,60 @@
+Scenario: p20-enterprise-r2-server-interface-down
+Topology: P20Enterprise
+Fault family: server-link
+
+[PROMPT-TO-AGENT]
+Headquarters and branch users cannot reach Server1, but Server2 and normal inter-office connectivity still work. Investigate the server-specific failure.
+
+[PRE-CHECK]
+pc1  ping -n -W 1 -c 2 10.10.10.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.20.20.11 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.30.30.10 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.40.40.10 => expect 0% loss
+pc3  ping -n -W 1 -c 2 10.30.30.10 => expect 0% loss
+pc3  ping -n -W 1 -c 2 10.40.40.10 => expect 0% loss
+pc3  ping -n -W 1 -c 2 10.20.20.12 => expect 0% loss
+server1  ping -n -W 1 -c 2 10.40.40.10 => expect 0% loss
+r2  flags=$(cat /sys/class/net/eth2/flags) && echo $((flags & 1)) => expect 1
+r3  routes=$(ip -4 route show exact 10.10.10.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.10.0/24" && $2=="via" && $3=="10.255.23.1" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show default) && printf '%s\n' "$routes" | awk '$1=="default" && $2=="via" && $3=="10.10.10.1" {n++} END {print n+0}' => expect 1
+
+[INJECTION]
+device: r2
+action: server-link
+cmd: |
+  set -e
+  ip link set eth2 down
+
+[POST-INJECT-CHECK]
+pc1  ping -n -W 1 -c 2 10.10.10.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.20.20.11 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.30.30.10 => expect loss>0
+pc1  ping -n -W 1 -c 2 10.40.40.10 => expect 0% loss
+pc3  ping -n -W 1 -c 2 10.30.30.10 => expect loss>0
+pc3  ping -n -W 1 -c 2 10.40.40.10 => expect 0% loss
+pc3  ping -n -W 1 -c 2 10.20.20.12 => expect 0% loss
+server1  ping -n -W 1 -c 2 10.40.40.10 => expect loss>0
+r2  flags=$(cat /sys/class/net/eth2/flags) && echo $((flags & 1)) => expect 0
+r3  routes=$(ip -4 route show exact 10.10.10.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.10.0/24" && $2=="via" && $3=="10.255.23.1" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show default) && printf '%s\n' "$routes" | awk '$1=="default" && $2=="via" && $3=="10.10.10.1" {n++} END {print n+0}' => expect 1
+
+[GROUND-TRUTH]
+R2 eth2 is administratively down, disconnecting 10.30.30.0/24. PC1 and PC3 cannot reach Server1, and Server1 cannot reach Server2. Other tested networks remain reachable. Restore eth2 on r2.
+
+[FIX]
+On r2: ip link set eth2 up
+Then repeat all healthy checks and confirm the unaffected control paths.
+
+[DIAGNOSTIC-PROCESS]
+Compare affected probes with unaffected controls. Inspect interface state and forward/return routing at each hop. Use configuration evidence to identify the cause, then verify all healthy paths after the targeted repair.
+
+[SCORING-AXES]
+must-identify-cause: R2 eth2 is administratively down, disconnecting 10.30.30.0/24. PC1 and PC3 cannot reach Server1, and Server1 cannot reach Server2. Other tested networks remain reachable. Restore eth2 on r2.
+must-scope-impact: explain affected paths and unaffected controls
+must-verify-recovery: propose a precise repair where a fault exists and repeat healthy checks
+
+[NIKA-LABEL]
+nika_label: none
+nika_category: PROJECT_REFERENCE
+in_taxonomy: false
+note: NIKA task separation is the design reference; no version-specific taxonomy mapping is asserted

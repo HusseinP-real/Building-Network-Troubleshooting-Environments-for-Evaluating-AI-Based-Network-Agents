@@ -1,0 +1,5 @@
+scenario
+p20-enterprise-false-premise-server-unreachable
+p20-enterprise-r2-server-interface-down
+p20-enterprise-r3-hq-return-route-missing
+p20-enterprise-pc1-wrong-gateway

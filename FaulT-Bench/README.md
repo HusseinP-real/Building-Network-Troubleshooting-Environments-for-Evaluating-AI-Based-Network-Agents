@@ -327,6 +327,22 @@ phase died with ~zero tool calls is an infrastructure failure — re-run it.
 Leftover containers after a killed run:
 `docker ps -a --filter "name=kathara" -q | %{ docker rm -f $_ }`.
 
+### Custom P20Enterprise topology
+
+The [P20Enterprise guide](docs/p20-enterprise/README.md) introduces a new nine-device,
+six-subnet lab with three routers and forward/return static routes. It includes
+native custom fault cases, an isolated network validator and the
+`benchmarks/p20-enterprise.csv` manifest. This is separate from the imported
+Kath3 topology. All four project cases passed three live cycles on 16 September 2026; the guide links the evidence. Agent evaluation remains pending.
+
+### Project client demo
+
+The SOFT3888 [client demo guide](docs/client-demo/README.md) combines the existing
+32-device Kath3 topology with healthy, gateway-only, filter-only and compound
+cases. It includes use cases, configuration changes, an isolated live validator,
+and `benchmarks/client-demo.csv`. New runtime and agent results require execution;
+the guide distinguishes offline checks from live evidence.
+
 ### Adding a scenario
 
 Write a `.txt` under `dataset/<topology>_Q/{base,cex}/` in the section format

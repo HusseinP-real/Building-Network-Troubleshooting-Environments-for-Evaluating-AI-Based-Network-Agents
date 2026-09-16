@@ -1,0 +1,373 @@
+{
+  "device_count": 32,
+  "devices": {
+    "switch1": {
+      "eth0": "link_msw1_sw1",
+      "eth1": "cd_sw1_fa1_1",
+      "eth2": "cd_sw1_fa2_1",
+      "eth3": "cd_sw1_fa3_1",
+      "eth4": "cd_sw1_fa4_1",
+      "eth5": "cd_sw1_fa5_1",
+      "eth6": "cd_sw1_fa6_1",
+      "eth7": "cd_sw1_fa7_1",
+      "eth8": "cd_sw1_fa8_1",
+      "eth9": "cd_sw1_fa9_1"
+    },
+    "switch2": {
+      "eth0": "cd_sw2_fa0_1",
+      "eth1": "ms0_sw2",
+      "eth2": "cd_sw2_fa2_1",
+      "eth3": "cd_sw2_fa3_1",
+      "eth4": "cd_sw2_fa4_1",
+      "eth5": "cd_sw2_fa5_1",
+      "eth6": "cd_sw2_fa6_1",
+      "eth7": "cd_sw2_fa7_1",
+      "eth8": "cd_sw2_fa8_1",
+      "eth9": "cd_sw2_fa9_1"
+    },
+    "switch4": {
+      "eth0": "sw4_r4",
+      "eth1": "sw4_sw5",
+      "eth2": "sw4_sw6",
+      "eth3": "cd_sw4_fa3_1",
+      "eth4": "cd_sw4_fa4_1",
+      "eth5": "cd_sw4_fa5_1"
+    },
+    "switch5": {
+      "eth0": "sw4_sw5",
+      "eth1": "cd_sw5_fa1_1",
+      "eth2": "cd_sw5_fa2_1",
+      "eth3": "cd_sw5_fa3_1",
+      "eth4": "cd_sw5_fa4_1",
+      "eth5": "cd_sw5_fa5_1"
+    },
+    "switch6": {
+      "eth0": "sw4_sw6",
+      "eth1": "cd_sw6_fa1_1",
+      "eth2": "cd_sw6_fa2_1",
+      "eth3": "cd_sw6_fa3_1",
+      "eth4": "cd_sw6_fa4_1",
+      "eth5": "cd_sw6_fa5_1"
+    },
+    "switch9": {
+      "eth0": "msw2_sw9",
+      "eth1": "cd_sw9_fa1_1",
+      "eth2": "cd_sw9_fa2_1",
+      "eth3": "cd_sw9_fa3_1",
+      "eth4": "cd_sw9_fa4_1",
+      "eth5": "cd_sw9_fa5_1"
+    },
+    "switch10": {
+      "eth0": "msw2_sw10",
+      "eth1": "cd_sw10_fa1_1",
+      "eth2": "cd_sw10_fa2_1",
+      "eth3": "cd_sw10_fa3_1",
+      "eth4": "cd_sw10_fa4_1",
+      "eth5": "cd_sw10_fa5_1",
+      "eth6": "cd_sw10_fa6_1",
+      "eth7": "cd_sw10_fa7_1",
+      "eth8": "cd_sw10_fa8_1",
+      "eth9": "cd_sw10_fa9_1"
+    },
+    "switch11": {
+      "eth0": "msw2_sw11",
+      "eth1": "cd_sw11_fa1_1",
+      "eth2": "cd_sw11_fa2_1",
+      "eth3": "cd_sw11_fa3_1",
+      "eth4": "cd_sw11_fa4_1",
+      "eth5": "cd_sw11_fa5_1"
+    },
+    "mswitch1": {
+      "eth0": "link_msw1_sw1",
+      "eth1": "cd_msw1_fa0_2",
+      "eth2": "ms0_sw2",
+      "eth3": "cd_msw1_fa0_4",
+      "eth4": "link_r0_msw1",
+      "eth5": "cd_msw1_fa0_6",
+      "eth6": "cd_msw1_fa0_7",
+      "eth7": "cd_msw1_fa0_8",
+      "eth8": "cd_msw1_fa0_9",
+      "eth9": "cd_msw1_fa0_10",
+      "eth10": "cd_msw1_fa0_11",
+      "eth11": "cd_msw1_fa0_12",
+      "eth12": "cd_msw1_fa0_13",
+      "eth13": "cd_msw1_fa0_14",
+      "eth14": "cd_msw1_fa0_15",
+      "eth15": "cd_msw1_fa0_16",
+      "eth16": "cd_msw1_fa0_17",
+      "eth17": "cd_msw1_fa0_18",
+      "eth18": "cd_msw1_fa0_19",
+      "eth19": "cd_msw1_fa0_20",
+      "eth20": "cd_msw1_fa0_21",
+      "eth21": "cd_msw1_fa0_22",
+      "eth22": "cd_msw1_fa0_23",
+      "eth23": "cd_msw1_fa0_24",
+      "eth24": "cd_msw1_gi0_1",
+      "eth25": "cd_msw1_gi0_2"
+    },
+    "mswitch2": {
+      "eth0": "r6_ms2",
+      "eth1": "msw2_sw9",
+      "eth2": "msw2_sw10",
+      "eth3": "msw2_sw11",
+      "eth4": "r6_ms2_2",
+      "eth5": "cd_msw2_fa0_6",
+      "eth6": "cd_msw2_fa0_7",
+      "eth7": "cd_msw2_fa0_8",
+      "eth8": "cd_msw2_fa0_9",
+      "eth9": "cd_msw2_fa0_10",
+      "eth10": "cd_msw2_fa0_11",
+      "eth11": "cd_msw2_fa0_12",
+      "eth12": "cd_msw2_fa0_13",
+      "eth13": "cd_msw2_fa0_14",
+      "eth14": "cd_msw2_fa0_15",
+      "eth15": "cd_msw2_fa0_16",
+      "eth16": "cd_msw2_fa0_17",
+      "eth17": "cd_msw2_fa0_18",
+      "eth18": "cd_msw2_fa0_19",
+      "eth19": "cd_msw2_fa0_20",
+      "eth20": "cd_msw2_fa0_21",
+      "eth21": "cd_msw2_fa0_22",
+      "eth22": "cd_msw2_fa0_23",
+      "eth23": "cd_msw2_fa0_24",
+      "eth24": "cd_msw2_gi0_1",
+      "eth25": "cd_msw2_gi0_2"
+    },
+    "router0": {
+      "eth0": "link_r0_msw1",
+      "eth1": "cd_r0_fa1_0",
+      "eth2": "wan_link_r0_r1",
+      "eth3": "cd_r0_se3_0",
+      "eth4": "r0_r5",
+      "eth5": "cd_r0_fa5_0"
+    },
+    "router1": {
+      "eth0": "cd_r1_fa0_0",
+      "eth1": "cd_r1_fa1_0",
+      "eth2": "wan_link_r0_r1",
+      "eth3": "wan_link_r1_r2",
+      "eth4": "cd_r1_fa4_0",
+      "eth5": "cd_r1_fa5_0"
+    },
+    "router2": {
+      "eth0": "cd_r2_fa0_0",
+      "eth1": "cd_r2_fa1_0",
+      "eth2": "wan_link_r1_r2",
+      "eth3": "cd_r2_se3_0",
+      "eth4": "link_r2_r3",
+      "eth5": "cd_r2_fa5_0"
+    },
+    "router3": {
+      "eth0": "cd_r3_fa0_0",
+      "eth1": "cd_r3_fa1_0",
+      "eth2": "r6_r3",
+      "eth3": "cd_r3_se3_0",
+      "eth4": "link_r2_r3",
+      "eth5": "link_r4_r3"
+    },
+    "router4": {
+      "eth0": "sw4_r4",
+      "eth1": "cd_r4_fa1_0",
+      "eth2": "cd_r4_se2_0",
+      "eth3": "cd_r4_se3_0",
+      "eth4": "link_r4_r5",
+      "eth5": "link_r4_r3"
+    },
+    "router5": {
+      "eth0": "cd_r5_fa0_0",
+      "eth1": "cd_r5_fa1_0",
+      "eth2": "cd_r5_se2_0",
+      "eth3": "cd_r5_se3_0",
+      "eth4": "r0_r5",
+      "eth5": "link_r4_r5"
+    },
+    "router6": {
+      "eth0": "r6_ms2",
+      "eth1": "r6_ms2_2",
+      "eth2": "r6_r3",
+      "eth3": "cd_r6_se3_0",
+      "eth4": "cd_r6_fa4_0",
+      "eth5": "cd_r6_fa5_0"
+    },
+    "pc4": {
+      "eth0": "cd_sw1_fa1_1"
+    },
+    "pc5": {
+      "eth0": "cd_sw1_fa2_1"
+    },
+    "laptop2": {
+      "eth0": "cd_sw1_fa3_1"
+    },
+    "laptop3": {
+      "eth0": "cd_sw1_fa4_1"
+    },
+    "laptop0": {
+      "eth0": "cd_sw1_fa7_1"
+    },
+    "pc11": {
+      "eth0": "cd_sw5_fa1_1"
+    },
+    "pc12": {
+      "eth0": "cd_sw5_fa2_1"
+    },
+    "pc13": {
+      "eth0": "cd_sw6_fa1_1"
+    },
+    "pc14": {
+      "eth0": "cd_sw6_fa2_1"
+    },
+    "pc15": {
+      "eth0": "cd_sw10_fa1_1"
+    },
+    "pc16": {
+      "eth0": "cd_sw10_fa2_1"
+    },
+    "pc17": {
+      "eth0": "cd_sw10_fa3_1"
+    },
+    "pc18": {
+      "eth0": "cd_sw10_fa4_1"
+    },
+    "laptop4": {
+      "eth0": "cd_sw11_fa1_1"
+    },
+    "laptop5": {
+      "eth0": "cd_sw11_fa2_1"
+    }
+  },
+  "connected_segments": {
+    "link_msw1_sw1": [
+      "switch1:eth0",
+      "mswitch1:eth0"
+    ],
+    "cd_sw1_fa1_1": [
+      "switch1:eth1",
+      "pc4:eth0"
+    ],
+    "cd_sw1_fa2_1": [
+      "switch1:eth2",
+      "pc5:eth0"
+    ],
+    "cd_sw1_fa3_1": [
+      "switch1:eth3",
+      "laptop2:eth0"
+    ],
+    "cd_sw1_fa4_1": [
+      "switch1:eth4",
+      "laptop3:eth0"
+    ],
+    "cd_sw1_fa7_1": [
+      "switch1:eth7",
+      "laptop0:eth0"
+    ],
+    "ms0_sw2": [
+      "switch2:eth1",
+      "mswitch1:eth2"
+    ],
+    "sw4_r4": [
+      "switch4:eth0",
+      "router4:eth0"
+    ],
+    "sw4_sw5": [
+      "switch4:eth1",
+      "switch5:eth0"
+    ],
+    "sw4_sw6": [
+      "switch4:eth2",
+      "switch6:eth0"
+    ],
+    "cd_sw5_fa1_1": [
+      "switch5:eth1",
+      "pc11:eth0"
+    ],
+    "cd_sw5_fa2_1": [
+      "switch5:eth2",
+      "pc12:eth0"
+    ],
+    "cd_sw6_fa1_1": [
+      "switch6:eth1",
+      "pc13:eth0"
+    ],
+    "cd_sw6_fa2_1": [
+      "switch6:eth2",
+      "pc14:eth0"
+    ],
+    "msw2_sw9": [
+      "switch9:eth0",
+      "mswitch2:eth1"
+    ],
+    "msw2_sw10": [
+      "switch10:eth0",
+      "mswitch2:eth2"
+    ],
+    "cd_sw10_fa1_1": [
+      "switch10:eth1",
+      "pc15:eth0"
+    ],
+    "cd_sw10_fa2_1": [
+      "switch10:eth2",
+      "pc16:eth0"
+    ],
+    "cd_sw10_fa3_1": [
+      "switch10:eth3",
+      "pc17:eth0"
+    ],
+    "cd_sw10_fa4_1": [
+      "switch10:eth4",
+      "pc18:eth0"
+    ],
+    "msw2_sw11": [
+      "switch11:eth0",
+      "mswitch2:eth3"
+    ],
+    "cd_sw11_fa1_1": [
+      "switch11:eth1",
+      "laptop4:eth0"
+    ],
+    "cd_sw11_fa2_1": [
+      "switch11:eth2",
+      "laptop5:eth0"
+    ],
+    "link_r0_msw1": [
+      "mswitch1:eth4",
+      "router0:eth0"
+    ],
+    "r6_ms2": [
+      "mswitch2:eth0",
+      "router6:eth0"
+    ],
+    "r6_ms2_2": [
+      "mswitch2:eth4",
+      "router6:eth1"
+    ],
+    "wan_link_r0_r1": [
+      "router0:eth2",
+      "router1:eth2"
+    ],
+    "r0_r5": [
+      "router0:eth4",
+      "router5:eth4"
+    ],
+    "wan_link_r1_r2": [
+      "router1:eth3",
+      "router2:eth2"
+    ],
+    "link_r2_r3": [
+      "router2:eth4",
+      "router3:eth4"
+    ],
+    "r6_r3": [
+      "router3:eth2",
+      "router6:eth2"
+    ],
+    "link_r4_r3": [
+      "router3:eth5",
+      "router4:eth5"
+    ],
+    "link_r4_r5": [
+      "router4:eth4",
+      "router5:eth5"
+    ]
+  },
+  "unconnected_port_count": 103
+}
