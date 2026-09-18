@@ -1,0 +1,157 @@
+============================================
+ YUMANG RECOVERY DIAGNOSIS
+============================================
+
+STEP 1 - Current interface configuration
+% Unknown command: show running-config interface eth0
+
+STEP 2 - IS-IS neighbour state
+Area NIKA:
+ System Id           Interface   L  State         Holdtime SNPA
+ snvang              eth0        2  Up            30       8afa.5c65.c5b3
+
+STEP 3 - IS-IS database on YUMAng
+Area NIKA:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+atlam5.00-00              105   0x00000003  0xa2d9     715    0/0/0
+atlang.00-00              165   0x00000003  0x8139     662    0/0/0
+atlang.64-00               51   0x00000002  0x3d0a     643    0/0/0
+atlang.73-00               51   0x00000002  0x38fa     631    0/0/0
+chinng.00-00              125   0x00000003  0xc57f     665    0/0/0
+chinng.5f-00               51   0x00000002  0xc57f     648    0/0/0
+dnvrng.00-00              145   0x00000003  0xe553     712    0/0/0
+dnvrng.63-00               51   0x00000002  0xbe7f     610    0/0/0
+dnvrng.70-00               51   0x00000002  0xb379     634    0/0/0
+hstnng.00-00              145   0x00000003  0x99bb     697    0/0/0
+hstnng.60-00               51   0x00000002  0x70d3     694    0/0/0
+hstnng.67-00               51   0x00000002  0xa394     633    0/0/0
+iplsng.00-00              145   0x00000003  0x1c26     712    0/0/0
+kscyng.00-00              145   0x00000003  0xfc2c     683    0/0/0
+kscyng.72-00               51   0x00000002  0x44e5     668    0/0/0
+losang.00-00              125   0x00000003  0x1ce0     688    0/0/0
+losang.62-00               51   0x00000002  0xa197     659    0/0/0
+losang.6c-00               51   0x00000002  0xbf6a     644    0/0/0
+nycmng.00-00              125   0x00000003  0x991d     689    0/0/0
+nycmng.7f-00               51   0x00000002  0xae6d     660    0/0/0
+snvang.00-00              165   0x00000006  0x2f89     852    0/0/0
+snvang.7c-00               51   0x00000002  0xd843     672    0/0/0
+snvang.89-00               51   0x00000002  0x0afd     642    0/0/0
+sttlng.00-00              125   0x00000003  0x653b     660    0/0/0
+washng.00-00              125   0x00000003  0xd7c7     679    0/0/0
+washng.80-00               51   0x00000002  0x967f     668    0/0/0
+washng.87-00               51   0x00000002  0xf116     648    0/0/0
+yumang.00-00         *    105   0x00000005  0x89f3     836    0/0/0
+yumang.7e-00         *     51   0x00000003  0x44c8     821    0/0/0
+    29 LSPs
+
+STEP 4 - IS-IS routes on YUMAng
+Area NIKA:
+IS-IS paths to level-2 routers that speak IP
+ Vertex          Type          Metric  Next-Hop  Interface  Parent     
+ ----------------------------------------------------------------------
+ yumang                                                                
+ 10.255.0.13/32  IP internal   0                            yumang(4)  
+ 10.254.0.48/30  IP internal   0                            yumang(4)  
+ 10.0.0.30/31    IP internal   0                            yumang(4)  
+ snvang          TE-IS         10      snvang    eth0       yumang(4)  
+ 10.254.0.36/30  IP TE         11      snvang    eth0       snvang(4)  
+ snvang          pseudo_TE-IS  20      snvang    eth0       snvang(4)  
+ losang          pseudo_TE-IS  20      snvang    eth0       snvang(4)  
+ snvang          pseudo_TE-IS  20      snvang    eth0       snvang(4)  
+ yumang                                                                
+ dnvrng          TE-IS         20      snvang    eth0       snvang(2)  
+ losang          TE-IS         20      snvang    eth0       losang(2)  
+ sttlng          TE-IS         20      snvang    eth0       snvang(2)  
+ 10.0.0.14/31    IP TE         20      snvang    eth0       snvang(4)  
+ 10.0.0.24/31    IP TE         20      snvang    eth0       snvang(4)  
+ 10.0.0.28/31    IP TE         20      snvang    eth0       snvang(4)  
+ 10.0.0.30/31    IP TE         20      snvang    eth0       snvang(4)  
+ 10.255.0.10/32  IP TE         20      snvang    eth0       snvang(4)  
+ 10.254.0.12/30  IP TE         21      snvang    eth0       dnvrng(4)  
+ 10.254.0.28/30  IP TE         21      snvang    eth0       losang(4)  
+ 10.254.0.40/30  IP TE         21      snvang    eth0       sttlng(4)  
+ dnvrng          pseudo_TE-IS  30      snvang    eth0       dnvrng(4)  
+ dnvrng          pseudo_TE-IS  30      snvang    eth0       dnvrng(4)  
+                                                            sttlng(4)  
+ losang          pseudo_TE-IS  30      snvang    eth0       losang(4)  
+ kscyng          TE-IS         30      snvang    eth0       dnvrng(2)  
+ hstnng          TE-IS         30      snvang    eth0       losang(2)  
+ 10.0.0.12/31    IP TE         30      snvang    eth0       dnvrng(4)  
+ 10.0.0.16/31    IP TE         30      snvang    eth0       dnvrng(4)  
+                                                            sttlng(4)  
+ 10.255.0.4/32   IP TE         30      snvang    eth0       dnvrng(4)  
+ 10.0.0.20/31    IP TE         30      snvang    eth0       losang(4)  
+ 10.255.0.8/32   IP TE         30      snvang    eth0       losang(4)  
+ 10.255.0.11/32  IP TE         30      snvang    eth0       sttlng(4)  
+ 10.254.0.24/30  IP TE         31      snvang    eth0       kscyng(4)  
+ 10.254.0.16/30  IP TE         31      snvang    eth0       hstnng(4)  
+ hstnng          pseudo_TE-IS  40      snvang    eth0       kscyng(4)  
+                                                            hstnng(4)  
+ kscyng          pseudo_TE-IS  40      snvang    eth0       kscyng(4)  
+ hstnng          pseudo_TE-IS  40      snvang    eth0       hstnng(4)  
+ iplsng          TE-IS         40      snvang    eth0       kscyng(2)  
+ atlang          TE-IS         40      snvang    eth0       hstnng(2)  
+ 10.0.0.18/31    IP TE         40      snvang    eth0       kscyng(4)  
+                                                            hstnng(4)  
+ 10.0.0.22/31    IP TE         40      snvang    eth0       kscyng(4)  
+ 10.255.0.7/32   IP TE         40      snvang    eth0       kscyng(4)  
+ 10.0.0.2/31     IP TE         40      snvang    eth0       hstnng(4)  
+ 10.255.0.5/32   IP TE         40      snvang    eth0       hstnng(4)  
+ 10.254.0.20/30  IP TE         41      snvang    eth0       iplsng(4)  
+ 10.254.0.4/30   IP TE         41      snvang    eth0       atlang(4)  
+ atlang          pseudo_TE-IS  50      snvang    eth0       iplsng(4)  
+                                                            atlang(4)  
+ chinng          pseudo_TE-IS  50      snvang    eth0   ...[truncated, 4462 chars omitted]
+
+STEP 5 - Linux routing table
+10.0.0.0/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.2/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.4/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.6/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.8/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.10/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.12/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.14/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.16/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.18/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.20/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.22/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.24/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.26/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.28/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.30/31 dev eth0 proto kernel scope link src 10.0.0.31 
+10.254.0.0/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.4/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.8/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.12/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.16/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.20/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.24/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.28/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.32/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.36/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.40/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.44/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.48/30 dev eth1 proto kernel scope link src 10.254.0.49 
+10.255.0.1 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.2 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.3 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.4 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.5 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.6 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.7 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.8 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.9 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.10 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.11 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.12 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20
+
+STEP 6 - FRR log tail
+2026/09/17 04:42:40 ISIS: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:01
+2026/09/17 04:42:40 ISIS: [G6NKK-8C6DV] end_config: VTY:0x5640d356b790, pending SET-CFG: 0
+
+============================================
+ DIAGNOSIS COMPLETE
+ Output: yumang_recovery_diagnosis.txt
+============================================

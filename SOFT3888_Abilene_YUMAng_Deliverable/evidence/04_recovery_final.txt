@@ -1,0 +1,82 @@
+==================================================
+ YUMANG IS-IS RECOVERY + VALIDATION
+ SESSION: 20260917-144219-d8f5f8
+==================================================
+
+[1] Restore IS-IS on yumang eth0
+
+
+[2] Wait for adjacency
+Area NIKA:
+ System Id           Interface   L  State         Holdtime SNPA
+ snvang              eth0        2  Up            29       8afa.5c65.c5b3
+[PASS] IS-IS adjacency restored (attempt 1).
+
+[3] Wait for remote route on yumang
+[PASS] YUMAng remote IS-IS routes restored (attempt 1).
+
+[4] Wait for remote network to relearn yumang
+[PASS] Existing network relearned YUMAng loopback (attempt 1).
+
+[5] Final YUMAng routing table
+10.0.0.0/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.2/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.4/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.6/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.8/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.10/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.12/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.14/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.16/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.18/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.20/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.22/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.24/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.26/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.28/31 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.0.0.30/31 dev eth0 proto kernel scope link src 10.0.0.31 
+10.254.0.0/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.4/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.8/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.12/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.16/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.20/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.24/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.28/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.32/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.36/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.40/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.44/30 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.254.0.48/30 dev eth1 proto kernel scope link src 10.254.0.49 
+10.255.0.1 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.2 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.3 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.4 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.5 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.6 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.7 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.8 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.9 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.10 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.11 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20 
+10.255.0.12 nhid 10 via 10.0.0.30 dev eth0 proto isis metric 20
+
+[6] atlam5 -> yumang loopback (expected PASS)
+PING 10.255.0.13 (10.255.0.13) 56(84) bytes of data.
+64 bytes from 10.255.0.13: icmp_seq=1 ttl=60 time=22.8 ms
+64 bytes from 10.255.0.13: icmp_seq=2 ttl=60 time=3.58 ms
+64 bytes from 10.255.0.13: icmp_seq=3 ttl=60 time=9.52 ms
+
+--- 10.255.0.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2007ms
+rtt min/avg/max/mdev = 3.577/11.955/22.765/8.019 ms
+
+[7] pc_atlam5 -> pc_yumang (expected PASS)
+PING 10.254.0.50 (10.254.0.50) 56(84) bytes of data.
+64 bytes from 10.254.0.50: icmp_seq=1 ttl=58 time=5.36 ms
+64 bytes from 10.254.0.50: icmp_seq=2 ttl=58 time=137 ms
+64 bytes from 10.254.0.50: icmp_seq=3 ttl=58 time=10.1 ms
+
+--- 10.254.0.50 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+rtt min/avg/max/mdev = 5.363/50.870/137.116/61.015 ms

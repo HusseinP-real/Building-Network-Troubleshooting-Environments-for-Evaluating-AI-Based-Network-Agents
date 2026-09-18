@@ -1,0 +1,13 @@
+{
+  "scenario_id": "routing_missing_return_route_001",
+  "topology": "two_router_three_host",
+  "fault_exists": true,
+  "fault_category": "routing",
+  "fault_type": "missing_static_route",
+  "fault_device": "r2",
+  "fault_interface": null,
+  "affected_network": "10.0.1.0/24",
+  "expected_symptom": "Hosts in 10.0.1.0/24 cannot establish two-way communication with 10.0.2.0/24",
+  "expected_diagnosis": "r2 has no route to 10.0.1.0/24",
+  "expected_fix": "ip route add 10.0.1.0/24 via 10.0.12.1"
+}
