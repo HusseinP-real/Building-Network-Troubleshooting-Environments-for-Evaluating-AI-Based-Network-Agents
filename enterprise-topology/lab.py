@@ -40,6 +40,11 @@ def checks():
         prefix=inventory['nodes'][n]['address'].rsplit('.',1)[0]+'.'
         items += [(f'{n}: DHCP lease',n,f'ip -4 addr show dev eth0 | grep -F {shlex.quote(prefix)}'),
                   (f'{n}: DNS answer',n,"test \"$(dig +short +time=2 +tries=1 @10.40.20.10 app.enterprise.test)\" = 10.30.10.10")]
+    for n,meta in inventory['nodes'].items():
+        if meta['role']=='host' and n not in ('staff','guest','office','engineering','app','database','dmz','infra','ops'):
+            address=meta['address'].split('/')[0]
+            items += [(f'{n}: configured address',n,f'ip -4 addr show dev eth0 | grep -F {shlex.quote(address)}'),
+                      (f'{n}: VLAN gateway reachable',n,f'ping -c 1 -W 2 {shlex.quote(meta["gateway"])} >/dev/null')]
     for n in ['staff','office','engineering','ops']:
         items.append((f'{n}: application HTTP',n,'curl -fsS --max-time 5 http://app.enterprise.test/ | grep -F "app: healthy"'))
     items += [
@@ -58,7 +63,7 @@ def checks():
             assertion='expected <= present' if primary else 'not expected & present'
             code=f'import json,sys; expected=set({expected!r}); present={{a["local"] for i in json.load(sys.stdin) for a in i.get("addr_info",[])}}; assert {assertion}'
             items.append((f'{node}: virtual gateway ownership',node,'ip -j -4 addr | python3 -c '+shlex.quote(code)))
-    for node in ['s3','s4','s7','s8','s11','s12']:
+    for node in ['s3','s4','s7','s8','s11','s12']+[f's{i}' for i in range(16,26)]:
         items.append((f'{node}: redundant STP port blocked',node,'test "$(bridge link show | grep -c "state blocking")" -eq 1'))
     return items
 
@@ -90,11 +95,24 @@ def main():
     e=s.add_parser('exec'); e.add_argument('node'); e.add_argument('command',nargs=argparse.REMAINDER)
     f=s.add_parser('fault');f.add_argument('operation',choices=['inject','repair']);f.add_argument('name',choices=FAULTS)
     a=p.parse_args()
-    if a.action=='build': return run(['docker','build','-t','enterprise-topology:1','.']).returncode
+    if a.action=='build':
+        code=run(['docker','build','-f','Dockerfile','-t','enterprise-topology:base','.']).returncode
+        if code: return code
+        nodes=json.loads((ROOT/'inventory.json').read_text())['nodes']
+        for name,meta in nodes.items():
+            print(f'Building {name} image ({len(nodes)} devices total)...',flush=True)
+            code=run(['docker','build','-f','Dockerfile.device','--build-arg',f'DEVICE={name}',
+                      '-t',meta['image'],'.']).returncode
+            if code: return code
+        return 0
     if a.action=='validate': return run(['kathara','lstart','-d',str(ROOT),'--print']).returncode
     if a.action=='start':
-        code=run(['kathara','lstart','-d',str(ROOT),'--noterminals','--no-hosthome','--no-shared']).returncode
-        if code: return code
+        nodes=list(json.loads((ROOT/'inventory.json').read_text())['nodes'])
+        for offset in range(0,len(nodes),10):
+            batch=nodes[offset:offset+10]
+            print(f'Starting devices {offset+1}-{offset+len(batch)} of {len(nodes)}: {", ".join(batch)}',flush=True)
+            code=run(['kathara','lstart','-d',str(ROOT),'--noterminals','--no-hosthome','--no-shared',*batch]).returncode
+            if code: return code
         print('Waiting 45 seconds for STP, OSPF, VRRP, and DHCP convergence...',flush=True)
         time.sleep(45)
         return check()

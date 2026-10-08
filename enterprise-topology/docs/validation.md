@@ -1,5 +1,20 @@
 # Runtime validation
 
+## Current 75-device topology
+
+Validated on 2026-10-08T04:14:21+00:00 with Docker Desktop and Kathara on macOS.
+
+- 75 running containers: 10 routers, 25 VLAN-aware switches, and 40 endpoints.
+- 108 separate point-to-point links.
+- 75 distinct device image tags with 75 distinct Docker image IDs, all built from `enterprise-topology:base`.
+- 222/222 health checks passed after fault repair, including all startup markers, OSPF neighbors, VRRP gateways, STP blocking, static addresses, gateway reachability, DHCP, DNS, and application/database access policy.
+- 20/20 fault assertions passed across core-uplink, gateway-service, and database-acl injection and repair.
+- [Current final health report](../results/latest-health.json) and [current fault report](../results/fault-verification.json).
+
+The lab was left running for inspection. `python3 lab.py stop` removes only this lab's containers and virtual links.
+
+## Historical 34-device topology
+
 Validated on 2026-09-16T05:23:59.460884+00:00.
 
 ## Environment
@@ -18,7 +33,7 @@ Validated on 2026-09-16T05:23:59.460884+00:00.
 - 57 separate two-endpoint links deployed.
 - 99/99 final health checks passed after all faults were repaired.
 - 20/20 fault experiment assertions passed across three scenarios.
-- All 34 nodes reported READY at handover; the lab is left running for inspection.
+- All 34 nodes reported READY at the former handover.
 
 Health checks cover device startup, every expected OSPF neighbor, VLAN-aware STP bridges, blocked redundant access ports, four DHCP clients, DNS, application/backend HTTP, guest isolation, backend access restrictions, router loopback reachability, and expected primary/backup virtual gateway ownership.
 
@@ -32,11 +47,10 @@ Health checks cover device startup, every expected OSPF neighbor, VLAN-aware STP
 
 These tests demonstrate eventual recovery and reachability, not zero packet loss or measured convergence performance. Gateway testing stops the VRRP service rather than powering off the entire router. The backend is an HTTP dependency simulator, not a database engine. Full switch outages, all combinations of multiple faults, NIKA adapters, BGP, and agent evaluation have not been tested or implemented.
 
-## Evidence files
+## Former evidence files
 
-- [Final health report](../results/latest-health.json)
-- [Fault report](../results/fault-verification.json)
-- Earlier timestamped health files retain the initial failed iterations; latest-health.json is the final baseline.
+- The historical final 34-device health report is `results/health-20260916T052359Z.json`.
+- The current `latest-health.json` and `fault-verification.json` have been replaced by 75-device validation evidence.
 
 ## Implementation corrections discovered during validation
 

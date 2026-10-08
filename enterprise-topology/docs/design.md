@@ -1,8 +1,8 @@
 # Independent topology proposal v1: Multi-area enterprise network
 
-Status: Implemented as a standalone Kathara lab. See README.md for commands and results/latest-health.json for the latest runtime evidence.
+Status: The original 34-device design was extended to 75 devices and runtime-tested on 2026-10-08. See ../README.md for the current structure and commands; the latest saved runtime reports describe the 75-device version.
 
-Scope: 10 routers and 15 separate Layer 2 switch nodes. Clients and servers are additional nodes. Shared links or collision domains do not count as switches.
+Current scope: 10 routers, 25 separate Layer 2 switch nodes, and 40 endpoints. Shared links or collision domains do not count as switches.
 
 This is an independent design, not a copy of the customer's local labs. NIKA's enterprise OSPF scenarios and fault verification workflow are references; this design is not a built-in NIKA scenario and API compatibility has not been validated.
 
@@ -128,7 +128,7 @@ Each experiment needs a healthy baseline, injection command, post-injection chec
 
 ## Storage and execution
 
-The deployable topology is stored in ../lab.conf, with one startup script per device and configuration directories for routers and services. ../inventory.json and interfaces.csv provide the full 34-node, 57-link inventory. This Markdown diagram is documentation only; Kathara consumes lab.conf.
+The deployable topology is stored in ../lab.conf, with one startup script and image tag per device and configuration directories for routers and services. ../inventory.json and interfaces.csv provide the full 75-node, 108-link inventory. The diagram above illustrates the original core and regional fabric; the generated lab also contains s16-s25 as dual-homed regional access switches and 31 additional endpoints. Kathara consumes lab.conf.
 
 Use ../lab.py for build, start, check, status, exec, fault, and stop operations. See ../README.md for exact commands. The lab uses FRR for OSPF, keepalived for VRRP, Linux VLAN-aware bridges with STP for switching, and dnsmasq for DNS/DHCP and relaying.
 

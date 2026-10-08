@@ -6,9 +6,9 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-IMAGE = 'enterprise-topology:1'
+IMAGE_PREFIX = 'enterprise-topology'
 nodes = {f'r{i}': {'role': 'router', 'ports': []} for i in range(1, 11)}
-nodes.update({f's{i}': {'role': 'switch', 'ports': []} for i in range(1, 16)})
+nodes.update({f's{i}': {'role': 'switch', 'ports': []} for i in range(1, 26)})
 segments = [
     (110, '10.10.10', 'staff', 's3', 10), (120, '10.10.20', 'guest', 's4', 10),
     (210, '10.20.10', 'office', 's7', 20), (220, '10.20.20', 'engineering', 's8', 20),
@@ -43,11 +43,36 @@ for region, (ra,rb,sa,sb,ac,bc) in enumerate([(5,6,1,2,3,4),(7,8,5,6,7,8),(9,10,
     for a,b in [(f'r{ra}',f's{sa}'),(f'r{rb}',f's{sb}'),(f's{sa}',f's{sb}'),
                 (f's{sa}',f's{ac}'),(f's{sb}',f's{ac}'),(f's{sa}',f's{bc}'),(f's{sb}',f's{bc}')]:
         link(a,b,'trunk',vlans=vlans)
+# Ten further dual-homed access switches extend the three regional fabrics.
+# Each has its own bridge and container, rather than acting as an alias for a link.
+extra_switches = [(16,1,2),(17,1,2),(18,1,2),(19,1,2),
+                  (20,5,6),(21,5,6),(22,5,6),
+                  (23,9,10),(24,9,10),(25,9,10)]
+for number, left, right in extra_switches:
+    vlans = [segments[0 if number < 20 else 2 if number < 23 else 4][0],
+             segments[1 if number < 20 else 3 if number < 23 else 5][0]]
+    link(f's{left}', f's{number}', 'trunk', vlans=vlans)
+    link(f's{right}', f's{number}', 'trunk', vlans=vlans)
 for vlan,sub,host,sw,area in segments[6:]:
     for r in ['r3','r4']: link(r,sw,'trunk',vlans=[vlan])
 for vlan,sub,host,sw,area in segments:
     nodes[host]={'role':'host','ports':[], 'vlan':vlan, 'address':sub+'.10/24', 'gateway':sub+'.1', 'dhcp':vlan<300}
     link(sw,host,'access',vlans=[vlan])
+
+# 31 additional independent endpoints: 40 hosts + 25 switches + 10 routers.
+# Static addresses avoid making topology size depend on DHCP lease timing.
+extra_hosts = [
+    (110,'staff',6,[16,17,18,19]), (120,'guest',5,[16,17,18,19]),
+    (210,'office',5,[20,21,22]), (220,'engineering',5,[20,21,22]),
+    (310,'app_client',5,[23,24,25]), (320,'db_client',5,[23,24,25]),
+]
+for vlan, prefix, count, switches in extra_hosts:
+    sub = next(s[1] for s in segments if s[0] == vlan)
+    for index in range(1, count + 1):
+        name = f'{prefix}{index:02}'
+        nodes[name] = {'role':'host','ports':[], 'vlan':vlan,
+                       'address':f'{sub}.{19+index}/24', 'gateway':f'{sub}.1', 'dhcp':False}
+        link(f's{switches[(index-1) % len(switches)]}', name, 'access', vlans=[vlan])
 
 def write(name, text):
     p=ROOT/name; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(text)
@@ -70,9 +95,10 @@ def policies():
         'iptables -A FORWARD -d 10.30.20.10 -j REJECT',
     ]
 
-lab=['LAB_NAME="Independent Enterprise Topology v1"','LAB_DESCRIPTION="10 routers, 15 switches, 9 endpoints"']
+lab=['LAB_NAME="Independent Enterprise Topology 75"','LAB_DESCRIPTION="10 routers, 25 switches, 40 endpoints"']
 for name,node in nodes.items():
-    lab.append(f'{name}[image]="{IMAGE}"')
+    node['image'] = f'{IMAGE_PREFIX}:{name}'
+    lab.append(f'{name}[image]="{node["image"]}"')
     for key,value in [('net.ipv4.ip_forward', int(node['role']=='router')), ('net.ipv4.conf.all.rp_filter',0), ('net.ipv4.conf.default.rp_filter',0)]:
         lab.append(f'{name}[sysctl]="{key}={value}"')
     for p in node['ports']: lab.append(f'{name}[{p["interface"][3:]}]={p["link"]}')
@@ -155,7 +181,7 @@ HTTPServer(('0.0.0.0',80),Handler).serve_forever()
     sh.append('touch /tmp/enterprise-ready')
     write(f'{name}.startup','\n'.join(sh)+'\n')
 write('lab.conf','\n'.join(lab)+'\n')
-write('inventory.json',json.dumps({'image':IMAGE,'nodes':nodes,'links':links},indent=2)+'\n')
+write('inventory.json',json.dumps({'base_image':f'{IMAGE_PREFIX}:base','nodes':nodes,'links':links},indent=2)+'\n')
 with (ROOT/'docs/interfaces.csv').open('w') as f:
     w=csv.writer(f, lineterminator="\n"); w.writerow(['node','interface','peer','link','kind','address','area','vlans'])
     for name,node in nodes.items():

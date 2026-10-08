@@ -1,8 +1,8 @@
 # Independent Enterprise Topology
 
-A standalone network troubleshooting lab: **10 FRR routers, 15 independent VLAN-aware Linux switches, 9 endpoints, and 57 point-to-point links**. All source and runtime reports are contained in this directory. The customer's repository is not a dependency.
+A standalone network troubleshooting lab: **10 FRR routers, 25 independent VLAN-aware Linux switches, 40 endpoints, and 108 point-to-point links**. Each of the 75 devices has its own Docker image tag and runs in its own Kathara-managed Docker container. All source and runtime reports are contained in this directory. The customer's repository is not a dependency.
 
-Validated locally: **99/99 health checks and 20/20 fault assertions passed**. See [runtime validation](docs/validation.md). The lab was left running at handover.
+The 75-device version was validated on 2026-10-08: **222/222 health checks and 20/20 fault assertions passed**, with all 75 containers running. See [runtime validation](docs/validation.md).
 
 ## Quick start
 
@@ -15,7 +15,9 @@ python3 lab.py build
 python3 lab.py start
 ```
 
-`build` creates the dedicated `enterprise-topology:1` image. `start` launches this directory's lab, waits 45 seconds for protocol convergence, and runs health checks. If a slow machine needs longer to converge, rerun `python3 lab.py check`. Read failing startup logs before assuming that extra waiting will help.
+`build` creates a shared `enterprise-topology:base` layer and 75 distinct images (`enterprise-topology:r1`, `enterprise-topology:s1`, `enterprise-topology:staff`, and so on). Each dedicated image contains that device's startup script and label; Kathara supplies its configuration directory and runs the matching startup script from this lab. `start` launches 75 separate containers, waits 45 seconds for protocol convergence, and runs health checks. Provision Docker Desktop with enough memory and CPU for 75 containers; if a slow machine needs longer to converge, rerun `python3 lab.py check`. Read failing startup logs before assuming that extra waiting will help.
+
+If the older lab is running, stop it with `python3 lab.py stop` before launching the regenerated topology. Rebuild images after changing startup scripts or the Dockerfiles.
 
 ```bash
 python3 lab.py status
@@ -43,13 +45,13 @@ Source files and saved reports remain on disk. Runtime device changes are epheme
 |---|---|---|---|
 | Backbone, Area 0 | r1-r2 | - | Redundant core |
 | Shared services, Area 0 | r3-r4 | s13-s15 | DMZ, DNS/DHCP, operations |
-| Headquarters, Area 10 | r5-r6 | s1-s4 | Staff and guests |
-| Branch, Area 20 | r7-r8 | s5-s8 | Office and engineering |
-| Data center, Area 30 | r9-r10 | s9-s12 | Application and database simulator |
+| Headquarters, Area 10 | r5-r6 | s1-s4, s16-s19 | Staff and guests |
+| Branch, Area 20 | r7-r8 | s5-s8, s20-s22 | Office and engineering |
+| Data center, Area 30 | r9-r10 | s9-s12, s23-s25 | Application and database simulator |
 
-Every regional router connects to both cores. Each region has a distribution-switch pair and two dual-homed access switches. STP prevents Layer 2 loops. Keepalived runs VRRP, with virtual gateway `.1`, primary router `.2`, and backup `.3` in each VLAN. OSPF distributes subnet routes across areas. VLAN gateways are passive OSPF interfaces.
+Every regional router connects to both cores. Each region has a distribution-switch pair and multiple dual-homed access switches. STP prevents Layer 2 loops. Keepalived runs VRRP, with virtual gateway `.1`, primary router `.2`, and backup `.3` in each VLAN. OSPF distributes subnet routes across areas. VLAN gateways are passive OSPF interfaces.
 
-Endpoints: `staff`, `guest`, `office`, and `engineering` receive DHCP leases. `app`, `database`, `dmz`, `infra`, and `ops` have static addresses. Consult [the design](docs/design.md), [interface table](docs/interfaces.csv), and [inventory](inventory.json).
+The original `staff`, `guest`, `office`, and `engineering` endpoints receive DHCP leases. The 31 new endpoints use unique static addresses in their VLANs; the five original service endpoints remain static. Consult [the design](docs/design.md), [interface table](docs/interfaces.csv), and [inventory](inventory.json).
 
 ## Services and access policy
 
@@ -98,7 +100,8 @@ Abruptly terminating the verifier can interrupt repair; use the matching repair 
 
 | File | Purpose |
 |---|---|
-| `lab.conf` | Kathara node, link, image, and network sysctl definitions |
+| `lab.conf` | Kathara node, link, per-device image, and network sysctl definitions |
+| `Dockerfile.device` | Per-device image label and startup-script snapshot, built on the common base |
 | `*.startup` | Device initialization |
 | `r*/etc/frr/frr.conf` | OSPF configuration |
 | `r*/etc/keepalived/keepalived.conf` | VRRP configuration |
