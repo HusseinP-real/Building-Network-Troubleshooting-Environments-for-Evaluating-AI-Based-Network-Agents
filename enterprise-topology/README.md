@@ -96,6 +96,10 @@ python3 lab.py check
 
 Abruptly terminating the verifier can interrupt repair; use the matching repair command or stop/start the lab before the next experiment.
 
+## SADE diagnosis and ground truth
+
+`tools/sade_eval.py` runs SADE against one injected fault at a time, compares its final resource and fault type with hidden ground truth, and repairs the lab. See the [SADE evaluation guide](docs/sade-evaluation.md) for setup, commands, result format, and the limits of this local scoring workflow.
+
 ## Files and reproducibility
 
 | File | Purpose |
