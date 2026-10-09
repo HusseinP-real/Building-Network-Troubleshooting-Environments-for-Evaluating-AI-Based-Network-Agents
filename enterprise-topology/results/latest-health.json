@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-08T04:14:21.796802+00:00",
+  "timestamp": "2026-10-09T04:25:53.726692+00:00",
   "passed": true,
   "checks": [
     {
@@ -1116,7 +1116,7 @@
       "check": "guest: internal application denied",
       "node": "guest",
       "passed": true,
-      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 0 ms: Couldn't connect to server"
+      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 1 ms: Couldn't connect to server"
     },
     {
       "check": "office: direct database denied",
@@ -1170,7 +1170,7 @@
       "check": "r5: VRRP process",
       "node": "r5",
       "passed": true,
-      "output": "215\n216"
+      "output": "1144\n1145"
     },
     {
       "check": "r6: VRRP process",

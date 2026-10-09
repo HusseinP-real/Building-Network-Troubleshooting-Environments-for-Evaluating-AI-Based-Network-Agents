@@ -1,22 +1,21 @@
-#!/usr/bin/env python3
 """Inject a lab fault, run SADE, compare its answer to hidden ground truth, repair."""
 from __future__ import annotations
 
 import argparse
 import asyncio
-from datetime import datetime, timezone
 import importlib.util
 import json
 import os
-from pathlib import Path
 import re
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-import lab  # noqa: E402
+import lab
 
 CASES = json.loads((ROOT / "tools" / "sade_cases.json").read_text())
 INVENTORY = json.loads((ROOT / "inventory.json").read_text())
@@ -103,7 +102,7 @@ def prompt_for(case_name: str) -> str:
 
 
 def parse_prediction(text: str) -> dict:
-    match = re.search(r"===\s*DIAGNOSIS\s*===(.*?)===\s*END\s*===",
+    match = re.search(r"===\s*DIAGNOSIS\s*===(.*?)(?:===\s*END\s*===|\Z)",
                       text, re.IGNORECASE | re.DOTALL)
     if not match:
         raise ValueError("SADE did not submit a complete DIAGNOSIS block")
@@ -165,10 +164,16 @@ def _preflight(nika_root: Path) -> None:
             raise RuntimeError(f"Lab device {node} is not ready: {output}; run python3 lab.py start")
 
 
-async def _run_sade(prompt: str, nika_root: Path, max_turns: int) -> dict:
-    from claude_agent_sdk import (AssistantMessage, ClaudeAgentOptions,
-                                  ResultMessage, TextBlock, ToolUseBlock,
-                                  UserMessage, query)
+async def _run_sade(prompt: str, nika_root: Path, max_turns: int, model: str) -> dict:
+    from claude_agent_sdk import (
+        AssistantMessage,
+        ClaudeAgentOptions,
+        ResultMessage,
+        TextBlock,
+        ToolUseBlock,
+        UserMessage,
+        query,
+    )
 
     python = sys.executable
     server = str(ROOT / "tools" / "sade_lab_mcp.py")
@@ -183,7 +188,7 @@ async def _run_sade(prompt: str, nika_root: Path, max_turns: int) -> dict:
         system_prompt=SYSTEM_PROMPT,
         cwd=str(_agent_dir(nika_root)),
         setting_sources=["project"],
-        model="claude-sonnet-4-6",
+        model=model,
         max_turns=max_turns,
         permission_mode="bypassPermissions",
         mcp_servers=servers,
@@ -224,14 +229,15 @@ def _assert_state(case_name: str, phase: str) -> None:
         raise RuntimeError(f"{case_name}: {phase} verification failed on {node}: {output}")
 
 
-def run_case(case_name: str, nika_root: Path, max_turns: int) -> Path:
+def run_case(case_name: str, nika_root: Path, max_turns: int, model: str) -> Path:
     _preflight(nika_root)
-    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     out = ROOT / "results" / "sade" / now / f"{case_name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    report = {"case": case_name, "timestamp": now, "status": "running",
+    report = {"case": case_name, "timestamp": now, "model": model, "status": "running",
               "agent_prompt": prompt_for(case_name), "injection_verified": False,
               "repair_verified": False}
+    started = time.monotonic()
     injected = False
     try:
         # Only one case at a time; a healthy baseline makes comparisons fair.
@@ -245,26 +251,36 @@ def run_case(case_name: str, nika_root: Path, max_turns: int) -> Path:
         time.sleep(8)
         _assert_state(case_name, "inject")
         report["injection_verified"] = True
-        report["agent"] = asyncio.run(_run_sade(report["agent_prompt"], nika_root, max_turns))
+        report["agent"] = asyncio.run(_run_sade(report["agent_prompt"], nika_root, max_turns, model))
         prediction = parse_prediction(report["agent"]["final_text"])
         report["score"] = score_prediction(case_name, prediction)
         report["status"] = "scored"
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - always attempt repair and save the result
         report["status"] = "error"
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:
         if injected:
             node, _, repair = lab.FAULTS[case_name]
-            ok, detail = lab.execute(node, repair)
+            try:
+                ok, detail = lab.execute(node, repair)
+            except Exception as exc:  # noqa: BLE001 - preserve the run report if repair raises
+                ok, detail = False, f"{type(exc).__name__}: {exc}"
             if ok:
                 time.sleep(8)
-                try:
-                    _assert_state(case_name, "repair")
-                    report["repair_verified"] = True
-                except Exception as exc:
-                    report["repair_error"] = str(exc)
+                for attempt in range(3):
+                    try:
+                        _assert_state(case_name, "repair")
+                        report["repair_verified"] = True
+                        break
+                    except Exception as exc:  # noqa: BLE001 - keep retrying verification
+                        report["repair_error"] = str(exc)
+                        if attempt < 2:
+                            time.sleep(2)
+                if report["repair_verified"]:
+                    report.pop("repair_error", None)
             else:
                 report["repair_error"] = detail
+        report["wall_seconds"] = round(time.monotonic() - started, 3)
         out.write_text(json.dumps(report, indent=2, default=str) + "\n")
     return out
 
@@ -282,6 +298,8 @@ def main() -> int:
     run.add_argument("case", choices=CASES)
     run.add_argument("--nika-root")
     run.add_argument("--max-turns", type=int, default=30)
+    run.add_argument("--model", default=os.getenv("SADE_MODEL", "claude-haiku-5-5"),
+                     help="Claude model ID (default: SADE_MODEL or claude-haiku-5-5)")
     args = parser.parse_args()
     if args.action == "list":
         for name, case in CASES.items():
@@ -311,15 +329,25 @@ def main() -> int:
         return 0 if result["rca_exact"] else 1
     if args.max_turns < 1:
         parser.error("--max-turns must be positive")
+    if not args.model.strip():
+        parser.error("--model must not be empty")
     try:
-        path = run_case(args.case, _nika_root(args.nika_root), args.max_turns)
+        path = run_case(args.case, _nika_root(args.nika_root), args.max_turns, args.model)
     except RuntimeError as exc:
         print(str(exc), file=sys.stderr)
         return 2
     result = json.loads(path.read_text())
-    print(f"Result: {path}\nStatus: {result['status']}")
+    print(f"Result: {path}\nStatus: {result['status']}\nModel: {result['model']}")
+    print(f"Injection verified: {result['injection_verified']}")
+    print(f"Repair verified: {result['repair_verified']}")
     if result.get("score"):
-        print(f"Exact RCA: {result['score']['rca_exact']}")
+        for label, key in (("Anomaly detection", "detection_correct"),
+                           ("Device", "device_correct"),
+                           ("Resource localization", "localization_correct"),
+                           ("Fault type", "fault_type_correct"),
+                           ("Exact RCA", "rca_exact")):
+            print(f"{label}: {result['score'][key]}")
+        print(f"Tool calls: {result['agent']['tool_calls']}")
     if result.get("error"):
         print(result["error"], file=sys.stderr)
     if not result["repair_verified"]:

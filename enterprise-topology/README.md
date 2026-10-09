@@ -6,7 +6,7 @@ The 75-device version was validated on 2026-10-08: **222/222 health checks and 2
 
 ## Quick start
 
-Requirements: Python 3, Docker running, and Kathara. No Python packages, API keys, or LLM subscriptions are needed. The initial image build needs Internet access. Runtime networks are isolated; no host ports or home directories are exposed by the launcher.
+Requirements for the lab itself: Python 3, Docker running, and Kathara. No Python packages, API keys, or LLM subscriptions are needed for the topology and fault checks; SADE evaluation has separate requirements below. The initial image build needs Internet access. Runtime networks are isolated; no host ports or home directories are exposed by the launcher.
 
 ```bash
 # From the repository root:
@@ -98,7 +98,7 @@ Abruptly terminating the verifier can interrupt repair; use the matching repair 
 
 ## SADE diagnosis and ground truth
 
-`tools/sade_eval.py` runs SADE against one injected fault at a time, compares its final resource and fault type with hidden ground truth, and repairs the lab. See the [SADE evaluation guide](docs/sade-evaluation.md) for setup, commands, result format, and the limits of this local scoring workflow.
+`tools/sade_eval.py` runs SADE against one injected fault at a time, compares its final resource and fault type with hidden ground truth, and repairs the lab. `tools/sade_benchmark.py run` runs all three cases sequentially and writes a summary JSON. The first one-pass evaluation with `claude-haiku-5-5` produced 3/3 exact RCA diagnoses with verified injection and repair. See the [SADE evaluation guide](docs/sade-evaluation.md) for setup, commands, result format, and the limits of this local scoring workflow.
 
 ## Files and reproducibility
 
@@ -120,6 +120,6 @@ Abruptly terminating the verifier can interrupt repair; use the matching repair 
 
 ## Scope and references
 
-This is an independently authored implementation inspired by the network-lab and fault-verification approach of [NIKA](https://github.com/sands-lab/nika). It does not copy the customer's local labs and is not yet registered as a NIKA scenario. BGP, external connectivity, a real database engine, and LLM evaluation are outside v1.
+This is an independently authored implementation inspired by the network-lab and fault-verification approach of [NIKA](https://github.com/sands-lab/nika). It does not copy the customer's local labs and is not yet registered as a NIKA scenario. BGP, external connectivity, a real database engine, and official NIKA benchmark metrics are outside v1.
 
 Implementation references: [Kathara lab configuration](https://www.kathara.org/man-pages/kathara-lab.conf.5.html), [Kathara directory structure](https://www.kathara.org/man-pages/kathara-lab-dirs.7.html).
