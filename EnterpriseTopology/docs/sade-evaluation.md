@@ -36,6 +36,22 @@ The public ontology has three IDs: `interface_down`, `vrrp_service_stopped`, and
 
 ## Run and summarize the local benchmark
 
+### Presentation dashboard
+
+From the `enterprise-topology` directory, start the loopback-only UI:
+
+```bash
+python3 dashboard/server.py
+```
+
+Open `http://127.0.0.1:8765`. The page opens the newest saved benchmark report automatically, so it can be demonstrated without a fresh model call. Choose another saved report from the dropdown to compare runs. The dashboard shows exact RCA, completion, five scoring axes, a per-attempt scoring matrix, diagnosis time, tool calls, and injection/repair evidence.
+
+If `python3 lab.py start` says a device already exists, first run `python3 lab.py status` and `python3 lab.py check`; a healthy running lab does not need to be started again. If the dashboard says port 8765 is in use, open the existing page or use `python3 dashboard/server.py --port 8766` and open that port instead.
+
+**Run benchmark** calls the existing `tools/sade_benchmark.py run` command with the chosen model and repeat count, then loads its new summary. The server uses the Python interpreter at the NIKA checkout's `.venv/bin/python` and passes that checkout as `--nika-root`. For a different checkout, start it with `--nika-root /path/to/nika`; use `--python /path/to/python` if its interpreter is elsewhere. Docker/Kathara, a healthy started lab, and model authentication are required for a live run. Keep the server in the same environment as the model credentials; the browser never receives the API key. A live run can incur model API charges.
+
+The UI listens on `127.0.0.1` only. It reads saved `results/sade/benchmark-*.json` files and does not alter scoring or benchmark contracts. It displays the conservative rates over all attempts and labels these as local SADE results, not official NIKA scores.
+
 Once the lab is healthy and the API key is available in the same shell, run all three cases sequentially:
 
 ```bash

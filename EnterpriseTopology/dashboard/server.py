@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import errno
 import json
 import os
 import re
@@ -28,6 +29,7 @@ class RunState:
         self.finished_at: str | None = None
         self.returncode: int | None = None
         self.report: str | None = None
+        self.repeats = 1
         self.lines: list[str] = []
         self.process: subprocess.Popen | None = None
 
@@ -39,6 +41,7 @@ class RunState:
                 "finished_at": self.finished_at,
                 "returncode": self.returncode,
                 "report": self.report,
+                "repeats": self.repeats,
                 "lines": self.lines[-160:],
             }
 
@@ -51,6 +54,7 @@ class RunState:
             self.finished_at = None
             self.returncode = None
             self.report = None
+            self.repeats = repeats
             self.lines = [f"Starting {repeats} pass(es) × 3 scenarios with {model}…"]
         threading.Thread(target=self._run, args=(model, repeats), daemon=True).start()
         return True
@@ -188,9 +192,16 @@ def main() -> None:
     parser.add_argument("--python", type=Path)
     args = parser.parse_args()
     nika_root = args.nika_root.expanduser().resolve()
-    python = (args.python or nika_root / ".venv" / "bin" / "python").expanduser().resolve()
+    # Keep the venv symlink intact: resolving it would run the base interpreter.
+    python = (args.python or nika_root / ".venv" / "bin" / "python").expanduser().absolute()
     Handler.state = RunState(python, nika_root)
-    server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    try:
+        server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    except OSError as exc:
+        if exc.errno == errno.EADDRINUSE:
+            parser.exit(2, f"Port {args.port} is already in use. If the dashboard is open, "
+                        f"use http://127.0.0.1:{args.port}/; otherwise choose --port {args.port + 1}.\n")
+        raise
     print(f"SADE dashboard: http://127.0.0.1:{server.server_port}", flush=True)
     print(f"Benchmark Python: {python}", flush=True)
     try:
