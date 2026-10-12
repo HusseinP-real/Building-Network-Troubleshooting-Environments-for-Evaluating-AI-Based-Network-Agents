@@ -1,0 +1,30 @@
+[
+  {
+    "ticket_id": "F01_general",
+    "scenario_id": "F01",
+    "reporter_type": "general",
+    "text": "Our external partner website stopped working, but another website still loads.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F01_engineer",
+    "scenario_id": "F01",
+    "reporter_type": "engineer",
+    "text": "Clients cannot reach 198.18.10.10; 198.18.20.10 remains reachable.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F01_expert",
+    "scenario_id": "F01",
+    "reporter_type": "expert",
+    "text": "Both ISP-A eBGP adjacencies appear to be down; inspect a1 and a3 uplinks.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F01_misleading",
+    "scenario_id": "F01",
+    "reporter_type": "misleading",
+    "text": "The data center application server must be offline.",
+    "accuracy": "potentially_inaccurate"
+  }
+]
