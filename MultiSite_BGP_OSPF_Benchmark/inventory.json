@@ -1,0 +1,1678 @@
+{
+  "schema": "soft3888-topology-v1",
+  "device_count": 80,
+  "router_count": 18,
+  "switch_count": 20,
+  "endpoint_count": 42,
+  "autonomous_systems": {
+    "enterprise": 65000,
+    "isp_a": 65010,
+    "isp_b": 65020
+  },
+  "interfaces": {
+    "e1": [
+      {
+        "eth": 0,
+        "cd": "core_1",
+        "addr": "10.255.1.0",
+        "cidr": "10.255.1.0/31",
+        "peer": "e2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "core_4",
+        "addr": "10.255.4.1",
+        "cidr": "10.255.4.1/31",
+        "peer": "e4",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "core_5",
+        "addr": "10.255.5.0",
+        "cidr": "10.255.5.0/31",
+        "peer": "hq_r1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 3,
+        "cd": "core_12",
+        "addr": "10.255.12.0",
+        "cidr": "10.255.12.0/31",
+        "peer": "dc_r2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 4,
+        "cd": "ebgp_1",
+        "addr": "172.31.1.0",
+        "cidr": "172.31.1.0/31",
+        "peer": "a1",
+        "kind": "p2p"
+      }
+    ],
+    "e2": [
+      {
+        "eth": 0,
+        "cd": "core_1",
+        "addr": "10.255.1.1",
+        "cidr": "10.255.1.1/31",
+        "peer": "e1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "core_2",
+        "addr": "10.255.2.0",
+        "cidr": "10.255.2.0/31",
+        "peer": "e3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "core_6",
+        "addr": "10.255.6.0",
+        "cidr": "10.255.6.0/31",
+        "peer": "hq_r2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 3,
+        "cd": "core_7",
+        "addr": "10.255.7.0",
+        "cidr": "10.255.7.0/31",
+        "peer": "ba_r1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 4,
+        "cd": "ebgp_3",
+        "addr": "172.31.3.0",
+        "cidr": "172.31.3.0/31",
+        "peer": "b1",
+        "kind": "p2p"
+      }
+    ],
+    "e3": [
+      {
+        "eth": 0,
+        "cd": "core_2",
+        "addr": "10.255.2.1",
+        "cidr": "10.255.2.1/31",
+        "peer": "e2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "core_3",
+        "addr": "10.255.3.0",
+        "cidr": "10.255.3.0/31",
+        "peer": "e4",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "core_8",
+        "addr": "10.255.8.0",
+        "cidr": "10.255.8.0/31",
+        "peer": "ba_r2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 3,
+        "cd": "core_9",
+        "addr": "10.255.9.0",
+        "cidr": "10.255.9.0/31",
+        "peer": "bb_r1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 4,
+        "cd": "ebgp_2",
+        "addr": "172.31.2.0",
+        "cidr": "172.31.2.0/31",
+        "peer": "a3",
+        "kind": "p2p"
+      }
+    ],
+    "e4": [
+      {
+        "eth": 0,
+        "cd": "core_3",
+        "addr": "10.255.3.1",
+        "cidr": "10.255.3.1/31",
+        "peer": "e3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "core_4",
+        "addr": "10.255.4.0",
+        "cidr": "10.255.4.0/31",
+        "peer": "e1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "core_10",
+        "addr": "10.255.10.0",
+        "cidr": "10.255.10.0/31",
+        "peer": "bb_r2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 3,
+        "cd": "core_11",
+        "addr": "10.255.11.0",
+        "cidr": "10.255.11.0/31",
+        "peer": "dc_r1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 4,
+        "cd": "ebgp_4",
+        "addr": "172.31.4.0",
+        "cidr": "172.31.4.0/31",
+        "peer": "b3",
+        "kind": "p2p"
+      }
+    ],
+    "hq_r1": [
+      {
+        "eth": 0,
+        "cd": "core_5",
+        "addr": "10.255.5.1",
+        "cidr": "10.255.5.1/31",
+        "peer": "e1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_lan",
+        "addr": "10.10.10.1",
+        "cidr": "10.10.10.1/24",
+        "kind": "lan"
+      }
+    ],
+    "hq_r2": [
+      {
+        "eth": 0,
+        "cd": "core_6",
+        "addr": "10.255.6.1",
+        "cidr": "10.255.6.1/31",
+        "peer": "e2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_lan",
+        "addr": "10.10.10.2",
+        "cidr": "10.10.10.2/24",
+        "kind": "lan"
+      }
+    ],
+    "ba_r1": [
+      {
+        "eth": 0,
+        "cd": "core_7",
+        "addr": "10.255.7.1",
+        "cidr": "10.255.7.1/31",
+        "peer": "e2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_lan",
+        "addr": "10.20.10.1",
+        "cidr": "10.20.10.1/24",
+        "kind": "lan"
+      }
+    ],
+    "ba_r2": [
+      {
+        "eth": 0,
+        "cd": "core_8",
+        "addr": "10.255.8.1",
+        "cidr": "10.255.8.1/31",
+        "peer": "e3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_lan",
+        "addr": "10.20.10.2",
+        "cidr": "10.20.10.2/24",
+        "kind": "lan"
+      }
+    ],
+    "bb_r1": [
+      {
+        "eth": 0,
+        "cd": "core_9",
+        "addr": "10.255.9.1",
+        "cidr": "10.255.9.1/31",
+        "peer": "e3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_lan",
+        "addr": "10.30.10.1",
+        "cidr": "10.30.10.1/24",
+        "kind": "lan"
+      }
+    ],
+    "bb_r2": [
+      {
+        "eth": 0,
+        "cd": "core_10",
+        "addr": "10.255.10.1",
+        "cidr": "10.255.10.1/31",
+        "peer": "e4",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_lan",
+        "addr": "10.30.10.2",
+        "cidr": "10.30.10.2/24",
+        "kind": "lan"
+      }
+    ],
+    "dc_r1": [
+      {
+        "eth": 0,
+        "cd": "core_11",
+        "addr": "10.255.11.1",
+        "cidr": "10.255.11.1/31",
+        "peer": "e4",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_lan",
+        "addr": "10.40.10.1",
+        "cidr": "10.40.10.1/24",
+        "kind": "lan"
+      }
+    ],
+    "dc_r2": [
+      {
+        "eth": 0,
+        "cd": "core_12",
+        "addr": "10.255.12.1",
+        "cidr": "10.255.12.1/31",
+        "peer": "e1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_lan",
+        "addr": "10.40.10.2",
+        "cidr": "10.40.10.2/24",
+        "kind": "lan"
+      }
+    ],
+    "a1": [
+      {
+        "eth": 0,
+        "cd": "ispa_1",
+        "addr": "172.20.1.0",
+        "cidr": "172.20.1.0/31",
+        "peer": "a2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ebgp_1",
+        "addr": "172.31.1.1",
+        "cidr": "172.31.1.1/31",
+        "peer": "e1",
+        "kind": "p2p"
+      }
+    ],
+    "a2": [
+      {
+        "eth": 0,
+        "cd": "ispa_1",
+        "addr": "172.20.1.1",
+        "cidr": "172.20.1.1/31",
+        "peer": "a1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ispa_2",
+        "addr": "172.20.2.0",
+        "cidr": "172.20.2.0/31",
+        "peer": "a3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "ext_a_lan",
+        "addr": "198.18.10.1",
+        "cidr": "198.18.10.1/24",
+        "kind": "lan"
+      }
+    ],
+    "a3": [
+      {
+        "eth": 0,
+        "cd": "ispa_2",
+        "addr": "172.20.2.1",
+        "cidr": "172.20.2.1/31",
+        "peer": "a2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ebgp_2",
+        "addr": "172.31.2.1",
+        "cidr": "172.31.2.1/31",
+        "peer": "e3",
+        "kind": "p2p"
+      }
+    ],
+    "b1": [
+      {
+        "eth": 0,
+        "cd": "ispb_1",
+        "addr": "172.21.1.0",
+        "cidr": "172.21.1.0/31",
+        "peer": "b2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ebgp_3",
+        "addr": "172.31.3.1",
+        "cidr": "172.31.3.1/31",
+        "peer": "e2",
+        "kind": "p2p"
+      }
+    ],
+    "b2": [
+      {
+        "eth": 0,
+        "cd": "ispb_1",
+        "addr": "172.21.1.1",
+        "cidr": "172.21.1.1/31",
+        "peer": "b1",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ispb_2",
+        "addr": "172.21.2.0",
+        "cidr": "172.21.2.0/31",
+        "peer": "b3",
+        "kind": "p2p"
+      },
+      {
+        "eth": 2,
+        "cd": "ext_b_lan",
+        "addr": "198.18.20.1",
+        "cidr": "198.18.20.1/24",
+        "kind": "lan"
+      }
+    ],
+    "b3": [
+      {
+        "eth": 0,
+        "cd": "ispb_2",
+        "addr": "172.21.2.1",
+        "cidr": "172.21.2.1/31",
+        "peer": "b2",
+        "kind": "p2p"
+      },
+      {
+        "eth": 1,
+        "cd": "ebgp_4",
+        "addr": "172.31.4.1",
+        "cidr": "172.31.4.1/31",
+        "peer": "e4",
+        "kind": "p2p"
+      }
+    ],
+    "hq_sw01": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access01",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access07",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "cd": "hq_access13",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_sw02": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access02",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access08",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "cd": "hq_access14",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_sw03": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access03",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access09",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_sw04": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access04",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access10",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_sw05": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access05",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access11",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_sw06": [
+      {
+        "eth": 0,
+        "cd": "hq_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "hq_access06",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "hq_access12",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "hq_h01": [
+      {
+        "eth": 0,
+        "cd": "hq_access01",
+        "addr": "10.10.10.21",
+        "cidr": "10.10.10.21/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h02": [
+      {
+        "eth": 0,
+        "cd": "hq_access02",
+        "addr": "10.10.10.22",
+        "cidr": "10.10.10.22/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h03": [
+      {
+        "eth": 0,
+        "cd": "hq_access03",
+        "addr": "10.10.10.23",
+        "cidr": "10.10.10.23/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h04": [
+      {
+        "eth": 0,
+        "cd": "hq_access04",
+        "addr": "10.10.10.24",
+        "cidr": "10.10.10.24/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h05": [
+      {
+        "eth": 0,
+        "cd": "hq_access05",
+        "addr": "10.10.10.25",
+        "cidr": "10.10.10.25/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h06": [
+      {
+        "eth": 0,
+        "cd": "hq_access06",
+        "addr": "10.10.10.26",
+        "cidr": "10.10.10.26/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h07": [
+      {
+        "eth": 0,
+        "cd": "hq_access07",
+        "addr": "10.10.10.27",
+        "cidr": "10.10.10.27/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h08": [
+      {
+        "eth": 0,
+        "cd": "hq_access08",
+        "addr": "10.10.10.28",
+        "cidr": "10.10.10.28/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h09": [
+      {
+        "eth": 0,
+        "cd": "hq_access09",
+        "addr": "10.10.10.29",
+        "cidr": "10.10.10.29/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h10": [
+      {
+        "eth": 0,
+        "cd": "hq_access10",
+        "addr": "10.10.10.30",
+        "cidr": "10.10.10.30/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h11": [
+      {
+        "eth": 0,
+        "cd": "hq_access11",
+        "addr": "10.10.10.31",
+        "cidr": "10.10.10.31/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h12": [
+      {
+        "eth": 0,
+        "cd": "hq_access12",
+        "addr": "10.10.10.32",
+        "cidr": "10.10.10.32/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h13": [
+      {
+        "eth": 0,
+        "cd": "hq_access13",
+        "addr": "10.10.10.33",
+        "cidr": "10.10.10.33/24",
+        "kind": "host"
+      }
+    ],
+    "hq_h14": [
+      {
+        "eth": 0,
+        "cd": "hq_access14",
+        "addr": "10.10.10.34",
+        "cidr": "10.10.10.34/24",
+        "kind": "host"
+      }
+    ],
+    "ba_sw01": [
+      {
+        "eth": 0,
+        "cd": "ba_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_access01",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "ba_access05",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "cd": "ba_access09",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ba_sw02": [
+      {
+        "eth": 0,
+        "cd": "ba_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_access02",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "ba_access06",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ba_sw03": [
+      {
+        "eth": 0,
+        "cd": "ba_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_access03",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "ba_access07",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ba_sw04": [
+      {
+        "eth": 0,
+        "cd": "ba_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ba_access04",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "ba_access08",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ba_h01": [
+      {
+        "eth": 0,
+        "cd": "ba_access01",
+        "addr": "10.20.10.21",
+        "cidr": "10.20.10.21/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h02": [
+      {
+        "eth": 0,
+        "cd": "ba_access02",
+        "addr": "10.20.10.22",
+        "cidr": "10.20.10.22/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h03": [
+      {
+        "eth": 0,
+        "cd": "ba_access03",
+        "addr": "10.20.10.23",
+        "cidr": "10.20.10.23/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h04": [
+      {
+        "eth": 0,
+        "cd": "ba_access04",
+        "addr": "10.20.10.24",
+        "cidr": "10.20.10.24/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h05": [
+      {
+        "eth": 0,
+        "cd": "ba_access05",
+        "addr": "10.20.10.25",
+        "cidr": "10.20.10.25/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h06": [
+      {
+        "eth": 0,
+        "cd": "ba_access06",
+        "addr": "10.20.10.26",
+        "cidr": "10.20.10.26/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h07": [
+      {
+        "eth": 0,
+        "cd": "ba_access07",
+        "addr": "10.20.10.27",
+        "cidr": "10.20.10.27/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h08": [
+      {
+        "eth": 0,
+        "cd": "ba_access08",
+        "addr": "10.20.10.28",
+        "cidr": "10.20.10.28/24",
+        "kind": "host"
+      }
+    ],
+    "ba_h09": [
+      {
+        "eth": 0,
+        "cd": "ba_access09",
+        "addr": "10.20.10.29",
+        "cidr": "10.20.10.29/24",
+        "kind": "host"
+      }
+    ],
+    "bb_sw01": [
+      {
+        "eth": 0,
+        "cd": "bb_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_access01",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "bb_access05",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "cd": "bb_access09",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "bb_sw02": [
+      {
+        "eth": 0,
+        "cd": "bb_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_access02",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "bb_access06",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "bb_sw03": [
+      {
+        "eth": 0,
+        "cd": "bb_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_access03",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "bb_access07",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "bb_sw04": [
+      {
+        "eth": 0,
+        "cd": "bb_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "bb_access04",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "bb_access08",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "bb_h01": [
+      {
+        "eth": 0,
+        "cd": "bb_access01",
+        "addr": "10.30.10.21",
+        "cidr": "10.30.10.21/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h02": [
+      {
+        "eth": 0,
+        "cd": "bb_access02",
+        "addr": "10.30.10.22",
+        "cidr": "10.30.10.22/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h03": [
+      {
+        "eth": 0,
+        "cd": "bb_access03",
+        "addr": "10.30.10.23",
+        "cidr": "10.30.10.23/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h04": [
+      {
+        "eth": 0,
+        "cd": "bb_access04",
+        "addr": "10.30.10.24",
+        "cidr": "10.30.10.24/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h05": [
+      {
+        "eth": 0,
+        "cd": "bb_access05",
+        "addr": "10.30.10.25",
+        "cidr": "10.30.10.25/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h06": [
+      {
+        "eth": 0,
+        "cd": "bb_access06",
+        "addr": "10.30.10.26",
+        "cidr": "10.30.10.26/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h07": [
+      {
+        "eth": 0,
+        "cd": "bb_access07",
+        "addr": "10.30.10.27",
+        "cidr": "10.30.10.27/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h08": [
+      {
+        "eth": 0,
+        "cd": "bb_access08",
+        "addr": "10.30.10.28",
+        "cidr": "10.30.10.28/24",
+        "kind": "host"
+      }
+    ],
+    "bb_h09": [
+      {
+        "eth": 0,
+        "cd": "bb_access09",
+        "addr": "10.30.10.29",
+        "cidr": "10.30.10.29/24",
+        "kind": "host"
+      }
+    ],
+    "dc_sw01": [
+      {
+        "eth": 0,
+        "cd": "dc_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_access01",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "dc_access05",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "dc_sw02": [
+      {
+        "eth": 0,
+        "cd": "dc_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_access02",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "dc_access06",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "dc_sw03": [
+      {
+        "eth": 0,
+        "cd": "dc_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_access03",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "dc_access07",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "dc_sw04": [
+      {
+        "eth": 0,
+        "cd": "dc_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "dc_access04",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      },
+      {
+        "eth": 2,
+        "cd": "dc_access08",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "dc_h01": [
+      {
+        "eth": 0,
+        "cd": "dc_access01",
+        "addr": "10.40.10.21",
+        "cidr": "10.40.10.21/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h02": [
+      {
+        "eth": 0,
+        "cd": "dc_access02",
+        "addr": "10.40.10.22",
+        "cidr": "10.40.10.22/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h03": [
+      {
+        "eth": 0,
+        "cd": "dc_access03",
+        "addr": "10.40.10.23",
+        "cidr": "10.40.10.23/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h04": [
+      {
+        "eth": 0,
+        "cd": "dc_access04",
+        "addr": "10.40.10.24",
+        "cidr": "10.40.10.24/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h05": [
+      {
+        "eth": 0,
+        "cd": "dc_access05",
+        "addr": "10.40.10.25",
+        "cidr": "10.40.10.25/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h06": [
+      {
+        "eth": 0,
+        "cd": "dc_access06",
+        "addr": "10.40.10.26",
+        "cidr": "10.40.10.26/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h07": [
+      {
+        "eth": 0,
+        "cd": "dc_access07",
+        "addr": "10.40.10.27",
+        "cidr": "10.40.10.27/24",
+        "kind": "host"
+      }
+    ],
+    "dc_h08": [
+      {
+        "eth": 0,
+        "cd": "dc_access08",
+        "addr": "10.40.10.28",
+        "cidr": "10.40.10.28/24",
+        "kind": "host"
+      }
+    ],
+    "ext_a_sw": [
+      {
+        "eth": 0,
+        "cd": "ext_a_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ext_a_access",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ext_a_web": [
+      {
+        "eth": 0,
+        "cd": "ext_a_access",
+        "addr": "198.18.10.10",
+        "cidr": "198.18.10.10/24",
+        "kind": "host"
+      }
+    ],
+    "ext_b_sw": [
+      {
+        "eth": 0,
+        "cd": "ext_b_lan",
+        "addr": null,
+        "cidr": null,
+        "kind": "uplink"
+      },
+      {
+        "eth": 1,
+        "cd": "ext_b_access",
+        "addr": null,
+        "cidr": null,
+        "kind": "access"
+      }
+    ],
+    "ext_b_web": [
+      {
+        "eth": 0,
+        "cd": "ext_b_access",
+        "addr": "198.18.20.10",
+        "cidr": "198.18.20.10/24",
+        "kind": "host"
+      }
+    ]
+  },
+  "p2p_links": [
+    {
+      "a": "e1",
+      "b": "e2",
+      "collision_domain": "core_1",
+      "network": "10.255.1.0/31"
+    },
+    {
+      "a": "e2",
+      "b": "e3",
+      "collision_domain": "core_2",
+      "network": "10.255.2.0/31"
+    },
+    {
+      "a": "e3",
+      "b": "e4",
+      "collision_domain": "core_3",
+      "network": "10.255.3.0/31"
+    },
+    {
+      "a": "e4",
+      "b": "e1",
+      "collision_domain": "core_4",
+      "network": "10.255.4.0/31"
+    },
+    {
+      "a": "e1",
+      "b": "hq_r1",
+      "collision_domain": "core_5",
+      "network": "10.255.5.0/31"
+    },
+    {
+      "a": "e2",
+      "b": "hq_r2",
+      "collision_domain": "core_6",
+      "network": "10.255.6.0/31"
+    },
+    {
+      "a": "e2",
+      "b": "ba_r1",
+      "collision_domain": "core_7",
+      "network": "10.255.7.0/31"
+    },
+    {
+      "a": "e3",
+      "b": "ba_r2",
+      "collision_domain": "core_8",
+      "network": "10.255.8.0/31"
+    },
+    {
+      "a": "e3",
+      "b": "bb_r1",
+      "collision_domain": "core_9",
+      "network": "10.255.9.0/31"
+    },
+    {
+      "a": "e4",
+      "b": "bb_r2",
+      "collision_domain": "core_10",
+      "network": "10.255.10.0/31"
+    },
+    {
+      "a": "e4",
+      "b": "dc_r1",
+      "collision_domain": "core_11",
+      "network": "10.255.11.0/31"
+    },
+    {
+      "a": "e1",
+      "b": "dc_r2",
+      "collision_domain": "core_12",
+      "network": "10.255.12.0/31"
+    },
+    {
+      "a": "a1",
+      "b": "a2",
+      "collision_domain": "ispa_1",
+      "network": "172.20.1.0/31"
+    },
+    {
+      "a": "a2",
+      "b": "a3",
+      "collision_domain": "ispa_2",
+      "network": "172.20.2.0/31"
+    },
+    {
+      "a": "b1",
+      "b": "b2",
+      "collision_domain": "ispb_1",
+      "network": "172.21.1.0/31"
+    },
+    {
+      "a": "b2",
+      "b": "b3",
+      "collision_domain": "ispb_2",
+      "network": "172.21.2.0/31"
+    },
+    {
+      "a": "e1",
+      "b": "a1",
+      "collision_domain": "ebgp_1",
+      "network": "172.31.1.0/31"
+    },
+    {
+      "a": "e3",
+      "b": "a3",
+      "collision_domain": "ebgp_2",
+      "network": "172.31.2.0/31"
+    },
+    {
+      "a": "e2",
+      "b": "b1",
+      "collision_domain": "ebgp_3",
+      "network": "172.31.3.0/31"
+    },
+    {
+      "a": "e4",
+      "b": "b3",
+      "collision_domain": "ebgp_4",
+      "network": "172.31.4.0/31"
+    }
+  ],
+  "hosts": {
+    "hq_h01": {
+      "site": "hq",
+      "ip": "10.10.10.21",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw01"
+    },
+    "hq_h02": {
+      "site": "hq",
+      "ip": "10.10.10.22",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw02"
+    },
+    "hq_h03": {
+      "site": "hq",
+      "ip": "10.10.10.23",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw03"
+    },
+    "hq_h04": {
+      "site": "hq",
+      "ip": "10.10.10.24",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw04"
+    },
+    "hq_h05": {
+      "site": "hq",
+      "ip": "10.10.10.25",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw05"
+    },
+    "hq_h06": {
+      "site": "hq",
+      "ip": "10.10.10.26",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw06"
+    },
+    "hq_h07": {
+      "site": "hq",
+      "ip": "10.10.10.27",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw01"
+    },
+    "hq_h08": {
+      "site": "hq",
+      "ip": "10.10.10.28",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw02"
+    },
+    "hq_h09": {
+      "site": "hq",
+      "ip": "10.10.10.29",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw03"
+    },
+    "hq_h10": {
+      "site": "hq",
+      "ip": "10.10.10.30",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw04"
+    },
+    "hq_h11": {
+      "site": "hq",
+      "ip": "10.10.10.31",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw05"
+    },
+    "hq_h12": {
+      "site": "hq",
+      "ip": "10.10.10.32",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw06"
+    },
+    "hq_h13": {
+      "site": "hq",
+      "ip": "10.10.10.33",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw01"
+    },
+    "hq_h14": {
+      "site": "hq",
+      "ip": "10.10.10.34",
+      "gateway": "10.10.10.1",
+      "switch": "hq_sw02"
+    },
+    "ba_h01": {
+      "site": "ba",
+      "ip": "10.20.10.21",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw01"
+    },
+    "ba_h02": {
+      "site": "ba",
+      "ip": "10.20.10.22",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw02"
+    },
+    "ba_h03": {
+      "site": "ba",
+      "ip": "10.20.10.23",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw03"
+    },
+    "ba_h04": {
+      "site": "ba",
+      "ip": "10.20.10.24",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw04"
+    },
+    "ba_h05": {
+      "site": "ba",
+      "ip": "10.20.10.25",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw01"
+    },
+    "ba_h06": {
+      "site": "ba",
+      "ip": "10.20.10.26",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw02"
+    },
+    "ba_h07": {
+      "site": "ba",
+      "ip": "10.20.10.27",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw03"
+    },
+    "ba_h08": {
+      "site": "ba",
+      "ip": "10.20.10.28",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw04"
+    },
+    "ba_h09": {
+      "site": "ba",
+      "ip": "10.20.10.29",
+      "gateway": "10.20.10.1",
+      "switch": "ba_sw01"
+    },
+    "bb_h01": {
+      "site": "bb",
+      "ip": "10.30.10.21",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw01"
+    },
+    "bb_h02": {
+      "site": "bb",
+      "ip": "10.30.10.22",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw02"
+    },
+    "bb_h03": {
+      "site": "bb",
+      "ip": "10.30.10.23",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw03"
+    },
+    "bb_h04": {
+      "site": "bb",
+      "ip": "10.30.10.24",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw04"
+    },
+    "bb_h05": {
+      "site": "bb",
+      "ip": "10.30.10.25",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw01"
+    },
+    "bb_h06": {
+      "site": "bb",
+      "ip": "10.30.10.26",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw02"
+    },
+    "bb_h07": {
+      "site": "bb",
+      "ip": "10.30.10.27",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw03"
+    },
+    "bb_h08": {
+      "site": "bb",
+      "ip": "10.30.10.28",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw04"
+    },
+    "bb_h09": {
+      "site": "bb",
+      "ip": "10.30.10.29",
+      "gateway": "10.30.10.1",
+      "switch": "bb_sw01"
+    },
+    "dc_h01": {
+      "site": "dc",
+      "ip": "10.40.10.21",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw01"
+    },
+    "dc_h02": {
+      "site": "dc",
+      "ip": "10.40.10.22",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw02"
+    },
+    "dc_h03": {
+      "site": "dc",
+      "ip": "10.40.10.23",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw03"
+    },
+    "dc_h04": {
+      "site": "dc",
+      "ip": "10.40.10.24",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw04"
+    },
+    "dc_h05": {
+      "site": "dc",
+      "ip": "10.40.10.25",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw01"
+    },
+    "dc_h06": {
+      "site": "dc",
+      "ip": "10.40.10.26",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw02"
+    },
+    "dc_h07": {
+      "site": "dc",
+      "ip": "10.40.10.27",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw03"
+    },
+    "dc_h08": {
+      "site": "dc",
+      "ip": "10.40.10.28",
+      "gateway": "10.40.10.1",
+      "switch": "dc_sw04"
+    },
+    "ext_a_web": {
+      "site": "isp_a",
+      "ip": "198.18.10.10",
+      "gateway": "198.18.10.1",
+      "switch": "ext_a_sw"
+    },
+    "ext_b_web": {
+      "site": "isp_b",
+      "ip": "198.18.20.10",
+      "gateway": "198.18.20.1",
+      "switch": "ext_b_sw"
+    }
+  },
+  "site_networks": {
+    "hq": "10.10.10.0/24",
+    "ba": "10.20.10.0/24",
+    "bb": "10.30.10.0/24",
+    "dc": "10.40.10.0/24"
+  },
+  "external_networks": {
+    "isp_a": "198.18.10.0/24",
+    "isp_b": "198.18.20.0/24"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "scenario_id": "F03",
+  "fault_exists": true,
+  "fault_type": "branch_ospf_failure",
+  "fault_devices": [
+    "ba_r1",
+    "ba_r2"
+  ],
+  "expected_root_cause": "Both Branch-A FRR processes stopped; 10.20.10.0/24 no longer propagated into enterprise OSPF",
+  "normal_state": "Headquarters reaches branch A and data center",
+  "observable_symptom": "Branch A becomes unreachable from HQ",
+  "injection": "python3 lab.py inject F03",
+  "repair": "python3 lab.py repair F03",
+  "evaluation_fields": [
+    "fault_detection",
+    "fault_type",
+    "fault_devices",
+    "root_cause",
+    "repair_suggestion"
+  ],
+  "status": "planned_until_live_verified"
+}

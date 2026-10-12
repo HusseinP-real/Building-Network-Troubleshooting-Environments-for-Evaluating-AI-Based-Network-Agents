@@ -1,0 +1,23 @@
+#!/bin/bash
+set -Eeuo pipefail
+exec > >(tee -a /tmp/soft3888-startup.log) 2>&1
+trap 'echo STARTUP_FAILED line=$LINENO command=$BASH_COMMAND >&2' ERR
+echo ROUTER_STARTUP_BEGIN
+ip link set eth0 up
+ip addr replace 10.255.2.1/31 dev eth0
+ip link set eth1 up
+ip addr replace 10.255.3.0/31 dev eth1
+ip link set eth2 up
+ip addr replace 10.255.8.0/31 dev eth2
+ip link set eth3 up
+ip addr replace 10.255.9.0/31 dev eth3
+ip link set eth4 up
+ip addr replace 172.31.2.0/31 dev eth4
+echo ROUTER_INTERFACES_CONFIGURED
+mkdir -p /etc/frr
+sed -i 's/^zebra=no/zebra=yes/;s/^bgpd=no/bgpd=yes/;s/^ospfd=no/ospfd=yes/' /etc/frr/daemons
+chown frr:frr /etc/frr/frr.conf
+service frr start
+sleep 2
+vtysh -c 'show version' >/dev/null
+echo ROUTER_STARTUP_COMPLETE

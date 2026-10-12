@@ -1,0 +1,30 @@
+[
+  {
+    "ticket_id": "F02_general",
+    "scenario_id": "F02",
+    "reporter_type": "general",
+    "text": "One partner site is unavailable from the office.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F02_engineer",
+    "scenario_id": "F02",
+    "reporter_type": "engineer",
+    "text": "External prefix 198.18.10.0/24 is absent despite live WAN links.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F02_expert",
+    "scenario_id": "F02",
+    "reporter_type": "expert",
+    "text": "eBGP sessions are up but the 198.18.10.0/24 advertisement is missing at both ISP-A borders.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F02_misleading",
+    "scenario_id": "F02",
+    "reporter_type": "misleading",
+    "text": "Our DNS server is down; that must be why the partner site is unreachable.",
+    "accuracy": "potentially_inaccurate"
+  }
+]

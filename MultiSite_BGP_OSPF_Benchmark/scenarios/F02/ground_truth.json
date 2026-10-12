@@ -1,0 +1,22 @@
+{
+  "scenario_id": "F02",
+  "fault_exists": true,
+  "fault_type": "bgp_prefix_withdrawal",
+  "fault_devices": [
+    "a1",
+    "a3"
+  ],
+  "expected_root_cause": "ISP-A edge routers have withdrawn 198.18.10.0/24; BGP sessions remain established",
+  "normal_state": "Service prefix announced by ISP-A eBGP speakers",
+  "observable_symptom": "Only ISP-A service prefix unreachable",
+  "injection": "python3 lab.py inject F02",
+  "repair": "python3 lab.py repair F02",
+  "evaluation_fields": [
+    "fault_detection",
+    "fault_type",
+    "fault_devices",
+    "root_cause",
+    "repair_suggestion"
+  ],
+  "status": "planned_until_live_verified"
+}
