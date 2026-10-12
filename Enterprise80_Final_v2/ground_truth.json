@@ -1,0 +1,15 @@
+{
+  "scenario_id": "enterprise80-sydr1-ospfd-down",
+  "topology": "Enterprise80",
+  "fault": {
+    "device": "sydr1",
+    "component": "ospfd",
+    "type": "routing_daemon_down"
+  },
+  "symptoms": [
+    "Sydney LAN1 gateway reachable",
+    "remote services unreachable",
+    "10.10.10.0/24 withdrawn remotely"
+  ],
+  "fix": "/etc/init.d/frr restart"
+}
