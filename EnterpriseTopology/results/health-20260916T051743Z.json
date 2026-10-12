@@ -1,0 +1,516 @@
+{
+  "timestamp": "2026-09-16T05:17:43.799852+00:00",
+  "passed": false,
+  "checks": [
+    {
+      "check": "r1: startup",
+      "node": "r1",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r2: startup",
+      "node": "r2",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r3: startup",
+      "node": "r3",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r4: startup",
+      "node": "r4",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r5: startup",
+      "node": "r5",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r6: startup",
+      "node": "r6",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r7: startup",
+      "node": "r7",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r8: startup",
+      "node": "r8",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r9: startup",
+      "node": "r9",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r10: startup",
+      "node": "r10",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s1: startup",
+      "node": "s1",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s2: startup",
+      "node": "s2",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s3: startup",
+      "node": "s3",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s4: startup",
+      "node": "s4",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s5: startup",
+      "node": "s5",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s6: startup",
+      "node": "s6",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s7: startup",
+      "node": "s7",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s8: startup",
+      "node": "s8",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s9: startup",
+      "node": "s9",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s10: startup",
+      "node": "s10",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s11: startup",
+      "node": "s11",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s12: startup",
+      "node": "s12",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s13: startup",
+      "node": "s13",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s14: startup",
+      "node": "s14",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "s15: startup",
+      "node": "s15",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "staff: startup",
+      "node": "staff",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "guest: startup",
+      "node": "guest",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "office: startup",
+      "node": "office",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "engineering: startup",
+      "node": "engineering",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "app: startup",
+      "node": "app",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "database: startup",
+      "node": "database",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "dmz: startup",
+      "node": "dmz",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "infra: startup",
+      "node": "infra",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "ops: startup",
+      "node": "ops",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r1: all OSPF neighbors Full",
+      "node": "r1",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r2: all OSPF neighbors Full",
+      "node": "r2",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r3: all OSPF neighbors Full",
+      "node": "r3",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r4: all OSPF neighbors Full",
+      "node": "r4",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r5: all OSPF neighbors Full",
+      "node": "r5",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r6: all OSPF neighbors Full",
+      "node": "r6",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r7: all OSPF neighbors Full",
+      "node": "r7",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r8: all OSPF neighbors Full",
+      "node": "r8",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r9: all OSPF neighbors Full",
+      "node": "r9",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "r10: all OSPF neighbors Full",
+      "node": "r10",
+      "passed": false,
+      "output": "Exiting: failed to connect to any daemons."
+    },
+    {
+      "check": "s1: VLAN-aware STP bridge",
+      "node": "s1",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s2: VLAN-aware STP bridge",
+      "node": "s2",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s3: VLAN-aware STP bridge",
+      "node": "s3",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s4: VLAN-aware STP bridge",
+      "node": "s4",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s5: VLAN-aware STP bridge",
+      "node": "s5",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s6: VLAN-aware STP bridge",
+      "node": "s6",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s7: VLAN-aware STP bridge",
+      "node": "s7",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s8: VLAN-aware STP bridge",
+      "node": "s8",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s9: VLAN-aware STP bridge",
+      "node": "s9",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s10: VLAN-aware STP bridge",
+      "node": "s10",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s11: VLAN-aware STP bridge",
+      "node": "s11",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s12: VLAN-aware STP bridge",
+      "node": "s12",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s13: VLAN-aware STP bridge",
+      "node": "s13",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s14: VLAN-aware STP bridge",
+      "node": "s14",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "s15: VLAN-aware STP bridge",
+      "node": "s15",
+      "passed": false,
+      "output": "cat: /sys/class/net/br0/bridge/stp_state: No such file or directory"
+    },
+    {
+      "check": "staff: DHCP lease",
+      "node": "staff",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "staff: DNS answer",
+      "node": "staff",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "guest: DHCP lease",
+      "node": "guest",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "guest: DNS answer",
+      "node": "guest",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "office: DHCP lease",
+      "node": "office",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "office: DNS answer",
+      "node": "office",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "engineering: DHCP lease",
+      "node": "engineering",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "engineering: DNS answer",
+      "node": "engineering",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "staff: application HTTP",
+      "node": "staff",
+      "passed": false,
+      "output": "curl: (6) Could not resolve host: app.enterprise.test"
+    },
+    {
+      "check": "office: application HTTP",
+      "node": "office",
+      "passed": false,
+      "output": "curl: (6) Could not resolve host: app.enterprise.test"
+    },
+    {
+      "check": "engineering: application HTTP",
+      "node": "engineering",
+      "passed": false,
+      "output": "curl: (6) Could not resolve host: app.enterprise.test"
+    },
+    {
+      "check": "ops: application HTTP",
+      "node": "ops",
+      "passed": false,
+      "output": "curl: (6) Could not resolve host: app.enterprise.test"
+    },
+    {
+      "check": "guest: DMZ allowed",
+      "node": "guest",
+      "passed": false,
+      "output": "curl: (6) Could not resolve host: dmz.enterprise.test"
+    },
+    {
+      "check": "guest: internal application denied",
+      "node": "guest",
+      "passed": true,
+      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "office: direct database denied",
+      "node": "office",
+      "passed": true,
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "application: database allowed",
+      "node": "app",
+      "passed": false,
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "ops: database allowed",
+      "node": "ops",
+      "passed": false,
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "ops: all router loopbacks reachable",
+      "node": "ops",
+      "passed": false,
+      "output": "ping: connect: Network is unreachable"
+    },
+    {
+      "check": "r3: VRRP process",
+      "node": "r3",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r4: VRRP process",
+      "node": "r4",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r5: VRRP process",
+      "node": "r5",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r6: VRRP process",
+      "node": "r6",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r7: VRRP process",
+      "node": "r7",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r8: VRRP process",
+      "node": "r8",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r9: VRRP process",
+      "node": "r9",
+      "passed": false,
+      "output": ""
+    },
+    {
+      "check": "r10: VRRP process",
+      "node": "r10",
+      "passed": false,
+      "output": ""
+    }
+  ]
+}

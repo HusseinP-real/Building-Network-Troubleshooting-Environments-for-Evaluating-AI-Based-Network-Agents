@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+exec > /var/log/enterprise-startup.log 2>&1
+ip link set lo up
+ip link set eth0 up
+ip link set eth1 up
+ip link set eth2 up
+ip link add br0 type bridge vlan_filtering 1 stp_state 1 priority 32768 forward_delay 400
+ip link set br0 up
+ip link set eth0 master br0
+bridge vlan del dev eth0 vid 1
+bridge vlan add dev eth0 vid 410
+ip link set eth1 master br0
+bridge vlan del dev eth1 vid 1
+bridge vlan add dev eth1 vid 410
+ip link set eth2 master br0
+bridge vlan del dev eth2 vid 1
+bridge vlan add dev eth2 vid 410 pvid untagged
+touch /tmp/enterprise-ready

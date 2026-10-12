@@ -1,0 +1,38 @@
+{
+  "core-uplink": {
+    "ticket": "Monitoring reports that one headquarters router has lost a core OSPF adjacency. Staff can still reach the application. Identify the failed resource and explain why service remains available.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "interface/r5/eth0",
+      "fault_type": "interface_down",
+      "device": "r5",
+      "root_cause": "The r5 eth0 uplink is administratively down. Redundant core paths preserve application reachability."
+    },
+    "inject_check": ["r5", "test \"$(cat /sys/class/net/eth0/operstate)\" = down"],
+    "repair_check": ["r5", "test \"$(cat /sys/class/net/eth0/operstate)\" = up"]
+  },
+  "gateway-service": {
+    "ticket": "The headquarters staff VLAN changed active gateway unexpectedly, although application access still works. Diagnose the gateway control-plane failure and its owner.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "service/r5/keepalived",
+      "fault_type": "vrrp_service_stopped",
+      "device": "r5",
+      "root_cause": "Keepalived stopped on r5, so r6 assumed the staff VRRP virtual gateway."
+    },
+    "inject_check": ["r5", "! pgrep keepalived"],
+    "repair_check": ["r5", "pgrep keepalived"]
+  },
+  "database-acl": {
+    "ticket": "Users receive HTTP 503 from the internal application. Operations can still reach the database service directly. Diagnose the failing application-to-backend path and identify the owner.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "policy/app/output-tcp-8080",
+      "fault_type": "backend_acl_reject",
+      "device": "app",
+      "root_cause": "A reject rule in app's OUTPUT chain blocks TCP/8080 to 10.30.20.10, making the application return HTTP 503."
+    },
+    "inject_check": ["app", "iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"],
+    "repair_check": ["app", "! iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"]
+  }
+}
