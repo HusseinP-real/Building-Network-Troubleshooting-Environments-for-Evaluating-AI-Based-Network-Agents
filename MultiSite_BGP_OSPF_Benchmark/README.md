@@ -1,142 +1,113 @@
-# SOFT3888 — Multi-Site Enterprise / Dual ISP BGP–OSPF Troubleshooting Benchmark
+# Multi-Site Enterprise and Dual-ISP Network Troubleshooting Benchmark
 
-**Status: Generated and offline validated; live Kathara, routing convergence, and SADE integration NOT yet verified.**
+**SOFT3888 | Network troubleshooting environment prototype | Kathara + FRRouting**
 
-This is an **independent** SOFT3888 prototype, developed without access to the client's `OwnTopologies` repository. It uses Kathara for device emulation, FRRouting for OSPF and eBGP, and repeatable fault-case metadata. It is **not** advertised as NIKA-compatible or a completed SADE benchmark. Its goal is a usable starting point for the final evaluated dataset.
+A reproducible, container-based **80-device** network designed to evaluate troubleshooting workflows on a multi-site enterprise topology connected to two simulated ISPs. It uses **OSPF for intra-AS routing** and **eBGP for enterprise-to-ISP route exchange**, with controlled fault injection, recovery checks, structured ground truth and user tickets.
 
-## Deliverables
+> **Verified prototype, not a completed AI benchmark.** On **12 October 2026**, the developer reported successful live execution on macOS: **18/18 baseline checks**, **F01–F03 automated fault/recovery tests**, and **8/8 Python unit tests**. These are results from the developer's local environment, not independently reproduced CI runs. **SADE integration and NIKA/OwnTopologies format compatibility remain unverified.**
 
-- Exactly **80 nodes**: 18 FRR routers, 20 Linux bridge switches, 42 endpoints.
-- 3 autonomous systems: enterprise **AS65000**, ISP-A **AS65010**, ISP-B **AS65020**.
-- Headquarters, Branch A, Branch B and Data Center with separate `/24` LANs.
-- Two simulated ISP service subnets, OSPF within ASes, eBGP between ASes.
-- Deterministic generator, device inventory, Kathara lab and startup files.
-- Three automated failure/repair scenarios and twelve user tickets, with separated ground truth.
-- Runtime baseline checker and offline evaluation metrics script.
+## 1. Project purpose
 
-## Architecture
+The client requested larger, realistic topologies (ideally **75–100 devices**), multiple subnets and protocols, repeatable faults and user reports varying in detail/accuracy. This contribution develops **one** 80-node topology with **three** repeatable fault scenarios and **twelve** prewritten tickets. It is intended to complement other team topologies, **not** to fulfill the client's aspirational ten-topology target by itself.
+
+## 2. What is implemented
+
+| Component | Implementation |
+|---|---|
+| Devices | **18 FRR routers, 20 Linux bridge switches, 42 endpoints** (80 total) |
+| Routing domains | Enterprise AS65000, ISP-A AS65010, ISP-B AS65020 |
+| Routing | OSPF **area 0** within each AS, eBGP on four enterprise–ISP links |
+| Sites | Headquarters, Branch A, Branch B, Data Center; two simulated ISP services |
+| Services | Two HTTP test endpoints (`:8080`) and ICMP reachability probes |
+| Automation | Deterministic topology generator, static validator, baseline checker, fault injection/recovery and unit tests |
+| Dataset | Three fault ground-truth records and four tickets per scenario |
+| Agent evaluation | Offline prediction scorer exists; **no live SADE adapter** |
+
+**Not implemented:** 802.1Q VLAN trunking, VRRP/first-hop failover, DHCP, DNS, ACL policy scenarios, multi-area OSPF, or external/public Internet connectivity. Switch nodes use simple Linux bridges, not full-featured managed switches.
+
+## 3. Architecture overview
 
 ```text
-               ISP-A (AS 65010)            ISP-B (AS 65020)
-                 a1 -- a2 -- a3            b1 -- b2 -- b3
-                 |      |     |            |     |      |
-                 |    ext_A   |            |   ext_B    |
-                 e1          e3            e2          e4
-                  \         /                \         /
-                Enterprise AS 65000: e1 -- e2 -- e3 -- e4 -- e1
-                                      |       |       |
-                            HQ routers, Branch A/B routers,
-                            Data Center routers; OSPF Area 0
-                                   |           |
-                       bridged access switches and hosts
+                 ISP-A (AS65010)           ISP-B (AS65020)
+                a1 -- a2 -- a3           b1 -- b2 -- b3
+                 |           |            |           |
+                e1          e3           e2          e4
+                  \         /             \         /
+               +------------------------------------------+
+               | Enterprise AS65000                       |
+               | Redundant e1--e2--e3--e4--e1 edge ring   |
+               | OSPF area 0                              |
+               +------------------------------------------+
+                           |  |  |  |
+                     HQ / Branch A / Branch B / DC
+                      redundant site uplinks + LANs
 ```
 
-**Caution:** Diagram is conceptual; the exact point-to-point edges are stored in `inventory.json`. The enterprise e1–e4 ring is redundant. Each site has two uplinks, one per site router. Site endpoints use the `.1` router as their primary gateway; **automatic first-hop gateway failover is not implemented**, so loss of that router can still affect endpoint traffic.
+The diagram is conceptual, not a port-level wiring diagram. See [Architecture](docs/ARCHITECTURE.md) and `inventory.json` for **exact links, interface numbers and addresses**. The ISP service ranges (`198.18.10.0/24`, `198.18.20.0/24`) are isolated lab/test networks, not access to the public Internet.
 
-## Network address and AS plan
+## 4. Documentation
 
-| Function | Prefix / range | Equipment |
-|---|---|---|
-| Enterprise HQ LAN | `10.10.10.0/24` | hq_r1 `.1`, hq_r2 `.2`, hq_h01 `.21` |
-| Branch A LAN | `10.20.10.0/24` | ba_r1 `.1`, ba_r2 `.2`, ba_h01 `.21` |
-| Branch B LAN | `10.30.10.0/24` | bb_r1 `.1`, bb_r2 `.2`, bb_h01 `.21` |
-| Data Center LAN | `10.40.10.0/24` | dc_r1 `.1`, dc_r2 `.2`, dc_h01 `.21` |
-| Enterprise P2P | `10.255.1.0/31` through `10.255.12.0/31` | OSPF area 0 |
-| ISP-A P2P | `172.20.1.0/31` through `172.20.2.0/31` | OSPF area 0 in AS65010 |
-| ISP-B P2P | `172.21.1.0/31` through `172.21.2.0/31` | OSPF area 0 in AS65020 |
-| eBGP peering links | `172.31.1.0/31` through `172.31.4.0/31` | Enterprise ↔ ISP border routers |
-| ISP-A external service | `198.18.10.0/24` | a2 gateway `.1`, ext_a_web `.10` |
-| ISP-B external service | `198.18.20.0/24` | b2 gateway `.1`, ext_b_web `.10` |
-| Enterprise BGP aggregate | `10.0.0.0/8` | originated at each enterprise eBGP edge using Null0 summary route |
+| Document | Contents |
+|---|---|
+| [Architecture & IP/AS plan](docs/ARCHITECTURE.md) | Roles, subnet plan, link adjacency and routing decisions |
+| [Deployment & operations](docs/DEPLOYMENT.md) | Installation, startup, checks, shutdown and troubleshooting |
+| [Fault scenarios](docs/FAULT_SCENARIOS.md) | F01–F03 injection, expected behavior, controls, recovery |
+| [Validation evidence](docs/VALIDATION.md) | Exact scope of the reported successful runs and how to save evidence |
+| [Benchmark data and roadmap](docs/BENCHMARK_AND_ROADMAP.md) | Tickets, ground truth, limitations, SADE and next milestones |
 
-Notes: `198.18.0.0/15` is reserved for benchmark/testing purposes and is used entirely inside the isolated emulation; it is **not the public Internet**. All ASNs are private-use numbers. Prefix choice is laboratory-only; do not connect these networks to production without renumbering.
-
-## Prerequisites
-
-- macOS (including Apple Silicon) or Linux, **Docker Desktop running** and **Kathara CLI installed**.
-- Python 3.9+, standard library only for scripts.
-- Access to Docker images `kathara/frr:10` and `kathara/base:latest` (not guaranteed unless pulled/available).
-- A workstation with adequate RAM for 80 containers. Use the mini profile first in constrained environments; currently the generator creates the full 80-node lab only.
-- Connectivity to download images at least once. Check Docker resources first.
-
-## Quick start on Mac
+## 5. Quick start
 
 ```bash
-unzip MultiSite_BGP_OSPF_Benchmark.zip
 cd MultiSite_BGP_OSPF_Benchmark
-python3 tools/generate.py
-python3 tools/validate_static.py
-python3 -m unittest discover -s tests -v
-
-docker info >/dev/null
-kathara check
-docker pull kathara/frr:10
-docker pull kathara/base:latest
-python3 lab.py start
-# Wait for routing daemons and BGP/OSPF convergence, then:
-python3 lab.py check
-
-# Inspect live devices:
+chmod +x run_mac.sh
+./run_mac.sh                    # generate + static checks + Python unit tests
+kathara check                   # Docker/Kathara preflight
+python3 lab.py start            # deploy lab
+python3 lab.py check            # expect Baseline: 18/18 passed after convergence
+kathara exec -d "$PWD" e1 "vtysh -c 'show bgp summary'"
 kathara exec -d "$PWD" e1 "vtysh -c 'show ip ospf neighbor'"
-kathara exec -d "$PWD" e1 "vtysh -c 'show bgp ipv4 unicast summary'"
-kathara exec -d "$PWD" hq_h01 "ping -c 2 198.18.10.10"
+```
 
+**Only inject faults after `python3 lab.py check` passes.** Run sequentially and confirm full baseline after each repair:
+
+```bash
+python3 lab.py test-fault F01 --settle-seconds 35
+python3 lab.py check
 python3 lab.py test-fault F02 --settle-seconds 35
+python3 lab.py check
+python3 lab.py test-fault F03 --settle-seconds 35
+python3 lab.py check
+```
+
+Shut down **only this lab**:
+
+```bash
 python3 lab.py stop
 ```
 
-**Do not run live fault tests until baseline checks pass.** If one fails, start by inspecting `kathara exec ... 'ip addr'`, `vtysh -c 'show ip route'`, and device startup logs rather than interpreting failed ping as a valid injected fault.
+Do **not** use `kathara wipe` or `docker system prune` as routine project commands because they can affect other labs. Startup may take longer for 80 containers. Detailed instructions: [Deployment](docs/DEPLOYMENT.md).
 
-## Fault scenarios
+## 6. Verified results and evidence status
 
-| ID | Injection | Expected symptom | Isolation / control | Repair |
-|---|---|---|---|---|
-| F01 | Disable a1 and a3 eBGP-facing `eth1` | ISP-A service unreachable | ISP-B service stays available | Bring both interfaces up |
-| F02 | Withdraw `198.18.10.0/24` at both ISP-A border speakers | ISP-A prefix unreachable, eBGP sessions may stay up | ISP-B service stays available | Re-originate prefix |
-| F03 | Stop FRR on both Branch-A routers | HQ loses path to Branch-A host | DC path stays available | Restart FRR |
+| Check | Last reported result | Interpretation |
+|---|---|---|
+| Static validation | PASS: 80 devices, 68 collision domains, 92 distinct IPs, 20 routed P2P links | Consistency of generated configuration |
+| Python unit tests | 8/8 PASS | Unit-level generator / executor checks |
+| Baseline checks | 18/18 PASS | Four BGP neighbor assertions, twelve host connectivity probes, two HTTP probes |
+| OSPF (e1) | Four `Full/DR` neighbors | Verified adjacency on e1; not an all-router OSPF audit |
+| eBGP (e1 → a1) | Established; one prefix received | One verified peer observation; four peers covered by baseline checks |
+| F01, F02, F03 | User reported all three tests passed and recovered | Fault effects and post-repair state; full logs should be committed as evidence if appropriate |
+| SADE live agent runs | Not performed | No claims about AI diagnosis accuracy |
 
-Commands:
+**Evidence policy:** do not manufacture trial logs or treat the 18 baseline probes as exhaustive verification of all 80 nodes. Keep raw `results/` evidence with dates and environment versions when sharing externally; sanitize host identifiers if needed.
 
-```bash
-python3 lab.py inject F01
-python3 lab.py repair F01
-python3 lab.py test-fault F01 --settle-seconds 35
-python3 lab.py test-fault F02 --settle-seconds 35
-python3 lab.py test-fault F03 --settle-seconds 35
-```
+## 7. Source of truth and caveats
 
-`test-fault` checks the healthy precondition, injects the fault, checks affected and unaffected paths, **always attempts repair in a `finally` clause** after injection, and checks recovery. F01 and F02 deliberately disrupt **both** ISP-A peerings: taking down only one peering may have no service impact because of redundancy.
+- `tools/generate.py` regenerates `lab.conf`, device `*.startup` scripts, FRR configs and `inventory.json`. Update the generator, not only generated outputs.
+- Site hosts use primary gateway `.1`; the `.2` routers are alternative routers but **no automatic gateway failover** is implemented.
+- Enterprise border routers advertise an aggregate `10.0.0.0/8` backed by Null0. This simplifies return routes but can obscure some missing-specific-route issues.
+- F01 and F02 both alter **two** ISP-A border routers. Treat these as single **scenario events affecting two devices**, not literal single-device failures.
+- The customer-provided `OwnTopologies` repository was inaccessible when this prototype was developed. No dataset-schema compliance is claimed.
+- The bundled `tools/evaluate_agent.py` scores supplied predictions offline; **it does not launch or connect to SADE**.
 
-**Known caveat:** `test-fault` records functional effect, but does not prove root cause; an additional FRR routing-state assertion and repeated trials should be added before a final client claim. These cases are designed, not yet experimentally validated on the user's machine.
-
-## User reports / benchmark fairness
-
-Each scenario has 4 tickets: general user, engineer, expert, and misleading. The `scenarios/FXX/ground_truth.json` files are for the evaluator **only**. Do not expose them to SADE inside the diagnostic prompt or accessible tools. Use each case as an independent trial with a fresh fault baseline. A misleading ticket should not redefine what the true fault is.
-
-The included `tools/evaluate_agent.py` can score an external JSON list of model predictions against ground truth. **It does not run SADE and is not a SADE adapter.** See `docs/EVALUATION.md` for example schema and next integration steps.
-
-## Generation and reproducibility
-
-Run `python3 tools/generate.py` to recreate `lab.conf`, `*.startup`, `configs/**/frr.conf`, each router's mounted `/etc/frr/frr.conf`, and `inventory.json`. Avoid editing generated files directly; change the generator source. For reproducibility, record `git rev-parse HEAD`, `docker image inspect`, Kathara version, host OS, test timestamps, and each agent model/configuration.
-
-## Important technical limitations
-
-1. Docker and Kathara are unavailable in the current authoring environment; **no live network deployment or end-to-end validation has occurred here**.
-2. External services are simple Python HTTP servers, not realistic multi-tier enterprise applications.
-3. Only OSPF/eBGP plus transparent layer-2 bridging and basic HTTP are implemented. VRRP, VLAN trunks, STP stress cases, ACL, DNS and DHCP are *not implemented*; do not claim they are.
-4. OSPF uses area 0 in each independent AS; not multi-area OSPF.
-5. FRR command behavior, daemon config file mount and Docker image contents must be verified on your Kathara installation. If a startup or FRR command differs, fix it based on the live logs before accepting the benchmark.
-6. An aggregate `10.0.0.0/8` Null0 advertisement simplifies return routing to enterprise sites; it may conceal configuration mistakes and must be considered in interpreting routing anomalies.
-7. `OwnTopologies` is inaccessible and the dataset schema has not been confirmed; compatibility with customer dataset and NIKA is unverified.
-8. SADE is not invoked by this package. Offline scoring is not evidence of agent performance.
-
-## Extension priorities toward project goals
-
-1. Obtain client schema and port these scenarios to it without leaking ground truth.
-2. Add interface/BGP/OSPF state assertions and 3+ repeated runs per fault.
-3. Implement branch gateway redundancy, multiple VLANs/subnets, DNS and ACL service faults.
-4. Add SADE runtime connector with controlled read-only diagnostic tools and saved traces.
-5. Compare diagnosis accuracy by reporter type, fault family, network size and protocol, with honest failures and per-run metadata.
-6. Obtain customer confirmation of exact deliverable definitions and target scenario counts.
-
-See `docs/ARCHITECTURE.md` and `docs/EVALUATION.md`.
+See [Benchmark & roadmap](docs/BENCHMARK_AND_ROADMAP.md) for the remaining work.
