@@ -19,23 +19,26 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="material-symbols-outlined" aria-hidden="true">monitoring</span> Network troubleshooting intelligence</div>
           <h1>From fault<br>to <em>finding.</em></h1>
-          <p class="hero-sub">One run. Three real network faults. A complete picture of how accurately an agent detects, locates and explains the root cause.</p>
-          <div class="hero-tags"><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">lan</span>3 scenarios</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">pentagon</span>5 scoring axes</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>Live lab</span></div>
+          <p class="hero-sub">Twenty scenarios. Real faults, vague reports, misleading claims and healthy networks. Test whether the agent verifies evidence before diagnosing.</p>
+          <div class="hero-tags"><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">lan</span>20 scenarios</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">pentagon</span>8 scoring axes</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>Live lab</span></div>
         </div>
         <div class="launch-card glass">
           <div class="launch-top"><div><div class="card-kicker">New evaluation</div><h2>Launch benchmark</h2></div><span class="launch-icon material-symbols-outlined" aria-hidden="true">rocket_launch</span></div>
           <label class="field-label" for="model">Agent model</label>
           <input id="model" value="claude-haiku-5-5" autocomplete="off" spellcheck="false">
           <div class="field-row"><label class="field-label" for="repeats">Passes per scenario</label><select id="repeats"><option value="1">1 pass · quick demo</option><option value="3">3 passes · comparison</option><option value="5">5 passes · deeper sample</option></select></div>
+          <div class="field-row"><label class="field-label" for="mode">Evaluation mode</label><select id="mode"><option value="live">Live diagnostic tools</option><option value="no-tools">No tools · guessing control</option></select></div>
+          <div class="field-row"><label class="field-label" for="promptStyle">Instructions</label><select id="promptStyle"><option value="generic">Generic investigation</option><option value="guided">Guided diagnosis hints</option></select></div>
+          <div class="field-row"><label class="field-label" for="toolProfile">Diagnostic tools</label><select id="toolProfile"><option value="atomic">Individual device commands</option><option value="sweep">Bulk diagnostic helpers</option></select></div>
           <button id="runButton" class="run-button m3-interactive"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span><span id="runLabel">Run benchmark</span></button>
-          <p class="launch-foot"><span class="material-symbols-outlined" aria-hidden="true">info</span>Runs the existing SADE evaluator locally. Docker/Kathara and model authentication must be ready.</p>
+          <p class="launch-foot"><span class="material-symbols-outlined" aria-hidden="true">info</span>Runs the existing SADE evaluator locally. Docker/Kathara and model authentication must be ready. Each case also calls an independent quality judge.</p>
         </div>
       </section>
 
       <section id="runPanel" class="run-panel glass" hidden>
         <div class="panel-heading"><div><div class="card-kicker">Live execution</div><h2 id="runTitle">Preparing benchmark…</h2></div><div id="runBadge" class="badge running">Running</div></div>
         <div class="progress-track" role="progressbar" aria-label="Benchmark progress" aria-valuemin="0" aria-valuemax="100"><div id="progressFill"></div></div>
-        <div class="progress-meta"><span id="progressText">Waiting for the first scenario</span><span id="progressCount">0 / 3</span></div>
+        <div class="progress-meta"><span id="progressText">Waiting for the first scenario</span><span id="progressCount">0 / 12</span></div>
         <details class="log-details"><summary class="m3-interactive">View execution log <span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary><pre id="runLog" class="run-log"></pre></details>
       </section>
 
@@ -46,12 +49,19 @@
       <div id="emptyState" class="empty-state glass" hidden><span>◌</span><h3>No benchmark report yet</h3><p>Start a run above. Results will appear here when the run finishes.</p></div>
       <div id="dashboard" hidden>
         <section class="stats-grid">
-          <div class="stat-card glass accent"><div class="stat-icon material-symbols-outlined" aria-hidden="true">target</div><div class="stat-label">Exact root cause</div><div class="stat-value" id="exactValue">—</div><div class="stat-bottom"><span id="exactCount">—</span></div></div>
-          <div class="stat-card glass"><div class="stat-icon material-symbols-outlined" aria-hidden="true">verified</div><div class="stat-label">Complete runs</div><div class="stat-value" id="completeValue">—</div><div class="stat-bottom">Scored · injected · repaired</div></div>
+          <div class="stat-card glass accent"><div class="stat-icon material-symbols-outlined" aria-hidden="true">target</div><div class="stat-label" id="exactLabel">Full correctness</div><div class="stat-value" id="exactValue">—</div><div class="stat-bottom"><span id="exactCount">—</span></div></div>
+          <div class="stat-card glass"><div class="stat-icon material-symbols-outlined" aria-hidden="true">verified</div><div class="stat-label">Complete runs</div><div class="stat-value" id="completeValue">—</div><div class="stat-bottom">Scored · state verified · restored</div></div>
           <div class="stat-card glass"><div class="stat-icon material-symbols-outlined" aria-hidden="true">schedule</div><div class="stat-label">Avg diagnosis time</div><div class="stat-value" id="timeValue">—</div><div class="stat-bottom">Wall clock per attempt</div></div>
           <div class="stat-card glass"><div class="stat-icon material-symbols-outlined" aria-hidden="true">terminal</div><div class="stat-label">Tool calls</div><div class="stat-value" id="callsValue">—</div><div class="stat-bottom">Across scored attempts</div></div>
         </section>
 
+        <section class="stats-grid" id="robustnessStats" hidden>
+          <div class="stat-card glass"><div class="stat-label">Healthy false positives</div><div class="stat-value" id="falsePositiveValue">—</div><div class="stat-bottom" id="falsePositiveNote">Lower is better</div></div>
+          <div class="stat-card glass"><div class="stat-label">Healthy correct rejection</div><div class="stat-value" id="healthyValue">—</div><div class="stat-bottom">No invented fault or device</div></div>
+          <div class="stat-card glass"><div class="stat-label">Misleading ticket accuracy</div><div class="stat-value" id="misleadingValue">—</div><div class="stat-bottom">Exact diagnosis despite wrong claims</div></div>
+          <div class="stat-card glass"><div class="stat-label">Exact RCA · 95% interval</div><div class="stat-value" id="intervalValue">—</div><div class="stat-bottom">Wilson interval · repeated cases are correlated</div></div>
+        </section>
+        <section class="chart-card glass" id="categoryPanel" hidden><div class="chart-heading"><div><div class="card-kicker">Ticket robustness</div><h3>Accuracy by ticket category</h3></div></div><div id="categoryChart" class="bar-chart"></div></section>
         <section class="visual-grid">
           <article class="chart-card glass radar-card"><div class="chart-heading"><div><div class="card-kicker">Accuracy profile</div><h3>Where the agent succeeds</h3></div><span class="chart-note">Rate by scoring axis</span></div><div id="radarChart" class="radar-chart"></div></article>
           <article class="chart-card glass matrix-card"><div class="chart-heading"><div><div class="card-kicker">Diagnostic depth</div><h3>Scenario × scoring axis</h3></div><span class="chart-note">Each tile = one attempt</span></div><div id="matrixChart" class="matrix-chart"></div><div class="matrix-legend"><span class="legend-good"></span> Correct <span class="legend-bad"></span> Incorrect <span class="legend-none"></span> Unscored</div></article>
@@ -62,8 +72,8 @@
           <article class="chart-card glass"><div class="chart-heading"><div><div class="card-kicker">Effort</div><h3>Tools used per scenario</h3></div><span class="chart-note">Calls per attempt</span></div><div id="toolChart" class="bar-chart"></div></article>
         </section>
 
-        <section class="table-card glass"><div class="chart-heading"><div><div class="card-kicker">Evidence trail</div><h3>Run by run</h3></div><span class="chart-note" id="reportMeta"></span></div><div class="table-scroll"><table><thead><tr><th>Scenario</th><th>Model</th><th>Exact RCA</th><th>Injection</th><th>Repair</th><th>Time</th><th>Tools</th></tr></thead><tbody id="runsTable"></tbody></table></div></section>
-        <div class="scope-note"><span>ⓘ</span> Local enterprise-topology SADE evaluation. Rates use all attempted runs; unscored attempts count as incorrect. This is not an official NIKA benchmark result. Small samples show functionality, not stable model accuracy.</div>
+        <section class="table-card glass"><div class="chart-heading"><div><div class="card-kicker">Evidence trail</div><h3>Run by run</h3></div><span class="chart-note" id="reportMeta"></span></div><div class="table-scroll"><table><thead><tr><th>Scenario</th><th>Model</th><th>Exact RCA fields</th><th>Explanation</th><th>Repair advice</th><th>Full correct</th><th>Test state</th><th>Restoration</th><th>Time</th><th>Tools</th></tr></thead><tbody id="runsTable"></tbody></table></div></section>
+        <div class="scope-note"><span>ⓘ</span> Local enterprise-topology SADE evaluation. Rates use all attempted runs; unscored attempts count as incorrect. This is not an official NIKA benchmark result. Environment restoration is performed by the runner, not the agent. Version 3 adds alternate fault locations and compound cases. Field identification, explanation and repair advice are scored separately. Quality scoring uses an LLM judge and a strict command-plan check; historical quality is unscored. One topology remains insufficient to establish broad generalization.</div>
       </div>
     </main>
     <footer><span>SADE · Symptom-aware diagnosis evaluation</span><span>Built for reproducible network troubleshooting</span></footer>

@@ -1,89 +1,93 @@
-# SADE evaluation on the 75-device lab
+# SADE local enterprise benchmark v3
 
-This integration runs the SADE symptom-aware workflow and skill library from a NIKA checkout against this standalone Kathara lab. It injects one of the three existing faults, gives SADE a user ticket and public fault ontology, compares SADE's structured diagnosis with hidden ground truth, and repairs the fault in a `finally` block. The lab is not registered as a NIKA benchmark scenario, so these are local exact-match RCA results rather than official NIKA benchmark metrics.
+This is a local evaluation on one 75-device Kathara topology, not an official NIKA score. Version 3 has 20 tickets: seven individual physical faults across four fault classes, alternate fault locations, two compound states, accurate/vague/misleading reports, and three healthy false-premise reports. Seeded scheduling changes order, not fault parameters. Alternate locations are explicit reproducible cases; arbitrary location randomization is not implemented.
 
-## Setup
+## Scoring
 
-From this `enterprise-topology` directory, with Docker Desktop and Kathara installed:
+Scores are separate:
+
+- `rca_exact`: anomaly state, complete device set, and every resource/fault-type/device triple match hidden ground truth. Missing, extra, swapped or contradictory causes fail.
+- `explanation_correct`: an independent no-tools LLM judge checks causal mechanisms, relevant live evidence, completeness and contradictions.
+- `repair_correct`: the judge approves the prose AND every structured repair action matches a targeted command from the hidden approved plan.
+- `full_correct`: all three above pass. Correct labels alone cannot earn full credit.
+
+The deterministic command-plan gate never executes model commands. It accepts the runner's recovery command and declared simple alternatives (for example, a direct deletion of the injected ACL rule). Quoting differences are normalized with `shlex`. Other equivalent repair commands can be rejected: this is a conservative, constrained repair-plan metric, not a general shell equivalence checker. The LLM judge can make mistakes; review its recorded reasons and keep judge model/rubric fixed when comparing runs. It runs in a fresh empty temporary workspace, with no tools, MCP, project settings or continuation of the diagnosis session.
+
+Judge failure or missing quality assessment leaves explanation, repair and full correctness unscored (`null`), and makes the CLI run unsuccessful. Structural scores and environment recovery still remain available. Summary metrics use all attempts conservatively and also show scored-only rates and unscored counts. Historical reports are not modified or retroactively assigned quality credit. `summarize` recomputes structural fields and only retains v3 quality judgments; it does not make model calls.
+
+Each live case calls the diagnosis model and a separate judge. Judge defaults to the same model in an independent session; use `--judge-model` to choose a different one. Judge usage/cost/reasons are recorded separately. Repairs in the environment are always performed by the runner; evaluating recommendations does not establish that the agent can execute a repair.
+
+## Setup and running
+
+Start Docker Desktop and ensure Kathara is installed. Use the Python interpreter from the NIKA environment (install its `sade` extra). Authenticate the model in the execution shell; never store credentials in the repo.
 
 ```bash
-python3 lab.py build
-python3 lab.py start
-```
-
-In a NIKA checkout, install the optional SADE SDK:
-
-```bash
-cd /path/to/nika
-uv sync --extra sade
-```
-
-Use an Anthropic API key or authenticate Claude Code with `claude auth login`. Do not put credentials in this lab or its result files. To enter a key for the current shell session without echoing it or saving it in shell history, run `read -s 'ANTHROPIC_API_KEY?Anthropic API key: '` in zsh, press Enter, then run `export ANTHROPIC_API_KEY`. Do not paste the key into chat. The evaluator defaults to `claude-haiku-5-5`; use `--model MODEL_ID` on a run to compare another model, or set `SADE_MODEL` for the shell session. The model ID is saved in each result JSON.
-
-Run the evaluator with the Python interpreter from that NIKA environment and point `--nika-root` at the checkout:
-
-```bash
-cd /path/to/SOFT3888_TU14_04/enterprise-topology
+python3 lab.py status
+python3 lab.py check
 /path/to/nika/.venv/bin/python tools/sade_eval.py validate --nika-root /path/to/nika
-/path/to/nika/.venv/bin/python tools/sade_eval.py run core-uplink --nika-root /path/to/nika --model claude-haiku-5-5
-/path/to/nika/.venv/bin/python tools/sade_eval.py run gateway-service --nika-root /path/to/nika
-/path/to/nika/.venv/bin/python tools/sade_eval.py run database-acl --nika-root /path/to/nika
+/path/to/nika/.venv/bin/python tools/sade_eval.py run core-uplink --nika-root /path/to/nika --model MODEL
+/path/to/nika/.venv/bin/python tools/sade_benchmark.py run --nika-root /path/to/nika --model MODEL
 ```
 
-Run cases one at a time. Each run requires a healthy baseline, injects its fault, waits for convergence, verifies the injection, runs SADE with read-only lab tools, scores its final diagnosis, then repairs and verifies repair. The command writes `results/sade/<UTC timestamp>/<case>.json`. That result contains the prompt, tool trace, prediction, expected ground truth, and exact comparison. `results/sade/` is ignored by Git.
+Default: `--prompt-style generic --tool-profile atomic`. Generic instructions do not explicitly hint at VRRP or redundant uplinks. Atomic mode exposes basic reachability, device inventory and individual read-only container commands, with no helper MCP server. The initial five-flow reachability map remains shared across tool profiles; the ablation removes bulk root-cause diagnostic helpers, not all aggregate reachability. SADE project skills remain available in both live profiles. Sweep mode also provides bulk diagnostic helpers.
 
-The public ontology has three IDs: `interface_down`, `vrrp_service_stopped`, and `backend_acl_reject`. SADE sees a catalog of possible resources and must submit one `resource_id` and `fault_type`. The local scorer reports detection, device, resource localization, fault type, and exact `(resource_id, fault_type)` correctness. The expected pair and root-cause description are in `tools/sade_cases.json` and are never included in the agent prompt or diagnostic MCP responses.
+Each case starts from a full healthy baseline, verifies every injected fault, starts a fresh diagnosis session, scores, then restores faults in reverse order and verifies full baseline health. Cleanup includes partially applied injections. If restoration fails, the suite stops. Reports include versions, manifest hash, actual system prompt, tool trace without the previous 10,000-character trace truncation, model, budgets, profile, judge verdict and recovery evidence. MCP responses themselves still have bounded per-command output.
 
-## Run and summarize the local benchmark
+## Output format
 
-### Presentation dashboard
-
-From the `enterprise-topology` directory, start the loopback-only UI:
-
-```bash
-python3 dashboard/server.py
+```text
+=== DIAGNOSIS ===
+is_anomaly: true
+resource_id: interface/r5/eth0
+fault_type: interface_down
+faulty_devices: r5
+root_causes: [{"resource_id":"interface/r5/eth0","fault_type":"interface_down","device":"r5"}]
+repair_actions: [{"device":"r5","command":"ip link set eth0 up"}]
+diagnosis_text:
+Explain observations and the causal mechanism.
+repair_text:
+Explain targeted restoration and checks.
+=== END ===
 ```
 
-Open `http://127.0.0.1:8765`. The page opens the newest saved benchmark report automatically, so it can be demonstrated without a fresh model call. Choose another saved report from the dropdown to compare runs. The dashboard shows exact RCA, completion, five scoring axes, a per-attempt scoring matrix, diagnosis time, tool calls, and injection/repair evidence.
+For multiple causes use `multiple` for scalar resource/fault fields and list all triples. For healthy state use `false`, `none`, `none`, `none`, and two empty JSON arrays; recommend no corrective changes. Legacy single-cause answers can still receive structural credit, but missing separate repair plans cannot receive repair or full credit.
 
-If `python3 lab.py start` says a device already exists, first run `python3 lab.py status` and `python3 lab.py check`; a healthy running lab does not need to be started again. If the dashboard says port 8765 is in use, open the existing page or use `python3 dashboard/server.py --port 8766` and open that port instead.
-
-**Run benchmark** calls the existing `tools/sade_benchmark.py run` command with the chosen model and repeat count, then loads its new summary. The server uses the Python interpreter at the NIKA checkout's `.venv/bin/python` and passes that checkout as `--nika-root`. For a different checkout, start it with `--nika-root /path/to/nika`; use `--python /path/to/python` if its interpreter is elsewhere. Docker/Kathara, a healthy started lab, and model authentication are required for a live run. Keep the server in the same environment as the model credentials; the browser never receives the API key. A live run can incur model API charges.
-
-The UI listens on `127.0.0.1` only. It reads saved `results/sade/benchmark-*.json` files and does not alter scoring or benchmark contracts. It displays the conservative rates over all attempts and labels these as local SADE results, not official NIKA scores.
-
-Once the lab is healthy and the API key is available in the same shell, run all three cases sequentially:
+## Paired ablations
 
 ```bash
-/path/to/nika/.venv/bin/python tools/sade_benchmark.py run --nika-root /path/to/nika --model claude-haiku-5-5
+/path/to/nika/.venv/bin/python tools/sade_benchmark.py run \
+  --nika-root /path/to/nika --model MODEL --judge-model JUDGE_MODEL \
+  --ablation --seed 42 --repeats 1 \
+  --cases core-uplink-vague core-uplink-misleading database-ingress-acl-misleading healthy-policy
 ```
 
-Use `--repeats 3` for three passes per case after a one-pass smoke test. Every attempt gets an individual `results/sade/<timestamp>/<case>.json` with the prediction and ground truth. The command prints each case's status, exact RCA score, and repair status, then writes `results/sade/benchmark-<timestamp>.json`. If repair verification fails, it stops before injecting another fault.
+This runs each selected ticket under generic/guided × atomic/sweep, plus a no-tools control. Twenty cases × five configurations = 100 diagnosis calls plus quality judging for one full pass; use a subset first. Reports include `by_experiment` groups. Keep model, judge, cases, seed, turn budget and repeats fixed. In no-tools mode, the judge assesses causal correctness without requiring inaccessible live observations. Misleading tickets are explicit paired cases and are scored by category.
 
-For existing saved runs, with no API request or fault injection:
+## Dashboard and historical results
 
 ```bash
-python3 tools/sade_benchmark.py report results/sade/benchmark-complete-20261008.json
+/path/to/nika/.venv/bin/python dashboard/server.py --nika-root /path/to/nika
+python3 tools/sade_benchmark.py report results/sade/benchmark-REPORT.json
 python3 tools/sade_benchmark.py summarize
-python3 tools/sade_benchmark.py summarize --out results/sade/history-summary.json
 ```
 
-`report` prints a previously saved aggregate JSON as a readable terminal report. `summarize` calculates a new report from individual runs and prints the same format. The summary includes attempts, scored runs, complete runs (injection, scoring, and repair verified), errors, each scoring axis, per-case exact RCA counts, and a run list with paths, tool calls, token usage, timing, and status. Each metric reports both the conservative rate over all attempts (failed attempts count as incorrect) and the rate over scored runs. With no paths supplied, `summarize` includes every saved individual run, including exploratory runs; pass specific result paths to reproduce one benchmark pass. Treat a small number of runs as a functional demonstration, not a statistically stable agent accuracy estimate. These are local enterprise-topology results, not official NIKA benchmark scores.
+The loopback dashboard defaults to generic/atomic, allows profile selection, shows separate field/explanation/repair/full outcomes, and labels old reports as legacy field accuracy. Historical 100% exact RCA is not full v3 correctness. Restart an existing dashboard process to load updated server code. Results are under `results/sade/`; old raw reports remain intact.
 
-If an older parser rejected an otherwise complete diagnosis because it omitted only the optional closing `=== END ===` marker, use `python3 tools/sade_benchmark.py rescore <result.json>` to rescore that saved text. The corrected file retains the original parser error in `parser_correction` for auditability. Then run `summarize` again to refresh the aggregate.
-
-For a saved SADE final message, score without injecting a fault:
+## Verification
 
 ```bash
-/path/to/nika/.venv/bin/python tools/sade_eval.py score core-uplink answer.txt
+/path/to/nika/.venv/bin/python -m unittest discover -s tests -v
+python3 tools/verify_sade_cases.py compound-uplink-acl compound-ospf-gateway
 ```
 
-If a run reports `repair_verified: false`, inspect and repair the lab before starting another case. Verify healthy recovery with `python3 lab.py check`.
+The reusable verifier makes no model calls. It validates actual injection, captures per-cause diagnostics, restores only its injected faults, checks full baseline health, and saves a verification artifact. Offline regressions cover wrong explanations/repair verdicts, unsafe or wrong-owner repair commands, healthy unnecessary repairs, missing/invalid judge output, compound completeness, and cleanup after failure. Offline judge fixtures verify grading contracts, not semantic judge accuracy. Actual model ablations are still required before claiming an improved accuracy estimate.
 
-## Interpreting the cases
+## Isolation
 
-The core uplink and gateway service cases retain application reachability through redundancy. SADE must inspect routing and VRRP state after an initially healthy user traffic map. The database ACL case changes an allowed application-to-backend HTTP path and is visible in the first reachability check. The diagnostic MCP exposes only read-only commands and known-allowed traffic paths, so intentional guest and database policy denials are not counted as faults.
+Ground truth, injection and recovery commands remain outside the diagnosing prompt. Diagnosis runs with native file/shell tools disabled. Container startup disables hosthome/shared host mounts. The command validator rejects `..` traversal and restricts configuration/network-state reads; arbitrary `/proc` process files are excluded. These controls reduce leakage paths but are not a formal OS sandbox around the diagnosing SDK process.
 
-## Verification performed
+### Local verification on 2026-10-13
 
-On 2026-10-08, the MCP server was exercised through a real stdio client. All five known-allowed baseline flows returned HTTP 200. Each of the three faults was injected into the running 75-device lab, detected by the diagnostic tools, repaired, and verified. A one-pass SADE benchmark using `claude-haiku-5-5` scored all three cases, with exact RCA correct in 3/3 complete runs. Injection and repair were verified for every run, and the final full lab check passed 222/222 assertions. The aggregate report is `results/sade/benchmark-complete-20261008.json` (local and ignored by Git). Three observations demonstrate that the workflow runs end to end; they do not establish a stable accuracy estimate.
+All 18 offline regression checks passed, as did Ruff, Python compilation, JavaScript syntax checking and dashboard rendering checks. Both compound states were injected and restored in the real running lab, covering all four new individual faults; each final baseline passed 222/222 checks. Evidence: `results/sade/verification-20261013T041620Z.json`.
+
+No authenticated model session or API key was available in the execution environment, so no live v3 model/judge run or accuracy ablation was performed. Semantic judge accuracy remains unvalidated; the offline negative tests validate scoring gates and judge-response handling. Historical raw reports were preserved.

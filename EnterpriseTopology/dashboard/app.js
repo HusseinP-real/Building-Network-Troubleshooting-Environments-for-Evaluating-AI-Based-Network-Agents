@@ -6,6 +6,7 @@ const axes = [
   ['fault_type_correct', 'Fault type', 'Fault'],
   ['rca_exact', 'Exact RCA', 'Exact RCA'],
 ];
+const qualityAxes = [['explanation_correct', 'Explanation', 'Explain'], ['repair_correct', 'Repair advice', 'Repair'], ['full_correct', 'Full correctness', 'Full']];
 const caseNames = {
   'core-uplink': 'Core uplink',
   'gateway-service': 'Gateway service',
@@ -128,13 +129,16 @@ function matrix(report) {
   box.replaceChildren();
   const grid = element('div', 'matrix-grid');
   grid.append(element('div', 'matrix-col', 'ATTEMPT'));
-  axes.forEach(([, , short]) => grid.append(element('div', 'matrix-col', short.toUpperCase())));
+  const displayedAxes = [...axes, ...qualityAxes];
+  grid.style.gridTemplateColumns = `150px repeat(${displayedAxes.length}, minmax(45px, 1fr))`;
+  grid.style.minWidth = '650px';
+  displayedAxes.forEach(([, , short]) => grid.append(element('div', 'matrix-col', short.toUpperCase())));
   const counts = {};
   (report.runs || []).forEach((run, runIndex) => {
     counts[run.case] = (counts[run.case] || 0) + 1;
     const name = caseNames[run.case] || run.case || 'Unknown';
     grid.append(element('div', 'matrix-row', `${name} · ${String(counts[run.case]).padStart(2, '0')}`));
-    axes.forEach(([key]) => {
+    displayedAxes.forEach(([key]) => {
       const value = run.score?.[key];
       const status = value === true ? 'good' : value === false ? 'bad' : 'none';
       const tile = element('div', `matrix-cell ${status}`, value === true ? '✓' : value === false ? '×' : '—');
@@ -174,14 +178,37 @@ function render(report) {
   $('emptyState').hidden = true;
   $('dashboard').hidden = false;
   const runs = report.runs || [];
-  $('exactValue').textContent = pct(rate(report, 'rca_exact'));
-  $('exactCount').textContent = `${report.metrics?.rca_exact?.correct ?? 0} / ${report.attempted ?? 0} attempts`;
+  const headline = report.metrics?.full_correct ? 'full_correct' : 'rca_exact';
+  $('exactLabel').textContent = headline === 'full_correct' ? 'Full correctness' : 'Exact RCA fields · legacy';
+  $('exactValue').textContent = report.metrics?.[headline]?.scored_denominator === 0 ? '—' : pct(rate(report, headline));
+  $('exactCount').textContent = `${report.metrics?.[headline]?.correct ?? 0} / ${report.attempted ?? 0} attempts · ${report.metrics?.[headline]?.unscored ?? 0} unscored`;
   $('completeValue').textContent = `${report.complete_runs ?? 0}/${report.attempted ?? 0}`;
   const seconds = runs.map(r => r.wall_seconds).filter(v => typeof v === 'number');
   $('timeValue').textContent = seconds.length ? `${fmtNumber(seconds.reduce((a, b) => a + b, 0) / seconds.length)}s` : '—';
   const calls = runs.map(r => r.tool_calls).filter(v => typeof v === 'number');
   $('callsValue').textContent = calls.length ? String(calls.reduce((a, b) => a + b, 0)) : '—';
   $('reportMeta').textContent = `${report.attempted ?? 0} ATTEMPTS · ${report.scored ?? 0} SCORED`;
+  $('robustnessStats').hidden = !report.by_category;
+  $('categoryPanel').hidden = !report.by_category;
+  $('falsePositiveValue').textContent = pct(report.healthy_false_positive?.rate);
+  $('falsePositiveNote').textContent = `Lower is better · ${report.healthy_false_positive?.denominator ?? 0} scored · ${report.healthy_false_positive?.unscored ?? 0} unscored`;
+  $('healthyValue').textContent = pct(report.healthy_correct_rejection?.rate);
+  $('misleadingValue').textContent = pct(report.by_category?.misleading?.rate);
+  const ci = report.metrics?.rca_exact?.ci95;
+  $('intervalValue').textContent = ci ? `${pct(ci[0])}–${pct(ci[1])}` : '—';
+  $('categoryChart').replaceChildren();
+  Object.entries(report.by_category || {}).forEach(([name, metric]) => {
+    const row = element('div', 'bar-row');
+    row.append(element('span', 'bar-name', name));
+    const track = element('div', 'bar-track');
+    const fill = element('div', 'bar-fill'); fill.style.width = `${(metric.rate || 0) * 100}%`;
+    track.append(fill); row.append(track);
+    row.append(element('span', 'bar-value', `${metric.correct}/${metric.denominator} · ${pct(metric.rate)}`));
+    $('categoryChart').append(row);
+  });
+  $('reportMeta').textContent += report.schema_version >= 2
+    ? ` · ${(report.modes || ['live']).join('/')} · SUITE ${Math.round((report.suite_coverage || 0) * 100)}%`
+    : ' · LEGACY v1 REPORT';
   radar(report); matrix(report);
   bars(report, 'durationChart', 'wall_seconds', 's');
   bars(report, 'toolChart', 'tool_calls', '');
@@ -190,7 +217,7 @@ function render(report) {
     const tr = element('tr');
     tr.append(element('td', 'table-case', caseNames[run.case] || run.case));
     tr.append(element('td', '', run.model || '—'));
-    [run.score?.rca_exact, run.injection_verified, run.repair_verified].forEach(v => {
+    [run.score?.rca_exact, run.score?.explanation_correct, run.score?.repair_correct, run.score?.full_correct, run.state_verified ?? run.injection_verified, run.repair_verified].forEach(v => {
       const td = element('td'); td.append(pill(v)); tr.append(td);
     });
     tr.append(element('td', '', typeof run.wall_seconds === 'number' ? `${fmtNumber(run.wall_seconds, 1)}s` : '—'));
@@ -216,7 +243,7 @@ async function loadReports(preferred) {
   }
   reports.forEach(item => {
     const date = item.generated_at ? new Date(item.generated_at).toLocaleString() : item.id;
-    const option = element('option', '', `${date} · ${pct(item.exact_rate)} · ${item.model || 'Unknown'}`);
+    const option = element('option', '', `${date} · v${item.scorer_version || '1.0'} · fields ${pct(item.exact_rate)} · full ${pct(item.full_rate)} · ${item.model || 'Unknown'}`);
     option.value = item.id; select.append(option);
   });
   selectedReport = reports.some(r => r.id === preferred) ? preferred : reports.some(r => r.id === selectedReport) ? selectedReport : reports[0].id;
@@ -227,8 +254,8 @@ async function loadReport(id) {
   selectedReport = id;
   render(await json(`/api/report?id=${encodeURIComponent(id)}`));
 }
-function progress(lines, repeats, running, successful) {
-  const total = repeats * 3;
+function progress(lines, repeats, running, successful, caseCount = 20) {
+  const total = repeats * caseCount;
   const completed = lines.filter(line => /^  (scored|error);/.test(line)).length;
   const activeCase = [...lines].reverse().find(line => line.startsWith('Running '));
   $('progressFill').style.width = `${Math.min(100, completed / total * 100)}%`;
@@ -242,11 +269,14 @@ async function pollStatus() {
     $('runButton').disabled = state.running;
     $('model').disabled = state.running;
     $('repeats').disabled = state.running;
+    $('mode').disabled = state.running;
+    $('promptStyle').disabled = state.running;
+    $('toolProfile').disabled = state.running;
     $('runLabel').textContent = state.running ? 'Benchmark running…' : 'Run benchmark';
     if (state.started_at) {
       $('runPanel').hidden = false;
       $('runLog').textContent = state.lines.join('\n');
-      progress(state.lines, state.repeats || 1, state.running, state.returncode === 0);
+      progress(state.lines, state.repeats || 1, state.running, state.returncode === 0, state.case_count || 20);
       $('runTitle').textContent = state.running ? 'Diagnosing live faults…' : state.returncode === 0 ? 'Benchmark complete' : 'Benchmark finished with issues';
       $('runBadge').className = `badge ${state.running ? 'running' : state.returncode === 0 ? 'done' : 'failed'}`;
       $('runBadge').textContent = state.running ? 'Running' : state.returncode === 0 ? 'Complete' : 'Check log';
@@ -263,7 +293,7 @@ async function pollStatus() {
 $('runButton').addEventListener('click', async () => {
   try {
     $('runButton').disabled = true;
-    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: $('model').value.trim(), repeats: Number($('repeats').value)})});
+    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: $('model').value.trim(), repeats: Number($('repeats').value), mode: $('mode').value, prompt_style: $('promptStyle').value, tool_profile: $('toolProfile').value})});
     $('runPanel').hidden = false;
     $('runPanel').scrollIntoView({behavior: 'smooth', block: 'center'});
     await pollStatus();

@@ -86,6 +86,10 @@ FAULTS={
     'gateway-service': ('r5','pkill -TERM keepalived','pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console'),
     'database-acl': ('app','iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null || iptables -I OUTPUT 1 -d 10.30.20.10 -p tcp --dport 8080 -j REJECT',
                      'if iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT; fi'),
+    'core-uplink-r6': ('r6', 'ip link set eth0 down', 'ip link set eth0 up'),
+    'gateway-service-r8': ('r8', 'pkill -TERM keepalived', 'pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console'),
+    'database-ingress-acl': ('database', 'iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null || iptables -I INPUT 1 -s 10.30.10.10 -p tcp --dport 8080 -j REJECT', 'if iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT; fi'),
+    'ospf-passive-r7': ('r7', "vtysh -c 'configure terminal' -c 'router ospf' -c 'passive-interface eth0'", "vtysh -c 'configure terminal' -c 'router ospf' -c 'no passive-interface eth0'"),
 }
 
 def main():
