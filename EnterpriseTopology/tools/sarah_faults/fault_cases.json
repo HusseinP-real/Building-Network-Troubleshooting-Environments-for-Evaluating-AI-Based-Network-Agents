@@ -1,0 +1,977 @@
+[
+  {
+    "id": "sarah-fault-001",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-002",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-003",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-004",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth3",
+      "root_cause": "The routed interface eth3 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-005",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth4",
+    "inject": "ip link set eth4 down",
+    "repair": "ip link set eth4 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth4",
+      "root_cause": "The routed interface eth4 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-006",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth5",
+    "inject": "ip link set eth5 down",
+    "repair": "ip link set eth5 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth5",
+      "root_cause": "The routed interface eth5 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-007",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth6",
+    "inject": "ip link set eth6 down",
+    "repair": "ip link set eth6 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth6",
+      "root_cause": "The routed interface eth6 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-008",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth7",
+    "inject": "ip link set eth7 down",
+    "repair": "ip link set eth7 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth7",
+      "root_cause": "The routed interface eth7 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-009",
+    "device": "r1",
+    "fault_type": "interface_down",
+    "interface": "eth8",
+    "inject": "ip link set eth8 down",
+    "repair": "ip link set eth8 up",
+    "ground_truth": {
+      "device": "r1",
+      "interface": "eth8",
+      "root_cause": "The routed interface eth8 on r1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-010",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-011",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-012",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-013",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth3",
+      "root_cause": "The routed interface eth3 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-014",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth4",
+    "inject": "ip link set eth4 down",
+    "repair": "ip link set eth4 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth4",
+      "root_cause": "The routed interface eth4 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-015",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth5",
+    "inject": "ip link set eth5 down",
+    "repair": "ip link set eth5 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth5",
+      "root_cause": "The routed interface eth5 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-016",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth6",
+    "inject": "ip link set eth6 down",
+    "repair": "ip link set eth6 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth6",
+      "root_cause": "The routed interface eth6 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-017",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth7",
+    "inject": "ip link set eth7 down",
+    "repair": "ip link set eth7 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth7",
+      "root_cause": "The routed interface eth7 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-018",
+    "device": "r2",
+    "fault_type": "interface_down",
+    "interface": "eth8",
+    "inject": "ip link set eth8 down",
+    "repair": "ip link set eth8 up",
+    "ground_truth": {
+      "device": "r2",
+      "interface": "eth8",
+      "root_cause": "The routed interface eth8 on r2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-019",
+    "device": "r3",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r3",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-020",
+    "device": "r3",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r3",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-021",
+    "device": "r3",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r3",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-022",
+    "device": "r4",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r4",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-023",
+    "device": "r4",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r4",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-024",
+    "device": "r4",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r4",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-025",
+    "device": "r5",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r5",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-026",
+    "device": "r5",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r5",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-027",
+    "device": "r5",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r5",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-028",
+    "device": "r6",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r6",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-029",
+    "device": "r6",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r6",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-030",
+    "device": "r6",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r6",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-031",
+    "device": "r7",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r7",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r7 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-032",
+    "device": "r7",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r7",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r7 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-033",
+    "device": "r7",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r7",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r7 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-034",
+    "device": "r8",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r8",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r8 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-035",
+    "device": "r8",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r8",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r8 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-036",
+    "device": "r8",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r8",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r8 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-037",
+    "device": "r9",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r9",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r9 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-038",
+    "device": "r9",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r9",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r9 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-039",
+    "device": "r9",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r9",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r9 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-040",
+    "device": "r10",
+    "fault_type": "interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "r10",
+      "interface": "eth0",
+      "root_cause": "The routed interface eth0 on r10 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-041",
+    "device": "r10",
+    "fault_type": "interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "r10",
+      "interface": "eth1",
+      "root_cause": "The routed interface eth1 on r10 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-042",
+    "device": "r10",
+    "fault_type": "interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "r10",
+      "interface": "eth2",
+      "root_cause": "The routed interface eth2 on r10 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-043",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-044",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-045",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-046",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth3",
+      "root_cause": "The switch interface eth3 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-047",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth4",
+    "inject": "ip link set eth4 down",
+    "repair": "ip link set eth4 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth4",
+      "root_cause": "The switch interface eth4 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-048",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth5",
+    "inject": "ip link set eth5 down",
+    "repair": "ip link set eth5 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth5",
+      "root_cause": "The switch interface eth5 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-049",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth6",
+    "inject": "ip link set eth6 down",
+    "repair": "ip link set eth6 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth6",
+      "root_cause": "The switch interface eth6 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-050",
+    "device": "s1",
+    "fault_type": "switch_interface_down",
+    "interface": "eth7",
+    "inject": "ip link set eth7 down",
+    "repair": "ip link set eth7 up",
+    "ground_truth": {
+      "device": "s1",
+      "interface": "eth7",
+      "root_cause": "The switch interface eth7 on s1 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-051",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-052",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-053",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-054",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth3",
+      "root_cause": "The switch interface eth3 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-055",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth4",
+    "inject": "ip link set eth4 down",
+    "repair": "ip link set eth4 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth4",
+      "root_cause": "The switch interface eth4 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-056",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth5",
+    "inject": "ip link set eth5 down",
+    "repair": "ip link set eth5 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth5",
+      "root_cause": "The switch interface eth5 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-057",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth6",
+    "inject": "ip link set eth6 down",
+    "repair": "ip link set eth6 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth6",
+      "root_cause": "The switch interface eth6 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-058",
+    "device": "s2",
+    "fault_type": "switch_interface_down",
+    "interface": "eth7",
+    "inject": "ip link set eth7 down",
+    "repair": "ip link set eth7 up",
+    "ground_truth": {
+      "device": "s2",
+      "interface": "eth7",
+      "root_cause": "The switch interface eth7 on s2 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-059",
+    "device": "s3",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s3",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-060",
+    "device": "s3",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s3",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-061",
+    "device": "s3",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s3",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s3 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-062",
+    "device": "s4",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s4",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-063",
+    "device": "s4",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s4",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-064",
+    "device": "s4",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s4",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s4 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-065",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-066",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-067",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-068",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth3",
+      "root_cause": "The switch interface eth3 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-069",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth4",
+    "inject": "ip link set eth4 down",
+    "repair": "ip link set eth4 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth4",
+      "root_cause": "The switch interface eth4 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-070",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth5",
+    "inject": "ip link set eth5 down",
+    "repair": "ip link set eth5 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth5",
+      "root_cause": "The switch interface eth5 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-071",
+    "device": "s5",
+    "fault_type": "switch_interface_down",
+    "interface": "eth6",
+    "inject": "ip link set eth6 down",
+    "repair": "ip link set eth6 up",
+    "ground_truth": {
+      "device": "s5",
+      "interface": "eth6",
+      "root_cause": "The switch interface eth6 on s5 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-072",
+    "device": "s6",
+    "fault_type": "switch_interface_down",
+    "interface": "eth0",
+    "inject": "ip link set eth0 down",
+    "repair": "ip link set eth0 up",
+    "ground_truth": {
+      "device": "s6",
+      "interface": "eth0",
+      "root_cause": "The switch interface eth0 on s6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-073",
+    "device": "s6",
+    "fault_type": "switch_interface_down",
+    "interface": "eth1",
+    "inject": "ip link set eth1 down",
+    "repair": "ip link set eth1 up",
+    "ground_truth": {
+      "device": "s6",
+      "interface": "eth1",
+      "root_cause": "The switch interface eth1 on s6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-074",
+    "device": "s6",
+    "fault_type": "switch_interface_down",
+    "interface": "eth2",
+    "inject": "ip link set eth2 down",
+    "repair": "ip link set eth2 up",
+    "ground_truth": {
+      "device": "s6",
+      "interface": "eth2",
+      "root_cause": "The switch interface eth2 on s6 is administratively down."
+    }
+  },
+  {
+    "id": "sarah-fault-075",
+    "device": "s6",
+    "fault_type": "switch_interface_down",
+    "interface": "eth3",
+    "inject": "ip link set eth3 down",
+    "repair": "ip link set eth3 up",
+    "ground_truth": {
+      "device": "s6",
+      "interface": "eth3",
+      "root_cause": "The switch interface eth3 on s6 is administratively down."
+    }
+  }
+]
