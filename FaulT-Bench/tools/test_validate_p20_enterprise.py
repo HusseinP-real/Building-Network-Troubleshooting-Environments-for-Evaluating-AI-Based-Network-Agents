@@ -37,24 +37,35 @@ def shortest(source, target, removed=frozenset()):
 class TopologyTests(unittest.TestCase):
     def test_native_files_match_and_all_cases_resolve(self):
         spec, cases = demo.specs()
-        self.assertEqual(spec['version'], 2)
+        self.assertEqual(spec['version'], 3)
         self.assertEqual(len(cases), 6)
-        self.assertEqual(len(spec['nodes']), 40)
-        self.assertEqual(sum('ospf' in d for d in spec['nodes'].values()), 16)
+        self.assertEqual(len(spec['nodes']), 75)
+        self.assertEqual(sum('ospf' in d for d in spec['nodes'].values()), 25)
 
-    def test_unique_addresses_and_29_nonoverlapping_networks(self):
+    def test_unique_addresses_and_47_nonoverlapping_networks(self):
         segments, addresses = {}, []
         for data in model.SPEC['nodes'].values():
             for segment, addr in data['interfaces'].values():
                 iface = ipaddress.ip_interface(addr)
                 segments.setdefault(segment, set()).add(iface.network)
                 addresses.append(iface.ip)
-        self.assertEqual(len(segments), 29)
+        self.assertEqual(len(segments), 47)
         self.assertTrue(all(len(nets) == 1 for nets in segments.values()))
         self.assertEqual(len(addresses), len(set(addresses)))
         networks = [next(iter(nets)) for nets in segments.values()]
         self.assertTrue(all(not a.overlaps(b) for i, a in enumerate(networks) for b in networks[i+1:]))
         self.assertNotIn(ipaddress.ip_address('10.10.1.254'), addresses)
+
+    def test_extension_preserves_original_addresses_and_covers_seven_sites(self):
+        self.assertEqual(len(model.SPEC['sites']), 7)
+        self.assertEqual(sum(d['role'] == 'pc' for d in model.SPEC['nodes'].values()), 35)
+        self.assertEqual(sum(d['role'] == 'server' for d in model.SPEC['nodes'].values()), 15)
+        self.assertEqual(model.address('pc1'), '10.10.1.11')
+        self.assertEqual(model.address('pc16'), '10.10.4.14')
+        self.assertEqual(model.address('server8'), '10.40.4.12')
+        self.assertEqual(model.uplink_gateway('eth0'), '10.255.8.1')
+        for site in model.SPEC['sites'].values():
+            self.assertTrue(all(model.SPEC['nodes'][n]['site'] == model.SPEC['nodes'][site['endpoints'][0]]['site'] for n in site['endpoints']))
 
     def test_transit_peers_share_area_and_cost(self):
         for link in model.SPEC['links']:
@@ -62,7 +73,7 @@ class TopologyTests(unittest.TestCase):
             self.assertEqual(configs[0], configs[1])
             self.assertFalse(configs[0]['passive'])
 
-    def test_four_areas_have_two_abrs_and_passive_endpoint_lans(self):
+    def test_seven_areas_have_two_abrs_and_passive_endpoint_lans(self):
         for site in model.SPEC['sites'].values():
             edge = model.SPEC['nodes'][site['router']]
             for name in ('primary_abr', 'backup_abr'):

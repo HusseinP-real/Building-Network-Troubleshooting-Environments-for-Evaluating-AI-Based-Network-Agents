@@ -4,7 +4,7 @@ P20 builds reproducible network troubleshooting environments for evaluating AI-b
 
 ## New custom topology
 
-[P20Enterprise v2](FaulT-Bench/docs/p20-enterprise/README.md) expands April's topology to **40 devices: 16 routers, 16 PCs and eight server endpoints**, with 29 subnets, five OSPF areas and redundant site uplinks. Six scenarios cover failover, site isolation, OSPF advertisement withdrawal, a server-interface fault, a wrong gateway and a healthy control. See the [versioned validation status](FaulT-Bench/docs/p20-enterprise/validation/status.md); the old nine-device report applies only to v1. NIKA/SADE evaluation remains separate.
+[P20Enterprise v3](FaulT-Bench/docs/p20-enterprise/README.md) expands April's topology to **75 devices: 25 routers, 35 PCs and 15 server endpoints**, with 47 subnets, eight OSPF areas and redundant site uplinks. Six scenarios cover failover, site isolation, OSPF advertisement withdrawal, a server-interface fault, a wrong gateway and a healthy control. See the [versioned validation status](FaulT-Bench/docs/p20-enterprise/validation/status.md); the old nine-device report applies only to v1. NIKA/SADE evaluation remains separate.
 
 From `FaulT-Bench/`:
 

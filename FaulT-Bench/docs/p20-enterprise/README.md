@@ -1,20 +1,20 @@
-# P20Enterprise v2: redundant four-site OSPF network
+# P20Enterprise v3: redundant seven-site OSPF network
 
-P20Enterprise now contains **40 devices: 16 routers, 16 PCs and 8 server endpoints**.
-It has **29 subnets**, including 21 router-to-router /30 links and eight endpoint /24 LANs.
-The four-router backbone is a ring with a diagonal. Each of four sites connects through
+P20Enterprise now contains **75 devices: 25 routers, 35 PCs and 15 server endpoints**.
+It has **47 subnets**, including 33 router-to-router /30 links and 14 endpoint /24 LANs.
+The four-router backbone is a ring with a diagonal. Each of seven sites connects through
 two separate area-border routers (ABRs) to different backbone routers. OSPF area 0
-connects the backbone and ABRs; sites use areas 1–4.
+connects the backbone and ABRs; sites use areas 1–7.
 
 This is an expansion of April's own topology, not a copy of Jiayuan's Kath5 extension.
 Compared with the original P20Enterprise, it adds dynamic routing, multiple areas,
 redundant paths and verifiable failover. It is larger than the checked-in original
 Kath5 (13 routers and two PCs), but is not claimed to be the most complex topology
-in the repository. It remains below the report's longer-term 75–100-device target.
+in the repository. It reaches the report's 75–100-device target with exactly 75 containers.
 
 **Validation status:** see [validation/status.md](validation/status.md).
 The old `20260916-all-cases-three-cycles.json` report is evidence for **v1 only**;
-its nine-device static topology and four scenarios do not validate v2.
+its nine-device static topology and four scenarios do not validate v3.
 NIKA/SADE agent evaluation remains separate from network testing.
 
 ## 1. Complex network topology: implementation
@@ -22,15 +22,18 @@ NIKA/SADE agent evaluation remains separate from network testing.
 | Router role | Devices | Purpose |
 |---|---|---|
 | Backbone | r1–r4 | OSPF area 0; ring plus r1–r3 diagonal |
-| Area borders | r5–r12 | Two ABRs per site; each connects to a different core router |
-| Site routing | r13–r16 | Two uplinks, a user LAN and a server LAN per site |
+| Area borders | r5–r12, r17–r18, r20–r21, r23–r24 | Two ABRs per site; each connects to a different core router |
+| Site routing | r13–r16, r19, r22, r25 | Two uplinks, a user LAN and a server LAN per site |
 
 | Site / area | Site router | Primary / backup ABRs | PCs | Servers | User / server subnets |
 |---|---|---|---|---|---|
-| HQ / 1 | r13 | r5 / r6 | pc1–pc4 | server1–server2 | 10.10.1.0/24 / 10.40.1.0/24 |
-| Branch A / 2 | r14 | r7 / r8 | pc5–pc8 | server3–server4 | 10.10.2.0/24 / 10.40.2.0/24 |
-| Branch B / 3 | r15 | r9 / r10 | pc9–pc12 | server5–server6 | 10.10.3.0/24 / 10.40.3.0/24 |
-| Operations / 4 | r16 | r11 / r12 | pc13–pc16 | server7–server8 | 10.10.4.0/24 / 10.40.4.0/24 |
+| HQ / 1 | r13 | r5 / r6 | pc1, pc2, pc3, pc4, pc17 | server1, server2 | 10.10.1.0/24 / 10.40.1.0/24 |
+| Branch A / 2 | r14 | r7 / r8 | pc5, pc6, pc7, pc8, pc18 | server3, server4 | 10.10.2.0/24 / 10.40.2.0/24 |
+| Branch B / 3 | r15 | r9 / r10 | pc9, pc10, pc11, pc12, pc19 | server5, server6 | 10.10.3.0/24 / 10.40.3.0/24 |
+| Operations / 4 | r16 | r11 / r12 | pc13, pc14, pc15, pc16, pc20 | server7, server8, server15 | 10.10.4.0/24 / 10.40.4.0/24 |
+| Branch C / 5 | r19 | r17 / r18 | pc21, pc22, pc23, pc24, pc25 | server9, server10 | 10.10.5.0/24 / 10.40.5.0/24 |
+| Branch D / 6 | r22 | r20 / r21 | pc26, pc27, pc28, pc29, pc30 | server11, server12 | 10.10.6.0/24 / 10.40.6.0/24 |
+| Research / 7 | r25 | r23 / r24 | pc31, pc32, pc33, pc34, pc35 | server13, server14 | 10.10.7.0/24 / 10.40.7.0/24 |
 
 Site-router eth0 is the preferred uplink (cost 10); eth1 is the backup (cost 100).
 Both are active OSPF adjacencies. Eth2 connects users; eth3 connects servers.
@@ -64,10 +67,25 @@ flowchart TB
   r10 ---|Area 3 cost 100| r15
   r11 ---|Area 4 cost 10| r16
   r12 ---|Area 4 cost 100| r16
-  r13 --- H[HQ: 4 PCs and 2 servers on two LANs]
-  r14 --- A[Branch A: 4 PCs and 2 servers on two LANs]
-  r15 --- B[Branch B: 4 PCs and 2 servers on two LANs]
-  r16 --- O[Operations: 4 PCs and 2 servers on two LANs]
+  r13 --- H[HQ: 5 PCs and 2 servers on two LANs]
+  r14 --- A[Branch A: 5 PCs and 2 servers on two LANs]
+  r15 --- B[Branch B: 5 PCs and 2 servers on two LANs]
+  r16 --- O[Operations: 5 PCs and 3 servers on two LANs]
+  r1 ---|Area 0| r17
+  r2 ---|Area 0| r18
+  r17 ---|Area 5| r19
+  r18 ---|Area 5| r19
+  r19 --- S5[Branch C: 5 PCs and 2 servers on two LANs]
+  r2 ---|Area 0| r20
+  r3 ---|Area 0| r21
+  r20 ---|Area 6| r22
+  r21 ---|Area 6| r22
+  r22 --- S6[Branch D: 5 PCs and 2 servers on two LANs]
+  r3 ---|Area 0| r23
+  r4 ---|Area 0| r24
+  r23 ---|Area 7| r25
+  r24 ---|Area 7| r25
+  r25 --- S7[Research: 5 PCs and 2 servers on two LANs]
 ```
 
 The actual links are in [lab.conf](../../topology_kathara/P20Enterprise/lab.conf).
@@ -81,7 +99,7 @@ of every possible single-device failure.
 ## 2. Use cases: user tickets and reference diagnoses
 
 Cases live under [dataset/p20enterprise_Q/custom](../../dataset/p20enterprise_Q/custom/).
-Every file declares `Topology: P20Enterprise`. The manifest selects only v2 cases.
+Every file declares `Topology: P20Enterprise`. The manifest selects only v3 cases.
 
 | CLI case | User situation | Correct diagnosis |
 |---|---|---|
@@ -99,10 +117,10 @@ with restored service, distinct from the healthy false-premise control.
 ## 3. Test cases: network correctness before agent evaluation
 
 [validate_p20_enterprise.py](../../tools/validate_p20_enterprise.py) creates a unique
-temporary lab, checks all 40 devices' addresses/forwarding/gateways, and verifies:
+temporary lab, checks all 75 devices' addresses/forwarding/gateways, and verifies:
 
-- 29 connectivity probes covering every endpoint, including local controls.
-- Full-neighbor counts on all 16 OSPF routers.
+- 55 connectivity probes covering every endpoint, including local controls.
+- Full-neighbor counts on all 25 OSPF routers.
 - R13 uplink and server-interface state.
 - The actual OSPF next hop for a remote user LAN: primary before the fault,
   backup during failover, primary after repair.
@@ -148,7 +166,7 @@ The old `return-route` CLI case was retired: routers now learn remote routes via
 OSPF, so deleting a learned kernel route is not a durable static-route fault.
 Use `advertisement` to demonstrate a genuine control-plane configuration problem.
 The old four scenario IDs are retired; their definitions remain in Git history
-at commit `9d4a351`. V2 uses explicit `p20-enterprise-v2-...` IDs.
+at commit `9d4a351`. V3 uses explicit `p20-enterprise-v3-...` IDs; v2 cases remain historical and are excluded from the active manifest.
 
 ## 5. NIKA reference and SADE role
 
@@ -187,10 +205,12 @@ python tools/validate_p20_enterprise.py --repeat 3
 ```
 
 Both `kathara/base` and `kathara/frr` images must be installed. Pull missing images
-before starting a demo. This topology starts 40 containers and consumes more resources
+before starting a demo. This topology starts 75 containers and consumes more resources
 than v1. A three-cycle run repeats cases within one deployment; a second invocation
 tests a separate fresh deployment. Reports go to `faultbench/runs/p20-enterprise/`
 and include version, configuration/scenario hashes, image digests, observations and cleanup.
+
+All original v2 device names, interface addresses, HQ fault locations and uplink costs are preserved. Three new sites have separate ABR pairs and dual uplinks; each site has five PCs, and Operations has an additional server.
 
 The source model is [p20_enterprise_model.py](../../tools/p20_enterprise_model.py).
 It generates the topology, addressing inventory and scenarios together to prevent drift:

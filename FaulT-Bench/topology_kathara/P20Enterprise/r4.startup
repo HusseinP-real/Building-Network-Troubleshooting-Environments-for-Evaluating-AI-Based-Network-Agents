@@ -9,6 +9,8 @@ ip link set eth2 up
 ip address replace 10.255.15.1/30 dev eth2
 ip link set eth3 up
 ip address replace 10.255.18.1/30 dev eth3
+ip link set eth4 up
+ip address replace 10.255.31.1/30 dev eth4
 sed -i 's/^ospfd=no/ospfd=yes/' /etc/frr/daemons
 chown frr:frr /etc/frr/frr.conf
 chmod 640 /etc/frr/frr.conf

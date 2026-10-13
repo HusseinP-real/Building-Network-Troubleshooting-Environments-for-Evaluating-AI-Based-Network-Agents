@@ -1,5 +1,23 @@
 # P20Enterprise validation evidence
 
+## Version 3: 75 devices, seven sites
+
+On 2026-10-13, **all six scenarios passed one complete live cycle**, including repeated fault injections, exact repairs and two consecutive passing recovery rounds. All 75 devices passed initial address/gateway/forwarding verification. Connectivity probes cover all 50 endpoints; neighbor checks cover all 25 routers. The inventory contains 25 routers, 35 PCs, 15 servers, 47 non-overlapping subnets and eight OSPF areas.
+
+All 34 offline regression tests, generated-file consistency and shell syntax checks passed. Original v2 interfaces, addresses, routing settings and device roles were checked against the previous commit and preserved; new core interfaces connect the added sites.
+
+A three-cycle run was started, then stopped during the second cycle at the user's request to finish sooner. The full run therefore records `passed: false` with `KeyboardInterrupt`; this is not a completed three-cycle PASS. The first complete cycle is verified separately in [v3-live-summary.json](v3-live-summary.json). All six first-cycle cases passed baseline, fault and recovery stages; five injected faults also passed repeated injection. The second cycle additionally passed healthy, failover, isolation, advertisement and server-link with recovery, but gateway recovery was not completed in that cycle.
+
+Scoped cleanup succeeded: all 75 temporary devices and 47 collision domains were removed. Full raw observations and configuration snapshots are saved locally at `faultbench/runs/p20-enterprise/v3-live-validation.json`. Older evidence below applies only to v2. NIKA/SADE agent evaluation was not run.
+
+The installed macOS Kathara binary failed before deployment due to an incompatible bundled `pyexpat` library. Live checks used official Kathara 3.8.3 installed in a temporary Python environment at `/tmp/p20-kathara-env`, with Docker 28.4.0. Until the installed executable is repaired, reproduce with:
+
+```sh
+PATH=/tmp/p20-kathara-env/bin:$PATH /tmp/p20-kathara-env/bin/python tools/validate_p20_enterprise.py --repeat 1
+```
+
+The temporary environment may be removed by macOS; follow [Kathara's Python installation guide](https://github.com/KatharaFramework/Kathara/wiki/pip) to recreate it if needed.
+
 ## Version 2: 40 devices, multi-area OSPF
 
 **PASS:** all six scenarios passed three cycles, including repeated injections,

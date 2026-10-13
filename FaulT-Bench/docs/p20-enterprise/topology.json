@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "name": "P20Enterprise",
   "nodes": {
     "r1": {
@@ -24,6 +24,10 @@
         "eth4": [
           "T19",
           "10.255.19.1/30"
+        ],
+        "eth5": [
+          "T22",
+          "10.255.22.1/30"
         ]
       },
       "ospf": {
@@ -51,6 +55,11 @@
           "area": 0,
           "cost": 10,
           "passive": false
+        },
+        "eth5": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
         }
       },
       "routes": {},
@@ -74,6 +83,14 @@
         "eth3": [
           "T10",
           "10.255.10.1/30"
+        ],
+        "eth4": [
+          "T23",
+          "10.255.23.1/30"
+        ],
+        "eth5": [
+          "T26",
+          "10.255.26.1/30"
         ]
       },
       "ospf": {
@@ -93,6 +110,16 @@
           "passive": false
         },
         "eth3": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth4": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth5": {
           "area": 0,
           "cost": 10,
           "passive": false
@@ -123,6 +150,14 @@
         "eth4": [
           "T14",
           "10.255.14.1/30"
+        ],
+        "eth5": [
+          "T27",
+          "10.255.27.1/30"
+        ],
+        "eth6": [
+          "T30",
+          "10.255.30.1/30"
         ]
       },
       "ospf": {
@@ -150,6 +185,16 @@
           "area": 0,
           "cost": 10,
           "passive": false
+        },
+        "eth5": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth6": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
         }
       },
       "routes": {},
@@ -173,6 +218,10 @@
         "eth3": [
           "T18",
           "10.255.18.1/30"
+        ],
+        "eth4": [
+          "T31",
+          "10.255.31.1/30"
         ]
       },
       "ospf": {
@@ -192,6 +241,11 @@
           "passive": false
         },
         "eth3": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth4": {
           "area": 0,
           "cost": 10,
           "passive": false
@@ -596,6 +650,303 @@
       "routes": {},
       "router_id": "10.255.255.16"
     },
+    "r17": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T22",
+          "10.255.22.2/30"
+        ],
+        "eth1": [
+          "T24",
+          "10.255.24.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 5,
+          "cost": 10,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.17"
+    },
+    "r18": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T23",
+          "10.255.23.2/30"
+        ],
+        "eth1": [
+          "T25",
+          "10.255.25.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 5,
+          "cost": 100,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.18"
+    },
+    "r19": {
+      "role": "site",
+      "interfaces": {
+        "eth0": [
+          "T24",
+          "10.255.24.2/30"
+        ],
+        "eth1": [
+          "T25",
+          "10.255.25.2/30"
+        ],
+        "eth2": [
+          "USERS5",
+          "10.10.5.1/24"
+        ],
+        "eth3": [
+          "SERVERS5",
+          "10.40.5.1/24"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 5,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 5,
+          "cost": 100,
+          "passive": false
+        },
+        "eth2": {
+          "area": 5,
+          "cost": 1,
+          "passive": true
+        },
+        "eth3": {
+          "area": 5,
+          "cost": 1,
+          "passive": true
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.19"
+    },
+    "r20": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T26",
+          "10.255.26.2/30"
+        ],
+        "eth1": [
+          "T28",
+          "10.255.28.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 6,
+          "cost": 10,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.20"
+    },
+    "r21": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T27",
+          "10.255.27.2/30"
+        ],
+        "eth1": [
+          "T29",
+          "10.255.29.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 6,
+          "cost": 100,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.21"
+    },
+    "r22": {
+      "role": "site",
+      "interfaces": {
+        "eth0": [
+          "T28",
+          "10.255.28.2/30"
+        ],
+        "eth1": [
+          "T29",
+          "10.255.29.2/30"
+        ],
+        "eth2": [
+          "USERS6",
+          "10.10.6.1/24"
+        ],
+        "eth3": [
+          "SERVERS6",
+          "10.40.6.1/24"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 6,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 6,
+          "cost": 100,
+          "passive": false
+        },
+        "eth2": {
+          "area": 6,
+          "cost": 1,
+          "passive": true
+        },
+        "eth3": {
+          "area": 6,
+          "cost": 1,
+          "passive": true
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.22"
+    },
+    "r23": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T30",
+          "10.255.30.2/30"
+        ],
+        "eth1": [
+          "T32",
+          "10.255.32.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 7,
+          "cost": 10,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.23"
+    },
+    "r24": {
+      "role": "abr",
+      "interfaces": {
+        "eth0": [
+          "T31",
+          "10.255.31.2/30"
+        ],
+        "eth1": [
+          "T33",
+          "10.255.33.1/30"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 0,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 7,
+          "cost": 100,
+          "passive": false
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.24"
+    },
+    "r25": {
+      "role": "site",
+      "interfaces": {
+        "eth0": [
+          "T32",
+          "10.255.32.2/30"
+        ],
+        "eth1": [
+          "T33",
+          "10.255.33.2/30"
+        ],
+        "eth2": [
+          "USERS7",
+          "10.10.7.1/24"
+        ],
+        "eth3": [
+          "SERVERS7",
+          "10.40.7.1/24"
+        ]
+      },
+      "ospf": {
+        "eth0": {
+          "area": 7,
+          "cost": 10,
+          "passive": false
+        },
+        "eth1": {
+          "area": 7,
+          "cost": 100,
+          "passive": false
+        },
+        "eth2": {
+          "area": 7,
+          "cost": 1,
+          "passive": true
+        },
+        "eth3": {
+          "area": 7,
+          "cost": 1,
+          "passive": true
+        }
+      },
+      "routes": {},
+      "router_id": "10.255.255.25"
+    },
     "pc1": {
       "role": "pc",
       "site": 1,
@@ -902,6 +1253,344 @@
         "eth0": [
           "SERVERS4",
           "10.40.4.12/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.4.1"
+      }
+    },
+    "server9": {
+      "role": "server",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "SERVERS5",
+          "10.40.5.11/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.5.1"
+      }
+    },
+    "server10": {
+      "role": "server",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "SERVERS5",
+          "10.40.5.12/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.5.1"
+      }
+    },
+    "server11": {
+      "role": "server",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "SERVERS6",
+          "10.40.6.11/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.6.1"
+      }
+    },
+    "server12": {
+      "role": "server",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "SERVERS6",
+          "10.40.6.12/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.6.1"
+      }
+    },
+    "server13": {
+      "role": "server",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "SERVERS7",
+          "10.40.7.11/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.7.1"
+      }
+    },
+    "server14": {
+      "role": "server",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "SERVERS7",
+          "10.40.7.12/24"
+        ]
+      },
+      "routes": {
+        "default": "10.40.7.1"
+      }
+    },
+    "pc17": {
+      "role": "pc",
+      "site": 1,
+      "interfaces": {
+        "eth0": [
+          "USERS1",
+          "10.10.1.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.1.1"
+      }
+    },
+    "pc18": {
+      "role": "pc",
+      "site": 2,
+      "interfaces": {
+        "eth0": [
+          "USERS2",
+          "10.10.2.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.2.1"
+      }
+    },
+    "pc19": {
+      "role": "pc",
+      "site": 3,
+      "interfaces": {
+        "eth0": [
+          "USERS3",
+          "10.10.3.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.3.1"
+      }
+    },
+    "pc20": {
+      "role": "pc",
+      "site": 4,
+      "interfaces": {
+        "eth0": [
+          "USERS4",
+          "10.10.4.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.4.1"
+      }
+    },
+    "pc21": {
+      "role": "pc",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "USERS5",
+          "10.10.5.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.5.1"
+      }
+    },
+    "pc22": {
+      "role": "pc",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "USERS5",
+          "10.10.5.16/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.5.1"
+      }
+    },
+    "pc23": {
+      "role": "pc",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "USERS5",
+          "10.10.5.17/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.5.1"
+      }
+    },
+    "pc24": {
+      "role": "pc",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "USERS5",
+          "10.10.5.18/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.5.1"
+      }
+    },
+    "pc25": {
+      "role": "pc",
+      "site": 5,
+      "interfaces": {
+        "eth0": [
+          "USERS5",
+          "10.10.5.19/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.5.1"
+      }
+    },
+    "pc26": {
+      "role": "pc",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "USERS6",
+          "10.10.6.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.6.1"
+      }
+    },
+    "pc27": {
+      "role": "pc",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "USERS6",
+          "10.10.6.16/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.6.1"
+      }
+    },
+    "pc28": {
+      "role": "pc",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "USERS6",
+          "10.10.6.17/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.6.1"
+      }
+    },
+    "pc29": {
+      "role": "pc",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "USERS6",
+          "10.10.6.18/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.6.1"
+      }
+    },
+    "pc30": {
+      "role": "pc",
+      "site": 6,
+      "interfaces": {
+        "eth0": [
+          "USERS6",
+          "10.10.6.19/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.6.1"
+      }
+    },
+    "pc31": {
+      "role": "pc",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "USERS7",
+          "10.10.7.15/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.7.1"
+      }
+    },
+    "pc32": {
+      "role": "pc",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "USERS7",
+          "10.10.7.16/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.7.1"
+      }
+    },
+    "pc33": {
+      "role": "pc",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "USERS7",
+          "10.10.7.17/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.7.1"
+      }
+    },
+    "pc34": {
+      "role": "pc",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "USERS7",
+          "10.10.7.18/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.7.1"
+      }
+    },
+    "pc35": {
+      "role": "pc",
+      "site": 7,
+      "interfaces": {
+        "eth0": [
+          "USERS7",
+          "10.10.7.19/24"
+        ]
+      },
+      "routes": {
+        "default": "10.10.7.1"
+      }
+    },
+    "server15": {
+      "role": "server",
+      "site": 4,
+      "interfaces": {
+        "eth0": [
+          "SERVERS4",
+          "10.40.4.13/24"
         ]
       },
       "routes": {
@@ -1245,6 +1934,198 @@
           "eth1"
         ]
       ]
+    },
+    {
+      "segment": "T22",
+      "network": "10.255.22.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r1",
+          "eth5"
+        ],
+        [
+          "r17",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T23",
+      "network": "10.255.23.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r2",
+          "eth4"
+        ],
+        [
+          "r18",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T24",
+      "network": "10.255.24.0/30",
+      "area": 5,
+      "cost": 10,
+      "ends": [
+        [
+          "r17",
+          "eth1"
+        ],
+        [
+          "r19",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T25",
+      "network": "10.255.25.0/30",
+      "area": 5,
+      "cost": 100,
+      "ends": [
+        [
+          "r18",
+          "eth1"
+        ],
+        [
+          "r19",
+          "eth1"
+        ]
+      ]
+    },
+    {
+      "segment": "T26",
+      "network": "10.255.26.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r2",
+          "eth5"
+        ],
+        [
+          "r20",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T27",
+      "network": "10.255.27.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r3",
+          "eth5"
+        ],
+        [
+          "r21",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T28",
+      "network": "10.255.28.0/30",
+      "area": 6,
+      "cost": 10,
+      "ends": [
+        [
+          "r20",
+          "eth1"
+        ],
+        [
+          "r22",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T29",
+      "network": "10.255.29.0/30",
+      "area": 6,
+      "cost": 100,
+      "ends": [
+        [
+          "r21",
+          "eth1"
+        ],
+        [
+          "r22",
+          "eth1"
+        ]
+      ]
+    },
+    {
+      "segment": "T30",
+      "network": "10.255.30.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r3",
+          "eth6"
+        ],
+        [
+          "r23",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T31",
+      "network": "10.255.31.0/30",
+      "area": 0,
+      "cost": 10,
+      "ends": [
+        [
+          "r4",
+          "eth4"
+        ],
+        [
+          "r24",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T32",
+      "network": "10.255.32.0/30",
+      "area": 7,
+      "cost": 10,
+      "ends": [
+        [
+          "r23",
+          "eth1"
+        ],
+        [
+          "r25",
+          "eth0"
+        ]
+      ]
+    },
+    {
+      "segment": "T33",
+      "network": "10.255.33.0/30",
+      "area": 7,
+      "cost": 100,
+      "ends": [
+        [
+          "r24",
+          "eth1"
+        ],
+        [
+          "r25",
+          "eth1"
+        ]
+      ]
     }
   ],
   "sites": {
@@ -1258,7 +2139,8 @@
         "pc3",
         "pc4",
         "server1",
-        "server2"
+        "server2",
+        "pc17"
       ]
     },
     "2": {
@@ -1271,7 +2153,8 @@
         "pc7",
         "pc8",
         "server3",
-        "server4"
+        "server4",
+        "pc18"
       ]
     },
     "3": {
@@ -1284,7 +2167,8 @@
         "pc11",
         "pc12",
         "server5",
-        "server6"
+        "server6",
+        "pc19"
       ]
     },
     "4": {
@@ -1297,7 +2181,51 @@
         "pc15",
         "pc16",
         "server7",
-        "server8"
+        "server8",
+        "pc20",
+        "server15"
+      ]
+    },
+    "5": {
+      "router": "r19",
+      "primary_abr": "r17",
+      "backup_abr": "r18",
+      "endpoints": [
+        "server9",
+        "server10",
+        "pc21",
+        "pc22",
+        "pc23",
+        "pc24",
+        "pc25"
+      ]
+    },
+    "6": {
+      "router": "r22",
+      "primary_abr": "r20",
+      "backup_abr": "r21",
+      "endpoints": [
+        "server11",
+        "server12",
+        "pc26",
+        "pc27",
+        "pc28",
+        "pc29",
+        "pc30"
+      ]
+    },
+    "7": {
+      "router": "r25",
+      "primary_abr": "r23",
+      "backup_abr": "r24",
+      "endpoints": [
+        "server13",
+        "server14",
+        "pc31",
+        "pc32",
+        "pc33",
+        "pc34",
+        "pc35"
       ]
     }
   }

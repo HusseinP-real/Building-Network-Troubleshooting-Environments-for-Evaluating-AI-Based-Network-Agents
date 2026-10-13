@@ -1,4 +1,4 @@
-"""P20Enterprise v2 design and reproducible Kathara/scenario file generation.
+"""P20Enterprise v3 design and reproducible Kathara/scenario file generation.
 
 The model describes configuration and expected observations, not an OSPF simulator.
 Run build_p20_enterprise.py to regenerate files after an intentional design change.
@@ -8,13 +8,13 @@ import json
 import shlex
 
 NAME = 'P20Enterprise'
-VERSION = 2
+VERSION = 3
 
 
 def build_spec():
-    nodes = {f'r{i}': {'role': 'core' if i <= 4 else 'abr' if i <= 12 else 'site',
+    nodes = {f'r{i}': {'role': 'core' if i <= 4 else 'site' if i in (13, 14, 15, 16, 19, 22, 25) else 'abr',
                        'interfaces': {}, 'ospf': {}, 'routes': {},
-                       'router_id': f'10.255.255.{i}'} for i in range(1, 17)}
+                       'router_id': f'10.255.255.{i}'} for i in range(1, 26)}
     links = []
 
     def interface(node, segment, address, area=None, cost=10, passive=False):
@@ -38,16 +38,18 @@ def build_spec():
     for left, right in [(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)]:
         link(f'r{left}', f'r{right}', 0)
     sites = {}
-    for site in range(1, 5):
-        primary, backup, edge = f'r{2*site+3}', f'r{2*site+4}', f'r{site+12}'
-        link(f'r{site}', primary, 0)
+    for site in range(1, 8):
+        primary, backup, edge = (
+            (f'r{2*site+3}', f'r{2*site+4}', f'r{site+12}') if site <= 4
+            else (f'r{17+3*(site-5)}', f'r{18+3*(site-5)}', f'r{19+3*(site-5)}'))
+        link(f'r{(site-1) % 4 + 1}', primary, 0)
         link(f'r{site % 4 + 1}', backup, 0)
         link(primary, edge, site, 10)
         link(backup, edge, site, 100)
         interface(edge, f'USERS{site}', f'10.10.{site}.1/24', site, 1, True)
         interface(edge, f'SERVERS{site}', f'10.40.{site}.1/24', site, 1, True)
         endpoints = []
-        for kind, count, base in [('pc', 4, 10), ('server', 2, 40)]:
+        for kind, count, base in [('pc', 4 if site <= 4 else 0, 10), ('server', 2, 40)]:
             for j in range(1, count+1):
                 node = f'{kind}{(site-1)*count+j}'
                 nodes[node] = {'role': kind, 'site': site, 'interfaces': {},
@@ -57,6 +59,21 @@ def build_spec():
                 endpoints.append(node)
         sites[str(site)] = {'router': edge, 'primary_abr': primary, 'backup_abr': backup,
                             'endpoints': endpoints}
+    # Keep all v2 addresses and names, then add one PC per original site,
+    # five PCs per new site and one additional operations server.
+    for site in range(1, 8):
+        count = 1 if site <= 4 else 5
+        for j in range(count):
+            number = 16 + site if site <= 4 else 21 + (site-5)*5 + j
+            node = f'pc{number}'
+            nodes[node] = {'role': 'pc', 'site': site, 'interfaces': {},
+                           'routes': {'default': f'10.10.{site}.1'}}
+            interface(node, f'USERS{site}', f'10.10.{site}.{15+j}/24')
+            sites[str(site)]['endpoints'].append(node)
+    nodes['server15'] = {'role': 'server', 'site': 4, 'interfaces': {},
+                         'routes': {'default': '10.40.4.1'}}
+    interface('server15', 'SERVERS4', '10.40.4.13/24')
+    sites['4']['endpoints'].append('server15')
     return {'version': VERSION, 'name': NAME, 'nodes': nodes, 'links': links, 'sites': sites}
 
 
@@ -74,33 +91,33 @@ def uplink_gateway(interface):
 
 CASES = {
     'healthy': {
-        'id': 'p20-enterprise-v2-false-premise-outage', 'node': 'pc1', 'inject': '', 'repair': '',
-        'ticket': 'A user reports that HQ cannot reach the other three sites or their servers. Check whether the report is supported by current network evidence.',
+        'id': 'p20-enterprise-v3-false-premise-outage', 'node': 'pc1', 'inject': '', 'repair': '',
+        'ticket': 'A user reports that HQ cannot reach the other six sites or their servers. Check whether the report is supported by current network evidence.',
         'truth': 'No fault is injected. All nominated paths work and OSPF uses the preferred HQ uplink. Do not invent an outage or change healthy configuration.'},
     'failover': {
-        'id': 'p20-enterprise-v2-primary-uplink-failover', 'node': 'r13',
+        'id': 'p20-enterprise-v3-primary-uplink-failover', 'node': 'r13',
         'inject': 'ip link set eth0 down', 'repair': 'ip link set eth0 up',
         'ticket': 'HQ raised a primary-uplink alarm, but users can still reach the other sites. Determine whether service is down or operating through redundancy.',
         'truth': 'R13 eth0, the preferred HQ uplink to R5, is administratively down. OSPF converges through eth1 and R6. Reachability recovers on the backup path, but redundancy is degraded. Restore eth0 and verify return to the preferred next hop. This test does not establish zero packet loss during convergence.'},
     'isolation': {
-        'id': 'p20-enterprise-v2-hq-both-uplinks-down', 'node': 'r13',
+        'id': 'p20-enterprise-v3-hq-both-uplinks-down', 'node': 'r13',
         'inject': 'set -e\nip link set eth0 down\nip link set eth1 down',
         'repair': 'set -e\nip link set eth0 up\nip link set eth1 up',
-        'ticket': 'HQ PCs and servers can communicate locally but cannot reach other sites. The other three sites can still communicate with one another.',
+        'ticket': 'HQ PCs and servers can communicate locally but cannot reach other sites. The other six sites can still communicate with one another.',
         'truth': 'Both R13 uplinks eth0 and eth1 are administratively down, isolating HQ from the backbone. Local HQ user/server routing remains available. Restore both uplinks; restoring just the preferred link does not restore redundancy.'},
     'advertisement': {
-        'id': 'p20-enterprise-v2-hq-server-ospf-withdrawal', 'node': 'r13',
+        'id': 'p20-enterprise-v3-hq-server-ospf-withdrawal', 'node': 'r13',
         'inject': "set -e\nconfig=$(vtysh -c 'show running-config')\npresent=$(printf '%s\\n' \"$config\" | awk '$1==\"network\" && $2==\"10.40.1.0/24\" {n++} END {print n+0}')\nif test \"$present\" -eq 1; then\n  vtysh -c 'configure terminal' -c 'router ospf' -c 'no network 10.40.1.0/24 area 0.0.0.1'\nelif test \"$present\" -ne 0; then\n  exit 1\nfi",
         'repair': "vtysh -c 'configure terminal' -c 'router ospf' -c 'network 10.40.1.0/24 area 0.0.0.1'",
         'ticket': 'Remote sites cannot reach HQ servers, but HQ PCs can reach those servers. Remote access to HQ PCs still works. Investigate routing advertisements as well as interfaces.',
         'truth': 'R13 no longer advertises the HQ server network 10.40.1.0/24 into OSPF area 1. The server interface is up and its connected route remains, so local HQ traffic works. Remote routers lose the OSPF route. Restore the precise network statement; do not add a static-route workaround.'},
     'server-link': {
-        'id': 'p20-enterprise-v2-hq-server-interface-down', 'node': 'r13',
+        'id': 'p20-enterprise-v3-hq-server-interface-down', 'node': 'r13',
         'inject': 'ip link set eth3 down', 'repair': 'ip link set eth3 up',
         'ticket': 'HQ and remote PCs cannot reach HQ servers. The two HQ servers can still reach each other, and communication between PC networks is healthy.',
         'truth': 'R13 eth3, the HQ server-facing interface, is administratively down. Routed access to both HQ servers fails, while their shared-LAN traffic continues. Restore eth3 and verify local and remote access.'},
     'gateway': {
-        'id': 'p20-enterprise-v2-pc1-wrong-gateway', 'node': 'pc1',
+        'id': 'p20-enterprise-v3-pc1-wrong-gateway', 'node': 'pc1',
         'inject': 'ip route replace default via 10.10.1.254',
         'repair': 'ip route replace default via 10.10.1.1',
         'ticket': 'Only PC1 cannot communicate outside its local LAN. PC1 can reach PC2, and the other HQ devices and remote sites work.',
@@ -170,8 +187,8 @@ def checks(case):
 def rendered_files():
     files = {}
     root = f'topology_kathara/{NAME}'
-    lab = ['LAB_NAME="P20Enterprise"', 'LAB_VERSION="2.0"',
-           'LAB_DESCRIPTION="Four-site redundant multi-area OSPF enterprise"']
+    lab = ['LAB_NAME="P20Enterprise"', 'LAB_VERSION="3.0"',
+           'LAB_DESCRIPTION="Seven-site redundant multi-area OSPF enterprise"']
     for node, data in SPEC['nodes'].items():
         router = 'ospf' in data
         lab += [f'{node}[image]="kathara/{"frr" if router else "base"}"',
@@ -204,7 +221,7 @@ def rendered_files():
         files[f'{root}/{node}.startup'] = '\n'.join(startup) + '\n'
     files[f'{root}/lab.conf'] = '\n'.join(lab) + '\n'
     files['docs/p20-enterprise/topology.json'] = json.dumps(SPEC, indent=2) + '\n'
-    table = ['# P20Enterprise v2 addressing', '', '| Device | Role | Interface | Segment | Address | OSPF area |', '|---|---|---|---|---|---|']
+    table = ['# P20Enterprise v3 addressing', '', '| Device | Role | Interface | Segment | Address | OSPF area |', '|---|---|---|---|---|---|']
     for node, data in SPEC['nodes'].items():
         for iface, (segment, addr) in data['interfaces'].items():
             area = data.get('ospf', {}).get(iface, {}).get('area', '—')

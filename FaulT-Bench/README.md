@@ -329,11 +329,11 @@ Leftover containers after a killed run:
 
 ### Custom P20Enterprise topology
 
-The [P20Enterprise v2 guide](docs/p20-enterprise/README.md) covers 40 devices
-(16 routers, 16 PCs, eight server endpoints), 29 subnets, five OSPF areas and
+The [P20Enterprise v3 guide](docs/p20-enterprise/README.md) covers 75 devices
+(25 routers, 35 PCs, 15 server endpoints), 47 subnets, eight OSPF areas and
 redundant site uplinks. Six native scenarios include verified-next-hop failover,
 site isolation, advertisement withdrawal, server-interface and gateway faults,
-and a healthy control. The `benchmarks/p20-enterprise.csv` manifest selects v2 cases.
+and a healthy control. The `benchmarks/p20-enterprise.csv` manifest selects v3 cases.
 See [versioned validation evidence](docs/p20-enterprise/validation/status.md):
 the original nine-device report is historical v1 evidence only. These additions
 remain separate from the published datasets and frozen agent results.

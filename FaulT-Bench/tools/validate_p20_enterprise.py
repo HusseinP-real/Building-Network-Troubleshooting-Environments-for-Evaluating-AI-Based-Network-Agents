@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate P20Enterprise v2 on live Kathara/FRR without an LLM or API keys."""
+"""Validate P20Enterprise v3 on live Kathara/FRR without an LLM or API keys."""
 from __future__ import annotations
 import argparse
 from collections import defaultdict
@@ -194,7 +194,7 @@ def main():
         parser.error('repeat and timeout must be positive')
     spec, scenarios = specs()
     if args.check_only:
-        print('PASS: v2: 40 devices, 29 subnets, 5 OSPF areas, 6 scenarios; generated files and shell syntax match. Live tests NOT RUN.')
+        print('PASS: v3: 75 devices, 47 subnets, 8 OSPF areas, 6 scenarios; generated files and shell syntax match. Live tests NOT RUN.')
         return 0
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output = args.output or ROOT / 'faultbench/runs/p20-enterprise' / f'{stamp}.json'
@@ -214,10 +214,10 @@ def main():
         for image in ('kathara/base', 'kathara/frr'):
             proc = subprocess.run(['docker', 'image', 'inspect', image, '--format', '{{json .RepoDigests}}'], capture_output=True, text=True, timeout=30, check=True)
             report.setdefault('image_digests', {})[image] = json.loads(proc.stdout)
-        temporary = Path(tempfile.mkdtemp(prefix='p20-enterprise-v2-')) / NAME
+        temporary = Path(tempfile.mkdtemp(prefix='p20-enterprise-v3-')) / NAME
         shutil.copytree(TOPOLOGY, temporary, ignore=shutil.ignore_patterns('.DS_Store', 'shared'))
         report['temporary_lab'] = str(temporary)
-        print(f'[deploy] 40 devices in isolated lab {temporary}', flush=True)
+        print(f'[deploy] 75 devices in isolated lab {temporary}', flush=True)
         proc = subprocess.run(['kathara', 'lstart', '-d', str(temporary), '--noterminals', '-H', '-S'], capture_output=True, text=True, timeout=600)
         report['deployment'] = {'rc': proc.returncode, 'output': proc.stdout + proc.stderr}
         if proc.returncode:

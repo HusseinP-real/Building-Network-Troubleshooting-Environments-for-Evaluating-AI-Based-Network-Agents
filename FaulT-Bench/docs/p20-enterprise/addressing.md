@@ -1,4 +1,4 @@
-# P20Enterprise v2 addressing
+# P20Enterprise v3 addressing
 
 | Device | Role | Interface | Segment | Address | OSPF area |
 |---|---|---|---|---|---|
@@ -7,19 +7,25 @@
 | r1 | core | eth2 | T05 | 10.255.5.1/30 | 0 |
 | r1 | core | eth3 | T06 | 10.255.6.1/30 | 0 |
 | r1 | core | eth4 | T19 | 10.255.19.1/30 | 0 |
+| r1 | core | eth5 | T22 | 10.255.22.1/30 | 0 |
 | r2 | core | eth0 | T01 | 10.255.1.2/30 | 0 |
 | r2 | core | eth1 | T02 | 10.255.2.1/30 | 0 |
 | r2 | core | eth2 | T07 | 10.255.7.1/30 | 0 |
 | r2 | core | eth3 | T10 | 10.255.10.1/30 | 0 |
+| r2 | core | eth4 | T23 | 10.255.23.1/30 | 0 |
+| r2 | core | eth5 | T26 | 10.255.26.1/30 | 0 |
 | r3 | core | eth0 | T02 | 10.255.2.2/30 | 0 |
 | r3 | core | eth1 | T03 | 10.255.3.1/30 | 0 |
 | r3 | core | eth2 | T05 | 10.255.5.2/30 | 0 |
 | r3 | core | eth3 | T11 | 10.255.11.1/30 | 0 |
 | r3 | core | eth4 | T14 | 10.255.14.1/30 | 0 |
+| r3 | core | eth5 | T27 | 10.255.27.1/30 | 0 |
+| r3 | core | eth6 | T30 | 10.255.30.1/30 | 0 |
 | r4 | core | eth0 | T03 | 10.255.3.2/30 | 0 |
 | r4 | core | eth1 | T04 | 10.255.4.1/30 | 0 |
 | r4 | core | eth2 | T15 | 10.255.15.1/30 | 0 |
 | r4 | core | eth3 | T18 | 10.255.18.1/30 | 0 |
+| r4 | core | eth4 | T31 | 10.255.31.1/30 | 0 |
 | r5 | abr | eth0 | T06 | 10.255.6.2/30 | 0 |
 | r5 | abr | eth1 | T08 | 10.255.8.1/30 | 1 |
 | r6 | abr | eth0 | T07 | 10.255.7.2/30 | 0 |
@@ -52,6 +58,30 @@
 | r16 | site | eth1 | T21 | 10.255.21.2/30 | 4 |
 | r16 | site | eth2 | USERS4 | 10.10.4.1/24 | 4 |
 | r16 | site | eth3 | SERVERS4 | 10.40.4.1/24 | 4 |
+| r17 | abr | eth0 | T22 | 10.255.22.2/30 | 0 |
+| r17 | abr | eth1 | T24 | 10.255.24.1/30 | 5 |
+| r18 | abr | eth0 | T23 | 10.255.23.2/30 | 0 |
+| r18 | abr | eth1 | T25 | 10.255.25.1/30 | 5 |
+| r19 | site | eth0 | T24 | 10.255.24.2/30 | 5 |
+| r19 | site | eth1 | T25 | 10.255.25.2/30 | 5 |
+| r19 | site | eth2 | USERS5 | 10.10.5.1/24 | 5 |
+| r19 | site | eth3 | SERVERS5 | 10.40.5.1/24 | 5 |
+| r20 | abr | eth0 | T26 | 10.255.26.2/30 | 0 |
+| r20 | abr | eth1 | T28 | 10.255.28.1/30 | 6 |
+| r21 | abr | eth0 | T27 | 10.255.27.2/30 | 0 |
+| r21 | abr | eth1 | T29 | 10.255.29.1/30 | 6 |
+| r22 | site | eth0 | T28 | 10.255.28.2/30 | 6 |
+| r22 | site | eth1 | T29 | 10.255.29.2/30 | 6 |
+| r22 | site | eth2 | USERS6 | 10.10.6.1/24 | 6 |
+| r22 | site | eth3 | SERVERS6 | 10.40.6.1/24 | 6 |
+| r23 | abr | eth0 | T30 | 10.255.30.2/30 | 0 |
+| r23 | abr | eth1 | T32 | 10.255.32.1/30 | 7 |
+| r24 | abr | eth0 | T31 | 10.255.31.2/30 | 0 |
+| r24 | abr | eth1 | T33 | 10.255.33.1/30 | 7 |
+| r25 | site | eth0 | T32 | 10.255.32.2/30 | 7 |
+| r25 | site | eth1 | T33 | 10.255.33.2/30 | 7 |
+| r25 | site | eth2 | USERS7 | 10.10.7.1/24 | 7 |
+| r25 | site | eth3 | SERVERS7 | 10.40.7.1/24 | 7 |
 | pc1 | pc | eth0 | USERS1 | 10.10.1.11/24 | — |
 | pc2 | pc | eth0 | USERS1 | 10.10.1.12/24 | — |
 | pc3 | pc | eth0 | USERS1 | 10.10.1.13/24 | — |
@@ -76,6 +106,32 @@
 | pc16 | pc | eth0 | USERS4 | 10.10.4.14/24 | — |
 | server7 | server | eth0 | SERVERS4 | 10.40.4.11/24 | — |
 | server8 | server | eth0 | SERVERS4 | 10.40.4.12/24 | — |
+| server9 | server | eth0 | SERVERS5 | 10.40.5.11/24 | — |
+| server10 | server | eth0 | SERVERS5 | 10.40.5.12/24 | — |
+| server11 | server | eth0 | SERVERS6 | 10.40.6.11/24 | — |
+| server12 | server | eth0 | SERVERS6 | 10.40.6.12/24 | — |
+| server13 | server | eth0 | SERVERS7 | 10.40.7.11/24 | — |
+| server14 | server | eth0 | SERVERS7 | 10.40.7.12/24 | — |
+| pc17 | pc | eth0 | USERS1 | 10.10.1.15/24 | — |
+| pc18 | pc | eth0 | USERS2 | 10.10.2.15/24 | — |
+| pc19 | pc | eth0 | USERS3 | 10.10.3.15/24 | — |
+| pc20 | pc | eth0 | USERS4 | 10.10.4.15/24 | — |
+| pc21 | pc | eth0 | USERS5 | 10.10.5.15/24 | — |
+| pc22 | pc | eth0 | USERS5 | 10.10.5.16/24 | — |
+| pc23 | pc | eth0 | USERS5 | 10.10.5.17/24 | — |
+| pc24 | pc | eth0 | USERS5 | 10.10.5.18/24 | — |
+| pc25 | pc | eth0 | USERS5 | 10.10.5.19/24 | — |
+| pc26 | pc | eth0 | USERS6 | 10.10.6.15/24 | — |
+| pc27 | pc | eth0 | USERS6 | 10.10.6.16/24 | — |
+| pc28 | pc | eth0 | USERS6 | 10.10.6.17/24 | — |
+| pc29 | pc | eth0 | USERS6 | 10.10.6.18/24 | — |
+| pc30 | pc | eth0 | USERS6 | 10.10.6.19/24 | — |
+| pc31 | pc | eth0 | USERS7 | 10.10.7.15/24 | — |
+| pc32 | pc | eth0 | USERS7 | 10.10.7.16/24 | — |
+| pc33 | pc | eth0 | USERS7 | 10.10.7.17/24 | — |
+| pc34 | pc | eth0 | USERS7 | 10.10.7.18/24 | — |
+| pc35 | pc | eth0 | USERS7 | 10.10.7.19/24 | — |
+| server15 | server | eth0 | SERVERS4 | 10.40.4.13/24 | — |
 
 Routers learn remote LANs through OSPF; no static/default router routes mask withdrawals.
 Hosts use .1 in their own /24 as the default gateway. 10.10.1.254 is deliberately unassigned.

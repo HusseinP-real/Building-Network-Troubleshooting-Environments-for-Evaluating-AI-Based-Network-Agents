@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the checked-in P20Enterprise v2 configuration from its explicit model."""
+"""Generate the checked-in P20Enterprise v3 configuration from its explicit model."""
 import argparse
 from pathlib import Path
 from p20_enterprise_model import rendered_files
@@ -21,7 +21,7 @@ def main():
             path.write_text(content)
     if drift:
         parser.exit(1, 'Generated files differ:\n' + '\n'.join(drift) + '\n')
-    print('PASS: generated files match' if args.check else 'Generated P20Enterprise v2 files')
+    print('PASS: generated files match' if args.check else 'Generated P20Enterprise v3 files')
 
 
 if __name__ == '__main__':
