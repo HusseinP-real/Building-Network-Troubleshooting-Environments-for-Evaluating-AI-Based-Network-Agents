@@ -110,7 +110,7 @@ def main():
     faults = json.loads(FAULT_FILE.read_text())
 
     # Initially validate only the first fault
-    faults = faults[5:10]
+    faults = faults[15:75]
 
     results = []
 
