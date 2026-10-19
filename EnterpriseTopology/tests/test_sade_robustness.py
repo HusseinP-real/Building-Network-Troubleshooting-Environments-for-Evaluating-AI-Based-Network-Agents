@@ -41,6 +41,85 @@ QUALITY = {
 
 
 class RobustnessTests(unittest.TestCase):
+    def test_health_retries_failed_readonly_probe_and_records_history(self):
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(ev.lab, "ROOT", Path(tmp)),
+            patch.object(ev.lab, "checks", return_value=[("probe", "r1", "read-only")]),
+            patch.object(
+                ev.lab,
+                "execute",
+                side_effect=[(False, "Connection refused"), (True, "ok")],
+            ) as execute,
+            patch.object(ev.lab.time, "sleep"),
+        ):
+            self.assertEqual(ev.lab.check(), 0)
+            self.assertEqual(execute.call_count, 2)
+            report = json.loads((Path(tmp) / "results/latest-health.json").read_text())
+            self.assertEqual(len(report["checks"][0]["attempts"]), 2)
+
+    def test_persistent_unhealthy_baseline_never_calls_model_or_injects(self):
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(ev, "ROOT", Path(tmp)),
+            patch.object(ev, "_preflight"),
+            patch.object(ev.lab, "check", return_value=1),
+            patch.object(ev.lab, "execute") as execute,
+            patch.object(ev, "_run_sade") as agent,
+            patch.object(ev, "_judge_prediction") as judge,
+        ):
+            report = json.loads(
+                ev.run_case("compound-ospf-gateway", Path(tmp), 30, "test").read_text()
+            )
+            self.assertEqual(report["status"], "error")
+            execute.assert_not_called()
+            agent.assert_not_called()
+            judge.assert_not_called()
+
+    def test_health_persistent_failure_is_not_hidden_by_retries(self):
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch.object(ev.lab, "ROOT", Path(tmp)),
+            patch.object(ev.lab, "checks", return_value=[("probe", "r1", "read-only")]),
+            patch.object(
+                ev.lab, "execute", return_value=(False, "unhealthy")
+            ) as execute,
+            patch.object(ev.lab.time, "sleep"),
+        ):
+            self.assertEqual(ev.lab.check(), 1)
+            self.assertEqual(execute.call_count, 3)
+
+    @unittest.skipUnless(
+        importlib.util.find_spec("claude_agent_sdk"), "Requires NIKA SDK environment"
+    )
+    def test_sdk_error_stream_is_drained_before_raising(self):
+        from claude_agent_sdk import ResultMessage
+
+        closed = []
+
+        async def fake_query(**kwargs):
+            try:
+                yield ResultMessage(
+                    subtype="error_max_turns",
+                    duration_ms=1,
+                    duration_api_ms=1,
+                    is_error=True,
+                    num_turns=30,
+                    session_id="test",
+                    result="unfinished",
+                )
+            finally:
+                closed.append(True)
+
+        with (
+            patch("claude_agent_sdk.query", fake_query),
+            self.assertRaisesRegex(RuntimeError, "error_max_turns"),
+        ):
+            asyncio.run(
+                ev._run_sade("ticket", Path("/tmp/nika"), 30, "test", "no-tools")
+            )
+        self.assertEqual(closed, [True])
+
     @unittest.skipUnless(
         importlib.util.find_spec("claude_agent_sdk"), "Requires NIKA SDK environment"
     )

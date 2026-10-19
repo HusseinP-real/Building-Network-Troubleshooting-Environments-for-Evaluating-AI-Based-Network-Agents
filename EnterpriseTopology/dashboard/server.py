@@ -209,6 +209,58 @@ class Handler(BaseHTTPRequestHandler):
             return self._file(STATIC / "style.css", "text/css; charset=utf-8")
         if parsed.path == "/app.js":
             return self._file(STATIC / "app.js", "text/javascript; charset=utf-8")
+        if parsed.path == "/topology.js":
+            return self._file(STATIC / "topology.js", "text/javascript; charset=utf-8")
+        topologies = {
+            "enterprise-75": {
+                "name": "Enterprise Topology",
+                "inventory": ROOT / "inventory.json",
+                "scenario_count": CASE_COUNT,
+                "evaluation_enabled": True,
+            },
+            "enterprise-75-standalone": {
+                "name": "Enterprise Topology · Standalone",
+                "inventory": STATIC / "topologies" / "enterprise-75-standalone.json",
+                "scenario_count": 0,
+                "evaluation_enabled": False,
+            },
+        }
+        if parsed.path == "/api/topologies":
+            return self._json(200, [
+                {"id": key, "name": item["name"],
+                 "evaluation_enabled": item["evaluation_enabled"]}
+                for key, item in topologies.items()
+            ])
+        if parsed.path == "/api/topology":
+            topology_id = parse_qs(parsed.query).get("id", ["enterprise-75"])[0]
+            topology = topologies.get(topology_id)
+            if topology is None:
+                return self._json(404, {"error": "Topology not found"})
+            try:
+                inventory = json.loads(topology["inventory"].read_text())
+            except (OSError, ValueError):
+                return self._json(500, {"error": "Topology inventory is unavailable"})
+            health = None
+            if topology["evaluation_enabled"]:
+                try:
+                    saved = json.loads((ROOT / "results/latest-health.json").read_text())
+                    health = {
+                        "timestamp": saved["timestamp"],
+                        "passed": saved["passed"],
+                        "total": len(saved["checks"]),
+                        "passing": sum(c["passed"] for c in saved["checks"]),
+                    }
+                except (OSError, ValueError, KeyError):
+                    pass
+            return self._json(200, {
+                "id": topology_id,
+                "name": topology["name"],
+                "nodes": inventory["nodes"],
+                "links": inventory["links"],
+                "scenario_count": topology["scenario_count"],
+                "evaluation_enabled": topology["evaluation_enabled"],
+                "health": health,
+            })
         if parsed.path == "/api/status":
             return self._json(200, self.state.snapshot())
         if parsed.path == "/api/reports":

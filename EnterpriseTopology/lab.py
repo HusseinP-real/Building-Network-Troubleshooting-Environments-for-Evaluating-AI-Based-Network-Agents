@@ -69,8 +69,18 @@ def checks():
 
 def check():
     def one(item):
-        title,node,cmd=item; ok,out=execute(node,cmd)
-        return {'check':title,'node':node,'passed':ok,'output':out}
+        title,node,cmd=item
+        history=[]
+        # These probes are read-only. Retry only failed probes, never fault mutations
+        # or model requests; retain failures so transient infrastructure errors remain visible.
+        for attempt in range(3):
+            ok,out=execute(node,cmd)
+            history.append({'passed':ok,'output':out})
+            if ok:
+                break
+            if attempt < 2:
+                time.sleep(2)
+        return {'check':title,'node':node,'passed':ok,'output':out,'attempts':history}
     with ThreadPoolExecutor(max_workers=4) as pool: results=list(pool.map(one,checks()))
     for r in results: print(('PASS' if r['passed'] else 'FAIL')+' '+r['check']+('' if r['passed'] else '\n'+r['output'][:600]))
     report={'timestamp':datetime.now(timezone.utc).isoformat(),'passed':all(r['passed'] for r in results),'checks':results}

@@ -553,6 +553,7 @@ async def _run_sade(
     tool_calls = 0
     usage = {}
     total_cost_usd = None
+    sdk_error = None
     async for message in query(prompt=prompt, options=options):
         if isinstance(message, AssistantMessage):
             for block in message.content:
@@ -574,7 +575,13 @@ async def _run_sade(
             usage = message.usage or {}
             total_cost_usd = getattr(message, "total_cost_usd", None)
             if message.is_error:
-                raise RuntimeError(f"SADE SDK reported an error: {final}")
+                sdk_error = (
+                    f"SADE SDK reported an error: subtype={message.subtype}; "
+                    f"turns={message.num_turns}; result={final}"
+                )
+    # Let the SDK finish closing its stream before raising an application error.
+    if sdk_error:
+        raise RuntimeError(sdk_error)
     return {
         "system_prompt": options.system_prompt,
         "available_mcp_servers": list(options.mcp_servers),

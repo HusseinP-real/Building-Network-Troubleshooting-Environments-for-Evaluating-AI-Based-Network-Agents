@@ -124,6 +124,102 @@ function radar(report) {
   graph.append(center);
   box.append(graph);
 }
+function insightCharts(report) {
+  const runs = report.runs || [];
+  const outcome = run => run.score?.full_correct === true ? 0 : run.score?.rca_exact === true ? 1 : typeof run.score?.rca_exact === 'boolean' ? 2 : 3;
+  const labels = ['Full correctness', 'Exact RCA, not full', 'RCA mismatch', 'Unscored'];
+  const colors = ['var(--primary)', 'var(--tertiary)', 'var(--error)', 'var(--outline)'];
+  const counts = labels.map((_, i) => runs.filter(run => outcome(run) === i).length);
+  const donut = svg('svg', {viewBox:'0 0 240 240', role:'img', 'aria-label':`Run outcomes: ${labels.map((label,i)=>`${label}: ${counts[i]}`).join(', ')}`});
+  donut.append(svg('circle',{cx:120,cy:120,r:85,fill:'none',stroke:'var(--surface-container-highest)','stroke-width':24}));
+  let offset = 0;
+  counts.forEach((count,i) => {
+    if (!count || !runs.length) return;
+    const fraction = count / runs.length;
+    const arc = svg('circle',{cx:120,cy:120,r:85,fill:'none',stroke:colors[i],'stroke-width':24,pathLength:100,'stroke-dasharray':`${fraction*100} ${100-fraction*100}`,'stroke-dashoffset':-offset,transform:'rotate(-90 120 120)',class:'outcome-arc'});
+    const title=svg('title');title.textContent=`${labels[i]}: ${count}/${runs.length} (${Math.round(fraction*100)}%)`;arc.append(title);donut.append(arc);offset+=fraction*100;
+  });
+  const total=svg('text',{x:120,y:117,'text-anchor':'middle',class:'donut-total'});total.textContent=runs.length;donut.append(total);
+  const subtitle=svg('text',{x:120,y:141,'text-anchor':'middle',class:'plot-label'});subtitle.textContent='ATTEMPTS';donut.append(subtitle);
+  $('outcomeDonut').replaceChildren(donut);$('outcomeLegend').replaceChildren();
+  labels.forEach((label,i)=>{
+    const row=element('div','outcome-row'); const dot=element('span','outcome-dot');dot.style.background=colors[i];
+    row.append(dot,element('span','',label),element('strong','',`${counts[i]} · ${runs.length?Math.round(counts[i]/runs.length*100):0}%`));$('outcomeLegend').append(row);
+  });
+  $('qualityBridge').replaceChildren();
+  [['rca_exact','Exact RCA'],['explanation_correct','Explanation'],['repair_correct','Repair advice']].forEach(([key,label])=>{
+    const metric=report.metrics?.[key];const cell=element('div','bridge-cell');
+    cell.append(element('strong','',metric?.scored_denominator===0?'—':pct(metric?.rate)),element('span','',label));
+    cell.title=`${metric?.correct??0}/${metric?.denominator??report.attempted??0} attempts; ${metric?.unscored??0} unscored`;$('qualityBridge').append(cell);
+  });
+  const valid=runs.filter(r=>Number.isFinite(r.wall_seconds)&&Number.isFinite(r.tool_calls));
+  const chart=svg('svg',{viewBox:'0 0 520 290',role:'group','aria-label':'Scatter plot: wall time in seconds against tool calls. Focus points for details.'});
+  const maxX=Math.ceil(Math.max(1,...valid.map(r=>r.wall_seconds))/50)*50;
+  const maxY=Math.ceil(Math.max(1,...valid.map(r=>r.tool_calls))/20)*20;
+  for(let i=0;i<=4;i++){
+    const y=235-i*49;
+    chart.append(svg('line',{x1:48,x2:494,y1:y,y2:y,stroke:'var(--outline-variant)','stroke-dasharray':'3 5'}));
+    const label=svg('text',{x:37,y:y+4,'text-anchor':'end',class:'plot-label'});label.textContent=Math.round(maxY*i/4);chart.append(label);
+    const x=48+i*111.5;
+    const xt=svg('text',{x,y:255,'text-anchor':'middle',class:'plot-label'});xt.textContent=Math.round(maxX*i/4);chart.append(xt);
+  }
+  const xtitle=svg('text',{x:275,y:282,'text-anchor':'middle',class:'plot-label'});xtitle.textContent='Wall time per attempt (seconds)';chart.append(xtitle);
+  const ytitle=svg('text',{x:48,y:20,class:'plot-label'});ytitle.textContent='Tool calls';chart.append(ytitle);
+  valid.forEach((run,i)=>{
+    const detail=`${run.case} · ${run.wall_seconds.toFixed(1)}s · ${run.tool_calls} calls · ${labels[outcome(run)]}`;
+    const point=svg('circle',{cx:48+run.wall_seconds/maxX*446,cy:235-run.tool_calls/maxY*196,r:6.5,fill:colors[outcome(run)],stroke:'var(--surface-container-low)','stroke-width':2,tabindex:0,role:'img','aria-label':detail,class:'scatter-point'});
+    const title=svg('title');title.textContent=detail;point.append(title);
+    for(const event of ['mouseenter','focus'])point.addEventListener(event,()=>{$('scatterDetail').textContent=detail;});chart.append(point);
+  });
+  $('effortScatter').replaceChildren(chart);
+  $('scatterDetail').textContent=valid.length?`${valid.length}/${runs.length} attempts plotted. Missing tool usage is excluded. Colors match the outcome chart above.`:'No attempts have both recorded time and tool usage.';
+}
+function tokenUsage(report) {
+  const fields = [['input_tokens','Uncached input'],['cache_creation_input_tokens','Cache creation'],['cache_read_input_tokens','Cache reads'],['output_tokens','Output']];
+  const valid = value => typeof value === 'number' && Number.isFinite(value) && value >= 0;
+  const hasUsage = usage => usage && fields.some(([key]) => valid(usage[key]));
+  const sumUsage = usage => hasUsage(usage) ? fields.reduce((n,[key])=>n+(valid(usage[key])?usage[key]:0),0) : null;
+  const exact = value => value===null ? '—' : value.toLocaleString('en-US');
+  const compact = value => value>=1e6 ? `${(value/1e6).toFixed(2)}M` : value>=1e3 ? `${(value/1e3).toFixed(1)}K` : String(value);
+  const money = value => valid(value) ? `$${value.toFixed(4)}` : '—';
+  const rows = (report.runs||[]).map(run=>({run,d:run.usage,j:run.quality?.usage,dt:sumUsage(run.usage),jt:sumUsage(run.quality?.usage),dc:run.total_cost_usd,jc:run.judge_cost_usd??run.quality?.total_cost_usd}));
+  const dcount=rows.filter(r=>r.dt!==null).length,jcount=rows.filter(r=>r.jt!==null).length;
+  const dtotal=rows.reduce((n,r)=>n+(r.dt??0),0),jtotal=rows.reduce((n,r)=>n+(r.jt??0),0);
+  const costs=rows.flatMap(r=>[r.dc,r.jc]).filter(valid);
+  $('tokenTotal').textContent=dcount+jcount?compact(dtotal+jtotal):'—';
+  $('tokenTotal').title=exact(dcount+jcount?dtotal+jtotal:null);
+  $('diagnosisTokens').textContent=dcount?compact(dtotal):'—';$('diagnosisTokens').title=exact(dcount?dtotal:null);
+  $('judgeTokens').textContent=jcount?compact(jtotal):'—';$('judgeTokens').title=exact(jcount?jtotal:null);
+  $('diagnosisCoverage').textContent=`${dcount}/${rows.length} attempts with usage`;
+  $('judgeCoverage').textContent=`${jcount}/${rows.length} attempts with usage`;
+  $('tokenCoverage').textContent=`${dcount+jcount} recorded stage totals · includes cache`;
+  $('recordedCost').textContent=costs.length?`$${costs.reduce((a,b)=>a+b,0).toFixed(2)}`:'—';
+  const dcost=rows.filter(r=>valid(r.dc)),jcost=rows.filter(r=>valid(r.jc));
+  $('costCoverage').textContent=`Diagnosis ${money(dcost.length?dcost.reduce((n,r)=>n+r.dc,0):null)} · Judge ${money(jcost.length?jcost.reduce((n,r)=>n+r.jc,0):null)}`;
+  $('tokenLimit').textContent=`Missing usage is unknown, not zero: ${rows.length-dcount} diagnosis and ${rows.length-jcount} judge stage totals unavailable. Cost recorded for ${dcost.length} diagnosis and ${jcost.length} judge stages. SDK cost is not a billing statement.`;
+  const totals=fields.map(([key])=>rows.reduce((n,r)=>n+(valid(r.d?.[key])?r.d[key]:0)+(valid(r.j?.[key])?r.j[key]:0),0));
+  const composition=$('tokenComposition');composition.replaceChildren();
+  if(!dcount&&!jcount)composition.append(element('p','bar-empty','No token usage was saved for this report.'));
+  else fields.forEach(([,label],i)=>{
+    const row=element('div','bar-row token-composition-row');const track=element('div','bar-track');const fill=element('div','bar-fill');
+    fill.style.width=`${dtotal+jtotal?totals[i]/(dtotal+jtotal)*100:0}%`;fill.style.minWidth='0';fill.style.background=['var(--primary)','var(--tertiary)','var(--success)','var(--secondary)'][i];track.append(fill);
+    row.append(element('span','bar-name',label),track,element('span','bar-value',compact(totals[i])));row.title=`${label}: ${exact(totals[i])} tokens`;composition.append(row);
+  });
+  const ranked=rows.filter(r=>r.dt!==null||r.jt!==null).sort((a,b)=>(b.dt??0)+(b.jt??0)-(a.dt??0)-(a.jt??0));
+  const max=Math.max(1,...ranked.map(r=>(r.dt??0)+(r.jt??0)));$('tokenRuns').replaceChildren();
+  if(!ranked.length)$('tokenRuns').append(element('p','bar-empty','No recorded usage available.'));
+  ranked.slice(0,8).forEach(r=>{
+    const row=element('div','bar-row token-run');row.tabIndex=0;
+    row.title=`${r.run.case}: diagnosis ${exact(r.dt)}; judge ${exact(r.jt)} tokens`;
+    row.setAttribute('aria-label',row.title);
+    const track=element('div','token-stack');
+    for(const [value,cls] of [[r.dt,'token-diagnosis'],[r.jt,'token-judge']]){const segment=element('span',cls);segment.style.width=`${(value??0)/max*100}%`;track.append(segment);}
+    row.append(element('span','bar-name',r.run.case),track,element('span','bar-value',compact((r.dt??0)+(r.jt??0))));$('tokenRuns').append(row);
+  });
+  $('tokenTable').replaceChildren();rows.forEach(r=>{
+    const tr=element('tr');[r.run.case,exact(r.dt),exact(r.jt),money(r.dc),money(r.jc)].forEach(v=>tr.append(element('td','',v)));$('tokenTable').append(tr);
+  });
+}
 function matrix(report) {
   const box = $('matrixChart');
   box.replaceChildren();
@@ -209,7 +305,7 @@ function render(report) {
   $('reportMeta').textContent += report.schema_version >= 2
     ? ` · ${(report.modes || ['live']).join('/')} · SUITE ${Math.round((report.suite_coverage || 0) * 100)}%`
     : ' · LEGACY v1 REPORT';
-  radar(report); matrix(report);
+  radar(report); matrix(report); insightCharts(report); tokenUsage(report);
   bars(report, 'durationChart', 'wall_seconds', 's');
   bars(report, 'toolChart', 'tool_calls', '');
   const table = $('runsTable'); table.replaceChildren();
@@ -310,3 +406,54 @@ $('refreshButton').addEventListener('click', () => loadReports('').catch(console
 loadReports('').catch(error => { $('emptyState').hidden = false; $('emptyState').querySelector('p').textContent = error.message; });
 pollStatus();
 setInterval(pollStatus, 1500);
+
+(() => {
+  const toggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('workspaceSidebar');
+  let saved;
+  try { saved = localStorage.getItem('sade-sidebar'); } catch (_) { /* Optional preference. */ }
+  let collapsed = saved ? saved === 'hidden' : matchMedia('(max-width:750px)').matches;
+  function setSidebar(hidden, persist = true) {
+    collapsed = hidden;
+    document.body.classList.toggle('sidebar-hidden', hidden);
+    sidebar.inert = hidden;
+    toggle.setAttribute('aria-expanded', String(!hidden));
+    toggle.setAttribute('aria-label', hidden ? 'Show sidebar' : 'Hide sidebar');
+    if (persist) { try { localStorage.setItem('sade-sidebar', hidden ? 'hidden' : 'visible'); } catch (_) {} }
+  }
+  setSidebar(collapsed, false);
+  toggle.addEventListener('click', () => setSidebar(!collapsed));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !collapsed) {setSidebar(true); toggle.focus();}
+  });
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const targets = document.querySelectorAll('.evaluation-stage,.results-head,.stat-card,.chart-card,.table-card,.topology-metrics,.topology-layout');
+  let observer;
+  function setupMotion() {
+    if (observer) observer.disconnect();
+    document.body.classList.toggle('motion-ready', !reduced.matches);
+    if (reduced.matches || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('in-view')); return;
+    }
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {entry.target.classList.add('in-view');observer.unobserve(entry.target);}
+      });
+    }, {threshold:0, rootMargin:'0px 0px -30px 0px'});
+    targets.forEach((el,i) => {el.classList.add('scroll-reveal');el.style.setProperty('--reveal-delay', `${el.classList.contains('stat-card') ? i%4*65 : 0}ms`);observer.observe(el);});
+  }
+  setupMotion(); reduced.addEventListener('change', setupMotion);
+  let queued = false;
+  function paintScroll() {
+    queued = false;
+    const hero = document.querySelector('.hero');
+    if (!hero || reduced.matches) return;
+    const amount = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / Math.max(1, hero.offsetHeight)));
+    hero.style.setProperty('--hero-shift', `${amount * 100}px`);
+    hero.style.setProperty('--hero-rotate', `${amount * 24}deg`);
+    document.querySelector('.topbar').classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', () => {if(!queued){queued=true;requestAnimationFrame(paintScroll);}}, {passive:true});
+  window.addEventListener('hashchange', () => requestAnimationFrame(paintScroll));
+  paintScroll();
+})();

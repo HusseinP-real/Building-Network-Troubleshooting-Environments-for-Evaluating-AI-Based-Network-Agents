@@ -33,6 +33,8 @@ Default: `--prompt-style generic --tool-profile atomic`. Generic instructions do
 
 Each case starts from a full healthy baseline, verifies every injected fault, starts a fresh diagnosis session, scores, then restores faults in reverse order and verifies full baseline health. Cleanup includes partially applied injections. If restoration fails, the suite stops. Reports include versions, manifest hash, actual system prompt, tool trace without the previous 10,000-character trace truncation, model, budgets, profile, judge verdict and recovery evidence. MCP responses themselves still have bounded per-command output.
 
+Health checks retry each failed read-only probe up to three times with a two-second delay, retaining all attempts in the health JSON. Successful probes are not repeated. Persistent failures still block model calls. Fault mutation commands and paid model requests are never automatically retried by this policy. SDK error results are raised after draining the stream, with subtype and turn count included for diagnosis.
+
 ## Output format
 
 ```text

@@ -1,0 +1,19 @@
+{
+  "devices": 75,
+  "roles": {
+    "router": 10,
+    "switch": 25,
+    "host": 40
+  },
+  "links": 108,
+  "link_kinds": {
+    "routed": 21,
+    "trunk": 47,
+    "access": 40
+  },
+  "interfaces": 216,
+  "connected_devices": 75,
+  "unique_planned_endpoint_addresses": 40,
+  "structural_validation": "passed",
+  "runtime_validation": "not performed"
+}
