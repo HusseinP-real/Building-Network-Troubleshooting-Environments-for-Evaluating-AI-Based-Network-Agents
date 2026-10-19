@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1480" viewBox="0 0 2400 1480">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<line x1="200" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="200" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="200" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="600" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="600" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="600" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1000" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1000" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1000" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1400" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1400" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1400" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1800" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1800" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="1800" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="2200" y1="640" x2="600" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="2200" y1="640" x2="1200" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="2200" y1="640" x2="1800" y2="290" stroke="#a4b9d8" stroke-width="3"/>
+<line x1="200" y1="640" x2="200" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="200" y1="860" x2="75" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="200" y1="860" x2="325" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="200" y1="860" x2="130" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="200" y1="860" x2="270" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="600" y1="640" x2="600" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="600" y1="860" x2="475" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="600" y1="860" x2="725" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="600" y1="860" x2="530" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="600" y1="860" x2="670" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1000" y1="640" x2="1000" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1000" y1="860" x2="875" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1000" y1="860" x2="1125" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1000" y1="860" x2="930" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1000" y1="860" x2="1070" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1400" y1="640" x2="1400" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1400" y1="860" x2="1275" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1400" y1="860" x2="1525" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1400" y1="860" x2="1330" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1400" y1="860" x2="1470" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1800" y1="640" x2="1800" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1800" y1="860" x2="1675" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1800" y1="860" x2="1925" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1800" y1="860" x2="1730" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="1800" y1="860" x2="1870" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="2200" y1="640" x2="2200" y2="860" stroke="#94a3b8" stroke-width="3"/>
+<line x1="2200" y1="860" x2="2075" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="2200" y1="860" x2="2325" y2="1100" stroke="#94a3b8" stroke-width="3"/>
+<line x1="2200" y1="860" x2="2130" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<line x1="2200" y1="860" x2="2270" y2="1230" stroke="#94a3b8" stroke-width="3"/>
+<rect x="485.0" y="253.0" width="230" height="74" rx="12" fill="#2563eb"/>
+<text x="600" y="288" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">spine1</text>
+<text x="600" y="314" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65000</text>
+<rect x="1085.0" y="253.0" width="230" height="74" rx="12" fill="#2563eb"/>
+<text x="1200" y="288" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">spine2</text>
+<text x="1200" y="314" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65000</text>
+<rect x="1685.0" y="253.0" width="230" height="74" rx="12" fill="#2563eb"/>
+<text x="1800" y="288" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">spine3</text>
+<text x="1800" y="314" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65000</text>
+<rect x="85.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="200" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf1</text>
+<text x="200" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65101</text>
+<rect x="85.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="200" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack1</text>
+<text x="200" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.1.0/24</text>
+<rect x="12.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="75" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack1h1</text>
+<text x="75" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.1.11</text>
+<rect x="262.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="325" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack1h2</text>
+<text x="325" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.1.12</text>
+<rect x="67.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="130" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack1h3</text>
+<text x="130" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.1.13</text>
+<rect x="207.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="270" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack1h4</text>
+<text x="270" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.1.14</text>
+<rect x="485.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="600" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf2</text>
+<text x="600" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65102</text>
+<rect x="485.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="600" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack2</text>
+<text x="600" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.2.0/24</text>
+<rect x="412.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="475" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack2h1</text>
+<text x="475" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.2.11</text>
+<rect x="662.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="725" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack2h2</text>
+<text x="725" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.2.12</text>
+<rect x="467.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="530" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack2h3</text>
+<text x="530" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.2.13</text>
+<rect x="607.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="670" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack2h4</text>
+<text x="670" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.2.14</text>
+<rect x="885.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="1000" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf3</text>
+<text x="1000" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65103</text>
+<rect x="885.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="1000" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack3</text>
+<text x="1000" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.3.0/24</text>
+<rect x="812.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="875" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack3h1</text>
+<text x="875" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.3.11</text>
+<rect x="1062.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1125" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack3h2</text>
+<text x="1125" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.3.12</text>
+<rect x="867.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="930" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack3h3</text>
+<text x="930" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.3.13</text>
+<rect x="1007.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1070" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack3h4</text>
+<text x="1070" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.3.14</text>
+<rect x="1285.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="1400" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf4</text>
+<text x="1400" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65104</text>
+<rect x="1285.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="1400" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack4</text>
+<text x="1400" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.4.0/24</text>
+<rect x="1212.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="1275" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack4h1</text>
+<text x="1275" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.4.11</text>
+<rect x="1462.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1525" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack4h2</text>
+<text x="1525" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.4.12</text>
+<rect x="1267.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1330" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack4h3</text>
+<text x="1330" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.4.13</text>
+<rect x="1407.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1470" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack4h4</text>
+<text x="1470" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.4.14</text>
+<rect x="1685.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="1800" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf5</text>
+<text x="1800" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65105</text>
+<rect x="1685.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="1800" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack5</text>
+<text x="1800" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.5.0/24</text>
+<rect x="1612.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="1675" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack5h1</text>
+<text x="1675" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.5.11</text>
+<rect x="1862.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1925" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack5h2</text>
+<text x="1925" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.5.12</text>
+<rect x="1667.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1730" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack5h3</text>
+<text x="1730" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.5.13</text>
+<rect x="1807.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="1870" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack5h4</text>
+<text x="1870" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.5.14</text>
+<rect x="2085.0" y="603.0" width="230" height="74" rx="12" fill="#087e8b"/>
+<text x="2200" y="638" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">leaf6</text>
+<text x="2200" y="664" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">AS 65106</text>
+<rect x="2085.0" y="823.0" width="230" height="74" rx="12" fill="#b77916"/>
+<text x="2200" y="858" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack6</text>
+<text x="2200" y="884" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.6.0/24</text>
+<rect x="2012.5" y="1063.0" width="125" height="74" rx="12" fill="#7c3aed"/>
+<text x="2075" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack6h1</text>
+<text x="2075" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.6.11</text>
+<rect x="2262.5" y="1063.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="2325" y="1098" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack6h2</text>
+<text x="2325" y="1124" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.6.12</text>
+<rect x="2067.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="2130" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack6h3</text>
+<text x="2130" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.6.13</text>
+<rect x="2207.5" y="1193.0" width="125" height="74" rx="12" fill="#475569"/>
+<text x="2270" y="1228" fill="white" font-family="Arial,sans-serif" font-size="25" text-anchor="middle">rack6h4</text>
+<text x="2270" y="1254" fill="white" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">10.60.6.14</text>
+<text x="100" y="80" fill="#0f172a" font-family="Arial,sans-serif" font-size="48">DATA CENTRE / THREE-SPINE FABRIC</text>
+<text x="100" y="135" fill="#475569" font-family="Arial,sans-serif" font-size="30">39 devices  ·  48 links  ·  6 racks  ·  eBGP + three-path ECMP</text>
+<text x="100" y="185" fill="#475569" font-family="Arial,sans-serif" font-size="25">Each leaf connects to all three spines; each rack has one leaf, one switch and four endpoints.</text>
+<text x="100" y="1380" fill="#475569" font-family="Arial,sans-serif" font-size="28">Application: rack5h1 / 10.60.5.11:8080  →  Backend: rack6h1 / 10.60.6.11:8080</text>
+<text x="100" y="1430" fill="#64748b" font-family="Arial,sans-serif" font-size="24">All devices and physical links are read from inventory.json. No overlay, VRRP or inter-rack Layer 2.</text>
+</svg>
