@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Validation Notes</title><style>
+:root{color-scheme:light;--ink:#1d1b20;--muted:#625b71;--accent:#6750a4;--line:#e7e0ec;--surface:#f7f2fa}
+*{box-sizing:border-box}body{margin:0;background:#fef7ff;color:var(--ink);font:16px/1.7 system-ui,-apple-system,sans-serif}
+main{max-width:1160px;margin:0 auto;padding:64px 32px 80px}header{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:32px}
+header span{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}header a{font-size:14px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.12;letter-spacing:-.045em;max-width:850px;margin:0 0 24px}h2{font-size:26px;letter-spacing:-.025em;margin:48px 0 16px}
+p,li{max-width:100%;}a{color:var(--accent);text-underline-offset:3px}img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:16px;background:white}
+pre{padding:24px;background:#211f26;color:#e6e0e9;border-radius:16px;overflow:auto;font-size:14px;line-height:1.8}code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em}p code,li code,td code{background:var(--surface);padding:2px 5px;border-radius:4px}
+.table-scroll{overflow:auto;border:1px solid var(--line);border-radius:16px;margin:20px 0}table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}th{background:var(--surface)}tr:last-child td{border:0}
+.notice{padding:18px 22px;background:#eaddff;border-radius:16px;color:#21005d;margin-bottom:28px;font-size:14px}.footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13px}
+@media(max-width:600px){main{padding:32px 18px}pre{padding:16px}h2{font-size:23px}}@media print{body{background:white}main{padding:0}header{display:none}pre{white-space:pre-wrap;background:#f3edf7;color:#1d1b20}}
+</style></head>
+<body><main><header><span>ENTERPRISE NETWORK / DOCUMENTATION</span><a href="../README.md" download>Download Markdown</a><a href="../docs/topology-75.svg">Full-size diagram</a></header><div class="notice">Standalone 75-device lab · Configuration and structural checks passed. Runtime validation is pending.</div><h1>Validation Notes</h1>
+<p>Validation date: 2026-10-19 (Australia/Sydney).</p>
+<ul>
+<li>Devices: 75 (10 routers, 25 switches, 40 endpoints).</li>
+<li>Links: 108 (21 routed, 47 trunk, 40 access), with 216 unique interfaces.</li>
+<li>Structural validation: all ports match the device inventory, all 75 nodes belong to one connected graph, and all 40 planned endpoint IP addresses are unique.</li>
+<li>All 75 startup scripts passed <code>bash -n</code>; Python source files passed AST syntax checks.</li>
+<li><code>python3 lab.py validate</code> returned exit code 0. Kathara confirmed that <code>lab.conf file is correct</code>.</li>
+<li>The diagram reads every device and link from the same inventory. Its PNG rendering was visually inspected. The README embeds the image through a relative path and includes an SVG link for scalable viewing.</li>
+</ul>
+<p>See <a href="../results/structural-validation.json">structural-validation.json</a> for structural validation details.</p>
+<h2>Runtime Validation</h2>
+<p>Images have not been built and the 75 devices have not been started for this standalone directory. OSPF, VRRP, STP, DHCP, and service behavior have therefore not been verified at runtime for this version.</p>
+<p>Follow the README to build and start the lab, then run <code>python3 lab.py check</code> and <code>python3 tools/verify_faults.py</code>. Runtime results are written to this directory's <code>results</code> folder.</p>
+<p>Historical reports from the adjacent original lab were not copied as evidence for this version.</p><div class="footer">Generated from the English Markdown documentation. Physical links are shown; STP selects active Layer 2 paths.</div></main></body></html>

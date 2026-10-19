@@ -69,8 +69,18 @@ def checks():
 
 def check():
     def one(item):
-        title,node,cmd=item; ok,out=execute(node,cmd)
-        return {'check':title,'node':node,'passed':ok,'output':out}
+        title,node,cmd=item
+        history=[]
+        # These probes are read-only. Retry only failed probes, never fault mutations
+        # or model requests; retain failures so transient infrastructure errors remain visible.
+        for attempt in range(3):
+            ok,out=execute(node,cmd)
+            history.append({'passed':ok,'output':out})
+            if ok:
+                break
+            if attempt < 2:
+                time.sleep(2)
+        return {'check':title,'node':node,'passed':ok,'output':out,'attempts':history}
     with ThreadPoolExecutor(max_workers=4) as pool: results=list(pool.map(one,checks()))
     for r in results: print(('PASS' if r['passed'] else 'FAIL')+' '+r['check']+('' if r['passed'] else '\n'+r['output'][:600]))
     report={'timestamp':datetime.now(timezone.utc).isoformat(),'passed':all(r['passed'] for r in results),'checks':results}
@@ -86,6 +96,10 @@ FAULTS={
     'gateway-service': ('r5','pkill -TERM keepalived','pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console'),
     'database-acl': ('app','iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null || iptables -I OUTPUT 1 -d 10.30.20.10 -p tcp --dport 8080 -j REJECT',
                      'if iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT; fi'),
+    'core-uplink-r6': ('r6', 'ip link set eth0 down', 'ip link set eth0 up'),
+    'gateway-service-r8': ('r8', 'pkill -TERM keepalived', 'pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console'),
+    'database-ingress-acl': ('database', 'iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null || iptables -I INPUT 1 -s 10.30.10.10 -p tcp --dport 8080 -j REJECT', 'if iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT; fi'),
+    'ospf-passive-r7': ('r7', "vtysh -c 'configure terminal' -c 'router ospf' -c 'passive-interface eth0'", "vtysh -c 'configure terminal' -c 'router ospf' -c 'no passive-interface eth0'"),
 }
 
 def main():
