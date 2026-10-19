@@ -1,0 +1,1 @@
+Customer West cannot reach ISP North even though local interfaces are up.

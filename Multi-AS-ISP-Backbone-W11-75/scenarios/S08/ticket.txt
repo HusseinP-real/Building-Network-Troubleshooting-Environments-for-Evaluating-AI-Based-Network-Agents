@@ -1,0 +1,1 @@
+Multiple independent outages: ISP North IGP path and Customer West reachability are abnormal.

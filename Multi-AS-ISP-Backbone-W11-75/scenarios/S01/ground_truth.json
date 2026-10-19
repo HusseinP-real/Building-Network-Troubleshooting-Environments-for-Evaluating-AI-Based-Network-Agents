@@ -1,0 +1,17 @@
+{
+  "id": "S01",
+  "topology": "Multi-AS-ISP-Backbone-W11-75",
+  "category": "isis_adjacency_down",
+  "fault_exists": true,
+  "fault_device": "as65010r2",
+  "injection": "ip link set eth0 down",
+  "recovery": "ip link set eth0 up",
+  "notes": "IS-IS interface shut on internal link; remote paths may reroute; inspect adjacencies, not just ping.",
+  "validation_status": "NOT_LIVE_TESTED",
+  "expected_agent_output": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "as65010r2"
+    ]
+  }
+}

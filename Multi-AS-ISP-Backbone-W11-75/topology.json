@@ -1,0 +1,3568 @@
+{
+  "name": "Multi-AS-ISP-Backbone-W11-75",
+  "autonomous_systems": [
+    {
+      "asn": 65010,
+      "index": 10,
+      "name": "ISP_NORTH",
+      "igp": "isis"
+    },
+    {
+      "asn": 65020,
+      "index": 20,
+      "name": "ISP_SOUTH",
+      "igp": "isis"
+    },
+    {
+      "asn": 65030,
+      "index": 30,
+      "name": "TRANSIT",
+      "igp": "isis"
+    },
+    {
+      "asn": 65100,
+      "index": 40,
+      "name": "CUSTOMER_EAST",
+      "igp": "ospf"
+    },
+    {
+      "asn": 65200,
+      "index": 50,
+      "name": "CUSTOMER_WEST",
+      "igp": "ospf"
+    }
+  ],
+  "nodes": {
+    "as65010r1": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 1,
+      "loop": "10.10.255.1"
+    },
+    "as65010r2": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 2,
+      "loop": "10.10.255.2"
+    },
+    "as65010r3": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 3,
+      "loop": "10.10.255.3"
+    },
+    "as65010r4": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 4,
+      "loop": "10.10.255.4"
+    },
+    "as65010r5": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 5,
+      "loop": "10.10.255.5"
+    },
+    "as65010r6": {
+      "type": "router",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "igp": "isis",
+      "index": 10,
+      "num": 6,
+      "loop": "10.10.255.6"
+    },
+    "as65010h1": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 1
+    },
+    "as65010h2": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 2
+    },
+    "as65010h3": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 3
+    },
+    "as65010h4": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 4
+    },
+    "as65010h5": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 5
+    },
+    "as65010h6": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 6
+    },
+    "as65010h7": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 7
+    },
+    "as65010h8": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 8
+    },
+    "as65010h9": {
+      "type": "host",
+      "asn": 65010,
+      "site": "ISP_NORTH",
+      "index": 10,
+      "num": 9
+    },
+    "as65020r1": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 1,
+      "loop": "10.20.255.1"
+    },
+    "as65020r2": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 2,
+      "loop": "10.20.255.2"
+    },
+    "as65020r3": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 3,
+      "loop": "10.20.255.3"
+    },
+    "as65020r4": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 4,
+      "loop": "10.20.255.4"
+    },
+    "as65020r5": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 5,
+      "loop": "10.20.255.5"
+    },
+    "as65020r6": {
+      "type": "router",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "igp": "isis",
+      "index": 20,
+      "num": 6,
+      "loop": "10.20.255.6"
+    },
+    "as65020h1": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 1
+    },
+    "as65020h2": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 2
+    },
+    "as65020h3": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 3
+    },
+    "as65020h4": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 4
+    },
+    "as65020h5": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 5
+    },
+    "as65020h6": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 6
+    },
+    "as65020h7": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 7
+    },
+    "as65020h8": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 8
+    },
+    "as65020h9": {
+      "type": "host",
+      "asn": 65020,
+      "site": "ISP_SOUTH",
+      "index": 20,
+      "num": 9
+    },
+    "as65030r1": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 1,
+      "loop": "10.30.255.1"
+    },
+    "as65030r2": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 2,
+      "loop": "10.30.255.2"
+    },
+    "as65030r3": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 3,
+      "loop": "10.30.255.3"
+    },
+    "as65030r4": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 4,
+      "loop": "10.30.255.4"
+    },
+    "as65030r5": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 5,
+      "loop": "10.30.255.5"
+    },
+    "as65030r6": {
+      "type": "router",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "igp": "isis",
+      "index": 30,
+      "num": 6,
+      "loop": "10.30.255.6"
+    },
+    "as65030h1": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 1
+    },
+    "as65030h2": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 2
+    },
+    "as65030h3": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 3
+    },
+    "as65030h4": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 4
+    },
+    "as65030h5": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 5
+    },
+    "as65030h6": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 6
+    },
+    "as65030h7": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 7
+    },
+    "as65030h8": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 8
+    },
+    "as65030h9": {
+      "type": "host",
+      "asn": 65030,
+      "site": "TRANSIT",
+      "index": 30,
+      "num": 9
+    },
+    "as65100r1": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 1,
+      "loop": "10.40.255.1"
+    },
+    "as65100r2": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 2,
+      "loop": "10.40.255.2"
+    },
+    "as65100r3": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 3,
+      "loop": "10.40.255.3"
+    },
+    "as65100r4": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 4,
+      "loop": "10.40.255.4"
+    },
+    "as65100r5": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 5,
+      "loop": "10.40.255.5"
+    },
+    "as65100r6": {
+      "type": "router",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "igp": "ospf",
+      "index": 40,
+      "num": 6,
+      "loop": "10.40.255.6"
+    },
+    "as65100h1": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 1
+    },
+    "as65100h2": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 2
+    },
+    "as65100h3": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 3
+    },
+    "as65100h4": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 4
+    },
+    "as65100h5": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 5
+    },
+    "as65100h6": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 6
+    },
+    "as65100h7": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 7
+    },
+    "as65100h8": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 8
+    },
+    "as65100h9": {
+      "type": "host",
+      "asn": 65100,
+      "site": "CUSTOMER_EAST",
+      "index": 40,
+      "num": 9
+    },
+    "as65200r1": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 1,
+      "loop": "10.50.255.1"
+    },
+    "as65200r2": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 2,
+      "loop": "10.50.255.2"
+    },
+    "as65200r3": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 3,
+      "loop": "10.50.255.3"
+    },
+    "as65200r4": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 4,
+      "loop": "10.50.255.4"
+    },
+    "as65200r5": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 5,
+      "loop": "10.50.255.5"
+    },
+    "as65200r6": {
+      "type": "router",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "igp": "ospf",
+      "index": 50,
+      "num": 6,
+      "loop": "10.50.255.6"
+    },
+    "as65200h1": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 1
+    },
+    "as65200h2": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 2
+    },
+    "as65200h3": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 3
+    },
+    "as65200h4": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 4
+    },
+    "as65200h5": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 5
+    },
+    "as65200h6": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 6
+    },
+    "as65200h7": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 7
+    },
+    "as65200h8": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 8
+    },
+    "as65200h9": {
+      "type": "host",
+      "asn": 65200,
+      "site": "CUSTOMER_WEST",
+      "index": 50,
+      "num": 9
+    }
+  },
+  "links": [
+    {
+      "id": "cd001",
+      "a": "as65010r1",
+      "b": "as65010r2",
+      "a_eth": 0,
+      "b_eth": 0,
+      "a_ip": "10.10.0.1",
+      "b_ip": "10.10.0.2",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd002",
+      "a": "as65010r2",
+      "b": "as65010r3",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.10.0.5",
+      "b_ip": "10.10.0.6",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd003",
+      "a": "as65010r3",
+      "b": "as65010r4",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.10.0.9",
+      "b_ip": "10.10.0.10",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd004",
+      "a": "as65010r4",
+      "b": "as65010r5",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.10.0.13",
+      "b_ip": "10.10.0.14",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd005",
+      "a": "as65010r5",
+      "b": "as65010r6",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.10.0.17",
+      "b_ip": "10.10.0.18",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd006",
+      "a": "as65010r6",
+      "b": "as65010r1",
+      "a_eth": 1,
+      "b_eth": 1,
+      "a_ip": "10.10.0.21",
+      "b_ip": "10.10.0.22",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd007",
+      "a": "as65010r1",
+      "b": "as65010r4",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.10.0.25",
+      "b_ip": "10.10.0.26",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd008",
+      "a": "as65010r2",
+      "b": "as65010r5",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.10.0.29",
+      "b_ip": "10.10.0.30",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd009",
+      "a": "as65010r1",
+      "b": "as65010h1",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.10.1.1",
+      "b_ip": "10.10.1.2",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd010",
+      "a": "as65010r2",
+      "b": "as65010h2",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.10.1.5",
+      "b_ip": "10.10.1.6",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd011",
+      "a": "as65010r3",
+      "b": "as65010h3",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.10.1.9",
+      "b_ip": "10.10.1.10",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd012",
+      "a": "as65010r4",
+      "b": "as65010h4",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.10.1.13",
+      "b_ip": "10.10.1.14",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd013",
+      "a": "as65010r5",
+      "b": "as65010h5",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.10.1.17",
+      "b_ip": "10.10.1.18",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd014",
+      "a": "as65010r6",
+      "b": "as65010h6",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.10.1.21",
+      "b_ip": "10.10.1.22",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd015",
+      "a": "as65010r1",
+      "b": "as65010h7",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.10.1.25",
+      "b_ip": "10.10.1.26",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd016",
+      "a": "as65010r2",
+      "b": "as65010h8",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.10.1.29",
+      "b_ip": "10.10.1.30",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd017",
+      "a": "as65010r3",
+      "b": "as65010h9",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.10.1.33",
+      "b_ip": "10.10.1.34",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd018",
+      "a": "as65020r1",
+      "b": "as65020r2",
+      "a_eth": 0,
+      "b_eth": 0,
+      "a_ip": "10.20.0.1",
+      "b_ip": "10.20.0.2",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd019",
+      "a": "as65020r2",
+      "b": "as65020r3",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.20.0.5",
+      "b_ip": "10.20.0.6",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd020",
+      "a": "as65020r3",
+      "b": "as65020r4",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.20.0.9",
+      "b_ip": "10.20.0.10",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd021",
+      "a": "as65020r4",
+      "b": "as65020r5",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.20.0.13",
+      "b_ip": "10.20.0.14",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd022",
+      "a": "as65020r5",
+      "b": "as65020r6",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.20.0.17",
+      "b_ip": "10.20.0.18",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd023",
+      "a": "as65020r6",
+      "b": "as65020r1",
+      "a_eth": 1,
+      "b_eth": 1,
+      "a_ip": "10.20.0.21",
+      "b_ip": "10.20.0.22",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd024",
+      "a": "as65020r1",
+      "b": "as65020r4",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.20.0.25",
+      "b_ip": "10.20.0.26",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd025",
+      "a": "as65020r2",
+      "b": "as65020r5",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.20.0.29",
+      "b_ip": "10.20.0.30",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd026",
+      "a": "as65020r1",
+      "b": "as65020h1",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.20.1.1",
+      "b_ip": "10.20.1.2",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd027",
+      "a": "as65020r2",
+      "b": "as65020h2",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.20.1.5",
+      "b_ip": "10.20.1.6",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd028",
+      "a": "as65020r3",
+      "b": "as65020h3",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.20.1.9",
+      "b_ip": "10.20.1.10",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd029",
+      "a": "as65020r4",
+      "b": "as65020h4",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.20.1.13",
+      "b_ip": "10.20.1.14",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd030",
+      "a": "as65020r5",
+      "b": "as65020h5",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.20.1.17",
+      "b_ip": "10.20.1.18",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd031",
+      "a": "as65020r6",
+      "b": "as65020h6",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.20.1.21",
+      "b_ip": "10.20.1.22",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd032",
+      "a": "as65020r1",
+      "b": "as65020h7",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.20.1.25",
+      "b_ip": "10.20.1.26",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd033",
+      "a": "as65020r2",
+      "b": "as65020h8",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.20.1.29",
+      "b_ip": "10.20.1.30",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd034",
+      "a": "as65020r3",
+      "b": "as65020h9",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.20.1.33",
+      "b_ip": "10.20.1.34",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd035",
+      "a": "as65030r1",
+      "b": "as65030r2",
+      "a_eth": 0,
+      "b_eth": 0,
+      "a_ip": "10.30.0.1",
+      "b_ip": "10.30.0.2",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd036",
+      "a": "as65030r2",
+      "b": "as65030r3",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.30.0.5",
+      "b_ip": "10.30.0.6",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd037",
+      "a": "as65030r3",
+      "b": "as65030r4",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.30.0.9",
+      "b_ip": "10.30.0.10",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd038",
+      "a": "as65030r4",
+      "b": "as65030r5",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.30.0.13",
+      "b_ip": "10.30.0.14",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd039",
+      "a": "as65030r5",
+      "b": "as65030r6",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.30.0.17",
+      "b_ip": "10.30.0.18",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd040",
+      "a": "as65030r6",
+      "b": "as65030r1",
+      "a_eth": 1,
+      "b_eth": 1,
+      "a_ip": "10.30.0.21",
+      "b_ip": "10.30.0.22",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd041",
+      "a": "as65030r1",
+      "b": "as65030r4",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.30.0.25",
+      "b_ip": "10.30.0.26",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd042",
+      "a": "as65030r2",
+      "b": "as65030r5",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.30.0.29",
+      "b_ip": "10.30.0.30",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd043",
+      "a": "as65030r1",
+      "b": "as65030h1",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.30.1.1",
+      "b_ip": "10.30.1.2",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd044",
+      "a": "as65030r2",
+      "b": "as65030h2",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.30.1.5",
+      "b_ip": "10.30.1.6",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd045",
+      "a": "as65030r3",
+      "b": "as65030h3",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.30.1.9",
+      "b_ip": "10.30.1.10",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd046",
+      "a": "as65030r4",
+      "b": "as65030h4",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.30.1.13",
+      "b_ip": "10.30.1.14",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd047",
+      "a": "as65030r5",
+      "b": "as65030h5",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.30.1.17",
+      "b_ip": "10.30.1.18",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd048",
+      "a": "as65030r6",
+      "b": "as65030h6",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.30.1.21",
+      "b_ip": "10.30.1.22",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd049",
+      "a": "as65030r1",
+      "b": "as65030h7",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.30.1.25",
+      "b_ip": "10.30.1.26",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd050",
+      "a": "as65030r2",
+      "b": "as65030h8",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.30.1.29",
+      "b_ip": "10.30.1.30",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd051",
+      "a": "as65030r3",
+      "b": "as65030h9",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.30.1.33",
+      "b_ip": "10.30.1.34",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd052",
+      "a": "as65100r1",
+      "b": "as65100r2",
+      "a_eth": 0,
+      "b_eth": 0,
+      "a_ip": "10.40.0.1",
+      "b_ip": "10.40.0.2",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd053",
+      "a": "as65100r2",
+      "b": "as65100r3",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.40.0.5",
+      "b_ip": "10.40.0.6",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd054",
+      "a": "as65100r3",
+      "b": "as65100r4",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.40.0.9",
+      "b_ip": "10.40.0.10",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd055",
+      "a": "as65100r4",
+      "b": "as65100r5",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.40.0.13",
+      "b_ip": "10.40.0.14",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd056",
+      "a": "as65100r5",
+      "b": "as65100r6",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.40.0.17",
+      "b_ip": "10.40.0.18",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd057",
+      "a": "as65100r6",
+      "b": "as65100r1",
+      "a_eth": 1,
+      "b_eth": 1,
+      "a_ip": "10.40.0.21",
+      "b_ip": "10.40.0.22",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd058",
+      "a": "as65100r1",
+      "b": "as65100r4",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.40.0.25",
+      "b_ip": "10.40.0.26",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd059",
+      "a": "as65100r2",
+      "b": "as65100r5",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.40.0.29",
+      "b_ip": "10.40.0.30",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd060",
+      "a": "as65100r1",
+      "b": "as65100h1",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.40.1.1",
+      "b_ip": "10.40.1.2",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd061",
+      "a": "as65100r2",
+      "b": "as65100h2",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.40.1.5",
+      "b_ip": "10.40.1.6",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd062",
+      "a": "as65100r3",
+      "b": "as65100h3",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.40.1.9",
+      "b_ip": "10.40.1.10",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd063",
+      "a": "as65100r4",
+      "b": "as65100h4",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.40.1.13",
+      "b_ip": "10.40.1.14",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd064",
+      "a": "as65100r5",
+      "b": "as65100h5",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.40.1.17",
+      "b_ip": "10.40.1.18",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd065",
+      "a": "as65100r6",
+      "b": "as65100h6",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.40.1.21",
+      "b_ip": "10.40.1.22",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd066",
+      "a": "as65100r1",
+      "b": "as65100h7",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.40.1.25",
+      "b_ip": "10.40.1.26",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd067",
+      "a": "as65100r2",
+      "b": "as65100h8",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.40.1.29",
+      "b_ip": "10.40.1.30",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd068",
+      "a": "as65100r3",
+      "b": "as65100h9",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.40.1.33",
+      "b_ip": "10.40.1.34",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd069",
+      "a": "as65200r1",
+      "b": "as65200r2",
+      "a_eth": 0,
+      "b_eth": 0,
+      "a_ip": "10.50.0.1",
+      "b_ip": "10.50.0.2",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd070",
+      "a": "as65200r2",
+      "b": "as65200r3",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.50.0.5",
+      "b_ip": "10.50.0.6",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd071",
+      "a": "as65200r3",
+      "b": "as65200r4",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.50.0.9",
+      "b_ip": "10.50.0.10",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd072",
+      "a": "as65200r4",
+      "b": "as65200r5",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.50.0.13",
+      "b_ip": "10.50.0.14",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd073",
+      "a": "as65200r5",
+      "b": "as65200r6",
+      "a_eth": 1,
+      "b_eth": 0,
+      "a_ip": "10.50.0.17",
+      "b_ip": "10.50.0.18",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd074",
+      "a": "as65200r6",
+      "b": "as65200r1",
+      "a_eth": 1,
+      "b_eth": 1,
+      "a_ip": "10.50.0.21",
+      "b_ip": "10.50.0.22",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd075",
+      "a": "as65200r1",
+      "b": "as65200r4",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.50.0.25",
+      "b_ip": "10.50.0.26",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd076",
+      "a": "as65200r2",
+      "b": "as65200r5",
+      "a_eth": 2,
+      "b_eth": 2,
+      "a_ip": "10.50.0.29",
+      "b_ip": "10.50.0.30",
+      "prefix": 30,
+      "kind": "internal"
+    },
+    {
+      "id": "cd077",
+      "a": "as65200r1",
+      "b": "as65200h1",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.50.1.1",
+      "b_ip": "10.50.1.2",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd078",
+      "a": "as65200r2",
+      "b": "as65200h2",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.50.1.5",
+      "b_ip": "10.50.1.6",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd079",
+      "a": "as65200r3",
+      "b": "as65200h3",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.50.1.9",
+      "b_ip": "10.50.1.10",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd080",
+      "a": "as65200r4",
+      "b": "as65200h4",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.50.1.13",
+      "b_ip": "10.50.1.14",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd081",
+      "a": "as65200r5",
+      "b": "as65200h5",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.50.1.17",
+      "b_ip": "10.50.1.18",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd082",
+      "a": "as65200r6",
+      "b": "as65200h6",
+      "a_eth": 2,
+      "b_eth": 0,
+      "a_ip": "10.50.1.21",
+      "b_ip": "10.50.1.22",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd083",
+      "a": "as65200r1",
+      "b": "as65200h7",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.50.1.25",
+      "b_ip": "10.50.1.26",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd084",
+      "a": "as65200r2",
+      "b": "as65200h8",
+      "a_eth": 4,
+      "b_eth": 0,
+      "a_ip": "10.50.1.29",
+      "b_ip": "10.50.1.30",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd085",
+      "a": "as65200r3",
+      "b": "as65200h9",
+      "a_eth": 3,
+      "b_eth": 0,
+      "a_ip": "10.50.1.33",
+      "b_ip": "10.50.1.34",
+      "prefix": 30,
+      "kind": "access"
+    },
+    {
+      "id": "cd086",
+      "a": "as65010r1",
+      "b": "as65020r1",
+      "a_eth": 5,
+      "b_eth": 5,
+      "a_ip": "172.20.0.1",
+      "b_ip": "172.20.0.2",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd087",
+      "a": "as65010r2",
+      "b": "as65030r1",
+      "a_eth": 5,
+      "b_eth": 5,
+      "a_ip": "172.20.0.5",
+      "b_ip": "172.20.0.6",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd088",
+      "a": "as65020r2",
+      "b": "as65030r2",
+      "a_eth": 5,
+      "b_eth": 5,
+      "a_ip": "172.20.0.9",
+      "b_ip": "172.20.0.10",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd089",
+      "a": "as65020r4",
+      "b": "as65100r1",
+      "a_eth": 4,
+      "b_eth": 5,
+      "a_ip": "172.20.0.13",
+      "b_ip": "172.20.0.14",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd090",
+      "a": "as65030r4",
+      "b": "as65200r1",
+      "a_eth": 4,
+      "b_eth": 5,
+      "a_ip": "172.20.0.17",
+      "b_ip": "172.20.0.18",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd091",
+      "a": "as65010r4",
+      "b": "as65100r3",
+      "a_eth": 4,
+      "b_eth": 4,
+      "a_ip": "172.20.0.21",
+      "b_ip": "172.20.0.22",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd092",
+      "a": "as65030r5",
+      "b": "as65100r5",
+      "a_eth": 4,
+      "b_eth": 4,
+      "a_ip": "172.20.0.25",
+      "b_ip": "172.20.0.26",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd093",
+      "a": "as65020r5",
+      "b": "as65200r4",
+      "a_eth": 4,
+      "b_eth": 4,
+      "a_ip": "172.20.0.29",
+      "b_ip": "172.20.0.30",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd094",
+      "a": "as65010r5",
+      "b": "as65200r5",
+      "a_eth": 4,
+      "b_eth": 4,
+      "a_ip": "172.20.0.33",
+      "b_ip": "172.20.0.34",
+      "prefix": 30,
+      "kind": "ebgp"
+    },
+    {
+      "id": "cd095",
+      "a": "as65100r2",
+      "b": "as65200r2",
+      "a_eth": 5,
+      "b_eth": 5,
+      "a_ip": "172.20.0.37",
+      "b_ip": "172.20.0.38",
+      "prefix": 30,
+      "kind": "ebgp"
+    }
+  ],
+  "interfaces": {
+    "as65010r1": [
+      {
+        "eth": 0,
+        "domain": "cd001",
+        "ip": "10.10.0.1",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd006",
+        "ip": "10.10.0.22",
+        "prefix": 30,
+        "peer": "as65010r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd007",
+        "ip": "10.10.0.25",
+        "prefix": 30,
+        "peer": "as65010r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd009",
+        "ip": "10.10.1.1",
+        "prefix": 30,
+        "peer": "as65010h1",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd015",
+        "ip": "10.10.1.25",
+        "prefix": 30,
+        "peer": "as65010h7",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd086",
+        "ip": "172.20.0.1",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "ebgp"
+      }
+    ],
+    "as65010r2": [
+      {
+        "eth": 0,
+        "domain": "cd001",
+        "ip": "10.10.0.2",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd002",
+        "ip": "10.10.0.5",
+        "prefix": 30,
+        "peer": "as65010r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd008",
+        "ip": "10.10.0.29",
+        "prefix": 30,
+        "peer": "as65010r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd010",
+        "ip": "10.10.1.5",
+        "prefix": 30,
+        "peer": "as65010h2",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd016",
+        "ip": "10.10.1.29",
+        "prefix": 30,
+        "peer": "as65010h8",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd087",
+        "ip": "172.20.0.5",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "ebgp"
+      }
+    ],
+    "as65010r3": [
+      {
+        "eth": 0,
+        "domain": "cd002",
+        "ip": "10.10.0.6",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd003",
+        "ip": "10.10.0.9",
+        "prefix": 30,
+        "peer": "as65010r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd011",
+        "ip": "10.10.1.9",
+        "prefix": 30,
+        "peer": "as65010h3",
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "domain": "cd017",
+        "ip": "10.10.1.33",
+        "prefix": 30,
+        "peer": "as65010h9",
+        "kind": "access"
+      }
+    ],
+    "as65010r4": [
+      {
+        "eth": 0,
+        "domain": "cd003",
+        "ip": "10.10.0.10",
+        "prefix": 30,
+        "peer": "as65010r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd004",
+        "ip": "10.10.0.13",
+        "prefix": 30,
+        "peer": "as65010r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd007",
+        "ip": "10.10.0.26",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd012",
+        "ip": "10.10.1.13",
+        "prefix": 30,
+        "peer": "as65010h4",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd091",
+        "ip": "172.20.0.21",
+        "prefix": 30,
+        "peer": "as65100r3",
+        "kind": "ebgp"
+      }
+    ],
+    "as65010r5": [
+      {
+        "eth": 0,
+        "domain": "cd004",
+        "ip": "10.10.0.14",
+        "prefix": 30,
+        "peer": "as65010r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd005",
+        "ip": "10.10.0.17",
+        "prefix": 30,
+        "peer": "as65010r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd008",
+        "ip": "10.10.0.30",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd013",
+        "ip": "10.10.1.17",
+        "prefix": 30,
+        "peer": "as65010h5",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd094",
+        "ip": "172.20.0.33",
+        "prefix": 30,
+        "peer": "as65200r5",
+        "kind": "ebgp"
+      }
+    ],
+    "as65010r6": [
+      {
+        "eth": 0,
+        "domain": "cd005",
+        "ip": "10.10.0.18",
+        "prefix": 30,
+        "peer": "as65010r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd006",
+        "ip": "10.10.0.21",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd014",
+        "ip": "10.10.1.21",
+        "prefix": 30,
+        "peer": "as65010h6",
+        "kind": "access"
+      }
+    ],
+    "as65010h1": [
+      {
+        "eth": 0,
+        "domain": "cd009",
+        "ip": "10.10.1.2",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "access"
+      }
+    ],
+    "as65010h2": [
+      {
+        "eth": 0,
+        "domain": "cd010",
+        "ip": "10.10.1.6",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "access"
+      }
+    ],
+    "as65010h3": [
+      {
+        "eth": 0,
+        "domain": "cd011",
+        "ip": "10.10.1.10",
+        "prefix": 30,
+        "peer": "as65010r3",
+        "kind": "access"
+      }
+    ],
+    "as65010h4": [
+      {
+        "eth": 0,
+        "domain": "cd012",
+        "ip": "10.10.1.14",
+        "prefix": 30,
+        "peer": "as65010r4",
+        "kind": "access"
+      }
+    ],
+    "as65010h5": [
+      {
+        "eth": 0,
+        "domain": "cd013",
+        "ip": "10.10.1.18",
+        "prefix": 30,
+        "peer": "as65010r5",
+        "kind": "access"
+      }
+    ],
+    "as65010h6": [
+      {
+        "eth": 0,
+        "domain": "cd014",
+        "ip": "10.10.1.22",
+        "prefix": 30,
+        "peer": "as65010r6",
+        "kind": "access"
+      }
+    ],
+    "as65010h7": [
+      {
+        "eth": 0,
+        "domain": "cd015",
+        "ip": "10.10.1.26",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "access"
+      }
+    ],
+    "as65010h8": [
+      {
+        "eth": 0,
+        "domain": "cd016",
+        "ip": "10.10.1.30",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "access"
+      }
+    ],
+    "as65010h9": [
+      {
+        "eth": 0,
+        "domain": "cd017",
+        "ip": "10.10.1.34",
+        "prefix": 30,
+        "peer": "as65010r3",
+        "kind": "access"
+      }
+    ],
+    "as65020r1": [
+      {
+        "eth": 0,
+        "domain": "cd018",
+        "ip": "10.20.0.1",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd023",
+        "ip": "10.20.0.22",
+        "prefix": 30,
+        "peer": "as65020r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd024",
+        "ip": "10.20.0.25",
+        "prefix": 30,
+        "peer": "as65020r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd026",
+        "ip": "10.20.1.1",
+        "prefix": 30,
+        "peer": "as65020h1",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd032",
+        "ip": "10.20.1.25",
+        "prefix": 30,
+        "peer": "as65020h7",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd086",
+        "ip": "172.20.0.2",
+        "prefix": 30,
+        "peer": "as65010r1",
+        "kind": "ebgp"
+      }
+    ],
+    "as65020r2": [
+      {
+        "eth": 0,
+        "domain": "cd018",
+        "ip": "10.20.0.2",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd019",
+        "ip": "10.20.0.5",
+        "prefix": 30,
+        "peer": "as65020r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd025",
+        "ip": "10.20.0.29",
+        "prefix": 30,
+        "peer": "as65020r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd027",
+        "ip": "10.20.1.5",
+        "prefix": 30,
+        "peer": "as65020h2",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd033",
+        "ip": "10.20.1.29",
+        "prefix": 30,
+        "peer": "as65020h8",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd088",
+        "ip": "172.20.0.9",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "ebgp"
+      }
+    ],
+    "as65020r3": [
+      {
+        "eth": 0,
+        "domain": "cd019",
+        "ip": "10.20.0.6",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd020",
+        "ip": "10.20.0.9",
+        "prefix": 30,
+        "peer": "as65020r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd028",
+        "ip": "10.20.1.9",
+        "prefix": 30,
+        "peer": "as65020h3",
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "domain": "cd034",
+        "ip": "10.20.1.33",
+        "prefix": 30,
+        "peer": "as65020h9",
+        "kind": "access"
+      }
+    ],
+    "as65020r4": [
+      {
+        "eth": 0,
+        "domain": "cd020",
+        "ip": "10.20.0.10",
+        "prefix": 30,
+        "peer": "as65020r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd021",
+        "ip": "10.20.0.13",
+        "prefix": 30,
+        "peer": "as65020r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd024",
+        "ip": "10.20.0.26",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd029",
+        "ip": "10.20.1.13",
+        "prefix": 30,
+        "peer": "as65020h4",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd089",
+        "ip": "172.20.0.13",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "ebgp"
+      }
+    ],
+    "as65020r5": [
+      {
+        "eth": 0,
+        "domain": "cd021",
+        "ip": "10.20.0.14",
+        "prefix": 30,
+        "peer": "as65020r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd022",
+        "ip": "10.20.0.17",
+        "prefix": 30,
+        "peer": "as65020r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd025",
+        "ip": "10.20.0.30",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd030",
+        "ip": "10.20.1.17",
+        "prefix": 30,
+        "peer": "as65020h5",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd093",
+        "ip": "172.20.0.29",
+        "prefix": 30,
+        "peer": "as65200r4",
+        "kind": "ebgp"
+      }
+    ],
+    "as65020r6": [
+      {
+        "eth": 0,
+        "domain": "cd022",
+        "ip": "10.20.0.18",
+        "prefix": 30,
+        "peer": "as65020r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd023",
+        "ip": "10.20.0.21",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd031",
+        "ip": "10.20.1.21",
+        "prefix": 30,
+        "peer": "as65020h6",
+        "kind": "access"
+      }
+    ],
+    "as65020h1": [
+      {
+        "eth": 0,
+        "domain": "cd026",
+        "ip": "10.20.1.2",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "access"
+      }
+    ],
+    "as65020h2": [
+      {
+        "eth": 0,
+        "domain": "cd027",
+        "ip": "10.20.1.6",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "access"
+      }
+    ],
+    "as65020h3": [
+      {
+        "eth": 0,
+        "domain": "cd028",
+        "ip": "10.20.1.10",
+        "prefix": 30,
+        "peer": "as65020r3",
+        "kind": "access"
+      }
+    ],
+    "as65020h4": [
+      {
+        "eth": 0,
+        "domain": "cd029",
+        "ip": "10.20.1.14",
+        "prefix": 30,
+        "peer": "as65020r4",
+        "kind": "access"
+      }
+    ],
+    "as65020h5": [
+      {
+        "eth": 0,
+        "domain": "cd030",
+        "ip": "10.20.1.18",
+        "prefix": 30,
+        "peer": "as65020r5",
+        "kind": "access"
+      }
+    ],
+    "as65020h6": [
+      {
+        "eth": 0,
+        "domain": "cd031",
+        "ip": "10.20.1.22",
+        "prefix": 30,
+        "peer": "as65020r6",
+        "kind": "access"
+      }
+    ],
+    "as65020h7": [
+      {
+        "eth": 0,
+        "domain": "cd032",
+        "ip": "10.20.1.26",
+        "prefix": 30,
+        "peer": "as65020r1",
+        "kind": "access"
+      }
+    ],
+    "as65020h8": [
+      {
+        "eth": 0,
+        "domain": "cd033",
+        "ip": "10.20.1.30",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "access"
+      }
+    ],
+    "as65020h9": [
+      {
+        "eth": 0,
+        "domain": "cd034",
+        "ip": "10.20.1.34",
+        "prefix": 30,
+        "peer": "as65020r3",
+        "kind": "access"
+      }
+    ],
+    "as65030r1": [
+      {
+        "eth": 0,
+        "domain": "cd035",
+        "ip": "10.30.0.1",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd040",
+        "ip": "10.30.0.22",
+        "prefix": 30,
+        "peer": "as65030r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd041",
+        "ip": "10.30.0.25",
+        "prefix": 30,
+        "peer": "as65030r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd043",
+        "ip": "10.30.1.1",
+        "prefix": 30,
+        "peer": "as65030h1",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd049",
+        "ip": "10.30.1.25",
+        "prefix": 30,
+        "peer": "as65030h7",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd087",
+        "ip": "172.20.0.6",
+        "prefix": 30,
+        "peer": "as65010r2",
+        "kind": "ebgp"
+      }
+    ],
+    "as65030r2": [
+      {
+        "eth": 0,
+        "domain": "cd035",
+        "ip": "10.30.0.2",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd036",
+        "ip": "10.30.0.5",
+        "prefix": 30,
+        "peer": "as65030r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd042",
+        "ip": "10.30.0.29",
+        "prefix": 30,
+        "peer": "as65030r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd044",
+        "ip": "10.30.1.5",
+        "prefix": 30,
+        "peer": "as65030h2",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd050",
+        "ip": "10.30.1.29",
+        "prefix": 30,
+        "peer": "as65030h8",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd088",
+        "ip": "172.20.0.10",
+        "prefix": 30,
+        "peer": "as65020r2",
+        "kind": "ebgp"
+      }
+    ],
+    "as65030r3": [
+      {
+        "eth": 0,
+        "domain": "cd036",
+        "ip": "10.30.0.6",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd037",
+        "ip": "10.30.0.9",
+        "prefix": 30,
+        "peer": "as65030r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd045",
+        "ip": "10.30.1.9",
+        "prefix": 30,
+        "peer": "as65030h3",
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "domain": "cd051",
+        "ip": "10.30.1.33",
+        "prefix": 30,
+        "peer": "as65030h9",
+        "kind": "access"
+      }
+    ],
+    "as65030r4": [
+      {
+        "eth": 0,
+        "domain": "cd037",
+        "ip": "10.30.0.10",
+        "prefix": 30,
+        "peer": "as65030r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd038",
+        "ip": "10.30.0.13",
+        "prefix": 30,
+        "peer": "as65030r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd041",
+        "ip": "10.30.0.26",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd046",
+        "ip": "10.30.1.13",
+        "prefix": 30,
+        "peer": "as65030h4",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd090",
+        "ip": "172.20.0.17",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "ebgp"
+      }
+    ],
+    "as65030r5": [
+      {
+        "eth": 0,
+        "domain": "cd038",
+        "ip": "10.30.0.14",
+        "prefix": 30,
+        "peer": "as65030r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd039",
+        "ip": "10.30.0.17",
+        "prefix": 30,
+        "peer": "as65030r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd042",
+        "ip": "10.30.0.30",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd047",
+        "ip": "10.30.1.17",
+        "prefix": 30,
+        "peer": "as65030h5",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd092",
+        "ip": "172.20.0.25",
+        "prefix": 30,
+        "peer": "as65100r5",
+        "kind": "ebgp"
+      }
+    ],
+    "as65030r6": [
+      {
+        "eth": 0,
+        "domain": "cd039",
+        "ip": "10.30.0.18",
+        "prefix": 30,
+        "peer": "as65030r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd040",
+        "ip": "10.30.0.21",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd048",
+        "ip": "10.30.1.21",
+        "prefix": 30,
+        "peer": "as65030h6",
+        "kind": "access"
+      }
+    ],
+    "as65030h1": [
+      {
+        "eth": 0,
+        "domain": "cd043",
+        "ip": "10.30.1.2",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "access"
+      }
+    ],
+    "as65030h2": [
+      {
+        "eth": 0,
+        "domain": "cd044",
+        "ip": "10.30.1.6",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "access"
+      }
+    ],
+    "as65030h3": [
+      {
+        "eth": 0,
+        "domain": "cd045",
+        "ip": "10.30.1.10",
+        "prefix": 30,
+        "peer": "as65030r3",
+        "kind": "access"
+      }
+    ],
+    "as65030h4": [
+      {
+        "eth": 0,
+        "domain": "cd046",
+        "ip": "10.30.1.14",
+        "prefix": 30,
+        "peer": "as65030r4",
+        "kind": "access"
+      }
+    ],
+    "as65030h5": [
+      {
+        "eth": 0,
+        "domain": "cd047",
+        "ip": "10.30.1.18",
+        "prefix": 30,
+        "peer": "as65030r5",
+        "kind": "access"
+      }
+    ],
+    "as65030h6": [
+      {
+        "eth": 0,
+        "domain": "cd048",
+        "ip": "10.30.1.22",
+        "prefix": 30,
+        "peer": "as65030r6",
+        "kind": "access"
+      }
+    ],
+    "as65030h7": [
+      {
+        "eth": 0,
+        "domain": "cd049",
+        "ip": "10.30.1.26",
+        "prefix": 30,
+        "peer": "as65030r1",
+        "kind": "access"
+      }
+    ],
+    "as65030h8": [
+      {
+        "eth": 0,
+        "domain": "cd050",
+        "ip": "10.30.1.30",
+        "prefix": 30,
+        "peer": "as65030r2",
+        "kind": "access"
+      }
+    ],
+    "as65030h9": [
+      {
+        "eth": 0,
+        "domain": "cd051",
+        "ip": "10.30.1.34",
+        "prefix": 30,
+        "peer": "as65030r3",
+        "kind": "access"
+      }
+    ],
+    "as65100r1": [
+      {
+        "eth": 0,
+        "domain": "cd052",
+        "ip": "10.40.0.1",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd057",
+        "ip": "10.40.0.22",
+        "prefix": 30,
+        "peer": "as65100r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd058",
+        "ip": "10.40.0.25",
+        "prefix": 30,
+        "peer": "as65100r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd060",
+        "ip": "10.40.1.1",
+        "prefix": 30,
+        "peer": "as65100h1",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd066",
+        "ip": "10.40.1.25",
+        "prefix": 30,
+        "peer": "as65100h7",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd089",
+        "ip": "172.20.0.14",
+        "prefix": 30,
+        "peer": "as65020r4",
+        "kind": "ebgp"
+      }
+    ],
+    "as65100r2": [
+      {
+        "eth": 0,
+        "domain": "cd052",
+        "ip": "10.40.0.2",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd053",
+        "ip": "10.40.0.5",
+        "prefix": 30,
+        "peer": "as65100r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd059",
+        "ip": "10.40.0.29",
+        "prefix": 30,
+        "peer": "as65100r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd061",
+        "ip": "10.40.1.5",
+        "prefix": 30,
+        "peer": "as65100h2",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd067",
+        "ip": "10.40.1.29",
+        "prefix": 30,
+        "peer": "as65100h8",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd095",
+        "ip": "172.20.0.37",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "ebgp"
+      }
+    ],
+    "as65100r3": [
+      {
+        "eth": 0,
+        "domain": "cd053",
+        "ip": "10.40.0.6",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd054",
+        "ip": "10.40.0.9",
+        "prefix": 30,
+        "peer": "as65100r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd062",
+        "ip": "10.40.1.9",
+        "prefix": 30,
+        "peer": "as65100h3",
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "domain": "cd068",
+        "ip": "10.40.1.33",
+        "prefix": 30,
+        "peer": "as65100h9",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd091",
+        "ip": "172.20.0.22",
+        "prefix": 30,
+        "peer": "as65010r4",
+        "kind": "ebgp"
+      }
+    ],
+    "as65100r4": [
+      {
+        "eth": 0,
+        "domain": "cd054",
+        "ip": "10.40.0.10",
+        "prefix": 30,
+        "peer": "as65100r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd055",
+        "ip": "10.40.0.13",
+        "prefix": 30,
+        "peer": "as65100r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd058",
+        "ip": "10.40.0.26",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd063",
+        "ip": "10.40.1.13",
+        "prefix": 30,
+        "peer": "as65100h4",
+        "kind": "access"
+      }
+    ],
+    "as65100r5": [
+      {
+        "eth": 0,
+        "domain": "cd055",
+        "ip": "10.40.0.14",
+        "prefix": 30,
+        "peer": "as65100r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd056",
+        "ip": "10.40.0.17",
+        "prefix": 30,
+        "peer": "as65100r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd059",
+        "ip": "10.40.0.30",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd064",
+        "ip": "10.40.1.17",
+        "prefix": 30,
+        "peer": "as65100h5",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd092",
+        "ip": "172.20.0.26",
+        "prefix": 30,
+        "peer": "as65030r5",
+        "kind": "ebgp"
+      }
+    ],
+    "as65100r6": [
+      {
+        "eth": 0,
+        "domain": "cd056",
+        "ip": "10.40.0.18",
+        "prefix": 30,
+        "peer": "as65100r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd057",
+        "ip": "10.40.0.21",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd065",
+        "ip": "10.40.1.21",
+        "prefix": 30,
+        "peer": "as65100h6",
+        "kind": "access"
+      }
+    ],
+    "as65100h1": [
+      {
+        "eth": 0,
+        "domain": "cd060",
+        "ip": "10.40.1.2",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "access"
+      }
+    ],
+    "as65100h2": [
+      {
+        "eth": 0,
+        "domain": "cd061",
+        "ip": "10.40.1.6",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "access"
+      }
+    ],
+    "as65100h3": [
+      {
+        "eth": 0,
+        "domain": "cd062",
+        "ip": "10.40.1.10",
+        "prefix": 30,
+        "peer": "as65100r3",
+        "kind": "access"
+      }
+    ],
+    "as65100h4": [
+      {
+        "eth": 0,
+        "domain": "cd063",
+        "ip": "10.40.1.14",
+        "prefix": 30,
+        "peer": "as65100r4",
+        "kind": "access"
+      }
+    ],
+    "as65100h5": [
+      {
+        "eth": 0,
+        "domain": "cd064",
+        "ip": "10.40.1.18",
+        "prefix": 30,
+        "peer": "as65100r5",
+        "kind": "access"
+      }
+    ],
+    "as65100h6": [
+      {
+        "eth": 0,
+        "domain": "cd065",
+        "ip": "10.40.1.22",
+        "prefix": 30,
+        "peer": "as65100r6",
+        "kind": "access"
+      }
+    ],
+    "as65100h7": [
+      {
+        "eth": 0,
+        "domain": "cd066",
+        "ip": "10.40.1.26",
+        "prefix": 30,
+        "peer": "as65100r1",
+        "kind": "access"
+      }
+    ],
+    "as65100h8": [
+      {
+        "eth": 0,
+        "domain": "cd067",
+        "ip": "10.40.1.30",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "access"
+      }
+    ],
+    "as65100h9": [
+      {
+        "eth": 0,
+        "domain": "cd068",
+        "ip": "10.40.1.34",
+        "prefix": 30,
+        "peer": "as65100r3",
+        "kind": "access"
+      }
+    ],
+    "as65200r1": [
+      {
+        "eth": 0,
+        "domain": "cd069",
+        "ip": "10.50.0.1",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd074",
+        "ip": "10.50.0.22",
+        "prefix": 30,
+        "peer": "as65200r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd075",
+        "ip": "10.50.0.25",
+        "prefix": 30,
+        "peer": "as65200r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd077",
+        "ip": "10.50.1.1",
+        "prefix": 30,
+        "peer": "as65200h1",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd083",
+        "ip": "10.50.1.25",
+        "prefix": 30,
+        "peer": "as65200h7",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd090",
+        "ip": "172.20.0.18",
+        "prefix": 30,
+        "peer": "as65030r4",
+        "kind": "ebgp"
+      }
+    ],
+    "as65200r2": [
+      {
+        "eth": 0,
+        "domain": "cd069",
+        "ip": "10.50.0.2",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd070",
+        "ip": "10.50.0.5",
+        "prefix": 30,
+        "peer": "as65200r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd076",
+        "ip": "10.50.0.29",
+        "prefix": 30,
+        "peer": "as65200r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd078",
+        "ip": "10.50.1.5",
+        "prefix": 30,
+        "peer": "as65200h2",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd084",
+        "ip": "10.50.1.29",
+        "prefix": 30,
+        "peer": "as65200h8",
+        "kind": "access"
+      },
+      {
+        "eth": 5,
+        "domain": "cd095",
+        "ip": "172.20.0.38",
+        "prefix": 30,
+        "peer": "as65100r2",
+        "kind": "ebgp"
+      }
+    ],
+    "as65200r3": [
+      {
+        "eth": 0,
+        "domain": "cd070",
+        "ip": "10.50.0.6",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd071",
+        "ip": "10.50.0.9",
+        "prefix": 30,
+        "peer": "as65200r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd079",
+        "ip": "10.50.1.9",
+        "prefix": 30,
+        "peer": "as65200h3",
+        "kind": "access"
+      },
+      {
+        "eth": 3,
+        "domain": "cd085",
+        "ip": "10.50.1.33",
+        "prefix": 30,
+        "peer": "as65200h9",
+        "kind": "access"
+      }
+    ],
+    "as65200r4": [
+      {
+        "eth": 0,
+        "domain": "cd071",
+        "ip": "10.50.0.10",
+        "prefix": 30,
+        "peer": "as65200r3",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd072",
+        "ip": "10.50.0.13",
+        "prefix": 30,
+        "peer": "as65200r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd075",
+        "ip": "10.50.0.26",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd080",
+        "ip": "10.50.1.13",
+        "prefix": 30,
+        "peer": "as65200h4",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd093",
+        "ip": "172.20.0.30",
+        "prefix": 30,
+        "peer": "as65020r5",
+        "kind": "ebgp"
+      }
+    ],
+    "as65200r5": [
+      {
+        "eth": 0,
+        "domain": "cd072",
+        "ip": "10.50.0.14",
+        "prefix": 30,
+        "peer": "as65200r4",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd073",
+        "ip": "10.50.0.17",
+        "prefix": 30,
+        "peer": "as65200r6",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd076",
+        "ip": "10.50.0.30",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "internal"
+      },
+      {
+        "eth": 3,
+        "domain": "cd081",
+        "ip": "10.50.1.17",
+        "prefix": 30,
+        "peer": "as65200h5",
+        "kind": "access"
+      },
+      {
+        "eth": 4,
+        "domain": "cd094",
+        "ip": "172.20.0.34",
+        "prefix": 30,
+        "peer": "as65010r5",
+        "kind": "ebgp"
+      }
+    ],
+    "as65200r6": [
+      {
+        "eth": 0,
+        "domain": "cd073",
+        "ip": "10.50.0.18",
+        "prefix": 30,
+        "peer": "as65200r5",
+        "kind": "internal"
+      },
+      {
+        "eth": 1,
+        "domain": "cd074",
+        "ip": "10.50.0.21",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "internal"
+      },
+      {
+        "eth": 2,
+        "domain": "cd082",
+        "ip": "10.50.1.21",
+        "prefix": 30,
+        "peer": "as65200h6",
+        "kind": "access"
+      }
+    ],
+    "as65200h1": [
+      {
+        "eth": 0,
+        "domain": "cd077",
+        "ip": "10.50.1.2",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "access"
+      }
+    ],
+    "as65200h2": [
+      {
+        "eth": 0,
+        "domain": "cd078",
+        "ip": "10.50.1.6",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "access"
+      }
+    ],
+    "as65200h3": [
+      {
+        "eth": 0,
+        "domain": "cd079",
+        "ip": "10.50.1.10",
+        "prefix": 30,
+        "peer": "as65200r3",
+        "kind": "access"
+      }
+    ],
+    "as65200h4": [
+      {
+        "eth": 0,
+        "domain": "cd080",
+        "ip": "10.50.1.14",
+        "prefix": 30,
+        "peer": "as65200r4",
+        "kind": "access"
+      }
+    ],
+    "as65200h5": [
+      {
+        "eth": 0,
+        "domain": "cd081",
+        "ip": "10.50.1.18",
+        "prefix": 30,
+        "peer": "as65200r5",
+        "kind": "access"
+      }
+    ],
+    "as65200h6": [
+      {
+        "eth": 0,
+        "domain": "cd082",
+        "ip": "10.50.1.22",
+        "prefix": 30,
+        "peer": "as65200r6",
+        "kind": "access"
+      }
+    ],
+    "as65200h7": [
+      {
+        "eth": 0,
+        "domain": "cd083",
+        "ip": "10.50.1.26",
+        "prefix": 30,
+        "peer": "as65200r1",
+        "kind": "access"
+      }
+    ],
+    "as65200h8": [
+      {
+        "eth": 0,
+        "domain": "cd084",
+        "ip": "10.50.1.30",
+        "prefix": 30,
+        "peer": "as65200r2",
+        "kind": "access"
+      }
+    ],
+    "as65200h9": [
+      {
+        "eth": 0,
+        "domain": "cd085",
+        "ip": "10.50.1.34",
+        "prefix": 30,
+        "peer": "as65200r3",
+        "kind": "access"
+      }
+    ]
+  },
+  "hostmeta": {
+    "as65010h1": {
+      "gateway": "10.10.1.1",
+      "ip": "10.10.1.2",
+      "router": "as65010r1"
+    },
+    "as65010h2": {
+      "gateway": "10.10.1.5",
+      "ip": "10.10.1.6",
+      "router": "as65010r2"
+    },
+    "as65010h3": {
+      "gateway": "10.10.1.9",
+      "ip": "10.10.1.10",
+      "router": "as65010r3"
+    },
+    "as65010h4": {
+      "gateway": "10.10.1.13",
+      "ip": "10.10.1.14",
+      "router": "as65010r4"
+    },
+    "as65010h5": {
+      "gateway": "10.10.1.17",
+      "ip": "10.10.1.18",
+      "router": "as65010r5"
+    },
+    "as65010h6": {
+      "gateway": "10.10.1.21",
+      "ip": "10.10.1.22",
+      "router": "as65010r6"
+    },
+    "as65010h7": {
+      "gateway": "10.10.1.25",
+      "ip": "10.10.1.26",
+      "router": "as65010r1"
+    },
+    "as65010h8": {
+      "gateway": "10.10.1.29",
+      "ip": "10.10.1.30",
+      "router": "as65010r2"
+    },
+    "as65010h9": {
+      "gateway": "10.10.1.33",
+      "ip": "10.10.1.34",
+      "router": "as65010r3"
+    },
+    "as65020h1": {
+      "gateway": "10.20.1.1",
+      "ip": "10.20.1.2",
+      "router": "as65020r1"
+    },
+    "as65020h2": {
+      "gateway": "10.20.1.5",
+      "ip": "10.20.1.6",
+      "router": "as65020r2"
+    },
+    "as65020h3": {
+      "gateway": "10.20.1.9",
+      "ip": "10.20.1.10",
+      "router": "as65020r3"
+    },
+    "as65020h4": {
+      "gateway": "10.20.1.13",
+      "ip": "10.20.1.14",
+      "router": "as65020r4"
+    },
+    "as65020h5": {
+      "gateway": "10.20.1.17",
+      "ip": "10.20.1.18",
+      "router": "as65020r5"
+    },
+    "as65020h6": {
+      "gateway": "10.20.1.21",
+      "ip": "10.20.1.22",
+      "router": "as65020r6"
+    },
+    "as65020h7": {
+      "gateway": "10.20.1.25",
+      "ip": "10.20.1.26",
+      "router": "as65020r1"
+    },
+    "as65020h8": {
+      "gateway": "10.20.1.29",
+      "ip": "10.20.1.30",
+      "router": "as65020r2"
+    },
+    "as65020h9": {
+      "gateway": "10.20.1.33",
+      "ip": "10.20.1.34",
+      "router": "as65020r3"
+    },
+    "as65030h1": {
+      "gateway": "10.30.1.1",
+      "ip": "10.30.1.2",
+      "router": "as65030r1"
+    },
+    "as65030h2": {
+      "gateway": "10.30.1.5",
+      "ip": "10.30.1.6",
+      "router": "as65030r2"
+    },
+    "as65030h3": {
+      "gateway": "10.30.1.9",
+      "ip": "10.30.1.10",
+      "router": "as65030r3"
+    },
+    "as65030h4": {
+      "gateway": "10.30.1.13",
+      "ip": "10.30.1.14",
+      "router": "as65030r4"
+    },
+    "as65030h5": {
+      "gateway": "10.30.1.17",
+      "ip": "10.30.1.18",
+      "router": "as65030r5"
+    },
+    "as65030h6": {
+      "gateway": "10.30.1.21",
+      "ip": "10.30.1.22",
+      "router": "as65030r6"
+    },
+    "as65030h7": {
+      "gateway": "10.30.1.25",
+      "ip": "10.30.1.26",
+      "router": "as65030r1"
+    },
+    "as65030h8": {
+      "gateway": "10.30.1.29",
+      "ip": "10.30.1.30",
+      "router": "as65030r2"
+    },
+    "as65030h9": {
+      "gateway": "10.30.1.33",
+      "ip": "10.30.1.34",
+      "router": "as65030r3"
+    },
+    "as65100h1": {
+      "gateway": "10.40.1.1",
+      "ip": "10.40.1.2",
+      "router": "as65100r1"
+    },
+    "as65100h2": {
+      "gateway": "10.40.1.5",
+      "ip": "10.40.1.6",
+      "router": "as65100r2"
+    },
+    "as65100h3": {
+      "gateway": "10.40.1.9",
+      "ip": "10.40.1.10",
+      "router": "as65100r3"
+    },
+    "as65100h4": {
+      "gateway": "10.40.1.13",
+      "ip": "10.40.1.14",
+      "router": "as65100r4"
+    },
+    "as65100h5": {
+      "gateway": "10.40.1.17",
+      "ip": "10.40.1.18",
+      "router": "as65100r5"
+    },
+    "as65100h6": {
+      "gateway": "10.40.1.21",
+      "ip": "10.40.1.22",
+      "router": "as65100r6"
+    },
+    "as65100h7": {
+      "gateway": "10.40.1.25",
+      "ip": "10.40.1.26",
+      "router": "as65100r1"
+    },
+    "as65100h8": {
+      "gateway": "10.40.1.29",
+      "ip": "10.40.1.30",
+      "router": "as65100r2"
+    },
+    "as65100h9": {
+      "gateway": "10.40.1.33",
+      "ip": "10.40.1.34",
+      "router": "as65100r3"
+    },
+    "as65200h1": {
+      "gateway": "10.50.1.1",
+      "ip": "10.50.1.2",
+      "router": "as65200r1"
+    },
+    "as65200h2": {
+      "gateway": "10.50.1.5",
+      "ip": "10.50.1.6",
+      "router": "as65200r2"
+    },
+    "as65200h3": {
+      "gateway": "10.50.1.9",
+      "ip": "10.50.1.10",
+      "router": "as65200r3"
+    },
+    "as65200h4": {
+      "gateway": "10.50.1.13",
+      "ip": "10.50.1.14",
+      "router": "as65200r4"
+    },
+    "as65200h5": {
+      "gateway": "10.50.1.17",
+      "ip": "10.50.1.18",
+      "router": "as65200r5"
+    },
+    "as65200h6": {
+      "gateway": "10.50.1.21",
+      "ip": "10.50.1.22",
+      "router": "as65200r6"
+    },
+    "as65200h7": {
+      "gateway": "10.50.1.25",
+      "ip": "10.50.1.26",
+      "router": "as65200r1"
+    },
+    "as65200h8": {
+      "gateway": "10.50.1.29",
+      "ip": "10.50.1.30",
+      "router": "as65200r2"
+    },
+    "as65200h9": {
+      "gateway": "10.50.1.33",
+      "ip": "10.50.1.34",
+      "router": "as65200r3"
+    }
+  }
+}
