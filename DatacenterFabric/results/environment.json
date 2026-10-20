@@ -1,0 +1,412 @@
+{
+  "validated_at": "2026-10-19T09:47:15.132880+00:00",
+  "python": "3.13.3",
+  "kathara": "3.8.3",
+  "docker": "28.4.0",
+  "docker_memory_bytes": 8217890816,
+  "docker_cpus": 11,
+  "image_id": "sha256:48cfd5a3a78242bff07f4b4d5de04a5da534094bc34aec3f9927c6197f7f346e",
+  "image_repo_digests": [
+    "soft3888-fabric@sha256:48cfd5a3a78242bff07f4b4d5de04a5da534094bc34aec3f9927c6197f7f346e"
+  ],
+  "running_devices": 39,
+  "frr_version": "FRRouting 10.5.3 (leaf1) on Linux(6.10.14-linuxkit).\nCopyright 1996-2005 Kunihiro Ishiguro, et al.\nconfigured with:\n    '--build=x86_64-linux-gnu' '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-option-checking' '--disable-silent-rules' '--libdir=${prefix}/lib/aarch64-linux-gnu' '--libexecdir=${prefix}/lib/aarch64-linux-gnu' '--disable-maintainer-mode' '--host=aarch64-linux-gnu' '--sbindir=/usr/lib/frr' '--with-vtysh-pager=/usr/bin/pager' '--libdir=/usr/lib/aarch64-linux-gnu/frr' '--with-moduledir=/usr/lib/aarch64-linux-gnu/frr/modules' '--disable-dependency-tracking' '--enable-rpki' '--disable-scripting' '--enable-pim6d' '--disable-grpc' '--disable-address-sanitizer' '--with-libpam' '--enable-doc' '--enable-doc-html' '--enable-snmp' '--enable-fpm' '--disable-protobuf' '--disable-zeromq' '--enable-ospfapi' '--enable-bgp-vnc' '--enable-multipath=256' '--enable-pcre2posix' '--enable-user=frr' '--enable-group=frr' '--enable-vty-group=frrvty' '--enable-configfile-mask=0640' '--enable-logfile-mask=0640' 'build_alias=x86_64-linux-gnu' 'host_alias=aarch64-linux-gnu' 'PYTHON=python3'\n",
+  "inventory_sha256": "b0b2a603e2d29cace54a90c3622f10e02cc510453277e7a2a5c82b8110d3e4ef",
+  "host_home_mounted": false,
+  "shared_mounted": false,
+  "published_ports": false,
+  "mounts": [
+    {
+      "device": "rack6h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack6h1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "leaf6",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf6",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack6h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack6h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack6h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack6h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack6h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack6h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack6",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack6",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack5h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack5h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf5",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "leaf5",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack5",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack5",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack4h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack4h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack4h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack5h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack5h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack5h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack5h1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack5h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack5h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4h1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack4h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack2h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "leaf3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack3h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack3h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack2h1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack2h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3h1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "leaf4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1h3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack1h3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1h4",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack1h4",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "spine1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "spine1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "spine3",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "spine3",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack1h2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1h2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "spine2",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "spine2",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "leaf1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "leaf1",
+      "type": "volume",
+      "destination": "/shared"
+    },
+    {
+      "device": "rack1h1",
+      "type": "volume",
+      "destination": "/hosthome"
+    },
+    {
+      "device": "rack1h1",
+      "type": "volume",
+      "destination": "/shared"
+    }
+  ],
+  "lab_stopped_after_validation": true,
+  "cleanup_verified_at": "2026-10-19T09:47:34.028391+00:00"
+}

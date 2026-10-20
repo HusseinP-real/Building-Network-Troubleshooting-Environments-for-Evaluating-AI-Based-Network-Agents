@@ -1,0 +1,149 @@
+{
+  "topology": "DatacenterFabric",
+  "description": "Evaluator-only tickets, ground truth, injection, verification and recovery plans.",
+  "cases": {
+    "healthy": {
+      "ticket": "The fabric is reportedly down. Verify the report and diagnose the current state.",
+      "causes": [],
+      "steps": [],
+      "verify": []
+    },
+    "uplink": {
+      "ticket": "Rack 1 received an uplink alarm, but application access appears available.",
+      "causes": [
+        {
+          "device": "leaf1",
+          "resource_id": "interface/leaf1/eth0",
+          "fault_type": "interface_down"
+        }
+      ],
+      "steps": [
+        [
+          "leaf1",
+          "ip link set eth0 down",
+          "ip link set eth0 up"
+        ]
+      ],
+      "verify": [
+        [
+          "leaf1",
+          "ip -j link show eth0 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'"
+        ]
+      ]
+    },
+    "wrong-gateway": {
+      "ticket": "One rack 1 client cannot access remote services.",
+      "causes": [
+        {
+          "device": "rack1h2",
+          "resource_id": "route/rack1h2/default",
+          "fault_type": "incorrect_gateway"
+        }
+      ],
+      "steps": [
+        [
+          "rack1h2",
+          "ip route replace default via 10.60.1.254",
+          "ip route replace default via 10.60.1.1"
+        ]
+      ],
+      "verify": [
+        [
+          "rack1h2",
+          "ip route show default | grep -F 'via 10.60.1.254'"
+        ]
+      ]
+    },
+    "backend-link": {
+      "ticket": "The application returns HTTP 503. Determine which network resource caused this.",
+      "causes": [
+        {
+          "device": "rack6h1",
+          "resource_id": "interface/rack6h1/eth0",
+          "fault_type": "interface_down"
+        }
+      ],
+      "steps": [
+        [
+          "rack6h1",
+          "ip link set eth0 down",
+          "ip link set eth0 up"
+        ]
+      ],
+      "verify": [
+        [
+          "rack6h1",
+          "ip -j link show eth0 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'"
+        ],
+        [
+          "rack1h3",
+          "test \"$(curl -s --max-time 6 -o /dev/null -w '%{http_code}' http://10.60.5.11:8080/)\" = 503"
+        ]
+      ]
+    },
+    "withdrawal": {
+      "ticket": "Rack 6 cannot be reached from other racks, while other rack services are working.",
+      "causes": [
+        {
+          "device": "leaf6",
+          "resource_id": "routing/leaf6/bgp/10.60.6.0/24",
+          "fault_type": "bgp_prefix_withdrawal"
+        }
+      ],
+      "steps": [
+        [
+          "leaf6",
+          "vtysh -c 'configure terminal' -c 'router bgp 65106' -c 'address-family ipv4 unicast' -c 'no network 10.60.6.0/24'",
+          "vtysh -c 'configure terminal' -c 'router bgp 65106' -c 'address-family ipv4 unicast' -c 'network 10.60.6.0/24'"
+        ]
+      ],
+      "verify": [
+        [
+          "leaf1",
+          "test -z \"$(ip route show exact 10.60.6.0/24)\""
+        ]
+      ]
+    },
+    "compound": {
+      "ticket": "There is an uplink alarm and the application is failing. Identify every current cause.",
+      "causes": [
+        {
+          "device": "leaf1",
+          "resource_id": "interface/leaf1/eth0",
+          "fault_type": "interface_down"
+        },
+        {
+          "device": "rack6h1",
+          "resource_id": "interface/rack6h1/eth0",
+          "fault_type": "interface_down"
+        }
+      ],
+      "steps": [
+        [
+          "leaf1",
+          "ip link set eth0 down",
+          "ip link set eth0 up"
+        ],
+        [
+          "rack6h1",
+          "ip link set eth0 down",
+          "ip link set eth0 up"
+        ]
+      ],
+      "verify": [
+        [
+          "leaf1",
+          "ip -j link show eth0 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'"
+        ],
+        [
+          "rack6h1",
+          "ip -j link show eth0 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'"
+        ],
+        [
+          "rack1h3",
+          "test \"$(curl -s --max-time 6 -o /dev/null -w '%{http_code}' http://10.60.5.11:8080/)\" = 503"
+        ]
+      ]
+    }
+  }
+}

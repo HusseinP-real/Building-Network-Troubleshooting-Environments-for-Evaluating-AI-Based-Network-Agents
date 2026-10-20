@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "devices": 39,
+  "roles": {
+    "spine": 3,
+    "leaf": 6,
+    "switch": 6,
+    "server": 6,
+    "client": 18
+  },
+  "links": 48,
+  "interfaces": 96,
+  "connected_devices": 39,
+  "startup_scripts_checked": 39,
+  "runtime_validation": "See latest-health.json; offline checks do not prove routing or connectivity"
+}
