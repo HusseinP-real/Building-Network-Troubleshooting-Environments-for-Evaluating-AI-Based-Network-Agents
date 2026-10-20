@@ -1,0 +1,1 @@
+Traffic in ISP North appears to have changed path, and the core adjacency may be down.
