@@ -349,6 +349,13 @@ the guide distinguishes offline checks from live evidence.
 
 ### Adding a scenario
 
+For a worked custom compound fault (wrong gateway + ICMP filter), including
+an isolated live validator that needs no LLM API keys, see the
+[haosenpeng walkthrough](docs/haosenpeng-compound-fault.md). Its scenario is
+under `dataset/kath3_Q/custom/` and runs by ID or
+`benchmarks/haosenpeng.csv`; it is separate from the published dataset layers
+and is not included in `sweep --scope base`.
+
 Write a `.txt` under `dataset/<topology>_Q/{base,cex}/` in the section format
 below — the lab comes from the file's `Topology:` line — then run it like any
 other scenario. The pipeline itself verifies the injection on every run: a

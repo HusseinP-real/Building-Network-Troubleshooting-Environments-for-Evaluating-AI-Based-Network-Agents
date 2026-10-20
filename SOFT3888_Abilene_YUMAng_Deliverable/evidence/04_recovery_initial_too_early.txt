@@ -1,0 +1,42 @@
+============================================
+ YUMANG IS-IS RECOVERY
+============================================
+
+STEP 1 - Restore IS-IS on yumang eth0
+Recovery configuration applied.
+
+Waiting for IS-IS convergence...
+
+STEP 2 - Check yumang neighbour state
+Area NIKA:
+ System Id           Interface   L  State         Holdtime SNPA
+ snvang              eth0        2  Up            27       8afa.5c65.c5b3
+
+STEP 3 - Check snvang neighbour state
+Area NIKA:
+ System Id           Interface   L  State         Holdtime SNPA
+ dnvrng              eth0        2  Up            28       76fe.612a.8308
+ losang              eth1        2  Up            30       b644.d6c6.963e
+ sttlng              eth2        2  Up            28       522c.c63c.19c1
+ yumang              eth3        2  Up            29       f27c.6578.dbdd
+
+STEP 4 - Check yumang routing table
+10.0.0.30/31 dev eth0 proto kernel scope link src 10.0.0.31 
+10.254.0.48/30 dev eth1 proto kernel scope link src 10.254.0.49
+
+STEP 5 - Test old router -> yumang loopback
+ping: connect: Network is unreachable
+
+STEP 6 - Test old PC -> new PC
+PING 10.254.0.50 (10.254.0.50) 56(84) bytes of data.
+From 10.254.0.1 icmp_seq=1 Destination Net Unreachable
+From 10.254.0.1 icmp_seq=2 Destination Net Unreachable
+From 10.254.0.1 icmp_seq=3 Destination Net Unreachable
+
+--- 10.254.0.50 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2005ms
+
+============================================
+ RECOVERY COMPLETE
+ Output: yumang_recovery_results.txt
+============================================

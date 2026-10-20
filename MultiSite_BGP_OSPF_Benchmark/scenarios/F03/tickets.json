@@ -1,0 +1,30 @@
+[
+  {
+    "ticket_id": "F03_general",
+    "scenario_id": "F03",
+    "reporter_type": "general",
+    "text": "People in one branch report losing access to company systems.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F03_engineer",
+    "scenario_id": "F03",
+    "reporter_type": "engineer",
+    "text": "HQ cannot ping 10.20.10.21 but can reach 10.40.10.21.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F03_expert",
+    "scenario_id": "F03",
+    "reporter_type": "expert",
+    "text": "Branch A routes disappeared after both local routing daemons stopped.",
+    "accuracy": "scenario_consistent"
+  },
+  {
+    "ticket_id": "F03_misleading",
+    "scenario_id": "F03",
+    "reporter_type": "misleading",
+    "text": "The ISP-B carrier must have an outage.",
+    "accuracy": "potentially_inaccurate"
+  }
+]

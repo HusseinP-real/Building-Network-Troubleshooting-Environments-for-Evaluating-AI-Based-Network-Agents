@@ -1,0 +1,22 @@
+{
+  "scenario_id": "F01",
+  "fault_exists": true,
+  "fault_type": "ebgp_uplink_loss",
+  "fault_devices": [
+    "a1",
+    "a3"
+  ],
+  "expected_root_cause": "Both ISP-A peering interfaces are down; the independent ISP-B service remains reachable",
+  "normal_state": "Enterprise can access both external service networks",
+  "observable_symptom": "ISP-A hosted service unavailable",
+  "injection": "python3 lab.py inject F01",
+  "repair": "python3 lab.py repair F01",
+  "evaluation_fields": [
+    "fault_detection",
+    "fault_type",
+    "fault_devices",
+    "root_cause",
+    "repair_suggestion"
+  ],
+  "status": "planned_until_live_verified"
+}
