@@ -1,0 +1,400 @@
+{
+  "passed": true,
+  "injected": true,
+  "recovered": true,
+  "checks": [
+    {
+      "check": "Disable leaf1 first spine uplink",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip link set eth0 down",
+      "output": ""
+    },
+    {
+      "check": "Uplink administratively down",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j link show eth0 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'",
+      "output": ""
+    },
+    {
+      "check": "Two remaining paths to rack2",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==2, rows; assert len({h[\"gateway\"] for h in active})==2, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "Two remaining paths to rack3",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==2, rows; assert len({h[\"gateway\"] for h in active})==2, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "Two remaining paths to rack4",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==2, rows; assert len({h[\"gateway\"] for h in active})==2, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "Two remaining paths to rack5",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==2, rows; assert len({h[\"gateway\"] for h in active})==2, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "Two remaining paths to rack6",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==2, rows; assert len({h[\"gateway\"] for h in active})==2, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack1h1: all 23 other endpoints reachable",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "for target in 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h1: application and backend dependency healthy",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h2: all 23 other endpoints reachable",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h2: application and backend dependency healthy",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h3: all 23 other endpoints reachable",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h3: application and backend dependency healthy",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h4: all 23 other endpoints reachable",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h4: application and backend dependency healthy",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h1: all 23 other endpoints reachable",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h1: application and backend dependency healthy",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h2: all 23 other endpoints reachable",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h2: application and backend dependency healthy",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h3: all 23 other endpoints reachable",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h3: application and backend dependency healthy",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h4: all 23 other endpoints reachable",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h4: application and backend dependency healthy",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h1: all 23 other endpoints reachable",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h1: application and backend dependency healthy",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h2: all 23 other endpoints reachable",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h2: application and backend dependency healthy",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h3: all 23 other endpoints reachable",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h3: application and backend dependency healthy",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h4: all 23 other endpoints reachable",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h4: application and backend dependency healthy",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h1: all 23 other endpoints reachable",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h1: application and backend dependency healthy",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h2: all 23 other endpoints reachable",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h2: application and backend dependency healthy",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h3: all 23 other endpoints reachable",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h3: application and backend dependency healthy",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h4: all 23 other endpoints reachable",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h4: application and backend dependency healthy",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h1: all 23 other endpoints reachable",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h1: application and backend dependency healthy",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h2: all 23 other endpoints reachable",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h2: application and backend dependency healthy",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h3: all 23 other endpoints reachable",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h3: application and backend dependency healthy",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h4: all 23 other endpoints reachable",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h4: application and backend dependency healthy",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h1: all 23 other endpoints reachable",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h1: application and backend dependency healthy",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h2: all 23 other endpoints reachable",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h2: application and backend dependency healthy",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h3: all 23 other endpoints reachable",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h3: application and backend dependency healthy",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h4: all 23 other endpoints reachable",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h4: application and backend dependency healthy",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "Restore leaf1 first spine uplink",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip link set eth0 up",
+      "output": ""
+    }
+  ],
+  "timestamp": "2026-10-19T09:51:10.058351+00:00"
+}

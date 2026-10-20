@@ -1,0 +1,218 @@
+Scenario: p20-enterprise-v3-hq-both-uplinks-down
+Topology: P20Enterprise
+Fault family: isolation
+
+[PROMPT-TO-AGENT]
+HQ PCs and servers can communicate locally but cannot reach other sites. The other six sites can still communicate with one another.
+
+[PRE-CHECK]
+pc5  ping -n -W 1 -c 2 10.10.1.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.5.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.5.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.6.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.6.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.7.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.7.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.13 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.2.11 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+server1  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc9  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+server3  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+r13  flags=$(cat /sys/class/net/eth0/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth1/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth3/flags) && echo $((flags & 1)) => expect 1
+r1  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 6
+r2  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 6
+r3  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 7
+r4  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r5  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r6  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r7  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r8  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r9  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r10  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r11  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r12  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r14  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r15  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r16  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r17  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r18  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r19  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r20  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r21  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r22  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r23  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r24  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r25  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  routes=$(ip -4 route show exact 10.10.2.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.2.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.255.8.1" && proto=="ospf") n++} END {print n+0}' => expect 1
+r14  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(proto=="ospf") n++} END {print n+0}' => expect 1
+r13  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(1) n++} END {print n+0}' => expect 1
+r13  config=$(vtysh -c 'show running-config') && printf '%s\n' "$config" | awk '$1=="network" && $2=="10.40.1.0/24" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show exact default) && printf '%s\n' "$routes" | awk '$1=="default" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.10.1.1") n++} END {print n+0}' => expect 1
+
+[INJECTION]
+device: r13
+action: isolation
+cmd: |
+  set -e
+  ip link set eth0 down
+  ip link set eth1 down
+
+[POST-INJECT-CHECK]
+pc5  ping -n -W 1 -c 2 10.10.1.11 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.1.12 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.1.13 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.1.14 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.40.1.11 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.40.1.12 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.5.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.5.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.6.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.6.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.7.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.7.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.15 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.2.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.5.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.6.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.15 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.16 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.17 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.18 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.7.19 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.13 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.2.11 => expect loss>0
+pc1  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+server1  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc9  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+server3  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+r13  flags=$(cat /sys/class/net/eth0/flags) && echo $((flags & 1)) => expect 0
+r13  flags=$(cat /sys/class/net/eth1/flags) && echo $((flags & 1)) => expect 0
+r13  flags=$(cat /sys/class/net/eth3/flags) && echo $((flags & 1)) => expect 1
+r1  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 6
+r2  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 6
+r3  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 7
+r4  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r5  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 1
+r6  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 1
+r7  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r8  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r9  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r10  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r11  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r12  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 0
+r14  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r15  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r16  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r17  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r18  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r19  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r20  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r21  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r22  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r23  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r24  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r25  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  routes=$(ip -4 route show exact 10.10.2.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.2.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.255.8.1" && proto=="ospf") n++} END {print n+0}' => expect 0
+r14  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(proto=="ospf") n++} END {print n+0}' => expect 0
+r13  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(1) n++} END {print n+0}' => expect 1
+r13  config=$(vtysh -c 'show running-config') && printf '%s\n' "$config" | awk '$1=="network" && $2=="10.40.1.0/24" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show exact default) && printf '%s\n' "$routes" | awk '$1=="default" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.10.1.1") n++} END {print n+0}' => expect 1
+
+[GROUND-TRUTH]
+Both R13 uplinks eth0 and eth1 are administratively down, isolating HQ from the backbone. Local HQ user/server routing remains available. Restore both uplinks; restoring just the preferred link does not restore redundancy.
+
+[FIX]
+On r13:
+set -e
+ip link set eth0 up
+ip link set eth1 up
+Repeat healthy checks, including preferred routing and all OSPF adjacencies.
+
+[DIAGNOSTIC-PROCESS]
+Compare local and remote paths. Inspect interface state, OSPF neighbors, advertisements and installed routes. Distinguish successful failover from an outage.
+
+[SCORING-AXES]
+must-identify-cause: Both R13 uplinks eth0 and eth1 are administratively down, isolating HQ from the backbone. Local HQ user/server routing remains available. Restore both uplinks; restoring just the preferred link does not restore redundancy.
+must-scope-impact: explain affected and unaffected paths
+must-verify-recovery: verify configuration and full baseline after the precise repair
+
+[NIKA-LABEL]
+nika_label: none
+nika_category: PROJECT_REFERENCE
+in_taxonomy: false
+note: NIKA task separation is the reference; native NIKA/SADE execution is not established.
