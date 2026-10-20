@@ -1,0 +1,16 @@
+{
+  "id": "F05_link_down",
+  "ticket": "Branch connectivity seems intermittent; one uplink may have failed.",
+  "ground_truth": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "dist2"
+    ],
+    "root_cause": "One uplink of dist2 administratively down; another path remains"
+  },
+  "command_injection": "ip link set eth0 down",
+  "command_recovery": "ip link set eth0 up",
+  "verification_command": "ip -br link show eth0",
+  "verification_device": "dist2",
+  "integration_status": "illustrative; runtime validation needed"
+}

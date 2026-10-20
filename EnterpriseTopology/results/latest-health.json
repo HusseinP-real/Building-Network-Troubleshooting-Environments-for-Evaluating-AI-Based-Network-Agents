@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-09T05:01:40.546011+00:00",
+  "timestamp": "2026-10-16T06:15:31.856776+00:00",
   "passed": true,
   "checks": [
     {
@@ -666,7 +666,7 @@
       "check": "staff: DHCP lease",
       "node": "staff",
       "passed": true,
-      "output": "inet 10.10.10.115/24 brd 10.10.10.255 scope global dynamic eth0"
+      "output": "inet 10.10.10.112/24 brd 10.10.10.255 scope global dynamic eth0"
     },
     {
       "check": "staff: DNS answer",
@@ -678,7 +678,7 @@
       "check": "guest: DHCP lease",
       "node": "guest",
       "passed": true,
-      "output": "inet 10.10.20.144/24 brd 10.10.20.255 scope global dynamic eth0"
+      "output": "inet 10.10.20.133/24 brd 10.10.20.255 scope global dynamic eth0"
     },
     {
       "check": "guest: DNS answer",
@@ -690,7 +690,7 @@
       "check": "office: DHCP lease",
       "node": "office",
       "passed": true,
-      "output": "inet 10.20.10.135/24 brd 10.20.10.255 scope global dynamic eth0"
+      "output": "inet 10.20.10.100/24 brd 10.20.10.255 scope global dynamic eth0"
     },
     {
       "check": "office: DNS answer",
@@ -702,7 +702,7 @@
       "check": "engineering: DHCP lease",
       "node": "engineering",
       "passed": true,
-      "output": "inet 10.20.20.120/24 brd 10.20.20.255 scope global dynamic eth0"
+      "output": "inet 10.20.20.105/24 brd 10.20.20.255 scope global dynamic eth0"
     },
     {
       "check": "engineering: DNS answer",
@@ -1116,13 +1116,13 @@
       "check": "guest: internal application denied",
       "node": "guest",
       "passed": true,
-      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 2 ms: Couldn't connect to server"
+      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 3 ms: Couldn't connect to server"
     },
     {
       "check": "office: direct database denied",
       "node": "office",
       "passed": true,
-      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 1 ms: Couldn't connect to server"
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 4 ms: Couldn't connect to server"
     },
     {
       "check": "application: database allowed",
@@ -1146,13 +1146,13 @@
       "check": "r3: VRRP process",
       "node": "r3",
       "passed": true,
-      "output": "105\n106"
+      "output": "104\n105"
     },
     {
       "check": "r4: VRRP process",
       "node": "r4",
       "passed": true,
-      "output": "106\n107"
+      "output": "105\n106"
     },
     {
       "check": "r3: virtual gateway ownership",
@@ -1170,13 +1170,13 @@
       "check": "r5: VRRP process",
       "node": "r5",
       "passed": true,
-      "output": "1445\n1446"
+      "output": "100\n101"
     },
     {
       "check": "r6: VRRP process",
       "node": "r6",
       "passed": true,
-      "output": "99\n100"
+      "output": "102\n103"
     },
     {
       "check": "r5: virtual gateway ownership",
@@ -1194,7 +1194,7 @@
       "check": "r7: VRRP process",
       "node": "r7",
       "passed": true,
-      "output": "98\n99"
+      "output": "99\n100"
     },
     {
       "check": "r8: VRRP process",
@@ -1218,13 +1218,13 @@
       "check": "r9: VRRP process",
       "node": "r9",
       "passed": true,
-      "output": "97\n99"
+      "output": "100\n101"
     },
     {
       "check": "r10: VRRP process",
       "node": "r10",
       "passed": true,
-      "output": "100\n102"
+      "output": "99\n100"
     },
     {
       "check": "r9: virtual gateway ownership",

@@ -1,0 +1,16 @@
+{
+  "id": "F03_dns_down",
+  "ticket": "Users can ping the web server IP but cannot resolve web.corp.test.",
+  "ground_truth": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "srv01"
+    ],
+    "root_cause": "DNS daemon stopped on srv01"
+  },
+  "command_injection": "pkill dnsmasq",
+  "command_recovery": "dnsmasq --no-daemon --bind-interfaces --listen-address=10.20.9.10 --address=/web.corp.test/10.20.9.11 --address=/dns.corp.test/10.20.9.10 >/tmp/dns.log 2>&1 &",
+  "verification_command": "ss -lunp | grep \":53\" || true",
+  "verification_device": "srv01",
+  "integration_status": "illustrative; runtime validation needed"
+}
