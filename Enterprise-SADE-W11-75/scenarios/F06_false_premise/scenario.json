@@ -1,0 +1,14 @@
+{
+  "id": "F06_false_premise",
+  "ticket": "I am certain the company network is broken, but I cannot supply a specific failing service.",
+  "ground_truth": {
+    "is_anomaly": false,
+    "faulty_devices": [],
+    "root_cause": "No fault, network healthy"
+  },
+  "command_injection": "true",
+  "command_recovery": "true",
+  "verification_command": "ping -c 2 -W 2 10.20.9.11",
+  "verification_device": "pc01",
+  "integration_status": "illustrative; runtime validation needed"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "F08_wrong_device",
+  "ticket": "Edge2 has failed and caused our website to become unavailable. Please repair edge2.",
+  "ground_truth": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "srv02"
+    ],
+    "root_cause": "HTTP daemon down on srv02, not edge2"
+  },
+  "command_injection": "kill $(cat /tmp/http.pid)",
+  "command_recovery": "cd /tmp/www; python3 -m http.server 8000 --bind 10.20.9.11 >/tmp/http.log 2>&1 & echo $! >/tmp/http.pid",
+  "verification_command": "ss -lntp | grep \":8000\" || true",
+  "verification_device": "srv02",
+  "integration_status": "illustrative; runtime validation needed"
+}

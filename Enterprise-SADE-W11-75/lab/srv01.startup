@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+ip link set lo up
+ip link set eth0 up
+ip addr replace 10.20.9.10/24 dev eth0
+ip route replace default via 10.20.9.1
+printf "nameserver 10.20.9.10\n" > /etc/resolv.conf
+# authoritative lightweight test DNS for corp.test
+dnsmasq --no-daemon --bind-interfaces --listen-address=10.20.9.10 --address=/web.corp.test/10.20.9.11 --address=/dns.corp.test/10.20.9.10 >/tmp/dns.log 2>&1 &

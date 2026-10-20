@@ -1,4 +1,5 @@
 """Local, loopback-only presentation UI for the SADE benchmark."""
+
 from __future__ import annotations
 
 import argparse
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATIC = Path(__file__).resolve().parent
 RESULTS = ROOT / "results" / "sade"
 MODEL_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,99}$")
+CASE_COUNT = len(json.loads((ROOT / "tools" / "sade_cases.json").read_text()))
 
 
 class RunState:
@@ -42,10 +44,18 @@ class RunState:
                 "returncode": self.returncode,
                 "report": self.report,
                 "repeats": self.repeats,
+                "case_count": CASE_COUNT,
                 "lines": self.lines[-160:],
             }
 
-    def start(self, model: str, repeats: int) -> bool:
+    def start(
+        self,
+        model: str,
+        repeats: int,
+        mode: str = "live",
+        prompt_style: str = "generic",
+        tool_profile: str = "atomic",
+    ) -> bool:
         with self.lock:
             if self.running:
                 return False
@@ -55,18 +65,52 @@ class RunState:
             self.returncode = None
             self.report = None
             self.repeats = repeats
-            self.lines = [f"Starting {repeats} pass(es) × 3 scenarios with {model}…"]
-        threading.Thread(target=self._run, args=(model, repeats), daemon=True).start()
+            self.lines = [
+                f"Starting {repeats} pass(es) × {CASE_COUNT} scenarios with {model} ({mode})…"
+            ]
+        threading.Thread(
+            target=self._run,
+            args=(model, repeats, mode, prompt_style, tool_profile),
+            daemon=True,
+        ).start()
         return True
 
-    def _run(self, model: str, repeats: int) -> None:
-        command = [str(self.python), "-u", str(ROOT / "tools" / "sade_benchmark.py"),
-                   "run", "--nika-root", str(self.nika_root), "--model", model,
-                   "--repeats", str(repeats)]
+    def _run(
+        self,
+        model: str,
+        repeats: int,
+        mode: str = "live",
+        prompt_style: str = "generic",
+        tool_profile: str = "atomic",
+    ) -> None:
+        command = [
+            str(self.python),
+            "-u",
+            str(ROOT / "tools" / "sade_benchmark.py"),
+            "run",
+            "--nika-root",
+            str(self.nika_root),
+            "--model",
+            model,
+            "--repeats",
+            str(repeats),
+            "--mode",
+            mode,
+            "--prompt-style",
+            prompt_style,
+            "--tool-profile",
+            tool_profile,
+        ]
         try:
-            process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE,
-                                       stderr=subprocess.STDOUT, text=True, bufsize=1,
-                                       env=os.environ.copy())
+            process = subprocess.Popen(
+                command,
+                cwd=ROOT,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
+                env=os.environ.copy(),
+            )
             with self.lock:
                 self.process = process
             assert process.stdout is not None
@@ -78,7 +122,10 @@ class RunState:
                         self.lines = self.lines[-500:]
                     if line.startswith("Summary: "):
                         candidate = Path(line[9:].strip())
-                        if candidate.parent.resolve() == RESULTS.resolve() and candidate.is_file():
+                        if (
+                            candidate.parent.resolve() == RESULTS.resolve()
+                            and candidate.is_file()
+                        ):
                             self.report = candidate.name
             code = process.wait()
         except (OSError, ValueError) as exc:
@@ -93,8 +140,11 @@ class RunState:
 
 
 def report_files() -> list[Path]:
-    return sorted(RESULTS.glob("benchmark-*.json"),
-                  key=lambda path: path.stat().st_mtime, reverse=True)
+    return sorted(
+        RESULTS.glob("benchmark-*.json"),
+        key=lambda path: path.stat().st_mtime,
+        reverse=True,
+    )
 
 
 def report_index() -> list[dict]:
@@ -102,13 +152,30 @@ def report_index() -> list[dict]:
     for path in report_files():
         try:
             data = json.loads(path.read_text())
-            rows.append({"id": path.name, "generated_at": data.get("generated_at"),
-                         "attempted": data.get("attempted", 0),
-                         "scored": data.get("scored", 0),
-                         "complete_runs": data.get("complete_runs", 0),
-                         "model": next((r.get("model") for r in data.get("runs", [])
-                                        if r.get("model")), None),
-                         "exact_rate": data.get("metrics", {}).get("rca_exact", {}).get("rate")})
+            rows.append(
+                {
+                    "id": path.name,
+                    "generated_at": data.get("generated_at"),
+                    "attempted": data.get("attempted", 0),
+                    "scored": data.get("scored", 0),
+                    "complete_runs": data.get("complete_runs", 0),
+                    "model": next(
+                        (
+                            r.get("model")
+                            for r in data.get("runs", [])
+                            if r.get("model")
+                        ),
+                        None,
+                    ),
+                    "exact_rate": data.get("metrics", {})
+                    .get("rca_exact", {})
+                    .get("rate"),
+                    "full_rate": data.get("metrics", {})
+                    .get("full_correct", {})
+                    .get("rate_scored"),
+                    "scorer_version": data.get("scorer_version", "1.0"),
+                }
+            )
         except (OSError, ValueError, TypeError):
             continue
     return rows
@@ -142,6 +209,58 @@ class Handler(BaseHTTPRequestHandler):
             return self._file(STATIC / "style.css", "text/css; charset=utf-8")
         if parsed.path == "/app.js":
             return self._file(STATIC / "app.js", "text/javascript; charset=utf-8")
+        if parsed.path == "/topology.js":
+            return self._file(STATIC / "topology.js", "text/javascript; charset=utf-8")
+        topologies = {
+            "enterprise-75": {
+                "name": "Enterprise Topology",
+                "inventory": ROOT / "inventory.json",
+                "scenario_count": CASE_COUNT,
+                "evaluation_enabled": True,
+            },
+            "enterprise-75-standalone": {
+                "name": "Enterprise Topology · Standalone",
+                "inventory": STATIC / "topologies" / "enterprise-75-standalone.json",
+                "scenario_count": 0,
+                "evaluation_enabled": False,
+            },
+        }
+        if parsed.path == "/api/topologies":
+            return self._json(200, [
+                {"id": key, "name": item["name"],
+                 "evaluation_enabled": item["evaluation_enabled"]}
+                for key, item in topologies.items()
+            ])
+        if parsed.path == "/api/topology":
+            topology_id = parse_qs(parsed.query).get("id", ["enterprise-75"])[0]
+            topology = topologies.get(topology_id)
+            if topology is None:
+                return self._json(404, {"error": "Topology not found"})
+            try:
+                inventory = json.loads(topology["inventory"].read_text())
+            except (OSError, ValueError):
+                return self._json(500, {"error": "Topology inventory is unavailable"})
+            health = None
+            if topology["evaluation_enabled"]:
+                try:
+                    saved = json.loads((ROOT / "results/latest-health.json").read_text())
+                    health = {
+                        "timestamp": saved["timestamp"],
+                        "passed": saved["passed"],
+                        "total": len(saved["checks"]),
+                        "passing": sum(c["passed"] for c in saved["checks"]),
+                    }
+                except (OSError, ValueError, KeyError):
+                    pass
+            return self._json(200, {
+                "id": topology_id,
+                "name": topology["name"],
+                "nodes": inventory["nodes"],
+                "links": inventory["links"],
+                "scenario_count": topology["scenario_count"],
+                "evaluation_enabled": topology["evaluation_enabled"],
+                "health": health,
+            })
         if parsed.path == "/api/status":
             return self._json(200, self.state.snapshot())
         if parsed.path == "/api/reports":
@@ -170,13 +289,23 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length))
             model = payload.get("model", "claude-haiku-5-5")
             repeats = payload.get("repeats", 1)
+            mode = payload.get("mode", "live")
+            prompt_style = payload.get("prompt_style", "generic")
+            tool_profile = payload.get("tool_profile", "atomic")
+            if prompt_style not in ("generic", "guided") or tool_profile not in (
+                "atomic",
+                "sweep",
+            ):
+                raise ValueError("Invalid diagnostic profile")
+            if mode not in ("live", "no-tools"):
+                raise ValueError("Invalid evaluation mode")
             if not isinstance(model, str) or not MODEL_PATTERN.fullmatch(model):
                 raise ValueError("Invalid model ID")
             if type(repeats) is not int or not 1 <= repeats <= 10:
                 raise ValueError("Repeats must be between 1 and 10")
         except (ValueError, TypeError, json.JSONDecodeError) as exc:
             return self._json(400, {"error": str(exc)})
-        if not self.state.start(model, repeats):
+        if not self.state.start(model, repeats, mode, prompt_style, tool_profile):
             return self._json(409, {"error": "A benchmark is already running"})
         self._json(202, self.state.snapshot())
 
@@ -193,14 +322,19 @@ def main() -> None:
     args = parser.parse_args()
     nika_root = args.nika_root.expanduser().resolve()
     # Keep the venv symlink intact: resolving it would run the base interpreter.
-    python = (args.python or nika_root / ".venv" / "bin" / "python").expanduser().absolute()
+    python = (
+        (args.python or nika_root / ".venv" / "bin" / "python").expanduser().absolute()
+    )
     Handler.state = RunState(python, nika_root)
     try:
         server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
     except OSError as exc:
         if exc.errno == errno.EADDRINUSE:
-            parser.exit(2, f"Port {args.port} is already in use. If the dashboard is open, "
-                        f"use http://127.0.0.1:{args.port}/; otherwise choose --port {args.port + 1}.\n")
+            parser.exit(
+                2,
+                f"Port {args.port} is already in use. If the dashboard is open, "
+                f"use http://127.0.0.1:{args.port}/; otherwise choose --port {args.port + 1}.\n",
+            )
         raise
     print(f"SADE dashboard: http://127.0.0.1:{server.server_port}", flush=True)
     print(f"Benchmark Python: {python}", flush=True)

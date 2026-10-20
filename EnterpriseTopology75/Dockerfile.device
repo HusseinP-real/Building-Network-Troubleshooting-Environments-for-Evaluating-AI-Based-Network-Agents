@@ -1,0 +1,6 @@
+FROM enterprise-topology-75:base
+ARG DEVICE
+COPY ${DEVICE}.startup /opt/enterprise/device.startup
+LABEL org.opencontainers.image.title="Enterprise topology device ${DEVICE}" \
+      org.opencontainers.image.description="Dedicated image for ${DEVICE} in the 75-device Kathara lab" \
+      org.opencontainers.image.version="75"

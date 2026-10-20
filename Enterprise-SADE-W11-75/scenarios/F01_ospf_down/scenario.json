@@ -1,0 +1,16 @@
+{
+  "id": "F01_ospf_down",
+  "ticket": "HQ users report that their remote applications became unreachable.",
+  "ground_truth": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "dist1"
+    ],
+    "root_cause": "OSPF service stopped on dist1"
+  },
+  "command_injection": "/etc/init.d/frr stop",
+  "command_recovery": "/etc/init.d/frr start && vtysh -b",
+  "verification_command": "vtysh -c \"show ip ospf neighbor\"",
+  "verification_device": "dist1",
+  "integration_status": "illustrative; runtime validation needed"
+}
