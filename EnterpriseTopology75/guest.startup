@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+exec > /var/log/enterprise-startup.log 2>&1
+ip link set lo up
+ip link set eth0 up
+dhclient -4 -nw eth0
+touch /tmp/enterprise-ready

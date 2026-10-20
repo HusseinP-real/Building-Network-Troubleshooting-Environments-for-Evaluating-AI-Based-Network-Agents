@@ -6,10 +6,27 @@
       "resource_id": "interface/r5/eth0",
       "fault_type": "interface_down",
       "device": "r5",
-      "root_cause": "The r5 eth0 uplink is administratively down. Redundant core paths preserve application reachability."
+      "root_cause": "The r5 eth0 uplink is administratively down. Redundant core paths preserve application reachability.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "ip link set eth0 up",
+          "alternatives": [
+            "ip link set dev eth0 up"
+          ]
+        }
+      ]
     },
-    "inject_check": ["r5", "test \"$(cat /sys/class/net/eth0/operstate)\" = down"],
-    "repair_check": ["r5", "test \"$(cat /sys/class/net/eth0/operstate)\" = up"]
+    "inject_check": [
+      "r5",
+      "test \"$(cat /sys/class/net/eth0/operstate)\" = down"
+    ],
+    "repair_check": [
+      "r5",
+      "test \"$(cat /sys/class/net/eth0/operstate)\" = up"
+    ],
+    "fault": "core-uplink",
+    "category": "accurate"
   },
   "gateway-service": {
     "ticket": "The headquarters staff VLAN changed active gateway unexpectedly, although application access still works. Diagnose the gateway control-plane failure and its owner.",
@@ -18,10 +35,27 @@
       "resource_id": "service/r5/keepalived",
       "fault_type": "vrrp_service_stopped",
       "device": "r5",
-      "root_cause": "Keepalived stopped on r5, so r6 assumed the staff VRRP virtual gateway."
+      "root_cause": "Keepalived stopped on r5, so r6 assumed the staff VRRP virtual gateway.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console",
+          "alternatives": [
+            "keepalived -f /etc/keepalived/keepalived.conf --log-console"
+          ]
+        }
+      ]
     },
-    "inject_check": ["r5", "! pgrep keepalived"],
-    "repair_check": ["r5", "pgrep keepalived"]
+    "inject_check": [
+      "r5",
+      "! pgrep keepalived"
+    ],
+    "repair_check": [
+      "r5",
+      "pgrep keepalived"
+    ],
+    "fault": "gateway-service",
+    "category": "accurate"
   },
   "database-acl": {
     "ticket": "Users receive HTTP 503 from the internal application. Operations can still reach the database service directly. Diagnose the failing application-to-backend path and identify the owner.",
@@ -30,9 +64,447 @@
       "resource_id": "policy/app/output-tcp-8080",
       "fault_type": "backend_acl_reject",
       "device": "app",
-      "root_cause": "A reject rule in app's OUTPUT chain blocks TCP/8080 to 10.30.20.10, making the application return HTTP 503."
+      "root_cause": "A reject rule in app's OUTPUT chain blocks TCP/8080 to 10.30.20.10, making the application return HTTP 503.",
+      "remediation": [
+        {
+          "device": "app",
+          "command": "if iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
     },
-    "inject_check": ["app", "iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"],
-    "repair_check": ["app", "! iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"]
+    "inject_check": [
+      "app",
+      "iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "repair_check": [
+      "app",
+      "! iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "fault": "database-acl",
+    "category": "accurate"
+  },
+  "core-uplink-vague": {
+    "ticket": "Some users noticed a brief disruption earlier. Things seem usable again. Please investigate whether the network still has an abnormal condition.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "interface/r5/eth0",
+      "fault_type": "interface_down",
+      "device": "r5",
+      "root_cause": "The r5 eth0 uplink is administratively down. Redundant core paths preserve application reachability.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "ip link set eth0 up",
+          "alternatives": [
+            "ip link set dev eth0 up"
+          ]
+        }
+      ]
+    },
+    "fault": "core-uplink",
+    "category": "vague"
+  },
+  "core-uplink-misleading": {
+    "ticket": "The incident team is confident that r6 has a failed uplink. Application access still works. Please verify the report and determine the actual cause.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "interface/r5/eth0",
+      "fault_type": "interface_down",
+      "device": "r5",
+      "root_cause": "The r5 eth0 uplink is administratively down. Redundant core paths preserve application reachability.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "ip link set eth0 up",
+          "alternatives": [
+            "ip link set dev eth0 up"
+          ]
+        }
+      ]
+    },
+    "fault": "core-uplink",
+    "category": "misleading"
+  },
+  "gateway-service-vague": {
+    "ticket": "A monitoring notification mentioned a change in gateway ownership. Users have not reported a current outage. Investigate whether this is normal or indicates a failure.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "service/r5/keepalived",
+      "fault_type": "vrrp_service_stopped",
+      "device": "r5",
+      "root_cause": "Keepalived stopped on r5, so r6 assumed the staff VRRP virtual gateway.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console",
+          "alternatives": [
+            "keepalived -f /etc/keepalived/keepalived.conf --log-console"
+          ]
+        }
+      ]
+    },
+    "fault": "gateway-service",
+    "category": "vague"
+  },
+  "gateway-service-misleading": {
+    "ticket": "We believe the r6 gateway daemon has crashed and caused the gateway transition. Please check this claim and diagnose the current network state.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "service/r5/keepalived",
+      "fault_type": "vrrp_service_stopped",
+      "device": "r5",
+      "root_cause": "Keepalived stopped on r5, so r6 assumed the staff VRRP virtual gateway.",
+      "remediation": [
+        {
+          "device": "r5",
+          "command": "pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console",
+          "alternatives": [
+            "keepalived -f /etc/keepalived/keepalived.conf --log-console"
+          ]
+        }
+      ]
+    },
+    "fault": "gateway-service",
+    "category": "misleading"
+  },
+  "database-acl-vague": {
+    "ticket": "The internal application is unavailable. We do not know whether the issue is in routing, the application, or its backend. Please investigate.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "policy/app/output-tcp-8080",
+      "fault_type": "backend_acl_reject",
+      "device": "app",
+      "root_cause": "A reject rule in app's OUTPUT chain blocks TCP/8080 to 10.30.20.10, making the application return HTTP 503.",
+      "remediation": [
+        {
+          "device": "app",
+          "command": "if iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
+    },
+    "fault": "database-acl",
+    "category": "vague"
+  },
+  "database-acl-misleading": {
+    "ticket": "The application returns HTTP 503. The incident team believes the database process has crashed and recommends restarting the database. Verify the claim and identify the actual cause.",
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "policy/app/output-tcp-8080",
+      "fault_type": "backend_acl_reject",
+      "device": "app",
+      "root_cause": "A reject rule in app's OUTPUT chain blocks TCP/8080 to 10.30.20.10, making the application return HTTP 503.",
+      "remediation": [
+        {
+          "device": "app",
+          "command": "if iptables -C OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D OUTPUT -d 10.30.20.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
+    },
+    "fault": "database-acl",
+    "category": "misleading"
+  },
+  "healthy-outage": {
+    "ticket": "The incident team reports that the internal application is currently down and asks you to locate the failure. Please verify this report against the current live network.",
+    "category": "healthy",
+    "fault": null,
+    "ground_truth": {
+      "is_anomaly": false,
+      "resource_id": "none",
+      "fault_type": "none",
+      "device": null,
+      "root_cause": "No injected fault is present. Allowed paths and infrastructure are healthy; intentional policy denials are expected.",
+      "remediation": []
+    }
+  },
+  "healthy-wrong-device": {
+    "ticket": "The incident team is confident that r5 eth0 is down and causing a routing problem. Please investigate the current network and determine whether this claim is supported.",
+    "category": "healthy",
+    "fault": null,
+    "ground_truth": {
+      "is_anomaly": false,
+      "resource_id": "none",
+      "fault_type": "none",
+      "device": null,
+      "root_cause": "No injected fault is present. Allowed paths and infrastructure are healthy; intentional policy denials are expected.",
+      "remediation": []
+    }
+  },
+  "healthy-policy": {
+    "ticket": "A guest user cannot access the internal application and an office user cannot connect directly to the database. The reporter says the firewall is broken. Verify whether these failures indicate an anomaly.",
+    "category": "healthy",
+    "fault": null,
+    "ground_truth": {
+      "is_anomaly": false,
+      "resource_id": "none",
+      "fault_type": "none",
+      "device": null,
+      "root_cause": "No injected fault is present. Allowed paths and infrastructure are healthy; intentional policy denials are expected.",
+      "remediation": []
+    }
+  },
+  "core-uplink-r6": {
+    "ticket": "Monitoring reports a degraded network condition, but users can still access services. Investigate the live state and identify all actual causes.",
+    "category": "position",
+    "fault": "core-uplink-r6",
+    "inject_check": [
+      "r6",
+      "test \"$(cat /sys/class/net/eth0/operstate)\" = down"
+    ],
+    "repair_check": [
+      "r6",
+      "test \"$(cat /sys/class/net/eth0/operstate)\" = up"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "interface/r6/eth0",
+      "fault_type": "interface_down",
+      "device": "r6",
+      "root_cause": "r6 eth0 is administratively down; remaining core paths preserve connectivity.",
+      "remediation": [
+        {
+          "device": "r6",
+          "command": "ip link set eth0 up",
+          "alternatives": [
+            "ip link set dev eth0 up"
+          ]
+        }
+      ]
+    }
+  },
+  "gateway-service-r8": {
+    "ticket": "Monitoring reports a degraded network condition, but users can still access services. Investigate the live state and identify all actual causes.",
+    "category": "position",
+    "fault": "gateway-service-r8",
+    "inject_check": [
+      "r8",
+      "! pgrep keepalived"
+    ],
+    "repair_check": [
+      "r8",
+      "pgrep keepalived"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "service/r8/keepalived",
+      "fault_type": "vrrp_service_stopped",
+      "device": "r8",
+      "root_cause": "Keepalived is stopped on r8. r7 retains the branch virtual gateways, so user access can remain healthy.",
+      "remediation": [
+        {
+          "device": "r8",
+          "command": "pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console",
+          "alternatives": [
+            "keepalived -f /etc/keepalived/keepalived.conf --log-console"
+          ]
+        }
+      ]
+    }
+  },
+  "database-ingress-acl": {
+    "ticket": "Application requests return HTTP 503. Operations reports that direct database access still works. Investigate the cause.",
+    "category": "position",
+    "fault": "database-ingress-acl",
+    "inject_check": [
+      "database",
+      "iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "repair_check": [
+      "database",
+      "! iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "policy/database/input-tcp-8080",
+      "fault_type": "backend_acl_reject",
+      "device": "database",
+      "root_cause": "A database INPUT rule rejects TCP/8080 from app (10.30.10.10). Application requests return 503 while ops can still access the backend.",
+      "remediation": [
+        {
+          "device": "database",
+          "command": "if iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
+    }
+  },
+  "ospf-passive-r7": {
+    "ticket": "Monitoring reports a degraded network condition, but users can still access services. Investigate the live state and identify all actual causes.",
+    "category": "position",
+    "fault": "ospf-passive-r7",
+    "inject_check": [
+      "r7",
+      "vtysh -c 'show ip ospf interface eth0' | grep -qi 'No Hellos.*Passive'"
+    ],
+    "repair_check": [
+      "r7",
+      "! vtysh -c 'show ip ospf interface eth0' | grep -qi 'No Hellos.*Passive'"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "routing/r7/ospf/eth0",
+      "fault_type": "ospf_passive_interface",
+      "device": "r7",
+      "root_cause": "r7 eth0 remains UP but is passive in OSPF, suppressing its adjacency. Redundant paths preserve reachability. Remove passive-interface eth0 in router ospf on r7.",
+      "remediation": [
+        {
+          "device": "r7",
+          "command": "vtysh -c 'configure terminal' -c 'router ospf' -c 'no passive-interface eth0'",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "ospf-passive-r7-misleading": {
+    "ticket": "The team believes r7 eth0 is physically down and recommends bringing it up. Verify this claim and explain the actual condition.",
+    "category": "misleading",
+    "fault": "ospf-passive-r7",
+    "inject_check": [
+      "r7",
+      "vtysh -c 'show ip ospf interface eth0' | grep -qi 'No Hellos.*Passive'"
+    ],
+    "repair_check": [
+      "r7",
+      "! vtysh -c 'show ip ospf interface eth0' | grep -qi 'No Hellos.*Passive'"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "routing/r7/ospf/eth0",
+      "fault_type": "ospf_passive_interface",
+      "device": "r7",
+      "root_cause": "r7 eth0 remains UP but is passive in OSPF, suppressing its adjacency. Redundant paths preserve reachability. Remove passive-interface eth0 in router ospf on r7.",
+      "remediation": [
+        {
+          "device": "r7",
+          "command": "vtysh -c 'configure terminal' -c 'router ospf' -c 'no passive-interface eth0'",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "database-ingress-acl-misleading": {
+    "ticket": "Application requests return HTTP 503. The team blames an app OUTPUT firewall rule and recommends clearing it. Verify the actual cause.",
+    "category": "misleading",
+    "fault": "database-ingress-acl",
+    "inject_check": [
+      "database",
+      "iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "repair_check": [
+      "database",
+      "! iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "resource_id": "policy/database/input-tcp-8080",
+      "fault_type": "backend_acl_reject",
+      "device": "database",
+      "root_cause": "A database INPUT rule rejects TCP/8080 from app (10.30.10.10). Application requests return 503 while ops can still access the backend.",
+      "remediation": [
+        {
+          "device": "database",
+          "command": "if iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
+    }
+  },
+  "compound-uplink-acl": {
+    "ticket": "Monitoring has raised several alerts. Investigate independently, report every current root cause, and recommend targeted recovery.",
+    "category": "compound",
+    "fault": null,
+    "faults": [
+      "core-uplink-r6",
+      "database-ingress-acl"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "device": null,
+      "resource_id": "multiple",
+      "fault_type": "multiple",
+      "root_cause": "r6 eth0 is administratively down; remaining core paths preserve connectivity. A database INPUT rule rejects TCP/8080 from app (10.30.10.10). Application requests return 503 while ops can still access the backend.",
+      "root_causes": [
+        {
+          "resource_id": "interface/r6/eth0",
+          "fault_type": "interface_down",
+          "device": "r6"
+        },
+        {
+          "resource_id": "policy/database/input-tcp-8080",
+          "fault_type": "backend_acl_reject",
+          "device": "database"
+        }
+      ],
+      "remediation": [
+        {
+          "device": "r6",
+          "command": "ip link set eth0 up",
+          "alternatives": [
+            "ip link set dev eth0 up"
+          ]
+        },
+        {
+          "device": "database",
+          "command": "if iptables -C INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT 2>/dev/null; then iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT; fi",
+          "alternatives": [
+            "iptables -D INPUT -s 10.30.10.10 -p tcp --dport 8080 -j REJECT"
+          ]
+        }
+      ]
+    }
+  },
+  "compound-ospf-gateway": {
+    "ticket": "Monitoring has raised several alerts. Investigate independently, report every current root cause, and recommend targeted recovery.",
+    "category": "compound",
+    "fault": null,
+    "faults": [
+      "ospf-passive-r7",
+      "gateway-service-r8"
+    ],
+    "ground_truth": {
+      "is_anomaly": true,
+      "device": null,
+      "resource_id": "multiple",
+      "fault_type": "multiple",
+      "root_cause": "r7 eth0 remains UP but is passive in OSPF, suppressing its adjacency. Redundant paths preserve reachability. Remove passive-interface eth0 in router ospf on r7. Keepalived is stopped on r8. r7 retains the branch virtual gateways, so user access can remain healthy.",
+      "root_causes": [
+        {
+          "resource_id": "routing/r7/ospf/eth0",
+          "fault_type": "ospf_passive_interface",
+          "device": "r7"
+        },
+        {
+          "resource_id": "service/r8/keepalived",
+          "fault_type": "vrrp_service_stopped",
+          "device": "r8"
+        }
+      ],
+      "remediation": [
+        {
+          "device": "r7",
+          "command": "vtysh -c 'configure terminal' -c 'router ospf' -c 'no passive-interface eth0'",
+          "alternatives": []
+        },
+        {
+          "device": "r8",
+          "command": "pgrep keepalived >/dev/null || keepalived -f /etc/keepalived/keepalived.conf --log-console",
+          "alternatives": [
+            "keepalived -f /etc/keepalived/keepalived.conf --log-console"
+          ]
+        }
+      ]
+    }
   }
 }
