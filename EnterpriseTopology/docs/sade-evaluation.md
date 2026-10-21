@@ -93,3 +93,38 @@ Ground truth, injection and recovery commands remain outside the diagnosing prom
 All 18 offline regression checks passed, as did Ruff, Python compilation, JavaScript syntax checking and dashboard rendering checks. Both compound states were injected and restored in the real running lab, covering all four new individual faults; each final baseline passed 222/222 checks. Evidence: `results/sade/verification-20261013T041620Z.json`.
 
 No authenticated model session or API key was available in the execution environment, so no live v3 model/judge run or accuracy ablation was performed. Semantic judge accuracy remains unvalidated; the offline negative tests validate scoring gates and judge-response handling. Historical raw reports were preserved.
+
+
+## Faster benchmark batches
+
+Both runners default to `--max-turns 20` (previously 30). Repeats still default
+to 1. A turn budget is not a token or wall-clock cap; one turn may issue
+multiple tools. For development, use a small representative subset:
+
+```bash
+python tools/sade_benchmark.py run --nika-root /path/to/nika --model MODEL \
+  --cases core-uplink healthy-outage core-uplink-misleading compound-uplink-acl
+```
+
+The runner prints a `Checkpoint:` path before starting and atomically updates
+it after each attempted trial. Resume an interrupted batch with:
+
+```bash
+python tools/sade_benchmark.py run --nika-root /path/to/nika \
+  --resume results/sade/benchmark-TIMESTAMP.json
+```
+
+Resume uses the saved model, turn budget, judge, order and repeats. It skips
+all recorded attempts, including failed answers, rather than retrying until
+success. Changed case manifests are rejected. Environment restoration failures
+stop the batch; inspect and repair the lab before starting a new batch.
+A trial interrupted before its result was registered may need to run again;
+verify the lab is healthy first.
+
+Agent budget exhaustion preserves returned final text, tool trace and usage.
+A valid final diagnosis can still be scored; otherwise the failure is marked
+`max_turns`. Reports count `budget_exhausted` and include `by_configuration`
+metrics separated by model, budget, judge, benchmark version and tool/prompt
+configuration. Older aggregate metrics remain for compatibility and may mix
+configurations; use `by_configuration` for comparisons. Environment restoration
+is performed by the runner; it is not evidence that the agent executed a repair.

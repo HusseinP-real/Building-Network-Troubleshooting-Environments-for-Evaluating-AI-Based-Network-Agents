@@ -1,0 +1,1338 @@
+{
+  "timestamp": "2026-10-13T05:19:25.005486+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "r1: startup",
+      "node": "r1",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r2: startup",
+      "node": "r2",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r3: startup",
+      "node": "r3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r4: startup",
+      "node": "r4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r5: startup",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r6: startup",
+      "node": "r6",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r7: startup",
+      "node": "r7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r8: startup",
+      "node": "r8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r9: startup",
+      "node": "r9",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r10: startup",
+      "node": "r10",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s1: startup",
+      "node": "s1",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s2: startup",
+      "node": "s2",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s3: startup",
+      "node": "s3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s4: startup",
+      "node": "s4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s5: startup",
+      "node": "s5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s6: startup",
+      "node": "s6",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s7: startup",
+      "node": "s7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s8: startup",
+      "node": "s8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s9: startup",
+      "node": "s9",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s10: startup",
+      "node": "s10",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s11: startup",
+      "node": "s11",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s12: startup",
+      "node": "s12",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s13: startup",
+      "node": "s13",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s14: startup",
+      "node": "s14",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s15: startup",
+      "node": "s15",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s16: startup",
+      "node": "s16",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s17: startup",
+      "node": "s17",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s18: startup",
+      "node": "s18",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s19: startup",
+      "node": "s19",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s20: startup",
+      "node": "s20",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s21: startup",
+      "node": "s21",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s22: startup",
+      "node": "s22",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s23: startup",
+      "node": "s23",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s24: startup",
+      "node": "s24",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s25: startup",
+      "node": "s25",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff: startup",
+      "node": "staff",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest: startup",
+      "node": "guest",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office: startup",
+      "node": "office",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering: startup",
+      "node": "engineering",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app: startup",
+      "node": "app",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "database: startup",
+      "node": "database",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "dmz: startup",
+      "node": "dmz",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "infra: startup",
+      "node": "infra",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "ops: startup",
+      "node": "ops",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff01: startup",
+      "node": "staff01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff02: startup",
+      "node": "staff02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff03: startup",
+      "node": "staff03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff04: startup",
+      "node": "staff04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff05: startup",
+      "node": "staff05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff06: startup",
+      "node": "staff06",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest01: startup",
+      "node": "guest01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest02: startup",
+      "node": "guest02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest03: startup",
+      "node": "guest03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest04: startup",
+      "node": "guest04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest05: startup",
+      "node": "guest05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office01: startup",
+      "node": "office01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office02: startup",
+      "node": "office02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office03: startup",
+      "node": "office03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office04: startup",
+      "node": "office04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office05: startup",
+      "node": "office05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering01: startup",
+      "node": "engineering01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering02: startup",
+      "node": "engineering02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering03: startup",
+      "node": "engineering03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering04: startup",
+      "node": "engineering04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering05: startup",
+      "node": "engineering05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client01: startup",
+      "node": "app_client01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client02: startup",
+      "node": "app_client02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client03: startup",
+      "node": "app_client03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client04: startup",
+      "node": "app_client04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client05: startup",
+      "node": "app_client05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client01: startup",
+      "node": "db_client01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client02: startup",
+      "node": "db_client02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client03: startup",
+      "node": "db_client03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client04: startup",
+      "node": "db_client04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client05: startup",
+      "node": "db_client05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r1: all OSPF neighbors Full",
+      "node": "r1",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r2: all OSPF neighbors Full",
+      "node": "r2",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r3: all OSPF neighbors Full",
+      "node": "r3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r4: all OSPF neighbors Full",
+      "node": "r4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r5: all OSPF neighbors Full",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r6: all OSPF neighbors Full",
+      "node": "r6",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r7: all OSPF neighbors Full",
+      "node": "r7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r8: all OSPF neighbors Full",
+      "node": "r8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r9: all OSPF neighbors Full",
+      "node": "r9",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r10: all OSPF neighbors Full",
+      "node": "r10",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s1: VLAN-aware STP bridge",
+      "node": "s1",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s2: VLAN-aware STP bridge",
+      "node": "s2",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s3: VLAN-aware STP bridge",
+      "node": "s3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s4: VLAN-aware STP bridge",
+      "node": "s4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s5: VLAN-aware STP bridge",
+      "node": "s5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s6: VLAN-aware STP bridge",
+      "node": "s6",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s7: VLAN-aware STP bridge",
+      "node": "s7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s8: VLAN-aware STP bridge",
+      "node": "s8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s9: VLAN-aware STP bridge",
+      "node": "s9",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s10: VLAN-aware STP bridge",
+      "node": "s10",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s11: VLAN-aware STP bridge",
+      "node": "s11",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s12: VLAN-aware STP bridge",
+      "node": "s12",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s13: VLAN-aware STP bridge",
+      "node": "s13",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s14: VLAN-aware STP bridge",
+      "node": "s14",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s15: VLAN-aware STP bridge",
+      "node": "s15",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s16: VLAN-aware STP bridge",
+      "node": "s16",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s17: VLAN-aware STP bridge",
+      "node": "s17",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s18: VLAN-aware STP bridge",
+      "node": "s18",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s19: VLAN-aware STP bridge",
+      "node": "s19",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s20: VLAN-aware STP bridge",
+      "node": "s20",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s21: VLAN-aware STP bridge",
+      "node": "s21",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s22: VLAN-aware STP bridge",
+      "node": "s22",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s23: VLAN-aware STP bridge",
+      "node": "s23",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s24: VLAN-aware STP bridge",
+      "node": "s24",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s25: VLAN-aware STP bridge",
+      "node": "s25",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff: DHCP lease",
+      "node": "staff",
+      "passed": true,
+      "output": "inet 10.10.10.115/24 brd 10.10.10.255 scope global dynamic eth0"
+    },
+    {
+      "check": "staff: DNS answer",
+      "node": "staff",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest: DHCP lease",
+      "node": "guest",
+      "passed": true,
+      "output": "inet 10.10.20.144/24 brd 10.10.20.255 scope global dynamic eth0"
+    },
+    {
+      "check": "guest: DNS answer",
+      "node": "guest",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office: DHCP lease",
+      "node": "office",
+      "passed": true,
+      "output": "inet 10.20.10.135/24 brd 10.20.10.255 scope global dynamic eth0"
+    },
+    {
+      "check": "office: DNS answer",
+      "node": "office",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering: DHCP lease",
+      "node": "engineering",
+      "passed": true,
+      "output": "inet 10.20.20.120/24 brd 10.20.20.255 scope global dynamic eth0"
+    },
+    {
+      "check": "engineering: DNS answer",
+      "node": "engineering",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff01: configured address",
+      "node": "staff01",
+      "passed": true,
+      "output": "inet 10.10.10.20/24 scope global eth0"
+    },
+    {
+      "check": "staff01: VLAN gateway reachable",
+      "node": "staff01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff02: configured address",
+      "node": "staff02",
+      "passed": true,
+      "output": "inet 10.10.10.21/24 scope global eth0"
+    },
+    {
+      "check": "staff02: VLAN gateway reachable",
+      "node": "staff02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff03: configured address",
+      "node": "staff03",
+      "passed": true,
+      "output": "inet 10.10.10.22/24 scope global eth0"
+    },
+    {
+      "check": "staff03: VLAN gateway reachable",
+      "node": "staff03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff04: configured address",
+      "node": "staff04",
+      "passed": true,
+      "output": "inet 10.10.10.23/24 scope global eth0"
+    },
+    {
+      "check": "staff04: VLAN gateway reachable",
+      "node": "staff04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff05: configured address",
+      "node": "staff05",
+      "passed": true,
+      "output": "inet 10.10.10.24/24 scope global eth0"
+    },
+    {
+      "check": "staff05: VLAN gateway reachable",
+      "node": "staff05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff06: configured address",
+      "node": "staff06",
+      "passed": true,
+      "output": "inet 10.10.10.25/24 scope global eth0"
+    },
+    {
+      "check": "staff06: VLAN gateway reachable",
+      "node": "staff06",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest01: configured address",
+      "node": "guest01",
+      "passed": true,
+      "output": "inet 10.10.20.20/24 scope global eth0"
+    },
+    {
+      "check": "guest01: VLAN gateway reachable",
+      "node": "guest01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest02: configured address",
+      "node": "guest02",
+      "passed": true,
+      "output": "inet 10.10.20.21/24 scope global eth0"
+    },
+    {
+      "check": "guest02: VLAN gateway reachable",
+      "node": "guest02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest03: configured address",
+      "node": "guest03",
+      "passed": true,
+      "output": "inet 10.10.20.22/24 scope global eth0"
+    },
+    {
+      "check": "guest03: VLAN gateway reachable",
+      "node": "guest03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest04: configured address",
+      "node": "guest04",
+      "passed": true,
+      "output": "inet 10.10.20.23/24 scope global eth0"
+    },
+    {
+      "check": "guest04: VLAN gateway reachable",
+      "node": "guest04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "guest05: configured address",
+      "node": "guest05",
+      "passed": true,
+      "output": "inet 10.10.20.24/24 scope global eth0"
+    },
+    {
+      "check": "guest05: VLAN gateway reachable",
+      "node": "guest05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office01: configured address",
+      "node": "office01",
+      "passed": true,
+      "output": "inet 10.20.10.20/24 scope global eth0"
+    },
+    {
+      "check": "office01: VLAN gateway reachable",
+      "node": "office01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office02: configured address",
+      "node": "office02",
+      "passed": true,
+      "output": "inet 10.20.10.21/24 scope global eth0"
+    },
+    {
+      "check": "office02: VLAN gateway reachable",
+      "node": "office02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office03: configured address",
+      "node": "office03",
+      "passed": true,
+      "output": "inet 10.20.10.22/24 scope global eth0"
+    },
+    {
+      "check": "office03: VLAN gateway reachable",
+      "node": "office03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office04: configured address",
+      "node": "office04",
+      "passed": true,
+      "output": "inet 10.20.10.23/24 scope global eth0"
+    },
+    {
+      "check": "office04: VLAN gateway reachable",
+      "node": "office04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "office05: configured address",
+      "node": "office05",
+      "passed": true,
+      "output": "inet 10.20.10.24/24 scope global eth0"
+    },
+    {
+      "check": "office05: VLAN gateway reachable",
+      "node": "office05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering01: configured address",
+      "node": "engineering01",
+      "passed": true,
+      "output": "inet 10.20.20.20/24 scope global eth0"
+    },
+    {
+      "check": "engineering01: VLAN gateway reachable",
+      "node": "engineering01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering02: configured address",
+      "node": "engineering02",
+      "passed": true,
+      "output": "inet 10.20.20.21/24 scope global eth0"
+    },
+    {
+      "check": "engineering02: VLAN gateway reachable",
+      "node": "engineering02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering03: configured address",
+      "node": "engineering03",
+      "passed": true,
+      "output": "inet 10.20.20.22/24 scope global eth0"
+    },
+    {
+      "check": "engineering03: VLAN gateway reachable",
+      "node": "engineering03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering04: configured address",
+      "node": "engineering04",
+      "passed": true,
+      "output": "inet 10.20.20.23/24 scope global eth0"
+    },
+    {
+      "check": "engineering04: VLAN gateway reachable",
+      "node": "engineering04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "engineering05: configured address",
+      "node": "engineering05",
+      "passed": true,
+      "output": "inet 10.20.20.24/24 scope global eth0"
+    },
+    {
+      "check": "engineering05: VLAN gateway reachable",
+      "node": "engineering05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client01: configured address",
+      "node": "app_client01",
+      "passed": true,
+      "output": "inet 10.30.10.20/24 scope global eth0"
+    },
+    {
+      "check": "app_client01: VLAN gateway reachable",
+      "node": "app_client01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client02: configured address",
+      "node": "app_client02",
+      "passed": true,
+      "output": "inet 10.30.10.21/24 scope global eth0"
+    },
+    {
+      "check": "app_client02: VLAN gateway reachable",
+      "node": "app_client02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client03: configured address",
+      "node": "app_client03",
+      "passed": true,
+      "output": "inet 10.30.10.22/24 scope global eth0"
+    },
+    {
+      "check": "app_client03: VLAN gateway reachable",
+      "node": "app_client03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client04: configured address",
+      "node": "app_client04",
+      "passed": true,
+      "output": "inet 10.30.10.23/24 scope global eth0"
+    },
+    {
+      "check": "app_client04: VLAN gateway reachable",
+      "node": "app_client04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "app_client05: configured address",
+      "node": "app_client05",
+      "passed": true,
+      "output": "inet 10.30.10.24/24 scope global eth0"
+    },
+    {
+      "check": "app_client05: VLAN gateway reachable",
+      "node": "app_client05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client01: configured address",
+      "node": "db_client01",
+      "passed": true,
+      "output": "inet 10.30.20.20/24 scope global eth0"
+    },
+    {
+      "check": "db_client01: VLAN gateway reachable",
+      "node": "db_client01",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client02: configured address",
+      "node": "db_client02",
+      "passed": true,
+      "output": "inet 10.30.20.21/24 scope global eth0"
+    },
+    {
+      "check": "db_client02: VLAN gateway reachable",
+      "node": "db_client02",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client03: configured address",
+      "node": "db_client03",
+      "passed": true,
+      "output": "inet 10.30.20.22/24 scope global eth0"
+    },
+    {
+      "check": "db_client03: VLAN gateway reachable",
+      "node": "db_client03",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client04: configured address",
+      "node": "db_client04",
+      "passed": true,
+      "output": "inet 10.30.20.23/24 scope global eth0"
+    },
+    {
+      "check": "db_client04: VLAN gateway reachable",
+      "node": "db_client04",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "db_client05: configured address",
+      "node": "db_client05",
+      "passed": true,
+      "output": "inet 10.30.20.24/24 scope global eth0"
+    },
+    {
+      "check": "db_client05: VLAN gateway reachable",
+      "node": "db_client05",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "staff: application HTTP",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "office: application HTTP",
+      "node": "office",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "engineering: application HTTP",
+      "node": "engineering",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "ops: application HTTP",
+      "node": "ops",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "guest: DMZ allowed",
+      "node": "guest",
+      "passed": true,
+      "output": "dmz: healthy"
+    },
+    {
+      "check": "guest: internal application denied",
+      "node": "guest",
+      "passed": true,
+      "output": "curl: (7) Failed to connect to 10.30.10.10 port 80 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "office: direct database denied",
+      "node": "office",
+      "passed": true,
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "check": "application: database allowed",
+      "node": "app",
+      "passed": true,
+      "output": "database: healthy"
+    },
+    {
+      "check": "ops: database allowed",
+      "node": "ops",
+      "passed": true,
+      "output": "database: healthy"
+    },
+    {
+      "check": "ops: all router loopbacks reachable",
+      "node": "ops",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r3: VRRP process",
+      "node": "r3",
+      "passed": true,
+      "output": "105\n106"
+    },
+    {
+      "check": "r4: VRRP process",
+      "node": "r4",
+      "passed": true,
+      "output": "106\n107"
+    },
+    {
+      "check": "r3: virtual gateway ownership",
+      "node": "r3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r4: virtual gateway ownership",
+      "node": "r4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r5: VRRP process",
+      "node": "r5",
+      "passed": true,
+      "output": "5027\n5028"
+    },
+    {
+      "check": "r6: VRRP process",
+      "node": "r6",
+      "passed": true,
+      "output": "99\n100"
+    },
+    {
+      "check": "r5: virtual gateway ownership",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r6: virtual gateway ownership",
+      "node": "r6",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r7: VRRP process",
+      "node": "r7",
+      "passed": true,
+      "output": "98\n99"
+    },
+    {
+      "check": "r8: VRRP process",
+      "node": "r8",
+      "passed": true,
+      "output": "3050\n3051"
+    },
+    {
+      "check": "r7: virtual gateway ownership",
+      "node": "r7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r8: virtual gateway ownership",
+      "node": "r8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r9: VRRP process",
+      "node": "r9",
+      "passed": true,
+      "output": "97\n99"
+    },
+    {
+      "check": "r10: VRRP process",
+      "node": "r10",
+      "passed": true,
+      "output": "100\n102"
+    },
+    {
+      "check": "r9: virtual gateway ownership",
+      "node": "r9",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "r10: virtual gateway ownership",
+      "node": "r10",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s3: redundant STP port blocked",
+      "node": "s3",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s4: redundant STP port blocked",
+      "node": "s4",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s7: redundant STP port blocked",
+      "node": "s7",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s8: redundant STP port blocked",
+      "node": "s8",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s11: redundant STP port blocked",
+      "node": "s11",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s12: redundant STP port blocked",
+      "node": "s12",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s16: redundant STP port blocked",
+      "node": "s16",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s17: redundant STP port blocked",
+      "node": "s17",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s18: redundant STP port blocked",
+      "node": "s18",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s19: redundant STP port blocked",
+      "node": "s19",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s20: redundant STP port blocked",
+      "node": "s20",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s21: redundant STP port blocked",
+      "node": "s21",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s22: redundant STP port blocked",
+      "node": "s22",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s23: redundant STP port blocked",
+      "node": "s23",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s24: redundant STP port blocked",
+      "node": "s24",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "s25: redundant STP port blocked",
+      "node": "s25",
+      "passed": true,
+      "output": ""
+    }
+  ]
+}

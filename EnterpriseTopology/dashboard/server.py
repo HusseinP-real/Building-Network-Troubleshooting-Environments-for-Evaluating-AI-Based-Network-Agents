@@ -55,6 +55,7 @@ class RunState:
         mode: str = "live",
         prompt_style: str = "generic",
         tool_profile: str = "atomic",
+        judge_model: str | None = None,
     ) -> bool:
         with self.lock:
             if self.running:
@@ -70,7 +71,7 @@ class RunState:
             ]
         threading.Thread(
             target=self._run,
-            args=(model, repeats, mode, prompt_style, tool_profile),
+            args=(model, repeats, mode, prompt_style, tool_profile, judge_model),
             daemon=True,
         ).start()
         return True
@@ -82,6 +83,7 @@ class RunState:
         mode: str = "live",
         prompt_style: str = "generic",
         tool_profile: str = "atomic",
+        judge_model: str | None = None,
     ) -> None:
         command = [
             str(self.python),
@@ -101,6 +103,8 @@ class RunState:
             "--tool-profile",
             tool_profile,
         ]
+        if judge_model:
+            command.extend(["--judge-model", judge_model])
         try:
             process = subprocess.Popen(
                 command,
@@ -288,6 +292,11 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Invalid request size")
             payload = json.loads(self.rfile.read(length))
             model = payload.get("model", "claude-haiku-5-5")
+            judge_model = payload.get("judge_model")
+            if judge_model == "same":
+                judge_model = None
+            if judge_model is not None and (not isinstance(judge_model, str) or not MODEL_PATTERN.fullmatch(judge_model)):
+                raise ValueError("Invalid judge model ID")
             repeats = payload.get("repeats", 1)
             mode = payload.get("mode", "live")
             prompt_style = payload.get("prompt_style", "generic")
@@ -305,7 +314,9 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Repeats must be between 1 and 10")
         except (ValueError, TypeError, json.JSONDecodeError) as exc:
             return self._json(400, {"error": str(exc)})
-        if not self.state.start(model, repeats, mode, prompt_style, tool_profile):
+        if any(selected.startswith("deepseek-") for selected in (model, judge_model or model)) and not os.getenv("DEEPSEEK_API_KEY", "").strip():
+            return self._json(400, {"error": "Set DEEPSEEK_API_KEY in the server terminal, then restart the dashboard"})
+        if not self.state.start(model, repeats, mode, prompt_style, tool_profile, judge_model):
             return self._json(409, {"error": "A benchmark is already running"})
         self._json(202, self.state.snapshot())
 

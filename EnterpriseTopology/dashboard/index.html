@@ -39,7 +39,13 @@
         <div class="launch-card glass">
           <div class="launch-top"><div><div class="card-kicker">New evaluation</div><h2>Launch benchmark</h2></div><span class="launch-icon material-symbols-outlined" aria-hidden="true">rocket_launch</span></div>
           <label class="field-label" for="model">Agent model</label>
-          <input id="model" value="claude-haiku-5-5" autocomplete="off" spellcheck="false">
+          <select id="model">
+            <option value="claude-haiku-5-5">Claude Haiku · existing baseline</option>
+            <option value="deepseek-flash">DeepSeek Flash · lower cost</option>
+            <option value="deepseek-v4-pro">DeepSeek V4 Pro</option>
+          </select>
+          <div class="field-row"><label class="field-label" for="judgeModel">Quality judge</label><select id="judgeModel"><option value="claude-haiku-5-5">Claude Haiku · fixed comparison</option><option value="same">Same as agent · separate call</option><option value="deepseek-flash">DeepSeek Flash</option><option value="deepseek-v4-pro">DeepSeek V4 Pro</option></select></div>
+          <p class="launch-foot">DeepSeek requires DEEPSEEK_API_KEY in the server terminal. Restart the server after setting it. A Claude judge also requires Claude authentication.</p>
           <div class="field-row"><label class="field-label" for="repeats">Passes per scenario</label><select id="repeats"><option value="1">1 pass · quick demo</option><option value="3">3 passes · comparison</option><option value="5">5 passes · deeper sample</option></select></div>
           <div class="field-row"><label class="field-label" for="mode">Evaluation mode</label><select id="mode"><option value="live">Live diagnostic tools</option><option value="no-tools">No tools · guessing control</option></select></div>
           <div class="field-row"><label class="field-label" for="promptStyle">Instructions</label><select id="promptStyle"><option value="generic">Generic investigation</option><option value="guided">Guided diagnosis hints</option></select></div>

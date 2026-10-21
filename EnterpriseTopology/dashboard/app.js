@@ -364,6 +364,7 @@ async function pollStatus() {
     const state = await json('/api/status');
     $('runButton').disabled = state.running;
     $('model').disabled = state.running;
+    $('judgeModel').disabled = state.running;
     $('repeats').disabled = state.running;
     $('mode').disabled = state.running;
     $('promptStyle').disabled = state.running;
@@ -389,7 +390,7 @@ async function pollStatus() {
 $('runButton').addEventListener('click', async () => {
   try {
     $('runButton').disabled = true;
-    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: $('model').value.trim(), repeats: Number($('repeats').value), mode: $('mode').value, prompt_style: $('promptStyle').value, tool_profile: $('toolProfile').value})});
+    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: $('model').value.trim(), judge_model: $('judgeModel').value, repeats: Number($('repeats').value), mode: $('mode').value, prompt_style: $('promptStyle').value, tool_profile: $('toolProfile').value})});
     $('runPanel').hidden = false;
     $('runPanel').scrollIntoView({behavior: 'smooth', block: 'center'});
     await pollStatus();

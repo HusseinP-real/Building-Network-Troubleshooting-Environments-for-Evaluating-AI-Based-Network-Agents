@@ -41,6 +41,21 @@ QUALITY = {
 
 
 class RobustnessTests(unittest.TestCase):
+    def test_deepseek_credentials_and_routes_are_isolated(self):
+        with patch.dict(ev.os.environ, {"DEEPSEEK_API_KEY": "fake-deepseek", "ANTHROPIC_API_KEY": "fake-claude"}, clear=True):
+            env = ev._model_env("deepseek-flash")
+            self.assertEqual(env["ANTHROPIC_BASE_URL"], "https://api.deepseek.com/anthropic")
+            self.assertEqual(env["ANTHROPIC_API_KEY"], "fake-deepseek")
+            self.assertEqual(env["CLAUDE_CODE_OAUTH_TOKEN"], "")
+            claude = ev._model_env("claude-haiku-5-5")
+            self.assertEqual(claude["ANTHROPIC_BASE_URL"], "https://api.anthropic.com")
+            self.assertNotIn("fake-deepseek", claude.values())
+            self.assertEqual(ev.os.environ["ANTHROPIC_API_KEY"], "fake-claude")
+        with patch.dict(ev.os.environ, {}, clear=True):
+            with self.assertRaisesRegex(RuntimeError, "DEEPSEEK_API_KEY"):
+                ev._model_env("deepseek-v4-pro")
+
+
     def test_health_retries_failed_readonly_probe_and_records_history(self):
         with (
             tempfile.TemporaryDirectory() as tmp,
@@ -92,7 +107,7 @@ class RobustnessTests(unittest.TestCase):
     @unittest.skipUnless(
         importlib.util.find_spec("claude_agent_sdk"), "Requires NIKA SDK environment"
     )
-    def test_sdk_error_stream_is_drained_before_raising(self):
+    def test_sdk_budget_error_preserves_evidence_after_stream_closes(self):
         from claude_agent_sdk import ResultMessage
 
         closed = []
@@ -113,12 +128,13 @@ class RobustnessTests(unittest.TestCase):
 
         with (
             patch("claude_agent_sdk.query", fake_query),
-            self.assertRaisesRegex(RuntimeError, "error_max_turns"),
         ):
-            asyncio.run(
-                ev._run_sade("ticket", Path("/tmp/nika"), 30, "test", "no-tools")
+            result = asyncio.run(
+                ev._run_sade("ticket", Path("/tmp/nika"), 20, "test", "no-tools")
             )
         self.assertEqual(closed, [True])
+        self.assertTrue(result["hit_max_turns"])
+        self.assertEqual(result["final_text"], "unfinished")
 
     @unittest.skipUnless(
         importlib.util.find_spec("claude_agent_sdk"), "Requires NIKA SDK environment"
@@ -147,6 +163,43 @@ class RobustnessTests(unittest.TestCase):
         self.assertEqual(control.setting_sources, [])
         self.assertEqual(len(live.mcp_servers), 2)
         self.assertIn("Skill", live.tools)
+
+    def test_checkpoint_resume_skips_attempted_trials_and_keeps_budget(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            calls = []
+
+            def run_case(case, nika, budget, model, *args):
+                calls.append((case, budget, model))
+                if len(calls) == 2:
+                    raise KeyboardInterrupt()
+                path = root / f"result-{len(calls)}.json"
+                path.write_text(json.dumps({"case": case, "status": "error", "repair_verified": True, "environment_restored": True, "max_turns": budget}))
+                return path
+
+            argv = ["bench", "run", "--cases", "healthy-outage", "core-uplink", "--model", "test"]
+            with patch.object(bench, "RESULTS", root), patch.object(ev, "_nika_root", return_value=root), patch.object(ev, "_preflight"), patch.object(ev, "run_case", side_effect=run_case), patch.object(sys, "argv", argv):
+                with self.assertRaises(KeyboardInterrupt):
+                    bench.main()
+                checkpoint = next(root.glob("benchmark-*.json"))
+                saved = json.loads(checkpoint.read_text())
+                self.assertEqual(saved["pending"], 1)
+                self.assertEqual(saved["run_config"]["max_turns"], 20)
+                first_case = calls[0][0]
+                with patch.object(sys, "argv", ["bench", "run", "--resume", str(checkpoint)]):
+                    bench.main()
+                self.assertEqual(sum(case == first_case for case, _, _ in calls), 1)
+                self.assertEqual(json.loads(checkpoint.read_text())["pending"], 0)
+                self.assertTrue(all(budget == 20 and model == "test" for _, budget, model in calls))
+
+    def test_summary_separates_turn_budgets(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = []
+            for budget in (20, 30):
+                path = Path(tmp) / f"{budget}.json"
+                path.write_text(json.dumps({"case": "core-uplink", "status": "error", "model": "test", "max_turns": budget}))
+                paths.append(path)
+            self.assertEqual(len(bench.summarize(paths)["by_configuration"]), 2)
 
     def test_all_case_answers_and_wrong_detection(self):
         for name in ev.CASES:

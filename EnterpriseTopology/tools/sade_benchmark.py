@@ -99,6 +99,10 @@ def summarize(paths: list[Path]) -> dict:
             "case": data["case"],
             "timestamp": data.get("timestamp"),
             "model": data.get("model"),
+            "max_turns": data.get("max_turns"),
+            "judge_model": data.get("judge_model"),
+            "failure_kind": data.get("failure_kind"),
+            "hit_max_turns": data.get("agent", {}).get("hit_max_turns", False),
             "status": data.get("status"),
             "category": sade_eval.CASES[data["case"]]["category"],
             "fault": sade_eval.CASES[data["case"]]["fault"],
@@ -147,7 +151,9 @@ def summarize(paths: list[Path]) -> dict:
         }
     scored = [row for row in records if row["score"] is not None]
     summary = {
-        "schema_version": 3,
+        "schema_version": 4,
+        "budget_exhausted": sum(r["hit_max_turns"] for r in records),
+        "by_configuration": {},
         "scorer_version": sade_eval.SCORER_VERSION,
         "manifest_hash": sade_eval.MANIFEST_HASH,
         "benchmark_versions": sorted({r["benchmark_version"] for r in records}),
@@ -177,6 +183,10 @@ def summarize(paths: list[Path]) -> dict:
         "by_case": by_case,
         "runs": records,
     }
+    for row in records:
+        key = json.dumps([row[k] for k in ("model", "max_turns", "judge_model", "benchmark_version", "mode", "prompt_style", "tool_profile")])
+        summary["by_configuration"].setdefault(key, []).append(row)
+    summary["by_configuration"] = {key: {"attempted": len(rows), "metrics": {axis: summarize_metric(rows, axis) for axis in AXES}} for key, rows in summary["by_configuration"].items()}
     summary["by_category"] = {
         category: proportion(
             sum(
@@ -258,7 +268,7 @@ def print_summary(summary: dict) -> None:
     )
     print(
         f"Injection verified: {summary['injection_verified']}/{summary['attempted']}  "
-        f"Repair verified: {summary['repair_verified']}/{summary['attempted']}"
+        f"Environment restored: {summary['repair_verified']}/{summary['attempted']}"
     )
     print(
         f"Quality scored: {summary.get('quality_scored', 0)}/{summary['attempted']}; full correctness requires field, explanation and repair credit."
@@ -282,7 +292,7 @@ def print_summary(summary: dict) -> None:
     if summary["runs"]:
         print("\nIndividual runs")
         print(
-            "Case                 Model                Exact  Inject  Repair  Calls  Seconds"
+            "Case                 Model                Exact  Inject  Restore Calls  Seconds"
         )
         for row in summary["runs"]:
             exact = "yes" if row["score"] and row["score"]["rca_exact"] else "no"
@@ -319,7 +329,7 @@ def main() -> int:
     run.add_argument(
         "--model", default=sade_eval.os.getenv("SADE_MODEL", "claude-haiku-5-5")
     )
-    run.add_argument("--max-turns", type=int, default=30)
+    run.add_argument("--max-turns", type=int, default=20)
     run.add_argument("--repeats", type=int, default=1)
     run.add_argument("--prompt-style", choices=("generic", "guided"), default="generic")
     run.add_argument("--tool-profile", choices=("atomic", "sweep"), default="atomic")
@@ -335,6 +345,7 @@ def main() -> int:
         action="store_true",
         help="Paired generic/guided × atomic/sweep plus no-tools",
     )
+    run.add_argument("--resume", type=Path, help="Resume a checkpoint using its saved configuration; completed trials are skipped")
     run.add_argument("--seed", type=int, default=42)
     run.add_argument("--mode", choices=("live", "no-tools"), default="live")
     report = sub.add_parser(
@@ -384,89 +395,75 @@ def main() -> int:
                 "--repeats and --max-turns must be positive; --model must not be empty"
             )
         nika_root = sade_eval._nika_root(args.nika_root)
-        sade_eval._preflight(nika_root)
-        paths = []
+        if not args.resume:
+            sade_eval._preflight(nika_root, args.model, args.judge_model)
         rng = random.Random(args.seed)
-        schedule = []
         selected_cases = args.cases or list(sade_eval.CASES)
         profiles = [(args.mode, args.prompt_style, args.tool_profile)]
         if args.ablation:
-            profiles = [
-                ("live", style, tools)
-                for style in ("generic", "guided")
-                for tools in ("atomic", "sweep")
-            ]
+            profiles = [("live", style, tools) for style in ("generic", "guided") for tools in ("atomic", "sweep")]
             profiles.append(("no-tools", "generic", "atomic"))
-        for repeat in range(1, args.repeats + 1):
-            trials = [
-                (case, *profile) for case in selected_cases for profile in profiles
-            ]
-            rng.shuffle(trials)
-            for case, mode, style, tools in trials:
-                schedule.append(
-                    {
-                        "case": case,
-                        "mode": mode,
-                        "prompt_style": style,
-                        "tool_profile": tools,
-                    }
-                )
-                print(
-                    f"Running {case} [{mode}/{style}/{tools}] (pass {repeat}/{args.repeats})...",
-                    flush=True,
-                )
-                with redirect_stdout(io.StringIO()):
-                    path = sade_eval.run_case(
-                        case,
-                        nika_root,
-                        args.max_turns,
-                        args.model,
-                        mode,
-                        style,
-                        tools,
-                        args.judge_model,
-                    )
-                paths.append(path)
-                result = json.loads(path.read_text())
-                print(
-                    f"  {result['status']}; exact RCA: "
-                    f"{result.get('score', {}).get('rca_exact', 'n/a')}; "
-                    f"repair verified: {result['repair_verified']}; report: {path}",
-                    flush=True,
-                )
-                if not result["repair_verified"]:
-                    print(
-                        "Repair verification failed; stopping before the next case.",
-                        file=sys.stderr,
-                    )
-                    break
-            else:
-                continue
-            break
-        summary = summarize(paths)
-        summary["run_config"] = {
-            "seed": args.seed,
-            "mode": args.mode,
-            "repeats": args.repeats,
-            "model": args.model,
-            "max_turns": args.max_turns,
-            "prompt_style": args.prompt_style,
-            "tool_profile": args.tool_profile,
-            "judge_model": args.judge_model or args.model,
-            "ablation": args.ablation,
-            "selected_cases": selected_cases,
-            "schedule": schedule,
-            "benchmark_version": sade_eval.BENCHMARK_VERSION,
+        config = {
+            "seed": args.seed, "mode": args.mode, "repeats": args.repeats,
+            "model": args.model, "max_turns": args.max_turns,
+            "prompt_style": args.prompt_style, "tool_profile": args.tool_profile,
+            "judge_model": args.judge_model or args.model, "ablation": args.ablation,
+            "selected_cases": selected_cases, "benchmark_version": sade_eval.BENCHMARK_VERSION,
+            "manifest_hash": sade_eval.MANIFEST_HASH,
         }
-        out = RESULTS / f"benchmark-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}.json"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps(summary, indent=2) + "\n")
+        schedule = []
+        for repeat in range(1, args.repeats + 1):
+            trials = [(case, *profile) for case in selected_cases for profile in profiles]
+            rng.shuffle(trials)
+            schedule.extend(dict(case=case, mode=mode, prompt_style=style, tool_profile=tools, repeat=repeat) for case, mode, style, tools in trials)
+        out = RESULTS / f"benchmark-{datetime.now(timezone.utc):%Y%m%dT%H%M%S%fZ}.json"
+        if args.resume:
+            out = args.resume.resolve()
+            saved = json.loads(out.read_text())
+            config = saved["run_config"]
+            if config.get("manifest_hash") != sade_eval.MANIFEST_HASH:
+                parser.error("Cannot resume a checkpoint from a different case manifest")
+            schedule = config["schedule"]
+            sade_eval._preflight(nika_root, config["model"], config["judge_model"])
+        config["schedule"] = schedule
+
+        def checkpoint():
+            paths = [Path(trial["result_path"]) for trial in schedule if trial.get("result_path")]
+            summary = summarize(paths)
+            summary["run_config"] = config
+            summary["pending"] = len(schedule) - len(paths)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            temporary = out.with_suffix(".tmp")
+            temporary.write_text(json.dumps(summary, indent=2) + "\n")
+            temporary.replace(out)
+            return summary
+
+        summary = checkpoint()
+        print(f"Checkpoint: {out}", flush=True)
+        # Every attempted trial is retained, including failed answers. Resume never
+        # silently retries model failures and biases the benchmark toward success.
+        for trial in schedule:
+            if trial.get("result_path"):
+                result = json.loads(Path(trial["result_path"]).read_text())
+                if not result.get("environment_restored", result.get("repair_verified", False)):
+                    raise RuntimeError("Previous trial did not restore the environment; repair and verify it before starting a new batch")
+                continue
+            print(f"Running {trial['case']} [{trial['mode']}/{trial['prompt_style']}/{trial['tool_profile']}] (pass {trial['repeat']}/{config['repeats']})...", flush=True)
+            with redirect_stdout(io.StringIO()):
+                path = sade_eval.run_case(trial["case"], nika_root, config["max_turns"], config["model"], trial["mode"], trial["prompt_style"], trial["tool_profile"], config["judge_model"])
+            trial["result_path"] = str(path.resolve())
+            summary = checkpoint()
+            result = json.loads(path.read_text())
+            print(f"  {result['status']}; environment restored: {result['repair_verified']}; report: {path}", flush=True)
+            if not result["repair_verified"]:
+                print("Environment restoration failed; stopping before the next case.", file=sys.stderr)
+                break
         print_summary(summary)
         print(f"Summary: {out}")
         return (
             0
             if summary["attempted"]
-            == len(selected_cases) * len(profiles) * args.repeats
+            == len(schedule)
             and summary["errors"] == 0
             and summary["quality_scored"] == summary["attempted"]
             and summary["repair_verified"] == summary["attempted"]

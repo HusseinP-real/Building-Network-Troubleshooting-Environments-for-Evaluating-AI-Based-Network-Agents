@@ -353,6 +353,30 @@ def score_prediction(
     }
 
 
+def _model_env(model: str) -> dict[str, str]:
+    """Route each SDK child independently; never change the host environment."""
+    if model.startswith("deepseek-"):
+        key = os.getenv("DEEPSEEK_API_KEY", "").strip()
+        if not key:
+            raise RuntimeError("Set DEEPSEEK_API_KEY in the terminal before starting the dashboard")
+        return {
+            "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+            "ANTHROPIC_API_KEY": key,
+            "ANTHROPIC_AUTH_TOKEN": key,
+            "CLAUDE_CODE_OAUTH_TOKEN": "",
+            "CLAUDE_CODE_USE_BEDROCK": "0",
+            "CLAUDE_CODE_USE_VERTEX": "0",
+            "CLAUDE_CODE_USE_FOUNDRY": "0",
+        }
+    return {
+        "ANTHROPIC_BASE_URL": "https://api.anthropic.com",
+        "ANTHROPIC_AUTH_TOKEN": "",
+        "CLAUDE_CODE_USE_BEDROCK": "0",
+        "CLAUDE_CODE_USE_VERTEX": "0",
+        "CLAUDE_CODE_USE_FOUNDRY": "0",
+    }
+
+
 async def _judge_prediction(
     case_name: str, prediction: dict, agent: dict, model: str, mode: str
 ) -> dict:
@@ -377,6 +401,7 @@ async def _judge_prediction(
             cwd=cwd,
             setting_sources=[],
             model=model,
+            env=_model_env(model),
             max_turns=1,
             tools=[],
             allowed_tools=[],
@@ -425,13 +450,16 @@ async def _judge_prediction(
         }
 
 
-def _preflight(nika_root: Path) -> None:
+def _preflight(nika_root: Path, model: str = "claude-haiku-5-5", judge_model: str | None = None) -> None:
     agent_dir = _agent_dir(nika_root)
     if not (agent_dir / ".claude" / "skills").is_dir():
         raise RuntimeError(f"SADE skills not found at {agent_dir}; pass --nika-root")
     if importlib.util.find_spec("claude_agent_sdk") is None:
         raise RuntimeError("claude-agent-sdk is missing; install the NIKA sade extra")
-    if not os.getenv("ANTHROPIC_API_KEY"):
+    models = {model, judge_model or model}
+    for selected in models:
+        _model_env(selected)
+    if any(not selected.startswith("deepseek-") for selected in models) and not os.getenv("ANTHROPIC_API_KEY"):
         status = subprocess.run(
             ["claude", "auth", "status"], text=True, capture_output=True, check=False
         )
@@ -524,6 +552,7 @@ async def _run_sade(
         cwd=str(_agent_dir(nika_root)),
         setting_sources=["project"] if mode == "live" else [],
         model=model,
+        env=_model_env(model),
         max_turns=max_turns,
         permission_mode="bypassPermissions",
         mcp_servers=servers if mode == "live" else {},
@@ -579,10 +608,10 @@ async def _run_sade(
                     f"SADE SDK reported an error: subtype={message.subtype}; "
                     f"turns={message.num_turns}; result={final}"
                 )
-    # Let the SDK finish closing its stream before raising an application error.
-    if sdk_error:
-        raise RuntimeError(sdk_error)
+    # Return collected evidence even when the SDK exhausts its budget.
     return {
+        "sdk_error": sdk_error,
+        "hit_max_turns": bool(sdk_error and ("error_max_turns" in sdk_error or "maximum number of turns" in sdk_error.lower())),
         "system_prompt": options.system_prompt,
         "available_mcp_servers": list(options.mcp_servers),
         "final_text": final,
@@ -613,7 +642,7 @@ def run_case(
     tool_profile: str = "atomic",
     judge_model: str | None = None,
 ) -> Path:
-    _preflight(nika_root)
+    _preflight(nika_root, model, judge_model)
     now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     out = ROOT / "results" / "sade" / now / f"{case_name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -671,7 +700,14 @@ def run_case(
             )
         )
         report["diagnosis_seconds"] = round(time.monotonic() - agent_started, 3)
+        # Save the investigation before parsing or invoking the judge.
+        out.write_text(json.dumps(report, indent=2, default=str) + "\n")
+        if report["agent"].get("sdk_error") and not report["agent"].get("hit_max_turns"):
+            report["failure_kind"] = "agent_error"
+            raise RuntimeError(report["agent"]["sdk_error"])
+        report["failure_kind"] = "max_turns" if report["agent"].get("hit_max_turns") else "parse_error"
         prediction = parse_prediction(report["agent"]["final_text"])
+        report.pop("failure_kind", None)
         report["score"] = score_prediction(case_name, prediction)
         try:
             quality = asyncio.run(
@@ -681,10 +717,12 @@ def run_case(
             )
             report["score"] = score_prediction(case_name, prediction, quality)
         except Exception as exc:  # noqa: BLE001 - preserve reports and always restore owned faults
+            report["failure_kind"] = "judge_failed"
             report["quality_error"] = f"{type(exc).__name__}: {exc}"
         report["status"] = "scored"
     except Exception as exc:  # noqa: BLE001 - always attempt repair and save the result
         report["status"] = "error"
+        report.setdefault("failure_kind", "execution_error")
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:
         if injected:
@@ -744,7 +782,7 @@ def main() -> int:
     run = sub.add_parser("run", help="Inject, diagnose, score, and repair one case")
     run.add_argument("case", choices=CASES)
     run.add_argument("--nika-root")
-    run.add_argument("--max-turns", type=int, default=30)
+    run.add_argument("--max-turns", type=int, default=20)
     run.add_argument("--mode", choices=("live", "no-tools"), default="live")
     run.add_argument("--prompt-style", choices=("generic", "guided"), default="generic")
     run.add_argument("--tool-profile", choices=("atomic", "sweep"), default="atomic")
@@ -755,7 +793,7 @@ def main() -> int:
     run.add_argument(
         "--model",
         default=os.getenv("SADE_MODEL", "claude-haiku-5-5"),
-        help="Claude model ID (default: SADE_MODEL or claude-haiku-5-5)",
+        help="Claude or DeepSeek model ID (default: SADE_MODEL or claude-haiku-5-5)",
     )
     args = parser.parse_args()
     if args.action == "list":

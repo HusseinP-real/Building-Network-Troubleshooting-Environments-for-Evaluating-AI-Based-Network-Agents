@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>75-Device Enterprise Network</title><style>
+:root{color-scheme:light;--ink:#1d1b20;--muted:#625b71;--accent:#6750a4;--line:#e7e0ec;--surface:#f7f2fa}
+*{box-sizing:border-box}body{margin:0;background:#fef7ff;color:var(--ink);font:16px/1.7 system-ui,-apple-system,sans-serif}
+main{max-width:1160px;margin:0 auto;padding:64px 32px 80px}header{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:32px}
+header span{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}header a{font-size:14px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.12;letter-spacing:-.045em;max-width:850px;margin:0 0 24px}h2{font-size:26px;letter-spacing:-.025em;margin:48px 0 16px}
+p,li{max-width:100%;}a{color:var(--accent);text-underline-offset:3px}img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:16px;background:white}
+pre{padding:24px;background:#211f26;color:#e6e0e9;border-radius:16px;overflow:auto;font-size:14px;line-height:1.8}code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em}p code,li code,td code{background:var(--surface);padding:2px 5px;border-radius:4px}
+.table-scroll{overflow:auto;border:1px solid var(--line);border-radius:16px;margin:20px 0}table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}th{background:var(--surface)}tr:last-child td{border:0}
+.notice{padding:18px 22px;background:#eaddff;border-radius:16px;color:#21005d;margin-bottom:28px;font-size:14px}.footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13px}
+@media(max-width:600px){main{padding:32px 18px}pre{padding:16px}h2{font-size:23px}}@media print{body{background:white}main{padding:0}header{display:none}pre{white-space:pre-wrap;background:#f3edf7;color:#1d1b20}}
+</style></head>
+<body><main><header><span>ENTERPRISE NETWORK / DOCUMENTATION</span><a href="README.md" download>Download Markdown</a><a href="docs/topology-75.svg">Full-size diagram</a></header><div class="notice">Standalone 75-device lab · Configuration and structural checks passed. Runtime validation is pending.</div><h1>75-Device Enterprise Network Topology</h1>
+<p>This directory contains a standalone Kathara network lab regenerated from the 75-node implementation in the adjacent <code>enterprise-topology</code> directory. It includes <strong>10 FRR routers, 25 independent Linux switches, and 40 endpoints: 75 devices connected by 108 point-to-point physical links</strong>. Each device has its own container and image tag. Links and VLANs do not count as devices.</p>
+<h2>Complete Topology Diagram</h2>
+<p>The diagram shows all 75 devices and 108 links, generated directly from <code>inventory.json</code>. Dashed blue lines represent VLAN trunks; solid gray lines represent routed connections or endpoint access. Dashed lines do not indicate standby status. STP determines the active Layer 2 forwarding paths.</p>
+<p><a href="docs/topology-75.svg" aria-label="Open the full-size topology diagram"><img alt="Complete 75-device enterprise network topology" src="docs/topology-75.png" /></a></p>
+<p><a href="docs/topology-75.svg">Open the scalable SVG diagram</a>. For exact ports, addresses, VLANs, and OSPF areas, see the <a href="docs/interfaces.csv">interface table</a> and <a href="inventory.json">device inventory</a>.</p>
+<h2>Device Inventory</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Routers</th>
+<th>Switches</th>
+<th>Endpoints</th>
+<th>Total devices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core / Area 0</td>
+<td>r1, r2</td>
+<td>—</td>
+<td>—</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Shared services / Area 0</td>
+<td>r3, r4</td>
+<td>s13–s15</td>
+<td>dmz, infra, ops</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Headquarters / Area 10</td>
+<td>r5, r6</td>
+<td>s1–s4, s16–s19</td>
+<td>staff, guest, staff01–06, guest01–05</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Branch / Area 20</td>
+<td>r7, r8</td>
+<td>s5–s8, s20–s22</td>
+<td>office, engineering, office01–05, engineering01–05</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Data center / Area 30</td>
+<td>r9, r10</td>
+<td>s9–s12, s23–s25</td>
+<td>app, database, app_client01–05, db_client01–05</td>
+<td>21</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>10</strong></td>
+<td><strong>25</strong></td>
+<td><strong>40</strong></td>
+<td><strong>75</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The 108 links comprise 21 router interconnections, 47 VLAN trunks, and 40 endpoint access links. Every switch runs its own VLAN-aware Linux bridge with STP enabled.</p>
+<h2>Network and Address Design</h2>
+<p>r1 and r2 form the core. Each router from r3 through r10 connects to both core routers, and each regional router pair has a direct interconnection. Headquarters, branch, and data center fabrics use paired distribution switches and dual-homed access switches. OSPF provides inter-area routing, and VRRP provides redundant default gateways.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>VLAN</th>
+<th>Subnet</th>
+<th>Default gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Headquarters staff</td>
+<td>110</td>
+<td>10.10.10.0/24</td>
+<td>10.10.10.1</td>
+</tr>
+<tr>
+<td>Headquarters guests</td>
+<td>120</td>
+<td>10.10.20.0/24</td>
+<td>10.10.20.1</td>
+</tr>
+<tr>
+<td>Branch office</td>
+<td>210</td>
+<td>10.20.10.0/24</td>
+<td>10.20.10.1</td>
+</tr>
+<tr>
+<td>Branch engineering</td>
+<td>220</td>
+<td>10.20.20.0/24</td>
+<td>10.20.20.1</td>
+</tr>
+<tr>
+<td>Application services</td>
+<td>310</td>
+<td>10.30.10.0/24</td>
+<td>10.30.10.1</td>
+</tr>
+<tr>
+<td>Database simulator</td>
+<td>320</td>
+<td>10.30.20.0/24</td>
+<td>10.30.20.1</td>
+</tr>
+<tr>
+<td>DMZ</td>
+<td>410</td>
+<td>10.40.10.0/24</td>
+<td>10.40.10.1</td>
+</tr>
+<tr>
+<td>DNS / DHCP</td>
+<td>420</td>
+<td>10.40.20.0/24</td>
+<td>10.40.20.1</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>430</td>
+<td>10.40.30.0/24</td>
+<td>10.40.30.1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each VLAN uses <code>.1</code> as its VRRP virtual gateway, with <code>.2</code> and <code>.3</code> assigned to the physical gateway routers. Router interconnections use sequential /30 subnets within <code>10.255.0.0/24</code>. Router loopbacks range from <code>10.255.255.1/32</code> to <code>10.255.255.10/32</code>.</p>
+<p>The four original clients, staff, guest, office, and engineering, obtain DHCP leases from the <code>.100–.150</code> pools. Other endpoints use static addresses. Service endpoints use <code>.10</code> in their respective subnets; additional clients use addresses starting at <code>.20</code>, outside the DHCP pools.</p>
+<h2>Services and Access Policy</h2>
+<ul>
+<li><code>infra</code> (10.40.20.10) provides local DNS and DHCP; regional routers relay DHCP requests.</li>
+<li><code>app.enterprise.test</code> (10.30.10.10:80) calls <code>database</code> (10.30.20.10:8080). The application returns HTTP 200 when its dependency is healthy and HTTP 503 when unavailable. The database endpoint is an HTTP simulator.</li>
+<li><code>dmz.enterprise.test</code> (10.40.10.10:80) provides a DMZ HTTP service.</li>
+<li>Guests may access DNS and DMZ HTTP. Other guest-initiated routed traffic is rejected.</li>
+<li>Routed traffic to the database endpoint is restricted to application TCP/8080 and the operations subnet. Traffic within the same VLAN does not traverse the router ACLs.</li>
+<li>The operations endpoint can reach router loopbacks. Switches are managed through Kathara commands and have no dedicated management IP addresses.</li>
+</ul>
+<h2>Build and Run</h2>
+<p>Requirements: Python 3, Docker, and Kathara. The initial image build requires Internet access. Allocate sufficient Docker memory and CPU for 75 containers. Run these commands from this directory:</p>
+<pre><code class="language-bash">python3 lab.py validate  # Parse the Kathara configuration without starting devices
+python3 lab.py build     # Build the shared base and 75 device images
+python3 lab.py start     # Start in batches, wait 45 seconds, then run health checks
+python3 lab.py status
+python3 lab.py check
+</code></pre>
+<p>The <code>enterprise-topology-75</code> image prefix distinguishes these images from the original lab. This lab uses the same internal IP plan inside its own Kathara networks. The launcher disables host-home and shared mounts and publishes no host ports.</p>
+<p>Common inspection commands:</p>
+<pre><code class="language-bash">python3 lab.py exec r1 vtysh -c 'show ip ospf neighbor'
+python3 lab.py exec r5 vtysh -c 'show ip route'
+python3 lab.py exec s16 bridge vlan show
+python3 lab.py exec s16 bridge link show
+python3 lab.py exec staff01 curl -i http://app.enterprise.test/
+python3 lab.py exec guest01 curl -i http://dmz.enterprise.test/
+python3 lab.py stop
+</code></pre>
+<p><code>stop</code> cleans up only the lab associated with this directory. Manual runtime changes are temporary. For persistent changes, update the generator or configuration, rebuild images, and restart the lab.</p>
+<h2>Fault Experiments</h2>
+<p>Begin with a healthy baseline, inject one fault at a time, allow protocols to converge, inspect the effect, and repair the fault.</p>
+<pre><code class="language-bash">python3 lab.py fault inject core-uplink
+python3 lab.py exec staff curl -i http://app.enterprise.test/
+python3 lab.py fault repair core-uplink
+
+python3 lab.py fault inject gateway-service
+python3 lab.py exec r6 ip -4 addr
+python3 lab.py fault repair gateway-service
+
+python3 lab.py fault inject database-acl
+python3 lab.py exec office curl -i http://app.enterprise.test/
+python3 lab.py fault repair database-acl
+python3 lab.py check
+</code></pre>
+<p><code>core-uplink</code> disables r5 eth0 to exercise the alternate core path. <code>gateway-service</code> stops keepalived on r5 to exercise virtual gateway takeover by r6. <code>database-acl</code> blocks application access to the backend, so the application should return HTTP 503.</p>
+<p>Run <code>python3 tools/verify_faults.py</code> for automated fault verification. The script attempts repair in <code>finally</code> blocks. After forcibly interrupting it, repair the fault manually or restart the lab.</p>
+<h2>Files and Reproducibility</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lab.conf</code></td>
+<td>Device images, interfaces, and links for all 75 devices</td>
+</tr>
+<tr>
+<td><code>*.startup</code></td>
+<td>Per-device startup scripts</td>
+</tr>
+<tr>
+<td><code>r*/etc/</code></td>
+<td>FRR, VRRP, and DHCP relay configuration</td>
+</tr>
+<tr>
+<td><code>inventory.json</code></td>
+<td>Complete device and physical link inventory</td>
+</tr>
+<tr>
+<td><code>docs/interfaces.csv</code></td>
+<td>All 216 link interfaces</td>
+</tr>
+<tr>
+<td><code>docs/topology-75.png</code> / <code>.svg</code></td>
+<td>Embedded and scalable topology diagrams</td>
+</tr>
+<tr>
+<td><code>tools/generate.py</code></td>
+<td>Regenerate lab configuration using the Python standard library</td>
+</tr>
+<tr>
+<td><code>tools/draw_topology.py</code></td>
+<td>Render the inventory diagram; requires matplotlib</td>
+</tr>
+<tr>
+<td><code>lab.py</code></td>
+<td>Lifecycle management, health checks, and fault operations</td>
+</tr>
+<tr>
+<td><code>results/</code></td>
+<td>Validation results and subsequent runtime reports</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-bash">python3 tools/generate.py
+python3 tools/draw_topology.py
+</code></pre>
+<p>See <a href="docs/validation.html">validation notes</a> for this delivery's verification status. Historical runtime reports from the original lab were not copied into this directory. This standalone version has not yet been runtime-tested with all 75 containers running.</p><div class="footer">Generated from the English Markdown documentation. Physical links are shown; STP selects active Layer 2 paths.</div></main></body></html>

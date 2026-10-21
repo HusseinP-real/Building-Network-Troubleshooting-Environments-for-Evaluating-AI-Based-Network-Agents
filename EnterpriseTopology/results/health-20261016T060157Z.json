@@ -1,0 +1,1338 @@
+{
+  "timestamp": "2026-10-16T06:01:57.589049+00:00",
+  "passed": false,
+  "checks": [
+    {
+      "check": "r1: startup",
+      "node": "r1",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e22c003d0a453875a60633fee0f28f\n         6ab4bbafe70802047a653031d628cb6375/exec: Conflict (\"container          \n         e22c003d0a453875a60633fee0f28f6ab4bbafe70802047a653031d628cb6375 is not\n         running\")"
+    },
+    {
+      "check": "r2: startup",
+      "node": "r2",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/53de14193045813781753a6da0515c\n         61d245d6e13319d11fc591d5b80a252609/exec: Conflict (\"container          \n         53de14193045813781753a6da0515c61d245d6e13319d11fc591d5b80a252609 is not\n         running\")"
+    },
+    {
+      "check": "r3: startup",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dbbad2321e322f82fd9060a9c52668\n         444bf786df350d04df2768647b8819334f/exec: Conflict (\"container          \n         dbbad2321e322f82fd9060a9c52668444bf786df350d04df2768647b8819334f is not\n         running\")"
+    },
+    {
+      "check": "r4: startup",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cb9d8b221d9e4fa1bfef2b5f8df04d\n         826a19922b0f602e36f087bb68a1f13505/exec: Conflict (\"container          \n         cb9d8b221d9e4fa1bfef2b5f8df04d826a19922b0f602e36f087bb68a1f13505 is not\n         running\")"
+    },
+    {
+      "check": "r5: startup",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6059c7d6ea514e609b5b0c6ac1c1ab\n         1ee20ba9f4ee84761f7ef11a625ec6b314/exec: Conflict (\"container          \n         6059c7d6ea514e609b5b0c6ac1c1ab1ee20ba9f4ee84761f7ef11a625ec6b314 is not\n         running\")"
+    },
+    {
+      "check": "r6: startup",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5f804f0c5301064ab9edbfebe440fc\n         6a5185a5eaaf771d5f94b0c81fe7bbd536/exec: Conflict (\"container          \n         5f804f0c5301064ab9edbfebe440fc6a5185a5eaaf771d5f94b0c81fe7bbd536 is not\n         running\")"
+    },
+    {
+      "check": "r7: startup",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8076085a776c76f5772d18e4569b43\n         e322fa98b0cb0d117ab345a321891e8422/exec: Conflict (\"container          \n         8076085a776c76f5772d18e4569b43e322fa98b0cb0d117ab345a321891e8422 is not\n         running\")"
+    },
+    {
+      "check": "r8: startup",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f5acb046d48b079de86266204b18a5\n         9240fc7837e41848550df4f46409b964c2/exec: Conflict (\"container          \n         f5acb046d48b079de86266204b18a59240fc7837e41848550df4f46409b964c2 is not\n         running\")"
+    },
+    {
+      "check": "r9: startup",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b191e16d6ee247d4577a16ed7d9ab5\n         7c51c30b7f10c65d32a498aceb89fbfda6/exec: Conflict (\"container          \n         b191e16d6ee247d4577a16ed7d9ab57c51c30b7f10c65d32a498aceb89fbfda6 is not\n         running\")"
+    },
+    {
+      "check": "r10: startup",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/935b9d377cd560d1364f008683eaa4\n         6f3f42b4f58b5017a23543d88bf0e4c8d3/exec: Conflict (\"container          \n         935b9d377cd560d1364f008683eaa46f3f42b4f58b5017a23543d88bf0e4c8d3 is not\n         running\")"
+    },
+    {
+      "check": "s1: startup",
+      "node": "s1",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/512185a57ab769e473f67cd12ca3e8\n         4cb53ef19e0585d2633a49ae91a0074780/exec: Conflict (\"container          \n         512185a57ab769e473f67cd12ca3e84cb53ef19e0585d2633a49ae91a0074780 is not\n         running\")"
+    },
+    {
+      "check": "s2: startup",
+      "node": "s2",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3d886b585bd1b485f55bb10fe79124\n         32916b8d9c85a381c3773fe097511b7a6d/exec: Conflict (\"container          \n         3d886b585bd1b485f55bb10fe7912432916b8d9c85a381c3773fe097511b7a6d is not\n         running\")"
+    },
+    {
+      "check": "s3: startup",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/11dea963973181d03f245a8b130966\n         399c0252f444f283f72ad9665b3102db4c/exec: Conflict (\"container          \n         11dea963973181d03f245a8b130966399c0252f444f283f72ad9665b3102db4c is not\n         running\")"
+    },
+    {
+      "check": "s4: startup",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/13c42d2bca03f81ba68e752c215e30\n         23dcc5f7409b5f333f46b02baceb41fa75/exec: Conflict (\"container          \n         13c42d2bca03f81ba68e752c215e3023dcc5f7409b5f333f46b02baceb41fa75 is not\n         running\")"
+    },
+    {
+      "check": "s5: startup",
+      "node": "s5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cde02e05d20c09b1dea6c039b8e9af\n         ed085616518ed45545802e62322e7e9616/exec: Conflict (\"container          \n         cde02e05d20c09b1dea6c039b8e9afed085616518ed45545802e62322e7e9616 is not\n         running\")"
+    },
+    {
+      "check": "s6: startup",
+      "node": "s6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c61b39b98cf33f58eec25f67b21bcf\n         c7d3bff4985b93e7f860aaf353664ea452/exec: Conflict (\"container          \n         c61b39b98cf33f58eec25f67b21bcfc7d3bff4985b93e7f860aaf353664ea452 is not\n         running\")"
+    },
+    {
+      "check": "s7: startup",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bdc2ac11579774df721169e50245ed\n         1c583b9b97125108ddc6b9ea59da4a85e3/exec: Conflict (\"container          \n         bdc2ac11579774df721169e50245ed1c583b9b97125108ddc6b9ea59da4a85e3 is not\n         running\")"
+    },
+    {
+      "check": "s8: startup",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/9b62d83b14e9a01ac486a5b70a3a22\n         bbd5bbbbaed528c282fb15a1f6a285d742/exec: Conflict (\"container          \n         9b62d83b14e9a01ac486a5b70a3a22bbd5bbbbaed528c282fb15a1f6a285d742 is not\n         running\")"
+    },
+    {
+      "check": "s9: startup",
+      "node": "s9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f386734aa1287493e4e7ddb8b4ea80\n         c9faa96ba8436a57d83459477a3bd44547/exec: Conflict (\"container          \n         f386734aa1287493e4e7ddb8b4ea80c9faa96ba8436a57d83459477a3bd44547 is not\n         running\")"
+    },
+    {
+      "check": "s10: startup",
+      "node": "s10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/7523e89789a263563e0512bbb51efc\n         6988fdfe319014b6c8c1a5e4edc351ba4b/exec: Conflict (\"container          \n         7523e89789a263563e0512bbb51efc6988fdfe319014b6c8c1a5e4edc351ba4b is not\n         running\")"
+    },
+    {
+      "check": "s11: startup",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b6561051471f90b4029d86af94a2df\n         6ab9965989d075099acf7a8fda61d484eb/exec: Conflict (\"container          \n         b6561051471f90b4029d86af94a2df6ab9965989d075099acf7a8fda61d484eb is not\n         running\")"
+    },
+    {
+      "check": "s12: startup",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a2763ac2a3b63875adf5f2d8872625\n         bc18de5c13476d8d3dd8ba3196191174e0/exec: Conflict (\"container          \n         a2763ac2a3b63875adf5f2d8872625bc18de5c13476d8d3dd8ba3196191174e0 is not\n         running\")"
+    },
+    {
+      "check": "s13: startup",
+      "node": "s13",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/38a988939f3fc5f838b4dfc03f8921\n         3ce4bdbbf82c3de9fe6d70194d348875ea/exec: Conflict (\"container          \n         38a988939f3fc5f838b4dfc03f89213ce4bdbbf82c3de9fe6d70194d348875ea is not\n         running\")"
+    },
+    {
+      "check": "s14: startup",
+      "node": "s14",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/1af535e072a28e870c9ce79f6d12c4\n         f95290746bc4e598a950ee06d890ef1564/exec: Conflict (\"container          \n         1af535e072a28e870c9ce79f6d12c4f95290746bc4e598a950ee06d890ef1564 is not\n         running\")"
+    },
+    {
+      "check": "s15: startup",
+      "node": "s15",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/110cd6374cc1cb252d23314603b177\n         4effe7250f3f72ace076fb6e72dc48408b/exec: Conflict (\"container          \n         110cd6374cc1cb252d23314603b1774effe7250f3f72ace076fb6e72dc48408b is not\n         running\")"
+    },
+    {
+      "check": "s16: startup",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/4c925682e70f2a056a4872e7b5a669\n         22c4dbf58a0272bba457c24f7b0bac054a/exec: Conflict (\"container          \n         4c925682e70f2a056a4872e7b5a66922c4dbf58a0272bba457c24f7b0bac054a is not\n         running\")"
+    },
+    {
+      "check": "s17: startup",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8c5433993cd49ff23bdef0cd74fd2b\n         29f48a14591c825cd2e116702c7c70f0e2/exec: Conflict (\"container          \n         8c5433993cd49ff23bdef0cd74fd2b29f48a14591c825cd2e116702c7c70f0e2 is not\n         running\")"
+    },
+    {
+      "check": "s18: startup",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a95e1f0849ccac302497c740e147ab\n         5f5dd9898a21a35621173890df380af619/exec: Conflict (\"container          \n         a95e1f0849ccac302497c740e147ab5f5dd9898a21a35621173890df380af619 is not\n         running\")"
+    },
+    {
+      "check": "s19: startup",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dd4dd629805cb659f6daca9e0cf298\n         15bb96aa4265ee281892e0790d41901d61/exec: Conflict (\"container          \n         dd4dd629805cb659f6daca9e0cf29815bb96aa4265ee281892e0790d41901d61 is not\n         running\")"
+    },
+    {
+      "check": "s20: startup",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/721cc53b029d6b2280fa4d3166be59\n         0b8f94e6d647a2034c39e0c6839eee76a8/exec: Conflict (\"container          \n         721cc53b029d6b2280fa4d3166be590b8f94e6d647a2034c39e0c6839eee76a8 is not\n         running\")"
+    },
+    {
+      "check": "s21: startup",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5ad98a063e7ff1f90194d7c8bd1ad0\n         fc2177044618fd430fdd026358b0582b6a/exec: Conflict (\"container          \n         5ad98a063e7ff1f90194d7c8bd1ad0fc2177044618fd430fdd026358b0582b6a is not\n         running\")"
+    },
+    {
+      "check": "s22: startup",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c62cd9a4617533ef06fd5d94b0e051\n         5e05108783c8aa11b8fc7726d7c71645c7/exec: Conflict (\"container          \n         c62cd9a4617533ef06fd5d94b0e0515e05108783c8aa11b8fc7726d7c71645c7 is not\n         running\")"
+    },
+    {
+      "check": "s23: startup",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c7663fbb4a0d878777d58c234296be\n         48472bfa08e61350e579279c85396e357e/exec: Conflict (\"container          \n         c7663fbb4a0d878777d58c234296be48472bfa08e61350e579279c85396e357e is not\n         running\")"
+    },
+    {
+      "check": "s24: startup",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c4f78a30a27e4f045edc3120fb0740\n         a74916e766ddcf1cf9d72bdb5cb4b6f3c2/exec: Conflict (\"container          \n         c4f78a30a27e4f045edc3120fb0740a74916e766ddcf1cf9d72bdb5cb4b6f3c2 is not\n         running\")"
+    },
+    {
+      "check": "s25: startup",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/95dbe0a52e3e517a2fce6396048315\n         183208e3150b79d9e56051ab8f1bb2cf20/exec: Conflict (\"container          \n         95dbe0a52e3e517a2fce6396048315183208e3150b79d9e56051ab8f1bb2cf20 is not\n         running\")"
+    },
+    {
+      "check": "staff: startup",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/52a53b50f32eb1b6b528a8bd769984\n         07e1101c0dca72a45b08483cac3c92dc00/exec: Conflict (\"container          \n         52a53b50f32eb1b6b528a8bd76998407e1101c0dca72a45b08483cac3c92dc00 is not\n         running\")"
+    },
+    {
+      "check": "guest: startup",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/baac7b13dc874a2286201724a44f9f\n         38be6f6809c277e57e47181ca38d875758/exec: Conflict (\"container          \n         baac7b13dc874a2286201724a44f9f38be6f6809c277e57e47181ca38d875758 is not\n         running\")"
+    },
+    {
+      "check": "office: startup",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3f2826f339e6dbb108472ac4097a80\n         81f8ac9f45d55ffec61c4c7fc356994057/exec: Conflict (\"container          \n         3f2826f339e6dbb108472ac4097a8081f8ac9f45d55ffec61c4c7fc356994057 is not\n         running\")"
+    },
+    {
+      "check": "engineering: startup",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/79f200ec2551d64b4147b7e4f41b07\n         726d71f0d2f1c660f8f8ed8a60212c3e66/exec: Conflict (\"container          \n         79f200ec2551d64b4147b7e4f41b07726d71f0d2f1c660f8f8ed8a60212c3e66 is not\n         running\")"
+    },
+    {
+      "check": "app: startup",
+      "node": "app",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e1d735f254969b7dc762a3407de525\n         1fee10ea81bbd98d64da2a79e093c00494/exec: Conflict (\"container          \n         e1d735f254969b7dc762a3407de5251fee10ea81bbd98d64da2a79e093c00494 is not\n         running\")"
+    },
+    {
+      "check": "database: startup",
+      "node": "database",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6f4d60e213f2a75f55aecbdcb62584\n         ba65535c180e4edf6fac9ea775135409a4/exec: Conflict (\"container          \n         6f4d60e213f2a75f55aecbdcb62584ba65535c180e4edf6fac9ea775135409a4 is not\n         running\")"
+    },
+    {
+      "check": "dmz: startup",
+      "node": "dmz",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/d2c6411fa6e01c7fb81e261913af97\n         6f1b6f2e591a2ea8294667baa568bfdeb5/exec: Conflict (\"container          \n         d2c6411fa6e01c7fb81e261913af976f1b6f2e591a2ea8294667baa568bfdeb5 is not\n         running\")"
+    },
+    {
+      "check": "infra: startup",
+      "node": "infra",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/78a612f7cbf5b30a995330c5840b5e\n         7ed745baff6391754b353ea7bf30255076/exec: Conflict (\"container          \n         78a612f7cbf5b30a995330c5840b5e7ed745baff6391754b353ea7bf30255076 is not\n         running\")"
+    },
+    {
+      "check": "ops: startup",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/449c143bba9a9c873377ac6416fff3\n         4dcc8c64a4eb73e5687dee0cc1d6c29e59/exec: Conflict (\"container          \n         449c143bba9a9c873377ac6416fff34dcc8c64a4eb73e5687dee0cc1d6c29e59 is not\n         running\")"
+    },
+    {
+      "check": "staff01: startup",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b096c70077fb872c593575b7256d35\n         d062e3d84edc0e3450d25f31a6dc2deb6d/exec: Conflict (\"container          \n         b096c70077fb872c593575b7256d35d062e3d84edc0e3450d25f31a6dc2deb6d is not\n         running\")"
+    },
+    {
+      "check": "staff02: startup",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2a972972c29b15b875a5f0f9d583e9\n         124e9b004c4449cd94a01b42e1fb3926e0/exec: Conflict (\"container          \n         2a972972c29b15b875a5f0f9d583e9124e9b004c4449cd94a01b42e1fb3926e0 is not\n         running\")"
+    },
+    {
+      "check": "staff03: startup",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/050af79377a66368db72720904c132\n         2895bbb4876fcbe58df236fb5b59b93d65/exec: Conflict (\"container          \n         050af79377a66368db72720904c1322895bbb4876fcbe58df236fb5b59b93d65 is not\n         running\")"
+    },
+    {
+      "check": "staff04: startup",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06119ec4f99f278cd0a1ab8c76ecc3\n         cb85b1bb28be50b7f2cd381ac0924ec480/exec: Conflict (\"container          \n         06119ec4f99f278cd0a1ab8c76ecc3cb85b1bb28be50b7f2cd381ac0924ec480 is not\n         running\")"
+    },
+    {
+      "check": "staff05: startup",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6ba150d49b00d1f368599d3ab03bb5\n         98fb7ac8e55dfca9eabdbc861be71c47df/exec: Conflict (\"container          \n         6ba150d49b00d1f368599d3ab03bb598fb7ac8e55dfca9eabdbc861be71c47df is not\n         running\")"
+    },
+    {
+      "check": "staff06: startup",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f802f707d44c7ccd8e3e0252e01205\n         89ba95a66b76a52567f9985a26fe290201/exec: Conflict (\"container          \n         f802f707d44c7ccd8e3e0252e0120589ba95a66b76a52567f9985a26fe290201 is not\n         running\")"
+    },
+    {
+      "check": "guest01: startup",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1492587d4254c59fe6069334d5bc6\n         4792d87bfd058f3559e6bfb926fb0f1ce5/exec: Conflict (\"container          \n         f1492587d4254c59fe6069334d5bc64792d87bfd058f3559e6bfb926fb0f1ce5 is not\n         running\")"
+    },
+    {
+      "check": "guest02: startup",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/d0a5a57043b35fcd9bb8a2f0e0fe5a\n         b0fe975fb6342935510f476dbc2af59806/exec: Conflict (\"container          \n         d0a5a57043b35fcd9bb8a2f0e0fe5ab0fe975fb6342935510f476dbc2af59806 is not\n         running\")"
+    },
+    {
+      "check": "guest03: startup",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/eab377722dd35e25e3dfbc9e67a756\n         b477aeebca860806dfe8aa2b3a39879edc/exec: Conflict (\"container          \n         eab377722dd35e25e3dfbc9e67a756b477aeebca860806dfe8aa2b3a39879edc is not\n         running\")"
+    },
+    {
+      "check": "guest04: startup",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f28fc557d4583d3dbd004a5370762b\n         591ba1d30e144324d714f3e2c8c63a3a7d/exec: Conflict (\"container          \n         f28fc557d4583d3dbd004a5370762b591ba1d30e144324d714f3e2c8c63a3a7d is not\n         running\")"
+    },
+    {
+      "check": "guest05: startup",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f6423aff88a5052c5157581f433434\n         ead6dcf9db785b801822e8d95a0b47959f/exec: Conflict (\"container          \n         f6423aff88a5052c5157581f433434ead6dcf9db785b801822e8d95a0b47959f is not\n         running\")"
+    },
+    {
+      "check": "office01: startup",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bb4fc99465f64f0b076386e51e52b9\n         6052b42c3e6a9b84de15d9ebdf9be19171/exec: Conflict (\"container          \n         bb4fc99465f64f0b076386e51e52b96052b42c3e6a9b84de15d9ebdf9be19171 is not\n         running\")"
+    },
+    {
+      "check": "office02: startup",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/92ddcdcbc604894a7e3e81cbb7d9c4\n         e432b3dac73b285db517b67d2734702c5d/exec: Conflict (\"container          \n         92ddcdcbc604894a7e3e81cbb7d9c4e432b3dac73b285db517b67d2734702c5d is not\n         running\")"
+    },
+    {
+      "check": "office03: startup",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/21a0c85b7eb255e8a1f9053f7951ed\n         aa5667b9262fb9eb45e55a3e44d94af854/exec: Conflict (\"container          \n         21a0c85b7eb255e8a1f9053f7951edaa5667b9262fb9eb45e55a3e44d94af854 is not\n         running\")"
+    },
+    {
+      "check": "office04: startup",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/194c2c324d4c14b52655d3f5bfd7fe\n         828dad02c21063d4187bfd723a9666bfea/exec: Conflict (\"container          \n         194c2c324d4c14b52655d3f5bfd7fe828dad02c21063d4187bfd723a9666bfea is not\n         running\")"
+    },
+    {
+      "check": "office05: startup",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c172bc209a760ca64fe6164d34ae61\n         1ba93fe1b48315f10b75fe11a8da65c777/exec: Conflict (\"container          \n         c172bc209a760ca64fe6164d34ae611ba93fe1b48315f10b75fe11a8da65c777 is not\n         running\")"
+    },
+    {
+      "check": "engineering01: startup",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/71981fe69a88510b1acc33cadcd252\n         365ab3df62472ffe5a884bb2a557d154fa/exec: Conflict (\"container          \n         71981fe69a88510b1acc33cadcd252365ab3df62472ffe5a884bb2a557d154fa is not\n         running\")"
+    },
+    {
+      "check": "engineering02: startup",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/434ab66b73de61026c5d3bd8cc995a\n         b54ea7229a19a886b919283ea4e1691588/exec: Conflict (\"container          \n         434ab66b73de61026c5d3bd8cc995ab54ea7229a19a886b919283ea4e1691588 is not\n         running\")"
+    },
+    {
+      "check": "engineering03: startup",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cc171ca3da9aed03ee95a5c6bdfd97\n         cb5148b8d21b1c986d20b5a732b7aeed05/exec: Conflict (\"container          \n         cc171ca3da9aed03ee95a5c6bdfd97cb5148b8d21b1c986d20b5a732b7aeed05 is not\n         running\")"
+    },
+    {
+      "check": "engineering04: startup",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/ce5fa6197be68a3d08bab4aeead918\n         9bcca8486aa7f38f4368efcc574109a682/exec: Conflict (\"container          \n         ce5fa6197be68a3d08bab4aeead9189bcca8486aa7f38f4368efcc574109a682 is not\n         running\")"
+    },
+    {
+      "check": "engineering05: startup",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/70065dc808777a24b9364941d14d3b\n         e147e4c831b450ed5d1dceff3f39442b07/exec: Conflict (\"container          \n         70065dc808777a24b9364941d14d3be147e4c831b450ed5d1dceff3f39442b07 is not\n         running\")"
+    },
+    {
+      "check": "app_client01: startup",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/31c1f4fc00fb06b0bf8938dd3ba36f\n         b136097c8bf8e932a6c63d75324d54164b/exec: Conflict (\"container          \n         31c1f4fc00fb06b0bf8938dd3ba36fb136097c8bf8e932a6c63d75324d54164b is not\n         running\")"
+    },
+    {
+      "check": "app_client02: startup",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a96207a3a7f26ba06603ae1a176a89\n         7cfdb88d6b3ebaa3461532cd3738e3e499/exec: Conflict (\"container          \n         a96207a3a7f26ba06603ae1a176a897cfdb88d6b3ebaa3461532cd3738e3e499 is not\n         running\")"
+    },
+    {
+      "check": "app_client03: startup",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c6539b09918b07f2b6c7213b35649c\n         569be28ed52310c51523bbcfa2981eaa5a/exec: Conflict (\"container          \n         c6539b09918b07f2b6c7213b35649c569be28ed52310c51523bbcfa2981eaa5a is not\n         running\")"
+    },
+    {
+      "check": "app_client04: startup",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2dfaa4b1d9852893c461ad00821eae\n         3d88db479bfbfc5baf37f36feb115b18e6/exec: Conflict (\"container          \n         2dfaa4b1d9852893c461ad00821eae3d88db479bfbfc5baf37f36feb115b18e6 is not\n         running\")"
+    },
+    {
+      "check": "app_client05: startup",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1d27a7e78869e417c2bda781d97f4\n         6c69e9f73927f86e46801d71bb96a1e02b/exec: Conflict (\"container          \n         f1d27a7e78869e417c2bda781d97f46c69e9f73927f86e46801d71bb96a1e02b is not\n         running\")"
+    },
+    {
+      "check": "db_client01: startup",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/26d3185615c66374e15c80356dacff\n         312dcf02d84047ce4ac86a3ea3235840c1/exec: Conflict (\"container          \n         26d3185615c66374e15c80356dacff312dcf02d84047ce4ac86a3ea3235840c1 is not\n         running\")"
+    },
+    {
+      "check": "db_client02: startup",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e67360e14f0170a321ea59bf174d43\n         35a8e36506c5307b5a790896bc90ceb320/exec: Conflict (\"container          \n         e67360e14f0170a321ea59bf174d4335a8e36506c5307b5a790896bc90ceb320 is not\n         running\")"
+    },
+    {
+      "check": "db_client03: startup",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/457b7dee9b94cbcbffa056fe60dc08\n         3402ed24043d838ab376aee9f810101ea7/exec: Conflict (\"container          \n         457b7dee9b94cbcbffa056fe60dc083402ed24043d838ab376aee9f810101ea7 is not\n         running\")"
+    },
+    {
+      "check": "db_client04: startup",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/aa652097e5530b3f5a6abcdfb3fc20\n         4307123bfbe5ff9b1db8c2f2f0b483fb5c/exec: Conflict (\"container          \n         aa652097e5530b3f5a6abcdfb3fc204307123bfbe5ff9b1db8c2f2f0b483fb5c is not\n         running\")"
+    },
+    {
+      "check": "db_client05: startup",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06391c4883d32d91656d5e0a17f179\n         174212ec923c52d6e66445029b7464b12d/exec: Conflict (\"container          \n         06391c4883d32d91656d5e0a17f179174212ec923c52d6e66445029b7464b12d is not\n         running\")"
+    },
+    {
+      "check": "r1: all OSPF neighbors Full",
+      "node": "r1",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e22c003d0a453875a60633fee0f28f\n         6ab4bbafe70802047a653031d628cb6375/exec: Conflict (\"container          \n         e22c003d0a453875a60633fee0f28f6ab4bbafe70802047a653031d628cb6375 is not\n         running\")"
+    },
+    {
+      "check": "r2: all OSPF neighbors Full",
+      "node": "r2",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/53de14193045813781753a6da0515c\n         61d245d6e13319d11fc591d5b80a252609/exec: Conflict (\"container          \n         53de14193045813781753a6da0515c61d245d6e13319d11fc591d5b80a252609 is not\n         running\")"
+    },
+    {
+      "check": "r3: all OSPF neighbors Full",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dbbad2321e322f82fd9060a9c52668\n         444bf786df350d04df2768647b8819334f/exec: Conflict (\"container          \n         dbbad2321e322f82fd9060a9c52668444bf786df350d04df2768647b8819334f is not\n         running\")"
+    },
+    {
+      "check": "r4: all OSPF neighbors Full",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cb9d8b221d9e4fa1bfef2b5f8df04d\n         826a19922b0f602e36f087bb68a1f13505/exec: Conflict (\"container          \n         cb9d8b221d9e4fa1bfef2b5f8df04d826a19922b0f602e36f087bb68a1f13505 is not\n         running\")"
+    },
+    {
+      "check": "r5: all OSPF neighbors Full",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6059c7d6ea514e609b5b0c6ac1c1ab\n         1ee20ba9f4ee84761f7ef11a625ec6b314/exec: Conflict (\"container          \n         6059c7d6ea514e609b5b0c6ac1c1ab1ee20ba9f4ee84761f7ef11a625ec6b314 is not\n         running\")"
+    },
+    {
+      "check": "r6: all OSPF neighbors Full",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5f804f0c5301064ab9edbfebe440fc\n         6a5185a5eaaf771d5f94b0c81fe7bbd536/exec: Conflict (\"container          \n         5f804f0c5301064ab9edbfebe440fc6a5185a5eaaf771d5f94b0c81fe7bbd536 is not\n         running\")"
+    },
+    {
+      "check": "r7: all OSPF neighbors Full",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8076085a776c76f5772d18e4569b43\n         e322fa98b0cb0d117ab345a321891e8422/exec: Conflict (\"container          \n         8076085a776c76f5772d18e4569b43e322fa98b0cb0d117ab345a321891e8422 is not\n         running\")"
+    },
+    {
+      "check": "r8: all OSPF neighbors Full",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f5acb046d48b079de86266204b18a5\n         9240fc7837e41848550df4f46409b964c2/exec: Conflict (\"container          \n         f5acb046d48b079de86266204b18a59240fc7837e41848550df4f46409b964c2 is not\n         running\")"
+    },
+    {
+      "check": "r9: all OSPF neighbors Full",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b191e16d6ee247d4577a16ed7d9ab5\n         7c51c30b7f10c65d32a498aceb89fbfda6/exec: Conflict (\"container          \n         b191e16d6ee247d4577a16ed7d9ab57c51c30b7f10c65d32a498aceb89fbfda6 is not\n         running\")"
+    },
+    {
+      "check": "r10: all OSPF neighbors Full",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/935b9d377cd560d1364f008683eaa4\n         6f3f42b4f58b5017a23543d88bf0e4c8d3/exec: Conflict (\"container          \n         935b9d377cd560d1364f008683eaa46f3f42b4f58b5017a23543d88bf0e4c8d3 is not\n         running\")"
+    },
+    {
+      "check": "s1: VLAN-aware STP bridge",
+      "node": "s1",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/512185a57ab769e473f67cd12ca3e8\n         4cb53ef19e0585d2633a49ae91a0074780/exec: Conflict (\"container          \n         512185a57ab769e473f67cd12ca3e84cb53ef19e0585d2633a49ae91a0074780 is not\n         running\")"
+    },
+    {
+      "check": "s2: VLAN-aware STP bridge",
+      "node": "s2",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3d886b585bd1b485f55bb10fe79124\n         32916b8d9c85a381c3773fe097511b7a6d/exec: Conflict (\"container          \n         3d886b585bd1b485f55bb10fe7912432916b8d9c85a381c3773fe097511b7a6d is not\n         running\")"
+    },
+    {
+      "check": "s3: VLAN-aware STP bridge",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/11dea963973181d03f245a8b130966\n         399c0252f444f283f72ad9665b3102db4c/exec: Conflict (\"container          \n         11dea963973181d03f245a8b130966399c0252f444f283f72ad9665b3102db4c is not\n         running\")"
+    },
+    {
+      "check": "s4: VLAN-aware STP bridge",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/13c42d2bca03f81ba68e752c215e30\n         23dcc5f7409b5f333f46b02baceb41fa75/exec: Conflict (\"container          \n         13c42d2bca03f81ba68e752c215e3023dcc5f7409b5f333f46b02baceb41fa75 is not\n         running\")"
+    },
+    {
+      "check": "s5: VLAN-aware STP bridge",
+      "node": "s5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cde02e05d20c09b1dea6c039b8e9af\n         ed085616518ed45545802e62322e7e9616/exec: Conflict (\"container          \n         cde02e05d20c09b1dea6c039b8e9afed085616518ed45545802e62322e7e9616 is not\n         running\")"
+    },
+    {
+      "check": "s6: VLAN-aware STP bridge",
+      "node": "s6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c61b39b98cf33f58eec25f67b21bcf\n         c7d3bff4985b93e7f860aaf353664ea452/exec: Conflict (\"container          \n         c61b39b98cf33f58eec25f67b21bcfc7d3bff4985b93e7f860aaf353664ea452 is not\n         running\")"
+    },
+    {
+      "check": "s7: VLAN-aware STP bridge",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bdc2ac11579774df721169e50245ed\n         1c583b9b97125108ddc6b9ea59da4a85e3/exec: Conflict (\"container          \n         bdc2ac11579774df721169e50245ed1c583b9b97125108ddc6b9ea59da4a85e3 is not\n         running\")"
+    },
+    {
+      "check": "s8: VLAN-aware STP bridge",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/9b62d83b14e9a01ac486a5b70a3a22\n         bbd5bbbbaed528c282fb15a1f6a285d742/exec: Conflict (\"container          \n         9b62d83b14e9a01ac486a5b70a3a22bbd5bbbbaed528c282fb15a1f6a285d742 is not\n         running\")"
+    },
+    {
+      "check": "s9: VLAN-aware STP bridge",
+      "node": "s9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f386734aa1287493e4e7ddb8b4ea80\n         c9faa96ba8436a57d83459477a3bd44547/exec: Conflict (\"container          \n         f386734aa1287493e4e7ddb8b4ea80c9faa96ba8436a57d83459477a3bd44547 is not\n         running\")"
+    },
+    {
+      "check": "s10: VLAN-aware STP bridge",
+      "node": "s10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/7523e89789a263563e0512bbb51efc\n         6988fdfe319014b6c8c1a5e4edc351ba4b/exec: Conflict (\"container          \n         7523e89789a263563e0512bbb51efc6988fdfe319014b6c8c1a5e4edc351ba4b is not\n         running\")"
+    },
+    {
+      "check": "s11: VLAN-aware STP bridge",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b6561051471f90b4029d86af94a2df\n         6ab9965989d075099acf7a8fda61d484eb/exec: Conflict (\"container          \n         b6561051471f90b4029d86af94a2df6ab9965989d075099acf7a8fda61d484eb is not\n         running\")"
+    },
+    {
+      "check": "s12: VLAN-aware STP bridge",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a2763ac2a3b63875adf5f2d8872625\n         bc18de5c13476d8d3dd8ba3196191174e0/exec: Conflict (\"container          \n         a2763ac2a3b63875adf5f2d8872625bc18de5c13476d8d3dd8ba3196191174e0 is not\n         running\")"
+    },
+    {
+      "check": "s13: VLAN-aware STP bridge",
+      "node": "s13",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/38a988939f3fc5f838b4dfc03f8921\n         3ce4bdbbf82c3de9fe6d70194d348875ea/exec: Conflict (\"container          \n         38a988939f3fc5f838b4dfc03f89213ce4bdbbf82c3de9fe6d70194d348875ea is not\n         running\")"
+    },
+    {
+      "check": "s14: VLAN-aware STP bridge",
+      "node": "s14",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/1af535e072a28e870c9ce79f6d12c4\n         f95290746bc4e598a950ee06d890ef1564/exec: Conflict (\"container          \n         1af535e072a28e870c9ce79f6d12c4f95290746bc4e598a950ee06d890ef1564 is not\n         running\")"
+    },
+    {
+      "check": "s15: VLAN-aware STP bridge",
+      "node": "s15",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/110cd6374cc1cb252d23314603b177\n         4effe7250f3f72ace076fb6e72dc48408b/exec: Conflict (\"container          \n         110cd6374cc1cb252d23314603b1774effe7250f3f72ace076fb6e72dc48408b is not\n         running\")"
+    },
+    {
+      "check": "s16: VLAN-aware STP bridge",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/4c925682e70f2a056a4872e7b5a669\n         22c4dbf58a0272bba457c24f7b0bac054a/exec: Conflict (\"container          \n         4c925682e70f2a056a4872e7b5a66922c4dbf58a0272bba457c24f7b0bac054a is not\n         running\")"
+    },
+    {
+      "check": "s17: VLAN-aware STP bridge",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8c5433993cd49ff23bdef0cd74fd2b\n         29f48a14591c825cd2e116702c7c70f0e2/exec: Conflict (\"container          \n         8c5433993cd49ff23bdef0cd74fd2b29f48a14591c825cd2e116702c7c70f0e2 is not\n         running\")"
+    },
+    {
+      "check": "s18: VLAN-aware STP bridge",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a95e1f0849ccac302497c740e147ab\n         5f5dd9898a21a35621173890df380af619/exec: Conflict (\"container          \n         a95e1f0849ccac302497c740e147ab5f5dd9898a21a35621173890df380af619 is not\n         running\")"
+    },
+    {
+      "check": "s19: VLAN-aware STP bridge",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dd4dd629805cb659f6daca9e0cf298\n         15bb96aa4265ee281892e0790d41901d61/exec: Conflict (\"container          \n         dd4dd629805cb659f6daca9e0cf29815bb96aa4265ee281892e0790d41901d61 is not\n         running\")"
+    },
+    {
+      "check": "s20: VLAN-aware STP bridge",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/721cc53b029d6b2280fa4d3166be59\n         0b8f94e6d647a2034c39e0c6839eee76a8/exec: Conflict (\"container          \n         721cc53b029d6b2280fa4d3166be590b8f94e6d647a2034c39e0c6839eee76a8 is not\n         running\")"
+    },
+    {
+      "check": "s21: VLAN-aware STP bridge",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5ad98a063e7ff1f90194d7c8bd1ad0\n         fc2177044618fd430fdd026358b0582b6a/exec: Conflict (\"container          \n         5ad98a063e7ff1f90194d7c8bd1ad0fc2177044618fd430fdd026358b0582b6a is not\n         running\")"
+    },
+    {
+      "check": "s22: VLAN-aware STP bridge",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c62cd9a4617533ef06fd5d94b0e051\n         5e05108783c8aa11b8fc7726d7c71645c7/exec: Conflict (\"container          \n         c62cd9a4617533ef06fd5d94b0e0515e05108783c8aa11b8fc7726d7c71645c7 is not\n         running\")"
+    },
+    {
+      "check": "s23: VLAN-aware STP bridge",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c7663fbb4a0d878777d58c234296be\n         48472bfa08e61350e579279c85396e357e/exec: Conflict (\"container          \n         c7663fbb4a0d878777d58c234296be48472bfa08e61350e579279c85396e357e is not\n         running\")"
+    },
+    {
+      "check": "s24: VLAN-aware STP bridge",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c4f78a30a27e4f045edc3120fb0740\n         a74916e766ddcf1cf9d72bdb5cb4b6f3c2/exec: Conflict (\"container          \n         c4f78a30a27e4f045edc3120fb0740a74916e766ddcf1cf9d72bdb5cb4b6f3c2 is not\n         running\")"
+    },
+    {
+      "check": "s25: VLAN-aware STP bridge",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/95dbe0a52e3e517a2fce6396048315\n         183208e3150b79d9e56051ab8f1bb2cf20/exec: Conflict (\"container          \n         95dbe0a52e3e517a2fce6396048315183208e3150b79d9e56051ab8f1bb2cf20 is not\n         running\")"
+    },
+    {
+      "check": "staff: DHCP lease",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/52a53b50f32eb1b6b528a8bd769984\n         07e1101c0dca72a45b08483cac3c92dc00/exec: Conflict (\"container          \n         52a53b50f32eb1b6b528a8bd76998407e1101c0dca72a45b08483cac3c92dc00 is not\n         running\")"
+    },
+    {
+      "check": "staff: DNS answer",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/52a53b50f32eb1b6b528a8bd769984\n         07e1101c0dca72a45b08483cac3c92dc00/exec: Conflict (\"container          \n         52a53b50f32eb1b6b528a8bd76998407e1101c0dca72a45b08483cac3c92dc00 is not\n         running\")"
+    },
+    {
+      "check": "guest: DHCP lease",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/baac7b13dc874a2286201724a44f9f\n         38be6f6809c277e57e47181ca38d875758/exec: Conflict (\"container          \n         baac7b13dc874a2286201724a44f9f38be6f6809c277e57e47181ca38d875758 is not\n         running\")"
+    },
+    {
+      "check": "guest: DNS answer",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/baac7b13dc874a2286201724a44f9f\n         38be6f6809c277e57e47181ca38d875758/exec: Conflict (\"container          \n         baac7b13dc874a2286201724a44f9f38be6f6809c277e57e47181ca38d875758 is not\n         running\")"
+    },
+    {
+      "check": "office: DHCP lease",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3f2826f339e6dbb108472ac4097a80\n         81f8ac9f45d55ffec61c4c7fc356994057/exec: Conflict (\"container          \n         3f2826f339e6dbb108472ac4097a8081f8ac9f45d55ffec61c4c7fc356994057 is not\n         running\")"
+    },
+    {
+      "check": "office: DNS answer",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3f2826f339e6dbb108472ac4097a80\n         81f8ac9f45d55ffec61c4c7fc356994057/exec: Conflict (\"container          \n         3f2826f339e6dbb108472ac4097a8081f8ac9f45d55ffec61c4c7fc356994057 is not\n         running\")"
+    },
+    {
+      "check": "engineering: DHCP lease",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/79f200ec2551d64b4147b7e4f41b07\n         726d71f0d2f1c660f8f8ed8a60212c3e66/exec: Conflict (\"container          \n         79f200ec2551d64b4147b7e4f41b07726d71f0d2f1c660f8f8ed8a60212c3e66 is not\n         running\")"
+    },
+    {
+      "check": "engineering: DNS answer",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/79f200ec2551d64b4147b7e4f41b07\n         726d71f0d2f1c660f8f8ed8a60212c3e66/exec: Conflict (\"container          \n         79f200ec2551d64b4147b7e4f41b07726d71f0d2f1c660f8f8ed8a60212c3e66 is not\n         running\")"
+    },
+    {
+      "check": "staff01: configured address",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b096c70077fb872c593575b7256d35\n         d062e3d84edc0e3450d25f31a6dc2deb6d/exec: Conflict (\"container          \n         b096c70077fb872c593575b7256d35d062e3d84edc0e3450d25f31a6dc2deb6d is not\n         running\")"
+    },
+    {
+      "check": "staff01: VLAN gateway reachable",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b096c70077fb872c593575b7256d35\n         d062e3d84edc0e3450d25f31a6dc2deb6d/exec: Conflict (\"container          \n         b096c70077fb872c593575b7256d35d062e3d84edc0e3450d25f31a6dc2deb6d is not\n         running\")"
+    },
+    {
+      "check": "staff02: configured address",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2a972972c29b15b875a5f0f9d583e9\n         124e9b004c4449cd94a01b42e1fb3926e0/exec: Conflict (\"container          \n         2a972972c29b15b875a5f0f9d583e9124e9b004c4449cd94a01b42e1fb3926e0 is not\n         running\")"
+    },
+    {
+      "check": "staff02: VLAN gateway reachable",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2a972972c29b15b875a5f0f9d583e9\n         124e9b004c4449cd94a01b42e1fb3926e0/exec: Conflict (\"container          \n         2a972972c29b15b875a5f0f9d583e9124e9b004c4449cd94a01b42e1fb3926e0 is not\n         running\")"
+    },
+    {
+      "check": "staff03: configured address",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/050af79377a66368db72720904c132\n         2895bbb4876fcbe58df236fb5b59b93d65/exec: Conflict (\"container          \n         050af79377a66368db72720904c1322895bbb4876fcbe58df236fb5b59b93d65 is not\n         running\")"
+    },
+    {
+      "check": "staff03: VLAN gateway reachable",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/050af79377a66368db72720904c132\n         2895bbb4876fcbe58df236fb5b59b93d65/exec: Conflict (\"container          \n         050af79377a66368db72720904c1322895bbb4876fcbe58df236fb5b59b93d65 is not\n         running\")"
+    },
+    {
+      "check": "staff04: configured address",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06119ec4f99f278cd0a1ab8c76ecc3\n         cb85b1bb28be50b7f2cd381ac0924ec480/exec: Conflict (\"container          \n         06119ec4f99f278cd0a1ab8c76ecc3cb85b1bb28be50b7f2cd381ac0924ec480 is not\n         running\")"
+    },
+    {
+      "check": "staff04: VLAN gateway reachable",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06119ec4f99f278cd0a1ab8c76ecc3\n         cb85b1bb28be50b7f2cd381ac0924ec480/exec: Conflict (\"container          \n         06119ec4f99f278cd0a1ab8c76ecc3cb85b1bb28be50b7f2cd381ac0924ec480 is not\n         running\")"
+    },
+    {
+      "check": "staff05: configured address",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6ba150d49b00d1f368599d3ab03bb5\n         98fb7ac8e55dfca9eabdbc861be71c47df/exec: Conflict (\"container          \n         6ba150d49b00d1f368599d3ab03bb598fb7ac8e55dfca9eabdbc861be71c47df is not\n         running\")"
+    },
+    {
+      "check": "staff05: VLAN gateway reachable",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6ba150d49b00d1f368599d3ab03bb5\n         98fb7ac8e55dfca9eabdbc861be71c47df/exec: Conflict (\"container          \n         6ba150d49b00d1f368599d3ab03bb598fb7ac8e55dfca9eabdbc861be71c47df is not\n         running\")"
+    },
+    {
+      "check": "staff06: configured address",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f802f707d44c7ccd8e3e0252e01205\n         89ba95a66b76a52567f9985a26fe290201/exec: Conflict (\"container          \n         f802f707d44c7ccd8e3e0252e0120589ba95a66b76a52567f9985a26fe290201 is not\n         running\")"
+    },
+    {
+      "check": "staff06: VLAN gateway reachable",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f802f707d44c7ccd8e3e0252e01205\n         89ba95a66b76a52567f9985a26fe290201/exec: Conflict (\"container          \n         f802f707d44c7ccd8e3e0252e0120589ba95a66b76a52567f9985a26fe290201 is not\n         running\")"
+    },
+    {
+      "check": "guest01: configured address",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1492587d4254c59fe6069334d5bc6\n         4792d87bfd058f3559e6bfb926fb0f1ce5/exec: Conflict (\"container          \n         f1492587d4254c59fe6069334d5bc64792d87bfd058f3559e6bfb926fb0f1ce5 is not\n         running\")"
+    },
+    {
+      "check": "guest01: VLAN gateway reachable",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1492587d4254c59fe6069334d5bc6\n         4792d87bfd058f3559e6bfb926fb0f1ce5/exec: Conflict (\"container          \n         f1492587d4254c59fe6069334d5bc64792d87bfd058f3559e6bfb926fb0f1ce5 is not\n         running\")"
+    },
+    {
+      "check": "guest02: configured address",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/d0a5a57043b35fcd9bb8a2f0e0fe5a\n         b0fe975fb6342935510f476dbc2af59806/exec: Conflict (\"container          \n         d0a5a57043b35fcd9bb8a2f0e0fe5ab0fe975fb6342935510f476dbc2af59806 is not\n         running\")"
+    },
+    {
+      "check": "guest02: VLAN gateway reachable",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/d0a5a57043b35fcd9bb8a2f0e0fe5a\n         b0fe975fb6342935510f476dbc2af59806/exec: Conflict (\"container          \n         d0a5a57043b35fcd9bb8a2f0e0fe5ab0fe975fb6342935510f476dbc2af59806 is not\n         running\")"
+    },
+    {
+      "check": "guest03: configured address",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/eab377722dd35e25e3dfbc9e67a756\n         b477aeebca860806dfe8aa2b3a39879edc/exec: Conflict (\"container          \n         eab377722dd35e25e3dfbc9e67a756b477aeebca860806dfe8aa2b3a39879edc is not\n         running\")"
+    },
+    {
+      "check": "guest03: VLAN gateway reachable",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/eab377722dd35e25e3dfbc9e67a756\n         b477aeebca860806dfe8aa2b3a39879edc/exec: Conflict (\"container          \n         eab377722dd35e25e3dfbc9e67a756b477aeebca860806dfe8aa2b3a39879edc is not\n         running\")"
+    },
+    {
+      "check": "guest04: configured address",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f28fc557d4583d3dbd004a5370762b\n         591ba1d30e144324d714f3e2c8c63a3a7d/exec: Conflict (\"container          \n         f28fc557d4583d3dbd004a5370762b591ba1d30e144324d714f3e2c8c63a3a7d is not\n         running\")"
+    },
+    {
+      "check": "guest04: VLAN gateway reachable",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f28fc557d4583d3dbd004a5370762b\n         591ba1d30e144324d714f3e2c8c63a3a7d/exec: Conflict (\"container          \n         f28fc557d4583d3dbd004a5370762b591ba1d30e144324d714f3e2c8c63a3a7d is not\n         running\")"
+    },
+    {
+      "check": "guest05: configured address",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f6423aff88a5052c5157581f433434\n         ead6dcf9db785b801822e8d95a0b47959f/exec: Conflict (\"container          \n         f6423aff88a5052c5157581f433434ead6dcf9db785b801822e8d95a0b47959f is not\n         running\")"
+    },
+    {
+      "check": "guest05: VLAN gateway reachable",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f6423aff88a5052c5157581f433434\n         ead6dcf9db785b801822e8d95a0b47959f/exec: Conflict (\"container          \n         f6423aff88a5052c5157581f433434ead6dcf9db785b801822e8d95a0b47959f is not\n         running\")"
+    },
+    {
+      "check": "office01: configured address",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bb4fc99465f64f0b076386e51e52b9\n         6052b42c3e6a9b84de15d9ebdf9be19171/exec: Conflict (\"container          \n         bb4fc99465f64f0b076386e51e52b96052b42c3e6a9b84de15d9ebdf9be19171 is not\n         running\")"
+    },
+    {
+      "check": "office01: VLAN gateway reachable",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bb4fc99465f64f0b076386e51e52b9\n         6052b42c3e6a9b84de15d9ebdf9be19171/exec: Conflict (\"container          \n         bb4fc99465f64f0b076386e51e52b96052b42c3e6a9b84de15d9ebdf9be19171 is not\n         running\")"
+    },
+    {
+      "check": "office02: configured address",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/92ddcdcbc604894a7e3e81cbb7d9c4\n         e432b3dac73b285db517b67d2734702c5d/exec: Conflict (\"container          \n         92ddcdcbc604894a7e3e81cbb7d9c4e432b3dac73b285db517b67d2734702c5d is not\n         running\")"
+    },
+    {
+      "check": "office02: VLAN gateway reachable",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/92ddcdcbc604894a7e3e81cbb7d9c4\n         e432b3dac73b285db517b67d2734702c5d/exec: Conflict (\"container          \n         92ddcdcbc604894a7e3e81cbb7d9c4e432b3dac73b285db517b67d2734702c5d is not\n         running\")"
+    },
+    {
+      "check": "office03: configured address",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/21a0c85b7eb255e8a1f9053f7951ed\n         aa5667b9262fb9eb45e55a3e44d94af854/exec: Conflict (\"container          \n         21a0c85b7eb255e8a1f9053f7951edaa5667b9262fb9eb45e55a3e44d94af854 is not\n         running\")"
+    },
+    {
+      "check": "office03: VLAN gateway reachable",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/21a0c85b7eb255e8a1f9053f7951ed\n         aa5667b9262fb9eb45e55a3e44d94af854/exec: Conflict (\"container          \n         21a0c85b7eb255e8a1f9053f7951edaa5667b9262fb9eb45e55a3e44d94af854 is not\n         running\")"
+    },
+    {
+      "check": "office04: configured address",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/194c2c324d4c14b52655d3f5bfd7fe\n         828dad02c21063d4187bfd723a9666bfea/exec: Conflict (\"container          \n         194c2c324d4c14b52655d3f5bfd7fe828dad02c21063d4187bfd723a9666bfea is not\n         running\")"
+    },
+    {
+      "check": "office04: VLAN gateway reachable",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/194c2c324d4c14b52655d3f5bfd7fe\n         828dad02c21063d4187bfd723a9666bfea/exec: Conflict (\"container          \n         194c2c324d4c14b52655d3f5bfd7fe828dad02c21063d4187bfd723a9666bfea is not\n         running\")"
+    },
+    {
+      "check": "office05: configured address",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c172bc209a760ca64fe6164d34ae61\n         1ba93fe1b48315f10b75fe11a8da65c777/exec: Conflict (\"container          \n         c172bc209a760ca64fe6164d34ae611ba93fe1b48315f10b75fe11a8da65c777 is not\n         running\")"
+    },
+    {
+      "check": "office05: VLAN gateway reachable",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c172bc209a760ca64fe6164d34ae61\n         1ba93fe1b48315f10b75fe11a8da65c777/exec: Conflict (\"container          \n         c172bc209a760ca64fe6164d34ae611ba93fe1b48315f10b75fe11a8da65c777 is not\n         running\")"
+    },
+    {
+      "check": "engineering01: configured address",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/71981fe69a88510b1acc33cadcd252\n         365ab3df62472ffe5a884bb2a557d154fa/exec: Conflict (\"container          \n         71981fe69a88510b1acc33cadcd252365ab3df62472ffe5a884bb2a557d154fa is not\n         running\")"
+    },
+    {
+      "check": "engineering01: VLAN gateway reachable",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/71981fe69a88510b1acc33cadcd252\n         365ab3df62472ffe5a884bb2a557d154fa/exec: Conflict (\"container          \n         71981fe69a88510b1acc33cadcd252365ab3df62472ffe5a884bb2a557d154fa is not\n         running\")"
+    },
+    {
+      "check": "engineering02: configured address",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/434ab66b73de61026c5d3bd8cc995a\n         b54ea7229a19a886b919283ea4e1691588/exec: Conflict (\"container          \n         434ab66b73de61026c5d3bd8cc995ab54ea7229a19a886b919283ea4e1691588 is not\n         running\")"
+    },
+    {
+      "check": "engineering02: VLAN gateway reachable",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/434ab66b73de61026c5d3bd8cc995a\n         b54ea7229a19a886b919283ea4e1691588/exec: Conflict (\"container          \n         434ab66b73de61026c5d3bd8cc995ab54ea7229a19a886b919283ea4e1691588 is not\n         running\")"
+    },
+    {
+      "check": "engineering03: configured address",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cc171ca3da9aed03ee95a5c6bdfd97\n         cb5148b8d21b1c986d20b5a732b7aeed05/exec: Conflict (\"container          \n         cc171ca3da9aed03ee95a5c6bdfd97cb5148b8d21b1c986d20b5a732b7aeed05 is not\n         running\")"
+    },
+    {
+      "check": "engineering03: VLAN gateway reachable",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cc171ca3da9aed03ee95a5c6bdfd97\n         cb5148b8d21b1c986d20b5a732b7aeed05/exec: Conflict (\"container          \n         cc171ca3da9aed03ee95a5c6bdfd97cb5148b8d21b1c986d20b5a732b7aeed05 is not\n         running\")"
+    },
+    {
+      "check": "engineering04: configured address",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/ce5fa6197be68a3d08bab4aeead918\n         9bcca8486aa7f38f4368efcc574109a682/exec: Conflict (\"container          \n         ce5fa6197be68a3d08bab4aeead9189bcca8486aa7f38f4368efcc574109a682 is not\n         running\")"
+    },
+    {
+      "check": "engineering04: VLAN gateway reachable",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/ce5fa6197be68a3d08bab4aeead918\n         9bcca8486aa7f38f4368efcc574109a682/exec: Conflict (\"container          \n         ce5fa6197be68a3d08bab4aeead9189bcca8486aa7f38f4368efcc574109a682 is not\n         running\")"
+    },
+    {
+      "check": "engineering05: configured address",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/70065dc808777a24b9364941d14d3b\n         e147e4c831b450ed5d1dceff3f39442b07/exec: Conflict (\"container          \n         70065dc808777a24b9364941d14d3be147e4c831b450ed5d1dceff3f39442b07 is not\n         running\")"
+    },
+    {
+      "check": "engineering05: VLAN gateway reachable",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/70065dc808777a24b9364941d14d3b\n         e147e4c831b450ed5d1dceff3f39442b07/exec: Conflict (\"container          \n         70065dc808777a24b9364941d14d3be147e4c831b450ed5d1dceff3f39442b07 is not\n         running\")"
+    },
+    {
+      "check": "app_client01: configured address",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/31c1f4fc00fb06b0bf8938dd3ba36f\n         b136097c8bf8e932a6c63d75324d54164b/exec: Conflict (\"container          \n         31c1f4fc00fb06b0bf8938dd3ba36fb136097c8bf8e932a6c63d75324d54164b is not\n         running\")"
+    },
+    {
+      "check": "app_client01: VLAN gateway reachable",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/31c1f4fc00fb06b0bf8938dd3ba36f\n         b136097c8bf8e932a6c63d75324d54164b/exec: Conflict (\"container          \n         31c1f4fc00fb06b0bf8938dd3ba36fb136097c8bf8e932a6c63d75324d54164b is not\n         running\")"
+    },
+    {
+      "check": "app_client02: configured address",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a96207a3a7f26ba06603ae1a176a89\n         7cfdb88d6b3ebaa3461532cd3738e3e499/exec: Conflict (\"container          \n         a96207a3a7f26ba06603ae1a176a897cfdb88d6b3ebaa3461532cd3738e3e499 is not\n         running\")"
+    },
+    {
+      "check": "app_client02: VLAN gateway reachable",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a96207a3a7f26ba06603ae1a176a89\n         7cfdb88d6b3ebaa3461532cd3738e3e499/exec: Conflict (\"container          \n         a96207a3a7f26ba06603ae1a176a897cfdb88d6b3ebaa3461532cd3738e3e499 is not\n         running\")"
+    },
+    {
+      "check": "app_client03: configured address",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c6539b09918b07f2b6c7213b35649c\n         569be28ed52310c51523bbcfa2981eaa5a/exec: Conflict (\"container          \n         c6539b09918b07f2b6c7213b35649c569be28ed52310c51523bbcfa2981eaa5a is not\n         running\")"
+    },
+    {
+      "check": "app_client03: VLAN gateway reachable",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c6539b09918b07f2b6c7213b35649c\n         569be28ed52310c51523bbcfa2981eaa5a/exec: Conflict (\"container          \n         c6539b09918b07f2b6c7213b35649c569be28ed52310c51523bbcfa2981eaa5a is not\n         running\")"
+    },
+    {
+      "check": "app_client04: configured address",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2dfaa4b1d9852893c461ad00821eae\n         3d88db479bfbfc5baf37f36feb115b18e6/exec: Conflict (\"container          \n         2dfaa4b1d9852893c461ad00821eae3d88db479bfbfc5baf37f36feb115b18e6 is not\n         running\")"
+    },
+    {
+      "check": "app_client04: VLAN gateway reachable",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/2dfaa4b1d9852893c461ad00821eae\n         3d88db479bfbfc5baf37f36feb115b18e6/exec: Conflict (\"container          \n         2dfaa4b1d9852893c461ad00821eae3d88db479bfbfc5baf37f36feb115b18e6 is not\n         running\")"
+    },
+    {
+      "check": "app_client05: configured address",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1d27a7e78869e417c2bda781d97f4\n         6c69e9f73927f86e46801d71bb96a1e02b/exec: Conflict (\"container          \n         f1d27a7e78869e417c2bda781d97f46c69e9f73927f86e46801d71bb96a1e02b is not\n         running\")"
+    },
+    {
+      "check": "app_client05: VLAN gateway reachable",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f1d27a7e78869e417c2bda781d97f4\n         6c69e9f73927f86e46801d71bb96a1e02b/exec: Conflict (\"container          \n         f1d27a7e78869e417c2bda781d97f46c69e9f73927f86e46801d71bb96a1e02b is not\n         running\")"
+    },
+    {
+      "check": "db_client01: configured address",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/26d3185615c66374e15c80356dacff\n         312dcf02d84047ce4ac86a3ea3235840c1/exec: Conflict (\"container          \n         26d3185615c66374e15c80356dacff312dcf02d84047ce4ac86a3ea3235840c1 is not\n         running\")"
+    },
+    {
+      "check": "db_client01: VLAN gateway reachable",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/26d3185615c66374e15c80356dacff\n         312dcf02d84047ce4ac86a3ea3235840c1/exec: Conflict (\"container          \n         26d3185615c66374e15c80356dacff312dcf02d84047ce4ac86a3ea3235840c1 is not\n         running\")"
+    },
+    {
+      "check": "db_client02: configured address",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e67360e14f0170a321ea59bf174d43\n         35a8e36506c5307b5a790896bc90ceb320/exec: Conflict (\"container          \n         e67360e14f0170a321ea59bf174d4335a8e36506c5307b5a790896bc90ceb320 is not\n         running\")"
+    },
+    {
+      "check": "db_client02: VLAN gateway reachable",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e67360e14f0170a321ea59bf174d43\n         35a8e36506c5307b5a790896bc90ceb320/exec: Conflict (\"container          \n         e67360e14f0170a321ea59bf174d4335a8e36506c5307b5a790896bc90ceb320 is not\n         running\")"
+    },
+    {
+      "check": "db_client03: configured address",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/457b7dee9b94cbcbffa056fe60dc08\n         3402ed24043d838ab376aee9f810101ea7/exec: Conflict (\"container          \n         457b7dee9b94cbcbffa056fe60dc083402ed24043d838ab376aee9f810101ea7 is not\n         running\")"
+    },
+    {
+      "check": "db_client03: VLAN gateway reachable",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/457b7dee9b94cbcbffa056fe60dc08\n         3402ed24043d838ab376aee9f810101ea7/exec: Conflict (\"container          \n         457b7dee9b94cbcbffa056fe60dc083402ed24043d838ab376aee9f810101ea7 is not\n         running\")"
+    },
+    {
+      "check": "db_client04: configured address",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/aa652097e5530b3f5a6abcdfb3fc20\n         4307123bfbe5ff9b1db8c2f2f0b483fb5c/exec: Conflict (\"container          \n         aa652097e5530b3f5a6abcdfb3fc204307123bfbe5ff9b1db8c2f2f0b483fb5c is not\n         running\")"
+    },
+    {
+      "check": "db_client04: VLAN gateway reachable",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/aa652097e5530b3f5a6abcdfb3fc20\n         4307123bfbe5ff9b1db8c2f2f0b483fb5c/exec: Conflict (\"container          \n         aa652097e5530b3f5a6abcdfb3fc204307123bfbe5ff9b1db8c2f2f0b483fb5c is not\n         running\")"
+    },
+    {
+      "check": "db_client05: configured address",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06391c4883d32d91656d5e0a17f179\n         174212ec923c52d6e66445029b7464b12d/exec: Conflict (\"container          \n         06391c4883d32d91656d5e0a17f179174212ec923c52d6e66445029b7464b12d is not\n         running\")"
+    },
+    {
+      "check": "db_client05: VLAN gateway reachable",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/06391c4883d32d91656d5e0a17f179\n         174212ec923c52d6e66445029b7464b12d/exec: Conflict (\"container          \n         06391c4883d32d91656d5e0a17f179174212ec923c52d6e66445029b7464b12d is not\n         running\")"
+    },
+    {
+      "check": "staff: application HTTP",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/52a53b50f32eb1b6b528a8bd769984\n         07e1101c0dca72a45b08483cac3c92dc00/exec: Conflict (\"container          \n         52a53b50f32eb1b6b528a8bd76998407e1101c0dca72a45b08483cac3c92dc00 is not\n         running\")"
+    },
+    {
+      "check": "office: application HTTP",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3f2826f339e6dbb108472ac4097a80\n         81f8ac9f45d55ffec61c4c7fc356994057/exec: Conflict (\"container          \n         3f2826f339e6dbb108472ac4097a8081f8ac9f45d55ffec61c4c7fc356994057 is not\n         running\")"
+    },
+    {
+      "check": "engineering: application HTTP",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/79f200ec2551d64b4147b7e4f41b07\n         726d71f0d2f1c660f8f8ed8a60212c3e66/exec: Conflict (\"container          \n         79f200ec2551d64b4147b7e4f41b07726d71f0d2f1c660f8f8ed8a60212c3e66 is not\n         running\")"
+    },
+    {
+      "check": "ops: application HTTP",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/449c143bba9a9c873377ac6416fff3\n         4dcc8c64a4eb73e5687dee0cc1d6c29e59/exec: Conflict (\"container          \n         449c143bba9a9c873377ac6416fff34dcc8c64a4eb73e5687dee0cc1d6c29e59 is not\n         running\")"
+    },
+    {
+      "check": "guest: DMZ allowed",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/baac7b13dc874a2286201724a44f9f\n         38be6f6809c277e57e47181ca38d875758/exec: Conflict (\"container          \n         baac7b13dc874a2286201724a44f9f38be6f6809c277e57e47181ca38d875758 is not\n         running\")"
+    },
+    {
+      "check": "guest: internal application denied",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/baac7b13dc874a2286201724a44f9f\n         38be6f6809c277e57e47181ca38d875758/exec: Conflict (\"container          \n         baac7b13dc874a2286201724a44f9f38be6f6809c277e57e47181ca38d875758 is not\n         running\")"
+    },
+    {
+      "check": "office: direct database denied",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/3f2826f339e6dbb108472ac4097a80\n         81f8ac9f45d55ffec61c4c7fc356994057/exec: Conflict (\"container          \n         3f2826f339e6dbb108472ac4097a8081f8ac9f45d55ffec61c4c7fc356994057 is not\n         running\")"
+    },
+    {
+      "check": "application: database allowed",
+      "node": "app",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/e1d735f254969b7dc762a3407de525\n         1fee10ea81bbd98d64da2a79e093c00494/exec: Conflict (\"container          \n         e1d735f254969b7dc762a3407de5251fee10ea81bbd98d64da2a79e093c00494 is not\n         running\")"
+    },
+    {
+      "check": "ops: database allowed",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/449c143bba9a9c873377ac6416fff3\n         4dcc8c64a4eb73e5687dee0cc1d6c29e59/exec: Conflict (\"container          \n         449c143bba9a9c873377ac6416fff34dcc8c64a4eb73e5687dee0cc1d6c29e59 is not\n         running\")"
+    },
+    {
+      "check": "ops: all router loopbacks reachable",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/449c143bba9a9c873377ac6416fff3\n         4dcc8c64a4eb73e5687dee0cc1d6c29e59/exec: Conflict (\"container          \n         449c143bba9a9c873377ac6416fff34dcc8c64a4eb73e5687dee0cc1d6c29e59 is not\n         running\")"
+    },
+    {
+      "check": "r3: VRRP process",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dbbad2321e322f82fd9060a9c52668\n         444bf786df350d04df2768647b8819334f/exec: Conflict (\"container          \n         dbbad2321e322f82fd9060a9c52668444bf786df350d04df2768647b8819334f is not\n         running\")"
+    },
+    {
+      "check": "r4: VRRP process",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cb9d8b221d9e4fa1bfef2b5f8df04d\n         826a19922b0f602e36f087bb68a1f13505/exec: Conflict (\"container          \n         cb9d8b221d9e4fa1bfef2b5f8df04d826a19922b0f602e36f087bb68a1f13505 is not\n         running\")"
+    },
+    {
+      "check": "r3: virtual gateway ownership",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dbbad2321e322f82fd9060a9c52668\n         444bf786df350d04df2768647b8819334f/exec: Conflict (\"container          \n         dbbad2321e322f82fd9060a9c52668444bf786df350d04df2768647b8819334f is not\n         running\")"
+    },
+    {
+      "check": "r4: virtual gateway ownership",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/cb9d8b221d9e4fa1bfef2b5f8df04d\n         826a19922b0f602e36f087bb68a1f13505/exec: Conflict (\"container          \n         cb9d8b221d9e4fa1bfef2b5f8df04d826a19922b0f602e36f087bb68a1f13505 is not\n         running\")"
+    },
+    {
+      "check": "r5: VRRP process",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6059c7d6ea514e609b5b0c6ac1c1ab\n         1ee20ba9f4ee84761f7ef11a625ec6b314/exec: Conflict (\"container          \n         6059c7d6ea514e609b5b0c6ac1c1ab1ee20ba9f4ee84761f7ef11a625ec6b314 is not\n         running\")"
+    },
+    {
+      "check": "r6: VRRP process",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5f804f0c5301064ab9edbfebe440fc\n         6a5185a5eaaf771d5f94b0c81fe7bbd536/exec: Conflict (\"container          \n         5f804f0c5301064ab9edbfebe440fc6a5185a5eaaf771d5f94b0c81fe7bbd536 is not\n         running\")"
+    },
+    {
+      "check": "r5: virtual gateway ownership",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/6059c7d6ea514e609b5b0c6ac1c1ab\n         1ee20ba9f4ee84761f7ef11a625ec6b314/exec: Conflict (\"container          \n         6059c7d6ea514e609b5b0c6ac1c1ab1ee20ba9f4ee84761f7ef11a625ec6b314 is not\n         running\")"
+    },
+    {
+      "check": "r6: virtual gateway ownership",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5f804f0c5301064ab9edbfebe440fc\n         6a5185a5eaaf771d5f94b0c81fe7bbd536/exec: Conflict (\"container          \n         5f804f0c5301064ab9edbfebe440fc6a5185a5eaaf771d5f94b0c81fe7bbd536 is not\n         running\")"
+    },
+    {
+      "check": "r7: VRRP process",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8076085a776c76f5772d18e4569b43\n         e322fa98b0cb0d117ab345a321891e8422/exec: Conflict (\"container          \n         8076085a776c76f5772d18e4569b43e322fa98b0cb0d117ab345a321891e8422 is not\n         running\")"
+    },
+    {
+      "check": "r8: VRRP process",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f5acb046d48b079de86266204b18a5\n         9240fc7837e41848550df4f46409b964c2/exec: Conflict (\"container          \n         f5acb046d48b079de86266204b18a59240fc7837e41848550df4f46409b964c2 is not\n         running\")"
+    },
+    {
+      "check": "r7: virtual gateway ownership",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8076085a776c76f5772d18e4569b43\n         e322fa98b0cb0d117ab345a321891e8422/exec: Conflict (\"container          \n         8076085a776c76f5772d18e4569b43e322fa98b0cb0d117ab345a321891e8422 is not\n         running\")"
+    },
+    {
+      "check": "r8: virtual gateway ownership",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/f5acb046d48b079de86266204b18a5\n         9240fc7837e41848550df4f46409b964c2/exec: Conflict (\"container          \n         f5acb046d48b079de86266204b18a59240fc7837e41848550df4f46409b964c2 is not\n         running\")"
+    },
+    {
+      "check": "r9: VRRP process",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b191e16d6ee247d4577a16ed7d9ab5\n         7c51c30b7f10c65d32a498aceb89fbfda6/exec: Conflict (\"container          \n         b191e16d6ee247d4577a16ed7d9ab57c51c30b7f10c65d32a498aceb89fbfda6 is not\n         running\")"
+    },
+    {
+      "check": "r10: VRRP process",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/935b9d377cd560d1364f008683eaa4\n         6f3f42b4f58b5017a23543d88bf0e4c8d3/exec: Conflict (\"container          \n         935b9d377cd560d1364f008683eaa46f3f42b4f58b5017a23543d88bf0e4c8d3 is not\n         running\")"
+    },
+    {
+      "check": "r9: virtual gateway ownership",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b191e16d6ee247d4577a16ed7d9ab5\n         7c51c30b7f10c65d32a498aceb89fbfda6/exec: Conflict (\"container          \n         b191e16d6ee247d4577a16ed7d9ab57c51c30b7f10c65d32a498aceb89fbfda6 is not\n         running\")"
+    },
+    {
+      "check": "r10: virtual gateway ownership",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/935b9d377cd560d1364f008683eaa4\n         6f3f42b4f58b5017a23543d88bf0e4c8d3/exec: Conflict (\"container          \n         935b9d377cd560d1364f008683eaa46f3f42b4f58b5017a23543d88bf0e4c8d3 is not\n         running\")"
+    },
+    {
+      "check": "s3: redundant STP port blocked",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/11dea963973181d03f245a8b130966\n         399c0252f444f283f72ad9665b3102db4c/exec: Conflict (\"container          \n         11dea963973181d03f245a8b130966399c0252f444f283f72ad9665b3102db4c is not\n         running\")"
+    },
+    {
+      "check": "s4: redundant STP port blocked",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/13c42d2bca03f81ba68e752c215e30\n         23dcc5f7409b5f333f46b02baceb41fa75/exec: Conflict (\"container          \n         13c42d2bca03f81ba68e752c215e3023dcc5f7409b5f333f46b02baceb41fa75 is not\n         running\")"
+    },
+    {
+      "check": "s7: redundant STP port blocked",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/bdc2ac11579774df721169e50245ed\n         1c583b9b97125108ddc6b9ea59da4a85e3/exec: Conflict (\"container          \n         bdc2ac11579774df721169e50245ed1c583b9b97125108ddc6b9ea59da4a85e3 is not\n         running\")"
+    },
+    {
+      "check": "s8: redundant STP port blocked",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/9b62d83b14e9a01ac486a5b70a3a22\n         bbd5bbbbaed528c282fb15a1f6a285d742/exec: Conflict (\"container          \n         9b62d83b14e9a01ac486a5b70a3a22bbd5bbbbaed528c282fb15a1f6a285d742 is not\n         running\")"
+    },
+    {
+      "check": "s11: redundant STP port blocked",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/b6561051471f90b4029d86af94a2df\n         6ab9965989d075099acf7a8fda61d484eb/exec: Conflict (\"container          \n         b6561051471f90b4029d86af94a2df6ab9965989d075099acf7a8fda61d484eb is not\n         running\")"
+    },
+    {
+      "check": "s12: redundant STP port blocked",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a2763ac2a3b63875adf5f2d8872625\n         bc18de5c13476d8d3dd8ba3196191174e0/exec: Conflict (\"container          \n         a2763ac2a3b63875adf5f2d8872625bc18de5c13476d8d3dd8ba3196191174e0 is not\n         running\")"
+    },
+    {
+      "check": "s16: redundant STP port blocked",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/4c925682e70f2a056a4872e7b5a669\n         22c4dbf58a0272bba457c24f7b0bac054a/exec: Conflict (\"container          \n         4c925682e70f2a056a4872e7b5a66922c4dbf58a0272bba457c24f7b0bac054a is not\n         running\")"
+    },
+    {
+      "check": "s17: redundant STP port blocked",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/8c5433993cd49ff23bdef0cd74fd2b\n         29f48a14591c825cd2e116702c7c70f0e2/exec: Conflict (\"container          \n         8c5433993cd49ff23bdef0cd74fd2b29f48a14591c825cd2e116702c7c70f0e2 is not\n         running\")"
+    },
+    {
+      "check": "s18: redundant STP port blocked",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/a95e1f0849ccac302497c740e147ab\n         5f5dd9898a21a35621173890df380af619/exec: Conflict (\"container          \n         a95e1f0849ccac302497c740e147ab5f5dd9898a21a35621173890df380af619 is not\n         running\")"
+    },
+    {
+      "check": "s19: redundant STP port blocked",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/dd4dd629805cb659f6daca9e0cf298\n         15bb96aa4265ee281892e0790d41901d61/exec: Conflict (\"container          \n         dd4dd629805cb659f6daca9e0cf29815bb96aa4265ee281892e0790d41901d61 is not\n         running\")"
+    },
+    {
+      "check": "s20: redundant STP port blocked",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/721cc53b029d6b2280fa4d3166be59\n         0b8f94e6d647a2034c39e0c6839eee76a8/exec: Conflict (\"container          \n         721cc53b029d6b2280fa4d3166be590b8f94e6d647a2034c39e0c6839eee76a8 is not\n         running\")"
+    },
+    {
+      "check": "s21: redundant STP port blocked",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/5ad98a063e7ff1f90194d7c8bd1ad0\n         fc2177044618fd430fdd026358b0582b6a/exec: Conflict (\"container          \n         5ad98a063e7ff1f90194d7c8bd1ad0fc2177044618fd430fdd026358b0582b6a is not\n         running\")"
+    },
+    {
+      "check": "s22: redundant STP port blocked",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c62cd9a4617533ef06fd5d94b0e051\n         5e05108783c8aa11b8fc7726d7c71645c7/exec: Conflict (\"container          \n         c62cd9a4617533ef06fd5d94b0e0515e05108783c8aa11b8fc7726d7c71645c7 is not\n         running\")"
+    },
+    {
+      "check": "s23: redundant STP port blocked",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c7663fbb4a0d878777d58c234296be\n         48472bfa08e61350e579279c85396e357e/exec: Conflict (\"container          \n         c7663fbb4a0d878777d58c234296be48472bfa08e61350e579279c85396e357e is not\n         running\")"
+    },
+    {
+      "check": "s24: redundant STP port blocked",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/c4f78a30a27e4f045edc3120fb0740\n         a74916e766ddcf1cf9d72bdb5cb4b6f3c2/exec: Conflict (\"container          \n         c4f78a30a27e4f045edc3120fb0740a74916e766ddcf1cf9d72bdb5cb4b6f3c2 is not\n         running\")"
+    },
+    {
+      "check": "s25: redundant STP port blocked",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (APIError) 409 Client Error for                                        \n         http+docker://localhost/v1.55/containers/95dbe0a52e3e517a2fce6396048315\n         183208e3150b79d9e56051ab8f1bb2cf20/exec: Conflict (\"container          \n         95dbe0a52e3e517a2fce6396048315183208e3150b79d9e56051ab8f1bb2cf20 is not\n         running\")"
+    }
+  ]
+}

@@ -1,0 +1,1338 @@
+{
+  "timestamp": "2026-10-16T06:01:21.209637+00:00",
+  "passed": false,
+  "checks": [
+    {
+      "check": "r1: startup",
+      "node": "r1",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r2: startup",
+      "node": "r2",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r3: startup",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r4: startup",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r5: startup",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r6: startup",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r7: startup",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r8: startup",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r9: startup",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r10: startup",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s1: startup",
+      "node": "s1",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s2: startup",
+      "node": "s2",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s3: startup",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s4: startup",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s5: startup",
+      "node": "s5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s6: startup",
+      "node": "s6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s7: startup",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s8: startup",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s9: startup",
+      "node": "s9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s10: startup",
+      "node": "s10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s11: startup",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s12: startup",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s13: startup",
+      "node": "s13",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s14: startup",
+      "node": "s14",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s15: startup",
+      "node": "s15",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s16: startup",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s17: startup",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s18: startup",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s19: startup",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s20: startup",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s21: startup",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s22: startup",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s23: startup",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s24: startup",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s25: startup",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff: startup",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest: startup",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office: startup",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering: startup",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app: startup",
+      "node": "app",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "database: startup",
+      "node": "database",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "dmz: startup",
+      "node": "dmz",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "infra: startup",
+      "node": "infra",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "ops: startup",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff01: startup",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff02: startup",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff03: startup",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff04: startup",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff05: startup",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff06: startup",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest01: startup",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest02: startup",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest03: startup",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest04: startup",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest05: startup",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office01: startup",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office02: startup",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office03: startup",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office04: startup",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office05: startup",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering01: startup",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering02: startup",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering03: startup",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering04: startup",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering05: startup",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client01: startup",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client02: startup",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client03: startup",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client04: startup",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client05: startup",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client01: startup",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client02: startup",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client03: startup",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client04: startup",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client05: startup",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r1: all OSPF neighbors Full",
+      "node": "r1",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r2: all OSPF neighbors Full",
+      "node": "r2",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r3: all OSPF neighbors Full",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r4: all OSPF neighbors Full",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r5: all OSPF neighbors Full",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r6: all OSPF neighbors Full",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r7: all OSPF neighbors Full",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r8: all OSPF neighbors Full",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r9: all OSPF neighbors Full",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r10: all OSPF neighbors Full",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s1: VLAN-aware STP bridge",
+      "node": "s1",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s2: VLAN-aware STP bridge",
+      "node": "s2",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s3: VLAN-aware STP bridge",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s4: VLAN-aware STP bridge",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s5: VLAN-aware STP bridge",
+      "node": "s5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s6: VLAN-aware STP bridge",
+      "node": "s6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s7: VLAN-aware STP bridge",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s8: VLAN-aware STP bridge",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s9: VLAN-aware STP bridge",
+      "node": "s9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s10: VLAN-aware STP bridge",
+      "node": "s10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s11: VLAN-aware STP bridge",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s12: VLAN-aware STP bridge",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s13: VLAN-aware STP bridge",
+      "node": "s13",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s14: VLAN-aware STP bridge",
+      "node": "s14",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s15: VLAN-aware STP bridge",
+      "node": "s15",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s16: VLAN-aware STP bridge",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s17: VLAN-aware STP bridge",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s18: VLAN-aware STP bridge",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s19: VLAN-aware STP bridge",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s20: VLAN-aware STP bridge",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s21: VLAN-aware STP bridge",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s22: VLAN-aware STP bridge",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s23: VLAN-aware STP bridge",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s24: VLAN-aware STP bridge",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s25: VLAN-aware STP bridge",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff: DHCP lease",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff: DNS answer",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest: DHCP lease",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest: DNS answer",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office: DHCP lease",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office: DNS answer",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering: DHCP lease",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering: DNS answer",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff01: configured address",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff01: VLAN gateway reachable",
+      "node": "staff01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff02: configured address",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff02: VLAN gateway reachable",
+      "node": "staff02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff03: configured address",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff03: VLAN gateway reachable",
+      "node": "staff03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff04: configured address",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff04: VLAN gateway reachable",
+      "node": "staff04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff05: configured address",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff05: VLAN gateway reachable",
+      "node": "staff05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff06: configured address",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff06: VLAN gateway reachable",
+      "node": "staff06",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest01: configured address",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest01: VLAN gateway reachable",
+      "node": "guest01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest02: configured address",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest02: VLAN gateway reachable",
+      "node": "guest02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest03: configured address",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest03: VLAN gateway reachable",
+      "node": "guest03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest04: configured address",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest04: VLAN gateway reachable",
+      "node": "guest04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest05: configured address",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest05: VLAN gateway reachable",
+      "node": "guest05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office01: configured address",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office01: VLAN gateway reachable",
+      "node": "office01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office02: configured address",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office02: VLAN gateway reachable",
+      "node": "office02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office03: configured address",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office03: VLAN gateway reachable",
+      "node": "office03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office04: configured address",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office04: VLAN gateway reachable",
+      "node": "office04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office05: configured address",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office05: VLAN gateway reachable",
+      "node": "office05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering01: configured address",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering01: VLAN gateway reachable",
+      "node": "engineering01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering02: configured address",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering02: VLAN gateway reachable",
+      "node": "engineering02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering03: configured address",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering03: VLAN gateway reachable",
+      "node": "engineering03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering04: configured address",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering04: VLAN gateway reachable",
+      "node": "engineering04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering05: configured address",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering05: VLAN gateway reachable",
+      "node": "engineering05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client01: configured address",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client01: VLAN gateway reachable",
+      "node": "app_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client02: configured address",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client02: VLAN gateway reachable",
+      "node": "app_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client03: configured address",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client03: VLAN gateway reachable",
+      "node": "app_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client04: configured address",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client04: VLAN gateway reachable",
+      "node": "app_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client05: configured address",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "app_client05: VLAN gateway reachable",
+      "node": "app_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client01: configured address",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client01: VLAN gateway reachable",
+      "node": "db_client01",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client02: configured address",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client02: VLAN gateway reachable",
+      "node": "db_client02",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client03: configured address",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client03: VLAN gateway reachable",
+      "node": "db_client03",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client04: configured address",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client04: VLAN gateway reachable",
+      "node": "db_client04",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client05: configured address",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "db_client05: VLAN gateway reachable",
+      "node": "db_client05",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "staff: application HTTP",
+      "node": "staff",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office: application HTTP",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "engineering: application HTTP",
+      "node": "engineering",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "ops: application HTTP",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest: DMZ allowed",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "guest: internal application denied",
+      "node": "guest",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "office: direct database denied",
+      "node": "office",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "application: database allowed",
+      "node": "app",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "ops: database allowed",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "ops: all router loopbacks reachable",
+      "node": "ops",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r3: VRRP process",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r4: VRRP process",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r3: virtual gateway ownership",
+      "node": "r3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r4: virtual gateway ownership",
+      "node": "r4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r5: VRRP process",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r6: VRRP process",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r5: virtual gateway ownership",
+      "node": "r5",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r6: virtual gateway ownership",
+      "node": "r6",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r7: VRRP process",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r8: VRRP process",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r7: virtual gateway ownership",
+      "node": "r7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r8: virtual gateway ownership",
+      "node": "r8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r9: VRRP process",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r10: VRRP process",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r9: virtual gateway ownership",
+      "node": "r9",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "r10: virtual gateway ownership",
+      "node": "r10",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s3: redundant STP port blocked",
+      "node": "s3",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s4: redundant STP port blocked",
+      "node": "s4",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s7: redundant STP port blocked",
+      "node": "s7",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s8: redundant STP port blocked",
+      "node": "s8",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s11: redundant STP port blocked",
+      "node": "s11",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s12: redundant STP port blocked",
+      "node": "s12",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s16: redundant STP port blocked",
+      "node": "s16",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s17: redundant STP port blocked",
+      "node": "s17",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s18: redundant STP port blocked",
+      "node": "s18",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s19: redundant STP port blocked",
+      "node": "s19",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s20: redundant STP port blocked",
+      "node": "s20",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s21: redundant STP port blocked",
+      "node": "s21",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s22: redundant STP port blocked",
+      "node": "s22",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s23: redundant STP port blocked",
+      "node": "s23",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s24: redundant STP port blocked",
+      "node": "s24",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    },
+    {
+      "check": "s25: redundant STP port blocked",
+      "node": "s25",
+      "passed": false,
+      "output": "CRITICAL (DockerDaemonConnectionError) Cannot connect to Docker Daemon, this may\n         indicate that it is not running. Error while fetching server API       \n         version: ('Connection aborted.', PermissionError(1, 'Operation not     \n         permitted'))"
+    }
+  ]
+}
