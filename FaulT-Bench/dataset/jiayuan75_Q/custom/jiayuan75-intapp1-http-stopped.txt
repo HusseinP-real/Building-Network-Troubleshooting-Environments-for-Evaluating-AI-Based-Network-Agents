@@ -1,0 +1,63 @@
+Scenario: jiayuan75-intapp1-http-stopped
+Topology: Kath5_Jiayuan_75Devices
+Validation: strict
+Fault family: HTTP application process stopped
+
+[PROMPT-TO-AGENT]
+The internal application no longer opens. Name resolution and ping to its server still work, and the DMZ website is available. Diagnose and propose a fix.
+
+[PRE-CHECK]
+a1  dig @192.168.251.11 app.internal.test +short +time=1 +tries=1  => expect equals: 192.168.251.12
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/  => expect 200
+a1  ping -n -W1 -c1 192.168.251.12  => expect 0% loss
+
+[INJECTION]
+device: intapp1
+action: HTTP application process stopped
+cmd: |
+  sh /opt/soft3888/internal-app stop
+
+[POST-INJECT-CHECK]
+a1  dig @192.168.251.11 app.internal.test +short +time=1 +tries=1  => expect equals: 192.168.251.12
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/ 2>/dev/null || test "$?" = 7  => expect 000
+a1  ping -n -W1 -c1 192.168.251.12  => expect 0% loss
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/  => expect 200
+
+[GROUND-TRUTH]
+Fault location: intapp1
+Fault type: HTTP application process stopped
+Root cause and mechanism: The managed Python HTTP application process on intapp1 has stopped. DNS still returns the correct address and IP reachability remains intact, but TCP port 80 refuses connections.
+Expected symptoms: exactly the post-injection differential checks above.
+Unaffected paths: preserved by the positive control checks.
+
+[FIX]
+On intapp1, execute:
+sh /opt/soft3888/internal-app start
+Changes are runtime-only; a fresh lab also restores the shipped healthy configuration.
+
+[RECOVERY]
+device: intapp1
+action: restore healthy state
+cmd: |
+  sh /opt/soft3888/internal-app start
+
+[RECOVERY-CHECK]
+a1  dig @192.168.251.11 app.internal.test +short +time=1 +tries=1  => expect equals: 192.168.251.12
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/  => expect 200
+a1  ping -n -W1 -c1 192.168.251.12  => expect 0% loss
+
+[DIAGNOSTIC-PROCESS]
+Compare the reported failure with the positive controls. Inspect the relevant
+routes, running configuration or listener on the owning device. Explain the
+observed mechanism before proposing the corrective action in FIX.
+
+[SCORING-AXES]
+assert-identifies: intapp1
+must-identify-device: intapp1
+must-identify-component: HTTP application process stopped
+must-identify-mechanism: The managed Python HTTP application process on intapp1 has stopped. DNS still returns the correct address and IP reachability remains intact, but TCP port 80 refuses connections.
+
+[NIKA-LABEL]
+nika_category: not assigned
+in_taxonomy: not verified
+note: Custom SOFT3888 scenario; no exact NIKA taxonomy match claimed.

@@ -1,0 +1,132 @@
+{
+  "harness_sha256": "29df21a7c7d6672c7215f1faede9ba2b599d091007a390fac20e90b7595596a6",
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "ospf_enterprise_static",
+  "lab_name": "team-smoke-40151fbbac18",
+  "passed": true,
+  "started_at": "2026-10-21T08:57:36.041702+00:00",
+  "probes": [
+    {
+      "device": "dns_server",
+      "command": "ping -n -c2 -W1 10.200.0.1",
+      "rc": 0,
+      "output": "PING 10.200.0.1 (10.200.0.1) 56(84) bytes of data.\nFrom 10.200.0.2 icmp_seq=1 Destination Host Unreachable\n64 bytes from 10.200.0.1: icmp_seq=2 ttl=64 time=0.734 ms\n\n--- 10.200.0.1 ping statistics ---\n2 packets transmitted, 1 received, +1 errors, 50% packet loss, time 1002ms\nrtt min/avg/max/mdev = 0.734/0.734/0.734/0.000 ms",
+      "passed": false,
+      "rationale": "rc=0, loss=50.0%"
+    },
+    {
+      "device": "dns_server",
+      "command": "ping -n -c2 -W1 10.200.0.1",
+      "rc": 0,
+      "output": "PING 10.200.0.1 (10.200.0.1) 56(84) bytes of data.\n64 bytes from 10.200.0.1: icmp_seq=1 ttl=64 time=0.436 ms\n64 bytes from 10.200.0.1: icmp_seq=2 ttl=64 time=0.726 ms\n\n--- 10.200.0.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1021ms\nrtt min/avg/max/mdev = 0.436/0.581/0.726/0.145 ms",
+      "passed": true,
+      "rationale": "rc=0, loss=0.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr-stress": {
+        "source": "kathara/frr-stress:latest",
+        "source_id": "sha256:e391148daacfdf9d08430b1e9a412833b629df97a7e20f01a7644d6e649df521",
+        "device_image": "soft3888/source-d384add1da7b:shared-v1",
+        "device_image_id": "sha256:435f7bbd3c112809624c3fbce3b1a03ea244d681cdb2c9350cafebabec98e66e",
+        "usr_sha256": "123f02eeed743605d4b2d10d45609f455e3f4a6a650551816173f26fd5dd637b",
+        "created_at": "2026-10-21T08:44:31.495181+00:00"
+      },
+      "kathara/base-stress": {
+        "source": "kathara/base-stress:latest",
+        "source_id": "sha256:8a23551d1219b996b971847880da77e305a0999b1c47def8ea8468328f3905f4",
+        "device_image": "soft3888/source-20019120b12f:shared-v1",
+        "device_image_id": "sha256:44fa983250d68d9b4fb394c065f86d42bf8ed50c189f00a3ec0ad2678872daef",
+        "usr_sha256": "eca2ba6b42596afd9fb0c72cd795e7f8c960bf92160948bca06e58782fafb096",
+        "created_at": "2026-10-21T08:43:37.694560+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 15,
+  "inventory_complete": true,
+  "mcp_smoke": [
+    {
+      "server": "kathara_base_mcp_server",
+      "tools": [
+        "get_reachability",
+        "ping_pair",
+        "systemctl_ops",
+        "get_host_net_config",
+        "get_tc_statistics",
+        "netstat",
+        "ip_addr_statistics",
+        "ethtool",
+        "curl_web_test",
+        "iperf_test",
+        "cat_file",
+        "exec_shell",
+        "exec_shell_dual"
+      ],
+      "calls": [
+        {
+          "tool": "exec_shell",
+          "arguments": {
+            "host_name": "dns_server",
+            "command": "ping -n -W1 -c1 10.200.0.1"
+          },
+          "is_error": false,
+          "output": "PING 10.200.0.1 (10.200.0.1) 56(84) bytes of data.\n64 bytes from 10.200.0.1: icmp_seq=1 ttl=64 time=0.404 ms\n\n--- 10.200.0.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.404/0.404/0.404/0.000 ms"
+        },
+        {
+          "tool": "get_reachability",
+          "arguments": {},
+          "is_error": false,
+          "output": "{\"hosts\":{\"dns_server\":\"10.200.0.2\",\"host_1_1_1_1\":\"10.1.1.2\",\"host_2_1_1_1\":\"10.2.1.2\",\"web_server_0\":\"10.200.0.3\",\"web_server_1\":\"10.200.0.4\",\"web_server_2\":\"10.200.0.5\",\"web_server_3\":\"10.200.0.6\"},\"results\":[{\"src\":\"dns_server\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1027.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"host_1_1_1_1\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1002.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"host_2_1_1_1\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1008.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"host_2_1_1_1\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1034.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"web_server_0\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.01,\"rtt_min_ms\":0.787,\"rtt_max_ms\":3.234,\"rtt_mdev_ms\":1.223,\"status\":\"ok\"},{\"src\":\"web_server_0\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1005.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"web_server_1\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.002,\"rtt_min_ms\":1.192,\"rtt_max_ms\":6.812,\"rtt_mdev_ms\":2.81,\"status\":\"ok\"},{\"src\":\"web_server_1\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1002.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"web_server_2\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.082,\"rtt_min_ms\":1.769,\"rtt_max_ms\":6.396,\"rtt_mdev_ms\":2.313,\"status\":\"ok\"},{\"src\":\"web_server_2\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1011.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"web_server_3\",\"dst\":\"dns_server\",\"dst_ip\":\"10.200.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.006,\"rtt_min_ms\":0.79,\"rtt_max_ms\":7.223,\"rtt_mdev_ms\":3.216,\"status\":\"ok\"},{\"src\":\"web_server_3\",\"dst\":\"host_1_1_1_1\",\"dst_ip\":\"10.1.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1002.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"}],\"sampling\":{\"destinations\":[\"dns_server\",\"host_1_1_1_1\"],\"concurrency\":4}}"
+        }
+      ],
+      "reachability_status_counts": {
+        "down": 8,
+        "ok": 4
+      },
+      "inventory_endpoints": 7
+    },
+    {
+      "server": "kathara_frr_mcp_server",
+      "tools": [
+        "frr_get_bgp_conf",
+        "frr_show_running_config",
+        "frr_show_ip_route",
+        "frr_get_ospf_conf",
+        "frr_exec"
+      ],
+      "calls": [
+        {
+          "tool": "frr_exec",
+          "arguments": {
+            "router_name": "switch_server_access",
+            "command": "show ip route 10.200.0.0/24"
+          },
+          "is_error": false,
+          "output": "Routing entry for 10.200.0.0/24\n  Known via \"ospf\", distance 110, metric 10\n  Last update 00:00:17 ago\n  Flags: None \n  Status: None \n    directly connected, br0, weight 1\n\nRouting entry for 10.200.0.0/24\n  Known via \"connected\", distance 0, metric 0, best\n  Last update 00:00:17 ago\n  Flags: Selected \n  Status: Installed \n  * directly connected, br0, weight 1"
+        }
+      ]
+    },
+    {
+      "server": "kathara_telemetry_mcp_server",
+      "tools": [
+        "influx_list_buckets",
+        "influx_get_measurements",
+        "influx_count_measurements",
+        "influx_query_measurement"
+      ],
+      "calls": []
+    }
+  ],
+  "status": "passed",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:58:23.656118+00:00"
+}

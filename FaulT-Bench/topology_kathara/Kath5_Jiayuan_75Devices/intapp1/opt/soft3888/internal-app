@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+pid=/run/internal-app.pid
+case "${1:-}" in
+  start)
+    if [ -s "$pid" ] && kill -0 "$(cat "$pid")" 2>/dev/null; then exit 0; fi
+    mkdir -p /run
+    nohup python3 -m http.server 80 --bind 192.168.251.12 --directory /var/www/html > /var/log/internal-app.log 2>&1 < /dev/null &
+    echo "$!" > "$pid"
+    ;;
+  stop)
+    if [ -s "$pid" ]; then
+      app_pid=$(cat "$pid")
+      if [ -r "/proc/$app_pid/cmdline" ] && tr '\000' ' ' < "/proc/$app_pid/cmdline" | grep -q 'python3 -m http.server 80'; then
+        kill "$app_pid"
+      fi
+      rm -f "$pid"
+    fi
+    ;;
+  *) echo 'usage: internal-app start|stop' >&2; exit 2 ;;
+esac

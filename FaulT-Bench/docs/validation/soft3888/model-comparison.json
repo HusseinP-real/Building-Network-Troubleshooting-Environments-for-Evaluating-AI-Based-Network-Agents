@@ -1,0 +1,14 @@
+{
+  "kind": "agent-comparison-from-actual-runs",
+  "status": "not_run",
+  "source_root": "/workspace/ai-agent/faultbench/runs/soft3888-evaluation/runs",
+  "summary": [],
+  "invalid_files": [],
+  "definitions": {
+    "detection": "Confusion counts use submitted boolean diagnoses only; missing outputs and infrastructure failures reduce classification coverage and are reported separately.",
+    "root_cause": "Fraction of graded positive runs satisfying all must root-cause/mechanism axes; not an invented free-text match or overall outcome score.",
+    "device": "Exact deterministic device set, where source truth defines it.",
+    "latency": "Agent phase is timed separately from deployment/judging/cleanup; older runs without phase timing remain null.",
+    "cost": "Returned agent cost only; judge billing unavailable. No model runs means null metrics."
+  }
+}

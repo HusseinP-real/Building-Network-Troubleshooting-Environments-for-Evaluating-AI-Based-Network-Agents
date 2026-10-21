@@ -1,0 +1,85 @@
+{
+  "kind": "planned-agent-evaluation",
+  "manifest": "faultbench/benchmarks/soft3888_pilot.csv",
+  "manifest_sha256": "14b11ac48fa719c12e85e990ea8f9d388f8c773860434081bb3f16bad88d25ed",
+  "agents": [
+    "sade",
+    "react-full"
+  ],
+  "repeats": 1,
+  "cells": [
+    {
+      "scenario_id": "jiayuan75-r15-ospf-advertisement",
+      "scenario_path": "dataset/jiayuan75_Q/custom/jiayuan75-r15-ospf-advertisement.txt",
+      "scenario_sha256": "06a3ee47b7a9646ac2b9522f7da1510e882be0176f2906ccb0bc779f2af535b0",
+      "topology": "Kath5_Jiayuan_75Devices",
+      "agent": "sade",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "jiayuan75-r15-ospf-advertisement",
+      "scenario_path": "dataset/jiayuan75_Q/custom/jiayuan75-r15-ospf-advertisement.txt",
+      "scenario_sha256": "06a3ee47b7a9646ac2b9522f7da1510e882be0176f2906ccb0bc779f2af535b0",
+      "topology": "Kath5_Jiayuan_75Devices",
+      "agent": "react-full",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "nika92-pod0-leaf1-wrong-remote-as",
+      "scenario_path": "dataset/nika92_Q/custom/nika92-pod0-leaf1-wrong-remote-as.txt",
+      "scenario_sha256": "a1b1f5bcc2334ce4e7d5dfcc88e6a9ea57f80ee0de257412b1476c8e494ca32d",
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "agent": "sade",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "nika92-pod0-leaf1-wrong-remote-as",
+      "scenario_path": "dataset/nika92_Q/custom/nika92-pod0-leaf1-wrong-remote-as.txt",
+      "scenario_sha256": "a1b1f5bcc2334ce4e7d5dfcc88e6a9ea57f80ee0de257412b1476c8e494ca32d",
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "agent": "react-full",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "jiayuan75-false-premise-internal-application",
+      "scenario_path": "dataset/jiayuan75_Q/custom/jiayuan75-false-premise-internal-application.txt",
+      "scenario_sha256": "ed5ac10eda01026403dd4816c39c45c160fabe7d7b4dc03c4c78fd6586305f3d",
+      "topology": "Kath5_Jiayuan_75Devices",
+      "agent": "sade",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "jiayuan75-false-premise-internal-application",
+      "scenario_path": "dataset/jiayuan75_Q/custom/jiayuan75-false-premise-internal-application.txt",
+      "scenario_sha256": "ed5ac10eda01026403dd4816c39c45c160fabe7d7b4dc03c4c78fd6586305f3d",
+      "topology": "Kath5_Jiayuan_75Devices",
+      "agent": "react-full",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "nika92-false-premise-pod1-web",
+      "scenario_path": "dataset/nika92_Q/custom/nika92-false-premise-pod1-web.txt",
+      "scenario_sha256": "78f3bc400c99c258e84bf358db9abc551a9bffe6243d1bb57dccae3b93023821",
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "agent": "sade",
+      "repeat": 1
+    },
+    {
+      "scenario_id": "nika92-false-premise-pod1-web",
+      "scenario_path": "dataset/nika92_Q/custom/nika92-false-premise-pod1-web.txt",
+      "scenario_sha256": "78f3bc400c99c258e84bf358db9abc551a9bffe6243d1bb57dccae3b93023821",
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "agent": "react-full",
+      "repeat": 1
+    }
+  ],
+  "planned_runs": 8,
+  "judge_cost_included": false,
+  "status": "blocked_missing_credentials",
+  "missing_credentials": [
+    "ANTHROPIC_API_KEY",
+    "OPENAI_API_KEY"
+  ],
+  "created_at": "2026-10-21T09:19:29.630813+00:00",
+  "executed_runs": []
+}

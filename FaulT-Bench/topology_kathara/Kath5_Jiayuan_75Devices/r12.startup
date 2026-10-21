@@ -1,0 +1,44 @@
+# Interface Mapping:
+# Serial5/0 -> eth0
+# FastEthernet0/0 -> eth1
+
+ip addr add 112.1.1.2/8 dev eth0
+ip addr add 120.1.1.1/8 dev eth1
+
+# Loopback Interfaces.
+# Each /24 lives on its own dummy interface — FRR eigrpd advertises one
+# prefix per Linux interface (it ignores secondary IPs on `lo`), so each
+# Cisco loopback gets its own L3 device here.
+ip addr add 102.1.1.1/24 dev lo
+# Prefer dummy; use an isolated veth stub if this kernel has no dummy driver.
+for stub in 1 2 3; do
+  if ! ip link show "lo$stub" >/dev/null 2>&1; then
+    ip link add "lo$stub" type dummy 2>/dev/null ||
+      ip link add "lo$stub" type veth peer name "lo${stub}peer"
+  fi
+  ip link set "lo$stub" up
+  if ip link show "lo${stub}peer" >/dev/null 2>&1; then ip link set "lo${stub}peer" up; fi
+  ip addr replace 102.1.$((stub + 1)).1/24 dev "lo$stub"
+done
+
+# Default route toward R11 — FRR eigrpd's `redistribute ospf` on R11 does
+# not actually inject OSPF routes into EIGRP (silently no-op), so R12 has
+# no learned path back to the OSPF side. A static default via R11 covers it.
+ip route add default via 112.1.1.1 dev eth0
+
+# Internal Services uplink
+ip addr add 192.168.250.1/30 dev eth2
+ip link set eth2 up
+
+sed -i 's/ospfd=yes/ospfd=no/g' /etc/frr/daemons
+sed -i 's/eigrpd=no/eigrpd=yes/g' /etc/frr/daemons
+/etc/init.d/frr start
+
+
+# FRR 10.5 parallel init can report a transient datastore lock; reload serially.
+configured=0
+for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  if vtysh -b; then configured=1; break; fi
+  sleep 1
+done
+[ "$configured" = 1 ] || exit 1

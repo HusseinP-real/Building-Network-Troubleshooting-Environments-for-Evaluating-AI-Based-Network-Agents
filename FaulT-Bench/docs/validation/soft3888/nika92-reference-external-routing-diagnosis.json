@@ -1,0 +1,31 @@
+{
+  "kind": "read-only-reference-limitation-diagnosis",
+  "lab_name": "soft3888-d44d6583784d",
+  "note": "Supplemental read-only commands during core validation; not a pristine full acceptance run.",
+  "checks": [
+    {
+      "device": "client_1",
+      "command": "ping -n -c2 -W1 -q 192.168.0.2",
+      "rc": 1,
+      "output": "PING 192.168.0.2 (192.168.0.2) 56(84) bytes of data.\n\n--- 192.168.0.2 ping statistics ---\n2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms"
+    },
+    {
+      "device": "super_spine_router_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast 192.168.0.0/24\"",
+      "rc": 0,
+      "output": "% Network not in table"
+    },
+    {
+      "device": "super_spine_router_1",
+      "command": "ip route show 192.168.0.0/24",
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+      "rc": 0,
+      "output": "200"
+    }
+  ]
+}

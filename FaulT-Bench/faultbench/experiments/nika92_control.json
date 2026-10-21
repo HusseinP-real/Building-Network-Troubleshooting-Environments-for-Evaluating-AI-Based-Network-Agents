@@ -1,0 +1,48 @@
+{
+  "name": "nika92-false-premise-pod1-web",
+  "topology": "NIKA_Clos_Jiayuan_92Devices",
+  "scenario": "nika92-false-premise-pod1-web",
+  "steps": [
+    {
+      "action": "check",
+      "name": "no-fault-service-path",
+      "checks": [
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.1.2"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200"
+        }
+      ]
+    }
+  ]
+}

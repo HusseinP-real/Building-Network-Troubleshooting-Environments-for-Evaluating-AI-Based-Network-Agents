@@ -1,0 +1,4 @@
+ip link set eth0 down
+ip link set eth0 address 02:38:88:00:00:01
+ip link set eth0 up
+for attempt in 1 2 3 4 5; do sh /opt/soft3888/dhcp-client renew && break; sleep 2; done

@@ -64,7 +64,7 @@ def summarize_topology(topology: str) -> str:
             continue
         dev = m.group("device")
         n = int(m.group("key"))
-        cd = m.group("cd")
+        cd = m.group("cd").strip("\'\"")
         devices[dev].append((n, cd))
         cds[cd].append((dev, n))
         seen_devices.add(dev)

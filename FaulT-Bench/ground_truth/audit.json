@@ -1,0 +1,21 @@
+{
+    "scenarios":  11,
+    "topologies":  2,
+    "live_validated_scenarios":  11,
+    "records_with_issues":  0,
+    "records_with_validation_gaps":  0,
+    "parse_errors":  [
+
+                     ],
+    "topology_errors":  {
+
+                        },
+    "issues":  [
+
+               ],
+    "scope":  [
+                  "Kath5_Jiayuan_75Devices",
+                  "NIKA_Clos_Jiayuan_92Devices"
+              ],
+    "note":  "Delivery catalog integrity checked against files and recorded evidence. Network, constructor and model tests were not rerun on Windows."
+}

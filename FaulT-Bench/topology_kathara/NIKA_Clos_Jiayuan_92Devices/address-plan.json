@@ -1,0 +1,3838 @@
+{
+  "routers": {
+    "super_spine_router_0": {
+      "asn": 65000,
+      "router_id": "172.16.0.0",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_0_0",
+          "address": "172.16.0.0/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_0_1",
+          "address": "172.16.0.2/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_0_2",
+          "address": "172.16.0.4/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_0_3",
+          "address": "172.16.0.6/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_1_0",
+          "address": "172.16.0.8/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_1_1",
+          "address": "172.16.0.10/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_1_2",
+          "address": "172.16.0.12/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_1_3",
+          "address": "172.16.0.14/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_2_0",
+          "address": "172.16.0.16/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_2_1",
+          "address": "172.16.0.18/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_2_2",
+          "address": "172.16.0.20/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_2_3",
+          "address": "172.16.0.22/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_3_0",
+          "address": "172.16.0.24/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_3_1",
+          "address": "172.16.0.26/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_3_2",
+          "address": "172.16.0.28/31"
+        },
+        {
+          "domain": "super_spine_router_0_spine_router_3_3",
+          "address": "172.16.0.30/31"
+        },
+        {
+          "domain": "super_spine_router_0_client_0",
+          "address": "192.168.0.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.1",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.3",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.5",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.7",
+          "asn": 65103
+        },
+        {
+          "address": "172.16.0.9",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.11",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.13",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.15",
+          "asn": 65113
+        },
+        {
+          "address": "172.16.0.17",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.0.19",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.0.21",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.0.23",
+          "asn": 65123
+        },
+        {
+          "address": "172.16.0.25",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.0.27",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.0.29",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.0.31",
+          "asn": 65133
+        }
+      ]
+    },
+    "super_spine_router_1": {
+      "asn": 65000,
+      "router_id": "172.16.0.32",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_1_spine_router_0_0",
+          "address": "172.16.0.32/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_1",
+          "address": "172.16.0.34/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_2",
+          "address": "172.16.0.36/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_3",
+          "address": "172.16.0.38/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_0",
+          "address": "172.16.0.40/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_1",
+          "address": "172.16.0.42/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_2",
+          "address": "172.16.0.44/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_3",
+          "address": "172.16.0.46/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_0",
+          "address": "172.16.0.48/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_1",
+          "address": "172.16.0.50/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_2",
+          "address": "172.16.0.52/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_3",
+          "address": "172.16.0.54/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_0",
+          "address": "172.16.0.56/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_1",
+          "address": "172.16.0.58/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_2",
+          "address": "172.16.0.60/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_3",
+          "address": "172.16.0.62/31"
+        },
+        {
+          "domain": "super_spine_router_1_client_1",
+          "address": "192.168.1.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.33",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.35",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.37",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.39",
+          "asn": 65103
+        },
+        {
+          "address": "172.16.0.41",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.43",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.45",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.47",
+          "asn": 65113
+        },
+        {
+          "address": "172.16.0.49",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.0.51",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.0.53",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.0.55",
+          "asn": 65123
+        },
+        {
+          "address": "172.16.0.57",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.0.59",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.0.61",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.0.63",
+          "asn": 65133
+        }
+      ]
+    },
+    "super_spine_router_2": {
+      "asn": 65000,
+      "router_id": "172.16.0.64",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_2_spine_router_0_0",
+          "address": "172.16.0.64/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_1",
+          "address": "172.16.0.66/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_2",
+          "address": "172.16.0.68/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_3",
+          "address": "172.16.0.70/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_0",
+          "address": "172.16.0.72/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_1",
+          "address": "172.16.0.74/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_2",
+          "address": "172.16.0.76/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_3",
+          "address": "172.16.0.78/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_0",
+          "address": "172.16.0.80/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_1",
+          "address": "172.16.0.82/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_2",
+          "address": "172.16.0.84/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_3",
+          "address": "172.16.0.86/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_0",
+          "address": "172.16.0.88/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_1",
+          "address": "172.16.0.90/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_2",
+          "address": "172.16.0.92/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_3",
+          "address": "172.16.0.94/31"
+        },
+        {
+          "domain": "super_spine_router_2_client_2",
+          "address": "192.168.2.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.65",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.67",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.69",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.71",
+          "asn": 65103
+        },
+        {
+          "address": "172.16.0.73",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.75",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.77",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.79",
+          "asn": 65113
+        },
+        {
+          "address": "172.16.0.81",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.0.83",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.0.85",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.0.87",
+          "asn": 65123
+        },
+        {
+          "address": "172.16.0.89",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.0.91",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.0.93",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.0.95",
+          "asn": 65133
+        }
+      ]
+    },
+    "super_spine_router_3": {
+      "asn": 65000,
+      "router_id": "172.16.0.96",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_3_spine_router_0_0",
+          "address": "172.16.0.96/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_1",
+          "address": "172.16.0.98/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_2",
+          "address": "172.16.0.100/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_3",
+          "address": "172.16.0.102/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_0",
+          "address": "172.16.0.104/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_1",
+          "address": "172.16.0.106/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_2",
+          "address": "172.16.0.108/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_3",
+          "address": "172.16.0.110/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_0",
+          "address": "172.16.0.112/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_1",
+          "address": "172.16.0.114/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_2",
+          "address": "172.16.0.116/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_3",
+          "address": "172.16.0.118/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_0",
+          "address": "172.16.0.120/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_1",
+          "address": "172.16.0.122/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_2",
+          "address": "172.16.0.124/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_3",
+          "address": "172.16.0.126/31"
+        },
+        {
+          "domain": "super_spine_router_3_client_3",
+          "address": "192.168.3.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.97",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.99",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.101",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.103",
+          "asn": 65103
+        },
+        {
+          "address": "172.16.0.105",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.107",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.109",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.111",
+          "asn": 65113
+        },
+        {
+          "address": "172.16.0.113",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.0.115",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.0.117",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.0.119",
+          "asn": 65123
+        },
+        {
+          "address": "172.16.0.121",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.0.123",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.0.125",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.0.127",
+          "asn": 65133
+        }
+      ]
+    },
+    "spine_router_0_0": {
+      "asn": 65100,
+      "router_id": "172.16.0.1",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_0_0",
+          "address": "172.16.0.1/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_0",
+          "address": "172.16.0.33/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_0",
+          "address": "172.16.0.65/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_0",
+          "address": "172.16.0.97/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_0",
+          "address": "172.16.0.128/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_1",
+          "address": "172.16.0.130/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_2",
+          "address": "172.16.0.132/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_3",
+          "address": "172.16.0.134/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_4",
+          "address": "172.16.0.136/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_5",
+          "address": "172.16.0.138/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_6",
+          "address": "172.16.0.140/31"
+        },
+        {
+          "domain": "spine_router_0_0_leaf_router_0_7",
+          "address": "172.16.0.142/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.0",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.32",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.64",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.96",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.129",
+          "asn": 65200
+        },
+        {
+          "address": "172.16.0.131",
+          "asn": 65201
+        },
+        {
+          "address": "172.16.0.133",
+          "asn": 65202
+        },
+        {
+          "address": "172.16.0.135",
+          "asn": 65203
+        },
+        {
+          "address": "172.16.0.137",
+          "asn": 65204
+        },
+        {
+          "address": "172.16.0.139",
+          "asn": 65205
+        },
+        {
+          "address": "172.16.0.141",
+          "asn": 65206
+        },
+        {
+          "address": "172.16.0.143",
+          "asn": 65207
+        }
+      ]
+    },
+    "spine_router_0_1": {
+      "asn": 65101,
+      "router_id": "172.16.0.3",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_0_1",
+          "address": "172.16.0.3/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_1",
+          "address": "172.16.0.35/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_1",
+          "address": "172.16.0.67/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_1",
+          "address": "172.16.0.99/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_0",
+          "address": "172.16.0.144/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_1",
+          "address": "172.16.0.146/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_2",
+          "address": "172.16.0.148/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_3",
+          "address": "172.16.0.150/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_4",
+          "address": "172.16.0.152/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_5",
+          "address": "172.16.0.154/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_6",
+          "address": "172.16.0.156/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_7",
+          "address": "172.16.0.158/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.2",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.34",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.66",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.98",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.145",
+          "asn": 65200
+        },
+        {
+          "address": "172.16.0.147",
+          "asn": 65201
+        },
+        {
+          "address": "172.16.0.149",
+          "asn": 65202
+        },
+        {
+          "address": "172.16.0.151",
+          "asn": 65203
+        },
+        {
+          "address": "172.16.0.153",
+          "asn": 65204
+        },
+        {
+          "address": "172.16.0.155",
+          "asn": 65205
+        },
+        {
+          "address": "172.16.0.157",
+          "asn": 65206
+        },
+        {
+          "address": "172.16.0.159",
+          "asn": 65207
+        }
+      ]
+    },
+    "spine_router_0_2": {
+      "asn": 65102,
+      "router_id": "172.16.0.5",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_0_2",
+          "address": "172.16.0.5/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_2",
+          "address": "172.16.0.37/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_2",
+          "address": "172.16.0.69/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_2",
+          "address": "172.16.0.101/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_0",
+          "address": "172.16.0.160/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_1",
+          "address": "172.16.0.162/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_2",
+          "address": "172.16.0.164/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_3",
+          "address": "172.16.0.166/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_4",
+          "address": "172.16.0.168/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_5",
+          "address": "172.16.0.170/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_6",
+          "address": "172.16.0.172/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_7",
+          "address": "172.16.0.174/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.4",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.36",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.68",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.100",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.161",
+          "asn": 65200
+        },
+        {
+          "address": "172.16.0.163",
+          "asn": 65201
+        },
+        {
+          "address": "172.16.0.165",
+          "asn": 65202
+        },
+        {
+          "address": "172.16.0.167",
+          "asn": 65203
+        },
+        {
+          "address": "172.16.0.169",
+          "asn": 65204
+        },
+        {
+          "address": "172.16.0.171",
+          "asn": 65205
+        },
+        {
+          "address": "172.16.0.173",
+          "asn": 65206
+        },
+        {
+          "address": "172.16.0.175",
+          "asn": 65207
+        }
+      ]
+    },
+    "spine_router_0_3": {
+      "asn": 65103,
+      "router_id": "172.16.0.7",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_0_3",
+          "address": "172.16.0.7/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_0_3",
+          "address": "172.16.0.39/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_0_3",
+          "address": "172.16.0.71/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_0_3",
+          "address": "172.16.0.103/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_0",
+          "address": "172.16.0.176/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_1",
+          "address": "172.16.0.178/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_2",
+          "address": "172.16.0.180/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_3",
+          "address": "172.16.0.182/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_4",
+          "address": "172.16.0.184/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_5",
+          "address": "172.16.0.186/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_6",
+          "address": "172.16.0.188/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_7",
+          "address": "172.16.0.190/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.6",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.38",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.70",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.102",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.177",
+          "asn": 65200
+        },
+        {
+          "address": "172.16.0.179",
+          "asn": 65201
+        },
+        {
+          "address": "172.16.0.181",
+          "asn": 65202
+        },
+        {
+          "address": "172.16.0.183",
+          "asn": 65203
+        },
+        {
+          "address": "172.16.0.185",
+          "asn": 65204
+        },
+        {
+          "address": "172.16.0.187",
+          "asn": 65205
+        },
+        {
+          "address": "172.16.0.189",
+          "asn": 65206
+        },
+        {
+          "address": "172.16.0.191",
+          "asn": 65207
+        }
+      ]
+    },
+    "leaf_router_0_0": {
+      "asn": 65200,
+      "router_id": "172.16.0.129",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_0",
+          "address": "172.16.0.129/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_0",
+          "address": "172.16.0.145/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_0",
+          "address": "172.16.0.161/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_0",
+          "address": "172.16.0.177/31"
+        },
+        {
+          "domain": "leaf_router_0_0_dns_pod0",
+          "address": "10.0.0.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.128",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.144",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.160",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.176",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_1": {
+      "asn": 65201,
+      "router_id": "172.16.0.131",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_1",
+          "address": "172.16.0.131/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_1",
+          "address": "172.16.0.147/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_1",
+          "address": "172.16.0.163/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_1",
+          "address": "172.16.0.179/31"
+        },
+        {
+          "domain": "leaf_router_0_1_webserver0_pod0",
+          "address": "10.0.1.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.130",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.146",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.162",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.178",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_2": {
+      "asn": 65202,
+      "router_id": "172.16.0.133",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_2",
+          "address": "172.16.0.133/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_2",
+          "address": "172.16.0.149/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_2",
+          "address": "172.16.0.165/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_2",
+          "address": "172.16.0.181/31"
+        },
+        {
+          "domain": "leaf_router_0_2_webserver1_pod0",
+          "address": "10.0.2.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.132",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.148",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.164",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.180",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_3": {
+      "asn": 65203,
+      "router_id": "172.16.0.135",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_3",
+          "address": "172.16.0.135/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_3",
+          "address": "172.16.0.151/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_3",
+          "address": "172.16.0.167/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_3",
+          "address": "172.16.0.183/31"
+        },
+        {
+          "domain": "leaf_router_0_3_webserver2_pod0",
+          "address": "10.0.3.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.134",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.150",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.166",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.182",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_4": {
+      "asn": 65204,
+      "router_id": "172.16.0.137",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_4",
+          "address": "172.16.0.137/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_4",
+          "address": "172.16.0.153/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_4",
+          "address": "172.16.0.169/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_4",
+          "address": "172.16.0.185/31"
+        },
+        {
+          "domain": "leaf_router_0_4_webserver3_pod0",
+          "address": "10.0.4.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.136",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.152",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.168",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.184",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_5": {
+      "asn": 65205,
+      "router_id": "172.16.0.139",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_5",
+          "address": "172.16.0.139/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_5",
+          "address": "172.16.0.155/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_5",
+          "address": "172.16.0.171/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_5",
+          "address": "172.16.0.187/31"
+        },
+        {
+          "domain": "leaf_router_0_5_webserver4_pod0",
+          "address": "10.0.5.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.138",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.154",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.170",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.186",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_6": {
+      "asn": 65206,
+      "router_id": "172.16.0.141",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_6",
+          "address": "172.16.0.141/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_6",
+          "address": "172.16.0.157/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_6",
+          "address": "172.16.0.173/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_6",
+          "address": "172.16.0.189/31"
+        },
+        {
+          "domain": "leaf_router_0_6_webserver5_pod0",
+          "address": "10.0.6.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.140",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.156",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.172",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.188",
+          "asn": 65103
+        }
+      ]
+    },
+    "leaf_router_0_7": {
+      "asn": 65207,
+      "router_id": "172.16.0.143",
+      "interfaces": [
+        {
+          "domain": "spine_router_0_0_leaf_router_0_7",
+          "address": "172.16.0.143/31"
+        },
+        {
+          "domain": "spine_router_0_1_leaf_router_0_7",
+          "address": "172.16.0.159/31"
+        },
+        {
+          "domain": "spine_router_0_2_leaf_router_0_7",
+          "address": "172.16.0.175/31"
+        },
+        {
+          "domain": "spine_router_0_3_leaf_router_0_7",
+          "address": "172.16.0.191/31"
+        },
+        {
+          "domain": "leaf_router_0_7_webserver6_pod0",
+          "address": "10.0.7.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.142",
+          "asn": 65100
+        },
+        {
+          "address": "172.16.0.158",
+          "asn": 65101
+        },
+        {
+          "address": "172.16.0.174",
+          "asn": 65102
+        },
+        {
+          "address": "172.16.0.190",
+          "asn": 65103
+        }
+      ]
+    },
+    "spine_router_1_0": {
+      "asn": 65110,
+      "router_id": "172.16.0.9",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_1_0",
+          "address": "172.16.0.9/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_0",
+          "address": "172.16.0.41/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_0",
+          "address": "172.16.0.73/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_0",
+          "address": "172.16.0.105/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_0",
+          "address": "172.16.0.192/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_1",
+          "address": "172.16.0.194/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_2",
+          "address": "172.16.0.196/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_3",
+          "address": "172.16.0.198/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_4",
+          "address": "172.16.0.200/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_5",
+          "address": "172.16.0.202/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_6",
+          "address": "172.16.0.204/31"
+        },
+        {
+          "domain": "spine_router_1_0_leaf_router_1_7",
+          "address": "172.16.0.206/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.8",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.40",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.72",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.104",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.193",
+          "asn": 65210
+        },
+        {
+          "address": "172.16.0.195",
+          "asn": 65211
+        },
+        {
+          "address": "172.16.0.197",
+          "asn": 65212
+        },
+        {
+          "address": "172.16.0.199",
+          "asn": 65213
+        },
+        {
+          "address": "172.16.0.201",
+          "asn": 65214
+        },
+        {
+          "address": "172.16.0.203",
+          "asn": 65215
+        },
+        {
+          "address": "172.16.0.205",
+          "asn": 65216
+        },
+        {
+          "address": "172.16.0.207",
+          "asn": 65217
+        }
+      ]
+    },
+    "spine_router_1_1": {
+      "asn": 65111,
+      "router_id": "172.16.0.11",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_1_1",
+          "address": "172.16.0.11/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_1",
+          "address": "172.16.0.43/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_1",
+          "address": "172.16.0.75/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_1",
+          "address": "172.16.0.107/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_0",
+          "address": "172.16.0.208/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_1",
+          "address": "172.16.0.210/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_2",
+          "address": "172.16.0.212/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_3",
+          "address": "172.16.0.214/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_4",
+          "address": "172.16.0.216/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_5",
+          "address": "172.16.0.218/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_6",
+          "address": "172.16.0.220/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_7",
+          "address": "172.16.0.222/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.10",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.42",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.74",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.106",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.209",
+          "asn": 65210
+        },
+        {
+          "address": "172.16.0.211",
+          "asn": 65211
+        },
+        {
+          "address": "172.16.0.213",
+          "asn": 65212
+        },
+        {
+          "address": "172.16.0.215",
+          "asn": 65213
+        },
+        {
+          "address": "172.16.0.217",
+          "asn": 65214
+        },
+        {
+          "address": "172.16.0.219",
+          "asn": 65215
+        },
+        {
+          "address": "172.16.0.221",
+          "asn": 65216
+        },
+        {
+          "address": "172.16.0.223",
+          "asn": 65217
+        }
+      ]
+    },
+    "spine_router_1_2": {
+      "asn": 65112,
+      "router_id": "172.16.0.13",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_1_2",
+          "address": "172.16.0.13/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_2",
+          "address": "172.16.0.45/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_2",
+          "address": "172.16.0.77/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_2",
+          "address": "172.16.0.109/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_0",
+          "address": "172.16.0.224/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_1",
+          "address": "172.16.0.226/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_2",
+          "address": "172.16.0.228/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_3",
+          "address": "172.16.0.230/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_4",
+          "address": "172.16.0.232/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_5",
+          "address": "172.16.0.234/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_6",
+          "address": "172.16.0.236/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_7",
+          "address": "172.16.0.238/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.12",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.44",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.76",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.108",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.225",
+          "asn": 65210
+        },
+        {
+          "address": "172.16.0.227",
+          "asn": 65211
+        },
+        {
+          "address": "172.16.0.229",
+          "asn": 65212
+        },
+        {
+          "address": "172.16.0.231",
+          "asn": 65213
+        },
+        {
+          "address": "172.16.0.233",
+          "asn": 65214
+        },
+        {
+          "address": "172.16.0.235",
+          "asn": 65215
+        },
+        {
+          "address": "172.16.0.237",
+          "asn": 65216
+        },
+        {
+          "address": "172.16.0.239",
+          "asn": 65217
+        }
+      ]
+    },
+    "spine_router_1_3": {
+      "asn": 65113,
+      "router_id": "172.16.0.15",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_1_3",
+          "address": "172.16.0.15/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_1_3",
+          "address": "172.16.0.47/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_1_3",
+          "address": "172.16.0.79/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_1_3",
+          "address": "172.16.0.111/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_0",
+          "address": "172.16.0.240/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_1",
+          "address": "172.16.0.242/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_2",
+          "address": "172.16.0.244/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_3",
+          "address": "172.16.0.246/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_4",
+          "address": "172.16.0.248/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_5",
+          "address": "172.16.0.250/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_6",
+          "address": "172.16.0.252/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_7",
+          "address": "172.16.0.254/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.14",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.46",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.78",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.110",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.241",
+          "asn": 65210
+        },
+        {
+          "address": "172.16.0.243",
+          "asn": 65211
+        },
+        {
+          "address": "172.16.0.245",
+          "asn": 65212
+        },
+        {
+          "address": "172.16.0.247",
+          "asn": 65213
+        },
+        {
+          "address": "172.16.0.249",
+          "asn": 65214
+        },
+        {
+          "address": "172.16.0.251",
+          "asn": 65215
+        },
+        {
+          "address": "172.16.0.253",
+          "asn": 65216
+        },
+        {
+          "address": "172.16.0.255",
+          "asn": 65217
+        }
+      ]
+    },
+    "leaf_router_1_0": {
+      "asn": 65210,
+      "router_id": "172.16.0.193",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_0",
+          "address": "172.16.0.193/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_0",
+          "address": "172.16.0.209/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_0",
+          "address": "172.16.0.225/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_0",
+          "address": "172.16.0.241/31"
+        },
+        {
+          "domain": "leaf_router_1_0_dns_pod1",
+          "address": "10.1.0.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.192",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.208",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.224",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.240",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_1": {
+      "asn": 65211,
+      "router_id": "172.16.0.195",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_1",
+          "address": "172.16.0.195/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_1",
+          "address": "172.16.0.211/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_1",
+          "address": "172.16.0.227/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_1",
+          "address": "172.16.0.243/31"
+        },
+        {
+          "domain": "leaf_router_1_1_webserver0_pod1",
+          "address": "10.1.1.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.194",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.210",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.226",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.242",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_2": {
+      "asn": 65212,
+      "router_id": "172.16.0.197",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_2",
+          "address": "172.16.0.197/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_2",
+          "address": "172.16.0.213/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_2",
+          "address": "172.16.0.229/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_2",
+          "address": "172.16.0.245/31"
+        },
+        {
+          "domain": "leaf_router_1_2_webserver1_pod1",
+          "address": "10.1.2.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.196",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.212",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.228",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.244",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_3": {
+      "asn": 65213,
+      "router_id": "172.16.0.199",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_3",
+          "address": "172.16.0.199/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_3",
+          "address": "172.16.0.215/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_3",
+          "address": "172.16.0.231/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_3",
+          "address": "172.16.0.247/31"
+        },
+        {
+          "domain": "leaf_router_1_3_webserver2_pod1",
+          "address": "10.1.3.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.198",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.214",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.230",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.246",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_4": {
+      "asn": 65214,
+      "router_id": "172.16.0.201",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_4",
+          "address": "172.16.0.201/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_4",
+          "address": "172.16.0.217/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_4",
+          "address": "172.16.0.233/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_4",
+          "address": "172.16.0.249/31"
+        },
+        {
+          "domain": "leaf_router_1_4_webserver3_pod1",
+          "address": "10.1.4.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.200",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.216",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.232",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.248",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_5": {
+      "asn": 65215,
+      "router_id": "172.16.0.203",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_5",
+          "address": "172.16.0.203/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_5",
+          "address": "172.16.0.219/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_5",
+          "address": "172.16.0.235/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_5",
+          "address": "172.16.0.251/31"
+        },
+        {
+          "domain": "leaf_router_1_5_webserver4_pod1",
+          "address": "10.1.5.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.202",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.218",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.234",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.250",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_6": {
+      "asn": 65216,
+      "router_id": "172.16.0.205",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_6",
+          "address": "172.16.0.205/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_6",
+          "address": "172.16.0.221/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_6",
+          "address": "172.16.0.237/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_6",
+          "address": "172.16.0.253/31"
+        },
+        {
+          "domain": "leaf_router_1_6_webserver5_pod1",
+          "address": "10.1.6.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.204",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.220",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.236",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.252",
+          "asn": 65113
+        }
+      ]
+    },
+    "leaf_router_1_7": {
+      "asn": 65217,
+      "router_id": "172.16.0.207",
+      "interfaces": [
+        {
+          "domain": "spine_router_1_0_leaf_router_1_7",
+          "address": "172.16.0.207/31"
+        },
+        {
+          "domain": "spine_router_1_1_leaf_router_1_7",
+          "address": "172.16.0.223/31"
+        },
+        {
+          "domain": "spine_router_1_2_leaf_router_1_7",
+          "address": "172.16.0.239/31"
+        },
+        {
+          "domain": "spine_router_1_3_leaf_router_1_7",
+          "address": "172.16.0.255/31"
+        },
+        {
+          "domain": "leaf_router_1_7_webserver6_pod1",
+          "address": "10.1.7.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.206",
+          "asn": 65110
+        },
+        {
+          "address": "172.16.0.222",
+          "asn": 65111
+        },
+        {
+          "address": "172.16.0.238",
+          "asn": 65112
+        },
+        {
+          "address": "172.16.0.254",
+          "asn": 65113
+        }
+      ]
+    },
+    "spine_router_2_0": {
+      "asn": 65120,
+      "router_id": "172.16.0.17",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_2_0",
+          "address": "172.16.0.17/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_0",
+          "address": "172.16.0.49/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_0",
+          "address": "172.16.0.81/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_0",
+          "address": "172.16.0.113/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_0",
+          "address": "172.16.1.0/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_1",
+          "address": "172.16.1.2/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_2",
+          "address": "172.16.1.4/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_3",
+          "address": "172.16.1.6/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_4",
+          "address": "172.16.1.8/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_5",
+          "address": "172.16.1.10/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_6",
+          "address": "172.16.1.12/31"
+        },
+        {
+          "domain": "spine_router_2_0_leaf_router_2_7",
+          "address": "172.16.1.14/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.16",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.48",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.80",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.112",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.1",
+          "asn": 65220
+        },
+        {
+          "address": "172.16.1.3",
+          "asn": 65221
+        },
+        {
+          "address": "172.16.1.5",
+          "asn": 65222
+        },
+        {
+          "address": "172.16.1.7",
+          "asn": 65223
+        },
+        {
+          "address": "172.16.1.9",
+          "asn": 65224
+        },
+        {
+          "address": "172.16.1.11",
+          "asn": 65225
+        },
+        {
+          "address": "172.16.1.13",
+          "asn": 65226
+        },
+        {
+          "address": "172.16.1.15",
+          "asn": 65227
+        }
+      ]
+    },
+    "spine_router_2_1": {
+      "asn": 65121,
+      "router_id": "172.16.0.19",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_2_1",
+          "address": "172.16.0.19/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_1",
+          "address": "172.16.0.51/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_1",
+          "address": "172.16.0.83/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_1",
+          "address": "172.16.0.115/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_0",
+          "address": "172.16.1.16/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_1",
+          "address": "172.16.1.18/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_2",
+          "address": "172.16.1.20/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_3",
+          "address": "172.16.1.22/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_4",
+          "address": "172.16.1.24/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_5",
+          "address": "172.16.1.26/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_6",
+          "address": "172.16.1.28/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_7",
+          "address": "172.16.1.30/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.18",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.50",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.82",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.114",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.17",
+          "asn": 65220
+        },
+        {
+          "address": "172.16.1.19",
+          "asn": 65221
+        },
+        {
+          "address": "172.16.1.21",
+          "asn": 65222
+        },
+        {
+          "address": "172.16.1.23",
+          "asn": 65223
+        },
+        {
+          "address": "172.16.1.25",
+          "asn": 65224
+        },
+        {
+          "address": "172.16.1.27",
+          "asn": 65225
+        },
+        {
+          "address": "172.16.1.29",
+          "asn": 65226
+        },
+        {
+          "address": "172.16.1.31",
+          "asn": 65227
+        }
+      ]
+    },
+    "spine_router_2_2": {
+      "asn": 65122,
+      "router_id": "172.16.0.21",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_2_2",
+          "address": "172.16.0.21/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_2",
+          "address": "172.16.0.53/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_2",
+          "address": "172.16.0.85/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_2",
+          "address": "172.16.0.117/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_0",
+          "address": "172.16.1.32/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_1",
+          "address": "172.16.1.34/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_2",
+          "address": "172.16.1.36/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_3",
+          "address": "172.16.1.38/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_4",
+          "address": "172.16.1.40/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_5",
+          "address": "172.16.1.42/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_6",
+          "address": "172.16.1.44/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_7",
+          "address": "172.16.1.46/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.20",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.52",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.84",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.116",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.33",
+          "asn": 65220
+        },
+        {
+          "address": "172.16.1.35",
+          "asn": 65221
+        },
+        {
+          "address": "172.16.1.37",
+          "asn": 65222
+        },
+        {
+          "address": "172.16.1.39",
+          "asn": 65223
+        },
+        {
+          "address": "172.16.1.41",
+          "asn": 65224
+        },
+        {
+          "address": "172.16.1.43",
+          "asn": 65225
+        },
+        {
+          "address": "172.16.1.45",
+          "asn": 65226
+        },
+        {
+          "address": "172.16.1.47",
+          "asn": 65227
+        }
+      ]
+    },
+    "spine_router_2_3": {
+      "asn": 65123,
+      "router_id": "172.16.0.23",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_2_3",
+          "address": "172.16.0.23/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_2_3",
+          "address": "172.16.0.55/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_2_3",
+          "address": "172.16.0.87/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_2_3",
+          "address": "172.16.0.119/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_0",
+          "address": "172.16.1.48/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_1",
+          "address": "172.16.1.50/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_2",
+          "address": "172.16.1.52/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_3",
+          "address": "172.16.1.54/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_4",
+          "address": "172.16.1.56/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_5",
+          "address": "172.16.1.58/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_6",
+          "address": "172.16.1.60/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_7",
+          "address": "172.16.1.62/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.22",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.54",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.86",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.118",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.49",
+          "asn": 65220
+        },
+        {
+          "address": "172.16.1.51",
+          "asn": 65221
+        },
+        {
+          "address": "172.16.1.53",
+          "asn": 65222
+        },
+        {
+          "address": "172.16.1.55",
+          "asn": 65223
+        },
+        {
+          "address": "172.16.1.57",
+          "asn": 65224
+        },
+        {
+          "address": "172.16.1.59",
+          "asn": 65225
+        },
+        {
+          "address": "172.16.1.61",
+          "asn": 65226
+        },
+        {
+          "address": "172.16.1.63",
+          "asn": 65227
+        }
+      ]
+    },
+    "leaf_router_2_0": {
+      "asn": 65220,
+      "router_id": "172.16.1.1",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_0",
+          "address": "172.16.1.1/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_0",
+          "address": "172.16.1.17/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_0",
+          "address": "172.16.1.33/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_0",
+          "address": "172.16.1.49/31"
+        },
+        {
+          "domain": "leaf_router_2_0_dns_pod2",
+          "address": "10.2.0.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.0",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.16",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.32",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.48",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_1": {
+      "asn": 65221,
+      "router_id": "172.16.1.3",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_1",
+          "address": "172.16.1.3/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_1",
+          "address": "172.16.1.19/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_1",
+          "address": "172.16.1.35/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_1",
+          "address": "172.16.1.51/31"
+        },
+        {
+          "domain": "leaf_router_2_1_webserver0_pod2",
+          "address": "10.2.1.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.2",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.18",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.34",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.50",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_2": {
+      "asn": 65222,
+      "router_id": "172.16.1.5",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_2",
+          "address": "172.16.1.5/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_2",
+          "address": "172.16.1.21/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_2",
+          "address": "172.16.1.37/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_2",
+          "address": "172.16.1.53/31"
+        },
+        {
+          "domain": "leaf_router_2_2_webserver1_pod2",
+          "address": "10.2.2.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.4",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.20",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.36",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.52",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_3": {
+      "asn": 65223,
+      "router_id": "172.16.1.7",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_3",
+          "address": "172.16.1.7/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_3",
+          "address": "172.16.1.23/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_3",
+          "address": "172.16.1.39/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_3",
+          "address": "172.16.1.55/31"
+        },
+        {
+          "domain": "leaf_router_2_3_webserver2_pod2",
+          "address": "10.2.3.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.6",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.22",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.38",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.54",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_4": {
+      "asn": 65224,
+      "router_id": "172.16.1.9",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_4",
+          "address": "172.16.1.9/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_4",
+          "address": "172.16.1.25/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_4",
+          "address": "172.16.1.41/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_4",
+          "address": "172.16.1.57/31"
+        },
+        {
+          "domain": "leaf_router_2_4_webserver3_pod2",
+          "address": "10.2.4.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.8",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.24",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.40",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.56",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_5": {
+      "asn": 65225,
+      "router_id": "172.16.1.11",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_5",
+          "address": "172.16.1.11/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_5",
+          "address": "172.16.1.27/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_5",
+          "address": "172.16.1.43/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_5",
+          "address": "172.16.1.59/31"
+        },
+        {
+          "domain": "leaf_router_2_5_webserver4_pod2",
+          "address": "10.2.5.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.10",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.26",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.42",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.58",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_6": {
+      "asn": 65226,
+      "router_id": "172.16.1.13",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_6",
+          "address": "172.16.1.13/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_6",
+          "address": "172.16.1.29/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_6",
+          "address": "172.16.1.45/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_6",
+          "address": "172.16.1.61/31"
+        },
+        {
+          "domain": "leaf_router_2_6_webserver5_pod2",
+          "address": "10.2.6.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.12",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.28",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.44",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.60",
+          "asn": 65123
+        }
+      ]
+    },
+    "leaf_router_2_7": {
+      "asn": 65227,
+      "router_id": "172.16.1.15",
+      "interfaces": [
+        {
+          "domain": "spine_router_2_0_leaf_router_2_7",
+          "address": "172.16.1.15/31"
+        },
+        {
+          "domain": "spine_router_2_1_leaf_router_2_7",
+          "address": "172.16.1.31/31"
+        },
+        {
+          "domain": "spine_router_2_2_leaf_router_2_7",
+          "address": "172.16.1.47/31"
+        },
+        {
+          "domain": "spine_router_2_3_leaf_router_2_7",
+          "address": "172.16.1.63/31"
+        },
+        {
+          "domain": "leaf_router_2_7_webserver6_pod2",
+          "address": "10.2.7.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.14",
+          "asn": 65120
+        },
+        {
+          "address": "172.16.1.30",
+          "asn": 65121
+        },
+        {
+          "address": "172.16.1.46",
+          "asn": 65122
+        },
+        {
+          "address": "172.16.1.62",
+          "asn": 65123
+        }
+      ]
+    },
+    "spine_router_3_0": {
+      "asn": 65130,
+      "router_id": "172.16.0.25",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_3_0",
+          "address": "172.16.0.25/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_0",
+          "address": "172.16.0.57/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_0",
+          "address": "172.16.0.89/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_0",
+          "address": "172.16.0.121/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_0",
+          "address": "172.16.1.64/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_1",
+          "address": "172.16.1.66/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_2",
+          "address": "172.16.1.68/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_3",
+          "address": "172.16.1.70/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_4",
+          "address": "172.16.1.72/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_5",
+          "address": "172.16.1.74/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_6",
+          "address": "172.16.1.76/31"
+        },
+        {
+          "domain": "spine_router_3_0_leaf_router_3_7",
+          "address": "172.16.1.78/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.24",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.56",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.88",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.120",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.65",
+          "asn": 65230
+        },
+        {
+          "address": "172.16.1.67",
+          "asn": 65231
+        },
+        {
+          "address": "172.16.1.69",
+          "asn": 65232
+        },
+        {
+          "address": "172.16.1.71",
+          "asn": 65233
+        },
+        {
+          "address": "172.16.1.73",
+          "asn": 65234
+        },
+        {
+          "address": "172.16.1.75",
+          "asn": 65235
+        },
+        {
+          "address": "172.16.1.77",
+          "asn": 65236
+        },
+        {
+          "address": "172.16.1.79",
+          "asn": 65237
+        }
+      ]
+    },
+    "spine_router_3_1": {
+      "asn": 65131,
+      "router_id": "172.16.0.27",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_3_1",
+          "address": "172.16.0.27/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_1",
+          "address": "172.16.0.59/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_1",
+          "address": "172.16.0.91/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_1",
+          "address": "172.16.0.123/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_0",
+          "address": "172.16.1.80/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_1",
+          "address": "172.16.1.82/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_2",
+          "address": "172.16.1.84/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_3",
+          "address": "172.16.1.86/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_4",
+          "address": "172.16.1.88/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_5",
+          "address": "172.16.1.90/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_6",
+          "address": "172.16.1.92/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_7",
+          "address": "172.16.1.94/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.26",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.58",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.90",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.122",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.81",
+          "asn": 65230
+        },
+        {
+          "address": "172.16.1.83",
+          "asn": 65231
+        },
+        {
+          "address": "172.16.1.85",
+          "asn": 65232
+        },
+        {
+          "address": "172.16.1.87",
+          "asn": 65233
+        },
+        {
+          "address": "172.16.1.89",
+          "asn": 65234
+        },
+        {
+          "address": "172.16.1.91",
+          "asn": 65235
+        },
+        {
+          "address": "172.16.1.93",
+          "asn": 65236
+        },
+        {
+          "address": "172.16.1.95",
+          "asn": 65237
+        }
+      ]
+    },
+    "spine_router_3_2": {
+      "asn": 65132,
+      "router_id": "172.16.0.29",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_3_2",
+          "address": "172.16.0.29/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_2",
+          "address": "172.16.0.61/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_2",
+          "address": "172.16.0.93/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_2",
+          "address": "172.16.0.125/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_0",
+          "address": "172.16.1.96/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_1",
+          "address": "172.16.1.98/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_2",
+          "address": "172.16.1.100/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_3",
+          "address": "172.16.1.102/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_4",
+          "address": "172.16.1.104/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_5",
+          "address": "172.16.1.106/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_6",
+          "address": "172.16.1.108/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_7",
+          "address": "172.16.1.110/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.28",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.60",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.92",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.124",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.97",
+          "asn": 65230
+        },
+        {
+          "address": "172.16.1.99",
+          "asn": 65231
+        },
+        {
+          "address": "172.16.1.101",
+          "asn": 65232
+        },
+        {
+          "address": "172.16.1.103",
+          "asn": 65233
+        },
+        {
+          "address": "172.16.1.105",
+          "asn": 65234
+        },
+        {
+          "address": "172.16.1.107",
+          "asn": 65235
+        },
+        {
+          "address": "172.16.1.109",
+          "asn": 65236
+        },
+        {
+          "address": "172.16.1.111",
+          "asn": 65237
+        }
+      ]
+    },
+    "spine_router_3_3": {
+      "asn": 65133,
+      "router_id": "172.16.0.31",
+      "interfaces": [
+        {
+          "domain": "super_spine_router_0_spine_router_3_3",
+          "address": "172.16.0.31/31"
+        },
+        {
+          "domain": "super_spine_router_1_spine_router_3_3",
+          "address": "172.16.0.63/31"
+        },
+        {
+          "domain": "super_spine_router_2_spine_router_3_3",
+          "address": "172.16.0.95/31"
+        },
+        {
+          "domain": "super_spine_router_3_spine_router_3_3",
+          "address": "172.16.0.127/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_0",
+          "address": "172.16.1.112/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_1",
+          "address": "172.16.1.114/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_2",
+          "address": "172.16.1.116/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_3",
+          "address": "172.16.1.118/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_4",
+          "address": "172.16.1.120/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_5",
+          "address": "172.16.1.122/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_6",
+          "address": "172.16.1.124/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_7",
+          "address": "172.16.1.126/31"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.0.30",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.62",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.94",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.0.126",
+          "asn": 65000
+        },
+        {
+          "address": "172.16.1.113",
+          "asn": 65230
+        },
+        {
+          "address": "172.16.1.115",
+          "asn": 65231
+        },
+        {
+          "address": "172.16.1.117",
+          "asn": 65232
+        },
+        {
+          "address": "172.16.1.119",
+          "asn": 65233
+        },
+        {
+          "address": "172.16.1.121",
+          "asn": 65234
+        },
+        {
+          "address": "172.16.1.123",
+          "asn": 65235
+        },
+        {
+          "address": "172.16.1.125",
+          "asn": 65236
+        },
+        {
+          "address": "172.16.1.127",
+          "asn": 65237
+        }
+      ]
+    },
+    "leaf_router_3_0": {
+      "asn": 65230,
+      "router_id": "172.16.1.65",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_0",
+          "address": "172.16.1.65/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_0",
+          "address": "172.16.1.81/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_0",
+          "address": "172.16.1.97/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_0",
+          "address": "172.16.1.113/31"
+        },
+        {
+          "domain": "leaf_router_3_0_dns_pod3",
+          "address": "10.3.0.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.64",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.80",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.96",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.112",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_1": {
+      "asn": 65231,
+      "router_id": "172.16.1.67",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_1",
+          "address": "172.16.1.67/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_1",
+          "address": "172.16.1.83/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_1",
+          "address": "172.16.1.99/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_1",
+          "address": "172.16.1.115/31"
+        },
+        {
+          "domain": "leaf_router_3_1_webserver0_pod3",
+          "address": "10.3.1.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.66",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.82",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.98",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.114",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_2": {
+      "asn": 65232,
+      "router_id": "172.16.1.69",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_2",
+          "address": "172.16.1.69/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_2",
+          "address": "172.16.1.85/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_2",
+          "address": "172.16.1.101/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_2",
+          "address": "172.16.1.117/31"
+        },
+        {
+          "domain": "leaf_router_3_2_webserver1_pod3",
+          "address": "10.3.2.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.68",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.84",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.100",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.116",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_3": {
+      "asn": 65233,
+      "router_id": "172.16.1.71",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_3",
+          "address": "172.16.1.71/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_3",
+          "address": "172.16.1.87/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_3",
+          "address": "172.16.1.103/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_3",
+          "address": "172.16.1.119/31"
+        },
+        {
+          "domain": "leaf_router_3_3_webserver2_pod3",
+          "address": "10.3.3.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.70",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.86",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.102",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.118",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_4": {
+      "asn": 65234,
+      "router_id": "172.16.1.73",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_4",
+          "address": "172.16.1.73/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_4",
+          "address": "172.16.1.89/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_4",
+          "address": "172.16.1.105/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_4",
+          "address": "172.16.1.121/31"
+        },
+        {
+          "domain": "leaf_router_3_4_webserver3_pod3",
+          "address": "10.3.4.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.72",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.88",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.104",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.120",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_5": {
+      "asn": 65235,
+      "router_id": "172.16.1.75",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_5",
+          "address": "172.16.1.75/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_5",
+          "address": "172.16.1.91/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_5",
+          "address": "172.16.1.107/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_5",
+          "address": "172.16.1.123/31"
+        },
+        {
+          "domain": "leaf_router_3_5_webserver4_pod3",
+          "address": "10.3.5.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.74",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.90",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.106",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.122",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_6": {
+      "asn": 65236,
+      "router_id": "172.16.1.77",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_6",
+          "address": "172.16.1.77/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_6",
+          "address": "172.16.1.93/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_6",
+          "address": "172.16.1.109/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_6",
+          "address": "172.16.1.125/31"
+        },
+        {
+          "domain": "leaf_router_3_6_webserver5_pod3",
+          "address": "10.3.6.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.76",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.92",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.108",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.124",
+          "asn": 65133
+        }
+      ]
+    },
+    "leaf_router_3_7": {
+      "asn": 65237,
+      "router_id": "172.16.1.79",
+      "interfaces": [
+        {
+          "domain": "spine_router_3_0_leaf_router_3_7",
+          "address": "172.16.1.79/31"
+        },
+        {
+          "domain": "spine_router_3_1_leaf_router_3_7",
+          "address": "172.16.1.95/31"
+        },
+        {
+          "domain": "spine_router_3_2_leaf_router_3_7",
+          "address": "172.16.1.111/31"
+        },
+        {
+          "domain": "spine_router_3_3_leaf_router_3_7",
+          "address": "172.16.1.127/31"
+        },
+        {
+          "domain": "leaf_router_3_7_webserver6_pod3",
+          "address": "10.3.7.1/24"
+        }
+      ],
+      "peers": [
+        {
+          "address": "172.16.1.78",
+          "asn": 65130
+        },
+        {
+          "address": "172.16.1.94",
+          "asn": 65131
+        },
+        {
+          "address": "172.16.1.110",
+          "asn": 65132
+        },
+        {
+          "address": "172.16.1.126",
+          "asn": 65133
+        }
+      ]
+    }
+  },
+  "endpoints": {
+    "dns_pod0": {
+      "address": "10.0.0.2",
+      "domain": "leaf_router_0_0_dns_pod0",
+      "dhcp": false
+    },
+    "webserver0_pod0": {
+      "address": "10.0.1.2",
+      "domain": "leaf_router_0_1_webserver0_pod0",
+      "dhcp": false
+    },
+    "webserver1_pod0": {
+      "address": "10.0.2.2",
+      "domain": "leaf_router_0_2_webserver1_pod0",
+      "dhcp": false
+    },
+    "webserver2_pod0": {
+      "address": "10.0.3.2",
+      "domain": "leaf_router_0_3_webserver2_pod0",
+      "dhcp": false
+    },
+    "webserver3_pod0": {
+      "address": "10.0.4.2",
+      "domain": "leaf_router_0_4_webserver3_pod0",
+      "dhcp": false
+    },
+    "webserver4_pod0": {
+      "address": "10.0.5.2",
+      "domain": "leaf_router_0_5_webserver4_pod0",
+      "dhcp": false
+    },
+    "webserver5_pod0": {
+      "address": "10.0.6.2",
+      "domain": "leaf_router_0_6_webserver5_pod0",
+      "dhcp": false
+    },
+    "webserver6_pod0": {
+      "address": "10.0.7.2",
+      "domain": "leaf_router_0_7_webserver6_pod0",
+      "dhcp": false
+    },
+    "dns_pod1": {
+      "address": "10.1.0.2",
+      "domain": "leaf_router_1_0_dns_pod1",
+      "dhcp": false
+    },
+    "webserver0_pod1": {
+      "address": "10.1.1.2",
+      "domain": "leaf_router_1_1_webserver0_pod1",
+      "dhcp": false
+    },
+    "webserver1_pod1": {
+      "address": "10.1.2.2",
+      "domain": "leaf_router_1_2_webserver1_pod1",
+      "dhcp": false
+    },
+    "webserver2_pod1": {
+      "address": "10.1.3.2",
+      "domain": "leaf_router_1_3_webserver2_pod1",
+      "dhcp": false
+    },
+    "webserver3_pod1": {
+      "address": "10.1.4.2",
+      "domain": "leaf_router_1_4_webserver3_pod1",
+      "dhcp": false
+    },
+    "webserver4_pod1": {
+      "address": "10.1.5.2",
+      "domain": "leaf_router_1_5_webserver4_pod1",
+      "dhcp": false
+    },
+    "webserver5_pod1": {
+      "address": "10.1.6.2",
+      "domain": "leaf_router_1_6_webserver5_pod1",
+      "dhcp": false
+    },
+    "webserver6_pod1": {
+      "address": "10.1.7.2",
+      "domain": "leaf_router_1_7_webserver6_pod1",
+      "dhcp": false
+    },
+    "dns_pod2": {
+      "address": "10.2.0.2",
+      "domain": "leaf_router_2_0_dns_pod2",
+      "dhcp": false
+    },
+    "webserver0_pod2": {
+      "address": "10.2.1.2",
+      "domain": "leaf_router_2_1_webserver0_pod2",
+      "dhcp": false
+    },
+    "webserver1_pod2": {
+      "address": "10.2.2.2",
+      "domain": "leaf_router_2_2_webserver1_pod2",
+      "dhcp": false
+    },
+    "webserver2_pod2": {
+      "address": "10.2.3.2",
+      "domain": "leaf_router_2_3_webserver2_pod2",
+      "dhcp": false
+    },
+    "webserver3_pod2": {
+      "address": "10.2.4.2",
+      "domain": "leaf_router_2_4_webserver3_pod2",
+      "dhcp": false
+    },
+    "webserver4_pod2": {
+      "address": "10.2.5.2",
+      "domain": "leaf_router_2_5_webserver4_pod2",
+      "dhcp": false
+    },
+    "webserver5_pod2": {
+      "address": "10.2.6.2",
+      "domain": "leaf_router_2_6_webserver5_pod2",
+      "dhcp": false
+    },
+    "webserver6_pod2": {
+      "address": "10.2.7.2",
+      "domain": "leaf_router_2_7_webserver6_pod2",
+      "dhcp": false
+    },
+    "dns_pod3": {
+      "address": "10.3.0.2",
+      "domain": "leaf_router_3_0_dns_pod3",
+      "dhcp": false
+    },
+    "webserver0_pod3": {
+      "address": "10.3.1.2",
+      "domain": "leaf_router_3_1_webserver0_pod3",
+      "dhcp": false
+    },
+    "webserver1_pod3": {
+      "address": "10.3.2.2",
+      "domain": "leaf_router_3_2_webserver1_pod3",
+      "dhcp": false
+    },
+    "webserver2_pod3": {
+      "address": "10.3.3.2",
+      "domain": "leaf_router_3_3_webserver2_pod3",
+      "dhcp": false
+    },
+    "webserver3_pod3": {
+      "address": "10.3.4.2",
+      "domain": "leaf_router_3_4_webserver3_pod3",
+      "dhcp": false
+    },
+    "webserver4_pod3": {
+      "address": "10.3.5.2",
+      "domain": "leaf_router_3_5_webserver4_pod3",
+      "dhcp": false
+    },
+    "webserver5_pod3": {
+      "address": "10.3.6.2",
+      "domain": "leaf_router_3_6_webserver5_pod3",
+      "dhcp": false
+    },
+    "webserver6_pod3": {
+      "address": "10.3.7.2",
+      "domain": "leaf_router_3_7_webserver6_pod3",
+      "dhcp": false
+    },
+    "client_0": {
+      "address": "192.168.0.2",
+      "domain": "super_spine_router_0_client_0",
+      "dhcp": true
+    },
+    "client_1": {
+      "address": "192.168.1.2",
+      "domain": "super_spine_router_1_client_1",
+      "dhcp": false
+    },
+    "client_2": {
+      "address": "192.168.2.2",
+      "domain": "super_spine_router_2_client_2",
+      "dhcp": false
+    },
+    "client_3": {
+      "address": "192.168.3.2",
+      "domain": "super_spine_router_3_client_3",
+      "dhcp": false
+    },
+    "dhcp1": {
+      "address": "192.168.0.67",
+      "domain": "super_spine_router_0_client_0",
+      "dhcp": false
+    },
+    "lb1": {
+      "address": "10.0.1.80",
+      "domain": "leaf_router_0_1_webserver0_pod0",
+      "dhcp": false
+    },
+    "monitor1": {
+      "address": "10.2.7.200",
+      "domain": "leaf_router_2_7_webserver6_pod2",
+      "dhcp": false
+    },
+    "monitor2": {
+      "address": "10.3.7.200",
+      "domain": "leaf_router_3_7_webserver6_pod3",
+      "dhcp": false
+    }
+  }
+}

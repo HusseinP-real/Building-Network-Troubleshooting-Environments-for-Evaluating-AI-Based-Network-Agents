@@ -1,0 +1,78 @@
+{
+  "name": "jiayuan75-false-premise-internal-application",
+  "topology": "Kath5_Jiayuan_75Devices",
+  "scenario": "jiayuan75-false-premise-internal-application",
+  "steps": [
+    {
+      "action": "check",
+      "name": "no-fault-service-path",
+      "checks": [
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1"
+        },
+        {
+          "device": "b1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss"
+        },
+        {
+          "device": "b1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12"
+        },
+        {
+          "device": "b1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200"
+        },
+        {
+          "device": "f1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12"
+        },
+        {
+          "device": "f1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200"
+        }
+      ]
+    }
+  ]
+}

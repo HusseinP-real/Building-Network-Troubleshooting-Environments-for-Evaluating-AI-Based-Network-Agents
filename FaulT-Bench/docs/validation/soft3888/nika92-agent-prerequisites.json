@@ -1,0 +1,8 @@
+{
+  "kind": "credential-names-and-presence-only-no-inference",
+  "present": {
+    "ANTHROPIC_API_KEY": false,
+    "OPENAI_API_KEY": false,
+    "FAULTBENCH_OPENAI_API_KEY": false
+  }
+}

@@ -71,6 +71,25 @@ final_results/      the 3,960 frozen runs + MANIFEST.csv (see "The released runs
 tools/              compute_metrics.py + dataset_stats.py (see below)
 ```
 
+## SOFT3888 custom development
+
+See the [complete runbook](docs/soft3888-runbook.md), [Ground Truth catalog](ground_truth/README.md), and [historical agent comparison](docs/soft3888-agent-comparison.md). The runtime/build scripts and explicit inventories accompany the 75/92-device topology definitions. Real model evaluation remains blocked until credentials are supplied.
+
+The 75-device Jiayuan extension has a separate service/fault workflow, strict
+validation and runtime guidance in [SOFT3888 development](docs/soft3888-development.md).
+See [executed validation results](docs/soft3888-validation-results.md) for the
+current configuration's passed, failed and incomplete runs. These custom cases
+are separate from the published experiment and do not change its manifests or
+frozen results. Live lab validation makes no LLM API calls.
+
+```bash
+python tools/build_soft3888_images.py
+python tools/prepare_soft3888_runtime.py  # shared read-only programs on Docker vfs
+python tools/validate_soft3888.py Kath5_Jiayuan_75Devices --repeats 2
+python tools/validate_soft3888.py NIKA_Clos_Jiayuan_92Devices --repeats 2
+python -m faultbench bench --manifest faultbench/benchmarks/jiayuan75.csv --agents sade --dry-run
+```
+
 ## Verify the paper's numbers
 
 No Docker, no API keys — two commands over the shipped data:
@@ -492,3 +511,5 @@ the three reference topologies used alongside our five translated labs.
 
 Code is MIT ([LICENSE](LICENSE)). The scenario dataset (`dataset/`) is
 CC BY 4.0 ([dataset/LICENSE](dataset/LICENSE)).
+
+The second SOFT3888 deliverable is [NIKA Clos extension, 92 devices](topology_kathara/NIKA_Clos_Jiayuan_92Devices/README.md): an actual export of the pinned NIKA DCClosService(l) reference (88 devices), with four added service/management nodes. It preserves the source graph and AS/address plan. Four eBGP/DHCP/HAProxy cases use faultbench/benchmarks/nika92.csv. The earlier 41-device design is historical and does not meet the size requirement. Consult the evidence index for actual live validation status; model scores are not yet available.

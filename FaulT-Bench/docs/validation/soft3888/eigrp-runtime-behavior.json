@@ -1,0 +1,312 @@
+{
+  "kind": "eigrp-runtime-behavior-diagnosis",
+  "lab_name": "soft3888-eigrp-81c7466e",
+  "started_at": "2026-10-20T06:29:01.534356+00:00",
+  "checks": [
+    {
+      "stage": "baseline",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "stage": "baseline",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP Routing Process not enabled"
+    },
+    {
+      "stage": "baseline",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "baseline",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 11     0        0      2    0      2"
+    },
+    {
+      "stage": "runtime-remove",
+      "device": "r21",
+      "command": "vtysh -c \"conf t\" -c \"router eigrp 100\" -c \"no network 192.168.251.0/24\" -c end",
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "stage": "runtime-remove-observation",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "file-remove-and-restart",
+      "device": "r21",
+      "command": "sed -i '\\|network 192.168.251.0/24|d' /etc/frr/frr.conf && /etc/init.d/frr restart",
+      "rc": 0,
+      "output": "Stopped watchfrr.\nStopped staticd.\nStopped eigrpd.\nStopped mgmtd.\nStopped zebra.\nStarting watchfrr with command: '  /usr/lib/frr/watchfrr  -d   mgmtd zebra eigrpd staticd'.\n[184|mgmtd] sending configuration\n[185|zebra] sending configuration\n[195|eigrpd] sending configuration\n[199|watchfrr] sending configuration\n[201|staticd] sending configuration\nWaiting for children to finish applying config...\nStarted watchfrr.\n2026/10/20 06:29:08 ZEBRA: [KGY44-D47GD][EC 4043309111] Disabling MPLS support (no kernel support)\n[184|mgmtd] done\n[195|eigrpd] done\n[185|zebra] done\n[199|watchfrr] done\n[201|staticd] done"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 14     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 10     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 12     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 14     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 11     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 13     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 14     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 11     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 13     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 10     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 12     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 13     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 10     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 10     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 10     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 13     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 13     0        0      2    0      3"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "prefix-withdrawn-after-restart",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 11     0        0      2    0      3"
+    }
+  ],
+  "passed": false,
+  "error_traceback": "Traceback (most recent call last):\n  File \"/tmp/diagnose_eigrp.py\", line 31, in <module>\n    wait('prefix-withdrawn-after-restart',False)\n  File \"/tmp/diagnose_eigrp.py\", line 22, in wait\n    if time.monotonic()>end:raise RuntimeError('Route state did not converge')\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Route state did not converge\n",
+  "cleanup": "verified",
+  "finished_at": "2026-10-20T06:31:09.204556+00:00"
+}

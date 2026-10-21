@@ -1,0 +1,2363 @@
+{
+  "kind": "live-network-validation-without-llm",
+  "started_at": "2026-10-21T08:17:35.514427+00:00",
+  "lab_name": "soft3888-f082c7c43304",
+  "passed": true,
+  "stages": [
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-21T08:19:11.685794+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "super_spine_router_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "spine_router_0_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_0_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_1_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_1_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_2_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_2_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_3_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_3_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web6.pod0 +short +time=1 +tries=1",
+          "expect": "equals: 10.0.7.2",
+          "rc": 0,
+          "output": "10.0.7.2",
+          "passed": true,
+          "rationale": "got '10.0.7.2', expected '10.0.7.2'"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2",
+          "rc": 0,
+          "output": "10.1.7.2",
+          "passed": true,
+          "rationale": "got '10.1.7.2', expected '10.1.7.2'"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "dig @10.2.0.2 web6.pod2 +short +time=1 +tries=1",
+          "expect": "equals: 10.2.7.2",
+          "rc": 0,
+          "output": "10.2.7.2",
+          "passed": true,
+          "rationale": "got '10.2.7.2', expected '10.2.7.2'"
+        },
+        {
+          "device": "client_3",
+          "command": "dig @10.2.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "dig @10.3.0.2 web6.pod3 +short +time=1 +tries=1",
+          "expect": "equals: 10.3.7.2",
+          "rc": 0,
+          "output": "10.3.7.2",
+          "passed": true,
+          "rationale": "got '10.3.7.2', expected '10.3.7.2'"
+        },
+        {
+          "device": "client_0",
+          "command": "dig @10.3.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "ip -4 -o addr show eth0 | awk '{print $4}'",
+          "expect": "equals: 192.168.0.2/24",
+          "rc": 0,
+          "output": "192.168.0.2/24",
+          "passed": true,
+          "rationale": "got '192.168.0.2/24', expected '192.168.0.2/24'"
+        },
+        {
+          "device": "client_0",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.0.1",
+          "rc": 0,
+          "output": "192.168.0.1",
+          "passed": true,
+          "rationale": "got '192.168.0.1', expected '192.168.0.1'"
+        },
+        {
+          "device": "monitor1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403",
+          "rc": 0,
+          "output": "403",
+          "passed": true,
+          "rationale": "got '403', expected 403"
+        },
+        {
+          "device": "monitor1",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "monitor2",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://web6.pod3/ | grep -c 'SOFT3888 NIKA Backend webserver6_pod3'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        }
+      ]
+    },
+    {
+      "name": "nika92-false-premise-pod1-web:pre",
+      "at": "2026-10-21T08:20:02.917389+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2",
+          "rc": 0,
+          "output": "10.1.7.2",
+          "passed": true,
+          "rationale": "got '10.1.7.2', expected '10.1.7.2'"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403",
+          "rc": 0,
+          "output": "403",
+          "passed": true,
+          "rationale": "got '403', expected 403"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.1.2",
+          "rc": 0,
+          "output": "10.1.1.2",
+          "passed": true,
+          "rationale": "got '10.1.1.2', expected '10.1.1.2'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        }
+      ]
+    },
+    {
+      "name": "nika92-false-premise-pod1-web:no-fault-service-path",
+      "at": "2026-10-21T08:20:04.213020+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2",
+          "rc": 0,
+          "output": "10.1.7.2",
+          "passed": true,
+          "rationale": "got '10.1.7.2', expected '10.1.7.2'"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403",
+          "rc": 0,
+          "output": "403",
+          "passed": true,
+          "rationale": "got '403', expected 403"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.1.2",
+          "rc": 0,
+          "output": "10.1.1.2",
+          "passed": true,
+          "rationale": "got '10.1.1.2', expected '10.1.1.2'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        }
+      ]
+    },
+    {
+      "name": "nika92-false-premise-pod1-web:recovered",
+      "at": "2026-10-21T08:20:05.119959+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2",
+          "rc": 0,
+          "output": "10.1.7.2",
+          "passed": true,
+          "rationale": "got '10.1.7.2', expected '10.1.7.2'"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403",
+          "rc": 0,
+          "output": "403",
+          "passed": true,
+          "rationale": "got '403', expected 403"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.1.2",
+          "rc": 0,
+          "output": "10.1.1.2",
+          "passed": true,
+          "rationale": "got '10.1.1.2', expected '10.1.1.2'"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        }
+      ]
+    },
+    {
+      "name": "nika92-false-premise-pod1-web:whole-baseline-restored",
+      "at": "2026-10-21T08:20:19.030980+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "super_spine_router_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "super_spine_router_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "16",
+          "rc": 0,
+          "output": "16",
+          "passed": true,
+          "rationale": "got '16', expected 16"
+        },
+        {
+          "device": "spine_router_0_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_0_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_0_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_0_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_1_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_1_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_1_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_1_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_2_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_2_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_2_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_2_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "spine_router_3_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "spine_router_3_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "12",
+          "rc": 0,
+          "output": "12",
+          "passed": true,
+          "rationale": "got '12', expected 12"
+        },
+        {
+          "device": "leaf_router_3_0",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_1",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_2",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_3",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_4",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_5",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_6",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "leaf_router_3_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4",
+          "rc": 0,
+          "output": "4",
+          "passed": true,
+          "rationale": "got '4', expected 4"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 web6.pod0 +short +time=1 +tries=1",
+          "expect": "equals: 10.0.7.2",
+          "rc": 0,
+          "output": "10.0.7.2",
+          "passed": true,
+          "rationale": "got '10.0.7.2', expected '10.0.7.2'"
+        },
+        {
+          "device": "client_1",
+          "command": "dig @10.0.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+          "expect": "equals: 10.1.7.2",
+          "rc": 0,
+          "output": "10.1.7.2",
+          "passed": true,
+          "rationale": "got '10.1.7.2', expected '10.1.7.2'"
+        },
+        {
+          "device": "client_2",
+          "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "dig @10.2.0.2 web6.pod2 +short +time=1 +tries=1",
+          "expect": "equals: 10.2.7.2",
+          "rc": 0,
+          "output": "10.2.7.2",
+          "passed": true,
+          "rationale": "got '10.2.7.2', expected '10.2.7.2'"
+        },
+        {
+          "device": "client_3",
+          "command": "dig @10.2.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.1.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.2.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.3.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.4.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.5.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.6.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.7.2:80/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "dig @10.3.0.2 web6.pod3 +short +time=1 +tries=1",
+          "expect": "equals: 10.3.7.2",
+          "rc": 0,
+          "output": "10.3.7.2",
+          "passed": true,
+          "rationale": "got '10.3.7.2', expected '10.3.7.2'"
+        },
+        {
+          "device": "client_0",
+          "command": "dig @10.3.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 10.0.1.80",
+          "rc": 0,
+          "output": "10.0.1.80",
+          "passed": true,
+          "rationale": "got '10.0.1.80', expected '10.0.1.80'"
+        },
+        {
+          "device": "client_0",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_0",
+          "command": "ip -4 -o addr show eth0 | awk '{print $4}'",
+          "expect": "equals: 192.168.0.2/24",
+          "rc": 0,
+          "output": "192.168.0.2/24",
+          "passed": true,
+          "rationale": "got '192.168.0.2/24', expected '192.168.0.2/24'"
+        },
+        {
+          "device": "client_0",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.0.1",
+          "rc": 0,
+          "output": "192.168.0.1",
+          "passed": true,
+          "rationale": "got '192.168.0.1', expected '192.168.0.1'"
+        },
+        {
+          "device": "monitor1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+          "expect": "403",
+          "rc": 0,
+          "output": "403",
+          "passed": true,
+          "rationale": "got '403', expected 403"
+        },
+        {
+          "device": "monitor1",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "monitor2",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://web6.pod3/ | grep -c 'SOFT3888 NIKA Backend webserver6_pod3'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        }
+      ]
+    }
+  ],
+  "harness_sha256": {
+    "mcp_bootstrap.py": "498d007799206f4d00224eb2e302b80a365e2fe88ab4a4c92be3945d7a0b8c61",
+    "orchestrator.py": "c1500a7b9da4bdce37fca56686eb5b4f78ad9035c2878e27890474978a656a2d",
+    "lab.py": "097da39b32e16b1213739296ce6c2e324b47ab4cc1fee4c7596797ef1f424f83",
+    "results.py": "002ff6f4ef6c1cc37e54947d98d966d540bb69a121967b54676e31680aa9bae3",
+    "__init__.py": "d963f8bf994551a1ef8418d7bbb1046d67db5d2be20e0036fc0ee4804566743c",
+    "inject.py": "a30de89de3d8861c547561b02f946aff7fdd119b1a1bb375339274a69954f86a",
+    "inventory.py": "b95eee236811fe01d06e8db5e6c695f4a524340646e335544b8285b501b45ff6",
+    "__main__.py": "db8986b20a6cab88a2e95d587622c3ffe347ed796804a9e9356aa40d43a7635a",
+    "scenario.py": "15bae5183e68d4b8b4016b8d6aec8a64323e0614e31c3d10e31998d07e32d6d8",
+    "mcp_helper.py": "b9c17ce7d0823fa6b87bc5e76b9e03fee655f31f784316535c95e46d4572c856",
+    "topology.py": "763f3fcf09fb966320a41bb1fe6294aac9bf578fb148f08427194012796b83bf",
+    "runtime.py": "eb9a50419ec8c563a946fa2be168a4952f2fb2f10d94be76baf581237376b258",
+    "validation.py": "60f78d868b627ba78cc6124ccce041558b3968e4301987a6afd85845f89c7ca1",
+    "ground_truth.py": "43713c0796d95ff0da8ac13604bf2efc307348fcc5b1ebbcd06edf7bb020ac0f",
+    "mcp_smoke.py": "2144eb88ad0da211416360ca69eadfe66bbb6b21c07a8f94f0820528f2aa081d",
+    "paths.py": "02f1a0b6b958aaa3cf2c95da57a019b1840e257e1af44615f3185fe363b66f31",
+    "envfile.py": "d9fce6978e8da378857c9d894d9f27324d8741842d43406830b51a80096ce94d",
+    "checks.py": "aca6c24de4fbb96861c9a2fd8c1e526029a532d1627013e0f0eaf81319e8a39f"
+  },
+  "topology": "NIKA_Clos_Jiayuan_92Devices",
+  "cycle": 1,
+  "validation_scope": "no-fault-control",
+  "validated_scenarios": [
+    "nika92-false-premise-pod1-web"
+  ],
+  "source_sha256": {
+    "address-plan.json": "084ae458b4f5fcbae69fe9fd62c25b1cb494a846d1848d152e672673bb15fc0b",
+    "benchmark.json": "9a4f7271a801cc424bfb238d3f619a1340378f5fee5059328de9a44c1edfb948",
+    "client_0/opt/soft3888/dhcp-client": "f29ee7e77554fe84713b086d0a43958de6313030c40de03fe9d3eaeb609df81c",
+    "client_0.startup": "997ac6fa4419f65993d3dba14478c9a9fa9a688c03a00b0b2e8b3a17403c5479",
+    "client_1.startup": "759d788011cc698a0bb365aa235a6bdbf74fb94372051faa4d3619d85b2b6620",
+    "client_2.startup": "846988607080e348320bccff0eea5d761dee8f18677defb9e51a045df33544c7",
+    "client_3.startup": "b266d071c20f2733c4e52f377f78bcde952779551cda2ef6352d41ab22a14b65",
+    "dhcp1/etc/dnsmasq.d/clos.conf": "68614e9b2ea90b7239271449eb7d4626ef405345e94031c92b4b6b7fe05ffeb3",
+    "dhcp1/opt/soft3888/dns-control": "c2cb3a75499a000c29a6009b7c4a999d1e3579fb29c7481c90963eeb4398ab44",
+    "dhcp1.startup": "ddee6d8d73ff3694cf6b43cfe6006274265b110b936d9df314ea7d38b4dbfa88",
+    "dns_pod0/etc/dnsmasq.d/clos.conf": "b0006296767d4675d9215c1ec844e5ea0b512c6d38877fb91f732cc1236706e8",
+    "dns_pod0/opt/soft3888/dns-control": "c2cb3a75499a000c29a6009b7c4a999d1e3579fb29c7481c90963eeb4398ab44",
+    "dns_pod0.startup": "a59954cc82271d840fee577126bd04eb3f6155644553a840d9d360c803603928",
+    "dns_pod1/etc/dnsmasq.d/clos.conf": "568b897eed9b71899658df6cb65487922ff51e53ccb954aab9ef53329ca5e657",
+    "dns_pod1/opt/soft3888/dns-control": "c2cb3a75499a000c29a6009b7c4a999d1e3579fb29c7481c90963eeb4398ab44",
+    "dns_pod1.startup": "864d1d6c59083034927ffc206285527d3935d84dae5d4ab42f9df917ed6200b1",
+    "dns_pod2/etc/dnsmasq.d/clos.conf": "adce84ee05c3e29451e9dd39cc472afb8b632af08395465b5e2139bd1f9ed76a",
+    "dns_pod2/opt/soft3888/dns-control": "c2cb3a75499a000c29a6009b7c4a999d1e3579fb29c7481c90963eeb4398ab44",
+    "dns_pod2.startup": "2feb8a369842dbd51ab8d2700c5c193abb62c54cdc1425970b80ca9b748f0c12",
+    "dns_pod3/etc/dnsmasq.d/clos.conf": "32de15fdbdde0372279a4a46c57be17f6e194da32df70ca66c44ebb5a2e1507e",
+    "dns_pod3/opt/soft3888/dns-control": "c2cb3a75499a000c29a6009b7c4a999d1e3579fb29c7481c90963eeb4398ab44",
+    "dns_pod3.startup": "d32a552a223e952de779c1574e2e90085d6dd1a74a19d6452ad18289c4ce129e",
+    "lab.conf": "4324d3685ea2a65e346b37c20fda662a9638a4d77fdd0a9d8be3da8ad69ff64e",
+    "lb1/etc/haproxy/haproxy.cfg": "12449c11883a0c7e0bbf0bc6675d60148f7a26433c336402e5d601c3fe47d764",
+    "lb1/opt/soft3888/lb-control": "1bf75321fe313181f26e170b97a78a378c5d6e76da717eb7859f2b4db594bf1b",
+    "lb1.startup": "bf5183523cd0930e7dface1e6901a7a78522a1e0f879109948186f2572f8b8f7",
+    "leaf_router_0_0/etc/frr/frr.conf": "db7d35a9bca0d2309bedfc663f14013b1a6410a5332a1f944343e58d037ffdad",
+    "leaf_router_0_0.startup": "4209aa78a128cdb6219e04eff27370884542ff6def5950dd82d1ae81a781f856",
+    "leaf_router_0_1/etc/frr/frr.conf": "b8c70dc5bbcdab0a9a013f78d1a7c4fcb6988e1bb566299a16c6af44ca27074c",
+    "leaf_router_0_1.startup": "465c18e034b1506f702dca503754887d4f1229b9d4f321012129b34dd0ece051",
+    "leaf_router_0_2/etc/frr/frr.conf": "39e963615f6598d4dc3079dacf3c4a91dbea7deefcc5ae8f724ab0766729a66a",
+    "leaf_router_0_2.startup": "0b04862d8303ea22ff78afdf6ebd949db505c46655959857be8cdca5a45906f6",
+    "leaf_router_0_3/etc/frr/frr.conf": "db93eaf77ae361816f7ab069d146897f11de13d9013456ad20baed4b2269a504",
+    "leaf_router_0_3.startup": "c9d1a188ecb91180e396312aab3cab3896d0e09cd985c85c2bd61def92f765f4",
+    "leaf_router_0_4/etc/frr/frr.conf": "1d549bd4b16e7dda20afca5c24b36b7ab3a924800cc0b21c5a06f82d2a58d9c4",
+    "leaf_router_0_4.startup": "61c32b61517b6cf3a5ba8ab3837eb166f7a7be56b29d1f46ce49de29d5f9f12a",
+    "leaf_router_0_5/etc/frr/frr.conf": "f09adfe748220eef6682a623482fa9d54d9e19435342053de26c9a6193cc82c0",
+    "leaf_router_0_5.startup": "8b64adedc3362ce09659674c72b22b54e2a6a7432ee3ee4b8a436b1c58599422",
+    "leaf_router_0_6/etc/frr/frr.conf": "95ca632a70eabab4bbef5990b06fa3e2782a490e2510e69e14a11946d77b73c9",
+    "leaf_router_0_6.startup": "d355ad328f68c1aaf5e4201296ccf19b35c8605f76b0fd17991542cae5f01e94",
+    "leaf_router_0_7/etc/frr/frr.conf": "c3f4c3855ddea9bfffd7a44960c915429365373905d7dc0ce13ec98278485f2d",
+    "leaf_router_0_7.startup": "2fec7d4821e5f6060a29fe072696274c7eafa4781e24e58ab2413c98e1d87f2a",
+    "leaf_router_1_0/etc/frr/frr.conf": "3dd6d70fe3afb3f3402edf6594cc41187dcbe6b962dd345cc2975e5860b2a900",
+    "leaf_router_1_0.startup": "515c130c9325be15a3877e6f027a8be8ce264408a249c264327fcf0ff6ce1fa4",
+    "leaf_router_1_1/etc/frr/frr.conf": "1eecad2e289be358010e29253382f40eda4ff54528806c9d3cb52abbcbd9f799",
+    "leaf_router_1_1.startup": "ae8e657fb65f55b8f4ad34d23ca9d6b3bdd312ad20e5950e028f6f5e9e7125fb",
+    "leaf_router_1_2/etc/frr/frr.conf": "8c7e5235075f836f4c9dac9e6151a81023044c0c8facd2750366c9be068fadaa",
+    "leaf_router_1_2.startup": "4172c05c7257279e3d44b753f3d721fec967c49d00c19fef8d199aa070ba8aa2",
+    "leaf_router_1_3/etc/frr/frr.conf": "490dbb87012d880b2abb40747ec2dd024b9f5915cdb1515a4a573cdfafc174b4",
+    "leaf_router_1_3.startup": "991a34028320bf79bacac9363418adaa36c77429c4b617ad421cb46d31e977da",
+    "leaf_router_1_4/etc/frr/frr.conf": "815740f2d756d589c2f7280d86688edf03136d02aff3a18fd61679e41bf39766",
+    "leaf_router_1_4.startup": "77cc2b2e9bc3baf72872e6e57dcb8ba1630844460ebdcbf47c42d2f03ea674f0",
+    "leaf_router_1_5/etc/frr/frr.conf": "941d33fd6b9972f09250060a1d2755cec7011c04b31b4f4253b8e8bf5793c337",
+    "leaf_router_1_5.startup": "bae8fb542ab8c3196a85134e0209cffdc52ff9da30847df4eede778d0369b351",
+    "leaf_router_1_6/etc/frr/frr.conf": "c6f570d067f50db503410a64f14e735b9464f9172e0d8a94e3dc72d445823b18",
+    "leaf_router_1_6.startup": "f9b17ed392e67536cd2eea51a9b997fbf90d8e2d9b79aa60f9b1d31be1ff95bd",
+    "leaf_router_1_7/etc/frr/frr.conf": "6c1585129944063683c169ddf3167339982f5d82062b8e1244e2212d0621a34c",
+    "leaf_router_1_7.startup": "9e5779cf17c026e5d637aec6e3beb07d1e6b353c30f005ba9902527b1436ad1e",
+    "leaf_router_2_0/etc/frr/frr.conf": "10cfb4497483cb1dc5d45b23c260c91bece8cb70ba31b6946051700245a058d8",
+    "leaf_router_2_0.startup": "1b22a9e536631ec599cf712b87007e9dc2d288ae722ba0ae034a25bd459d1ae6",
+    "leaf_router_2_1/etc/frr/frr.conf": "4d4c1001958a811a252f4642b242044290f8c6b580bd0d11dd0c4cc60d9029b4",
+    "leaf_router_2_1.startup": "ab91e227bf8ec304bcfdad20fe8513061f620cb4319154be103fc04a175799f9",
+    "leaf_router_2_2/etc/frr/frr.conf": "a6f2be0b0eb3ef76a7b1cbb976052149de5e0c1da537c044d924712875544c9d",
+    "leaf_router_2_2.startup": "e423e2936e80c7a15bccf79d217b0d518eb2d55981f0a8962e6a69b07bb2373f",
+    "leaf_router_2_3/etc/frr/frr.conf": "5635c5989c630cddf7b9095a42db25d89605355bedac39315d62a0c98022b82c",
+    "leaf_router_2_3.startup": "77eea8fe6dfbd1424d4beadae83193dc7ca483985766a8a6dcd179689e9420c4",
+    "leaf_router_2_4/etc/frr/frr.conf": "53b4d16ff6c2b8c6fc476d69c70e5a221247f133fff6878cfc65816713d833bc",
+    "leaf_router_2_4.startup": "7d86019b81baca0cf06a6a33c6525f93f0df651a34b666829886c555f464a7bf",
+    "leaf_router_2_5/etc/frr/frr.conf": "db11dcad297c46a6a97773b2aad582498d5b896136ffa7f6129c9d848ae4f5bf",
+    "leaf_router_2_5.startup": "cb510250412b9b86f88019b0b6abd4b8a2117cd5f949bb0e494d9c0802b07b45",
+    "leaf_router_2_6/etc/frr/frr.conf": "423890513873766f0d63bfd871b618c7b978bead09be476b5c30bc605c11452f",
+    "leaf_router_2_6.startup": "6c29850675d0486859f13eeea1de0a52c542f46dcb473b864aa595516cc24c4a",
+    "leaf_router_2_7/etc/frr/frr.conf": "14e092af72c3a3753b6c64211014b6047ad1099c8bb5df1c10ae039c85465d6e",
+    "leaf_router_2_7.startup": "1c5b635fb8f2b19a48c1fe5a0a615801ab9cd95edb8d17c9ac1bc974aefa2c22",
+    "leaf_router_3_0/etc/frr/frr.conf": "9ee73a1b3487a24bfddc5039023fa8ecb3c10fa27045fbfb55fc83b11c10f4aa",
+    "leaf_router_3_0.startup": "30384f5accc49310793e917c0fda070974d5637e30af1318c5751668c1f0817d",
+    "leaf_router_3_1/etc/frr/frr.conf": "8aee75258817a6361ff1ea27d9b7d8ea1ff0f2da77f0721d2a2fc45cf5d8c368",
+    "leaf_router_3_1.startup": "c3b16ae367659e32dba95907f52339227984d996d61b95e2cdf09e1b3eb02e84",
+    "leaf_router_3_2/etc/frr/frr.conf": "fede5c3e8f9d63fb977da0d357d9d8de5e1897587730045a492daf8bedc4085a",
+    "leaf_router_3_2.startup": "42bbffcf9ff1577fb562976ce9c2394a9ae35a13d425fabcf50bf132c3159d14",
+    "leaf_router_3_3/etc/frr/frr.conf": "2669aee5252597191ad5c8c6345c5cb9acd29d04379d5906bc05a4ca8693b96e",
+    "leaf_router_3_3.startup": "8ab88c4b4d0ef01dd65b67567f403882e515dca39fe01a0500804dd72c2cf5fc",
+    "leaf_router_3_4/etc/frr/frr.conf": "e6201de926282b64a006ef2a3e95a5b4d6aaeb8593758609970c8984e7da832a",
+    "leaf_router_3_4.startup": "467e459e8d044cfb45ac7ca8f27737e68286e55e98bb23626d2804fcbb3ebfc7",
+    "leaf_router_3_5/etc/frr/frr.conf": "2bebe1016a1b4243a1a327292cc1ef6c1643e1762011d032232761697562e01e",
+    "leaf_router_3_5.startup": "1d6a6ad8da59e522c4970272b88cf6cffc67e9b9b6218f0321ffcb1087f1fd1f",
+    "leaf_router_3_6/etc/frr/frr.conf": "32498fdca203abe03f6c80620582906f34fc83fc9e2c2c3b71ec81805917f053",
+    "leaf_router_3_6.startup": "9d2a18ba4155ef641fe674a0d44dec531638f65c6a15642bd15a9b31774ae964",
+    "leaf_router_3_7/etc/frr/frr.conf": "ef9bda32dfae4a375c5ac8c315307979a328434411efe324e35bac87ed0bbd77",
+    "leaf_router_3_7.startup": "f99878b8aaa6c3dc269ac46e6ee2188a0e240ff9ec1d919a019b0d5a13eb6da4",
+    "monitor1/opt/soft3888/check-services.py": "275240238fa9e89c0d085be6efe2b1944c42f9240ea1fca22229b4b9acd7827a",
+    "monitor1.startup": "3d62ef7835915ed72866e284a2e756aa87d46661277813e67cdf6f32d591d32a",
+    "monitor2/opt/soft3888/check-services.py": "275240238fa9e89c0d085be6efe2b1944c42f9240ea1fca22229b4b9acd7827a",
+    "monitor2.startup": "8086e79fe065212ae8fdb1fc4a711fdc2c22c6a97a0b69b3a5cd8b84bfec3a6c",
+    "reference-provenance.json": "665c1fa6bac2a79e38793b1629bad212f8aa4a35a2dd52eeebf7c18e85caca98",
+    "roles.json": "4cf55abe4a2675be7c33bb4c2e6d1a32ddc9b0b0524249ade66bcffef217eb54",
+    "spine_router_0_0/etc/frr/frr.conf": "3272dc8ce2859f8c08b6275110ceb5cd8d6c3008da9d1954a4e71b1db6e2e9d6",
+    "spine_router_0_0.startup": "bfd1d56e9c6eb72bdf65cea062aaed04cdf141a61f66b61cdb6592dc7c27d71c",
+    "spine_router_0_1/etc/frr/frr.conf": "82679ab1c32de6143b9a096c2193811ad67e3a21bca583ed516fe66ba0b643bc",
+    "spine_router_0_1.startup": "20308005668691e238a2e101aebf524ffe1067a3fc3fa9d3e0c512b8191373ea",
+    "spine_router_0_2/etc/frr/frr.conf": "3ff61e89ca29504917b66d41eb396e07774e404398e921a49cbe2c898cd42a87",
+    "spine_router_0_2.startup": "17684a8bda0f89ee6e4179ab1da11f0bf2a2d6876979e3e772f27b17c01fad95",
+    "spine_router_0_3/etc/frr/frr.conf": "fb4e62a1b41f6271cc1ded2e8dc3113200a7ad8bec782d8d7275fb61a7650e70",
+    "spine_router_0_3.startup": "dc2a7e72503b4c4d953a53aa56eab9000c972a5a8b9f1591bb2a287a5160a79e",
+    "spine_router_1_0/etc/frr/frr.conf": "9e4a124c779fbfc134e5fdb24ce2b658d1182ea0c9535ac61b91cb013dbe71bd",
+    "spine_router_1_0.startup": "34c275a047a281de82fb931b1c0f798c292912f1aad8d436e0c7fe584aa9070a",
+    "spine_router_1_1/etc/frr/frr.conf": "054e139836e6e104dcbe4c8e964d0d799b5a69af6c156e048a2e1b8b55dbb74e",
+    "spine_router_1_1.startup": "15f12eee6371e4126d5851238cc3c1269d98a429e60fd52372750cc4ebd5513e",
+    "spine_router_1_2/etc/frr/frr.conf": "9a27fd40ae0ab0377230c46d05d0644f129d9c25e134f1174d64e4bee63dc9c1",
+    "spine_router_1_2.startup": "bd5ffbbeade98a43f2f2221ba8278f0d103fa288fa302eb7b97a8d5dff0ecfe9",
+    "spine_router_1_3/etc/frr/frr.conf": "fe87b45d5c8ca812d49ca1c6065e3dccc0b5bd50a2df049ab845b16872e152e0",
+    "spine_router_1_3.startup": "533a96ad01700b8d10d3e2654969e0cafa065c45d24bc3b74c3bcf605b80b8b5",
+    "spine_router_2_0/etc/frr/frr.conf": "09d003d178820145597a3e7f5ff460d34f0597b7bf9d9382efee95f22df8f654",
+    "spine_router_2_0.startup": "020fb54052ec8aa2953c910fc717e0de9b28871aef09c329a4f11fc1078dbdc2",
+    "spine_router_2_1/etc/frr/frr.conf": "8e26f34f0f69428d38c2fb6bea6b229f7b560595b1a0df83dfe474713d3ba4f9",
+    "spine_router_2_1.startup": "571e79f6c484d8d9b5a309091f19cf37434fd1aa495e066247a8c3ad5f733c9a",
+    "spine_router_2_2/etc/frr/frr.conf": "c41859aada54a38f17032fa6e9b8e26576544d41494eb42b26e0dc986541bcf2",
+    "spine_router_2_2.startup": "2a591d6f7e8c8a163ca457b81e8f49ba16f223e73f53c8bd93e85d3b3966a783",
+    "spine_router_2_3/etc/frr/frr.conf": "f5758ce37889b21ab80a9f6bea058d9c90cf3a5cfe6f30bfebd37072318488a9",
+    "spine_router_2_3.startup": "ade23004b465efab13983f84b90d7a0b6d88376c99a7ff59d66530068e78d869",
+    "spine_router_3_0/etc/frr/frr.conf": "5d3f3ea8ddf87f302adaf650fa074cf6e24650dc06a99d491e8205c5c873aa36",
+    "spine_router_3_0.startup": "892b7836fe50ecaf4e7cf20f2cb330062beaa76a32f9d869ec27f7174cdff7d2",
+    "spine_router_3_1/etc/frr/frr.conf": "e69b0d3441ea27b2dc6e0d7a5c6dbd9bed8c24bc263dfe2d595c9fc55ad73123",
+    "spine_router_3_1.startup": "8dc2c04e50cb85ea9e6a9bfe61935fcebaed8fcf280b9c82097f587419d432fa",
+    "spine_router_3_2/etc/frr/frr.conf": "06cbdc1a083b434039b364ea40fdfe4a90b165b9a07e28d2a9b635b3fbfbc66a",
+    "spine_router_3_2.startup": "f85de53a956314d74f15d62559129c85c82aeef9575e3b9bd5fbca8137e0d69c",
+    "spine_router_3_3/etc/frr/frr.conf": "0f2677a88a924642ddab6ee80f2f99857a79d576e29e06aec704c75b62d28c3b",
+    "spine_router_3_3.startup": "89caa2edcdfa0249db29893a1e7e0bc361e3ec3035b103f45ddf4a6b98e17a50",
+    "super_spine_router_0/etc/frr/frr.conf": "72e74533d56edd1c0ef484f2d08efd61bbde78d1f3272a3bda189b1c423c80bd",
+    "super_spine_router_0.startup": "a786d50ee0b00e8a6726b5ccd08a255b8e1cdd272d2cd9607642af95925d1550",
+    "super_spine_router_1/etc/frr/frr.conf": "fb2ab7253ecb46d2014886251c16c40d93313d34153b094f2d1623f9ae1b5928",
+    "super_spine_router_1.startup": "544cb96e23b85d727a5f01bbc3c56c98712b8b382ad0863ff0f5d91b43503bb2",
+    "super_spine_router_2/etc/frr/frr.conf": "a1872eed468a31e5f091295d9db2b2daaf8868800c5eb89f925534b23733897f",
+    "super_spine_router_2.startup": "e5b32a1b6a4b6e3458ebe2daa46beafde74bd5c5b72954b9da0beefb02e788fd",
+    "super_spine_router_3/etc/frr/frr.conf": "68d200848bb690d1816a2ff9c323bbe91770ff18ccb30547fe5d6edb7dc4c8f7",
+    "super_spine_router_3.startup": "833f15a2e51826f1aae5dfc6a9493ecf72a8af436416607604d00168e4fcdadc",
+    "webserver0_pod0/var/www/html/index.html": "336b4323fb88a02855d4619c469627bc6ee698a00c1dc20c6061c6a98a0cd4eb",
+    "webserver0_pod0.startup": "aec095a7286040512abcba5f0a3ea99f8e28f7fed12fd28418f768d6433280be",
+    "webserver0_pod1/var/www/html/index.html": "1c7570a5448499e55222be34362b80c5fc80819f383333ccae2ab8d39d84fbfc",
+    "webserver0_pod1.startup": "d60748813aef3bd60cc2b8ed6064cb8b617cbe27a3fe2f8b58bd1d5aa9c9121e",
+    "webserver0_pod2/var/www/html/index.html": "dc830526f0482047483f2cf4542f8b2731c8546d6e74b663dde2a7a611e8eb85",
+    "webserver0_pod2.startup": "71367c3e81373b9bca6e75e99e616da2fd2b82b5a15d84effd2d59b3341e311e",
+    "webserver0_pod3/var/www/html/index.html": "f17f8cffc86937775e5d365328e18cf07c6503d1fedb3ccf62b6c4a5d3645049",
+    "webserver0_pod3.startup": "54322a44e7fc5a4d37fa5bcf1ee7d74585592047d952b69e2c19b0affc4d185d",
+    "webserver1_pod0/var/www/html/index.html": "37ee65acf36f4f8ec87b29091a538598f290081b8bf42b8f70b5ceb353383be2",
+    "webserver1_pod0.startup": "cb37436fd3ab3d6b64384ec873aebbc584a7c5a6b1986f9babd1eb71430c860c",
+    "webserver1_pod1/var/www/html/index.html": "ad9638cd0430f9f160ceb056cfd09613d3aeb12c49201c2c6db61c95b8c2bf94",
+    "webserver1_pod1.startup": "e0a3b5f20f833cd9db8f63bd075098a45ad8ee213528324d4156a46e117827fb",
+    "webserver1_pod2/var/www/html/index.html": "5936c87defd383ebaa9db1581b21cd6dedb976b4d2e6155d345f51eab537ef64",
+    "webserver1_pod2.startup": "02ccf3b5563b1f20914a8231fcc3eaab504fa12bbb731c974632fb4b880da218",
+    "webserver1_pod3/var/www/html/index.html": "48b002a9a6ff9dbd63ee04b7dd855425d6e5ffdb59f2e9d08a92fd943847a06b",
+    "webserver1_pod3.startup": "eea2dc91b27908dbfb74c4da23fad251b1e9924d0bc9b885eba8f8279f142fa7",
+    "webserver2_pod0/var/www/html/index.html": "e8e6ca0f34f35d638b40b91e6f1a524f8ee08f3953f2a5e8c5f6b334af341a4d",
+    "webserver2_pod0.startup": "2573d66b12aadf666697dd0cf49447635254cfdb77990e990bb25bfff7e0ac6e",
+    "webserver2_pod1/var/www/html/index.html": "b339d4bd95373e1008d90a3b8637c19a85a2c1742b118630cf34a4c59db28cb0",
+    "webserver2_pod1.startup": "dfcb27e7062fd1d2f162101a73782c982966fb25c45b55832bb7c80c78c11e85",
+    "webserver2_pod2/var/www/html/index.html": "7cabc4e0779f06fd7ae8acf00b09dd6d54ec5581edf49948a298a508ba189a1c",
+    "webserver2_pod2.startup": "419826b7b80873d3132baac90402d73fda79830a844f8d4b01ace4afb8dc01b3",
+    "webserver2_pod3/var/www/html/index.html": "cfd0f799f3460bee233c161531124a0244bae32d0e227ce67dddda0fe2336447",
+    "webserver2_pod3.startup": "a013277cf242e6a74e7429a19e97484c2ba6c7b5478275bda14556faab637743",
+    "webserver3_pod0/var/www/html/index.html": "444fc74d329b2af242675c0a0e902a469849e1b1800663bf76b8b9b7268dea89",
+    "webserver3_pod0.startup": "a7a6ca16956d84adc997a095589acb51b5171cefa4e0ac462490758552844fe1",
+    "webserver3_pod1/var/www/html/index.html": "11ea2d5646fe625561788df1dd8aa783f6df17d352f46a49477dd3cd87f5ff9f",
+    "webserver3_pod1.startup": "b7e8152f6d5bfcdd5e531d9d12bca1741492f1a9503864c7b52dad8f8d5a6af8",
+    "webserver3_pod2/var/www/html/index.html": "cecd1665bb34d864e48958fa5b682877066f0f6a5b526b8f274fb5ed72a3ca64",
+    "webserver3_pod2.startup": "45d07ded407be088a4526d3555057b52d412030ba44ea4b7a112e9e75e4d931f",
+    "webserver3_pod3/var/www/html/index.html": "dbecd6fff5d86eda74541e4d9585bcbf445fb53addf95c79e14e2184c35da79d",
+    "webserver3_pod3.startup": "179ca440a04323247fbc0d4f2804fe2fd13f5c970664d675d5af5689136247fa",
+    "webserver4_pod0/var/www/html/index.html": "301cb839587085e036ac9de99c5e50e5b4fdaea9af07c3bd9ad4074988e38d07",
+    "webserver4_pod0.startup": "460d13f2baa30bee67589cee5d60b811c94718282018699bcc831cf561ae4241",
+    "webserver4_pod1/var/www/html/index.html": "7a5c77b0ada08d1a2df40e260638e5959e313c1adfb4f22f12aa86d0ada33515",
+    "webserver4_pod1.startup": "c692bcb1b4431abb62ce21a4466a6a78ee9de65a404e61c1688c0f73149854b5",
+    "webserver4_pod2/var/www/html/index.html": "7f2f89061c348952f17ad15c87ae3da61114d510e532cf4d3e490cd03f4359b3",
+    "webserver4_pod2.startup": "58b049315efb8fc7534946233ce40bf6c4a8b4ad7ad9b689b8485700b0361c4e",
+    "webserver4_pod3/var/www/html/index.html": "dd94baac500643eb62a8ee29193560afddf21f2e1271d6f2b588fa1fdd40d523",
+    "webserver4_pod3.startup": "4a966a61bec0481a935da0907773918eed61352b9b684c8eee7e205bbcf05ed6",
+    "webserver5_pod0/var/www/html/index.html": "33f098edf8bfb5642d5583131e14253ddc7c5f4779df281dce2015de022293da",
+    "webserver5_pod0.startup": "fab769e37809c77dea4f5dc444ea8ea825e65404e9cc8bb49c1e63e4d9dec95b",
+    "webserver5_pod1/var/www/html/index.html": "cda7ea87ad2a86c05f3ce0119f8dba3c8dd10428f775a8b8882c06cfac34dab6",
+    "webserver5_pod1.startup": "b1f04bb43ce93cbdb76af0d233b25f60fceedfcd822f25349860a79674c208c9",
+    "webserver5_pod2/var/www/html/index.html": "bc1e64b60d42aef792ce3de2a071f7fd6858b8357d6df88e98e9d9d386a7229b",
+    "webserver5_pod2.startup": "21c79d763da43b6d829b92132258b2fe4a8ad0ac753309f3ef2af7a36aab8899",
+    "webserver5_pod3/var/www/html/index.html": "e4b0e614b9a8b0238e8cb60a18f0fdeb441c8fe2d6cc15f166d9159459c7498d",
+    "webserver5_pod3.startup": "72e81d6c05bac4fc8b782de9d607ce74fbab8d78b1312986f4a48f4a03cfac78",
+    "webserver6_pod0/var/www/html/index.html": "fd3589c0bd4c45761399843d12307c6d1577330c166570864161ef9169841b43",
+    "webserver6_pod0.startup": "6c9b5a786bc8f6cd5f42102ade20c61668448ab9b05286cea7d269d547027a95",
+    "webserver6_pod1/var/www/html/index.html": "f4df09abf21103d9b766295117c98ff4ee67c51948078d0e4f3706a82365717b",
+    "webserver6_pod1.startup": "22f7238bcccff8bc10f51e6b2d1206ca5b02cc6feaef222c81ee375cf0cdcf5f",
+    "webserver6_pod2/var/www/html/index.html": "bfed0f2438bf5fe0ee1b8361057381414fac90c2dd652e1d12669abb95aab7b0",
+    "webserver6_pod2.startup": "a20d538be7b4b8a33d23c1ea059bfe309affb52fdb2108748959e90194afd115",
+    "webserver6_pod3/var/www/html/index.html": "57ffc8f8c28cf3340513141a05ee081f6fa71d5558a0b81ded8b46c802d063f8",
+    "webserver6_pod3.startup": "50a83098c5177b1cc1ba6cad68342c7badac603bf8d33e69e0e528d942a846f5"
+  },
+  "scenario_sha256": {
+    "nika92-false-premise-pod1-web": "78f3bc400c99c258e84bf358db9abc551a9bffe6243d1bb57dccae3b93023821"
+  },
+  "experiment": {
+    "name": "nika92-false-premise-pod1-web",
+    "path": "faultbench/experiments/nika92_control.json",
+    "sha256": "c184b5c6f3b47d9aab33f8170efc6e1bc7ae78d4611c93ce2941dd54a243b837"
+  },
+  "temporary_lab": "/tmp/soft3888-f082c7c43304-ol6szi7a/NIKA_Clos_Jiayuan_92Devices",
+  "docker_version": "28.4.0",
+  "storage_driver": "vfs",
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "router": {
+        "source": "soft3888/frr:10.5.3-v1",
+        "source_id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+        "device_image": "soft3888/frr:shared-v1",
+        "device_image_id": "sha256:66212f8a4e643a83c63c200b640254dba52216093ead3d5157401075158d65c5",
+        "usr_sha256": "d8dd13204085d833d4a20772d2cd27d0405955ed52290078e406dcf11d75e3fa",
+        "created_at": "2026-10-20T06:01:50.366453+00:00"
+      },
+      "host": {
+        "source": "soft3888/host:bookworm-v1",
+        "source_id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+        "device_image": "soft3888/host:shared-v1",
+        "device_image_id": "sha256:145fb48800e11badc8daf04c288dcb679fef0bfb62998488f85ffabc32452698",
+        "usr_sha256": "1ac23d17f4b53e8fc3677f718b94e81d7539336fb6d91b9e8e5e90a973279b32",
+        "created_at": "2026-10-20T06:07:38.044396+00:00"
+      }
+    }
+  },
+  "disk_preflight": {
+    "estimated_container_bytes": 758981544,
+    "free_bytes": 23217590272
+  },
+  "images": {
+    "soft3888/frr:10.5.3-v1": {
+      "id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+      "repo_digests": []
+    },
+    "soft3888/host:bookworm-v1": {
+      "id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+      "repo_digests": []
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 92,
+  "declared_collision_domains": 228,
+  "mcp_smoke": [
+    {
+      "server": "kathara_base_mcp_server",
+      "tools": [
+        "get_reachability",
+        "ping_pair",
+        "systemctl_ops",
+        "get_host_net_config",
+        "get_tc_statistics",
+        "netstat",
+        "ip_addr_statistics",
+        "ethtool",
+        "curl_web_test",
+        "iperf_test",
+        "cat_file",
+        "exec_shell",
+        "exec_shell_dual"
+      ],
+      "calls": [
+        {
+          "tool": "exec_shell",
+          "arguments": {
+            "host_name": "client_1",
+            "command": "ping -n -W1 -c1 10.0.1.80"
+          },
+          "is_error": false,
+          "output": "PING 10.0.1.80 (10.0.1.80) 56(84) bytes of data.\n64 bytes from 10.0.1.80: icmp_seq=1 ttl=61 time=5.46 ms\n\n--- 10.0.1.80 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 5.458/5.458/5.458/0.000 ms"
+        },
+        {
+          "tool": "get_reachability",
+          "arguments": {},
+          "is_error": false,
+          "output": "{\"hosts\":{\"client_0\":\"192.168.0.2\",\"client_1\":\"192.168.1.2\",\"client_2\":\"192.168.2.2\",\"client_3\":\"192.168.3.2\",\"dhcp1\":\"192.168.0.67\",\"dns_pod0\":\"10.0.0.2\",\"dns_pod1\":\"10.1.0.2\",\"dns_pod2\":\"10.2.0.2\",\"dns_pod3\":\"10.3.0.2\",\"lb1\":\"10.0.1.80\",\"monitor1\":\"10.2.7.200\",\"monitor2\":\"10.3.7.200\",\"webserver0_pod0\":\"10.0.1.2\",\"webserver0_pod1\":\"10.1.1.2\",\"webserver0_pod2\":\"10.2.1.2\",\"webserver0_pod3\":\"10.3.1.2\",\"webserver1_pod0\":\"10.0.2.2\",\"webserver1_pod1\":\"10.1.2.2\",\"webserver1_pod2\":\"10.2.2.2\",\"webserver1_pod3\":\"10.3.2.2\",\"webserver2_pod0\":\"10.0.3.2\",\"webserver2_pod1\":\"10.1.3.2\",\"webserver2_pod2\":\"10.2.3.2\",\"webserver2_pod3\":\"10.3.3.2\",\"webserver3_pod0\":\"10.0.4.2\",\"webserver3_pod1\":\"10.1.4.2\",\"webserver3_pod2\":\"10.2.4.2\",\"webserver3_pod3\":\"10.3.4.2\",\"webserver4_pod0\":\"10.0.5.2\",\"webserver4_pod1\":\"10.1.5.2\",\"webserver4_pod2\":\"10.2.5.2\",\"webserver4_pod3\":\"10.3.5.2\",\"webserver5_pod0\":\"10.0.6.2\",\"webserver5_pod1\":\"10.1.6.2\",\"webserver5_pod2\":\"10.2.6.2\",\"webserver5_pod3\":\"10.3.6.2\",\"webserver6_pod0\":\"10.0.7.2\",\"webserver6_pod1\":\"10.1.7.2\",\"webserver6_pod2\":\"10.2.7.2\",\"webserver6_pod3\":\"10.3.7.2\"},\"results\":[{\"src\":\"client_0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1002.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"client_1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1035.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"client_2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1038.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"client_2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1026.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"client_3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1000.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"client_3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1022.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"dhcp1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1022.0,\"rtt_avg_ms\":5.307,\"rtt_min_ms\":0.452,\"rtt_max_ms\":10.163,\"rtt_mdev_ms\":4.855,\"status\":\"ok\"},{\"src\":\"dhcp1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":0,\"loss_percent\":100.0,\"time_ms\":1009.0,\"rtt_avg_ms\":null,\"rtt_min_ms\":null,\"rtt_max_ms\":null,\"rtt_mdev_ms\":null,\"status\":\"down\"},{\"src\":\"dns_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.346,\"rtt_min_ms\":2.779,\"rtt_max_ms\":13.914,\"rtt_mdev_ms\":5.567,\"status\":\"ok\"},{\"src\":\"dns_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":25.871,\"rtt_min_ms\":2.189,\"rtt_max_ms\":49.554,\"rtt_mdev_ms\":23.682,\"status\":\"ok\"},{\"src\":\"dns_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":24.051,\"rtt_min_ms\":8.793,\"rtt_max_ms\":39.31,\"rtt_mdev_ms\":15.258,\"status\":\"ok\"},{\"src\":\"dns_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":10.703,\"rtt_min_ms\":3.356,\"rtt_max_ms\":18.05,\"rtt_mdev_ms\":7.347,\"status\":\"ok\"},{\"src\":\"dns_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.469,\"rtt_min_ms\":2.357,\"rtt_max_ms\":2.581,\"rtt_mdev_ms\":0.112,\"status\":\"ok\"},{\"src\":\"dns_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.621,\"rtt_min_ms\":2.318,\"rtt_max_ms\":4.925,\"rtt_mdev_ms\":1.303,\"status\":\"ok\"},{\"src\":\"dns_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.842,\"rtt_min_ms\":4.158,\"rtt_max_ms\":7.526,\"rtt_mdev_ms\":1.684,\"status\":\"ok\"},{\"src\":\"dns_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1004.0,\"rtt_avg_ms\":7.12,\"rtt_min_ms\":2.617,\"rtt_max_ms\":11.623,\"rtt_mdev_ms\":4.503,\"status\":\"ok\"},{\"src\":\"lb1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":7.19,\"rtt_min_ms\":5.676,\"rtt_max_ms\":8.704,\"rtt_mdev_ms\":1.514,\"status\":\"ok\"},{\"src\":\"lb1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.39,\"rtt_min_ms\":3.289,\"rtt_max_ms\":3.491,\"rtt_mdev_ms\":0.101,\"status\":\"ok\"},{\"src\":\"monitor1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.971,\"rtt_min_ms\":1.905,\"rtt_max_ms\":10.037,\"rtt_mdev_ms\":4.066,\"status\":\"ok\"},{\"src\":\"monitor1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.136,\"rtt_min_ms\":2.025,\"rtt_max_ms\":8.248,\"rtt_mdev_ms\":3.111,\"status\":\"ok\"},{\"src\":\"monitor2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":16.995,\"rtt_min_ms\":3.478,\"rtt_max_ms\":30.512,\"rtt_mdev_ms\":13.517,\"status\":\"ok\"},{\"src\":\"monitor2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":16.664,\"rtt_min_ms\":4.103,\"rtt_max_ms\":29.225,\"rtt_mdev_ms\":12.561,\"status\":\"ok\"},{\"src\":\"webserver0_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.756,\"rtt_min_ms\":5.452,\"rtt_max_ms\":6.061,\"rtt_mdev_ms\":0.304,\"status\":\"ok\"},{\"src\":\"webserver0_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":5.316,\"rtt_min_ms\":2.999,\"rtt_max_ms\":7.634,\"rtt_mdev_ms\":2.317,\"status\":\"ok\"},{\"src\":\"webserver0_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.869,\"rtt_min_ms\":3.824,\"rtt_max_ms\":3.914,\"rtt_mdev_ms\":0.045,\"status\":\"ok\"},{\"src\":\"webserver0_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":10.774,\"rtt_min_ms\":4.765,\"rtt_max_ms\":16.783,\"rtt_mdev_ms\":6.009,\"status\":\"ok\"},{\"src\":\"webserver0_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":8.902,\"rtt_min_ms\":1.747,\"rtt_max_ms\":16.057,\"rtt_mdev_ms\":7.155,\"status\":\"ok\"},{\"src\":\"webserver0_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":15.724,\"rtt_min_ms\":12.498,\"rtt_max_ms\":18.95,\"rtt_mdev_ms\":3.226,\"status\":\"ok\"},{\"src\":\"webserver0_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":12.506,\"rtt_min_ms\":5.141,\"rtt_max_ms\":19.872,\"rtt_mdev_ms\":7.365,\"status\":\"ok\"},{\"src\":\"webserver0_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":10.707,\"rtt_min_ms\":4.568,\"rtt_max_ms\":16.846,\"rtt_mdev_ms\":6.139,\"status\":\"ok\"},{\"src\":\"webserver1_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":8.941,\"rtt_min_ms\":3.283,\"rtt_max_ms\":14.6,\"rtt_mdev_ms\":5.658,\"status\":\"ok\"},{\"src\":\"webserver1_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.799,\"rtt_min_ms\":3.335,\"rtt_max_ms\":10.263,\"rtt_mdev_ms\":3.464,\"status\":\"ok\"},{\"src\":\"webserver1_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.389,\"rtt_min_ms\":1.983,\"rtt_max_ms\":2.795,\"rtt_mdev_ms\":0.406,\"status\":\"ok\"},{\"src\":\"webserver1_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.143,\"rtt_min_ms\":2.547,\"rtt_max_ms\":3.74,\"rtt_mdev_ms\":0.596,\"status\":\"ok\"},{\"src\":\"webserver1_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.155,\"rtt_min_ms\":2.992,\"rtt_max_ms\":3.318,\"rtt_mdev_ms\":0.163,\"status\":\"ok\"},{\"src\":\"webserver1_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.788,\"rtt_min_ms\":3.25,\"rtt_max_ms\":4.326,\"rtt_mdev_ms\":0.538,\"status\":\"ok\"},{\"src\":\"webserver1_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.191,\"rtt_min_ms\":2.9,\"rtt_max_ms\":5.482,\"rtt_mdev_ms\":1.291,\"status\":\"ok\"},{\"src\":\"webserver1_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.887,\"rtt_min_ms\":1.722,\"rtt_max_ms\":4.053,\"rtt_mdev_ms\":1.165,\"status\":\"ok\"},{\"src\":\"webserver2_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.721,\"rtt_min_ms\":3.216,\"rtt_max_ms\":4.226,\"rtt_mdev_ms\":0.505,\"status\":\"ok\"},{\"src\":\"webserver2_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.793,\"rtt_min_ms\":4.788,\"rtt_max_ms\":4.799,\"rtt_mdev_ms\":0.005,\"status\":\"ok\"},{\"src\":\"webserver2_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.81,\"rtt_min_ms\":6.636,\"rtt_max_ms\":6.984,\"rtt_mdev_ms\":0.174,\"status\":\"ok\"},{\"src\":\"webserver2_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.583,\"rtt_min_ms\":4.476,\"rtt_max_ms\":4.69,\"rtt_mdev_ms\":0.107,\"status\":\"ok\"},{\"src\":\"webserver2_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.361,\"rtt_min_ms\":2.073,\"rtt_max_ms\":2.65,\"rtt_mdev_ms\":0.288,\"status\":\"ok\"},{\"src\":\"webserver2_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.843,\"rtt_min_ms\":2.258,\"rtt_max_ms\":3.429,\"rtt_mdev_ms\":0.585,\"status\":\"ok\"},{\"src\":\"webserver2_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.741,\"rtt_min_ms\":1.671,\"rtt_max_ms\":7.811,\"rtt_mdev_ms\":3.07,\"status\":\"ok\"},{\"src\":\"webserver2_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.57,\"rtt_min_ms\":2.465,\"rtt_max_ms\":2.676,\"rtt_mdev_ms\":0.105,\"status\":\"ok\"},{\"src\":\"webserver3_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.421,\"rtt_min_ms\":1.501,\"rtt_max_ms\":3.341,\"rtt_mdev_ms\":0.92,\"status\":\"ok\"},{\"src\":\"webserver3_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.181,\"rtt_min_ms\":2.74,\"rtt_max_ms\":3.623,\"rtt_mdev_ms\":0.441,\"status\":\"ok\"},{\"src\":\"webserver3_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":1.803,\"rtt_min_ms\":1.277,\"rtt_max_ms\":2.329,\"rtt_mdev_ms\":0.526,\"status\":\"ok\"},{\"src\":\"webserver3_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.648,\"rtt_min_ms\":3.295,\"rtt_max_ms\":4.001,\"rtt_mdev_ms\":0.353,\"status\":\"ok\"},{\"src\":\"webserver3_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.228,\"rtt_min_ms\":1.825,\"rtt_max_ms\":4.632,\"rtt_mdev_ms\":1.403,\"status\":\"ok\"},{\"src\":\"webserver3_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.208,\"rtt_min_ms\":2.146,\"rtt_max_ms\":4.27,\"rtt_mdev_ms\":1.062,\"status\":\"ok\"},{\"src\":\"webserver3_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.726,\"rtt_min_ms\":1.796,\"rtt_max_ms\":3.656,\"rtt_mdev_ms\":0.93,\"status\":\"ok\"},{\"src\":\"webserver3_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.781,\"rtt_min_ms\":2.657,\"rtt_max_ms\":2.905,\"rtt_mdev_ms\":0.124,\"status\":\"ok\"},{\"src\":\"webserver4_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.5,\"rtt_min_ms\":1.143,\"rtt_max_ms\":5.858,\"rtt_mdev_ms\":2.357,\"status\":\"ok\"},{\"src\":\"webserver4_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.065,\"rtt_min_ms\":2.714,\"rtt_max_ms\":5.416,\"rtt_mdev_ms\":1.351,\"status\":\"ok\"},{\"src\":\"webserver4_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.423,\"rtt_min_ms\":1.619,\"rtt_max_ms\":3.227,\"rtt_mdev_ms\":0.804,\"status\":\"ok\"},{\"src\":\"webserver4_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.252,\"rtt_min_ms\":1.541,\"rtt_max_ms\":6.963,\"rtt_mdev_ms\":2.711,\"status\":\"ok\"},{\"src\":\"webserver4_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":11.136,\"rtt_min_ms\":4.941,\"rtt_max_ms\":17.332,\"rtt_mdev_ms\":6.195,\"status\":\"ok\"},{\"src\":\"webserver4_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":1.572,\"rtt_min_ms\":1.511,\"rtt_max_ms\":1.634,\"rtt_mdev_ms\":0.061,\"status\":\"ok\"},{\"src\":\"webserver4_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.397,\"rtt_min_ms\":1.826,\"rtt_max_ms\":2.969,\"rtt_mdev_ms\":0.571,\"status\":\"ok\"},{\"src\":\"webserver4_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":1.803,\"rtt_min_ms\":1.792,\"rtt_max_ms\":1.814,\"rtt_mdev_ms\":0.011,\"status\":\"ok\"},{\"src\":\"webserver5_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.241,\"rtt_min_ms\":1.574,\"rtt_max_ms\":2.909,\"rtt_mdev_ms\":0.667,\"status\":\"ok\"},{\"src\":\"webserver5_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.436,\"rtt_min_ms\":2.272,\"rtt_max_ms\":2.6,\"rtt_mdev_ms\":0.164,\"status\":\"ok\"},{\"src\":\"webserver5_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.914,\"rtt_min_ms\":1.391,\"rtt_max_ms\":4.437,\"rtt_mdev_ms\":1.523,\"status\":\"ok\"},{\"src\":\"webserver5_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.074,\"rtt_min_ms\":3.284,\"rtt_max_ms\":8.865,\"rtt_mdev_ms\":2.79,\"status\":\"ok\"},{\"src\":\"webserver5_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.187,\"rtt_min_ms\":2.386,\"rtt_max_ms\":3.988,\"rtt_mdev_ms\":0.801,\"status\":\"ok\"},{\"src\":\"webserver5_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.363,\"rtt_min_ms\":1.902,\"rtt_max_ms\":4.825,\"rtt_mdev_ms\":1.461,\"status\":\"ok\"},{\"src\":\"webserver5_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.335,\"rtt_min_ms\":1.821,\"rtt_max_ms\":2.849,\"rtt_mdev_ms\":0.514,\"status\":\"ok\"},{\"src\":\"webserver5_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.139,\"rtt_min_ms\":1.612,\"rtt_max_ms\":2.666,\"rtt_mdev_ms\":0.527,\"status\":\"ok\"},{\"src\":\"webserver6_pod0\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.148,\"rtt_min_ms\":2.745,\"rtt_max_ms\":3.552,\"rtt_mdev_ms\":0.403,\"status\":\"ok\"},{\"src\":\"webserver6_pod0\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.8,\"rtt_min_ms\":5.552,\"rtt_max_ms\":6.048,\"rtt_mdev_ms\":0.248,\"status\":\"ok\"},{\"src\":\"webserver6_pod1\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.489,\"rtt_min_ms\":2.701,\"rtt_max_ms\":4.277,\"rtt_mdev_ms\":0.788,\"status\":\"ok\"},{\"src\":\"webserver6_pod1\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.557,\"rtt_min_ms\":2.918,\"rtt_max_ms\":4.196,\"rtt_mdev_ms\":0.639,\"status\":\"ok\"},{\"src\":\"webserver6_pod2\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.653,\"rtt_min_ms\":2.858,\"rtt_max_ms\":4.448,\"rtt_mdev_ms\":0.795,\"status\":\"ok\"},{\"src\":\"webserver6_pod2\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.282,\"rtt_min_ms\":4.388,\"rtt_max_ms\":8.176,\"rtt_mdev_ms\":1.894,\"status\":\"ok\"},{\"src\":\"webserver6_pod3\",\"dst\":\"client_0\",\"dst_ip\":\"192.168.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.309,\"rtt_min_ms\":2.108,\"rtt_max_ms\":10.511,\"rtt_mdev_ms\":4.201,\"status\":\"ok\"},{\"src\":\"webserver6_pod3\",\"dst\":\"client_1\",\"dst_ip\":\"192.168.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.678,\"rtt_min_ms\":2.72,\"rtt_max_ms\":4.637,\"rtt_mdev_ms\":0.958,\"status\":\"ok\"}],\"sampling\":{\"destinations\":[\"client_0\",\"client_1\"],\"concurrency\":4}}"
+        }
+      ],
+      "reachability_status_counts": {
+        "down": 7,
+        "ok": 71
+      },
+      "inventory_endpoints": 40
+    },
+    {
+      "server": "kathara_frr_mcp_server",
+      "tools": [
+        "frr_get_bgp_conf",
+        "frr_show_running_config",
+        "frr_show_ip_route",
+        "frr_get_ospf_conf",
+        "frr_exec"
+      ],
+      "calls": [
+        {
+          "tool": "frr_exec",
+          "arguments": {
+            "router_name": "leaf_router_0_7",
+            "command": "show ip route 10.0.1.0/24"
+          },
+          "is_error": false,
+          "output": "Routing entry for 10.0.1.0/24\n  Known via \"bgp\", distance 20, metric 0, best\n  Last update 00:01:49 ago\n  Flags: Selected \n  Status: Installed \n  * 172.16.0.142, via eth0, weight 1\n  * 172.16.0.158, via eth1, weight 1\n  * 172.16.0.174, via eth2, weight 1\n  * 172.16.0.190, via eth3, weight 1"
+        }
+      ]
+    },
+    {
+      "server": "kathara_telemetry_mcp_server",
+      "tools": [
+        "influx_list_buckets",
+        "influx_get_measurements",
+        "influx_count_measurements",
+        "influx_query_measurement"
+      ],
+      "calls": []
+    }
+  ],
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:20:57.227344+00:00"
+}

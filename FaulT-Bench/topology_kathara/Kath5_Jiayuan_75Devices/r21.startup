@@ -1,0 +1,19 @@
+ip addr add 192.168.250.2/30 dev eth0
+ip addr add 192.168.251.1/24 dev eth1
+
+ip link set eth0 up
+ip link set eth1 up
+
+# Default route toward R12 for external networks
+ip route add default via 192.168.250.1 dev eth0
+
+sed -i 's/eigrpd=no/eigrpd=yes/g' /etc/frr/daemons
+/etc/init.d/frr start
+
+# FRR 10.5 parallel init can report a transient datastore lock; reload serially.
+configured=0
+for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  if vtysh -b; then configured=1; break; fi
+  sleep 1
+done
+[ "$configured" = 1 ] || exit 1

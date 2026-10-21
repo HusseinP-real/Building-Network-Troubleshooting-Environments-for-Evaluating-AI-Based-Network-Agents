@@ -1,0 +1,58 @@
+{
+  "kind": "release-verification-without-model-inference",
+  "created_at": "2026-10-21T09:22:05.441636+00:00",
+  "checks": {
+    "unit": {
+      "passed": true,
+      "sha256": "a1a2e59bbd70edc2241d2a26192412fecc42e3b2e5a330dce01da98f017ab36c",
+      "summary": [
+        "Ran 47 tests in 5.176s",
+        "OK"
+      ]
+    },
+    "export_unit": {
+      "passed": true,
+      "sha256": "c5ae2b52814192505cfc3988f8f41f6e44c3fc5b836a289eb9d5e15ca1965d32",
+      "summary": [
+        "Ran 47 tests in 4.877s",
+        "OK"
+      ]
+    },
+    "dataset": {
+      "passed": true,
+      "sha256": "bc3651a5c7dc9823c755cf443fcfc1e13722bea6b857e091cb31c71720fc5e05",
+      "summary": [
+        "RESULT: matches the documented statistics"
+      ]
+    },
+    "archived_metrics": {
+      "passed": true,
+      "sha256": "299ec73e92631548a9678994aa33a09ccf6c12e22df464b547099a0ccd9ab9c3",
+      "summary": [
+        "  3960 runs = 3594 answered + 366 timeouts; base80 720, cex120 1080, novice 432, novice_confident 432, naive 432, naive_unsure 432, naive_no_detail 432",
+        "  integrity: no issues",
+        "RESULT: numbers reproduced from final_results"
+      ]
+    },
+    "main_agent_dry_run": {
+      "passed": true,
+      "sha256": "2231d9b8e4703a09fdf8b6eb0e600f75ab4fc498de8bb2af22f6fa308f8b868c",
+      "summary": "Bench 10 scenarios x 2 agents = 20 runs -> /workspace/ai-agent/faultbench/runs "
+    },
+    "team_agent_dry_run": {
+      "passed": true,
+      "sha256": "eb4e44b497b4275209c326b46ee1dbbb822273b79f10adb1f8048739df8e941c",
+      "summary": "Bench 21 scenarios x 1 agents = 21 runs -> /workspace/ai-agent/faultbench/runs "
+    }
+  },
+  "wheel": {
+    "passed": true,
+    "name": "faultbench-1.0.0-py3-none-any.whl",
+    "sha256": "ab1f8afc29d2e39e5a68358d857b38e51dd647da35e25fd04f045b4c3f3a6e31",
+    "inventory_files": 10
+  },
+  "export_scope": "All indexed repository files exported with checkout-index; pinned SADE dependency linked to existing clean checkout. No 41-device prototype present. This tests publication completeness, not fresh operating-system or Docker-image restoration.",
+  "syntax_checks": "Python compileall, bash -n for setup/fb scripts, and git diff --cached --check passed",
+  "model_evaluation": "Not run: attempted pilot blocked_missing_credentials; eight planned cells, zero executed.",
+  "remaining_kathara_containers_at_verification": 0
+}

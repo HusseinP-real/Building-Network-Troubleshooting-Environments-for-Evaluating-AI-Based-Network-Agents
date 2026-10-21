@@ -1,0 +1,52 @@
+{
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "dc_clos_bgp",
+  "lab_name": "team-smoke-e6d8613dd5cb",
+  "passed": false,
+  "started_at": "2026-10-21T08:48:45.788123+00:00",
+  "probes": [
+    {
+      "device": "pc_0_0",
+      "command": "ping -n -c2 -W1 10.0.0.1",
+      "rc": 0,
+      "output": "PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.\n64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=0.656 ms\n64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=0.450 ms\n\n--- 10.0.0.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1026ms\nrtt min/avg/max/mdev = 0.450/0.553/0.656/0.103 ms",
+      "passed": true,
+      "rationale": "rc=0, loss=0.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr-stress": {
+        "source": "kathara/frr-stress:latest",
+        "source_id": "sha256:e391148daacfdf9d08430b1e9a412833b629df97a7e20f01a7644d6e649df521",
+        "device_image": "soft3888/source-d384add1da7b:shared-v1",
+        "device_image_id": "sha256:435f7bbd3c112809624c3fbce3b1a03ea244d681cdb2c9350cafebabec98e66e",
+        "usr_sha256": "123f02eeed743605d4b2d10d45609f455e3f4a6a650551816173f26fd5dd637b",
+        "created_at": "2026-10-21T08:44:31.495181+00:00"
+      },
+      "kathara/base-stress": {
+        "source": "kathara/base-stress:latest",
+        "source_id": "sha256:8a23551d1219b996b971847880da77e305a0999b1c47def8ea8468328f3905f4",
+        "device_image": "soft3888/source-20019120b12f:shared-v1",
+        "device_image_id": "sha256:44fa983250d68d9b4fb394c065f86d42bf8ed50c189f00a3ec0ad2678872daef",
+        "usr_sha256": "eca2ba6b42596afd9fb0c72cd795e7f8c960bf92160948bca06e58782fafb096",
+        "created_at": "2026-10-21T08:43:37.694560+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 7,
+  "inventory_complete": true,
+  "mcp_smoke": [],
+  "status": "failed",
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/ai-agent/topology_kathara/dc_clos_bgp/roles.json'",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:49:03.872427+00:00"
+}

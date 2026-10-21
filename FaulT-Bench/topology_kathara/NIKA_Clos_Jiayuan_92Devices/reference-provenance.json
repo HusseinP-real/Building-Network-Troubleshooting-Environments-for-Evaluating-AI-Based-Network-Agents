@@ -1,0 +1,924 @@
+{
+  "upstream": "https://github.com/Overlxrd-uwu/SADE-NetworkAgent",
+  "commit": "aa8488a09ddb3a57e08f8137afd04bc87886e734",
+  "source_path": "src/nika/net_env/data_center_routing/dc_clos_bgp/lab_services.py",
+  "source_sha256": "f7b38b6290a8abf38d4401a9afbcb4a8fab3e4e2ea6754a5e817dec301bd8bc1",
+  "constructor": "DCClosService(topo_size='l')",
+  "original_devices": 88,
+  "original_collision_domains": 228,
+  "final_devices": 92,
+  "final_collision_domains": 228,
+  "original_graph": {
+    "super_spine_router_0": {
+      "0": "super_spine_router_0_spine_router_0_0",
+      "1": "super_spine_router_0_spine_router_0_1",
+      "2": "super_spine_router_0_spine_router_0_2",
+      "3": "super_spine_router_0_spine_router_0_3",
+      "4": "super_spine_router_0_spine_router_1_0",
+      "5": "super_spine_router_0_spine_router_1_1",
+      "6": "super_spine_router_0_spine_router_1_2",
+      "7": "super_spine_router_0_spine_router_1_3",
+      "8": "super_spine_router_0_spine_router_2_0",
+      "9": "super_spine_router_0_spine_router_2_1",
+      "10": "super_spine_router_0_spine_router_2_2",
+      "11": "super_spine_router_0_spine_router_2_3",
+      "12": "super_spine_router_0_spine_router_3_0",
+      "13": "super_spine_router_0_spine_router_3_1",
+      "14": "super_spine_router_0_spine_router_3_2",
+      "15": "super_spine_router_0_spine_router_3_3",
+      "16": "super_spine_router_0_client_0"
+    },
+    "super_spine_router_1": {
+      "0": "super_spine_router_1_spine_router_0_0",
+      "1": "super_spine_router_1_spine_router_0_1",
+      "2": "super_spine_router_1_spine_router_0_2",
+      "3": "super_spine_router_1_spine_router_0_3",
+      "4": "super_spine_router_1_spine_router_1_0",
+      "5": "super_spine_router_1_spine_router_1_1",
+      "6": "super_spine_router_1_spine_router_1_2",
+      "7": "super_spine_router_1_spine_router_1_3",
+      "8": "super_spine_router_1_spine_router_2_0",
+      "9": "super_spine_router_1_spine_router_2_1",
+      "10": "super_spine_router_1_spine_router_2_2",
+      "11": "super_spine_router_1_spine_router_2_3",
+      "12": "super_spine_router_1_spine_router_3_0",
+      "13": "super_spine_router_1_spine_router_3_1",
+      "14": "super_spine_router_1_spine_router_3_2",
+      "15": "super_spine_router_1_spine_router_3_3",
+      "16": "super_spine_router_1_client_1"
+    },
+    "super_spine_router_2": {
+      "0": "super_spine_router_2_spine_router_0_0",
+      "1": "super_spine_router_2_spine_router_0_1",
+      "2": "super_spine_router_2_spine_router_0_2",
+      "3": "super_spine_router_2_spine_router_0_3",
+      "4": "super_spine_router_2_spine_router_1_0",
+      "5": "super_spine_router_2_spine_router_1_1",
+      "6": "super_spine_router_2_spine_router_1_2",
+      "7": "super_spine_router_2_spine_router_1_3",
+      "8": "super_spine_router_2_spine_router_2_0",
+      "9": "super_spine_router_2_spine_router_2_1",
+      "10": "super_spine_router_2_spine_router_2_2",
+      "11": "super_spine_router_2_spine_router_2_3",
+      "12": "super_spine_router_2_spine_router_3_0",
+      "13": "super_spine_router_2_spine_router_3_1",
+      "14": "super_spine_router_2_spine_router_3_2",
+      "15": "super_spine_router_2_spine_router_3_3",
+      "16": "super_spine_router_2_client_2"
+    },
+    "super_spine_router_3": {
+      "0": "super_spine_router_3_spine_router_0_0",
+      "1": "super_spine_router_3_spine_router_0_1",
+      "2": "super_spine_router_3_spine_router_0_2",
+      "3": "super_spine_router_3_spine_router_0_3",
+      "4": "super_spine_router_3_spine_router_1_0",
+      "5": "super_spine_router_3_spine_router_1_1",
+      "6": "super_spine_router_3_spine_router_1_2",
+      "7": "super_spine_router_3_spine_router_1_3",
+      "8": "super_spine_router_3_spine_router_2_0",
+      "9": "super_spine_router_3_spine_router_2_1",
+      "10": "super_spine_router_3_spine_router_2_2",
+      "11": "super_spine_router_3_spine_router_2_3",
+      "12": "super_spine_router_3_spine_router_3_0",
+      "13": "super_spine_router_3_spine_router_3_1",
+      "14": "super_spine_router_3_spine_router_3_2",
+      "15": "super_spine_router_3_spine_router_3_3",
+      "16": "super_spine_router_3_client_3"
+    },
+    "spine_router_0_0": {
+      "0": "super_spine_router_0_spine_router_0_0",
+      "1": "super_spine_router_1_spine_router_0_0",
+      "2": "super_spine_router_2_spine_router_0_0",
+      "3": "super_spine_router_3_spine_router_0_0",
+      "4": "spine_router_0_0_leaf_router_0_0",
+      "5": "spine_router_0_0_leaf_router_0_1",
+      "6": "spine_router_0_0_leaf_router_0_2",
+      "7": "spine_router_0_0_leaf_router_0_3",
+      "8": "spine_router_0_0_leaf_router_0_4",
+      "9": "spine_router_0_0_leaf_router_0_5",
+      "10": "spine_router_0_0_leaf_router_0_6",
+      "11": "spine_router_0_0_leaf_router_0_7"
+    },
+    "spine_router_0_1": {
+      "0": "super_spine_router_0_spine_router_0_1",
+      "1": "super_spine_router_1_spine_router_0_1",
+      "2": "super_spine_router_2_spine_router_0_1",
+      "3": "super_spine_router_3_spine_router_0_1",
+      "4": "spine_router_0_1_leaf_router_0_0",
+      "5": "spine_router_0_1_leaf_router_0_1",
+      "6": "spine_router_0_1_leaf_router_0_2",
+      "7": "spine_router_0_1_leaf_router_0_3",
+      "8": "spine_router_0_1_leaf_router_0_4",
+      "9": "spine_router_0_1_leaf_router_0_5",
+      "10": "spine_router_0_1_leaf_router_0_6",
+      "11": "spine_router_0_1_leaf_router_0_7"
+    },
+    "spine_router_0_2": {
+      "0": "super_spine_router_0_spine_router_0_2",
+      "1": "super_spine_router_1_spine_router_0_2",
+      "2": "super_spine_router_2_spine_router_0_2",
+      "3": "super_spine_router_3_spine_router_0_2",
+      "4": "spine_router_0_2_leaf_router_0_0",
+      "5": "spine_router_0_2_leaf_router_0_1",
+      "6": "spine_router_0_2_leaf_router_0_2",
+      "7": "spine_router_0_2_leaf_router_0_3",
+      "8": "spine_router_0_2_leaf_router_0_4",
+      "9": "spine_router_0_2_leaf_router_0_5",
+      "10": "spine_router_0_2_leaf_router_0_6",
+      "11": "spine_router_0_2_leaf_router_0_7"
+    },
+    "spine_router_0_3": {
+      "0": "super_spine_router_0_spine_router_0_3",
+      "1": "super_spine_router_1_spine_router_0_3",
+      "2": "super_spine_router_2_spine_router_0_3",
+      "3": "super_spine_router_3_spine_router_0_3",
+      "4": "spine_router_0_3_leaf_router_0_0",
+      "5": "spine_router_0_3_leaf_router_0_1",
+      "6": "spine_router_0_3_leaf_router_0_2",
+      "7": "spine_router_0_3_leaf_router_0_3",
+      "8": "spine_router_0_3_leaf_router_0_4",
+      "9": "spine_router_0_3_leaf_router_0_5",
+      "10": "spine_router_0_3_leaf_router_0_6",
+      "11": "spine_router_0_3_leaf_router_0_7"
+    },
+    "leaf_router_0_0": {
+      "0": "spine_router_0_0_leaf_router_0_0",
+      "1": "spine_router_0_1_leaf_router_0_0",
+      "2": "spine_router_0_2_leaf_router_0_0",
+      "3": "spine_router_0_3_leaf_router_0_0",
+      "4": "leaf_router_0_0_dns_pod0"
+    },
+    "leaf_router_0_1": {
+      "0": "spine_router_0_0_leaf_router_0_1",
+      "1": "spine_router_0_1_leaf_router_0_1",
+      "2": "spine_router_0_2_leaf_router_0_1",
+      "3": "spine_router_0_3_leaf_router_0_1",
+      "4": "leaf_router_0_1_webserver0_pod0"
+    },
+    "leaf_router_0_2": {
+      "0": "spine_router_0_0_leaf_router_0_2",
+      "1": "spine_router_0_1_leaf_router_0_2",
+      "2": "spine_router_0_2_leaf_router_0_2",
+      "3": "spine_router_0_3_leaf_router_0_2",
+      "4": "leaf_router_0_2_webserver1_pod0"
+    },
+    "leaf_router_0_3": {
+      "0": "spine_router_0_0_leaf_router_0_3",
+      "1": "spine_router_0_1_leaf_router_0_3",
+      "2": "spine_router_0_2_leaf_router_0_3",
+      "3": "spine_router_0_3_leaf_router_0_3",
+      "4": "leaf_router_0_3_webserver2_pod0"
+    },
+    "leaf_router_0_4": {
+      "0": "spine_router_0_0_leaf_router_0_4",
+      "1": "spine_router_0_1_leaf_router_0_4",
+      "2": "spine_router_0_2_leaf_router_0_4",
+      "3": "spine_router_0_3_leaf_router_0_4",
+      "4": "leaf_router_0_4_webserver3_pod0"
+    },
+    "leaf_router_0_5": {
+      "0": "spine_router_0_0_leaf_router_0_5",
+      "1": "spine_router_0_1_leaf_router_0_5",
+      "2": "spine_router_0_2_leaf_router_0_5",
+      "3": "spine_router_0_3_leaf_router_0_5",
+      "4": "leaf_router_0_5_webserver4_pod0"
+    },
+    "leaf_router_0_6": {
+      "0": "spine_router_0_0_leaf_router_0_6",
+      "1": "spine_router_0_1_leaf_router_0_6",
+      "2": "spine_router_0_2_leaf_router_0_6",
+      "3": "spine_router_0_3_leaf_router_0_6",
+      "4": "leaf_router_0_6_webserver5_pod0"
+    },
+    "leaf_router_0_7": {
+      "0": "spine_router_0_0_leaf_router_0_7",
+      "1": "spine_router_0_1_leaf_router_0_7",
+      "2": "spine_router_0_2_leaf_router_0_7",
+      "3": "spine_router_0_3_leaf_router_0_7",
+      "4": "leaf_router_0_7_webserver6_pod0"
+    },
+    "dns_pod0": {
+      "0": "leaf_router_0_0_dns_pod0"
+    },
+    "webserver0_pod0": {
+      "0": "leaf_router_0_1_webserver0_pod0"
+    },
+    "webserver1_pod0": {
+      "0": "leaf_router_0_2_webserver1_pod0"
+    },
+    "webserver2_pod0": {
+      "0": "leaf_router_0_3_webserver2_pod0"
+    },
+    "webserver3_pod0": {
+      "0": "leaf_router_0_4_webserver3_pod0"
+    },
+    "webserver4_pod0": {
+      "0": "leaf_router_0_5_webserver4_pod0"
+    },
+    "webserver5_pod0": {
+      "0": "leaf_router_0_6_webserver5_pod0"
+    },
+    "webserver6_pod0": {
+      "0": "leaf_router_0_7_webserver6_pod0"
+    },
+    "spine_router_1_0": {
+      "0": "super_spine_router_0_spine_router_1_0",
+      "1": "super_spine_router_1_spine_router_1_0",
+      "2": "super_spine_router_2_spine_router_1_0",
+      "3": "super_spine_router_3_spine_router_1_0",
+      "4": "spine_router_1_0_leaf_router_1_0",
+      "5": "spine_router_1_0_leaf_router_1_1",
+      "6": "spine_router_1_0_leaf_router_1_2",
+      "7": "spine_router_1_0_leaf_router_1_3",
+      "8": "spine_router_1_0_leaf_router_1_4",
+      "9": "spine_router_1_0_leaf_router_1_5",
+      "10": "spine_router_1_0_leaf_router_1_6",
+      "11": "spine_router_1_0_leaf_router_1_7"
+    },
+    "spine_router_1_1": {
+      "0": "super_spine_router_0_spine_router_1_1",
+      "1": "super_spine_router_1_spine_router_1_1",
+      "2": "super_spine_router_2_spine_router_1_1",
+      "3": "super_spine_router_3_spine_router_1_1",
+      "4": "spine_router_1_1_leaf_router_1_0",
+      "5": "spine_router_1_1_leaf_router_1_1",
+      "6": "spine_router_1_1_leaf_router_1_2",
+      "7": "spine_router_1_1_leaf_router_1_3",
+      "8": "spine_router_1_1_leaf_router_1_4",
+      "9": "spine_router_1_1_leaf_router_1_5",
+      "10": "spine_router_1_1_leaf_router_1_6",
+      "11": "spine_router_1_1_leaf_router_1_7"
+    },
+    "spine_router_1_2": {
+      "0": "super_spine_router_0_spine_router_1_2",
+      "1": "super_spine_router_1_spine_router_1_2",
+      "2": "super_spine_router_2_spine_router_1_2",
+      "3": "super_spine_router_3_spine_router_1_2",
+      "4": "spine_router_1_2_leaf_router_1_0",
+      "5": "spine_router_1_2_leaf_router_1_1",
+      "6": "spine_router_1_2_leaf_router_1_2",
+      "7": "spine_router_1_2_leaf_router_1_3",
+      "8": "spine_router_1_2_leaf_router_1_4",
+      "9": "spine_router_1_2_leaf_router_1_5",
+      "10": "spine_router_1_2_leaf_router_1_6",
+      "11": "spine_router_1_2_leaf_router_1_7"
+    },
+    "spine_router_1_3": {
+      "0": "super_spine_router_0_spine_router_1_3",
+      "1": "super_spine_router_1_spine_router_1_3",
+      "2": "super_spine_router_2_spine_router_1_3",
+      "3": "super_spine_router_3_spine_router_1_3",
+      "4": "spine_router_1_3_leaf_router_1_0",
+      "5": "spine_router_1_3_leaf_router_1_1",
+      "6": "spine_router_1_3_leaf_router_1_2",
+      "7": "spine_router_1_3_leaf_router_1_3",
+      "8": "spine_router_1_3_leaf_router_1_4",
+      "9": "spine_router_1_3_leaf_router_1_5",
+      "10": "spine_router_1_3_leaf_router_1_6",
+      "11": "spine_router_1_3_leaf_router_1_7"
+    },
+    "leaf_router_1_0": {
+      "0": "spine_router_1_0_leaf_router_1_0",
+      "1": "spine_router_1_1_leaf_router_1_0",
+      "2": "spine_router_1_2_leaf_router_1_0",
+      "3": "spine_router_1_3_leaf_router_1_0",
+      "4": "leaf_router_1_0_dns_pod1"
+    },
+    "leaf_router_1_1": {
+      "0": "spine_router_1_0_leaf_router_1_1",
+      "1": "spine_router_1_1_leaf_router_1_1",
+      "2": "spine_router_1_2_leaf_router_1_1",
+      "3": "spine_router_1_3_leaf_router_1_1",
+      "4": "leaf_router_1_1_webserver0_pod1"
+    },
+    "leaf_router_1_2": {
+      "0": "spine_router_1_0_leaf_router_1_2",
+      "1": "spine_router_1_1_leaf_router_1_2",
+      "2": "spine_router_1_2_leaf_router_1_2",
+      "3": "spine_router_1_3_leaf_router_1_2",
+      "4": "leaf_router_1_2_webserver1_pod1"
+    },
+    "leaf_router_1_3": {
+      "0": "spine_router_1_0_leaf_router_1_3",
+      "1": "spine_router_1_1_leaf_router_1_3",
+      "2": "spine_router_1_2_leaf_router_1_3",
+      "3": "spine_router_1_3_leaf_router_1_3",
+      "4": "leaf_router_1_3_webserver2_pod1"
+    },
+    "leaf_router_1_4": {
+      "0": "spine_router_1_0_leaf_router_1_4",
+      "1": "spine_router_1_1_leaf_router_1_4",
+      "2": "spine_router_1_2_leaf_router_1_4",
+      "3": "spine_router_1_3_leaf_router_1_4",
+      "4": "leaf_router_1_4_webserver3_pod1"
+    },
+    "leaf_router_1_5": {
+      "0": "spine_router_1_0_leaf_router_1_5",
+      "1": "spine_router_1_1_leaf_router_1_5",
+      "2": "spine_router_1_2_leaf_router_1_5",
+      "3": "spine_router_1_3_leaf_router_1_5",
+      "4": "leaf_router_1_5_webserver4_pod1"
+    },
+    "leaf_router_1_6": {
+      "0": "spine_router_1_0_leaf_router_1_6",
+      "1": "spine_router_1_1_leaf_router_1_6",
+      "2": "spine_router_1_2_leaf_router_1_6",
+      "3": "spine_router_1_3_leaf_router_1_6",
+      "4": "leaf_router_1_6_webserver5_pod1"
+    },
+    "leaf_router_1_7": {
+      "0": "spine_router_1_0_leaf_router_1_7",
+      "1": "spine_router_1_1_leaf_router_1_7",
+      "2": "spine_router_1_2_leaf_router_1_7",
+      "3": "spine_router_1_3_leaf_router_1_7",
+      "4": "leaf_router_1_7_webserver6_pod1"
+    },
+    "dns_pod1": {
+      "0": "leaf_router_1_0_dns_pod1"
+    },
+    "webserver0_pod1": {
+      "0": "leaf_router_1_1_webserver0_pod1"
+    },
+    "webserver1_pod1": {
+      "0": "leaf_router_1_2_webserver1_pod1"
+    },
+    "webserver2_pod1": {
+      "0": "leaf_router_1_3_webserver2_pod1"
+    },
+    "webserver3_pod1": {
+      "0": "leaf_router_1_4_webserver3_pod1"
+    },
+    "webserver4_pod1": {
+      "0": "leaf_router_1_5_webserver4_pod1"
+    },
+    "webserver5_pod1": {
+      "0": "leaf_router_1_6_webserver5_pod1"
+    },
+    "webserver6_pod1": {
+      "0": "leaf_router_1_7_webserver6_pod1"
+    },
+    "spine_router_2_0": {
+      "0": "super_spine_router_0_spine_router_2_0",
+      "1": "super_spine_router_1_spine_router_2_0",
+      "2": "super_spine_router_2_spine_router_2_0",
+      "3": "super_spine_router_3_spine_router_2_0",
+      "4": "spine_router_2_0_leaf_router_2_0",
+      "5": "spine_router_2_0_leaf_router_2_1",
+      "6": "spine_router_2_0_leaf_router_2_2",
+      "7": "spine_router_2_0_leaf_router_2_3",
+      "8": "spine_router_2_0_leaf_router_2_4",
+      "9": "spine_router_2_0_leaf_router_2_5",
+      "10": "spine_router_2_0_leaf_router_2_6",
+      "11": "spine_router_2_0_leaf_router_2_7"
+    },
+    "spine_router_2_1": {
+      "0": "super_spine_router_0_spine_router_2_1",
+      "1": "super_spine_router_1_spine_router_2_1",
+      "2": "super_spine_router_2_spine_router_2_1",
+      "3": "super_spine_router_3_spine_router_2_1",
+      "4": "spine_router_2_1_leaf_router_2_0",
+      "5": "spine_router_2_1_leaf_router_2_1",
+      "6": "spine_router_2_1_leaf_router_2_2",
+      "7": "spine_router_2_1_leaf_router_2_3",
+      "8": "spine_router_2_1_leaf_router_2_4",
+      "9": "spine_router_2_1_leaf_router_2_5",
+      "10": "spine_router_2_1_leaf_router_2_6",
+      "11": "spine_router_2_1_leaf_router_2_7"
+    },
+    "spine_router_2_2": {
+      "0": "super_spine_router_0_spine_router_2_2",
+      "1": "super_spine_router_1_spine_router_2_2",
+      "2": "super_spine_router_2_spine_router_2_2",
+      "3": "super_spine_router_3_spine_router_2_2",
+      "4": "spine_router_2_2_leaf_router_2_0",
+      "5": "spine_router_2_2_leaf_router_2_1",
+      "6": "spine_router_2_2_leaf_router_2_2",
+      "7": "spine_router_2_2_leaf_router_2_3",
+      "8": "spine_router_2_2_leaf_router_2_4",
+      "9": "spine_router_2_2_leaf_router_2_5",
+      "10": "spine_router_2_2_leaf_router_2_6",
+      "11": "spine_router_2_2_leaf_router_2_7"
+    },
+    "spine_router_2_3": {
+      "0": "super_spine_router_0_spine_router_2_3",
+      "1": "super_spine_router_1_spine_router_2_3",
+      "2": "super_spine_router_2_spine_router_2_3",
+      "3": "super_spine_router_3_spine_router_2_3",
+      "4": "spine_router_2_3_leaf_router_2_0",
+      "5": "spine_router_2_3_leaf_router_2_1",
+      "6": "spine_router_2_3_leaf_router_2_2",
+      "7": "spine_router_2_3_leaf_router_2_3",
+      "8": "spine_router_2_3_leaf_router_2_4",
+      "9": "spine_router_2_3_leaf_router_2_5",
+      "10": "spine_router_2_3_leaf_router_2_6",
+      "11": "spine_router_2_3_leaf_router_2_7"
+    },
+    "leaf_router_2_0": {
+      "0": "spine_router_2_0_leaf_router_2_0",
+      "1": "spine_router_2_1_leaf_router_2_0",
+      "2": "spine_router_2_2_leaf_router_2_0",
+      "3": "spine_router_2_3_leaf_router_2_0",
+      "4": "leaf_router_2_0_dns_pod2"
+    },
+    "leaf_router_2_1": {
+      "0": "spine_router_2_0_leaf_router_2_1",
+      "1": "spine_router_2_1_leaf_router_2_1",
+      "2": "spine_router_2_2_leaf_router_2_1",
+      "3": "spine_router_2_3_leaf_router_2_1",
+      "4": "leaf_router_2_1_webserver0_pod2"
+    },
+    "leaf_router_2_2": {
+      "0": "spine_router_2_0_leaf_router_2_2",
+      "1": "spine_router_2_1_leaf_router_2_2",
+      "2": "spine_router_2_2_leaf_router_2_2",
+      "3": "spine_router_2_3_leaf_router_2_2",
+      "4": "leaf_router_2_2_webserver1_pod2"
+    },
+    "leaf_router_2_3": {
+      "0": "spine_router_2_0_leaf_router_2_3",
+      "1": "spine_router_2_1_leaf_router_2_3",
+      "2": "spine_router_2_2_leaf_router_2_3",
+      "3": "spine_router_2_3_leaf_router_2_3",
+      "4": "leaf_router_2_3_webserver2_pod2"
+    },
+    "leaf_router_2_4": {
+      "0": "spine_router_2_0_leaf_router_2_4",
+      "1": "spine_router_2_1_leaf_router_2_4",
+      "2": "spine_router_2_2_leaf_router_2_4",
+      "3": "spine_router_2_3_leaf_router_2_4",
+      "4": "leaf_router_2_4_webserver3_pod2"
+    },
+    "leaf_router_2_5": {
+      "0": "spine_router_2_0_leaf_router_2_5",
+      "1": "spine_router_2_1_leaf_router_2_5",
+      "2": "spine_router_2_2_leaf_router_2_5",
+      "3": "spine_router_2_3_leaf_router_2_5",
+      "4": "leaf_router_2_5_webserver4_pod2"
+    },
+    "leaf_router_2_6": {
+      "0": "spine_router_2_0_leaf_router_2_6",
+      "1": "spine_router_2_1_leaf_router_2_6",
+      "2": "spine_router_2_2_leaf_router_2_6",
+      "3": "spine_router_2_3_leaf_router_2_6",
+      "4": "leaf_router_2_6_webserver5_pod2"
+    },
+    "leaf_router_2_7": {
+      "0": "spine_router_2_0_leaf_router_2_7",
+      "1": "spine_router_2_1_leaf_router_2_7",
+      "2": "spine_router_2_2_leaf_router_2_7",
+      "3": "spine_router_2_3_leaf_router_2_7",
+      "4": "leaf_router_2_7_webserver6_pod2"
+    },
+    "dns_pod2": {
+      "0": "leaf_router_2_0_dns_pod2"
+    },
+    "webserver0_pod2": {
+      "0": "leaf_router_2_1_webserver0_pod2"
+    },
+    "webserver1_pod2": {
+      "0": "leaf_router_2_2_webserver1_pod2"
+    },
+    "webserver2_pod2": {
+      "0": "leaf_router_2_3_webserver2_pod2"
+    },
+    "webserver3_pod2": {
+      "0": "leaf_router_2_4_webserver3_pod2"
+    },
+    "webserver4_pod2": {
+      "0": "leaf_router_2_5_webserver4_pod2"
+    },
+    "webserver5_pod2": {
+      "0": "leaf_router_2_6_webserver5_pod2"
+    },
+    "webserver6_pod2": {
+      "0": "leaf_router_2_7_webserver6_pod2"
+    },
+    "spine_router_3_0": {
+      "0": "super_spine_router_0_spine_router_3_0",
+      "1": "super_spine_router_1_spine_router_3_0",
+      "2": "super_spine_router_2_spine_router_3_0",
+      "3": "super_spine_router_3_spine_router_3_0",
+      "4": "spine_router_3_0_leaf_router_3_0",
+      "5": "spine_router_3_0_leaf_router_3_1",
+      "6": "spine_router_3_0_leaf_router_3_2",
+      "7": "spine_router_3_0_leaf_router_3_3",
+      "8": "spine_router_3_0_leaf_router_3_4",
+      "9": "spine_router_3_0_leaf_router_3_5",
+      "10": "spine_router_3_0_leaf_router_3_6",
+      "11": "spine_router_3_0_leaf_router_3_7"
+    },
+    "spine_router_3_1": {
+      "0": "super_spine_router_0_spine_router_3_1",
+      "1": "super_spine_router_1_spine_router_3_1",
+      "2": "super_spine_router_2_spine_router_3_1",
+      "3": "super_spine_router_3_spine_router_3_1",
+      "4": "spine_router_3_1_leaf_router_3_0",
+      "5": "spine_router_3_1_leaf_router_3_1",
+      "6": "spine_router_3_1_leaf_router_3_2",
+      "7": "spine_router_3_1_leaf_router_3_3",
+      "8": "spine_router_3_1_leaf_router_3_4",
+      "9": "spine_router_3_1_leaf_router_3_5",
+      "10": "spine_router_3_1_leaf_router_3_6",
+      "11": "spine_router_3_1_leaf_router_3_7"
+    },
+    "spine_router_3_2": {
+      "0": "super_spine_router_0_spine_router_3_2",
+      "1": "super_spine_router_1_spine_router_3_2",
+      "2": "super_spine_router_2_spine_router_3_2",
+      "3": "super_spine_router_3_spine_router_3_2",
+      "4": "spine_router_3_2_leaf_router_3_0",
+      "5": "spine_router_3_2_leaf_router_3_1",
+      "6": "spine_router_3_2_leaf_router_3_2",
+      "7": "spine_router_3_2_leaf_router_3_3",
+      "8": "spine_router_3_2_leaf_router_3_4",
+      "9": "spine_router_3_2_leaf_router_3_5",
+      "10": "spine_router_3_2_leaf_router_3_6",
+      "11": "spine_router_3_2_leaf_router_3_7"
+    },
+    "spine_router_3_3": {
+      "0": "super_spine_router_0_spine_router_3_3",
+      "1": "super_spine_router_1_spine_router_3_3",
+      "2": "super_spine_router_2_spine_router_3_3",
+      "3": "super_spine_router_3_spine_router_3_3",
+      "4": "spine_router_3_3_leaf_router_3_0",
+      "5": "spine_router_3_3_leaf_router_3_1",
+      "6": "spine_router_3_3_leaf_router_3_2",
+      "7": "spine_router_3_3_leaf_router_3_3",
+      "8": "spine_router_3_3_leaf_router_3_4",
+      "9": "spine_router_3_3_leaf_router_3_5",
+      "10": "spine_router_3_3_leaf_router_3_6",
+      "11": "spine_router_3_3_leaf_router_3_7"
+    },
+    "leaf_router_3_0": {
+      "0": "spine_router_3_0_leaf_router_3_0",
+      "1": "spine_router_3_1_leaf_router_3_0",
+      "2": "spine_router_3_2_leaf_router_3_0",
+      "3": "spine_router_3_3_leaf_router_3_0",
+      "4": "leaf_router_3_0_dns_pod3"
+    },
+    "leaf_router_3_1": {
+      "0": "spine_router_3_0_leaf_router_3_1",
+      "1": "spine_router_3_1_leaf_router_3_1",
+      "2": "spine_router_3_2_leaf_router_3_1",
+      "3": "spine_router_3_3_leaf_router_3_1",
+      "4": "leaf_router_3_1_webserver0_pod3"
+    },
+    "leaf_router_3_2": {
+      "0": "spine_router_3_0_leaf_router_3_2",
+      "1": "spine_router_3_1_leaf_router_3_2",
+      "2": "spine_router_3_2_leaf_router_3_2",
+      "3": "spine_router_3_3_leaf_router_3_2",
+      "4": "leaf_router_3_2_webserver1_pod3"
+    },
+    "leaf_router_3_3": {
+      "0": "spine_router_3_0_leaf_router_3_3",
+      "1": "spine_router_3_1_leaf_router_3_3",
+      "2": "spine_router_3_2_leaf_router_3_3",
+      "3": "spine_router_3_3_leaf_router_3_3",
+      "4": "leaf_router_3_3_webserver2_pod3"
+    },
+    "leaf_router_3_4": {
+      "0": "spine_router_3_0_leaf_router_3_4",
+      "1": "spine_router_3_1_leaf_router_3_4",
+      "2": "spine_router_3_2_leaf_router_3_4",
+      "3": "spine_router_3_3_leaf_router_3_4",
+      "4": "leaf_router_3_4_webserver3_pod3"
+    },
+    "leaf_router_3_5": {
+      "0": "spine_router_3_0_leaf_router_3_5",
+      "1": "spine_router_3_1_leaf_router_3_5",
+      "2": "spine_router_3_2_leaf_router_3_5",
+      "3": "spine_router_3_3_leaf_router_3_5",
+      "4": "leaf_router_3_5_webserver4_pod3"
+    },
+    "leaf_router_3_6": {
+      "0": "spine_router_3_0_leaf_router_3_6",
+      "1": "spine_router_3_1_leaf_router_3_6",
+      "2": "spine_router_3_2_leaf_router_3_6",
+      "3": "spine_router_3_3_leaf_router_3_6",
+      "4": "leaf_router_3_6_webserver5_pod3"
+    },
+    "leaf_router_3_7": {
+      "0": "spine_router_3_0_leaf_router_3_7",
+      "1": "spine_router_3_1_leaf_router_3_7",
+      "2": "spine_router_3_2_leaf_router_3_7",
+      "3": "spine_router_3_3_leaf_router_3_7",
+      "4": "leaf_router_3_7_webserver6_pod3"
+    },
+    "dns_pod3": {
+      "0": "leaf_router_3_0_dns_pod3"
+    },
+    "webserver0_pod3": {
+      "0": "leaf_router_3_1_webserver0_pod3"
+    },
+    "webserver1_pod3": {
+      "0": "leaf_router_3_2_webserver1_pod3"
+    },
+    "webserver2_pod3": {
+      "0": "leaf_router_3_3_webserver2_pod3"
+    },
+    "webserver3_pod3": {
+      "0": "leaf_router_3_4_webserver3_pod3"
+    },
+    "webserver4_pod3": {
+      "0": "leaf_router_3_5_webserver4_pod3"
+    },
+    "webserver5_pod3": {
+      "0": "leaf_router_3_6_webserver5_pod3"
+    },
+    "webserver6_pod3": {
+      "0": "leaf_router_3_7_webserver6_pod3"
+    },
+    "client_0": {
+      "0": "super_spine_router_0_client_0"
+    },
+    "client_1": {
+      "0": "super_spine_router_1_client_1"
+    },
+    "client_2": {
+      "0": "super_spine_router_2_client_2"
+    },
+    "client_3": {
+      "0": "super_spine_router_3_client_3"
+    }
+  },
+  "added_graph": {
+    "dhcp1": {
+      "0": "super_spine_router_0_client_0"
+    },
+    "lb1": {
+      "0": "leaf_router_0_1_webserver0_pod0"
+    },
+    "monitor1": {
+      "0": "leaf_router_2_7_webserver6_pod2"
+    },
+    "monitor2": {
+      "0": "leaf_router_3_7_webserver6_pod3"
+    }
+  },
+  "reference_generated_file_sha256": {
+    "/spine_router_0_0.startup": "3b22410d1e943adf4a324799957e776cc59aed516bed41baf5e9de016d386e44",
+    "/spine_router_0_1.startup": "99e90ae7a0ce655bb56336278af9704ef14674aea4d60a406815c97ec57900fb",
+    "/spine_router_0_2.startup": "ef6b36d2ed813ade25df77f3680a7fa51335f8cd34713c98b8ecc3762d8b5a29",
+    "/spine_router_0_3.startup": "4faf35ecb0e457e1d829bd4fb47fd21b5e9743c65af7505bc9f6936acec75d76",
+    "/spine_router_1_0.startup": "bb531249bfc99965a911ea6ed4fd4fa99ac9ca998dde3577e73d1440751e8887",
+    "/spine_router_1_1.startup": "21c1febcf7b7bd8d81c69f4735c1da67549908d05224a19c566b5b31bef94519",
+    "/spine_router_1_2.startup": "407c38bea8076e8ed49c6c95566f461698006c9dc5cebece491e2db3d05ad0bc",
+    "/spine_router_1_3.startup": "c714693d8fe96721d1ab79f6dd3e5a6f384cb7c57aa0a530f6597beeeb8e1688",
+    "/spine_router_2_0.startup": "706196bd0a4f02f6cd56522ef32f3128d5c0d2badcaf4f4d49092bb9534f7521",
+    "/spine_router_2_1.startup": "c4e89d2c4b57ca398571fd23f5864385361fa3ca4dc3411f5793969d6998e0df",
+    "/spine_router_2_2.startup": "faccdf2534edf1de3b9c07028f87d45a31a78b8892d4aa13f727808c800f3e34",
+    "/spine_router_2_3.startup": "b12e340531b8439bd9a1406b35a2079f0ce213c23b01e6141e23a24bc2db6c62",
+    "/spine_router_3_0.startup": "92d94037a8b8a5f58c884ea6285e9478d572bee312a26e0e89bc0615d3954315",
+    "/spine_router_3_1.startup": "c8e20e9fe6c391f173d72a22a0d90ebdb455330bd11b3ece515b78e9f72fb1cd",
+    "/spine_router_3_2.startup": "415e443401351eaf73cb4502ee6be9bb52bc4676fc688a2c95ec041a0ca3276b",
+    "/spine_router_3_3.startup": "a4c9d663587cadf2e4c76f2b448f8137188772bd860faa1dc560ec53df4c854b",
+    "/leaf_router_0_0.startup": "3641f37a5e4277a342063c744a4abae2d95d62f45482daad6d664b14a03e9c84",
+    "/leaf_router_0_1.startup": "4b375f600aefd19ab59f80ee6635da09977da85ae26b94b07c24a4b9ef6a144d",
+    "/leaf_router_0_2.startup": "2d5763460465880bed59766d222cc1702e998b20d1ced6d550913b7c3ade9e4d",
+    "/leaf_router_0_3.startup": "b506e7fb38c1cdcd2eff7b7183b1c83ad877a7f33cae188cfddbef26c88ac199",
+    "/leaf_router_0_4.startup": "60e27dc14dd43e449cb8444ebcbd6fdc4b3b936037a36d4f45b588f6577aa13a",
+    "/leaf_router_0_5.startup": "e768317c219aae5a1081a40c267d3668e109438a87624bbb803bb04214253918",
+    "/leaf_router_0_6.startup": "02df5ed98e699b5872097be17004300ee498e0b5c35f91b2cec738e8dc05112a",
+    "/leaf_router_0_7.startup": "913b69144ece2f216658cdccb1cc63de6ebb6a6cb42faeb8e711da5634021c9f",
+    "/leaf_router_1_0.startup": "4decc0f45170ccc8be00040a70480d5f503a91e3e27b673bd7d32bf279bf7114",
+    "/leaf_router_1_1.startup": "db1be7ee97f2eeb7cdd4b55590d3bb49b542ab98b668eb411e760bdc4e3cf42e",
+    "/leaf_router_1_2.startup": "6d53842ac3bcbba80f7aee78bb594f8b888ca14a01d6af39edfccb9832984bc2",
+    "/leaf_router_1_3.startup": "a5ea7285658c82a15a4693066e3f28915096e8c00ad0a672d6f15661a405f15e",
+    "/leaf_router_1_4.startup": "32bf6f0cee2ebbfc809ca3eca65765dbcc979ca6116ca2da6ef78827ddf1ce0d",
+    "/leaf_router_1_5.startup": "6e3a2d99d806cb3dba18e77ee56bd75c17ae1729d4b334d16042ffa6296c8d85",
+    "/leaf_router_1_6.startup": "7c28365f53e55152ef2425de7c3f97e629c13bb5d7302af115d591fcea1a79fe",
+    "/leaf_router_1_7.startup": "975b98e8461b22893d383f90670cac2ec8ffd0770c40d769076e3c8cf5ca8948",
+    "/leaf_router_2_0.startup": "28f0f7f1f875da5e69d6841e633b099401682f1de54665bbd4033e6ec2f702d7",
+    "/leaf_router_2_1.startup": "6d53283d8085d4325ba2f51fa30ac9ed1a455392560c6558ec923eba210d8743",
+    "/leaf_router_2_2.startup": "ff0b9cecc7bc34103ab4ecad6827e7e10f671e6d9d5a912fa2a0c8d19a33fe8c",
+    "/leaf_router_2_3.startup": "318b4e18dba4bcaf09f94e03b0a14e336b7c8dc5a2cc72daf1e029ecd1f5bde4",
+    "/leaf_router_2_4.startup": "4a17578a57e6ef364bdbc9697674160eda78b2d1da8b6005db2d30c4e531f1b6",
+    "/leaf_router_2_5.startup": "766f8199c87f1f7bb5d33a985f2ac58f24b2e7dfc8e38a7959f9dbb6568caf7c",
+    "/leaf_router_2_6.startup": "968211e2b31092390eb22aff5e2952a69f5146faed0aeb768da1da558665ad99",
+    "/leaf_router_2_7.startup": "29214ea39b444fc3c3c982fed730f65cc9d76439af1433312d068d1fa9e8d303",
+    "/leaf_router_3_0.startup": "5414bc82471bf32638ecefcc0a1d54303a97ed020bec139a1594b1dfbffbd84b",
+    "/leaf_router_3_1.startup": "12c3cdacc7446d77b9ebdcc3bf8bcafa1d09caea54c3fa58f0906a6eaabbbf35",
+    "/leaf_router_3_2.startup": "4f4ced99fe557a4027c514d5b24bbeeeeb1c977e6e7903072c05147745a28f29",
+    "/leaf_router_3_3.startup": "f03c24fd211ea1ed35f2bf7a8a7dbceab45b634108f8ddeb275b12152da7ed7a",
+    "/leaf_router_3_4.startup": "cd2a8932b5b2afa473707667e986a2c199e10dda6a48350802353572aed8ee36",
+    "/leaf_router_3_5.startup": "d44388c75a832106eadf062f9206aa33f26149ebbd0ced5bbcebb5f1cc4994f4",
+    "/leaf_router_3_6.startup": "7abd2e2372248ec91c8d49fb0335cb16824fc9af824ba287fcfd60fcc6d4fcd3",
+    "/leaf_router_3_7.startup": "da91f4c95a3a8d3cfb3eed0e2b790bbeb38b0ac8a2606fd701bec83ac03476a6",
+    "/super_spine_router_0.startup": "6badc853034f07b0d6871800f0127a3e6e880f89eaa8dd4905fd1522e7ef01d5",
+    "/super_spine_router_1.startup": "ad6abc897bfda57fbf317796763a5fe6d0f4f368cbc290cc27dec7ec1d7a5877",
+    "/super_spine_router_2.startup": "409a29e56f8a4eaa9c34740b78c8d00f2dbc70c29a7db68aa71d660eb3815e7a",
+    "/super_spine_router_3.startup": "28ba2e3b908f00df8a55405906a3aeed2a894360d6d1961a76bfe1a31de160d6",
+    "/client_0.startup": "5b8a50335bedb2f8cd67c1b44366938d4a005805be4c1b0a1c392da9db5ad0b8",
+    "/client_1.startup": "64d01e97103b2254a20942e0e642728c169f5d8f6103869716052b6290e07e56",
+    "/client_2.startup": "53b93c7fe7e0791fb120fc9bcd4910f3e0de4ba9d9e5d1e3c06f4b33c975da4f",
+    "/client_3.startup": "d05eec8375eeb6512ca7b63de6d716eef8021c5eaa9ced4b41925798b8487a54",
+    "/dns_pod0.startup": "2431a5002c652fec0aebcbad4a001ed3084da98dd2c7cf19afb54085b532c99b",
+    "/dns_pod1.startup": "8da23be40c0e250fd42d13e142245af0fe2cf5ea00ecea6523e2faa40759b623",
+    "/dns_pod2.startup": "98bc3666a0f5a43f00c86b8fb9bed05ba323ef1d8baba193688515802836e0db",
+    "/dns_pod3.startup": "50f4071b19e022bc65c09bafaa616f582a8ebaf8f1b25fc5df469523a9a742cf",
+    "/webserver0_pod0.startup": "2b9043ea83521a1e89b376e79f22b296722fba4f1bebda89c6ad78a8ca336d67",
+    "/webserver1_pod0.startup": "b2e8f6d12cd057e16a593e82084f5339b55e07b6759d965c81a336be450124e6",
+    "/webserver2_pod0.startup": "9c768996cadd4ffda9f89e6b4b260537577c6d7d1c92b721ff112c95a1d0c107",
+    "/webserver3_pod0.startup": "57fa4deb12046fcc296fac27869fbd8f99e60ba323b2a12b9d487ecf2a46a887",
+    "/webserver4_pod0.startup": "52576333ea155bbbfce65a3900f7ae46bec36afd07a31d758e28ce2d36a81417",
+    "/webserver5_pod0.startup": "c8f47e04e9bd23a1bbffb2fa2eac801817fa919ecf08db6380da5ecfc7fc8327",
+    "/webserver6_pod0.startup": "c9bc718131ee3cea0f51015a0056365173589d4b1376cb61ec4d19a49e7a6f34",
+    "/webserver0_pod1.startup": "d183004bd7d6a471cd41a48d88c38f01a67b859789033bf103c0741de4def143",
+    "/webserver1_pod1.startup": "4c9787a0ac6eab0cd1e05c0276f2038ff3706d67e5ff445b25d549ea4fe210c6",
+    "/webserver2_pod1.startup": "4644ebe5e408826a7dbff1e013ab3f230ca82f3ac7b2d04dc7418f88cde1ee18",
+    "/webserver3_pod1.startup": "f1218b6010aa6c259e3b508dbb37ee2bb578b4ee26911ff086051571a794378a",
+    "/webserver4_pod1.startup": "9f0e96af1b7bab75ebd853f693c7405ff69045ad8e8ab7103cb6c31aaeae66c4",
+    "/webserver5_pod1.startup": "390af9c7b2955754199be40a0e476ac92b1eca6e0cfc4488ff544c0d2c5b748f",
+    "/webserver6_pod1.startup": "04dc2edf1deda65f98aec69c611059c779f3c0ebc774ac26ff0c98f792c358b9",
+    "/webserver0_pod2.startup": "c98c1bc6225dec3579939ffc9883cf6ffcc163b245bc3494c2a074a9693ae09e",
+    "/webserver1_pod2.startup": "e47f398a123c0ae1ebe5e597504212a754d813679510702541f5245a1762cf3e",
+    "/webserver2_pod2.startup": "7d2ee5d085c429d47ce4597809f2abe95858c22b066774017a7b9b42a4cbe418",
+    "/webserver3_pod2.startup": "263215fdbca4974b14bf5414e1c1a69625411ffc8f50c6b2d13f6852eb001bc7",
+    "/webserver4_pod2.startup": "5503c55d06807180136b7ba75ebccdfab05f4c4c51e4d1a14c3f81fbdccffcf7",
+    "/webserver5_pod2.startup": "0be9b56a508a287821ca0bd1032a88f68a37ffad6e7a89ce78cdfbe8d4f0e39e",
+    "/webserver6_pod2.startup": "4620066135a3d389b055f1819237e76135cafccdbfe3524477b4daee2d1403d4",
+    "/webserver0_pod3.startup": "a46ad7112b0b44ac703def411633aa032332ff1626278830e2cd141e540cb645",
+    "/webserver1_pod3.startup": "2aa20ce615c6809be4c361ba4943a84a529baa3cca9f57e10956eabb89b9e905",
+    "/webserver2_pod3.startup": "1f49105992e4886a61b4e145dc5865b08bc3ad799be3d0958f29dc7869caf1f6",
+    "/webserver3_pod3.startup": "08fd606fc971d1a5140ebe486082cd09396b2c6581603a789ef60e6c2083a80f",
+    "/webserver4_pod3.startup": "24f9757531dfb56b8a531c1600c9998e5a4b8895228f545643c0914659c5b1a9",
+    "/webserver5_pod3.startup": "e3f3b529730cc6dec8aa3769b9b2b875ed596af4b3451356717110ffda02c680",
+    "/webserver6_pod3.startup": "b3883c89f2d0128e12cb0ace1567775e8d92023134d9aa5e8556384e3b06fb31",
+    "/client_0/etc/resolv.conf": "b4d34d40c28ddfea041dd8f230104117fc753f8bc362dea9aee928988e2baedb",
+    "/client_1/etc/resolv.conf": "b4d34d40c28ddfea041dd8f230104117fc753f8bc362dea9aee928988e2baedb",
+    "/client_2/etc/resolv.conf": "b4d34d40c28ddfea041dd8f230104117fc753f8bc362dea9aee928988e2baedb",
+    "/client_3/etc/resolv.conf": "b4d34d40c28ddfea041dd8f230104117fc753f8bc362dea9aee928988e2baedb",
+    "/spine_router_0_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_0_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_0_0/etc/frr/frr.conf": "b14110c96fd32d33fa6ddeffa6041a35d056d190a189df64fb09be11dfddd60c",
+    "/spine_router_0_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_0_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_0_1/etc/frr/frr.conf": "b527216e522ca7578a1707eb30370ad5c22c4753a63bf11530584b19a1741c59",
+    "/spine_router_0_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_0_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_0_2/etc/frr/frr.conf": "8818c51da84ccd024a856e3df9b1bc1cb577622227700d651668c70e8a2c92e2",
+    "/spine_router_0_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_0_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_0_3/etc/frr/frr.conf": "e92aa102137eba5e9a9407ce9f2092a2c09c61b2cc75038217559653de508794",
+    "/spine_router_1_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_1_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_1_0/etc/frr/frr.conf": "1c75946f0a2a352f4dbe186a2e028f0d32bf561766646f816c229c2945f43b97",
+    "/spine_router_1_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_1_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_1_1/etc/frr/frr.conf": "e4c921872883c77935357ac3319922793f6ccfd45001ef023418bdfd4071b9d4",
+    "/spine_router_1_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_1_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_1_2/etc/frr/frr.conf": "a8874c83b38c9e0251a21414d305fffbe3b05fd12093fb777713a4884602a44e",
+    "/spine_router_1_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_1_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_1_3/etc/frr/frr.conf": "6a612357cfc2efb0db1e9f1ab3893bae324a5179c8e6e9307377b536540e637c",
+    "/spine_router_2_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_2_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_2_0/etc/frr/frr.conf": "761beb3c2501d897bd3c445896244098b331acb850e9f943bcefe5fa33de0498",
+    "/spine_router_2_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_2_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_2_1/etc/frr/frr.conf": "d45b946713d95ba6c913bebd7c388d67b25eb23212d0e0ecadf8988db5e83960",
+    "/spine_router_2_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_2_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_2_2/etc/frr/frr.conf": "dd8d855289d6b5d93ae75c128a381e2630c81b7f6f72cc9fd37270b8bc6b6ee6",
+    "/spine_router_2_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_2_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_2_3/etc/frr/frr.conf": "35a1b4a33aa5ea0274c888aa34c0633fbddcee325cbc07d5d1790791887d0f64",
+    "/spine_router_3_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_3_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_3_0/etc/frr/frr.conf": "93652a7aba54a604ba036e02243d3602dbe30cc8d3ce2150bfafe3ffdcf12c96",
+    "/spine_router_3_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_3_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_3_1/etc/frr/frr.conf": "c4996cf0c8f144810b8812b760b4eadcd0a809c15c7d3b925b2e27ea4a902e2f",
+    "/spine_router_3_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_3_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_3_2/etc/frr/frr.conf": "403f908ebab690a2b623dd6aedb5dbb4e0cb467d0e623f56f7066e7aaa92659f",
+    "/spine_router_3_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/spine_router_3_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/spine_router_3_3/etc/frr/frr.conf": "5855c6da6a3ca6ba60a10767673cd1034361f7597ebe98943180e6b0b2ee7568",
+    "/leaf_router_0_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_0/etc/frr/frr.conf": "146cf1537a31a23cd0421dab9392669f4085dafefddd37aa19fac33d7a4b863a",
+    "/leaf_router_0_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_1/etc/frr/frr.conf": "2fd1ad8e3ba1c8b46f04411c0f0244425b6c64309ed2b6305328c89a559eadb9",
+    "/leaf_router_0_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_2/etc/frr/frr.conf": "4d4af963989f8ed44465d296f7fa95309d5e247734ae4169009961f7ff99013b",
+    "/leaf_router_0_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_3/etc/frr/frr.conf": "f9564b0160fb417e19f4ebe1e2723d2b52ed2505c30cf58dcb58af935becf397",
+    "/leaf_router_0_4/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_4/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_4/etc/frr/frr.conf": "7e45c446dec87507b39911739ca892d67c044e68b612be9a444bef032281ef70",
+    "/leaf_router_0_5/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_5/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_5/etc/frr/frr.conf": "dc86119dc073d7e4c048228c3dd594cec15fb8cea126edea518686805350f232",
+    "/leaf_router_0_6/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_6/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_6/etc/frr/frr.conf": "888626ae8ce4d1ab36a620c3aab2f057bc6790fd004f47523266ed80707a7c5d",
+    "/leaf_router_0_7/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_0_7/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_0_7/etc/frr/frr.conf": "6209f4e78854060b01b09d42afeb7732befe571060c1babb429cd4e5777beb78",
+    "/leaf_router_1_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_0/etc/frr/frr.conf": "5f375f7599af6186fd5a2d5b485f17f33161855fc9dfb68d49235adf09533ccf",
+    "/leaf_router_1_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_1/etc/frr/frr.conf": "14f769b03ca8d338a691328528bcae6f2097481beda8bbdfd1b7540e68961bf6",
+    "/leaf_router_1_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_2/etc/frr/frr.conf": "616e1520feab50ca2cf9eb88872b9c4601f3fba56a752c78137e2a3f980db934",
+    "/leaf_router_1_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_3/etc/frr/frr.conf": "c4fa3bf3435b0f0edc065f8e02ea3380b0a1de4cee04997e322af0c06ffcc8f9",
+    "/leaf_router_1_4/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_4/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_4/etc/frr/frr.conf": "fa2c73382cc80601f0687e7bdc19402b6f4e20fa3a5bfdab470a061d2bd58417",
+    "/leaf_router_1_5/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_5/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_5/etc/frr/frr.conf": "5cc2d59749d4c741c7315f41d48bcf85563f79bf75a04d4302d11e728461f085",
+    "/leaf_router_1_6/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_6/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_6/etc/frr/frr.conf": "5973a99d69428e0636d56456af1fd62ebb117cf6f491268b6c2dc9b0fd976a7d",
+    "/leaf_router_1_7/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_1_7/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_1_7/etc/frr/frr.conf": "f53a0220e97cd23cb657d5c44c9bc78fa3a8cbad19e7396976fd225f62ed55b0",
+    "/leaf_router_2_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_0/etc/frr/frr.conf": "6cd002672f761cb32d694d202090555e567d7828a805bc96a43581f7c37a879c",
+    "/leaf_router_2_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_1/etc/frr/frr.conf": "6011933ecc69f833a034b56856dde76d40dbeee3391eb74cc5fe3f88b6f9a384",
+    "/leaf_router_2_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_2/etc/frr/frr.conf": "44c948470a5be1a55c7ec6e49f2382498280e6bd5198842f6dbccd319b90c276",
+    "/leaf_router_2_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_3/etc/frr/frr.conf": "4370ed3773a214f66c30709f19491d5baf6c6663008368efaaf1257c243d2577",
+    "/leaf_router_2_4/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_4/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_4/etc/frr/frr.conf": "bb9970723f28d0683b8312efb5be4480ed6614d705deb54ebed773d44b1ab4b4",
+    "/leaf_router_2_5/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_5/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_5/etc/frr/frr.conf": "afcab968293749c3e6def924823ccf7d19c933358f017bc339e2b603e073c030",
+    "/leaf_router_2_6/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_6/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_6/etc/frr/frr.conf": "d47c87b69a440ebc4bd8515d4642e6e1c7abf3e4ed703711896a2ec86d865807",
+    "/leaf_router_2_7/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_2_7/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_2_7/etc/frr/frr.conf": "83de13fcfbc92b05d06ee8fdc8c6fb6789ae123151cbba603a1804bee889986f",
+    "/leaf_router_3_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_0/etc/frr/frr.conf": "015d34476a5e44e40e48c5eca00d0224df5ff8e2c7adb7778c8885897ab2f2b8",
+    "/leaf_router_3_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_1/etc/frr/frr.conf": "82f81aaf285a146f89f0432c06d86822f74481a6d41ecc993c7347735f7b7039",
+    "/leaf_router_3_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_2/etc/frr/frr.conf": "13fc45d6cc1dbf4021e1de5197953f4477a965510df2ed7dfa6a898dc88a58ee",
+    "/leaf_router_3_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_3/etc/frr/frr.conf": "112bc1756231bc7d25796f8c0c9b1d936b04ffdc3622ff57703d2d63ba7c7dc2",
+    "/leaf_router_3_4/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_4/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_4/etc/frr/frr.conf": "6efa82ef6ba6958fe4703ef9b5da402c4b41a75266e6d6e2d05f46b93941e2c5",
+    "/leaf_router_3_5/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_5/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_5/etc/frr/frr.conf": "bcb195b67c89f9d25875692a9108d22f5d33e81271ba387ad3d6d4ac0f07fcd3",
+    "/leaf_router_3_6/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_6/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_6/etc/frr/frr.conf": "b3496fc39d9e0bdd28fa2d701d8443e4754030229462a7b28b492f627dbceb7c",
+    "/leaf_router_3_7/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/leaf_router_3_7/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/leaf_router_3_7/etc/frr/frr.conf": "409505e65d8bb87e68ff152749fabfde42dd1c4af42b5dac55239776c6ff7a08",
+    "/super_spine_router_0/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/super_spine_router_0/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/super_spine_router_0/etc/frr/frr.conf": "85be7f4d32d827a99743780c8e484284f105146e2f9539061a9a48eb1a59e22a",
+    "/super_spine_router_1/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/super_spine_router_1/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/super_spine_router_1/etc/frr/frr.conf": "c2b9c9c7c01d9df2a51157482e754f415b80fb29ade49f804c04b8b5e9f9bd79",
+    "/super_spine_router_2/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/super_spine_router_2/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/super_spine_router_2/etc/frr/frr.conf": "a79e101ecafe4c55b36e3065124dfab2ea5483eb3901d77e057e2fe6e7aa17d8",
+    "/super_spine_router_3/etc/frr/daemons": "53defb8312a300fd0818e426731f95b88f24a315f8211b496fbaf481e2d8f700",
+    "/super_spine_router_3/etc/frr/vtysh.conf": "830986724b6730f0cbfe76dce341e9be4b3fcae73bd612fca3c09a8157515a1d",
+    "/super_spine_router_3/etc/frr/frr.conf": "a6461c0a07b1da32d5b66592b263746fd99fb4cb0141514f8b7a1018b2fb3c0c",
+    "/dns_pod0/etc/bind/named.conf": "aa39094230c97b39bd1ec8ba3a7f514602acb92452376edc3ad4132a215b1e43",
+    "/dns_pod0/etc/bind/db.pod0": "875aa34fdde474ea38c1b73d7d9524b4f2b356d4adc79a97c7e66adb23fed740",
+    "/dns_pod1/etc/bind/named.conf": "32b597e946855baea331f0e1ea149c884e72b33f3ef0836957618ba2309f50cc",
+    "/dns_pod1/etc/bind/db.pod1": "75540fe55a8a1eb33988f6b998e1808268e00cd5945b809b8254953ee71b1684",
+    "/dns_pod2/etc/bind/named.conf": "527cb81178e1fe4ee34753edb234d11b645e0beba691c5ad206534d055dc492a",
+    "/dns_pod2/etc/bind/db.pod2": "c66fb3f27dd7065bc113dd1b13f75b0cc48f1ce35c860e8cde574f627bf07c17",
+    "/dns_pod3/etc/bind/named.conf": "c32e35b5090e535286ff7a7f93073420f4c5001b3cb111f7d521adb87986b65f",
+    "/dns_pod3/etc/bind/db.pod3": "7cbec20f81322cd9eedef6744a837de76bba6eada9b0cd0770d79bfc1e645b9e"
+  },
+  "adaptations": [
+    "Explicit compact images and verified shared runtime on vfs; no stress limits.",
+    "FRR IPv4 address-family syntax, explicit interface up, bounded startup replay, faster BGP timers; preserve ASN/router-id/network/neighbor values.",
+    "dnsmasq replaces systemctl/BIND startup; preserve all original webX.podY records, replicate across four DNS endpoints.",
+    "Add real web content and reuse existing service lifecycle/validation tools.",
+    "client_0 keeps reference IP .2 via a real DHCP reservation; added 4 service/management endpoints share existing LANs."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "Kath1",
+  "lab_name": "team-smoke-85cdeaa8a69b",
+  "passed": false,
+  "started_at": "2026-10-21T08:45:42.447105+00:00",
+  "probes": [],
+  "status": "blocked_missing_images",
+  "missing_images": [
+    "kathara/dhcp"
+  ],
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:45:42.536510+00:00"
+}

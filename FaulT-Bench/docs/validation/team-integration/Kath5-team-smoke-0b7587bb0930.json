@@ -1,0 +1,52 @@
+{
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "Kath5",
+  "lab_name": "team-smoke-0b7587bb0930",
+  "passed": false,
+  "started_at": "2026-10-21T08:47:45.055707+00:00",
+  "probes": [
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 20.1.1.1",
+      "rc": 0,
+      "output": "PING 20.1.1.1 (20.1.1.1) 56(84) bytes of data.\n64 bytes from 20.1.1.1: icmp_seq=1 ttl=64 time=1.33 ms\n64 bytes from 20.1.1.1: icmp_seq=2 ttl=64 time=1.47 ms\n\n--- 20.1.1.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 1.326/1.396/1.466/0.070 ms",
+      "passed": true,
+      "rationale": "rc=0, loss=0.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr": {
+        "source": "kathara/frr:latest",
+        "source_id": "sha256:30e5337da4f35f63134c5806b59efcf62df7e90772613d386c00c3188370e5b7",
+        "device_image": "soft3888/source-05bddb1601dd:shared-v1",
+        "device_image_id": "sha256:9ba1b0d56e19effb9a063fd819f7eb95ee5bd7af1456cf2b08c82971c006fc6b",
+        "usr_sha256": "c1c40b40bddc1b1c7a75deb41526af7d92dd2004407bbc78069e5cd06be2dc0a",
+        "created_at": "2026-10-21T08:42:42.851383+00:00"
+      },
+      "kathara/base": {
+        "source": "kathara/base:latest",
+        "source_id": "sha256:3c3120750815effab83dbcf5baa0e9093e0805ac1f3743fc83e5ed554080ab67",
+        "device_image": "soft3888/source-49c084bdc95b:shared-v1",
+        "device_image_id": "sha256:2c6ea3bafc281c5e68ab237430d64bbdd94e69e255e3cdde57f55bb5fd35fe69",
+        "usr_sha256": "122bfbf0d867091009c708653ec6fb880b0505365735df5a82b43e40948a29a9",
+        "created_at": "2026-10-21T08:42:00.883150+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 15,
+  "inventory_complete": true,
+  "mcp_smoke": [],
+  "status": "failed",
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/ai-agent/topology_kathara/Kath5/roles.json'",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:48:03.707441+00:00"
+}

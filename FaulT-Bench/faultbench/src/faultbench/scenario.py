@@ -75,6 +75,9 @@ class Scenario:
     injection: Injection
     pre_check: list[CheckLine] = field(default_factory=list)
     post_inject_check: list[CheckLine] = field(default_factory=list)
+    trigger: Injection | None = None
+    recovery: Injection | None = None
+    recovery_check: list[CheckLine] = field(default_factory=list)
     ground_truth: str = ""
     fix_spec: str = ""     # [FIX] block — canonical remediation; "" for no-fault controls
     scoring_axes: list[str] = field(default_factory=list)
@@ -111,10 +114,11 @@ def parse_scenario(path: str | Path) -> Scenario:
 
     # Section parsing
     sections = _split_sections(text)
+    strict = bool(re.search(r"^Validation:\s*strict\s*$", text, re.MULTILINE))
 
     inj = _parse_injection(sections.get("INJECTION", ""))
-    pre = _parse_checks(sections.get("PRE-CHECK", ""))
-    post = _parse_checks(sections.get("POST-INJECT-CHECK", ""))
+    pre = _parse_checks(sections.get("PRE-CHECK", ""), strict=strict)
+    post = _parse_checks(sections.get("POST-INJECT-CHECK", ""), strict=strict)
 
     return Scenario(
         scenario_id=scenario_id,
@@ -124,6 +128,9 @@ def parse_scenario(path: str | Path) -> Scenario:
         injection=inj,
         pre_check=pre,
         post_inject_check=post,
+        trigger=_parse_injection(sections["TRIGGER"]) if "TRIGGER" in sections else None,
+        recovery=_parse_injection(sections["RECOVERY"]) if "RECOVERY" in sections else None,
+        recovery_check=_parse_checks(sections.get("RECOVERY-CHECK", ""), strict=strict),
         ground_truth=sections.get("GROUND-TRUTH", "").strip(),
         fix_spec=sections.get("FIX", "").strip(),
         scoring_axes=_parse_scoring_axes(sections.get("SCORING-AXES", "")),
@@ -199,7 +206,7 @@ _CHECK_LINE_RE = re.compile(
 )
 
 
-def _parse_checks(body: str) -> list[CheckLine]:
+def _parse_checks(body: str, *, strict: bool = False) -> list[CheckLine]:
     """Parse a PRE-CHECK or POST-INJECT-CHECK block into CheckLine objects."""
     out: list[CheckLine] = []
     for raw in body.splitlines():
@@ -208,6 +215,8 @@ def _parse_checks(body: str) -> list[CheckLine]:
             continue
         m = _CHECK_LINE_RE.match(line)
         if not m:
+            if strict:
+                raise ValueError(f"Malformed validation check: {raw!r}")
             continue
         out.append(
             CheckLine(

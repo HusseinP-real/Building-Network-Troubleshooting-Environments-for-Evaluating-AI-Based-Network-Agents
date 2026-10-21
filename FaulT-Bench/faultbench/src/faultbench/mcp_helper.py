@@ -32,6 +32,9 @@ from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
+from .inventory import install_inventory_adapter
+install_inventory_adapter()
+
 from .paths import SADE_REPO
 _SKILLS = SADE_REPO / "src" / "agent" / ".claude" / "skills"
 _SCRIPTS = _SKILLS / "diagnosis-methodology-skill" / "scripts"

@@ -1,15 +1,7 @@
-"""Evaluate PRE-CHECK / POST-INJECT-CHECK expectations.
+"""Strict checks: command errors and unsupported expectations fail closed.
 
-Each CheckLine has the form:
-    <device>  <command>  => expect <condition>
-
-`condition` is parsed loosely. Supported:
-    0% loss / loss>0       (ping percent-loss)
-    nonempty / empty       (grep / pgrep output)
-    UP / DOWN              (link state)
-    Full / Init / down     (OSPF neighbor state)
-    >=N / 0 / 1 / nonzero  (numeric comparisons)
-    <baseline / <N         (informational; treated as pass unless N given)
+Exit 1 with an exact zero/empty result is accepted for grep/pgrep's documented
+no-match outcome. No other nonzero status can satisfy a non-ping assertion.
 """
 from __future__ import annotations
 
@@ -24,95 +16,63 @@ from .scenario import CheckLine
 class CheckResult:
     line: CheckLine
     passed: bool
-    actual: str            # raw stdout
-    rationale: str         # one-line why we passed/failed
+    actual: str
+    rationale: str
+    rc: int = 0
 
 
 def run_check(topology: str, line: CheckLine, timeout: int = 30) -> CheckResult:
-    """Run one check line and evaluate the expectation."""
     rc, out = kathara_exec(topology, line.device, line.command, timeout=timeout)
-    passed, why = _evaluate_expectation(line.expect, rc, out)
-    return CheckResult(line=line, passed=passed, actual=out.strip(), rationale=why)
+    passed, why = _evaluate_expectation(line.expect, rc, out, command=line.command)
+    return CheckResult(line, passed, out.strip(), why, rc)
 
 
 def run_checks(topology: str, lines: list[CheckLine]) -> list[CheckResult]:
-    return [run_check(topology, ln) for ln in lines]
+    return [run_check(topology, line) for line in lines]
 
 
 def all_passed(results: list[CheckResult]) -> bool:
-    return all(r.passed for r in results)
+    return bool(results) and all(r.passed for r in results)
 
 
-_PERCENT_RE = re.compile(r"(\d+(?:\.\d+)?)\s*%\s*(?:packet\s*)?loss", re.IGNORECASE)
+_PERCENT_RE = re.compile(r'(\d+(?:\.\d+)?)\s*%\s*(?:packet\s*)?loss', re.I)
 
 
-def _evaluate_expectation(expect: str, rc: int, out: str) -> tuple[bool, str]:
-    """Best-effort matcher for the `=> expect X` clause."""
+def _evaluate_expectation(expect: str, rc: int, out: str, *, command: str | None = None) -> tuple[bool, str]:
     e = expect.strip().lower()
-    out_l = out.lower()
-    out_stripped = out.strip()
-
-    # Ping loss style ("0% loss" must anchor at the start so it cannot match
-    # inside "100% loss")
-    if e.startswith(("0%", "0 %")) and "loss" in e:
-        m = _PERCENT_RE.search(out)
-        if m:
-            return (float(m.group(1)) == 0.0, f"loss={m.group(1)}%")
-        return (False, "no loss% found in ping output")
-
-    if "loss>0" in e or "loss > 0" in e:
-        m = _PERCENT_RE.search(out)
-        if m:
-            return (float(m.group(1)) > 0.0, f"loss={m.group(1)}%")
-        # No ping output at all = total loss
-        return (True, "no ping output (assumed loss>0)")
-
-    # nonempty / empty (pgrep, grep)
-    if "nonempty" in e or "non-empty" in e:
-        return (bool(out_stripped), "output present" if out_stripped else "output empty")
-    if e == "empty":
-        return (not out_stripped, "output empty" if not out_stripped else "output present")
-
-    # link state
-    if e == "up":
-        return (("up" in out_l and "down" not in out_l), f"link state output: {out_stripped[:80]}")
-    if e == "down":
-        return (("down" in out_l), f"link state output: {out_stripped[:80]}")
-
-    # OSPF neighbor states
-    if "full" in e:
-        return ("full" in out_l, f"contains Full: {'yes' if 'full' in out_l else 'no'}")
-    if "init" in e:
-        return ("init" in out_l, f"contains Init: {'yes' if 'init' in out_l else 'no'}")
-
-    # numeric comparisons (>=N, ==N, just N)
-    nm = re.match(r">=\s*(\d+)", e)
-    if nm:
-        target = int(nm.group(1))
-        # Try last numeric on the line (for `| wc -l` style outputs)
-        nums = re.findall(r"\b(\d+)\b", out_stripped)
-        if nums:
-            actual = int(nums[-1])
-            return (actual >= target, f"got {actual}, expected >={target}")
-        return (False, f"no number found in '{out_stripped[:40]}'")
-
-    nm = re.match(r"(\d+)\s*$", e)
-    if nm:
-        target = int(nm.group(1))
-        nums = re.findall(r"\b(\d+)\b", out_stripped)
-        if nums:
-            actual = int(nums[-1])
-            return (actual == target, f"got {actual}, expected {target}")
-        return (False, f"no number found in '{out_stripped[:40]}'")
-
-    if "nonzero" in e or "non-zero" in e:
-        nums = re.findall(r"\b(\d+)\b", out_stripped)
-        if nums:
-            return (int(nums[-1]) > 0, f"got {nums[-1]}")
-        return (False, "no number found")
-
-    # Fallback: an expect form this matcher does not recognize. It passes as
-    # advisory so note-only expectations don't block a run, but the rationale
-    # flags it loudly — if you see this while adding a scenario, extend the
-    # matcher above rather than relying on the fallback.
-    return (True, f"UNRECOGNIZED expect, advisory PASS: '{expect}' (rc={rc})")
+    value = out.strip()
+    # Existing datasets append parenthetical explanations to ping checks.
+    if re.match(r'^0\s*%\s+loss(?:\s|$)', e) or re.match(r'^loss\s*>\s*0(?:\s|$)', e):
+        match = _PERCENT_RE.search(out)
+        if match is None:
+            return False, 'no packet-loss result; timeout/errors are not evidence of loss'
+        loss = float(match.group(1))
+        if not 0 <= loss <= 100:
+            return False, 'invalid packet-loss percentage'
+        healthy = e.startswith('0')
+        return (rc == 0 and loss == 0 if healthy else rc in (0, 1) and loss > 0), f'rc={rc}, loss={loss}%'
+    no_match = rc == 1 and ((e.isdecimal() and int(e) == 0 and value == '0') or (e == 'empty' and not value))
+    if no_match and command is not None and not re.search(r'\b(?:grep|pgrep)\b', command):
+        return False, 'nonzero exit outside a grep/pgrep no-match check'
+    if rc != 0 and not no_match:
+        return False, f'command failed: rc={rc}'
+    if e in ('nonempty', 'non-empty', 'empty'):
+        return (bool(value) if e != 'empty' else not value), f'output {"present" if value else "empty"}'
+    if e in ('up', 'down'):
+        found = re.search(r'\bstate\s+' + e + r'\b', value, re.I)
+        return bool(found), f'link state {e}: {bool(found)}'
+    if e in ('full', 'init'):
+        return bool(re.search(r'\b' + e + r'\b', value, re.I)), f'neighbor state {e}'
+    number = re.fullmatch(r'\d+', value)
+    if e.isdecimal():
+        return bool(number) and int(value) == int(e), f'got {value!r}, expected {e}'
+    comparison = re.fullmatch(r'(>=|<)\s*(\d+)', e)
+    if comparison:
+        passed = bool(number) and (int(value) >= int(comparison[2]) if comparison[1] == '>=' else int(value) < int(comparison[2]))
+        return passed, f'got {value!r}, expected {e}'
+    if e in ('nonzero', 'non-zero'):
+        return bool(number) and int(value) > 0, f'got {value!r}, expected positive integer'
+    if e.startswith('equals:'):
+        expected = expect.strip().split(':', 1)[1].strip()
+        return value == expected, f'got {value!r}, expected {expected!r}'
+    return False, f'unsupported expectation: {expect!r}'

@@ -1,0 +1,123 @@
+{
+  "harness_sha256": "29df21a7c7d6672c7215f1faede9ba2b599d091007a390fac20e90b7595596a6",
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "dc_clos_bgp",
+  "lab_name": "team-smoke-f4346fbc9a43",
+  "passed": true,
+  "started_at": "2026-10-21T08:58:23.882675+00:00",
+  "probes": [
+    {
+      "device": "pc_0_0",
+      "command": "ping -n -c2 -W1 10.0.0.1",
+      "rc": 0,
+      "output": "PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.\n64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=1.80 ms\n64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=0.782 ms\n\n--- 10.0.0.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1002ms\nrtt min/avg/max/mdev = 0.782/1.289/1.796/0.507 ms",
+      "passed": true,
+      "rationale": "rc=0, loss=0.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr-stress": {
+        "source": "kathara/frr-stress:latest",
+        "source_id": "sha256:e391148daacfdf9d08430b1e9a412833b629df97a7e20f01a7644d6e649df521",
+        "device_image": "soft3888/source-d384add1da7b:shared-v1",
+        "device_image_id": "sha256:435f7bbd3c112809624c3fbce3b1a03ea244d681cdb2c9350cafebabec98e66e",
+        "usr_sha256": "123f02eeed743605d4b2d10d45609f455e3f4a6a650551816173f26fd5dd637b",
+        "created_at": "2026-10-21T08:44:31.495181+00:00"
+      },
+      "kathara/base-stress": {
+        "source": "kathara/base-stress:latest",
+        "source_id": "sha256:8a23551d1219b996b971847880da77e305a0999b1c47def8ea8468328f3905f4",
+        "device_image": "soft3888/source-20019120b12f:shared-v1",
+        "device_image_id": "sha256:44fa983250d68d9b4fb394c065f86d42bf8ed50c189f00a3ec0ad2678872daef",
+        "usr_sha256": "eca2ba6b42596afd9fb0c72cd795e7f8c960bf92160948bca06e58782fafb096",
+        "created_at": "2026-10-21T08:43:37.694560+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 7,
+  "inventory_complete": true,
+  "mcp_smoke": [
+    {
+      "server": "kathara_base_mcp_server",
+      "tools": [
+        "get_reachability",
+        "ping_pair",
+        "systemctl_ops",
+        "get_host_net_config",
+        "get_tc_statistics",
+        "netstat",
+        "ip_addr_statistics",
+        "ethtool",
+        "curl_web_test",
+        "iperf_test",
+        "cat_file",
+        "exec_shell",
+        "exec_shell_dual"
+      ],
+      "calls": [
+        {
+          "tool": "exec_shell",
+          "arguments": {
+            "host_name": "pc_0_0",
+            "command": "ping -n -W1 -c1 10.0.0.1"
+          },
+          "is_error": false,
+          "output": "PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.\n64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=0.800 ms\n\n--- 10.0.0.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.800/0.800/0.800/0.000 ms"
+        },
+        {
+          "tool": "get_reachability",
+          "arguments": {},
+          "is_error": false,
+          "output": "{\"hosts\":{\"pc_0_0\":\"10.0.0.2\",\"pc_0_1\":\"10.0.1.2\"},\"results\":[{\"src\":\"pc_0_0\",\"dst\":\"pc_0_1\",\"dst_ip\":\"10.0.1.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.387,\"rtt_min_ms\":2.222,\"rtt_max_ms\":2.553,\"rtt_mdev_ms\":0.165,\"status\":\"ok\"},{\"src\":\"pc_0_1\",\"dst\":\"pc_0_0\",\"dst_ip\":\"10.0.0.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.497,\"rtt_min_ms\":3.207,\"rtt_max_ms\":5.787,\"rtt_mdev_ms\":1.29,\"status\":\"ok\"}],\"sampling\":{\"destinations\":[\"pc_0_0\",\"pc_0_1\"],\"concurrency\":4}}"
+        }
+      ],
+      "reachability_status_counts": {
+        "ok": 2
+      },
+      "inventory_endpoints": 2
+    },
+    {
+      "server": "kathara_frr_mcp_server",
+      "tools": [
+        "frr_get_bgp_conf",
+        "frr_show_running_config",
+        "frr_show_ip_route",
+        "frr_get_ospf_conf",
+        "frr_exec"
+      ],
+      "calls": [
+        {
+          "tool": "frr_exec",
+          "arguments": {
+            "router_name": "leaf_router_0_0",
+            "command": "show ip route 10.0.0.0/24"
+          },
+          "is_error": false,
+          "output": "Routing entry for 10.0.0.0/24\n  Known via \"connected\", distance 0, metric 0, best\n  Last update 00:00:13 ago\n  Flags: Selected \n  Status: Installed \n  * directly connected, eth2, weight 1"
+        }
+      ]
+    },
+    {
+      "server": "kathara_telemetry_mcp_server",
+      "tools": [
+        "influx_list_buckets",
+        "influx_get_measurements",
+        "influx_count_measurements",
+        "influx_query_measurement"
+      ],
+      "calls": []
+    }
+  ],
+  "status": "passed",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:58:54.604755+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "cross-region-routing-diagnosis",
+  "lab_name": "soft3888-39b7495778cf",
+  "checks": [
+    {
+      "device": "b1",
+      "command": "ping -n -c2 -W1 192.168.251.12; ping -n -c2 -W1 120.1.1.17",
+      "rc": 1,
+      "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\nFrom 80.1.1.1 icmp_seq=1 Destination Net Unreachable\nFrom 80.1.1.1 icmp_seq=2 Destination Net Unreachable\n\n--- 192.168.251.12 ping statistics ---\n2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1002ms\n\nPING 120.1.1.17 (120.1.1.17) 56(84) bytes of data.\nFrom 80.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 120.1.1.17 ping statistics ---\n2 packets transmitted, 0 received, +1 errors, 100% packet loss, time 1008ms"
+    },
+    {
+      "device": "r8",
+      "command": "vtysh -c \"show ip ospf virtual-links\" -c \"show ip route 120.0.0.0/8\" -c \"show ip route 192.168.251.0/24\" -c \"show ip ospf\"",
+      "rc": 1,
+      "output": "% Unknown command: show ip ospf virtual-links"
+    },
+    {
+      "device": "r11",
+      "command": "vtysh -c \"show ip route 80.0.0.0/8\" -c \"show ip ospf neighbor\"",
+      "rc": 0,
+      "output": "% Network not in table\n\nNeighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL\n111.1.1.1         1 Full/Backup     4.099s            38.188s 111.1.1.1       eth1:111.1.1.2                       1     0     0"
+    },
+    {
+      "device": "intapp1",
+      "command": "ping -n -c2 -W1 80.1.1.14",
+      "rc": 1,
+      "output": "PING 80.1.1.14 (80.1.1.14) 56(84) bytes of data.\nFrom 112.1.1.1 icmp_seq=1 Destination Net Unreachable\nFrom 112.1.1.1 icmp_seq=2 Destination Net Unreachable\n\n--- 80.1.1.14 ping statistics ---\n2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1001ms"
+    }
+  ]
+}

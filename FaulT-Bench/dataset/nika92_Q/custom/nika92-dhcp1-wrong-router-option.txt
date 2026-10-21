@@ -1,0 +1,77 @@
+Scenario: nika92-dhcp1-wrong-router-option
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: DHCP incorrect default-router option
+
+[PROMPT-TO-AGENT]
+External client_0 loses remote service access after renewing, but its real gateway responds. The static external client_1 still reaches the application. Determine why the renewed client route is wrong.
+
+[PRE-CHECK]
+client_0  ip route show default | awk '{print $3}'  => expect equals: 192.168.0.1
+client_0  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_0  ping -n -c1 -W1 192.168.0.1  => expect 0% loss
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+
+[INJECTION]
+device: dhcp1
+action: DHCP incorrect default-router option
+cmd: |
+  set -eu
+  sed -i 's/option:router,192.168.0.1$/option:router,192.168.0.254/' /etc/dnsmasq.d/clos.conf
+  sh /opt/soft3888/dns-control restart
+
+[TRIGGER]
+device: client_0
+action: renew the real DHCP lease
+cmd: sh /opt/soft3888/dhcp-client renew
+
+[POST-INJECT-CHECK]
+client_0  ip route show default | awk '{print $3}'  => expect equals: 192.168.0.254
+client_0  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test "$rc" = 7 || test "$rc" = 28; }  => expect 000
+client_0  ping -n -c1 -W1 192.168.0.1  => expect 0% loss
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+dhcp1  awk '$0=="dhcp-option=option:router,192.168.0.254" {n++} END {print n+0}' /etc/dnsmasq.d/clos.conf  => expect 1
+
+[GROUND-TRUTH]
+Fault location: dhcp1
+Fault type: DHCP incorrect default-router option
+Root cause, expected symptoms and controls: Added dhcp1 advertises unused 192.168.0.254 instead of the original super_spine_router_0 gateway 192.168.0.1. Real lease renewal installs the wrong default route while preserving original client_0 IP 192.168.0.2. Local gateway and another external client remain healthy. Correct the DHCP router option and renew client_0, rather than patching only its route.
+
+[FIX]
+On dhcp1, execute:
+set -eu
+sed -i 's/option:router,192.168.0.254$/option:router,192.168.0.1/' /etc/dnsmasq.d/clos.conf
+sh /opt/soft3888/dns-control restart
+Renew client_0 afterwards: sh /opt/soft3888/dhcp-client renew
+
+[RECOVERY]
+device: dhcp1
+action: restore healthy configuration
+cmd: |
+  set -eu
+  sed -i 's/option:router,192.168.0.254$/option:router,192.168.0.1/' /etc/dnsmasq.d/clos.conf
+  sh /opt/soft3888/dns-control restart
+
+[RECOVERY-CHECK]
+client_0  ip route show default | awk '{print $3}'  => expect equals: 192.168.0.1
+client_0  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_0  ping -n -c1 -W1 192.168.0.1  => expect 0% loss
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+
+[DIAGNOSTIC-PROCESS]
+Scope the affected NIKA pod/service, compare an unaffected pod and local
+connectivity, inspect the owning configuration and protocol/service state.
+The explicit recovery is applied inside disposable containers only; validate
+the complete healthy baseline before the next case.
+
+[SCORING-AXES]
+assert-identifies: dhcp1
+must-identify-device: dhcp1
+must-identify-component: DHCP incorrect default-router option
+must-identify-mechanism: Added dhcp1 advertises unused 192.168.0.254 instead of the original super_spine_router_0 gateway 192.168.0.1. Real lease renewal installs the wrong default route while preserving original client_0 IP 192.168.0.2. Local gateway and another external client remain healthy. Correct the DHCP router option and renew client_0, rather than patching only its route.
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Project-local case on the exported pinned DCClosService(l); no exact taxonomy equivalence claimed.

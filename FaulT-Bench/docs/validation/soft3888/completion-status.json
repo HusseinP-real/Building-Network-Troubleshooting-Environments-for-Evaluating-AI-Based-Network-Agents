@@ -1,0 +1,121 @@
+{
+  "kind": "current-development-completion-status",
+  "ground_truth_catalog": {
+    "scenarios": 574,
+    "topologies": 12,
+    "live_validated_scenarios": 11,
+    "records_with_issues": 0,
+    "records_with_validation_gaps": 563,
+    "parse_errors": [],
+    "topology_errors": {},
+    "issues": []
+  },
+  "team_integration": [
+    {
+      "topology": "Kath1",
+      "status": "blocked_missing_images",
+      "passed": false,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/Kath1-team-smoke-85cdeaa8a69b.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "Kath2",
+      "status": "passed",
+      "passed": true,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/Kath2-team-smoke-f46a677286c1.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "Kath3",
+      "status": "failed",
+      "passed": false,
+      "error": "RuntimeError: Representative local-gateway ping failed after convergence gate",
+      "evidence_path": "docs/validation/team-integration/Kath3-team-smoke-aefbb18f98da.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "Kath4",
+      "status": "failed",
+      "passed": false,
+      "error": "RuntimeError: Representative local-gateway ping failed after convergence gate",
+      "evidence_path": "docs/validation/team-integration/Kath4-team-smoke-1d1bfe5ddf1a.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "Kath5",
+      "status": "passed",
+      "passed": true,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/Kath5-team-smoke-a0c93995b2b6.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "dc_clos_bgp",
+      "status": "passed",
+      "passed": true,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/dc_clos_bgp-team-smoke-f4346fbc9a43.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "ospf_enterprise_static",
+      "status": "passed",
+      "passed": true,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/ospf_enterprise_static-team-smoke-e1d546f4d66a.json",
+      "cleanup": {
+        "passed": true
+      }
+    },
+    {
+      "topology": "simple_bgp",
+      "status": "passed",
+      "passed": true,
+      "error": null,
+      "evidence_path": "docs/validation/team-integration/simple_bgp-team-smoke-863c06cd9e73.json",
+      "cleanup": {
+        "passed": true
+      }
+    }
+  ],
+  "model_evaluation": {
+    "status": "blocked_missing_credentials",
+    "executed_runs": 0,
+    "missing_credentials": [
+      "ANTHROPIC_API_KEY",
+      "OPENAI_API_KEY"
+    ]
+  },
+  "external_blockers": {
+    "missing_model_credentials": [
+      "ANTHROPIC_API_KEY",
+      "OPENAI_API_KEY"
+    ],
+    "missing_images": [
+      {
+        "topology": "Kath1",
+        "images": [
+          "kathara/dhcp"
+        ]
+      }
+    ],
+    "vlan_capability": {
+      "available": false,
+      "error": "Command '['sh', '-c', 'ip link add preflighta type veth peer name preflightb && ip link add link preflighta name preflighta.100 type vlan id 100']' in image 'kathara/base:latest' returned non-zero exit status 2: b'Error: Unknown device type.\\n'"
+    }
+  }
+}
