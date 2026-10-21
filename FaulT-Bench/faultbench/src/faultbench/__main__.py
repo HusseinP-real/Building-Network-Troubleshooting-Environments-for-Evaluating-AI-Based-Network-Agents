@@ -16,6 +16,7 @@ from rich.table import Table
 from .envfile import load_env
 from .orchestrator import AGENT_RUNNERS, run_one
 from .paths import ENV_FILE
+from .preflight import require_credentials as _require_credentials
 from .scenario import LAYERS, discover_scenarios, load_manifest, resolve_scenario
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
@@ -30,6 +31,14 @@ def _main(ctx: typer.Context) -> None:
     if not load_env():
         console.print(f"[yellow]WARNING[/yellow]: {ENV_FILE} not found; "
                       "relying on already-set env vars")
+
+
+def require_credentials(agents):
+    try:
+        _require_credentials(agents)
+    except RuntimeError as exc:
+        console.print(str(exc))
+        raise typer.Exit(2)
 
 
 def _runs_dir() -> Path:
@@ -74,6 +83,7 @@ def run(
         raise typer.Exit(2)
     runs_root = runs_root or _runs_dir()
     console.print(f"[bold]Running[/bold] {scenario.name} on {agent}")
+    require_credentials([agent])
     row = run_one(scenario, agent, runs_root, keep_lab=keep_lab, run_group="run")
     _print_row(row)
     console.print(f"[dim]-> {runs_root / row['topology'] / 'summary.csv'}[/dim]")
@@ -98,6 +108,7 @@ def sweep(
                   f"x {len(agent_list)} agents = "
                   f"{len(scenarios)*len(agent_list)} runs -> {runs_root}")
 
+    require_credentials(agent_list)
     for sc_path in scenarios:
         for agent in agent_list:
             console.rule(f"{sc_path.name} on {agent}")
@@ -122,7 +133,7 @@ def bench(
     converge_wait: int = typer.Option(
         90, "--converge-wait",
         help="Seconds to SETTLE after all containers deploy (lets the lab "
-             "converge before injection). No functional pre-check is run."),
+             "converge before injection). Declared PRE-CHECK blocks gate healthy state before injection."),
     dry_run: bool = typer.Option(
         False, "--dry-run", help="Resolve + print the run plan, don't execute."),
 ) -> None:
@@ -172,6 +183,7 @@ def bench(
         console.print(plan)
         return
 
+    require_credentials(agent_list)
     rows: list[dict] = []
     for sc_path in sc_paths:
         for agent in agent_list:

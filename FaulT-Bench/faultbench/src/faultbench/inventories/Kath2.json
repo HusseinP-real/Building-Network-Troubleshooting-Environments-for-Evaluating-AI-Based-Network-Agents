@@ -1,0 +1,39 @@
+{
+  "routers": [
+    "router0",
+    "router1",
+    "router2"
+  ],
+  "switches": [
+    "switch0",
+    "switch1",
+    "switch2",
+    "switch3",
+    "switch4",
+    "switch5"
+  ],
+  "hosts": [
+    "it_hod",
+    "it_lab1",
+    "it_lab2",
+    "it_lab3",
+    "it_lab4",
+    "cs_hod",
+    "cs_lab1",
+    "cs_lab2",
+    "cs_lab3",
+    "cs_lab4",
+    "office_pc",
+    "exam_cell",
+    "enquiry",
+    "tpo",
+    "pc0",
+    "laptop0",
+    "pc1",
+    "pc2",
+    "pc3",
+    "pc4",
+    "pc5"
+  ],
+  "servers": {}
+}

@@ -10,3 +10,18 @@ Thumbs.db
 SADE-NetworkAgent/
 .env
 .env.*
+
+# Local setup/build caches
+.cache/
+build/
+dist/
+
+# Historical 41-device prototype stays local (not a deliverable).
+topology_kathara/Clos_Jiayuan_41Devices/
+dataset/jiayuan_clos_Q/
+faultbench/benchmarks/jiayuan_clos*.csv
+faultbench/experiments/jiayuan_clos*.json
+tools/generate_jiayuan_clos.py
+docs/validation/soft3888/Clos_Jiayuan_41Devices*.json
+docs/validation/soft3888/acceptance-index-prototype-history.json
+docs/validation/soft3888/final-static-checks.json

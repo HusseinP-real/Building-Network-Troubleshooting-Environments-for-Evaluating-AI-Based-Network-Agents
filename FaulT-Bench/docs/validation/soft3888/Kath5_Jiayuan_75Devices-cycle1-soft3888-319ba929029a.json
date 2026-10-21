@@ -1,0 +1,2662 @@
+{
+  "kind": "live-network-validation-without-llm",
+  "started_at": "2026-10-20T06:11:09.598109+00:00",
+  "lab_name": "soft3888-319ba929029a",
+  "passed": false,
+  "stages": [
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:15.785131+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.216.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.224.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; communications error to 192.168.251.11#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.251.11 app.internal.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; Connection to 192.168.251.11#53(192.168.251.11) for app.internal.test failed: network unreachable.\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 1 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 2 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.231.11 port 80 after 4 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 9,
+          "output": ";; communications error to 192.168.231.13#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.231.13 web1.dmz.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 1,
+          "output": "0\ncurl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "0",
+          "passed": false,
+          "rationale": "got '0', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "1",
+          "passed": false,
+          "rationale": "got '1', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:25.227487+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.216.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.224.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 112.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; communications error to 192.168.251.11#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.251.11 app.internal.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; Connection to 192.168.251.11#53(192.168.251.11) for app.internal.test failed: network unreachable.\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 4 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.231.11 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 9,
+          "output": ";; communications error to 192.168.231.13#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.231.13 web1.dmz.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 1,
+          "output": "0\ncurl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "0",
+          "passed": false,
+          "rationale": "got '0', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "1",
+          "passed": false,
+          "rationale": "got '1', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=2.95 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.952/2.952/2.952/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:32.782897+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.216.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.224.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 112.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=4.81 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.806/4.806/4.806/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; communications error to 192.168.251.11#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.251.11 app.internal.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 9,
+          "output": ";; Connection to 192.168.251.11#53(192.168.251.11) for app.internal.test failed: network unreachable.\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.231.11 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 9,
+          "output": ";; communications error to 192.168.231.13#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.231.13 web1.dmz.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 1,
+          "output": "0\ncurl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "0",
+          "passed": false,
+          "rationale": "got '0', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "1",
+          "passed": false,
+          "rationale": "got '1', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=2.43 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.434/2.434/2.434/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:39.161338+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.216.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.224.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\n64 bytes from 192.168.251.12: icmp_seq=1 ttl=56 time=4.50 ms\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.501/4.501/4.501/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=56 time=3.36 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.359/3.359/3.359/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=1.94 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.939/1.939/1.939/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 1 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.231.11 port 80 after 1 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 9,
+          "output": ";; communications error to 192.168.231.13#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.231.13 web1.dmz.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "0",
+          "passed": false,
+          "rationale": "got '0', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "3",
+          "passed": true,
+          "rationale": "got '3', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=2.23 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.231/2.231/2.231/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:45.585761+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.216.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\nFrom 70.1.1.1 icmp_seq=1 Destination Net Unreachable\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\nFrom 192.168.224.1 icmp_seq=1 Destination Net Unreachable\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\n64 bytes from 192.168.251.12: icmp_seq=1 ttl=56 time=4.20 ms\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.200/4.200/4.200/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=56 time=4.22 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.221/4.221/4.221/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.92 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.915/3.915/3.915/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.251.12 port 80 after 0 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 7,
+          "output": "000curl: (7) Failed to connect to 192.168.231.11 port 80 after 1 ms: Couldn't connect to server",
+          "passed": false,
+          "rationale": "command failed: rc=7"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 9,
+          "output": ";; communications error to 192.168.231.13#53: timed out\n\n; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @192.168.231.13 web1.dmz.test +short +time=1 +tries=1\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached",
+          "passed": false,
+          "rationale": "command failed: rc=9"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "0",
+          "passed": false,
+          "rationale": "got '0', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "3",
+          "passed": true,
+          "rationale": "got '3', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=1.58 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.580/1.580/1.580/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:53.546071+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.18 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.178/2.178/2.178/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=61 time=2.81 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.810/2.810/2.810/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 1,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms",
+          "passed": false,
+          "rationale": "rc=1, loss=100.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=59 time=2.91 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.907/2.907/2.907/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\n64 bytes from 192.168.251.12: icmp_seq=1 ttl=56 time=6.89 ms\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 6.890/6.890/6.890/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=56 time=7.34 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 7.339/7.339/7.339/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.90 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.901/2.901/2.901/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 0,
+          "output": "192.168.231.11",
+          "passed": true,
+          "rationale": "got '192.168.231.11', expected '192.168.231.11'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "3",
+          "passed": true,
+          "rationale": "got '3', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=7.15 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 7.146/7.146/7.146/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "healthy-baseline",
+      "at": "2026-10-20T06:12:59.568313+00:00",
+      "passed": true,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=3.11 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.105/3.105/3.105/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=61 time=1.62 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.619/1.619/1.619/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.224.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.224.11 (192.168.224.11) 56(84) bytes of data.\n64 bytes from 192.168.224.11: icmp_seq=1 ttl=59 time=2.19 ms\n\n--- 192.168.224.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.192/2.192/2.192/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=59 time=10.3 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 10.342/10.342/10.342/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.251.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\n64 bytes from 192.168.251.12: icmp_seq=1 ttl=56 time=3.19 ms\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.188/3.188/3.188/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 70.1.1.11 (70.1.1.11) 56(84) bytes of data.\n64 bytes from 70.1.1.11: icmp_seq=1 ttl=56 time=2.71 ms\n\n--- 70.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.711/2.711/2.711/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=1.57 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.571/1.571/1.571/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "intapp1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "mgmt3",
+          "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+          "expect": "equals: 192.168.251.12",
+          "rc": 0,
+          "output": "192.168.251.12",
+          "passed": true,
+          "rationale": "got '192.168.251.12', expected '192.168.251.12'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "g1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "mgmt3",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+          "expect": "200",
+          "rc": 0,
+          "output": "200",
+          "passed": true,
+          "rationale": "got '200', expected 200"
+        },
+        {
+          "device": "a1",
+          "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+          "expect": "equals: 192.168.231.11",
+          "rc": 0,
+          "output": "192.168.231.11",
+          "passed": true,
+          "rationale": "got '192.168.231.11', expected '192.168.231.11'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+          "expect": "equals: soft3888-management",
+          "rc": 0,
+          "output": "soft3888-management",
+          "passed": true,
+          "rationale": "got 'soft3888-management', expected 'soft3888-management'"
+        },
+        {
+          "device": "a1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+          "expect": "000",
+          "rc": 0,
+          "output": "000",
+          "passed": true,
+          "rationale": "got '000', expected 000"
+        },
+        {
+          "device": "mgmt3",
+          "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r20",
+          "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+          "expect": "equals: sent",
+          "rc": 0,
+          "output": "sent",
+          "passed": true,
+          "rationale": "got 'sent', expected 'sent'"
+        },
+        {
+          "device": "mgmt1",
+          "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r1",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r21",
+          "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+          "expect": "1",
+          "rc": 0,
+          "output": "1",
+          "passed": true,
+          "rationale": "got '1', expected 1"
+        },
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3",
+          "rc": 0,
+          "output": "3",
+          "passed": true,
+          "rationale": "got '3', expected 3"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.241.12",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.241.12 (192.168.241.12) 56(84) bytes of data.\n64 bytes from 192.168.241.12: icmp_seq=1 ttl=59 time=3.28 ms\n\n--- 192.168.241.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.281/3.281/3.281/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:32.222850+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.34 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.342/2.342/2.342/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.424 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.424/0.424/0.424/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.88 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.881/2.881/2.881/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:36.055334+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=3.43 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.427/3.427/3.427/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.993 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.993/0.993/0.993/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=9.49 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 9.489/9.489/9.489/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:39.757879+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.61 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.605/2.605/2.605/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=1.84 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.835/1.835/1.835/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.68 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.677/3.677/3.677/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:43.302564+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.50 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.502/2.502/2.502/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=1.60 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.595/1.595/1.595/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.16 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.162/3.162/3.162/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:46.970413+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.41 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.409/2.409/2.409/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.406 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.406/0.406/0.406/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.57 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.569/3.569/3.569/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:50.741308+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.80 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.800/1.800/1.800/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=1.56 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.558/1.558/1.558/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=4.83 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.831/4.831/4.831/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:54.319801+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.38 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.377/1.377/1.377/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=2.19 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.189/2.189/2.189/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=5.82 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 5.816/5.816/5.816/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:13:57.947139+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.89 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.892/1.892/1.892/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.433 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.433/0.433/0.433/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.72 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.722/3.722/3.722/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:01.573888+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.63 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.625/1.625/1.625/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=2.85 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.850/2.850/2.850/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.84 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.836/2.836/2.836/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:04.972483+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.27 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.270/2.270/2.270/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=1.50 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.495/1.495/1.495/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=5.24 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 5.237/5.237/5.237/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:08.589191+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.24 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.238/2.238/2.238/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.464 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.464/0.464/0.464/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.02 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.017/3.017/3.017/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:12.255828+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=11.3 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 11.346/11.346/11.346/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=4.13 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.125/4.125/4.125/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=3.61 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.607/3.607/3.607/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:15.628493+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.66 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.658/1.658/1.658/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.355 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.355/0.355/0.355/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=4.41 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 4.409/4.409/4.409/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:19.008608+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=3.79 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 3.794/3.794/3.794/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.359 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.359/0.359/0.359/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.05 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.051/2.051/2.051/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:22.368167+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.95 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.945/1.945/1.945/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.542 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.542/0.542/0.542/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.54 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.541/2.541/2.541/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:25.730219+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=2.28 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.284/2.284/2.284/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.431 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.431/0.431/0.431/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.01 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.005/2.005/2.005/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:29.145980+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.53 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.531/1.531/1.531/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.791 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.791/0.791/0.791/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.72 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.715/2.715/2.715/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    },
+    {
+      "name": "jiayuan75-r15-ospf-advertisement:pre",
+      "at": "2026-10-20T06:14:32.473812+00:00",
+      "passed": false,
+      "checks": [
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 192.168.216.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.11 (192.168.216.11) 56(84) bytes of data.\n64 bytes from 192.168.216.11: icmp_seq=1 ttl=61 time=1.35 ms\n\n--- 192.168.216.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.347/1.347/1.347/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "f1",
+          "command": "ping -n -W1 -c1 192.168.216.1",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 192.168.216.1 (192.168.216.1) 56(84) bytes of data.\n64 bytes from 192.168.216.1: icmp_seq=1 ttl=64 time=0.413 ms\n\n--- 192.168.216.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.413/0.413/0.413/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "a1",
+          "command": "ping -n -W1 -c1 80.1.1.11",
+          "expect": "0% loss",
+          "rc": 0,
+          "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=60 time=2.02 ms\n\n--- 80.1.1.11 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.022/2.022/2.022/0.000 ms",
+          "passed": true,
+          "rationale": "rc=0, loss=0.0%"
+        },
+        {
+          "device": "r15",
+          "command": "vtysh -c \"show running-config\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'",
+          "expect": "1",
+          "rc": 2,
+          "output": "awk: line 1: syntax error at or near {",
+          "passed": false,
+          "rationale": "command failed: rc=2"
+        }
+      ]
+    }
+  ],
+  "harness_sha256": {
+    "mcp_bootstrap.py": "498d007799206f4d00224eb2e302b80a365e2fe88ab4a4c92be3945d7a0b8c61",
+    "orchestrator.py": "6eb9b5c08dcf4d3ceaf831285dffcb81895fac2bd71d58b2dcc1acf4144b69c8",
+    "lab.py": "097da39b32e16b1213739296ce6c2e324b47ab4cc1fee4c7596797ef1f424f83",
+    "results.py": "002ff6f4ef6c1cc37e54947d98d966d540bb69a121967b54676e31680aa9bae3",
+    "__init__.py": "d963f8bf994551a1ef8418d7bbb1046d67db5d2be20e0036fc0ee4804566743c",
+    "inject.py": "a30de89de3d8861c547561b02f946aff7fdd119b1a1bb375339274a69954f86a",
+    "inventory.py": "4c31b390dbaf17c3f121af09fa6b3f745a45a406f0d350fdaa7beb2f95d1e320",
+    "__main__.py": "db8986b20a6cab88a2e95d587622c3ffe347ed796804a9e9356aa40d43a7635a",
+    "scenario.py": "86c3aae275069bf97c7f604e4d876c314ecd933c8e05d98bf7a05c67046b4a9b",
+    "mcp_helper.py": "b9c17ce7d0823fa6b87bc5e76b9e03fee655f31f784316535c95e46d4572c856",
+    "topology.py": "763f3fcf09fb966320a41bb1fe6294aac9bf578fb148f08427194012796b83bf",
+    "runtime.py": "eb9a50419ec8c563a946fa2be168a4952f2fb2f10d94be76baf581237376b258",
+    "validation.py": "54ac0ae0680e69746284a4ed42cf201d34d46c1869fdf61215b1577857c0a02e",
+    "mcp_smoke.py": "69034415d5203a06792457e3ede0a9b4810d18cfd184fcfac494dbce67a47ff1",
+    "paths.py": "02f1a0b6b958aaa3cf2c95da57a019b1840e257e1af44615f3185fe363b66f31",
+    "envfile.py": "5b10f706c514cf00f3328b718e3509d76f725a156872326aae422d0365624920",
+    "checks.py": "60646881d3f68b8702312f59986b87291fa4a8c95e4aab7b7054aa6f80e257b8"
+  },
+  "topology": "Kath5_Jiayuan_75Devices",
+  "cycle": 1,
+  "source_sha256": {
+    "a1.startup": "5e13491e58c6cfec740a60515b9931ad28e45c26b2fdf3a34aa7d200712d6907",
+    "a2.startup": "0a99466bb81311f31e1c3f526c2e3ff287641438a2b31350fc6e215e30b09fd0",
+    "a3.startup": "4d740e5f775e78520bfa7b240c1347117427adccbc6dd454e870abc9ae020927",
+    "a4.startup": "073144c627c97d3da98960c002bac302c5a3012215bb98c82a070e52ee5a15f7",
+    "a5.startup": "60b076f405fc651c2d4b330c9728fff760a56507ebeda2968e4bc78aae192bc9",
+    "a6.startup": "cd2ce347b53a0951b30d1aa63120e44daa282d9e70a00f0deb7d5283eb63c895",
+    "b1.startup": "01448342ea5fe1c022a0bb96f611018333efa170d28cb7e3c6d3ef3664575020",
+    "b2.startup": "e992f954016a636a192edb88ab5c9b3d2c8d61434c306106c9f8175f72f09313",
+    "b3.startup": "6d7491b13245d893c690a828f12cc4ef2792ef7581176d9b4538ce70b6291580",
+    "b4.startup": "bb231c67f1d5b838717f1079c6b98ee82c865c1616cb645841ad6d6cfede3968",
+    "b5.startup": "79c4cddc965150702075e5a357399bac889deab14f2468e86f44093182629b1f",
+    "b6.startup": "ea2c390c6c01cf70063f079f73bb8c7f58609b97acce8e37f1172a00b065454c",
+    "benchmark.json": "0032b3a8ff2af439b332d062c7f875a983497c6955cf0c284c8734aae67ffdcb",
+    "c1.startup": "01f63103e7959e2ffc1e9870efde0c8c00cb5f22dc8884ce9300a64a38cbc9c6",
+    "c2.startup": "e42cb5b500092c34207c6f8b8a213aed1428c263d9dc1458faf124cf2e4a8bd2",
+    "c3.startup": "9b0de9b75f52785e5b60a981418191161201062ce2a713eaa7122916babe5d3c",
+    "c4.startup": "be1b3e9a31ad9d9c16407e5b93ca9d5723050aaa369aec44057eb0dd76bd89c2",
+    "c5.startup": "a8f1a0e1bdcc2d33ec31ee74e4ebc8e2cedc54b3b58f24e61955b2b25578ab32",
+    "c6.startup": "9d9be26a8d09ebc5484dbdb329672c73e6f9536e581b08f16726902ab1d60ebe",
+    "d1.startup": "08bfea9e7ecdb44e8009c29e0ab27344720d422a4395c82c4958dcd13e322fa2",
+    "d2.startup": "8c2476468c65283003dff45eea991b2e33ace0683bdc4127fd69da41cf70a441",
+    "d3.startup": "c794a712b9afc4fe8477098781113b64d59618cd16f0e8fb4e41484a4f15940a",
+    "d4.startup": "e552caa86849411aa283d031d96793e2fdfaeb8ff17f461df8b161b7172aab98",
+    "d5.startup": "1f1011c967880c784b1f2fc5d81e058049f637f397c58556070ec078e89cbebd",
+    "d6.startup": "103c8f1194becf3ed4b5a67ed4a8f450dc5393d28acc24e8d90a900c4b1b3f4c",
+    "db1.startup": "9c91a5e046cd4462733370c61855ca4ebc0b414dc6b44add23c84af92f7276b2",
+    "dmzdns1/etc/dnsmasq.d/dmz.conf": "130de06c60c51452b0ff2709f003a976610fa06a7840b51ef6ec5d8123a85825",
+    "dmzdns1.startup": "449eea27c9b88b0d006ba8d0ce1be6f80a2e5d5a315afdd1f4190da9d52e0509",
+    "dmzweb1/var/www/html/index.html": "0a8653417c83caec6a304ae473037a9ef5691b5382d54e998a877cf80024d558",
+    "dmzweb1.startup": "31270de55d9675e29eaef933bfa763fff7815901ccbf76da48cfb3ac18e23e1f",
+    "dmzweb2/var/www/html/index.html": "26dd0e115448bb8514b1e703c9153f1b92da350759338f5cb076d90314a99a15",
+    "dmzweb2.startup": "459e27ee8734c4f59803649709ac8fb6886f7d2fd910b168551cd08898588734",
+    "dns1.startup": "8470cc109b5c963b04545b9fb04c3af40b20bdceb293eb170b0139d8d3bdbdbc",
+    "e1.startup": "31711d26fbc4c23791f17a5cbddf6c19d078fb4943288936ba08a058d6e7e6f6",
+    "e2.startup": "5503c402849de0934a883b60483bf41ca64a237c3459ae1b43fa5d4464cece11",
+    "e3.startup": "7f77efbd40544cd706b2a0df581ad4e3d82540925db0882f3aa4ee09425d8f87",
+    "e4.startup": "242a3176d46dcb2e3152fa7eb8ca04f84a1188a51bb17e44d33716b614f21417",
+    "e5.startup": "5fc4464c24307e226004ca2c159cae00f68e4cfccbf3aed4d1b606ad75028a4c",
+    "e6.startup": "6ba9db7d3027cfb28373a0c4603be10dd6b7ca0ecbb856d537946e476a5a7d60",
+    "e7.startup": "bd117007c5a7082ce284f97558b556e2a9c55e5571869884371c4e87e6a01764",
+    "f1.startup": "b1608471049b10e3ecc8479cda5831d79763674865129038921b685f2336bb10",
+    "f2.startup": "a7c5fd9fd986ce41c6c8107514b6b6310e13e1b6e7b0706083ec227188b6ee4b",
+    "f3.startup": "06a0778577e104c64ad3c9f9859436394cdf497ceb9129fbe0d319820c951e59",
+    "f4.startup": "04ae6fcd6e71fb7b6413fb689cd28a732c498f7d7bfe41d170ecb6c822f7c6e4",
+    "f5.startup": "8cee3fe7d727f3bb1ed67aedb7896a1b4d5ee65c64a28ae1459137acf741fc91",
+    "file1.startup": "ec8ccb926b1b09e6d4ec283d87f47adf17036c7fbc49f1fd1297e717af792cc1",
+    "g1.startup": "068188a06b6a722597a1bdb937220c8d525024666aa5aeac62ecc92927e24334",
+    "g2.startup": "633f4ff5b6c39a80eae4efbdb27f894cba40af812a00763e42fdaebe7daa8ddb",
+    "g3.startup": "e50653195005a1e564f959790fad26da1b59e765f5a4eea8ac71c2681de53490",
+    "g4.startup": "38b7228ed81c3d08356476f5c13ff4cc63edf07a410851f5fa324e16ffef1792",
+    "intapp1/opt/soft3888/internal-app": "a9163a827362be36818a2815d5f562adfb572ac1615db8c9f3af544326df9add",
+    "intapp1/var/www/html/index.html": "79934f7bdeb9b9bdb76e6c24387926823f1df5d4236b81f71d615961d5103afe",
+    "intapp1.startup": "3a6330ebf441c961f0596f3880ea9c74c549e006a139ffc16cf040f00823f0a5",
+    "intdns1/etc/dnsmasq.d/internal.conf": "818b7f01c9a6dfa650d5456a442a1dbc78c85b0cd8ad3040d0e5821b88845195",
+    "intdns1/opt/soft3888/internal-dns": "fbaa55d12456e1026c4939c0b59e3b830089a4bfaf6049e20f8f73dfabbcea9c",
+    "intdns1.startup": "490f1395fcecec1f76e28bb23b576d3b18d0c9e0712561cb268dab223c45612c",
+    "lab.conf": "00a22381768b469c240f371a77dd1b107c2fdb4ee234d4caf9ef14a7df46553e",
+    "mgmt1.startup": "a5559ab616d50674a15e9b60355e98b825dc24ad1954dbe22999a645e33b0ab2",
+    "mgmt2/opt/soft3888/management.py": "1ae09fda506360e6fcdbdab7f8bffd1934fa75b23ca23b071f51a161de4df16e",
+    "mgmt2.startup": "169ea80c13a87af4ed62ad77635fc57cdba669c0a7f941fa5bf06b4421e5207d",
+    "mgmt3/opt/soft3888/check-services.py": "ffd7e668270c26719d6657e54ebe87df680617004308c842b284ac7b233f5eed",
+    "mgmt3.startup": "a3ccf59a5592ca8110a49b1fb21ad54f0d6bd1b141a694d10b3cc99da51387af",
+    "pc0.startup": "69b1c2f53bc054a88a046adb3bf6197d1d20df3dd9cecd19412232aac08ff383",
+    "pc12.startup": "426f616ce9861c71c3873b07d9a5458f64a048ec24db403c511baa3ef08eb355",
+    "r1/etc/frr/frr.conf": "0eed0fc1ec223ab7443d3b6ffd783c303ea159a6d7b77bd6b51041ff107a230a",
+    "r1.startup": "f38efbc8533879b46c0ce9e71302578a728ab2b57e76ba6f8087e13e4cd8495f",
+    "r10/etc/frr/frr.conf": "69242be55e707a9d1513efa1dc8e1f75676c535a7328d2cee4d76fd441e7472a",
+    "r10.startup": "302b68fedb4faebe15e1201c4685c27f924ee2ca26a60bda86e3f453c2e12fc4",
+    "r11/etc/frr/frr.conf": "2f5db16fec22b6e2046b16a303561a4ad345132ae441d2032728172660f4bbbc",
+    "r11.startup": "413a6cb8f165256a9132f4e0c4ae280207cd4bee4ad422ff1ca4e82af8144cd3",
+    "r12/etc/frr/frr.conf": "f7ebae6c52a543367b5b8179308e33503a73be98cee2c65c037b7546610eea59",
+    "r12.startup": "656d4d7eca894abf7223ed6d1fbb154e35914ba27823c387dfc9c6fea9622cbe",
+    "r13/etc/frr/frr.conf": "8bf081b94dcba2952c6a8c48ee565ad3c475c35457ee129f17820e89f741450e",
+    "r13.startup": "c6a67816fd725beabe3fa336ef3b92b2ca588657aba9fa9389ed1ceb1e467e48",
+    "r14/etc/frr/frr.conf": "484e42be3179dbcc1ae2a4bda1b2d6228baa2340e028b13ad06ba7f1e88fc24b",
+    "r14.startup": "c06e2b856816a2c80475d4753ba386040384cadaec690829456787ce4355a39d",
+    "r15/etc/frr/frr.conf": "be4646dde0bf5cd49a7b17797dcf71bdc3e75fce4c52eb03dbab0b00ae296fb7",
+    "r15.startup": "aacb88155acc8ac66e53a7418d57686ff963eaeaf9bb86d8e3fc8e16762e0575",
+    "r16/etc/frr/frr.conf": "104dbcbfd737298008348cda446a1b74fa877ce7e019f9d74d030f887b42629f",
+    "r16.startup": "54b91dde98cdc8d1ac5ee4e645607e61ad4e7e1399a1622f699cbedc9ef8f303",
+    "r17/etc/frr/frr.conf": "e269fcb8dc6792aaba70a662f4041af9c49a4c73068e368b64f91c2b5a3e3bbb",
+    "r17.startup": "2bdd7930942fe6d9e87be7022e50c3c2c4b99fcc94945f2b2e88c8972d955917",
+    "r18/etc/frr/frr.conf": "df9980b3ca4eea210c333ce04ce7fbb2b52a96f40dccef40a943e3961341b45a",
+    "r18.startup": "875f3354ad4ebc3d7ff6079bc5db12d02b054e3ed28f4974a9f71d9b1a7ac98b",
+    "r19/etc/frr/frr.conf": "a6cdf55ab247cef24fb9a997dbbdee5654cb9879df5f32e85df879fa26fd3de5",
+    "r19.startup": "b32a764affb14a3a33797d29efc3a19d5fe40965c7e4cbb6b78244f188e2a84f",
+    "r2/etc/frr/frr.conf": "73eafd0f99e936e2b569c10215cb20cd39cb35d2818c4411f9c2d8331fbcb6a9",
+    "r2.startup": "6c7d67f14c13b21e02088c2c87354bfa03755c5440a7f9d8ac2e2e44b3a41732",
+    "r20/etc/frr/frr.conf": "bf3cde4a8bf72840ee0308267db76fe40f84a0769d7363147f3f8a93a088b0b9",
+    "r20.startup": "69ce1b449872a89d2a809a9032289ff85a6a9e9bb9fec906bb5b65ca66c26ed7",
+    "r21/etc/frr/frr.conf": "0d2f48363de39c93e461f1e8fbd96427dd8cd2e1ea1bb810385443c93fb9df2b",
+    "r21.startup": "273759a36313c913437509da70ed1380ef5b5fb42c0a8a075bae1846e1c0ba26",
+    "r3/etc/frr/frr.conf": "39172484e99f74c23a2e6347f5f1fe26e56fe6b88f96543722a52b83f44e7fae",
+    "r3.startup": "8a7afee5df86aca9cc15337b9d889b632b67c73f8e08207e368f6b9420fac98f",
+    "r4/etc/frr/frr.conf": "a296e442301ca13e56560bbb2655e6c06efdacffb10380ee40085aca21ff01ef",
+    "r4.startup": "629474e3280156b8d43d4ed1623b461e9a6ba67d6d518b39e08ad23975015745",
+    "r5/etc/frr/frr.conf": "856758f176b8d5a98134453ac6289afa71ac13f4d5581d015c62310e721904a7",
+    "r5.startup": "e17a47eb0630cc2d29450c10b7c774ab661b3deb347c6a3e25a17479412f99d6",
+    "r6/etc/frr/frr.conf": "d6a97b1f372abc3e55f63953ed6a1773895f02a7db8b3ae935ee0654f47a8dfe",
+    "r6.startup": "d7282346e2339af15990a63b4791e413652bfdc967c5474ece378679194d1e60",
+    "r7/etc/frr/frr.conf": "ea9661519c2a31a0c095b602986455fa49a36b196a553dea6c0b9929c41770a6",
+    "r7.startup": "52bf5cbab36a90cbda8b5febc23fce8b3a25b135b1faf0b3061c16257b08e421",
+    "r8/etc/frr/frr.conf": "246a0abe946919410728e19d429c43439fccb762e8752a8857c975c12128d786",
+    "r8.startup": "d30a7775dcbf1bb7f29ab845422a2e596c07f74a5b27065c1b393376bb6a4d6c",
+    "r9/etc/frr/frr.conf": "dfd3318ea99943a13f99069e5bd6ddb725416bdb5f525b0651ebe009df8505e4",
+    "r9.startup": "ad066e2df3d38ac197d498b1dc5c278df63c6c84cb3fd130ad1eeff059c10419",
+    "roles.json": "0ad0aeeb2e2d727cb3e152b1859a6c5e76f14a3797d59c198f4f1ad574fe00f9",
+    "web1.startup": "cc5aefec6f9e98eea1bd12aa3e76ccc62ab4e90a6bed34b6ff8661ffb48accad"
+  },
+  "scenario_sha256": {
+    "jiayuan75-r15-ospf-advertisement": "d8196be8b22b41c22953a1b29fe0346f85d35dc732e8082f840c4ed648f3803b",
+    "jiayuan75-r21-eigrp-advertisement": "859bebf6871a8e532f733f9c2536f9b1abd14a4693122eacfd627d1eb0db21e8",
+    "jiayuan75-intdns1-wrong-record": "c55ebe66a5c74579aac9ecf6b71a27a4d07ecf499da4361367c50cf84c7d6173",
+    "jiayuan75-intapp1-http-stopped": "e56023f7d02edb82f966fd25d1728d6f947d1f5b76992baae1be1a85449e9fd6"
+  },
+  "temporary_lab": "/tmp/soft3888-319ba929029a-yktcxhdq/Kath5_Jiayuan_75Devices",
+  "docker_version": "28.4.0",
+  "storage_driver": "vfs",
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "router": {
+        "source": "soft3888/frr:10.5.3-v1",
+        "source_id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+        "device_image": "soft3888/frr:shared-v1",
+        "device_image_id": "sha256:66212f8a4e643a83c63c200b640254dba52216093ead3d5157401075158d65c5",
+        "usr_sha256": "d8dd13204085d833d4a20772d2cd27d0405955ed52290078e406dcf11d75e3fa",
+        "created_at": "2026-10-20T06:01:50.366453+00:00"
+      },
+      "host": {
+        "source": "soft3888/host:bookworm-v1",
+        "source_id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+        "device_image": "soft3888/host:shared-v1",
+        "device_image_id": "sha256:145fb48800e11badc8daf04c288dcb679fef0bfb62998488f85ffabc32452698",
+        "usr_sha256": "1ac23d17f4b53e8fc3677f718b94e81d7539336fb6d91b9e8e5e90a973279b32",
+        "created_at": "2026-10-20T06:07:38.044396+00:00"
+      }
+    }
+  },
+  "disk_preflight": {
+    "estimated_container_bytes": 542322798,
+    "free_bytes": 23250030592
+  },
+  "images": {
+    "soft3888/frr:10.5.3-v1": {
+      "id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+      "repo_digests": []
+    },
+    "soft3888/host:bookworm-v1": {
+      "id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+      "repo_digests": []
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 75,
+  "declared_collision_domains": 43,
+  "mcp_smoke": [
+    {
+      "server": "kathara_base_mcp_server",
+      "tools": [
+        "get_reachability",
+        "ping_pair",
+        "systemctl_ops",
+        "get_host_net_config",
+        "get_tc_statistics",
+        "netstat",
+        "ip_addr_statistics",
+        "ethtool",
+        "curl_web_test",
+        "iperf_test",
+        "cat_file",
+        "exec_shell",
+        "exec_shell_dual"
+      ],
+      "calls": [
+        {
+          "tool": "exec_shell",
+          "arguments": {
+            "host_name": "a1",
+            "command": "ping -n -W1 -c1 192.168.251.12"
+          },
+          "is_error": false,
+          "output": "PING 192.168.251.12 (192.168.251.12) 56(84) bytes of data.\n64 bytes from 192.168.251.12: icmp_seq=1 ttl=56 time=8.63 ms\n\n--- 192.168.251.12 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 8.634/8.634/8.634/0.000 ms"
+        },
+        {
+          "tool": "get_reachability",
+          "arguments": {},
+          "is_error": false,
+          "output": "{\"hosts\":{\"a1\":\"70.1.1.11\",\"a2\":\"70.1.1.12\",\"a3\":\"70.1.1.13\",\"a4\":\"70.1.1.14\",\"a5\":\"70.1.1.15\",\"a6\":\"70.1.1.16\",\"b1\":\"80.1.1.11\",\"b2\":\"80.1.1.12\",\"b3\":\"80.1.1.13\",\"b4\":\"80.1.1.14\",\"b5\":\"80.1.1.15\",\"b6\":\"80.1.1.16\",\"c1\":\"90.1.1.11\",\"c2\":\"90.1.1.12\",\"c3\":\"90.1.1.13\",\"c4\":\"90.1.1.14\",\"c5\":\"90.1.1.15\",\"c6\":\"90.1.1.16\",\"d1\":\"100.1.1.11\",\"d2\":\"100.1.1.12\",\"d3\":\"100.1.1.13\",\"d4\":\"100.1.1.14\",\"d5\":\"100.1.1.15\",\"d6\":\"100.1.1.16\",\"e1\":\"120.1.1.11\",\"e2\":\"120.1.1.12\",\"e3\":\"120.1.1.13\",\"e4\":\"120.1.1.14\",\"e5\":\"120.1.1.15\",\"e6\":\"120.1.1.16\",\"e7\":\"120.1.1.17\",\"f1\":\"192.168.216.11\",\"f2\":\"192.168.216.12\",\"f3\":\"192.168.216.13\",\"f4\":\"192.168.216.14\",\"f5\":\"192.168.216.15\",\"g1\":\"192.168.224.11\",\"g2\":\"192.168.224.12\",\"g3\":\"192.168.224.13\",\"g4\":\"192.168.224.14\",\"mgmt1\":\"192.168.241.11\",\"mgmt3\":\"192.168.241.13\",\"pc0\":\"20.1.1.10\",\"pc12\":\"120.1.1.10\",\"dmzdns1\":\"192.168.231.13\",\"dns1\":\"130.1.1.12\",\"intdns1\":\"192.168.251.11\",\"dmzweb1\":\"192.168.231.11\",\"dmzweb2\":\"192.168.231.12\",\"intapp1\":\"192.168.251.12\",\"web1\":\"130.1.1.11\",\"mgmt2\":\"192.168.241.12\",\"db1\":\"130.1.1.13\",\"file1\":\"130.1.1.14\"},\"results\":[{\"src\":\"a1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.59,\"rtt_min_ms\":2.219,\"rtt_max_ms\":4.961,\"rtt_mdev_ms\":1.371,\"status\":\"ok\"},{\"src\":\"a1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.69,\"rtt_min_ms\":1.933,\"rtt_max_ms\":5.447,\"rtt_mdev_ms\":1.757,\"status\":\"ok\"},{\"src\":\"a2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.897,\"rtt_min_ms\":2.101,\"rtt_max_ms\":7.694,\"rtt_mdev_ms\":2.796,\"status\":\"ok\"},{\"src\":\"a2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.8,\"rtt_min_ms\":2.131,\"rtt_max_ms\":3.47,\"rtt_mdev_ms\":0.669,\"status\":\"ok\"},{\"src\":\"a3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.562,\"rtt_min_ms\":5.399,\"rtt_max_ms\":7.726,\"rtt_mdev_ms\":1.163,\"status\":\"ok\"},{\"src\":\"a3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.937,\"rtt_min_ms\":3.373,\"rtt_max_ms\":4.501,\"rtt_mdev_ms\":0.564,\"status\":\"ok\"},{\"src\":\"a4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.263,\"rtt_min_ms\":2.708,\"rtt_max_ms\":9.818,\"rtt_mdev_ms\":3.555,\"status\":\"ok\"},{\"src\":\"a4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":6.513,\"rtt_min_ms\":3.197,\"rtt_max_ms\":9.83,\"rtt_mdev_ms\":3.316,\"status\":\"ok\"},{\"src\":\"a5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":10.634,\"rtt_min_ms\":5.574,\"rtt_max_ms\":15.695,\"rtt_mdev_ms\":5.06,\"status\":\"ok\"},{\"src\":\"a5\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":1.679,\"rtt_min_ms\":1.65,\"rtt_max_ms\":1.709,\"rtt_mdev_ms\":0.029,\"status\":\"ok\"},{\"src\":\"a6\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":11.157,\"rtt_min_ms\":6.649,\"rtt_max_ms\":15.665,\"rtt_mdev_ms\":4.508,\"status\":\"ok\"},{\"src\":\"a6\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":14.434,\"rtt_min_ms\":3.867,\"rtt_max_ms\":25.001,\"rtt_mdev_ms\":10.567,\"status\":\"ok\"},{\"src\":\"b1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":10.732,\"rtt_min_ms\":4.859,\"rtt_max_ms\":16.605,\"rtt_mdev_ms\":5.873,\"status\":\"ok\"},{\"src\":\"b1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":7.999,\"rtt_min_ms\":3.097,\"rtt_max_ms\":12.901,\"rtt_mdev_ms\":4.902,\"status\":\"ok\"},{\"src\":\"b2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":9.01,\"rtt_min_ms\":2.878,\"rtt_max_ms\":15.142,\"rtt_mdev_ms\":6.132,\"status\":\"ok\"},{\"src\":\"b2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":12.828,\"rtt_min_ms\":6.465,\"rtt_max_ms\":19.192,\"rtt_mdev_ms\":6.363,\"status\":\"ok\"},{\"src\":\"b3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.437,\"rtt_min_ms\":4.318,\"rtt_max_ms\":12.557,\"rtt_mdev_ms\":4.119,\"status\":\"ok\"},{\"src\":\"b3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":14.591,\"rtt_min_ms\":9.054,\"rtt_max_ms\":20.128,\"rtt_mdev_ms\":5.537,\"status\":\"ok\"},{\"src\":\"b4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.571,\"rtt_min_ms\":2.271,\"rtt_max_ms\":2.871,\"rtt_mdev_ms\":0.3,\"status\":\"ok\"},{\"src\":\"b4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.16,\"rtt_min_ms\":2.877,\"rtt_max_ms\":3.444,\"rtt_mdev_ms\":0.283,\"status\":\"ok\"},{\"src\":\"b5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.712,\"rtt_min_ms\":2.244,\"rtt_max_ms\":5.181,\"rtt_mdev_ms\":1.468,\"status\":\"ok\"},{\"src\":\"b5\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.514,\"rtt_min_ms\":4.451,\"rtt_max_ms\":6.577,\"rtt_mdev_ms\":1.063,\"status\":\"ok\"},{\"src\":\"b6\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.117,\"rtt_min_ms\":4.52,\"rtt_max_ms\":7.715,\"rtt_mdev_ms\":1.597,\"status\":\"ok\"},{\"src\":\"b6\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.942,\"rtt_min_ms\":2.995,\"rtt_max_ms\":4.89,\"rtt_mdev_ms\":0.947,\"status\":\"ok\"},{\"src\":\"c1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.731,\"rtt_min_ms\":4.281,\"rtt_max_ms\":7.181,\"rtt_mdev_ms\":1.45,\"status\":\"ok\"},{\"src\":\"c1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":11.164,\"rtt_min_ms\":6.407,\"rtt_max_ms\":15.922,\"rtt_mdev_ms\":4.757,\"status\":\"ok\"},{\"src\":\"c2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":9.449,\"rtt_min_ms\":4.455,\"rtt_max_ms\":14.444,\"rtt_mdev_ms\":4.994,\"status\":\"ok\"},{\"src\":\"c2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.455,\"rtt_min_ms\":3.405,\"rtt_max_ms\":5.505,\"rtt_mdev_ms\":1.05,\"status\":\"ok\"},{\"src\":\"c3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.819,\"rtt_min_ms\":3.182,\"rtt_max_ms\":6.456,\"rtt_mdev_ms\":1.637,\"status\":\"ok\"},{\"src\":\"c3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.67,\"rtt_min_ms\":3.774,\"rtt_max_ms\":5.566,\"rtt_mdev_ms\":0.896,\"status\":\"ok\"},{\"src\":\"c4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.595,\"rtt_min_ms\":4.942,\"rtt_max_ms\":10.248,\"rtt_mdev_ms\":2.653,\"status\":\"ok\"},{\"src\":\"c4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.364,\"rtt_min_ms\":3.19,\"rtt_max_ms\":7.538,\"rtt_mdev_ms\":2.174,\"status\":\"ok\"},{\"src\":\"c5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.895,\"rtt_min_ms\":3.558,\"rtt_max_ms\":10.232,\"rtt_mdev_ms\":3.337,\"status\":\"ok\"},{\"src\":\"c5\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":8.676,\"rtt_min_ms\":8.214,\"rtt_max_ms\":9.138,\"rtt_mdev_ms\":0.462,\"status\":\"ok\"},{\"src\":\"c6\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":8.681,\"rtt_min_ms\":8.395,\"rtt_max_ms\":8.967,\"rtt_mdev_ms\":0.286,\"status\":\"ok\"},{\"src\":\"c6\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":5.209,\"rtt_min_ms\":3.996,\"rtt_max_ms\":6.423,\"rtt_mdev_ms\":1.213,\"status\":\"ok\"},{\"src\":\"d1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.718,\"rtt_min_ms\":4.157,\"rtt_max_ms\":5.279,\"rtt_mdev_ms\":0.561,\"status\":\"ok\"},{\"src\":\"d1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":3.786,\"rtt_min_ms\":3.472,\"rtt_max_ms\":4.1,\"rtt_mdev_ms\":0.314,\"status\":\"ok\"},{\"src\":\"d2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.623,\"rtt_min_ms\":3.53,\"rtt_max_ms\":13.716,\"rtt_mdev_ms\":5.093,\"status\":\"ok\"},{\"src\":\"d2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.821,\"rtt_min_ms\":6.662,\"rtt_max_ms\":6.98,\"rtt_mdev_ms\":0.159,\"status\":\"ok\"},{\"src\":\"d3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.895,\"rtt_min_ms\":3.993,\"rtt_max_ms\":5.798,\"rtt_mdev_ms\":0.902,\"status\":\"ok\"},{\"src\":\"d3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.713,\"rtt_min_ms\":3.697,\"rtt_max_ms\":9.73,\"rtt_mdev_ms\":3.016,\"status\":\"ok\"},{\"src\":\"d4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":9.477,\"rtt_min_ms\":3.047,\"rtt_max_ms\":15.908,\"rtt_mdev_ms\":6.43,\"status\":\"ok\"},{\"src\":\"d4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.552,\"rtt_min_ms\":4.778,\"rtt_max_ms\":12.327,\"rtt_mdev_ms\":3.774,\"status\":\"ok\"},{\"src\":\"d5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":11.807,\"rtt_min_ms\":7.243,\"rtt_max_ms\":16.372,\"rtt_mdev_ms\":4.564,\"status\":\"ok\"},{\"src\":\"d5\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.171,\"rtt_min_ms\":4.052,\"rtt_max_ms\":4.29,\"rtt_mdev_ms\":0.119,\"status\":\"ok\"},{\"src\":\"d6\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.693,\"rtt_min_ms\":4.139,\"rtt_max_ms\":5.248,\"rtt_mdev_ms\":0.554,\"status\":\"ok\"},{\"src\":\"d6\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.719,\"rtt_min_ms\":4.394,\"rtt_max_ms\":5.045,\"rtt_mdev_ms\":0.325,\"status\":\"ok\"},{\"src\":\"db1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.757,\"rtt_min_ms\":6.527,\"rtt_max_ms\":6.987,\"rtt_mdev_ms\":0.23,\"status\":\"ok\"},{\"src\":\"db1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.753,\"rtt_min_ms\":5.323,\"rtt_max_ms\":8.183,\"rtt_mdev_ms\":1.43,\"status\":\"ok\"},{\"src\":\"dmzdns1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.329,\"rtt_min_ms\":3.073,\"rtt_max_ms\":3.586,\"rtt_mdev_ms\":0.256,\"status\":\"ok\"},{\"src\":\"dmzdns1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.469,\"rtt_min_ms\":5.169,\"rtt_max_ms\":5.769,\"rtt_mdev_ms\":0.3,\"status\":\"ok\"},{\"src\":\"dmzweb1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.723,\"rtt_min_ms\":7.552,\"rtt_max_ms\":7.895,\"rtt_mdev_ms\":0.171,\"status\":\"ok\"},{\"src\":\"dmzweb1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.201,\"rtt_min_ms\":5.317,\"rtt_max_ms\":7.086,\"rtt_mdev_ms\":0.884,\"status\":\"ok\"},{\"src\":\"dmzweb2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.876,\"rtt_min_ms\":3.225,\"rtt_max_ms\":4.527,\"rtt_mdev_ms\":0.651,\"status\":\"ok\"},{\"src\":\"dmzweb2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.094,\"rtt_min_ms\":2.704,\"rtt_max_ms\":3.485,\"rtt_mdev_ms\":0.39,\"status\":\"ok\"},{\"src\":\"dns1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":9.558,\"rtt_min_ms\":4.205,\"rtt_max_ms\":14.912,\"rtt_mdev_ms\":5.353,\"status\":\"ok\"},{\"src\":\"dns1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.546,\"rtt_min_ms\":5.338,\"rtt_max_ms\":7.754,\"rtt_mdev_ms\":1.208,\"status\":\"ok\"},{\"src\":\"e1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.474,\"rtt_min_ms\":3.869,\"rtt_max_ms\":5.08,\"rtt_mdev_ms\":0.605,\"status\":\"ok\"},{\"src\":\"e1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.649,\"rtt_min_ms\":3.127,\"rtt_max_ms\":4.171,\"rtt_mdev_ms\":0.522,\"status\":\"ok\"},{\"src\":\"e2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.626,\"rtt_min_ms\":3.543,\"rtt_max_ms\":5.71,\"rtt_mdev_ms\":1.083,\"status\":\"ok\"},{\"src\":\"e2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.36,\"rtt_min_ms\":4.68,\"rtt_max_ms\":6.041,\"rtt_mdev_ms\":0.68,\"status\":\"ok\"},{\"src\":\"e3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.846,\"rtt_min_ms\":5.308,\"rtt_max_ms\":6.385,\"rtt_mdev_ms\":0.538,\"status\":\"ok\"},{\"src\":\"e3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.558,\"rtt_min_ms\":3.438,\"rtt_max_ms\":3.679,\"rtt_mdev_ms\":0.12,\"status\":\"ok\"},{\"src\":\"e4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.903,\"rtt_min_ms\":3.517,\"rtt_max_ms\":4.29,\"rtt_mdev_ms\":0.386,\"status\":\"ok\"},{\"src\":\"e4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.662,\"rtt_min_ms\":5.557,\"rtt_max_ms\":7.767,\"rtt_mdev_ms\":1.105,\"status\":\"ok\"},{\"src\":\"e5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.087,\"rtt_min_ms\":5.298,\"rtt_max_ms\":6.876,\"rtt_mdev_ms\":0.789,\"status\":\"ok\"},{\"src\":\"e5\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.423,\"rtt_min_ms\":4.459,\"rtt_max_ms\":10.388,\"rtt_mdev_ms\":2.964,\"status\":\"ok\"},{\"src\":\"e6\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.342,\"rtt_min_ms\":5.059,\"rtt_max_ms\":9.626,\"rtt_mdev_ms\":2.283,\"status\":\"ok\"},{\"src\":\"e6\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.582,\"rtt_min_ms\":4.24,\"rtt_max_ms\":6.924,\"rtt_mdev_ms\":1.342,\"status\":\"ok\"},{\"src\":\"e7\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":12.914,\"rtt_min_ms\":7.372,\"rtt_max_ms\":18.457,\"rtt_mdev_ms\":5.542,\"status\":\"ok\"},{\"src\":\"e7\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":14.733,\"rtt_min_ms\":8.605,\"rtt_max_ms\":20.861,\"rtt_mdev_ms\":6.128,\"status\":\"ok\"},{\"src\":\"f1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.397,\"rtt_min_ms\":3.223,\"rtt_max_ms\":5.572,\"rtt_mdev_ms\":1.174,\"status\":\"ok\"},{\"src\":\"f1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1007.0,\"rtt_avg_ms\":0.67,\"rtt_min_ms\":0.596,\"rtt_max_ms\":0.744,\"rtt_mdev_ms\":0.074,\"status\":\"ok\"},{\"src\":\"f2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":10.947,\"rtt_min_ms\":4.087,\"rtt_max_ms\":17.807,\"rtt_mdev_ms\":6.86,\"status\":\"ok\"},{\"src\":\"f2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":1.069,\"rtt_min_ms\":0.629,\"rtt_max_ms\":1.51,\"rtt_mdev_ms\":0.44,\"status\":\"ok\"},{\"src\":\"f3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.884,\"rtt_min_ms\":6.892,\"rtt_max_ms\":8.877,\"rtt_mdev_ms\":0.992,\"status\":\"ok\"},{\"src\":\"f3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.012,\"rtt_min_ms\":1.898,\"rtt_max_ms\":4.127,\"rtt_mdev_ms\":1.114,\"status\":\"ok\"},{\"src\":\"f4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.797,\"rtt_min_ms\":3.167,\"rtt_max_ms\":6.427,\"rtt_mdev_ms\":1.63,\"status\":\"ok\"},{\"src\":\"f4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":1.393,\"rtt_min_ms\":1.161,\"rtt_max_ms\":1.626,\"rtt_mdev_ms\":0.232,\"status\":\"ok\"},{\"src\":\"f5\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.643,\"rtt_min_ms\":5.548,\"rtt_max_ms\":5.738,\"rtt_mdev_ms\":0.095,\"status\":\"ok\"},{\"src\":\"file1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.764,\"rtt_min_ms\":5.693,\"rtt_max_ms\":7.835,\"rtt_mdev_ms\":1.071,\"status\":\"ok\"},{\"src\":\"file1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.343,\"rtt_min_ms\":5.375,\"rtt_max_ms\":11.312,\"rtt_mdev_ms\":2.968,\"status\":\"ok\"},{\"src\":\"g1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.655,\"rtt_min_ms\":3.13,\"rtt_max_ms\":6.181,\"rtt_mdev_ms\":1.525,\"status\":\"ok\"},{\"src\":\"g2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":1.046,\"rtt_min_ms\":0.378,\"rtt_max_ms\":1.714,\"rtt_mdev_ms\":0.668,\"status\":\"ok\"},{\"src\":\"g2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.453,\"rtt_min_ms\":3.516,\"rtt_max_ms\":5.391,\"rtt_mdev_ms\":0.937,\"status\":\"ok\"},{\"src\":\"g3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":1.264,\"rtt_min_ms\":1.003,\"rtt_max_ms\":1.526,\"rtt_mdev_ms\":0.261,\"status\":\"ok\"},{\"src\":\"g3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":12.215,\"rtt_min_ms\":5.221,\"rtt_max_ms\":19.21,\"rtt_mdev_ms\":6.994,\"status\":\"ok\"},{\"src\":\"g4\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":1.418,\"rtt_min_ms\":1.175,\"rtt_max_ms\":1.661,\"rtt_mdev_ms\":0.243,\"status\":\"ok\"},{\"src\":\"g4\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":8.416,\"rtt_min_ms\":7.213,\"rtt_max_ms\":9.62,\"rtt_mdev_ms\":1.203,\"status\":\"ok\"},{\"src\":\"intapp1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":7.88,\"rtt_min_ms\":3.705,\"rtt_max_ms\":12.055,\"rtt_mdev_ms\":4.175,\"status\":\"ok\"},{\"src\":\"intapp1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":11.178,\"rtt_min_ms\":6.589,\"rtt_max_ms\":15.768,\"rtt_mdev_ms\":4.589,\"status\":\"ok\"},{\"src\":\"intdns1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":7.342,\"rtt_min_ms\":3.883,\"rtt_max_ms\":10.802,\"rtt_mdev_ms\":3.459,\"status\":\"ok\"},{\"src\":\"intdns1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":7.054,\"rtt_min_ms\":5.815,\"rtt_max_ms\":8.293,\"rtt_mdev_ms\":1.239,\"status\":\"ok\"},{\"src\":\"mgmt1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1000.0,\"rtt_avg_ms\":5.599,\"rtt_min_ms\":4.121,\"rtt_max_ms\":7.078,\"rtt_mdev_ms\":1.478,\"status\":\"ok\"},{\"src\":\"mgmt1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.783,\"rtt_min_ms\":2.534,\"rtt_max_ms\":5.033,\"rtt_mdev_ms\":1.249,\"status\":\"ok\"},{\"src\":\"mgmt2\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.923,\"rtt_min_ms\":4.673,\"rtt_max_ms\":9.173,\"rtt_mdev_ms\":2.25,\"status\":\"ok\"},{\"src\":\"mgmt2\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.461,\"rtt_min_ms\":3.437,\"rtt_max_ms\":5.486,\"rtt_mdev_ms\":1.024,\"status\":\"ok\"},{\"src\":\"mgmt3\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.602,\"rtt_min_ms\":2.781,\"rtt_max_ms\":4.423,\"rtt_mdev_ms\":0.821,\"status\":\"ok\"},{\"src\":\"mgmt3\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.205,\"rtt_min_ms\":5.925,\"rtt_max_ms\":10.485,\"rtt_mdev_ms\":2.28,\"status\":\"ok\"},{\"src\":\"pc0\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.364,\"rtt_min_ms\":4.237,\"rtt_max_ms\":6.492,\"rtt_mdev_ms\":1.127,\"status\":\"ok\"},{\"src\":\"pc0\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.981,\"rtt_min_ms\":4.245,\"rtt_max_ms\":5.717,\"rtt_mdev_ms\":0.736,\"status\":\"ok\"},{\"src\":\"pc12\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":9.092,\"rtt_min_ms\":6.557,\"rtt_max_ms\":11.627,\"rtt_mdev_ms\":2.535,\"status\":\"ok\"},{\"src\":\"pc12\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":11.349,\"rtt_min_ms\":4.933,\"rtt_max_ms\":17.766,\"rtt_mdev_ms\":6.416,\"status\":\"ok\"},{\"src\":\"web1\",\"dst\":\"g1\",\"dst_ip\":\"192.168.224.11\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.877,\"rtt_min_ms\":5.661,\"rtt_max_ms\":6.094,\"rtt_mdev_ms\":0.216,\"status\":\"ok\"},{\"src\":\"web1\",\"dst\":\"f5\",\"dst_ip\":\"192.168.216.15\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.118,\"rtt_min_ms\":2.86,\"rtt_max_ms\":9.376,\"rtt_mdev_ms\":3.258,\"status\":\"ok\"}]}"
+        }
+      ],
+      "inventory_endpoints": 54
+    },
+    {
+      "server": "kathara_frr_mcp_server",
+      "tools": [
+        "frr_get_bgp_conf",
+        "frr_show_running_config",
+        "frr_show_ip_route",
+        "frr_get_ospf_conf",
+        "frr_exec"
+      ],
+      "calls": [
+        {
+          "tool": "frr_exec",
+          "arguments": {
+            "router_name": "r1",
+            "command": "show ip route 192.168.251.0/24"
+          },
+          "is_error": false,
+          "output": "Routing entry for 192.168.251.0/24\n  Known via \"ospf\", distance 110, metric 20, best\n  Last update 00:00:57 ago\n  Flags: Selected \n  Status: Installed \n  * 111.1.1.2, via eth1, weight 1"
+        }
+      ]
+    },
+    {
+      "server": "kathara_telemetry_mcp_server",
+      "tools": [
+        "influx_list_buckets",
+        "influx_get_measurements",
+        "influx_count_measurements",
+        "influx_query_measurement"
+      ],
+      "calls": []
+    }
+  ],
+  "error": "RuntimeError: jiayuan75-r15-ospf-advertisement:pre failed: [{\"device\": \"r15\", \"command\": \"vtysh -c \\\"show running-config\\\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'\", \"expect\": \"1\", \"rc\": 2, \"output\": \"awk: line 1: syntax error at or near {\", \"passed\": false, \"rationale\": \"command failed: rc=2\"}]",
+  "error_traceback": "Traceback (most recent call last):\n  File \"/workspace/ai-agent/faultbench/src/faultbench/validation.py\", line 165, in validate\n    run.stage(sc.scenario_id + ':pre', sc.pre_check, timeout=60)\n  File \"/workspace/ai-agent/faultbench/src/faultbench/validation.py\", line 94, in stage\n    raise RuntimeError(f'{name} failed: {json.dumps(failed, ensure_ascii=False)}')\nRuntimeError: jiayuan75-r15-ospf-advertisement:pre failed: [{\"device\": \"r15\", \"command\": \"vtysh -c \\\"show running-config\\\" | awk '/network 192.168.216.0/24/ {n++} END {print n+0}'\", \"expect\": \"1\", \"rc\": 2, \"output\": \"awk: line 1: syntax error at or near {\", \"passed\": false, \"rationale\": \"command failed: rc=2\"}]\n",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-20T06:14:43.555466+00:00"
+}

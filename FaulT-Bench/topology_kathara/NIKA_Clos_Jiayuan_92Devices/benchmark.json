@@ -1,0 +1,556 @@
+{
+  "devices": 92,
+  "collision_domains": 228,
+  "images": [
+    "soft3888/frr:10.5.3-v1",
+    "soft3888/host:bookworm-v1"
+  ],
+  "baseline": [
+    {
+      "device": "super_spine_router_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "16"
+    },
+    {
+      "device": "super_spine_router_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "16"
+    },
+    {
+      "device": "super_spine_router_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "16"
+    },
+    {
+      "device": "super_spine_router_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "16"
+    },
+    {
+      "device": "spine_router_0_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_0_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_0_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_0_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "leaf_router_0_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_4",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_5",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_6",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_0_7",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "spine_router_1_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_1_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_1_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_1_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "leaf_router_1_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_4",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_5",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_6",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_1_7",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "spine_router_2_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_2_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_2_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_2_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "leaf_router_2_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_4",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_5",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_6",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_2_7",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "spine_router_3_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_3_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_3_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "spine_router_3_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "12"
+    },
+    {
+      "device": "leaf_router_3_0",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_1",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_2",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_3",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_4",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_5",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_6",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "leaf_router_3_7",
+      "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+      "expect": "4"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.4.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.5.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.6.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.7.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "dig @10.0.0.2 web6.pod0 +short +time=1 +tries=1",
+      "expect": "equals: 10.0.7.2"
+    },
+    {
+      "device": "client_1",
+      "command": "dig @10.0.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+      "expect": "equals: 10.0.1.80"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.2.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.3.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.4.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.5.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.6.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.7.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1",
+      "expect": "equals: 10.1.7.2"
+    },
+    {
+      "device": "client_2",
+      "command": "dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+      "expect": "equals: 10.0.1.80"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.2.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.3.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.4.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.5.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.6.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.7.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "dig @10.2.0.2 web6.pod2 +short +time=1 +tries=1",
+      "expect": "equals: 10.2.7.2"
+    },
+    {
+      "device": "client_3",
+      "command": "dig @10.2.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+      "expect": "equals: 10.0.1.80"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.1.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.2.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.3.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.4.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.5.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.6.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.3.7.2:80/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "dig @10.3.0.2 web6.pod3 +short +time=1 +tries=1",
+      "expect": "equals: 10.3.7.2"
+    },
+    {
+      "device": "client_0",
+      "command": "dig @10.3.0.2 api.nika.test +short +time=1 +tries=1 +tcp",
+      "expect": "equals: 10.0.1.80"
+    },
+    {
+      "device": "client_0",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+      "expect": "200"
+    },
+    {
+      "device": "client_2",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+      "expect": "200"
+    },
+    {
+      "device": "client_3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+      "expect": "200"
+    },
+    {
+      "device": "client_0",
+      "command": "ip -4 -o addr show eth0 | awk '{print $4}'",
+      "expect": "equals: 192.168.0.2/24"
+    },
+    {
+      "device": "client_0",
+      "command": "ip route show default | awk '{print $3}'",
+      "expect": "equals: 192.168.0.1"
+    },
+    {
+      "device": "monitor1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+      "expect": "200"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats",
+      "expect": "403"
+    },
+    {
+      "device": "monitor1",
+      "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+      "expect": "1"
+    },
+    {
+      "device": "monitor2",
+      "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+      "expect": "1"
+    },
+    {
+      "device": "client_1",
+      "command": "curl --noproxy '*' -fsS --max-time 3 http://web6.pod3/ | grep -c 'SOFT3888 NIKA Backend webserver6_pod3'",
+      "expect": "1"
+    }
+  ],
+  "scenarios": [
+    "nika92-pod0-leaf1-wrong-remote-as",
+    "nika92-pod1-leaf1-service-prefix-filter",
+    "nika92-dhcp1-wrong-router-option",
+    "nika92-lb1-wrong-backend-ports"
+  ],
+  "auxiliary": [
+    {
+      "name": "pod2-leaf7-single-uplink-failover",
+      "injection": {
+        "device": "leaf_router_2_7",
+        "action": "disable one of four reference uplinks",
+        "command": "ip link set eth0 down"
+      },
+      "checks": [
+        {
+          "device": "leaf_router_2_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "3"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.7.2:80/",
+          "expect": "200"
+        },
+        {
+          "device": "monitor1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ],
+      "recovery": {
+        "device": "leaf_router_2_7",
+        "action": "restore original uplink",
+        "command": "ip link set eth0 up"
+      },
+      "recovery_checks": [
+        {
+          "device": "leaf_router_2_7",
+          "command": "vtysh -c \"show bgp ipv4 unicast summary json\" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get(\"state\")==\"Established\" for p in d.get(\"ipv4Unicast\",d).get(\"peers\",{}).values()))'",
+          "expect": "4"
+        }
+      ]
+    }
+  ],
+  "mcp_probe": {
+    "host": "client_1",
+    "destination": "10.0.1.80",
+    "router": "leaf_router_0_7",
+    "route": "10.0.1.0/24"
+  }
+}

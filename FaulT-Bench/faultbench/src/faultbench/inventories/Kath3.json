@@ -1,0 +1,41 @@
+{
+  "routers": [
+    "router0",
+    "router1",
+    "router2",
+    "router3",
+    "router4",
+    "router5",
+    "router6",
+    "mswitch1",
+    "mswitch2"
+  ],
+  "switches": [
+    "switch1",
+    "switch2",
+    "switch4",
+    "switch5",
+    "switch6",
+    "switch9",
+    "switch10",
+    "switch11"
+  ],
+  "hosts": [
+    "pc4",
+    "pc5",
+    "laptop2",
+    "laptop3",
+    "laptop0",
+    "pc11",
+    "pc12",
+    "pc13",
+    "pc14",
+    "pc15",
+    "pc16",
+    "pc17",
+    "pc18",
+    "laptop4",
+    "laptop5"
+  ],
+  "servers": {}
+}

@@ -1,0 +1,15 @@
+{
+  "routers": [
+    "super_spine_router_0",
+    "spine_router_0_0",
+    "spine_router_0_1",
+    "leaf_router_0_0",
+    "leaf_router_0_1"
+  ],
+  "switches": [],
+  "hosts": [
+    "pc_0_0",
+    "pc_0_1"
+  ],
+  "servers": {}
+}

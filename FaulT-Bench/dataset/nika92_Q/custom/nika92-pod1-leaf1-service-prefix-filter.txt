@@ -1,0 +1,66 @@
+Scenario: nika92-pod1-leaf1-service-prefix-filter
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: BGP outbound service-prefix rejection
+
+[PROMPT-TO-AGENT]
+The name web0.pod1 resolves but remote HTTP fails. Its leaf still has established BGP sessions and pod2 services work. Locate the configuration error.
+
+[PRE-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/  => expect 200
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+
+[INJECTION]
+device: leaf_router_1_1
+action: BGP outbound service-prefix rejection
+cmd: |
+  vtysh -c 'conf t' -c 'ip prefix-list NIKA92_BLOCK seq 5 deny 10.1.1.0/24' -c 'ip prefix-list NIKA92_BLOCK seq 100 permit 0.0.0.0/0 le 32' -c 'router bgp 65211' -c 'address-family ipv4 unicast' -c 'neighbor 172.16.0.194 prefix-list NIKA92_BLOCK out' -c 'neighbor 172.16.0.210 prefix-list NIKA92_BLOCK out' -c 'neighbor 172.16.0.226 prefix-list NIKA92_BLOCK out' -c 'neighbor 172.16.0.242 prefix-list NIKA92_BLOCK out' -c end -c 'clear bgp * soft out'
+
+[POST-INJECT-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/ 2>/dev/null || { rc=$?; test "$rc" = 7 || test "$rc" = 28; }  => expect 000
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+webserver0_pod1  ping -n -c1 -W1 10.1.1.1  => expect 0% loss
+super_spine_router_1  ip route show 10.1.1.0/24 | wc -l  => expect 0
+
+[GROUND-TRUTH]
+Fault location: leaf_router_1_1
+Fault type: BGP outbound service-prefix rejection
+Root cause, expected symptoms and controls: An outbound prefix-list on all four leaf_router_1_1 peers blocks the reference service LAN 10.1.1.0/24. Sessions remain Established; remote routers lose this prefix. DNS on another reference leaf, local gateway and pod2 HTTP remain healthy. Remove the specific policy from all four neighbors and refresh advertisements.
+
+[FIX]
+On leaf_router_1_1, execute:
+vtysh -c 'conf t' -c 'router bgp 65211' -c 'address-family ipv4 unicast' -c 'no neighbor 172.16.0.194 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.210 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.226 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.242 prefix-list NIKA92_BLOCK out' -c exit-address-family -c exit -c 'no ip prefix-list NIKA92_BLOCK' -c end -c 'clear bgp * soft out'
+
+[RECOVERY]
+device: leaf_router_1_1
+action: restore healthy configuration
+cmd: |
+  vtysh -c 'conf t' -c 'router bgp 65211' -c 'address-family ipv4 unicast' -c 'no neighbor 172.16.0.194 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.210 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.226 prefix-list NIKA92_BLOCK out' -c 'no neighbor 172.16.0.242 prefix-list NIKA92_BLOCK out' -c exit-address-family -c exit -c 'no ip prefix-list NIKA92_BLOCK' -c end -c 'clear bgp * soft out'
+
+[RECOVERY-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/  => expect 200
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+
+[DIAGNOSTIC-PROCESS]
+Scope the affected NIKA pod/service, compare an unaffected pod and local
+connectivity, inspect the owning configuration and protocol/service state.
+The explicit recovery is applied inside disposable containers only; validate
+the complete healthy baseline before the next case.
+
+[SCORING-AXES]
+assert-identifies: leaf_router_1_1
+must-identify-device: leaf_router_1_1
+must-identify-component: BGP outbound service-prefix rejection
+must-identify-mechanism: An outbound prefix-list on all four leaf_router_1_1 peers blocks the reference service LAN 10.1.1.0/24. Sessions remain Established; remote routers lose this prefix. DNS on another reference leaf, local gateway and pod2 HTTP remain healthy. Remove the specific policy from all four neighbors and refresh advertisements.
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Project-local case on the exported pinned DCClosService(l); no exact taxonomy equivalence claimed.

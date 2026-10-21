@@ -1,0 +1,7 @@
+# Preserve the exact verified FRR binaries; omit only offline documentation,
+# editor resources and Git's helper programs. Flatten to avoid vfs layer copies.
+FROM kathara/frr@sha256:3b7a3f630d8ecd9efddd4586ba2f0a41e2c462f13bc81dee8e3c6ebac183f57c AS source
+RUN rm -rf /usr/share/doc /usr/share/man /usr/share/locale /usr/share/vim /usr/lib/git-core
+FROM scratch
+COPY --from=source / /
+CMD ["bash"]

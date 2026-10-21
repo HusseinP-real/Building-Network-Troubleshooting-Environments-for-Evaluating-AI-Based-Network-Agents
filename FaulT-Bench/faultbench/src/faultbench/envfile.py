@@ -19,14 +19,19 @@ def load_env(env_path: Path = ENV_FILE) -> bool:
     are relying on already-exported variables. Comment lines, blank lines and
     placeholder values (starting with ``<``) are skipped.
     """
-    if not env_path.exists():
-        return False
-    for raw in env_path.read_text(encoding="utf-8").splitlines():
-        line = raw.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        k, _, v = line.partition("=")
-        k, v = k.strip(), v.strip().strip('"').strip("'")
-        if k and v and not v.startswith("<"):
-            os.environ.setdefault(k, v)
-    return True
+    found = env_path.exists()
+    if found:
+        for raw in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, _, v = line.partition("=")
+            k, v = k.strip(), v.strip().strip('"').strip("'")
+            if k and v and not v.startswith("<"):
+                os.environ.setdefault(k, v)
+    # The cloud proxy reserves OPENAI_ secret target names. Accept an allowed
+    # binding alias in memory; never write a credential into a repository file.
+    alias = os.environ.get("FAULTBENCH_OPENAI_API_KEY", "").strip()
+    if alias and not os.environ.get("OPENAI_API_KEY", "").strip():
+        os.environ["OPENAI_API_KEY"] = alias
+    return found

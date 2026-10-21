@@ -1,0 +1,49 @@
+{
+  "kind": "runtime-provenance-not-test-results",
+  "recorded_at": "2026-10-20T06:17:15.945119+00:00",
+  "python": "3.12.14",
+  "kathara": "3.8.3",
+  "docker": "28.4.0",
+  "storage_driver": "vfs",
+  "plugin": {
+    "Id": "11c751bfcaeb12692797c763483b40204cff622c93f25b51b21eba133822ab8a",
+    "Name": "kathara/katharanp_vde:amd64",
+    "Enabled": true
+  },
+  "shared_runtime": {
+    "host": {
+      "source": "soft3888/host:bookworm-v1",
+      "source_id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+      "device_image": "soft3888/host:shared-v1",
+      "device_image_id": "sha256:145fb48800e11badc8daf04c288dcb679fef0bfb62998488f85ffabc32452698",
+      "usr_sha256": "1ac23d17f4b53e8fc3677f718b94e81d7539336fb6d91b9e8e5e90a973279b32",
+      "created_at": "2026-10-20T06:07:38.044396+00:00"
+    },
+    "router": {
+      "source": "soft3888/frr:10.5.3-v1",
+      "source_id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+      "device_image": "soft3888/frr:shared-v1",
+      "device_image_id": "sha256:66212f8a4e643a83c63c200b640254dba52216093ead3d5157401075158d65c5",
+      "usr_sha256": "d8dd13204085d833d4a20772d2cd27d0405955ed52290078e406dcf11d75e3fa",
+      "created_at": "2026-10-20T06:01:50.366453+00:00"
+    }
+  },
+  "images": {
+    "soft3888/host:bookworm-v1": {
+      "id": "sha256:ebdca6545556e9d01eb3f69445eb439e66845294aa693e07014c3ff55f9ea31b",
+      "size_bytes": 195192907
+    },
+    "soft3888/frr:10.5.3-v1": {
+      "id": "sha256:e77529218285c87a3c20b610adfa05fcabc4dee0422b507e5dbebe6cd5fb6d3a",
+      "size_bytes": 391970742
+    },
+    "soft3888/host:shared-v1": {
+      "id": "sha256:145fb48800e11badc8daf04c288dcb679fef0bfb62998488f85ffabc32452698",
+      "size_bytes": 6230779
+    },
+    "soft3888/frr:shared-v1": {
+      "id": "sha256:66212f8a4e643a83c63c200b640254dba52216093ead3d5157401075158d65c5",
+      "size_bytes": 9802892
+    }
+  }
+}

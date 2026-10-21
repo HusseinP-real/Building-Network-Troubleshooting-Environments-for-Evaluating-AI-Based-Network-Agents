@@ -1,0 +1,37 @@
+ip addr replace 172.16.0.64/31 dev eth0
+ip link set eth0 up
+ip addr replace 172.16.0.66/31 dev eth1
+ip link set eth1 up
+ip addr replace 172.16.0.68/31 dev eth2
+ip link set eth2 up
+ip addr replace 172.16.0.70/31 dev eth3
+ip link set eth3 up
+ip addr replace 172.16.0.72/31 dev eth4
+ip link set eth4 up
+ip addr replace 172.16.0.74/31 dev eth5
+ip link set eth5 up
+ip addr replace 172.16.0.76/31 dev eth6
+ip link set eth6 up
+ip addr replace 172.16.0.78/31 dev eth7
+ip link set eth7 up
+ip addr replace 172.16.0.80/31 dev eth8
+ip link set eth8 up
+ip addr replace 172.16.0.82/31 dev eth9
+ip link set eth9 up
+ip addr replace 172.16.0.84/31 dev eth10
+ip link set eth10 up
+ip addr replace 172.16.0.86/31 dev eth11
+ip link set eth11 up
+ip addr replace 172.16.0.88/31 dev eth12
+ip link set eth12 up
+ip addr replace 172.16.0.90/31 dev eth13
+ip link set eth13 up
+ip addr replace 172.16.0.92/31 dev eth14
+ip link set eth14 up
+ip addr replace 172.16.0.94/31 dev eth15
+ip link set eth15 up
+ip addr replace 192.168.2.1/24 dev eth16
+ip link set eth16 up
+sed -i 's/bgpd=no/bgpd=yes/g' /etc/frr/daemons
+/etc/init.d/frr start
+for attempt in 1 2 3 4 5; do vtysh -b && break; sleep 2; done

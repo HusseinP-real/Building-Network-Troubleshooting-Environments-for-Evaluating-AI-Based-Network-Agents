@@ -1,0 +1,95 @@
+Scenario: jiayuan75-r21-eigrp-as-mismatch
+Topology: Kath5_Jiayuan_75Devices
+Validation: strict
+Fault family: EIGRP autonomous-system mismatch
+
+[PROMPT-TO-AGENT]
+Operations reports that R12 no longer sees its EIGRP neighbor toward the
+Internal Services Zone. Hosts inside that zone can still reach their local
+gateway, and the DMZ is normal. The team has not established a complete
+application outage. Diagnose why this routing adjacency is not established.
+
+[PRE-CHECK]
+r21  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 100 {n++} END {print n+0}'  => expect 1
+r12  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 100 {n++} END {print n+0}'  => expect 1
+r21  vtysh -c "show ip eigrp neighbors" | grep -c "192.168.250.1"  => expect 1
+intapp1  ping -n -W1 -c1 192.168.251.1  => expect 0% loss
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/  => expect 200
+
+[INJECTION]
+device: r21
+action: change the Internal Services EIGRP AS to 101 and reload that daemon
+cmd: |
+  current=$(awk '$1 == "router" && $2 == "eigrp" {print $3}' /etc/frr/frr.conf) || exit $?
+  case "$current" in
+    101) echo 'EIGRP AS already 101' ;;
+    100) sed -i 's/^router eigrp 100$/router eigrp 101/' /etc/frr/frr.conf && /etc/init.d/frr restart && vtysh -b ;;
+    *) echo 'Unexpected EIGRP configuration' >&2; exit 2 ;;
+  esac
+
+[POST-INJECT-CHECK]
+r21  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 101 {n++} END {print n+0}'  => expect 1
+r12  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 100 {n++} END {print n+0}'  => expect 1
+r21  vtysh -c "show ip eigrp neighbors" | grep -c "192.168.250.1"  => expect 0
+r21  vtysh -c "show ip eigrp neighbors" | grep -Fc "AS(101)"  => expect 1
+intapp1  ping -n -W1 -c1 192.168.251.1  => expect 0% loss
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/  => expect 200
+
+[GROUND-TRUTH]
+Fault location: r21 EIGRP configuration.
+Fault type: EIGRP autonomous-system mismatch.
+Root cause: r21 is configured for AS101 while its peer r12 uses AS100.
+The mismatch prevents their EIGRP adjacency. Local interfaces, the local
+Internal Services LAN and unrelated OSPF/DMZ services remain operational.
+Do not infer that every existing flow must fail: this pinned FRR version can
+retain previously learned forwarding entries. A missing adjacency and the
+observed AS mismatch are the deterministic fault evidence, not an invented
+business outage. The reload applies the persistent-in-container configuration;
+no tracked healthy topology file is modified.
+
+[FIX]
+Restore r21 to EIGRP AS100 and reload FRR. The validated command is:
+current=$(awk '$1 == "router" && $2 == "eigrp" {print $3}' /etc/frr/frr.conf) || exit $?
+case "$current" in
+  100) echo 'EIGRP AS already 100' ;;
+  101) sed -i 's/^router eigrp 101$/router eigrp 100/' /etc/frr/frr.conf && /etc/init.d/frr restart && vtysh -b ;;
+  *) echo 'Unexpected EIGRP configuration' >&2; exit 2 ;;
+esac
+A fresh deployment also restores the shipped AS100 configuration.
+
+[RECOVERY]
+device: r21
+action: restore EIGRP AS100 and reload the daemon
+cmd: |
+  current=$(awk '$1 == "router" && $2 == "eigrp" {print $3}' /etc/frr/frr.conf) || exit $?
+  case "$current" in
+    100) echo 'EIGRP AS already 100' ;;
+    101) sed -i 's/^router eigrp 101$/router eigrp 100/' /etc/frr/frr.conf && /etc/init.d/frr restart && vtysh -b ;;
+    *) echo 'Unexpected EIGRP configuration' >&2; exit 2 ;;
+  esac
+
+[RECOVERY-CHECK]
+r21  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 100 {n++} END {print n+0}'  => expect 1
+r12  vtysh -c "show running-config" | awk '$1 == "router" && $2 == "eigrp" && $3 == 100 {n++} END {print n+0}'  => expect 1
+r21  vtysh -c "show ip eigrp neighbors" | grep -c "192.168.250.1"  => expect 1
+intapp1  ping -n -W1 -c1 192.168.251.1  => expect 0% loss
+a1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/  => expect 200
+
+[DIAGNOSTIC-PROCESS]
+Confirm the missing EIGRP neighbor and compare both routers' configured AS
+numbers. Check that local link addressing and host-to-gateway connectivity
+are intact. Distinguish this control-plane failure from a guaranteed loss of
+all cached data-plane routes. Restore the mismatched AS and verify adjacency.
+
+[SCORING-AXES]
+assert-identifies: r21
+must-identify-device: r21
+must-identify-component: r21 EIGRP AS101 mismatches r12 AS100
+must-identify-mechanism: incompatible EIGRP AS numbers prevent neighbor adjacency
+bonus-distinguishes-data-plane: avoids assuming all cached forwarding entries disappear
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Custom EIGRP scenario; no exact NIKA label claimed.

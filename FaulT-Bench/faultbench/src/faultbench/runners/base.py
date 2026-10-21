@@ -72,7 +72,14 @@ def _project_key(path: Path) -> str:
 
 def _git_root(path: Path) -> Path | None:
     for p in (path, *path.parents):
-        if (p / ".git").exists():
+        marker = p / ".git"
+        if marker.is_dir():
+            # Cloud sandboxes mount empty read-only .git guards at /tmp and
+            # /workspace. They are not repositories and contain no memory.
+            # Preserve fail-closed behavior for nonempty/corrupt Git metadata.
+            if any(marker.iterdir()):
+                return p
+        elif marker.exists():
             return p
     return None
 
@@ -170,17 +177,17 @@ def diagnostic_mcp_config(lab_name: str) -> dict:
     return {
         "kathara_base_mcp_server": {
             "command": PYTHON_EXE,
-            "args": [str(MCP_SERVER_DIR / "kathara_base_mcp_server.py")],
+            "args": ["-m", "faultbench.mcp_bootstrap", str(MCP_SERVER_DIR / "kathara_base_mcp_server.py")],
             "env": common_env, "transport": "stdio",
         },
         "kathara_frr_mcp_server": {
             "command": PYTHON_EXE,
-            "args": [str(MCP_SERVER_DIR / "kathara_frr_mcp_server.py")],
+            "args": ["-m", "faultbench.mcp_bootstrap", str(MCP_SERVER_DIR / "kathara_frr_mcp_server.py")],
             "env": common_env, "transport": "stdio",
         },
         "kathara_telemetry_mcp_server": {
             "command": PYTHON_EXE,
-            "args": [str(MCP_SERVER_DIR / "kathara_telemetry_mcp_server.py")],
+            "args": ["-m", "faultbench.mcp_bootstrap", str(MCP_SERVER_DIR / "kathara_telemetry_mcp_server.py")],
             "env": common_env, "transport": "stdio",
         },
     }

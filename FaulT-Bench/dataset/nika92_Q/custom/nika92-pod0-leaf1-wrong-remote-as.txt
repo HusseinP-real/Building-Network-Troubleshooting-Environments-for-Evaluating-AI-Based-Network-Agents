@@ -1,0 +1,82 @@
+Scenario: nika92-pod0-leaf1-wrong-remote-as
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: BGP remote AS mismatch
+
+[PROMPT-TO-AGENT]
+External clients cannot open web0.pod0, although the server reaches its local gateway. A web service in pod2 still works. Diagnose the affected path.
+
+[PRE-CHECK]
+leaf_router_0_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+webserver0_pod0  ping -n -c1 -W1 10.0.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+
+[INJECTION]
+device: leaf_router_0_1
+action: BGP remote AS mismatch
+cmd: |
+  config=$(vtysh -c 'show running-config') || exit $?
+  n=$(printf '%s\n' "$config" | awk '$1=="neighbor" && $3=="remote-as" && $4==65999 {n++} END {print n+0}') || exit $?
+  case "$n" in
+    4) echo "Already in requested AS state" ;;
+    0) vtysh -c 'conf t' -c 'router bgp 65201' -c 'neighbor 172.16.0.130 remote-as 65999' -c 'neighbor 172.16.0.146 remote-as 65999' -c 'neighbor 172.16.0.162 remote-as 65999' -c 'neighbor 172.16.0.178 remote-as 65999' -c end ;;
+    *) echo "Unexpected partial AS state" >&2; exit 2 ;;
+  esac
+
+[POST-INJECT-CHECK]
+leaf_router_0_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 0
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/ 2>/dev/null || { rc=$?; test "$rc" = 7 || test "$rc" = 28; }  => expect 000
+webserver0_pod0  ping -n -c1 -W1 10.0.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+
+[GROUND-TRUTH]
+Fault location: leaf_router_0_1
+Fault type: BGP remote AS mismatch
+Root cause, expected symptoms and controls: All four peers on leaf_router_0_1 incorrectly expect AS65999 instead of the reference spine AS65100/65101/65102/65103. The four sessions fail and remote access to 10.0.1.2 is lost. Local web/gateway connectivity and pod2 HTTP remain healthy. Restore each specific neighbor AS; do not replace all with one AS.
+
+[FIX]
+On leaf_router_0_1, execute:
+config=$(vtysh -c 'show running-config') || exit $?
+n=$(printf '%s\n' "$config" | awk '$1=="neighbor" && $3=="remote-as" && $4==65999 {n++} END {print n+0}') || exit $?
+case "$n" in
+  0) echo "Already in requested AS state" ;;
+  4) vtysh -c 'conf t' -c 'router bgp 65201' -c 'neighbor 172.16.0.130 remote-as 65100' -c 'neighbor 172.16.0.146 remote-as 65101' -c 'neighbor 172.16.0.162 remote-as 65102' -c 'neighbor 172.16.0.178 remote-as 65103' -c end ;;
+  *) echo "Unexpected partial AS state" >&2; exit 2 ;;
+esac
+
+[RECOVERY]
+device: leaf_router_0_1
+action: restore healthy configuration
+cmd: |
+  config=$(vtysh -c 'show running-config') || exit $?
+  n=$(printf '%s\n' "$config" | awk '$1=="neighbor" && $3=="remote-as" && $4==65999 {n++} END {print n+0}') || exit $?
+  case "$n" in
+    0) echo "Already in requested AS state" ;;
+    4) vtysh -c 'conf t' -c 'router bgp 65201' -c 'neighbor 172.16.0.130 remote-as 65100' -c 'neighbor 172.16.0.146 remote-as 65101' -c 'neighbor 172.16.0.162 remote-as 65102' -c 'neighbor 172.16.0.178 remote-as 65103' -c end ;;
+    *) echo "Unexpected partial AS state" >&2; exit 2 ;;
+  esac
+
+[RECOVERY-CHECK]
+leaf_router_0_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+webserver0_pod0  ping -n -c1 -W1 10.0.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.2.1.2:80/  => expect 200
+
+[DIAGNOSTIC-PROCESS]
+Scope the affected NIKA pod/service, compare an unaffected pod and local
+connectivity, inspect the owning configuration and protocol/service state.
+The explicit recovery is applied inside disposable containers only; validate
+the complete healthy baseline before the next case.
+
+[SCORING-AXES]
+assert-identifies: leaf_router_0_1
+must-identify-device: leaf_router_0_1
+must-identify-component: BGP remote AS mismatch
+must-identify-mechanism: All four peers on leaf_router_0_1 incorrectly expect AS65999 instead of the reference spine AS65100/65101/65102/65103. The four sessions fail and remote access to 10.0.1.2 is lost. Local web/gateway connectivity and pod2 HTTP remain healthy. Restore each specific neighbor AS; do not replace all with one AS.
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Project-local case on the exported pinned DCClosService(l); no exact taxonomy equivalence claimed.

@@ -209,6 +209,8 @@ def run_react_full(prompt_to_agent: str, lab_name: str,
     client = OpenAI(api_key=api_key)
 
     # Same backend the MCP servers wrap; lab_name fixed for the run.
+    from ..inventory import install_inventory_adapter
+    install_inventory_adapter()
     from nika.service.kathara import KatharaAPIALL
     api = KatharaAPIALL(lab_name=lab_name)
 

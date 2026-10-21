@@ -1,0 +1,129 @@
+{
+  "kind": "eigrp-AS-mismatch-diagnosis",
+  "lab_name": "soft3888-eigrp-bc6ffdf2",
+  "started_at": "2026-10-20T06:31:13.793004+00:00",
+  "checks": [
+    {
+      "stage": "baseline",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "stage": "baseline",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 1,
+      "output": "eigrpd is not running"
+    },
+    {
+      "stage": "baseline",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "baseline",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 12     0        0      2    0      2"
+    },
+    {
+      "stage": "AS101-injection",
+      "device": "r21",
+      "command": "sed -i 's/^router eigrp 100$/router eigrp 101/' /etc/frr/frr.conf && /etc/init.d/frr restart",
+      "rc": 0,
+      "output": "Stopped watchfrr.\nStopped eigrpd.\nStopped zebra.\nStopped mgmtd.\nStopped staticd.\nStarting watchfrr with command: '  /usr/lib/frr/watchfrr  -d   mgmtd zebra eigrpd staticd'.\n[176|mgmtd] sending configuration\n[177|zebra] sending configuration\n[191|watchfrr] sending configuration\n[187|eigrpd] sending configuration\n[193|staticd] sending configuration\nWaiting for children to finish applying config...\nStarted watchfrr.\n2026/10/20 06:31:20 ZEBRA: [KGY44-D47GD][EC 4043309111] Disabling MPLS support (no kernel support)\n[177|zebra] done\n[191|watchfrr] done\n[176|mgmtd] done\n[193|staticd] done\n[187|eigrpd] done"
+    },
+    {
+      "stage": "AS101-observation",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\" -c \"show running-config\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(101)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \nBuilding configuration...\n\nCurrent configuration:\n!\nfrr version 10.5.3\nfrr defaults traditional\nhostname r21\nlog file /var/log/frr/frr.log\nno service integrated-vtysh-config\n!\npassword zebra\nenable password zebra\n!\nrouter eigrp 101\n network 192.168.250.0/30\n network 192.168.251.0/24\nexit\n!\nend"
+    },
+    {
+      "stage": "AS100-peer-observation",
+      "device": "r12",
+      "command": "vtysh -c \"show ip eigrp neighbors\"; ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.2     eth2                 9      0        0      2    0      2\n192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "AS101-observation",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\" -c \"show running-config\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(101)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \nBuilding configuration...\n\nCurrent configuration:\n!\nfrr version 10.5.3\nfrr defaults traditional\nhostname r21\nlog file /var/log/frr/frr.log\nno service integrated-vtysh-config\n!\npassword zebra\nenable password zebra\n!\nrouter eigrp 101\n network 192.168.250.0/30\n network 192.168.251.0/24\nexit\n!\nend"
+    },
+    {
+      "stage": "AS100-peer-observation",
+      "device": "r12",
+      "command": "vtysh -c \"show ip eigrp neighbors\"; ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.2     eth2                 6      0        0      2    0      2\n192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "AS101-observation",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\" -c \"show running-config\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(101)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \nBuilding configuration...\n\nCurrent configuration:\n!\nfrr version 10.5.3\nfrr defaults traditional\nhostname r21\nlog file /var/log/frr/frr.log\nno service integrated-vtysh-config\n!\npassword zebra\nenable password zebra\n!\nrouter eigrp 101\n network 192.168.250.0/30\n network 192.168.251.0/24\nexit\n!\nend"
+    },
+    {
+      "stage": "AS100-peer-observation",
+      "device": "r12",
+      "command": "vtysh -c \"show ip eigrp neighbors\"; ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.2     eth2                 2      0        0      2    0      2\n192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "AS101-observation",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\" -c \"show running-config\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(101)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \nBuilding configuration...\n\nCurrent configuration:\n!\nfrr version 10.5.3\nfrr defaults traditional\nhostname r21\nlog file /var/log/frr/frr.log\nno service integrated-vtysh-config\n!\npassword zebra\nenable password zebra\n!\nrouter eigrp 101\n network 192.168.250.0/30\n network 192.168.251.0/24\nexit\n!\nend"
+    },
+    {
+      "stage": "AS100-peer-observation",
+      "device": "r12",
+      "command": "vtysh -c \"show ip eigrp neighbors\"; ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "local-LAN-control",
+      "device": "intapp1",
+      "command": "ping -c1 -W1 192.168.251.1",
+      "rc": 0,
+      "output": "PING 192.168.251.1 (192.168.251.1) 56(84) bytes of data.\n64 bytes from 192.168.251.1: icmp_seq=1 ttl=64 time=1.53 ms\n\n--- 192.168.251.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.525/1.525/1.525/0.000 ms"
+    },
+    {
+      "stage": "AS100-recovery",
+      "device": "r21",
+      "command": "sed -i 's/^router eigrp 101$/router eigrp 100/' /etc/frr/frr.conf && /etc/init.d/frr restart",
+      "rc": 0,
+      "output": "Stopped watchfrr.\nStopped staticd.\nStopped mgmtd.\nStopped zebra.\nStopped eigrpd.\nStarting watchfrr with command: '  /usr/lib/frr/watchfrr  -d   mgmtd zebra eigrpd staticd'.\n[301|mgmtd] sending configuration\n[302|zebra] sending configuration\n[312|eigrpd] sending configuration\n[316|watchfrr] sending configuration\n[318|staticd] sending configuration\nWaiting for children to finish applying config...\nStarted watchfrr.\n2026/10/20 06:31:32 ZEBRA: [KGY44-D47GD][EC 4043309111] Disabling MPLS support (no kernel support)\n[302|zebra] done\n[312|eigrpd] done\n[316|watchfrr] done\n[301|mgmtd] done\n[318|staticd] done"
+    },
+    {
+      "stage": "AS100-neighbor-and-route-recovered",
+      "device": "r12",
+      "command": "ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "192.168.251.0/24 nhid 15 via 192.168.250.2 dev eth2 proto eigrp metric 20"
+    },
+    {
+      "stage": "AS100-neighbor-and-route-recovered",
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\"",
+      "rc": 0,
+      "output": "EIGRP neighbors for AS(100)\n\nH   Address           Interface            Hold   Uptime   SRTT   RTO   Q     Seq  \n                                           (sec)           (ms)        Cnt    Num   \n0   192.168.250.1     eth0                 12     0        0      2    0      3"
+    }
+  ],
+  "passed": true,
+  "cleanup": "verified",
+  "finished_at": "2026-10-20T06:31:35.541111+00:00"
+}

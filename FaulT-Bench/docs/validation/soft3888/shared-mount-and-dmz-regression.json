@@ -1,0 +1,1074 @@
+{
+  "kind": "shared-runtime-mount-and-dmz-regression",
+  "lab_name": "soft3888-e9d9055024a5",
+  "devices": 75,
+  "mounts": [
+    {
+      "device": "intapp1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "mgmt3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "mgmt2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r21",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "intdns1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "mgmt1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r20",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "dmzweb2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "dmzdns1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "dmzweb1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "g3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r19",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "g4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "g2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "g1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r18",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "f5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r17",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "f4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r16",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "f2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "f1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "f3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r15",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r14",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "db1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "file1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "web1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "dns1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r13",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e7",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "pc12",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "e1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r12",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r11",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r10",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "d1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r9",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "c3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "b1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r8",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "a2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r7",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r5",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r4",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r1",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "pc0",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/host/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r3",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    },
+    {
+      "device": "r2",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/workspace/.cache/soft3888-runtime/router/usr",
+          "Destination": "/usr",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "read_only": true
+    }
+  ],
+  "checks": [
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.231.12/",
+      "rc": 0,
+      "output": "<!DOCTYPE html>\n<html>\n<head><title>DMZ Web Server 2</title></head>\n<body>\n<h1>DMZ Web Server 2</h1>\n<p>SOFT3888 - Backup Web Service</p>\n<p>Service Status: Running</p>\n</body>\n</html>",
+      "passed": true
+    },
+    {
+      "device": "mgmt1",
+      "command": "dig @192.168.231.13 web2.dmz.test +short +time=1 +tries=1",
+      "rc": 0,
+      "output": "192.168.231.12",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

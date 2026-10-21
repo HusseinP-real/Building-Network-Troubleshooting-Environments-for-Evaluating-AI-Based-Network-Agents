@@ -1,0 +1,73 @@
+Scenario: nika92-lb1-wrong-backend-ports
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: HTTP load-balancer backend port misconfiguration
+
+[PROMPT-TO-AGENT]
+The application returns HTTP503, although the three NIKA web backends open directly and DNS works. Diagnose the application delivery failure.
+
+[PRE-CHECK]
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/  => expect 200
+client_1  dig @10.0.0.2 api.nika.test +short +time=1 +tries=1  => expect equals: 10.0.1.80
+
+[INJECTION]
+device: lb1
+action: HTTP load-balancer backend port misconfiguration
+cmd: |
+  set -eu
+  sed -i -E '/^[[:space:]]*server web[123] /s/:80 /:81 /' /etc/haproxy/haproxy.cfg
+  sh /opt/soft3888/lb-control restart
+
+[POST-INJECT-CHECK]
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 503
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/  => expect 200
+client_1  dig @10.0.0.2 api.nika.test +short +time=1 +tries=1  => expect equals: 10.0.1.80
+
+[GROUND-TRUTH]
+Fault location: lb1
+Fault type: HTTP load-balancer backend port misconfiguration
+Root cause, expected symptoms and controls: Added lb1 forwards to port81 on 10.0.1.2, 10.0.2.2 and 10.0.3.2, while the original NIKA web services listen on port80. HAProxy health checks mark all configured backends down, returning HTTP503. Direct HTTP to all three backends and DNS remain healthy; restore port80 and restart the load balancer.
+
+[FIX]
+On lb1, execute:
+set -eu
+sed -i -E '/^[[:space:]]*server web[123] /s/:81 /:80 /' /etc/haproxy/haproxy.cfg
+sh /opt/soft3888/lb-control restart
+
+[RECOVERY]
+device: lb1
+action: restore healthy configuration
+cmd: |
+  set -eu
+  sed -i -E '/^[[:space:]]*server web[123] /s/:81 /:80 /' /etc/haproxy/haproxy.cfg
+  sh /opt/soft3888/lb-control restart
+
+[RECOVERY-CHECK]
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.2.2:80/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.3.2:80/  => expect 200
+client_1  dig @10.0.0.2 api.nika.test +short +time=1 +tries=1  => expect equals: 10.0.1.80
+
+[DIAGNOSTIC-PROCESS]
+Scope the affected NIKA pod/service, compare an unaffected pod and local
+connectivity, inspect the owning configuration and protocol/service state.
+The explicit recovery is applied inside disposable containers only; validate
+the complete healthy baseline before the next case.
+
+[SCORING-AXES]
+assert-identifies: lb1
+must-identify-device: lb1
+must-identify-component: HTTP load-balancer backend port misconfiguration
+must-identify-mechanism: Added lb1 forwards to port81 on 10.0.1.2, 10.0.2.2 and 10.0.3.2, while the original NIKA web services listen on port80. HAProxy health checks mark all configured backends down, returning HTTP503. Direct HTTP to all three backends and DNS remain healthy; restore port80 and restart the load balancer.
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Project-local case on the exported pinned DCClosService(l); no exact taxonomy equivalence claimed.

@@ -1,0 +1,15 @@
+# Rebuild variants specified by existing project/SADE Dockerfiles.
+ARG SOURCE_IMAGE
+FROM ${SOURCE_IMAGE}
+ARG PACKAGES
+RUN --mount=type=secret,id=cloud-ca,required=false,mode=0444 \
+    find /etc/apt -maxdepth 2 -type f \( -name '*.list' -o -name '*.sources' \) -exec sed -i 's@http://@https://@g' {} + && \
+    if [ -f /run/secrets/cloud-ca ]; then \
+      printf 'Acquire::https::CaInfo "/run/secrets/cloud-ca";\n' > /etc/apt/apt.conf.d/99-cloud-ca; fi && \
+    mkdir -p /tmp/team-debian-sources && \
+    for source in /etc/apt/sources.list /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources; do \
+      if [ -f "$source" ] && grep -qE 'deb.debian.org|security.debian.org' "$source"; then cp "$source" /tmp/team-debian-sources/; fi; done && \
+    apt-get update -o Dir::Etc::sourcelist=- -o Dir::Etc::sourceparts=/tmp/team-debian-sources -o APT::Update::Error-Mode=any && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -o Dir::Etc::sourcelist=- -o Dir::Etc::sourceparts=/tmp/team-debian-sources -y --no-install-recommends ${PACKAGES} && \
+    rm -rf /tmp/team-debian-sources && rm -f /etc/apt/apt.conf.d/99-cloud-ca && rm -rf /var/lib/apt/lists/*
+CMD ["bash"]

@@ -1,0 +1,243 @@
+{
+  "devices": 75,
+  "collision_domains": 43,
+  "images": [
+    "soft3888/frr:10.5.3-v1",
+    "soft3888/host:bookworm-v1"
+  ],
+  "baseline": [
+    {
+      "device": "a1",
+      "command": "ping -n -W1 -c1 192.168.216.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "f1",
+      "command": "ping -n -W1 -c1 70.1.1.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "a1",
+      "command": "ping -n -W1 -c1 192.168.224.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "g1",
+      "command": "ping -n -W1 -c1 70.1.1.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "a1",
+      "command": "ping -n -W1 -c1 192.168.251.12",
+      "expect": "0% loss"
+    },
+    {
+      "device": "intapp1",
+      "command": "ping -n -W1 -c1 70.1.1.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "a1",
+      "command": "ping -n -W1 -c1 80.1.1.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "intapp1",
+      "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+      "expect": "equals: 192.168.251.12"
+    },
+    {
+      "device": "a1",
+      "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+      "expect": "equals: 192.168.251.12"
+    },
+    {
+      "device": "mgmt3",
+      "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1 +tcp",
+      "expect": "equals: 192.168.251.12"
+    },
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+      "expect": "200"
+    },
+    {
+      "device": "g1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+      "expect": "200"
+    },
+    {
+      "device": "mgmt3",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+      "expect": "200"
+    },
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.11/",
+      "expect": "200"
+    },
+    {
+      "device": "a1",
+      "command": "dig @192.168.231.13 web1.dmz.test +short +time=1 +tries=1",
+      "expect": "equals: 192.168.231.11"
+    },
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.251.12/ | grep -c 'SOFT3888 Internal Application'",
+      "expect": "1"
+    },
+    {
+      "device": "mgmt1",
+      "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/health | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"service\"])'",
+      "expect": "equals: soft3888-management"
+    },
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.241.12:9100/health 2>/dev/null || test \"$?\" = 7",
+      "expect": "000"
+    },
+    {
+      "device": "mgmt3",
+      "command": "python3 /opt/soft3888/check-services.py | python3 -c 'import json,sys; print(int(json.load(sys.stdin)[\"passed\"]))'",
+      "expect": "1"
+    },
+    {
+      "device": "r20",
+      "command": "logger -n 192.168.241.12 -P 1514 -d soft3888-management-probe && echo sent",
+      "expect": "equals: sent"
+    },
+    {
+      "device": "mgmt1",
+      "command": "curl --noproxy '*' -fsS --max-time 3 http://192.168.241.12:9100/events | python3 -c 'import json,sys; print(int(any(\"soft3888-management-probe\" in x[\"message\"] for x in json.load(sys.stdin)[\"events\"])))'",
+      "expect": "1"
+    },
+    {
+      "device": "r1",
+      "command": "vtysh -c \"show ip ospf neighbor\" | grep -c \"Full.*12.1.1.2\"",
+      "expect": "1"
+    },
+    {
+      "device": "r21",
+      "command": "vtysh -c \"show ip eigrp neighbors\" | grep -c \"192.168.250.1\"",
+      "expect": "1"
+    },
+    {
+      "device": "r16",
+      "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+      "expect": "3"
+    },
+    {
+      "device": "a1",
+      "command": "ping -n -W1 -c1 192.168.241.12",
+      "expect": "0% loss"
+    },
+    {
+      "device": "b1",
+      "command": "ping -n -W1 -c1 192.168.251.12",
+      "expect": "0% loss"
+    },
+    {
+      "device": "intapp1",
+      "command": "ping -n -W1 -c1 80.1.1.11",
+      "expect": "0% loss"
+    },
+    {
+      "device": "b1",
+      "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+      "expect": "equals: 192.168.251.12"
+    },
+    {
+      "device": "b1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.251.12/",
+      "expect": "200"
+    },
+    {
+      "device": "a1",
+      "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://192.168.231.12/",
+      "expect": "200"
+    },
+    {
+      "device": "r21",
+      "command": "ip route show 102.1.4.0/24 | wc -l",
+      "expect": "1"
+    }
+  ],
+  "scenarios": [
+    "jiayuan75-r15-ospf-advertisement",
+    "jiayuan75-r21-eigrp-as-mismatch",
+    "jiayuan75-intdns1-wrong-record",
+    "jiayuan75-intapp1-http-stopped"
+  ],
+  "mcp_probe": {
+    "host": "a1",
+    "destination": "192.168.251.12",
+    "router": "r1",
+    "route": "192.168.251.0/24"
+  },
+  "auxiliary": [
+    {
+      "name": "branch-g-eth0-failover",
+      "injection": {
+        "device": "r16",
+        "action": "disable one redundant upstream",
+        "command": "ip link set eth0 down"
+      },
+      "checks": [
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss"
+        },
+        {
+          "device": "r16",
+          "command": "ip route get 70.1.1.11 | awk '{print $5}'",
+          "expect": "equals: eth1"
+        }
+      ],
+      "recovery": {
+        "device": "r16",
+        "action": "restore redundant upstream",
+        "command": "ip link set eth0 up"
+      },
+      "recovery_checks": [
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3"
+        }
+      ]
+    },
+    {
+      "name": "branch-g-eth1-failover",
+      "injection": {
+        "device": "r16",
+        "action": "disable one redundant upstream",
+        "command": "ip link set eth1 down"
+      },
+      "checks": [
+        {
+          "device": "g1",
+          "command": "ping -n -W1 -c1 70.1.1.11",
+          "expect": "0% loss"
+        },
+        {
+          "device": "r16",
+          "command": "ip route get 70.1.1.11 | awk '{print $5}'",
+          "expect": "equals: eth0"
+        }
+      ],
+      "recovery": {
+        "device": "r16",
+        "action": "restore redundant upstream",
+        "command": "ip link set eth1 up"
+      },
+      "recovery_checks": [
+        {
+          "device": "r16",
+          "command": "vtysh -c \"show ip ospf neighbor\" | grep -c Full",
+          "expect": "3"
+        }
+      ]
+    }
+  ]
+}

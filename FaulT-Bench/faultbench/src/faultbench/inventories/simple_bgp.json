@@ -1,0 +1,12 @@
+{
+  "routers": [
+    "router1",
+    "router2"
+  ],
+  "switches": [],
+  "hosts": [
+    "pc1",
+    "pc2"
+  ],
+  "servers": {}
+}

@@ -1,0 +1,435 @@
+{
+  "kind": "historical-agent-comparison-reproduction",
+  "source": "final_results/MANIFEST.csv",
+  "new_model_calls": 0,
+  "scope": "Archived original dataset only. Not a new evaluation of Kath5_Jiayuan_75Devices or NIKA_Clos_Jiayuan_92Devices.",
+  "latency_note": "Archived wall_seconds includes lifecycle work; not isolated model investigation time.",
+  "cost_note": "Archived agent cost: SDK-reported Claude cost and pricing-derived GPT estimates; excludes judge billing.",
+  "groups": [
+    {
+      "arm": "base80",
+      "agent": "cc-baseline",
+      "runs": 240,
+      "scored": 236,
+      "status_counts": {
+        "scored": 236,
+        "no_submission": 4
+      },
+      "mean_outcome": 0.9418079096045198,
+      "mean_fix": 0.961864406779661,
+      "mean_reasoning": 0.9166666666666666,
+      "mean_agent_reported_cost_usd": 0.26270651666666667,
+      "mean_lifecycle_seconds": 327.335,
+      "mean_tool_calls": 13.416666666666666,
+      "confusion": {
+        "tp": 234,
+        "fn": 2
+      }
+    },
+    {
+      "arm": "base80",
+      "agent": "react-full",
+      "runs": 240,
+      "scored": 237,
+      "status_counts": {
+        "scored": 237,
+        "no_output": 3
+      },
+      "mean_outcome": 0.9412095639943742,
+      "mean_fix": 0.9240506329113924,
+      "mean_reasoning": 0.8215189873417721,
+      "mean_agent_reported_cost_usd": 0.09912309583333333,
+      "mean_lifecycle_seconds": 292.9241666666667,
+      "mean_tool_calls": 13.404166666666667,
+      "confusion": {
+        "tp": 235,
+        "fn": 2
+      }
+    },
+    {
+      "arm": "base80",
+      "agent": "sade",
+      "runs": 240,
+      "scored": 230,
+      "status_counts": {
+        "scored": 230,
+        "no_submission": 10
+      },
+      "mean_outcome": 0.9121376811594203,
+      "mean_fix": 0.9521739130434783,
+      "mean_reasoning": 0.9372463768115942,
+      "mean_agent_reported_cost_usd": 0.3709454,
+      "mean_lifecycle_seconds": 411.3829166666667,
+      "mean_tool_calls": 14.691666666666666,
+      "confusion": {
+        "tp": 230
+      }
+    },
+    {
+      "arm": "cex120",
+      "agent": "cc-baseline",
+      "runs": 360,
+      "scored": 342,
+      "status_counts": {
+        "scored": 342,
+        "no_submission": 18
+      },
+      "mean_outcome": 0.9190545808966861,
+      "mean_fix": 0.96875,
+      "mean_reasoning": 0.9136452241715399,
+      "mean_agent_reported_cost_usd": 0.36579028888888887,
+      "mean_lifecycle_seconds": 375.65472222222223,
+      "mean_tool_calls": 22.644444444444446,
+      "confusion": {
+        "fp": 21,
+        "tn": 177,
+        "tp": 144
+      }
+    },
+    {
+      "arm": "cex120",
+      "agent": "react-full",
+      "runs": 360,
+      "scored": 351,
+      "status_counts": {
+        "scored": 351,
+        "no_output": 9
+      },
+      "mean_outcome": 0.8654320987654321,
+      "mean_fix": 0.8556338028169014,
+      "mean_reasoning": 0.8399810066476733,
+      "mean_agent_reported_cost_usd": 0.11102862222222222,
+      "mean_lifecycle_seconds": 283.64944444444444,
+      "mean_tool_calls": 18.830555555555556,
+      "confusion": {
+        "tn": 176,
+        "fp": 33,
+        "tp": 136,
+        "fn": 6
+      }
+    },
+    {
+      "arm": "cex120",
+      "agent": "sade",
+      "runs": 360,
+      "scored": 354,
+      "status_counts": {
+        "scored": 354,
+        "no_submission": 6
+      },
+      "mean_outcome": 0.8183145009416196,
+      "mean_fix": 0.8993055555555556,
+      "mean_reasoning": 0.9354990583804144,
+      "mean_agent_reported_cost_usd": 0.41043739444444444,
+      "mean_lifecycle_seconds": 426.6363888888889,
+      "mean_tool_calls": 16.76388888888889,
+      "confusion": {
+        "tn": 159,
+        "fp": 51,
+        "tp": 143,
+        "fn": 1
+      }
+    },
+    {
+      "arm": "naive",
+      "agent": "cc-baseline",
+      "runs": 144,
+      "scored": 120,
+      "status_counts": {
+        "scored": 120,
+        "no_submission": 24
+      },
+      "mean_outcome": 0.9108333333333334,
+      "mean_fix": null,
+      "mean_reasoning": 0.8938888888888888,
+      "mean_agent_reported_cost_usd": 0.47035710416666665,
+      "mean_lifecycle_seconds": 445.06666666666666,
+      "mean_tool_calls": 26.65972222222222,
+      "confusion": {
+        "fp": 8,
+        "tn": 112
+      }
+    },
+    {
+      "arm": "naive",
+      "agent": "react-full",
+      "runs": 144,
+      "scored": 136,
+      "status_counts": {
+        "scored": 136,
+        "no_output": 8
+      },
+      "mean_outcome": 0.7886029411764706,
+      "mean_fix": null,
+      "mean_reasoning": 0.8169117647058823,
+      "mean_agent_reported_cost_usd": 0.13796324305555555,
+      "mean_lifecycle_seconds": 314.5180555555556,
+      "mean_tool_calls": 20.270833333333332,
+      "confusion": {
+        "fp": 27,
+        "tn": 109
+      }
+    },
+    {
+      "arm": "naive",
+      "agent": "sade",
+      "runs": 144,
+      "scored": 138,
+      "status_counts": {
+        "scored": 138,
+        "no_submission": 6
+      },
+      "mean_outcome": 0.772463768115942,
+      "mean_fix": null,
+      "mean_reasoning": 0.9111111111111111,
+      "mean_agent_reported_cost_usd": 0.469990875,
+      "mean_lifecycle_seconds": 475.97222222222223,
+      "mean_tool_calls": 17.854166666666668,
+      "confusion": {
+        "fp": 28,
+        "tn": 109
+      }
+    },
+    {
+      "arm": "naive_no_detail",
+      "agent": "cc-baseline",
+      "runs": 144,
+      "scored": 74,
+      "status_counts": {
+        "no_submission": 70,
+        "scored": 74
+      },
+      "mean_outcome": 0.2851351351351351,
+      "mean_fix": null,
+      "mean_reasoning": 0.6864864864864865,
+      "mean_agent_reported_cost_usd": 0.9773258888888888,
+      "mean_lifecycle_seconds": 739.0423611111111,
+      "mean_tool_calls": 38.25694444444444,
+      "confusion": {
+        "fp": 55,
+        "tn": 19
+      }
+    },
+    {
+      "arm": "naive_no_detail",
+      "agent": "react-full",
+      "runs": 144,
+      "scored": 132,
+      "status_counts": {
+        "scored": 132,
+        "no_output": 12
+      },
+      "mean_outcome": 0.5136363636363637,
+      "mean_fix": null,
+      "mean_reasoning": 0.717929292929293,
+      "mean_agent_reported_cost_usd": 0.17332372916666666,
+      "mean_lifecycle_seconds": 333.09305555555557,
+      "mean_tool_calls": 27.48611111111111,
+      "confusion": {
+        "tn": 72,
+        "fp": 60
+      }
+    },
+    {
+      "arm": "naive_no_detail",
+      "agent": "sade",
+      "runs": 144,
+      "scored": 133,
+      "status_counts": {
+        "scored": 133,
+        "no_submission": 11
+      },
+      "mean_outcome": 0.5969924812030075,
+      "mean_fix": null,
+      "mean_reasoning": 0.8771929824561403,
+      "mean_agent_reported_cost_usd": 0.5168086805555555,
+      "mean_lifecycle_seconds": 453.31388888888887,
+      "mean_tool_calls": 18.006944444444443,
+      "confusion": {
+        "tn": 86,
+        "fp": 45
+      }
+    },
+    {
+      "arm": "naive_unsure",
+      "agent": "cc-baseline",
+      "runs": 144,
+      "scored": 82,
+      "status_counts": {
+        "no_submission": 62,
+        "scored": 82
+      },
+      "mean_outcome": 0.48841463414634145,
+      "mean_fix": null,
+      "mean_reasoning": 0.734959349593496,
+      "mean_agent_reported_cost_usd": 0.8911140625,
+      "mean_lifecycle_seconds": 700.1118055555555,
+      "mean_tool_calls": 34.395833333333336,
+      "confusion": {
+        "fp": 42,
+        "tn": 40
+      }
+    },
+    {
+      "arm": "naive_unsure",
+      "agent": "react-full",
+      "runs": 144,
+      "scored": 134,
+      "status_counts": {
+        "scored": 134,
+        "no_output": 10
+      },
+      "mean_outcome": 0.6705223880597014,
+      "mean_fix": null,
+      "mean_reasoning": 0.7890547263681592,
+      "mean_agent_reported_cost_usd": 0.1703956388888889,
+      "mean_lifecycle_seconds": 342.41180555555553,
+      "mean_tool_calls": 23.805555555555557,
+      "confusion": {
+        "tn": 91,
+        "fp": 43
+      }
+    },
+    {
+      "arm": "naive_unsure",
+      "agent": "sade",
+      "runs": 144,
+      "scored": 133,
+      "status_counts": {
+        "scored": 133,
+        "no_submission": 11
+      },
+      "mean_outcome": 0.6969924812030075,
+      "mean_fix": null,
+      "mean_reasoning": 0.9047619047619048,
+      "mean_agent_reported_cost_usd": 0.5392522291666667,
+      "mean_lifecycle_seconds": 459.425,
+      "mean_tool_calls": 17.243055555555557,
+      "confusion": {
+        "tn": 96,
+        "fp": 37
+      }
+    },
+    {
+      "arm": "novice",
+      "agent": "cc-baseline",
+      "runs": 144,
+      "scored": 114,
+      "status_counts": {
+        "scored": 114,
+        "no_submission": 30
+      },
+      "mean_outcome": 0.7929824561403509,
+      "mean_fix": null,
+      "mean_reasoning": 0.8450292397660819,
+      "mean_agent_reported_cost_usd": 0.6954664652777778,
+      "mean_lifecycle_seconds": 602.2381944444445,
+      "mean_tool_calls": 34.6875,
+      "confusion": {
+        "fp": 23,
+        "tn": 91
+      }
+    },
+    {
+      "arm": "novice",
+      "agent": "react-full",
+      "runs": 144,
+      "scored": 135,
+      "status_counts": {
+        "scored": 135,
+        "no_output": 9
+      },
+      "mean_outcome": 0.6088888888888889,
+      "mean_fix": null,
+      "mean_reasoning": 0.76,
+      "mean_agent_reported_cost_usd": 0.15306950694444443,
+      "mean_lifecycle_seconds": 342.81458333333336,
+      "mean_tool_calls": 24.21527777777778,
+      "confusion": {
+        "tn": 83,
+        "fp": 52
+      }
+    },
+    {
+      "arm": "novice",
+      "agent": "sade",
+      "runs": 144,
+      "scored": 136,
+      "status_counts": {
+        "scored": 136,
+        "no_submission": 8
+      },
+      "mean_outcome": 0.6433823529411765,
+      "mean_fix": null,
+      "mean_reasoning": 0.8904411764705882,
+      "mean_agent_reported_cost_usd": 0.5816729583333333,
+      "mean_lifecycle_seconds": 558.9916666666667,
+      "mean_tool_calls": 20.569444444444443,
+      "confusion": {
+        "tn": 92,
+        "fp": 44
+      }
+    },
+    {
+      "arm": "novice_confident",
+      "agent": "cc-baseline",
+      "runs": 144,
+      "scored": 113,
+      "status_counts": {
+        "scored": 113,
+        "no_submission": 30,
+        "no_output": 1
+      },
+      "mean_outcome": 0.7946902654867256,
+      "mean_fix": null,
+      "mean_reasoning": 0.8651917404129793,
+      "mean_agent_reported_cost_usd": 0.6340222013888889,
+      "mean_lifecycle_seconds": 547.5979166666667,
+      "mean_tool_calls": 34.94444444444444,
+      "confusion": {
+        "tn": 91,
+        "fp": 22
+      }
+    },
+    {
+      "arm": "novice_confident",
+      "agent": "react-full",
+      "runs": 144,
+      "scored": 129,
+      "status_counts": {
+        "no_output": 15,
+        "scored": 129
+      },
+      "mean_outcome": 0.6538759689922481,
+      "mean_fix": null,
+      "mean_reasoning": 0.7674418604651163,
+      "mean_agent_reported_cost_usd": 0.16613697222222223,
+      "mean_lifecycle_seconds": 356.28125,
+      "mean_tool_calls": 25.59027777777778,
+      "confusion": {
+        "tn": 81,
+        "fp": 48
+      }
+    },
+    {
+      "arm": "novice_confident",
+      "agent": "sade",
+      "runs": 144,
+      "scored": 135,
+      "status_counts": {
+        "scored": 135,
+        "no_submission": 9
+      },
+      "mean_outcome": 0.7044444444444444,
+      "mean_fix": null,
+      "mean_reasoning": 0.92,
+      "mean_agent_reported_cost_usd": 0.5771352430555555,
+      "mean_lifecycle_seconds": 547.0965277777777,
+      "mean_tool_calls": 21.09722222222222,
+      "confusion": {
+        "tn": 99,
+        "fp": 36
+      }
+    }
+  ]
+}

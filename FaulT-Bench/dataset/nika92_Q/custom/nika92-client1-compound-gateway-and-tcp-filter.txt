@@ -1,0 +1,85 @@
+Scenario: nika92-client1-compound-gateway-and-tcp-filter
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: Multi-fault gateway misconfiguration and application TCP filtering
+
+[PROMPT-TO-AGENT]
+An external workstation cannot reach the application or its backend servers,
+but it can ping its local gateway. A external client in another reference LAN still opens the same
+application. Investigate all configuration faults on the affected path and
+explain what must be restored for complete recovery.
+
+[PRE-CHECK]
+client_1  ip route show default | awk '{print $3}'  => expect equals: 192.168.1.1
+client_1  rules=$(iptables-legacy -S OUTPUT) && printf '%s\n' "$rules" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'  => expect 0
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+client_1  ping -n -c1 -W1 192.168.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+
+[INJECTION]
+device: client_1
+action: replace the default gateway and install one tagged application DROP rule
+cmd: |
+  set -eu
+  ip route replace default via 192.168.1.254 dev eth0
+  iptables-legacy -C OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP 2>/dev/null || iptables-legacy -I OUTPUT 1 -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP
+
+[POST-INJECT-CHECK]
+client_1  ip route show default | awk '{print $3}'  => expect equals: 192.168.1.254
+client_1  rules=$(iptables-legacy -S OUTPUT) && printf '%s\n' "$rules" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'  => expect 1
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test "$rc" = 7 || test "$rc" = 28; }  => expect 000
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/ 2>/dev/null || { rc=$?; test "$rc" = 7 || test "$rc" = 28; }  => expect 000
+client_1  ping -n -c1 -W1 192.168.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+
+[GROUND-TRUTH]
+Fault location: client_1.
+Fault components: (1) its default gateway is the unused 192.168.1.254 instead of
+192.168.1.1; (2) its OUTPUT chain drops TCP to 10.0.1.80:8080 under the unique
+soft3888-nika92-compound tag. Both faults are independently sufficient to block
+the frontend. Gateway-only repair restores direct backend access but not the
+frontend; filter-only repair leaves off-subnet routing broken. Other clients
+and the application's backend services are healthy. Complete repair requires
+both actions. The procedure verifies each partial repair and both repair orders.
+
+[FIX]
+On client_1:
+set -eu
+ip route replace default via 192.168.1.1 dev eth0
+if iptables-legacy -C OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP 2>/dev/null; then iptables-legacy -D OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP; fi
+Remove only the tagged experimental rule; do not flush unrelated firewall state.
+
+[RECOVERY]
+device: client_1
+action: restore the gateway and remove the tagged rule
+cmd: |
+  set -eu
+  ip route replace default via 192.168.1.1 dev eth0
+  if iptables-legacy -C OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP 2>/dev/null; then iptables-legacy -D OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP; fi
+
+[RECOVERY-CHECK]
+client_1  ip route show default | awk '{print $3}'  => expect equals: 192.168.1.1
+client_1  rules=$(iptables-legacy -S OUTPUT) && printf '%s\n' "$rules" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'  => expect 0
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/  => expect 200
+client_1  ping -n -c1 -W1 192.168.1.1  => expect 0% loss
+client_2  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+
+[DIAGNOSTIC-PROCESS]
+Compare local gateway, direct backend and frontend access with an unaffected
+client. Inspect the default route and tagged OUTPUT rule. Verify the second
+fault remains after repairing the first, then confirm complete recovery.
+
+[SCORING-AXES]
+assert-identifies: client_1
+must-identify-device: client_1
+must-identify-component: both the wrong default gateway and frontend-specific TCP DROP
+must-identify-mechanism: two independent host-local faults; one repair alone is insufficient
+bonus-partial-repair: explains both partial-recovery states
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Optional compound scenario adapting the repository's Kath3 partial-repair method.

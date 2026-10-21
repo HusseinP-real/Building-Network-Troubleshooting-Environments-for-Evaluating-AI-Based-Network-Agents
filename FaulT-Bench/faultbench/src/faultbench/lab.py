@@ -9,15 +9,16 @@ auto-generated name the MCP servers cannot discover.
 from __future__ import annotations
 
 import os
-import subprocess
-import time
+import shutil
+import re
+from contextlib import closing
 from pathlib import Path
 
 from func_timeout import FunctionTimedOut, func_timeout
 from Kathara.manager.Kathara import Kathara
 from Kathara.parser.netkit.LabParser import LabParser
 
-from .paths import KATH_BASE
+from .paths import KATH_BASE, SADE_REPO
 
 
 def lab_dir(topology: str) -> Path:
@@ -32,6 +33,7 @@ def _is_nika_topology(topology: str) -> bool:
     lab.conf dir, so they take a different deploy path. Imported lazily so the
     pipeline still runs Kath-only without nika installed.
     """
+    os.environ.setdefault("BASE_DIR", str(SADE_REPO))
     try:
         from nika.net_env.net_env_pool import list_all_net_envs
         return topology in list_all_net_envs()
@@ -41,6 +43,15 @@ def _is_nika_topology(topology: str) -> bool:
 
 def _kathara() -> Kathara:
     return Kathara.get_instance()
+
+
+def check_storage_budget(lab):
+    import docker
+    with closing(docker.from_env()) as client:
+        size=sum(client.images.get(m.get_image()).attrs['Size'] for m in lab.machines.values())
+        free=shutil.disk_usage(KATH_BASE).free
+        if client.info()['Driver']=='vfs' and size*3>free:
+            raise RuntimeError(f'Insufficient vfs disk budget: device image sum {size} bytes, free {free}. Prepare verified shared source images with tools/prepare_soft3888_runtime.py --image IMAGE, or use an overlay-backed host.')
 
 
 def lstart(topology: str) -> int:
@@ -56,11 +67,35 @@ def lstart(topology: str) -> int:
     cwd = lab_dir(topology)
     if not cwd.exists():
         raise FileNotFoundError(f"Topology {topology} not found at {cwd}")
-    lclean(topology)
+    from Kathara.setting.Setting import Setting
+    Setting.get_instance().open_terminals = False
     lab = LabParser().parse(str(cwd))
     lab.name = topology
-    _kathara().deploy_lab(lab)
+    lab.general_options.update({"open_terminals": False, "hosthome_mount": False, "shared_mount": False})
+    from .runtime import prepare_lab_runtime
+    prepare_lab_runtime(lab)
+    check_storage_budget(lab)
+    lclean(topology)
+    old_umask = os.umask(0o022)
+    try:
+        _kathara().deploy_lab(lab)
+    finally:
+        os.umask(old_umask)
     return len(lab.machines)
+
+
+def prepare_nika_startup_runtime(lab):
+    """Adapt service startup in the generated in-memory Lab; preserve reference files."""
+    overrides=[]
+    for path in lab.fs.walk.files('/'):
+        if not path.endswith('.startup'):continue
+        text=lab.fs.readtext(path)
+        updated=re.sub(r'(?m)^([ \t]*)systemctl\s+start\s+frr[ \t]*$',r'\1/etc/init.d/frr start\n\1vtysh -b',text)
+        updated=re.sub(r'(?m)^([ \t]*)systemctl\s+start\s+named[ \t]*$',r'\1/etc/init.d/named start',updated)
+        if updated!=text:
+            lab.fs.writetext(path,updated)
+            overrides.append(dict(path=path,change='Use init.d for declared FRR/named startup; replay FRR configuration with vtysh -b',protocol_configuration_changed=False))
+    return overrides
 
 
 def _lstart_nika(topology: str) -> int:
@@ -71,140 +106,80 @@ def _lstart_nika(topology: str) -> int:
     agents, teardown) then works by lab_name exactly like a Kath lab.
     """
     from nika.net_env.net_env_pool import get_net_env_instance
-    lclean(topology)
     env = get_net_env_instance(topology)
-    _kathara().deploy_lab(lab=env.lab)
+    prepare_nika_startup_runtime(env.lab)
+    env.lab.general_options.update(open_terminals=False,hosthome_mount=False,shared_mount=False)
+    from Kathara.setting.Setting import Setting
+    settings=Setting.get_instance()
+    settings.open_terminals=False
+    settings.hosthome_mount=False
+    settings.shared_mount=False
+    from .runtime import prepare_lab_runtime
+    prepare_lab_runtime(env.lab)
+    check_storage_budget(env.lab)
+    lclean(topology)
+    previous_umask=os.umask(0o022)
+    try:
+        _kathara().deploy_lab(lab=env.lab)
+    finally:
+        os.umask(previous_umask)
     return len(env.lab.machines)
 
 
-def kathara_container_count() -> int:
-    """Count running Kathara lab containers (pipeline runs one lab at a time)."""
-    try:
-        out = subprocess.run(
-            ["docker", "ps", "-q", "--filter", "name=kathara_"],
-            check=False, timeout=15,
-            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True,
-        ).stdout
-        return len([ln for ln in out.splitlines() if ln.strip()])
-    except Exception:
-        return -1
+def _lab_filters(topology: str) -> dict:
+    from Kathara import utils
+    return {"label": ["app=kathara", "lab_hash=" + utils.generate_urlsafe_hash(topology),
+                      "user=" + utils.get_current_user_name()]}
 
 
-def prune_kathara_networks() -> int:
-    """Remove orphan kathara_ collision-domain networks left after teardown.
-
-    Kathara's undeploy can leave collision-domain networks behind; across a long
-    sweep (hundreds of deploy/teardown cycles) these accumulate and exhaust
-    Docker's default address pool, wedging the daemon (new containers stick in
-    'Created' and never start). Pruning ONLY kathara_-named, currently-unused
-    networks after each teardown keeps the pool clear. Best-effort; swallows
-    errors and never touches non-kathara or in-use networks. Returns the number
-    of networks pruned (-1 if Docker could not be queried).
-    """
-    try:
-        ids = subprocess.run(
-            ["docker", "network", "ls", "--filter", "name=kathara", "-q"],
-            check=False, timeout=30, stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL, text=True,
-        ).stdout.split()
-        if ids:
-            subprocess.run(["docker", "network", "rm", *ids], check=False,
-                           timeout=90, stdout=subprocess.DEVNULL,
-                           stderr=subprocess.DEVNULL)
-        return len(ids)
-    except Exception:
-        return -1
+def kathara_container_count(topology: str) -> int:
+    """Count only running containers in the named lab, never other experiments."""
+    import docker
+    with closing(docker.from_env()) as client:
+        return len(client.containers.list(filters=_lab_filters(topology)))
 
 
 def lclean(topology: str, timeout: int = 300) -> None:
-    """Tear down a Kathara lab by name. Belt-and-suspenders with CLI fallback."""
-    try:
-        _kathara().undeploy_lab(lab_name=topology)
-    except Exception:
-        pass
-    # CLI fallback for any orphaned containers
-    try:
-        subprocess.run(
-            ["kathara", "lclean"], cwd=lab_dir(topology),
-            check=False, timeout=timeout,
-            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        )
-    except Exception:
-        pass
-    # Wait until Docker has actually removed the lab's containers before
-    # returning, so a subsequent lstart deploys into a CLEAN state. Rapid
-    # deploy/undeploy cycles (e.g. a multi-scenario bench) otherwise leave a
-    # degraded Docker network state that stalls OSPF convergence on the next
-    # lab — a fresh single lab converges in ~60s, a churned one may never.
-    _wait_docker_clean()
-    prune_kathara_networks()
-
-
-def _wait_docker_clean(timeout: int = 90, settle: int = 4) -> None:
-    """Poll until no `kathara_` containers remain, then a brief settle."""
-    deadline = time.time() + timeout
-    while time.time() < deadline:
+    """Undeploy only this lab, including leftovers from a partial deployment."""
+    import docker
+    filters = _lab_filters(topology)
+    with closing(docker.from_env(timeout=timeout)) as client:
+        containers = client.containers.list(all=True, filters=filters)
+        networks = client.networks.list(filters=filters)
+        if not containers and not networks:
+            return
         try:
-            left = subprocess.run(
-                ["docker", "ps", "-q", "--filter", "name=kathara_"],
-                check=False, timeout=15,
-                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True,
-            ).stdout.strip()
+            _kathara().undeploy_lab(lab_name=topology)
         except Exception:
-            left = ""
-        if not left:
-            break
-        time.sleep(2)
-    time.sleep(settle)
+            # Only resources with the exact lab hash and user are eligible.
+            for container in client.containers.list(all=True, filters=filters):
+                container.remove(force=True)
+        for network in client.networks.list(filters=filters):
+            network.reload()
+            if network.attrs.get("Containers"):
+                raise RuntimeError(f"Refusing to remove occupied lab network {network.id}")
+            network.remove()
+        if client.containers.list(all=True, filters=filters) or client.networks.list(filters=filters):
+            raise RuntimeError(f"Lab cleanup incomplete: {topology}")
 
 
 def kathara_exec(topology: str, device: str, command: str,
                  timeout: int = 30) -> tuple[int, str]:
-    """Run a shell command inside a lab device. Returns (exit_code, stdout+stderr).
+    """Use Kathara's non-streaming (stdout, stderr, exit_code) API contract.
 
-    Mirrors NIKA's `_run_cmd` pattern (see SADE-NetworkAgent/src/nika/service/
-    kathara/base_api.py). The Python API's `exec()` returns a generator
-    yielding items (bytes / str / int / None) — we collect non-empty
-    decoded strings and concatenate.
+    Never retry a potentially mutating command after an ambiguous API failure.
     """
-    def _exec_collect() -> tuple[int, str]:
-        instance = _kathara()
-        # MachineNotFoundError if device doesn't exist in the lab
-        wrapped = "/bin/bash -c '{}'".format(
-            command.replace("'", "'\\''")
-        )
-        out_parts: list[str] = []
-        for item in instance.exec(
-            machine_name=device, command=wrapped,
+    def collect() -> tuple[int, str]:
+        stdout, stderr, rc = _kathara().exec(
+            machine_name=device, command=["/bin/sh", "-c", command],
             lab_name=topology, stream=False,
-        ):
-            if not item or isinstance(item, int) or item == b"" or item == "None":
-                continue
-            if isinstance(item, bytes):
-                out_parts.append(item.decode("utf-8", errors="replace"))
-            else:
-                out_parts.append(str(item))
-        return 0, "".join(out_parts).strip()
-
+        )
+        def decode(value):
+            return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else (value or "")
+        return int(rc), (decode(stdout) + decode(stderr)).strip()
     try:
-        # The Kathara Python API's exec() generator blocks indefinitely on a
-        # command that never returns (e.g. `tcpdump -c N` on a quiet link, or
-        # an interactive prompt), so bound it with func_timeout (the same
-        # mechanism SADE's base_api uses).
-        return func_timeout(timeout, _exec_collect)
+        return func_timeout(timeout, collect)
     except FunctionTimedOut:
         return 124, f"[TIMEOUT] command exceeded {timeout}s on {device}"
     except Exception as exc:
-        # CLI fallback (rare — only when Python API breaks)
-        env = os.environ.copy()
-        env["MSYS_NO_PATHCONV"] = "1"
-        try:
-            proc = subprocess.run(
-                ["kathara", "exec", device, "--", "sh", "-c", command],
-                cwd=lab_dir(topology), env=env, timeout=timeout,
-                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                text=True, errors="replace",
-            )
-            return proc.returncode, proc.stdout or ""
-        except Exception as exc2:
-            return 1, f"[exec error] {type(exc).__name__}: {exc} | fallback: {exc2}"
+        return 125, f"[exec error] {type(exc).__name__}: {exc}"
