@@ -1,0 +1,21 @@
+{
+  "scenario_id": "kairos_wrong_default_gateway",
+  "tickets": [
+    {
+      "type": "general_user",
+      "text": "I can access devices on my local network, but I cannot reach services on other networks."
+    },
+    {
+      "type": "technical_user",
+      "text": "Laptop0 can reach its local router, but remote network connectivity is unavailable."
+    },
+    {
+      "type": "vague",
+      "text": "The network on my laptop seems broken."
+    },
+    {
+      "type": "misleading",
+      "text": "I think the router or upstream network may be down because I cannot reach remote services."
+    }
+  ]
+}

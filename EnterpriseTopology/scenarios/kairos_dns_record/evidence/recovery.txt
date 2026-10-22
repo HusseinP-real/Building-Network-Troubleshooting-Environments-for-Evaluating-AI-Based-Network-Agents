@@ -1,0 +1,229 @@
+=== RECOVERY PHASE ===
+10.30.10.10     STREAM app.enterprise.test
+10.30.10.10     DGRAM  
+10.30.10.10     RAW
+http://app.enterprise.test/: HTTP status: 200
+PASS r1: startup
+PASS r2: startup
+PASS r3: startup
+PASS r4: startup
+PASS r5: startup
+PASS r6: startup
+PASS r7: startup
+PASS r8: startup
+PASS r9: startup
+PASS r10: startup
+PASS s1: startup
+PASS s2: startup
+PASS s3: startup
+PASS s4: startup
+PASS s5: startup
+PASS s6: startup
+PASS s7: startup
+PASS s8: startup
+PASS s9: startup
+PASS s10: startup
+PASS s11: startup
+PASS s12: startup
+PASS s13: startup
+PASS s14: startup
+PASS s15: startup
+PASS s16: startup
+PASS s17: startup
+PASS s18: startup
+PASS s19: startup
+PASS s20: startup
+PASS s21: startup
+PASS s22: startup
+PASS s23: startup
+PASS s24: startup
+PASS s25: startup
+PASS staff: startup
+PASS guest: startup
+PASS office: startup
+PASS engineering: startup
+PASS app: startup
+PASS database: startup
+PASS dmz: startup
+PASS infra: startup
+PASS ops: startup
+PASS staff01: startup
+PASS staff02: startup
+PASS staff03: startup
+PASS staff04: startup
+PASS staff05: startup
+PASS staff06: startup
+PASS guest01: startup
+PASS guest02: startup
+PASS guest03: startup
+PASS guest04: startup
+PASS guest05: startup
+PASS office01: startup
+PASS office02: startup
+PASS office03: startup
+PASS office04: startup
+PASS office05: startup
+PASS engineering01: startup
+PASS engineering02: startup
+PASS engineering03: startup
+PASS engineering04: startup
+PASS engineering05: startup
+PASS app_client01: startup
+PASS app_client02: startup
+PASS app_client03: startup
+PASS app_client04: startup
+PASS app_client05: startup
+PASS db_client01: startup
+PASS db_client02: startup
+PASS db_client03: startup
+PASS db_client04: startup
+PASS db_client05: startup
+PASS r1: all OSPF neighbors Full
+PASS r2: all OSPF neighbors Full
+PASS r3: all OSPF neighbors Full
+PASS r4: all OSPF neighbors Full
+PASS r5: all OSPF neighbors Full
+PASS r6: all OSPF neighbors Full
+PASS r7: all OSPF neighbors Full
+PASS r8: all OSPF neighbors Full
+PASS r9: all OSPF neighbors Full
+PASS r10: all OSPF neighbors Full
+PASS s1: VLAN-aware STP bridge
+PASS s2: VLAN-aware STP bridge
+PASS s3: VLAN-aware STP bridge
+PASS s4: VLAN-aware STP bridge
+PASS s5: VLAN-aware STP bridge
+PASS s6: VLAN-aware STP bridge
+PASS s7: VLAN-aware STP bridge
+PASS s8: VLAN-aware STP bridge
+PASS s9: VLAN-aware STP bridge
+PASS s10: VLAN-aware STP bridge
+PASS s11: VLAN-aware STP bridge
+PASS s12: VLAN-aware STP bridge
+PASS s13: VLAN-aware STP bridge
+PASS s14: VLAN-aware STP bridge
+PASS s15: VLAN-aware STP bridge
+PASS s16: VLAN-aware STP bridge
+PASS s17: VLAN-aware STP bridge
+PASS s18: VLAN-aware STP bridge
+PASS s19: VLAN-aware STP bridge
+PASS s20: VLAN-aware STP bridge
+PASS s21: VLAN-aware STP bridge
+PASS s22: VLAN-aware STP bridge
+PASS s23: VLAN-aware STP bridge
+PASS s24: VLAN-aware STP bridge
+PASS s25: VLAN-aware STP bridge
+PASS staff: DHCP lease
+PASS staff: DNS answer
+PASS guest: DHCP lease
+PASS guest: DNS answer
+PASS office: DHCP lease
+PASS office: DNS answer
+PASS engineering: DHCP lease
+PASS engineering: DNS answer
+PASS staff01: configured address
+PASS staff01: VLAN gateway reachable
+PASS staff02: configured address
+PASS staff02: VLAN gateway reachable
+PASS staff03: configured address
+PASS staff03: VLAN gateway reachable
+PASS staff04: configured address
+PASS staff04: VLAN gateway reachable
+PASS staff05: configured address
+PASS staff05: VLAN gateway reachable
+PASS staff06: configured address
+PASS staff06: VLAN gateway reachable
+PASS guest01: configured address
+PASS guest01: VLAN gateway reachable
+PASS guest02: configured address
+PASS guest02: VLAN gateway reachable
+PASS guest03: configured address
+PASS guest03: VLAN gateway reachable
+PASS guest04: configured address
+PASS guest04: VLAN gateway reachable
+PASS guest05: configured address
+PASS guest05: VLAN gateway reachable
+PASS office01: configured address
+PASS office01: VLAN gateway reachable
+PASS office02: configured address
+PASS office02: VLAN gateway reachable
+PASS office03: configured address
+PASS office03: VLAN gateway reachable
+PASS office04: configured address
+PASS office04: VLAN gateway reachable
+PASS office05: configured address
+PASS office05: VLAN gateway reachable
+PASS engineering01: configured address
+PASS engineering01: VLAN gateway reachable
+PASS engineering02: configured address
+PASS engineering02: VLAN gateway reachable
+PASS engineering03: configured address
+PASS engineering03: VLAN gateway reachable
+PASS engineering04: configured address
+PASS engineering04: VLAN gateway reachable
+PASS engineering05: configured address
+PASS engineering05: VLAN gateway reachable
+PASS app_client01: configured address
+PASS app_client01: VLAN gateway reachable
+PASS app_client02: configured address
+PASS app_client02: VLAN gateway reachable
+PASS app_client03: configured address
+PASS app_client03: VLAN gateway reachable
+PASS app_client04: configured address
+PASS app_client04: VLAN gateway reachable
+PASS app_client05: configured address
+PASS app_client05: VLAN gateway reachable
+PASS db_client01: configured address
+PASS db_client01: VLAN gateway reachable
+PASS db_client02: configured address
+PASS db_client02: VLAN gateway reachable
+PASS db_client03: configured address
+PASS db_client03: VLAN gateway reachable
+PASS db_client04: configured address
+PASS db_client04: VLAN gateway reachable
+PASS db_client05: configured address
+PASS db_client05: VLAN gateway reachable
+PASS staff: application HTTP
+PASS office: application HTTP
+PASS engineering: application HTTP
+PASS ops: application HTTP
+PASS guest: DMZ allowed
+PASS guest: internal application denied
+PASS office: direct database denied
+PASS application: database allowed
+PASS ops: database allowed
+PASS ops: all router loopbacks reachable
+PASS r3: VRRP process
+PASS r4: VRRP process
+PASS r3: virtual gateway ownership
+PASS r4: virtual gateway ownership
+PASS r5: VRRP process
+PASS r6: VRRP process
+PASS r5: virtual gateway ownership
+PASS r6: virtual gateway ownership
+PASS r7: VRRP process
+PASS r8: VRRP process
+PASS r7: virtual gateway ownership
+PASS r8: virtual gateway ownership
+PASS r9: VRRP process
+PASS r10: VRRP process
+PASS r9: virtual gateway ownership
+PASS r10: virtual gateway ownership
+PASS s3: redundant STP port blocked
+PASS s4: redundant STP port blocked
+PASS s7: redundant STP port blocked
+PASS s8: redundant STP port blocked
+PASS s11: redundant STP port blocked
+PASS s12: redundant STP port blocked
+PASS s16: redundant STP port blocked
+PASS s17: redundant STP port blocked
+PASS s18: redundant STP port blocked
+PASS s19: redundant STP port blocked
+PASS s20: redundant STP port blocked
+PASS s21: redundant STP port blocked
+PASS s22: redundant STP port blocked
+PASS s23: redundant STP port blocked
+PASS s24: redundant STP port blocked
+PASS s25: redundant STP port blocked
+222/222 checks passed
+RECOVERY: PASS

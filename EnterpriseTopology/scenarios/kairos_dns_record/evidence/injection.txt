@@ -1,0 +1,3 @@
+Injecting DNS record misconfiguration...
+
+DNS fault injection completed.

@@ -1,0 +1,21 @@
+{
+  "scenario_id": "kairos_dns_record_misconfiguration",
+  "tickets": [
+    {
+      "type": "general_user",
+      "text": "I cannot open our company's internal application website. It was working earlier, but now the page does not load. Other websites seem to work normally."
+    },
+    {
+      "type": "technical_user",
+      "text": "Users in the office network cannot access http://app.enterprise.test/. However, accessing the application directly through 10.30.10.10 returns HTTP 200."
+    },
+    {
+      "type": "vague",
+      "text": "The company application is not working. Can someone check what is wrong?"
+    },
+    {
+      "type": "misleading",
+      "text": "I think the application server may have crashed or a recent deployment broke the website. The application URL keeps failing."
+    }
+  ]
+}

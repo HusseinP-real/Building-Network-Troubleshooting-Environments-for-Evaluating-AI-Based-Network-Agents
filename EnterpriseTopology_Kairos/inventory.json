@@ -1,0 +1,4499 @@
+{
+  "base_image": "enterprise-topology:base",
+  "nodes": {
+    "r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "link": "wire01",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.0/30",
+          "address": "10.255.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r3",
+          "link": "wire02",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.4/30",
+          "address": "10.255.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r4",
+          "link": "wire04",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.12/30",
+          "address": "10.255.0.13/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "r5",
+          "link": "wire07",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.24/30",
+          "address": "10.255.0.25/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "r7",
+          "link": "wire09",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.32/30",
+          "address": "10.255.0.33/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "r9",
+          "link": "wire11",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.40/30",
+          "address": "10.255.0.41/30"
+        },
+        {
+          "interface": "eth6",
+          "peer": "r6",
+          "link": "wire14",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.52/30",
+          "address": "10.255.0.53/30"
+        },
+        {
+          "interface": "eth7",
+          "peer": "r8",
+          "link": "wire16",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.60/30",
+          "address": "10.255.0.61/30"
+        },
+        {
+          "interface": "eth8",
+          "peer": "r10",
+          "link": "wire18",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.68/30",
+          "address": "10.255.0.69/30"
+        }
+      ],
+      "image": "enterprise-topology:r1"
+    },
+    "r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "link": "wire01",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.0/30",
+          "address": "10.255.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r4",
+          "link": "wire03",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.8/30",
+          "address": "10.255.0.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r3",
+          "link": "wire05",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.16/30",
+          "address": "10.255.0.17/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "r6",
+          "link": "wire08",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.28/30",
+          "address": "10.255.0.29/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "r8",
+          "link": "wire10",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.36/30",
+          "address": "10.255.0.37/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "r10",
+          "link": "wire12",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.44/30",
+          "address": "10.255.0.45/30"
+        },
+        {
+          "interface": "eth6",
+          "peer": "r5",
+          "link": "wire13",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.48/30",
+          "address": "10.255.0.49/30"
+        },
+        {
+          "interface": "eth7",
+          "peer": "r7",
+          "link": "wire15",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.56/30",
+          "address": "10.255.0.57/30"
+        },
+        {
+          "interface": "eth8",
+          "peer": "r9",
+          "link": "wire17",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.64/30",
+          "address": "10.255.0.65/30"
+        }
+      ],
+      "image": "enterprise-topology:r2"
+    },
+    "r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "link": "wire02",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.4/30",
+          "address": "10.255.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r2",
+          "link": "wire05",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.16/30",
+          "address": "10.255.0.18/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r4",
+          "link": "wire06",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.20/30",
+          "address": "10.255.0.21/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s13",
+          "link": "wire63",
+          "kind": "trunk",
+          "vlans": [
+            410
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s14",
+          "link": "wire65",
+          "kind": "trunk",
+          "vlans": [
+            420
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s15",
+          "link": "wire67",
+          "kind": "trunk",
+          "vlans": [
+            430
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r3"
+    },
+    "r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "link": "wire03",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.8/30",
+          "address": "10.255.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r1",
+          "link": "wire04",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.12/30",
+          "address": "10.255.0.14/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r3",
+          "link": "wire06",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.20/30",
+          "address": "10.255.0.22/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s13",
+          "link": "wire64",
+          "kind": "trunk",
+          "vlans": [
+            410
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s14",
+          "link": "wire66",
+          "kind": "trunk",
+          "vlans": [
+            420
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s15",
+          "link": "wire68",
+          "kind": "trunk",
+          "vlans": [
+            430
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r4"
+    },
+    "r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "link": "wire07",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.24/30",
+          "address": "10.255.0.26/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r2",
+          "link": "wire13",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.48/30",
+          "address": "10.255.0.50/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r6",
+          "link": "wire19",
+          "kind": "routed",
+          "area": 10,
+          "subnet": "10.255.0.72/30",
+          "address": "10.255.0.73/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s1",
+          "link": "wire22",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r5"
+    },
+    "r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "link": "wire08",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.28/30",
+          "address": "10.255.0.30/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r1",
+          "link": "wire14",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.52/30",
+          "address": "10.255.0.54/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r5",
+          "link": "wire19",
+          "kind": "routed",
+          "area": 10,
+          "subnet": "10.255.0.72/30",
+          "address": "10.255.0.74/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s2",
+          "link": "wire23",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r6"
+    },
+    "r7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "link": "wire09",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.32/30",
+          "address": "10.255.0.34/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r2",
+          "link": "wire15",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.56/30",
+          "address": "10.255.0.58/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r8",
+          "link": "wire20",
+          "kind": "routed",
+          "area": 20,
+          "subnet": "10.255.0.76/30",
+          "address": "10.255.0.77/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s5",
+          "link": "wire29",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r7"
+    },
+    "r8": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "link": "wire10",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.36/30",
+          "address": "10.255.0.38/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r1",
+          "link": "wire16",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.60/30",
+          "address": "10.255.0.62/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r7",
+          "link": "wire20",
+          "kind": "routed",
+          "area": 20,
+          "subnet": "10.255.0.76/30",
+          "address": "10.255.0.78/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s6",
+          "link": "wire30",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r8"
+    },
+    "r9": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "link": "wire11",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.40/30",
+          "address": "10.255.0.42/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r2",
+          "link": "wire17",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.64/30",
+          "address": "10.255.0.66/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r10",
+          "link": "wire21",
+          "kind": "routed",
+          "area": 30,
+          "subnet": "10.255.0.80/30",
+          "address": "10.255.0.81/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s9",
+          "link": "wire36",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r9"
+    },
+    "r10": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "link": "wire12",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.44/30",
+          "address": "10.255.0.46/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r1",
+          "link": "wire18",
+          "kind": "routed",
+          "area": 0,
+          "subnet": "10.255.0.68/30",
+          "address": "10.255.0.70/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r9",
+          "link": "wire21",
+          "kind": "routed",
+          "area": 30,
+          "subnet": "10.255.0.80/30",
+          "address": "10.255.0.82/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "s10",
+          "link": "wire37",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:r10"
+    },
+    "s1": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r5",
+          "link": "wire22",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire24",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s3",
+          "link": "wire25",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s4",
+          "link": "wire27",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s16",
+          "link": "wire43",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s17",
+          "link": "wire45",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s18",
+          "link": "wire47",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth7",
+          "peer": "s19",
+          "link": "wire49",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s1"
+    },
+    "s2": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r6",
+          "link": "wire23",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s1",
+          "link": "wire24",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s3",
+          "link": "wire26",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s4",
+          "link": "wire28",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s16",
+          "link": "wire44",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s17",
+          "link": "wire46",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s18",
+          "link": "wire48",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth7",
+          "peer": "s19",
+          "link": "wire50",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s2"
+    },
+    "s3": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire25",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire26",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "staff",
+          "link": "wire69",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s3"
+    },
+    "s4": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire27",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire28",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "guest",
+          "link": "wire70",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s4"
+    },
+    "s5": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r7",
+          "link": "wire29",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire31",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s7",
+          "link": "wire32",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s8",
+          "link": "wire34",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s20",
+          "link": "wire51",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s21",
+          "link": "wire53",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s22",
+          "link": "wire55",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s5"
+    },
+    "s6": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r8",
+          "link": "wire30",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s5",
+          "link": "wire31",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s7",
+          "link": "wire33",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s8",
+          "link": "wire35",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s20",
+          "link": "wire52",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s21",
+          "link": "wire54",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s22",
+          "link": "wire56",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s6"
+    },
+    "s7": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s5",
+          "link": "wire32",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire33",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "office",
+          "link": "wire71",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s7"
+    },
+    "s8": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s5",
+          "link": "wire34",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire35",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "engineering",
+          "link": "wire72",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s8"
+    },
+    "s9": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r9",
+          "link": "wire36",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire38",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s11",
+          "link": "wire39",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s12",
+          "link": "wire41",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s23",
+          "link": "wire57",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s24",
+          "link": "wire59",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s25",
+          "link": "wire61",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s9"
+    },
+    "s10": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r10",
+          "link": "wire37",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s9",
+          "link": "wire38",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "s11",
+          "link": "wire40",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "s12",
+          "link": "wire42",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "s23",
+          "link": "wire58",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "s24",
+          "link": "wire60",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth6",
+          "peer": "s25",
+          "link": "wire62",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s10"
+    },
+    "s11": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s9",
+          "link": "wire39",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire40",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "app",
+          "link": "wire73",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s11"
+    },
+    "s12": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s9",
+          "link": "wire41",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire42",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "database",
+          "link": "wire74",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s12"
+    },
+    "s13": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "link": "wire63",
+          "kind": "trunk",
+          "vlans": [
+            410
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "r4",
+          "link": "wire64",
+          "kind": "trunk",
+          "vlans": [
+            410
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "dmz",
+          "link": "wire75",
+          "kind": "access",
+          "vlans": [
+            410
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s13"
+    },
+    "s14": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "link": "wire65",
+          "kind": "trunk",
+          "vlans": [
+            420
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "r4",
+          "link": "wire66",
+          "kind": "trunk",
+          "vlans": [
+            420
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "infra",
+          "link": "wire76",
+          "kind": "access",
+          "vlans": [
+            420
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s14"
+    },
+    "s15": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "link": "wire67",
+          "kind": "trunk",
+          "vlans": [
+            430
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "r4",
+          "link": "wire68",
+          "kind": "trunk",
+          "vlans": [
+            430
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "ops",
+          "link": "wire77",
+          "kind": "access",
+          "vlans": [
+            430
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s15"
+    },
+    "s16": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire43",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire44",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "staff01",
+          "link": "wire78",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "staff05",
+          "link": "wire82",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "guest01",
+          "link": "wire84",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "guest05",
+          "link": "wire88",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s16"
+    },
+    "s17": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire45",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire46",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "staff02",
+          "link": "wire79",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "staff06",
+          "link": "wire83",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "guest02",
+          "link": "wire85",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s17"
+    },
+    "s18": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire47",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire48",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "staff03",
+          "link": "wire80",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "guest03",
+          "link": "wire86",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s18"
+    },
+    "s19": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s1",
+          "link": "wire49",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s2",
+          "link": "wire50",
+          "kind": "trunk",
+          "vlans": [
+            110,
+            120
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "staff04",
+          "link": "wire81",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "guest04",
+          "link": "wire87",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s19"
+    },
+    "s20": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s5",
+          "link": "wire51",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire52",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "office01",
+          "link": "wire89",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "office04",
+          "link": "wire92",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "engineering01",
+          "link": "wire94",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "engineering04",
+          "link": "wire97",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s20"
+    },
+    "s21": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s5",
+          "link": "wire53",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire54",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "office02",
+          "link": "wire90",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "office05",
+          "link": "wire93",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "engineering02",
+          "link": "wire95",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "engineering05",
+          "link": "wire98",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s21"
+    },
+    "s22": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s5",
+          "link": "wire55",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s6",
+          "link": "wire56",
+          "kind": "trunk",
+          "vlans": [
+            210,
+            220
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "office03",
+          "link": "wire91",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "engineering03",
+          "link": "wire96",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s22"
+    },
+    "s23": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s9",
+          "link": "wire57",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire58",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "app_client01",
+          "link": "wire99",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "app_client04",
+          "link": "wire102",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "db_client01",
+          "link": "wire104",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "db_client04",
+          "link": "wire107",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s23"
+    },
+    "s24": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s9",
+          "link": "wire59",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire60",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "app_client02",
+          "link": "wire100",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "app_client05",
+          "link": "wire103",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        },
+        {
+          "interface": "eth4",
+          "peer": "db_client02",
+          "link": "wire105",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        },
+        {
+          "interface": "eth5",
+          "peer": "db_client05",
+          "link": "wire108",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s24"
+    },
+    "s25": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s9",
+          "link": "wire61",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth1",
+          "peer": "s10",
+          "link": "wire62",
+          "kind": "trunk",
+          "vlans": [
+            310,
+            320
+          ]
+        },
+        {
+          "interface": "eth2",
+          "peer": "app_client03",
+          "link": "wire101",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        },
+        {
+          "interface": "eth3",
+          "peer": "db_client03",
+          "link": "wire106",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "image": "enterprise-topology:s25"
+    },
+    "staff": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s3",
+          "link": "wire69",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.10/24",
+      "gateway": "10.10.10.1",
+      "dhcp": true,
+      "image": "enterprise-topology:staff"
+    },
+    "guest": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s4",
+          "link": "wire70",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.10/24",
+      "gateway": "10.10.20.1",
+      "dhcp": true,
+      "image": "enterprise-topology:guest"
+    },
+    "office": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s7",
+          "link": "wire71",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.10/24",
+      "gateway": "10.20.10.1",
+      "dhcp": true,
+      "image": "enterprise-topology:office"
+    },
+    "engineering": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s8",
+          "link": "wire72",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.10/24",
+      "gateway": "10.20.20.1",
+      "dhcp": true,
+      "image": "enterprise-topology:engineering"
+    },
+    "app": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s11",
+          "link": "wire73",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.10/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app"
+    },
+    "database": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s12",
+          "link": "wire74",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.10/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:database"
+    },
+    "dmz": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s13",
+          "link": "wire75",
+          "kind": "access",
+          "vlans": [
+            410
+          ]
+        }
+      ],
+      "vlan": 410,
+      "address": "10.40.10.10/24",
+      "gateway": "10.40.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:dmz"
+    },
+    "infra": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s14",
+          "link": "wire76",
+          "kind": "access",
+          "vlans": [
+            420
+          ]
+        }
+      ],
+      "vlan": 420,
+      "address": "10.40.20.10/24",
+      "gateway": "10.40.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:infra"
+    },
+    "ops": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s15",
+          "link": "wire77",
+          "kind": "access",
+          "vlans": [
+            430
+          ]
+        }
+      ],
+      "vlan": 430,
+      "address": "10.40.30.10/24",
+      "gateway": "10.40.30.1",
+      "dhcp": false,
+      "image": "enterprise-topology:ops"
+    },
+    "staff01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s16",
+          "link": "wire78",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.20/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff01"
+    },
+    "staff02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s17",
+          "link": "wire79",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.21/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff02"
+    },
+    "staff03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s18",
+          "link": "wire80",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.22/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff03"
+    },
+    "staff04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s19",
+          "link": "wire81",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.23/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff04"
+    },
+    "staff05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s16",
+          "link": "wire82",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.24/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff05"
+    },
+    "staff06": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s17",
+          "link": "wire83",
+          "kind": "access",
+          "vlans": [
+            110
+          ]
+        }
+      ],
+      "vlan": 110,
+      "address": "10.10.10.25/24",
+      "gateway": "10.10.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:staff06"
+    },
+    "guest01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s16",
+          "link": "wire84",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.20/24",
+      "gateway": "10.10.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:guest01"
+    },
+    "guest02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s17",
+          "link": "wire85",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.21/24",
+      "gateway": "10.10.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:guest02"
+    },
+    "guest03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s18",
+          "link": "wire86",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.22/24",
+      "gateway": "10.10.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:guest03"
+    },
+    "guest04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s19",
+          "link": "wire87",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.23/24",
+      "gateway": "10.10.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:guest04"
+    },
+    "guest05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s16",
+          "link": "wire88",
+          "kind": "access",
+          "vlans": [
+            120
+          ]
+        }
+      ],
+      "vlan": 120,
+      "address": "10.10.20.24/24",
+      "gateway": "10.10.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:guest05"
+    },
+    "office01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s20",
+          "link": "wire89",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.20/24",
+      "gateway": "10.20.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:office01"
+    },
+    "office02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s21",
+          "link": "wire90",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.21/24",
+      "gateway": "10.20.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:office02"
+    },
+    "office03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s22",
+          "link": "wire91",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.22/24",
+      "gateway": "10.20.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:office03"
+    },
+    "office04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s20",
+          "link": "wire92",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.23/24",
+      "gateway": "10.20.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:office04"
+    },
+    "office05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s21",
+          "link": "wire93",
+          "kind": "access",
+          "vlans": [
+            210
+          ]
+        }
+      ],
+      "vlan": 210,
+      "address": "10.20.10.24/24",
+      "gateway": "10.20.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:office05"
+    },
+    "engineering01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s20",
+          "link": "wire94",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.20/24",
+      "gateway": "10.20.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:engineering01"
+    },
+    "engineering02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s21",
+          "link": "wire95",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.21/24",
+      "gateway": "10.20.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:engineering02"
+    },
+    "engineering03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s22",
+          "link": "wire96",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.22/24",
+      "gateway": "10.20.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:engineering03"
+    },
+    "engineering04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s20",
+          "link": "wire97",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.23/24",
+      "gateway": "10.20.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:engineering04"
+    },
+    "engineering05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s21",
+          "link": "wire98",
+          "kind": "access",
+          "vlans": [
+            220
+          ]
+        }
+      ],
+      "vlan": 220,
+      "address": "10.20.20.24/24",
+      "gateway": "10.20.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:engineering05"
+    },
+    "app_client01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s23",
+          "link": "wire99",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.20/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app_client01"
+    },
+    "app_client02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s24",
+          "link": "wire100",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.21/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app_client02"
+    },
+    "app_client03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s25",
+          "link": "wire101",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.22/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app_client03"
+    },
+    "app_client04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s23",
+          "link": "wire102",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.23/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app_client04"
+    },
+    "app_client05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s24",
+          "link": "wire103",
+          "kind": "access",
+          "vlans": [
+            310
+          ]
+        }
+      ],
+      "vlan": 310,
+      "address": "10.30.10.24/24",
+      "gateway": "10.30.10.1",
+      "dhcp": false,
+      "image": "enterprise-topology:app_client05"
+    },
+    "db_client01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s23",
+          "link": "wire104",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.20/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:db_client01"
+    },
+    "db_client02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s24",
+          "link": "wire105",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.21/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:db_client02"
+    },
+    "db_client03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s25",
+          "link": "wire106",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.22/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:db_client03"
+    },
+    "db_client04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s23",
+          "link": "wire107",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.23/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:db_client04"
+    },
+    "db_client05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "s24",
+          "link": "wire108",
+          "kind": "access",
+          "vlans": [
+            320
+          ]
+        }
+      ],
+      "vlan": 320,
+      "address": "10.30.20.24/24",
+      "gateway": "10.30.20.1",
+      "dhcp": false,
+      "image": "enterprise-topology:db_client05"
+    }
+  },
+  "links": [
+    {
+      "name": "wire01",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "r2",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.0/30"
+    },
+    {
+      "name": "wire02",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "r3",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.4/30"
+    },
+    {
+      "name": "wire03",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "r4",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.8/30"
+    },
+    {
+      "name": "wire04",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "r4",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.12/30"
+    },
+    {
+      "name": "wire05",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "r3",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.16/30"
+    },
+    {
+      "name": "wire06",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth2"
+        },
+        {
+          "node": "r4",
+          "interface": "eth2"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.20/30"
+    },
+    {
+      "name": "wire07",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth3"
+        },
+        {
+          "node": "r5",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.24/30"
+    },
+    {
+      "name": "wire08",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth3"
+        },
+        {
+          "node": "r6",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.28/30"
+    },
+    {
+      "name": "wire09",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth4"
+        },
+        {
+          "node": "r7",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.32/30"
+    },
+    {
+      "name": "wire10",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth4"
+        },
+        {
+          "node": "r8",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.36/30"
+    },
+    {
+      "name": "wire11",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth5"
+        },
+        {
+          "node": "r9",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.40/30"
+    },
+    {
+      "name": "wire12",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth5"
+        },
+        {
+          "node": "r10",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.44/30"
+    },
+    {
+      "name": "wire13",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth6"
+        },
+        {
+          "node": "r5",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.48/30"
+    },
+    {
+      "name": "wire14",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth6"
+        },
+        {
+          "node": "r6",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.52/30"
+    },
+    {
+      "name": "wire15",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth7"
+        },
+        {
+          "node": "r7",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.56/30"
+    },
+    {
+      "name": "wire16",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth7"
+        },
+        {
+          "node": "r8",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.60/30"
+    },
+    {
+      "name": "wire17",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth8"
+        },
+        {
+          "node": "r9",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.64/30"
+    },
+    {
+      "name": "wire18",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth8"
+        },
+        {
+          "node": "r10",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "routed",
+      "area": 0,
+      "subnet": "10.255.0.68/30"
+    },
+    {
+      "name": "wire19",
+      "endpoints": [
+        {
+          "node": "r5",
+          "interface": "eth2"
+        },
+        {
+          "node": "r6",
+          "interface": "eth2"
+        }
+      ],
+      "kind": "routed",
+      "area": 10,
+      "subnet": "10.255.0.72/30"
+    },
+    {
+      "name": "wire20",
+      "endpoints": [
+        {
+          "node": "r7",
+          "interface": "eth2"
+        },
+        {
+          "node": "r8",
+          "interface": "eth2"
+        }
+      ],
+      "kind": "routed",
+      "area": 20,
+      "subnet": "10.255.0.76/30"
+    },
+    {
+      "name": "wire21",
+      "endpoints": [
+        {
+          "node": "r9",
+          "interface": "eth2"
+        },
+        {
+          "node": "r10",
+          "interface": "eth2"
+        }
+      ],
+      "kind": "routed",
+      "area": 30,
+      "subnet": "10.255.0.80/30"
+    },
+    {
+      "name": "wire22",
+      "endpoints": [
+        {
+          "node": "r5",
+          "interface": "eth3"
+        },
+        {
+          "node": "s1",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire23",
+      "endpoints": [
+        {
+          "node": "r6",
+          "interface": "eth3"
+        },
+        {
+          "node": "s2",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire24",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth1"
+        },
+        {
+          "node": "s2",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire25",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth2"
+        },
+        {
+          "node": "s3",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire26",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth2"
+        },
+        {
+          "node": "s3",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire27",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth3"
+        },
+        {
+          "node": "s4",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire28",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth3"
+        },
+        {
+          "node": "s4",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire29",
+      "endpoints": [
+        {
+          "node": "r7",
+          "interface": "eth3"
+        },
+        {
+          "node": "s5",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire30",
+      "endpoints": [
+        {
+          "node": "r8",
+          "interface": "eth3"
+        },
+        {
+          "node": "s6",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire31",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth1"
+        },
+        {
+          "node": "s6",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire32",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth2"
+        },
+        {
+          "node": "s7",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire33",
+      "endpoints": [
+        {
+          "node": "s6",
+          "interface": "eth2"
+        },
+        {
+          "node": "s7",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire34",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth3"
+        },
+        {
+          "node": "s8",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire35",
+      "endpoints": [
+        {
+          "node": "s6",
+          "interface": "eth3"
+        },
+        {
+          "node": "s8",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire36",
+      "endpoints": [
+        {
+          "node": "r9",
+          "interface": "eth3"
+        },
+        {
+          "node": "s9",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire37",
+      "endpoints": [
+        {
+          "node": "r10",
+          "interface": "eth3"
+        },
+        {
+          "node": "s10",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire38",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth1"
+        },
+        {
+          "node": "s10",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire39",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth2"
+        },
+        {
+          "node": "s11",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire40",
+      "endpoints": [
+        {
+          "node": "s10",
+          "interface": "eth2"
+        },
+        {
+          "node": "s11",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire41",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth3"
+        },
+        {
+          "node": "s12",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire42",
+      "endpoints": [
+        {
+          "node": "s10",
+          "interface": "eth3"
+        },
+        {
+          "node": "s12",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire43",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth4"
+        },
+        {
+          "node": "s16",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire44",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth4"
+        },
+        {
+          "node": "s16",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire45",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth5"
+        },
+        {
+          "node": "s17",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire46",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth5"
+        },
+        {
+          "node": "s17",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire47",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth6"
+        },
+        {
+          "node": "s18",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire48",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth6"
+        },
+        {
+          "node": "s18",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire49",
+      "endpoints": [
+        {
+          "node": "s1",
+          "interface": "eth7"
+        },
+        {
+          "node": "s19",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire50",
+      "endpoints": [
+        {
+          "node": "s2",
+          "interface": "eth7"
+        },
+        {
+          "node": "s19",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        110,
+        120
+      ]
+    },
+    {
+      "name": "wire51",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth4"
+        },
+        {
+          "node": "s20",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire52",
+      "endpoints": [
+        {
+          "node": "s6",
+          "interface": "eth4"
+        },
+        {
+          "node": "s20",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire53",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth5"
+        },
+        {
+          "node": "s21",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire54",
+      "endpoints": [
+        {
+          "node": "s6",
+          "interface": "eth5"
+        },
+        {
+          "node": "s21",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire55",
+      "endpoints": [
+        {
+          "node": "s5",
+          "interface": "eth6"
+        },
+        {
+          "node": "s22",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire56",
+      "endpoints": [
+        {
+          "node": "s6",
+          "interface": "eth6"
+        },
+        {
+          "node": "s22",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        210,
+        220
+      ]
+    },
+    {
+      "name": "wire57",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth4"
+        },
+        {
+          "node": "s23",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire58",
+      "endpoints": [
+        {
+          "node": "s10",
+          "interface": "eth4"
+        },
+        {
+          "node": "s23",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire59",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth5"
+        },
+        {
+          "node": "s24",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire60",
+      "endpoints": [
+        {
+          "node": "s10",
+          "interface": "eth5"
+        },
+        {
+          "node": "s24",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire61",
+      "endpoints": [
+        {
+          "node": "s9",
+          "interface": "eth6"
+        },
+        {
+          "node": "s25",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire62",
+      "endpoints": [
+        {
+          "node": "s10",
+          "interface": "eth6"
+        },
+        {
+          "node": "s25",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        310,
+        320
+      ]
+    },
+    {
+      "name": "wire63",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth3"
+        },
+        {
+          "node": "s13",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        410
+      ]
+    },
+    {
+      "name": "wire64",
+      "endpoints": [
+        {
+          "node": "r4",
+          "interface": "eth3"
+        },
+        {
+          "node": "s13",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        410
+      ]
+    },
+    {
+      "name": "wire65",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth4"
+        },
+        {
+          "node": "s14",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        420
+      ]
+    },
+    {
+      "name": "wire66",
+      "endpoints": [
+        {
+          "node": "r4",
+          "interface": "eth4"
+        },
+        {
+          "node": "s14",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        420
+      ]
+    },
+    {
+      "name": "wire67",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth5"
+        },
+        {
+          "node": "s15",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        430
+      ]
+    },
+    {
+      "name": "wire68",
+      "endpoints": [
+        {
+          "node": "r4",
+          "interface": "eth5"
+        },
+        {
+          "node": "s15",
+          "interface": "eth1"
+        }
+      ],
+      "kind": "trunk",
+      "vlans": [
+        430
+      ]
+    },
+    {
+      "name": "wire69",
+      "endpoints": [
+        {
+          "node": "s3",
+          "interface": "eth2"
+        },
+        {
+          "node": "staff",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire70",
+      "endpoints": [
+        {
+          "node": "s4",
+          "interface": "eth2"
+        },
+        {
+          "node": "guest",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire71",
+      "endpoints": [
+        {
+          "node": "s7",
+          "interface": "eth2"
+        },
+        {
+          "node": "office",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire72",
+      "endpoints": [
+        {
+          "node": "s8",
+          "interface": "eth2"
+        },
+        {
+          "node": "engineering",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire73",
+      "endpoints": [
+        {
+          "node": "s11",
+          "interface": "eth2"
+        },
+        {
+          "node": "app",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire74",
+      "endpoints": [
+        {
+          "node": "s12",
+          "interface": "eth2"
+        },
+        {
+          "node": "database",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    },
+    {
+      "name": "wire75",
+      "endpoints": [
+        {
+          "node": "s13",
+          "interface": "eth2"
+        },
+        {
+          "node": "dmz",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        410
+      ]
+    },
+    {
+      "name": "wire76",
+      "endpoints": [
+        {
+          "node": "s14",
+          "interface": "eth2"
+        },
+        {
+          "node": "infra",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        420
+      ]
+    },
+    {
+      "name": "wire77",
+      "endpoints": [
+        {
+          "node": "s15",
+          "interface": "eth2"
+        },
+        {
+          "node": "ops",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        430
+      ]
+    },
+    {
+      "name": "wire78",
+      "endpoints": [
+        {
+          "node": "s16",
+          "interface": "eth2"
+        },
+        {
+          "node": "staff01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire79",
+      "endpoints": [
+        {
+          "node": "s17",
+          "interface": "eth2"
+        },
+        {
+          "node": "staff02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire80",
+      "endpoints": [
+        {
+          "node": "s18",
+          "interface": "eth2"
+        },
+        {
+          "node": "staff03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire81",
+      "endpoints": [
+        {
+          "node": "s19",
+          "interface": "eth2"
+        },
+        {
+          "node": "staff04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire82",
+      "endpoints": [
+        {
+          "node": "s16",
+          "interface": "eth3"
+        },
+        {
+          "node": "staff05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire83",
+      "endpoints": [
+        {
+          "node": "s17",
+          "interface": "eth3"
+        },
+        {
+          "node": "staff06",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        110
+      ]
+    },
+    {
+      "name": "wire84",
+      "endpoints": [
+        {
+          "node": "s16",
+          "interface": "eth4"
+        },
+        {
+          "node": "guest01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire85",
+      "endpoints": [
+        {
+          "node": "s17",
+          "interface": "eth4"
+        },
+        {
+          "node": "guest02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire86",
+      "endpoints": [
+        {
+          "node": "s18",
+          "interface": "eth3"
+        },
+        {
+          "node": "guest03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire87",
+      "endpoints": [
+        {
+          "node": "s19",
+          "interface": "eth3"
+        },
+        {
+          "node": "guest04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire88",
+      "endpoints": [
+        {
+          "node": "s16",
+          "interface": "eth5"
+        },
+        {
+          "node": "guest05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        120
+      ]
+    },
+    {
+      "name": "wire89",
+      "endpoints": [
+        {
+          "node": "s20",
+          "interface": "eth2"
+        },
+        {
+          "node": "office01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire90",
+      "endpoints": [
+        {
+          "node": "s21",
+          "interface": "eth2"
+        },
+        {
+          "node": "office02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire91",
+      "endpoints": [
+        {
+          "node": "s22",
+          "interface": "eth2"
+        },
+        {
+          "node": "office03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire92",
+      "endpoints": [
+        {
+          "node": "s20",
+          "interface": "eth3"
+        },
+        {
+          "node": "office04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire93",
+      "endpoints": [
+        {
+          "node": "s21",
+          "interface": "eth3"
+        },
+        {
+          "node": "office05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        210
+      ]
+    },
+    {
+      "name": "wire94",
+      "endpoints": [
+        {
+          "node": "s20",
+          "interface": "eth4"
+        },
+        {
+          "node": "engineering01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire95",
+      "endpoints": [
+        {
+          "node": "s21",
+          "interface": "eth4"
+        },
+        {
+          "node": "engineering02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire96",
+      "endpoints": [
+        {
+          "node": "s22",
+          "interface": "eth3"
+        },
+        {
+          "node": "engineering03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire97",
+      "endpoints": [
+        {
+          "node": "s20",
+          "interface": "eth5"
+        },
+        {
+          "node": "engineering04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire98",
+      "endpoints": [
+        {
+          "node": "s21",
+          "interface": "eth5"
+        },
+        {
+          "node": "engineering05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        220
+      ]
+    },
+    {
+      "name": "wire99",
+      "endpoints": [
+        {
+          "node": "s23",
+          "interface": "eth2"
+        },
+        {
+          "node": "app_client01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire100",
+      "endpoints": [
+        {
+          "node": "s24",
+          "interface": "eth2"
+        },
+        {
+          "node": "app_client02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire101",
+      "endpoints": [
+        {
+          "node": "s25",
+          "interface": "eth2"
+        },
+        {
+          "node": "app_client03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire102",
+      "endpoints": [
+        {
+          "node": "s23",
+          "interface": "eth3"
+        },
+        {
+          "node": "app_client04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire103",
+      "endpoints": [
+        {
+          "node": "s24",
+          "interface": "eth3"
+        },
+        {
+          "node": "app_client05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        310
+      ]
+    },
+    {
+      "name": "wire104",
+      "endpoints": [
+        {
+          "node": "s23",
+          "interface": "eth4"
+        },
+        {
+          "node": "db_client01",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    },
+    {
+      "name": "wire105",
+      "endpoints": [
+        {
+          "node": "s24",
+          "interface": "eth4"
+        },
+        {
+          "node": "db_client02",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    },
+    {
+      "name": "wire106",
+      "endpoints": [
+        {
+          "node": "s25",
+          "interface": "eth3"
+        },
+        {
+          "node": "db_client03",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    },
+    {
+      "name": "wire107",
+      "endpoints": [
+        {
+          "node": "s23",
+          "interface": "eth5"
+        },
+        {
+          "node": "db_client04",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    },
+    {
+      "name": "wire108",
+      "endpoints": [
+        {
+          "node": "s24",
+          "interface": "eth5"
+        },
+        {
+          "node": "db_client05",
+          "interface": "eth0"
+        }
+      ],
+      "kind": "access",
+      "vlans": [
+        320
+      ]
+    }
+  ]
+}
