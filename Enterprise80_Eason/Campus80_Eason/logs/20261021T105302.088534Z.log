@@ -1,0 +1,1559 @@
+2026-10-21T10:53:02.350187+00:00 $ ['docker', 'ps', '--format', '{{.Names}}']
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv06_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc59_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv02_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv01_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv07_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv05_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv08_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv03_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc60_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv04_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc53_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc51_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc50_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc49_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc54_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc55_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc52_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc58_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc56_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc57_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc40_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc45_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc43_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc44_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc46_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc42_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc41_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc48_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc47_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc39_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc38_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc35_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc33_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc29_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc31_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc30_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc32_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc36_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc34_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc37_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc22_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc24_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc21_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc19_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc27_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc20_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc26_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc25_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc28_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc23_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc10_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc09_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc18_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc13_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc14_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc16_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc11_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc12_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc17_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc15_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc03_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc06_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc05_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc04_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc07_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc08_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc02_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc01_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db6_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db5_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web9_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db8_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web8_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_db7_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc17_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc15_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web6_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web5_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web7_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc16_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc11_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc6_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc13_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc5_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc8_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc7_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc12_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc10_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc14_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc9_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc15_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc17_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc13_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc12_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc16_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brispc4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc14_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc6_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc11_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc5_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc8_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc7_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc10_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc9_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc13_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc12_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc14_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc15_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melpc1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc9_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc16_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc17_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc11_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc10_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc8_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc5_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_dcr2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc7_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_dcr1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydpc6_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_core2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_core1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_core4_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brisr2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melr2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_melr1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydr1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_brisr1_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_core3_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_sydr2_vYLStZ4iRMrjWvs2Rajiw
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_washng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_sttlng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_snvang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_nycmng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_atlang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_kscyng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_iplsng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_sttlng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_chinng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_hstnng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_atlam5_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_losang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_pc_dnvrng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_washng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_chinng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_atlang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_losang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_hstnng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_kscyng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_dnvrng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_iplsng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_atlam5_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_nycmng_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-xzpkxva4wmolsh0oicwrq_snvang_MILIe0vDlGcbx1IwWk5lQ
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web_server_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web_server_0_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_dhcp_server_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_backend_web_0_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_backend_web_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_load_balancer_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_server_access_router_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_backend_web_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web_server_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_web_server_3_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_dist_2_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_dist_2_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_2_2_1_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_2_1_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_dns_server_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_2_1_1_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_2_2_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_switch_access_2_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_switch_access_2_2_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_1_2_1_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_1_1_1_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_1_2_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_core_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_switch_access_1_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_dist_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc_1_1_1_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_core_3_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_core_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_switch_access_1_2_1_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_router_dist_1_2_DSvuvjpvRnTmOdZGZdCMXg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc1_44CaLoHPodz1qwDcnXgGvg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r2_44CaLoHPodz1qwDcnXgGvg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r1_44CaLoHPodz1qwDcnXgGvg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc2_44CaLoHPodz1qwDcnXgGvg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc1_UvgWwmxSopEUPJVY282MLg
+kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc2_UvgWwmxSopEUPJVY282MLg
+
+exit=0
+2026-10-21T10:53:02.350523+00:00 Selected lab: kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA
+2026-10-21T10:53:02.385188+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":941,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.1.1","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":952,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.2.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":963,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.3.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":970,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.4.1","prefixlen":30,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":976,"ifname":"eth4","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.1","prefixlen":24,"scope":"global","label":"eth4","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.417477+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc01_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":978,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.448173+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc02_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":981,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.480688+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc03_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":984,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.513798+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc04_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":983,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.545854+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc05_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":985,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.581216+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc06_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":987,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.618639+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc07_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":979,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.651162+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc08_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":982,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.680374+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc09_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":999,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.713293+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc10_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":995,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.740955+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc11_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1001,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.769061+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc12_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1003,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.797653+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc13_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":997,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.825435+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc14_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1002,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.852794+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc15_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":996,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.880105+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc16_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1000,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.907583+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc17_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":994,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.940142+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc18_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":998,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.970632+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc19_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1011,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:02.999667+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc20_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1008,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.028346+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc21_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1009,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.058188+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc22_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1006,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.087551+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc23_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1004,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.116874+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc24_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1013,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.144770+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc25_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1007,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.171272+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc26_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1010,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.196679+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc27_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1012,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.222454+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc28_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1005,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.250705+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc29_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1019,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.279127+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc30_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1023,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.305794+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc31_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1016,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.331606+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc32_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1017,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.360261+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc33_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1020,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.386356+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc34_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1014,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.412264+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc35_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1021,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.438257+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc36_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1018,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.463847+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc37_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1022,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.491741+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc38_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1015,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.517863+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc39_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1029,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.545166+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc40_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1033,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.574975+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc41_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1026,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.603194+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc42_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1027,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.630006+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc43_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1030,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.657473+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc44_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1025,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.682841+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc45_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1032,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.708237+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc46_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1031,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.733509+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc47_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1028,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.758955+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc48_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1024,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.784439+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc49_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1041,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.810975+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc50_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1040,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.835890+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc51_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1035,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.860235+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc52_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1034,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.884984+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc53_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1043,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.910057+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc54_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1042,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.939459+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc55_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1037,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.965554+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc56_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1038,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.20","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:03.991614+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc57_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1036,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.21","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.017730+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc58_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1039,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.22","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.044423+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc59_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1050,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.23","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.071081+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc60_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1045,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.24","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.097216+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":941,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.1.1","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":952,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.2.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":963,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.3.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":970,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.4.1","prefixlen":30,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":976,"ifname":"eth4","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.1.1","prefixlen":24,"scope":"global","label":"eth4","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.123474+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":937,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.1.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":956,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.5.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":962,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.6.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":969,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.2.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.150085+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":943,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.5.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":954,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.7.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":964,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.8.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":972,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.178629+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":934,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.2.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":944,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.7.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":948,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.9.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":958,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.10.1","prefixlen":30,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":968,"ifname":"eth4","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.1","prefixlen":24,"scope":"global","label":"eth4","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.203051+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":940,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.9.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":955,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.11.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":961,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.12.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":973,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.228097+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":935,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.3.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":946,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.11.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":951,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.13.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":966,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.252512+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":939,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.4.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":947,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.14.1","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":957,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.15.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":967,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.16.1","prefixlen":30,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":975,"ifname":"eth4","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.1","prefixlen":24,"scope":"global","label":"eth4","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.278114+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":938,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.6.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":950,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.14.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":960,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.17.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":971,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.303231+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":936,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.8.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":945,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.17.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":949,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.18.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":959,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.328325+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":942,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.10.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":953,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.15.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":965,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.18.2","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":974,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.19.1","prefixlen":30,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":977,"ifname":"eth4","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.1","prefixlen":24,"scope":"global","label":"eth4","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.355459+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":980,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.12.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":988,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.19.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":989,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.20.1","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":991,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.11.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.380937+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":986,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.13.2","prefixlen":30,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":990,"ifname":"eth1","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.16.2","prefixlen":30,"scope":"global","label":"eth1","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":992,"ifname":"eth2","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.250.20.2","prefixlen":30,"scope":"global","label":"eth2","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":993,"ifname":"eth3","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.12.1","prefixlen":24,"scope":"global","label":"eth3","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.406062+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv01_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1048,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.3.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.431294+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv02_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1049,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.4.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.455998+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv03_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1047,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.5.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.483142+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv04_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1046,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.6.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.509980+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv05_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1044,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.7.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.536704+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv06_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1051,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.8.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.562878+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv07_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1052,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.9.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.592290+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv08_6qginRJDDiHhLa6XRmjAA', 'ip', '-j', '-4', 'addr', 'show']
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8,"scope":"host","label":"lo","valid_life_time":4294967295,"preferred_life_time":4294967295}]},{"ifindex":1053,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"addr_info":[{"family":"inet","local":"10.10.10.100","prefixlen":24,"scope":"global","label":"eth0","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+
+exit=0
+2026-10-21T10:53:04.619415+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.645757+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.671709+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:04.708618+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r01_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.2        1 Full/-          4h52m01s          37.014s 10.250.1.2      eth0:10.250.1.1                      0     0     0
+10.255.0.4        1 Full/-          4h52m01s          37.012s 10.250.2.2      eth1:10.250.2.1                      0     0     0
+10.255.0.6        1 Full/-          4h52m06s          37.014s 10.250.3.2      eth2:10.250.3.1                      0     0     0
+10.255.0.7        1 Full/-          4h52m06s          37.012s 10.250.4.2      eth3:10.250.4.1                      0     0     0
+
+
+exit=0
+2026-10-21T10:53:04.734797+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.761144+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.786022+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:04.819127+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r02_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.1        1 Full/-          4h52m01s          36.900s 10.250.1.1      eth0:10.250.1.2                      0     0     0
+10.255.0.3        1 Full/-          4h52m06s          36.901s 10.250.5.2      eth1:10.250.5.1                      0     0     0
+10.255.0.8        1 Full/-          4h52m01s          36.900s 10.250.6.2      eth2:10.250.6.1                      0     0     0
+
+
+exit=0
+2026-10-21T10:53:04.845302+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.870761+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:04.897163+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:04.943453+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r03_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.2        1 Full/-          4h52m06s          36.777s 10.250.5.1      eth0:10.250.5.2                      0     0     0
+10.255.0.4        1 Full/-          4h52m06s          36.776s 10.250.7.2      eth1:10.250.7.1                      0     0     0
+10.255.0.9        1 Full/-          4h52m06s          36.776s 10.250.8.2      eth2:10.250.8.1                      0     0     0
+
+
+exit=0
+2026-10-21T10:53:04.973377+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.002973+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.029659+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.060278+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r04_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.1        1 Full/-          4h52m01s          36.660s 10.250.2.1      eth0:10.250.2.2                      0     0     0
+10.255.0.3        1 Full/-          4h52m06s          36.660s 10.250.7.1      eth1:10.250.7.2                      0     0     0
+10.255.0.5        1 Full/-          4h52m01s          36.660s 10.250.9.2      eth2:10.250.9.1                      0     0     0
+10.255.0.10       1 Full/-          4h52m01s          36.659s 10.250.10.2     eth3:10.250.10.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.085979+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.113318+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.139754+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.171863+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r05_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.4        1 Full/-          4h52m01s          36.548s 10.250.9.1      eth0:10.250.9.2                      0     0     0
+10.255.0.6        1 Full/-          4h52m06s          36.548s 10.250.11.2     eth1:10.250.11.1                     0     0     0
+10.255.0.11       1 Full/-          4h52m06s          37.207s 10.250.12.2     eth2:10.250.12.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.199223+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.227211+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.261740+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.298456+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r06_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.1        1 Full/-          4h52m06s          36.419s 10.250.3.1      eth0:10.250.3.2                      0     0     0
+10.255.0.5        1 Full/-          4h52m06s          36.419s 10.250.11.1     eth1:10.250.11.2                     0     0     0
+10.255.0.12       1 Full/-          4h52m06s          37.082s 10.250.13.2     eth2:10.250.13.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.327467+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.354976+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.383268+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.413519+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r07_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.1        1 Full/-          4h52m06s          36.303s 10.250.4.1      eth0:10.250.4.2                      0     0     0
+10.255.0.8        1 Full/-          4h52m07s          36.305s 10.250.14.2     eth1:10.250.14.1                     0     0     0
+10.255.0.10       1 Full/-          4h52m02s          36.306s 10.250.15.2     eth2:10.250.15.1                     0     0     0
+10.255.0.12       1 Full/-          4h52m06s          36.966s 10.250.16.2     eth3:10.250.16.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.438896+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.467876+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.493389+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.524229+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r08_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.2        1 Full/-          4h52m02s          36.196s 10.250.6.1      eth0:10.250.6.2                      0     0     0
+10.255.0.7        1 Full/-          4h52m07s          36.195s 10.250.14.1     eth1:10.250.14.2                     0     0     0
+10.255.0.9        1 Full/-          4h52m07s          36.193s 10.250.17.2     eth2:10.250.17.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.551007+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.578016+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.605016+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.638001+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r09_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.3        1 Full/-          4h52m07s          36.083s 10.250.8.1      eth0:10.250.8.2                      0     0     0
+10.255.0.8        1 Full/-          4h52m07s          36.080s 10.250.17.1     eth1:10.250.17.2                     0     0     0
+10.255.0.10       1 Full/-          4h52m07s          36.083s 10.250.18.2     eth2:10.250.18.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.664542+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.694449+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.717844+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.746832+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r10_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.4        1 Full/-          4h52m07s          35.971s 10.250.10.1     eth0:10.250.10.2                     0     0     0
+10.255.0.7        1 Full/-          4h52m02s          35.973s 10.250.15.1     eth1:10.250.15.2                     0     0     0
+10.255.0.9        1 Full/-          4h52m07s          35.973s 10.250.18.1     eth2:10.250.18.2                     0     0     0
+10.255.0.11       1 Full/-          4h52m02s          36.632s 10.250.19.2     eth3:10.250.19.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.771953+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.796710+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.821061+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.855047+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r11_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.5        1 Full/-          4h52m07s          35.862s 10.250.12.1     eth0:10.250.12.2                     0     0     0
+10.255.0.10       1 Full/-          4h52m02s          35.864s 10.250.19.1     eth1:10.250.19.2                     0     0     0
+10.255.0.12       1 Full/-          4h52m06s          36.524s 10.250.20.2     eth2:10.250.20.1                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:05.881024+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'ospfd']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.907567+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v pgrep >/dev/null || exit 127; pgrep -x "$1" >/dev/null; rc=$?; case "$rc" in 0) echo PRESENT;; 1) echo ABSENT;; *) exit "$rc";; esac', 'sh', 'zebra']
+PRESENT
+
+exit=0
+2026-10-21T10:53:05.932506+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'cat', '/proc/sys/net/ipv4/ip_forward']
+1
+
+exit=0
+2026-10-21T10:53:05.975030+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'vtysh', '-c', 'show ip ospf neighbor']
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.0.6        1 Full/-          4h52m01s          35.745s 10.250.13.1     eth0:10.250.13.2                     0     0     0
+10.255.0.7        1 Full/-          4h52m02s          35.746s 10.250.16.1     eth1:10.250.16.2                     0     0     0
+10.255.0.11       1 Full/-          4h52m06s          36.405s 10.250.20.1     eth2:10.250.20.2                     0     0     0
+
+
+exit=0
+2026-10-21T10:53:07.017766+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc01_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.12.24']
+PING 10.10.12.24 (10.10.12.24) 56(84) bytes of data.
+64 bytes from 10.10.12.24: icmp_seq=1 ttl=61 time=1.05 ms
+64 bytes from 10.10.12.24: icmp_seq=2 ttl=61 time=1.38 ms
+
+--- 10.10.12.24 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.046/1.213/1.381/0.167 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:08.081031+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc02_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.12.24']
+PING 10.10.12.24 (10.10.12.24) 56(84) bytes of data.
+64 bytes from 10.10.12.24: icmp_seq=1 ttl=61 time=1.30 ms
+64 bytes from 10.10.12.24: icmp_seq=2 ttl=61 time=1.47 ms
+
+--- 10.10.12.24 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.302/1.386/1.471/0.084 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:09.141878+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc03_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.12.24']
+PING 10.10.12.24 (10.10.12.24) 56(84) bytes of data.
+64 bytes from 10.10.12.24: icmp_seq=1 ttl=61 time=1.81 ms
+64 bytes from 10.10.12.24: icmp_seq=2 ttl=61 time=1.65 ms
+
+--- 10.10.12.24 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.647/1.726/1.805/0.079 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:10.207754+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc04_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.12.24']
+PING 10.10.12.24 (10.10.12.24) 56(84) bytes of data.
+64 bytes from 10.10.12.24: icmp_seq=1 ttl=61 time=1.54 ms
+64 bytes from 10.10.12.24: icmp_seq=2 ttl=61 time=2.07 ms
+
+--- 10.10.12.24 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1007ms
+rtt min/avg/max/mdev = 1.538/1.804/2.070/0.266 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:11.262889+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc05_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.12.24']
+PING 10.10.12.24 (10.10.12.24) 56(84) bytes of data.
+64 bytes from 10.10.12.24: icmp_seq=1 ttl=61 time=1.28 ms
+64 bytes from 10.10.12.24: icmp_seq=2 ttl=61 time=1.14 ms
+
+--- 10.10.12.24 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.135/1.206/1.277/0.071 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:12.331717+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc06_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.69 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.42 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.416/1.551/1.687/0.135 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:13.398418+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc07_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.17 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.05 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.047/1.108/1.169/0.061 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:14.466842+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc08_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.27 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.03 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.025/1.145/1.266/0.120 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:15.537094+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc09_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.24 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.89 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.239/1.565/1.892/0.326 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:16.600642+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc10_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.14 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.02 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.016/1.080/1.144/0.064 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:17.664380+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc11_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.94 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.96 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.937/1.949/1.962/0.012 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:18.738350+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc12_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.72 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.18 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.721/1.948/2.175/0.227 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:19.811247+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc13_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.39 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.59 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.390/1.488/1.587/0.098 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:20.869379+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc14_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.03 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.17 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.025/1.097/1.170/0.072 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:21.933232+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc15_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.23 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.41 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.233/1.322/1.411/0.089 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:22.997016+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc16_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.35 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.31 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.310/1.331/1.353/0.021 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:24.060719+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc17_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.14 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.27 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.143/1.208/1.273/0.065 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:25.121843+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc18_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.21 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=0.915 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.915/1.061/1.208/0.146 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:26.184419+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc19_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.16 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.65 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.164/1.408/1.653/0.244 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:27.254484+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc20_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.10 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.87 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.102/1.483/1.865/0.381 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:28.331148+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc21_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.62 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.32 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1007ms
+rtt min/avg/max/mdev = 1.623/1.972/2.322/0.349 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:29.398152+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc22_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.25 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.28 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.246/1.260/1.275/0.014 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:30.466243+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc23_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.45 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.65 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.454/1.553/1.652/0.099 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:31.537361+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc24_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.37 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.63 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.365/1.499/1.633/0.134 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:32.603156+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc25_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.34 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.65 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.337/1.495/1.654/0.158 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:33.669782+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc26_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.19 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=0.894 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 0.894/1.040/1.186/0.146 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:34.748080+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc27_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=0.801 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.36 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1021ms
+rtt min/avg/max/mdev = 0.801/1.081/1.361/0.280 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:35.814023+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc28_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.30 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.85 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.295/1.574/1.854/0.279 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:36.879534+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc29_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.15 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.93 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.146/1.536/1.926/0.390 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:37.942945+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc30_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.15 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=2.11 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.154/1.631/2.108/0.477 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:39.009886+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc31_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.10 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.69 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.103/1.397/1.691/0.294 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:40.074003+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc32_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.04 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=0.852 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 0.852/0.944/1.037/0.092 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:41.137187+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc33_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=0.964 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.86 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 0.964/1.410/1.857/0.446 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:42.202764+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc34_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.02 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=0.860 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 0.860/0.940/1.021/0.080 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:43.269011+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc35_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.18 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.24 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.176/1.208/1.241/0.032 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:44.332708+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc36_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.66 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.17 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.173/1.415/1.657/0.242 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:45.404487+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc37_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.27 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.53 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.269/1.898/2.527/0.629 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:46.464648+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc38_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.21 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.32 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.214/1.268/1.322/0.054 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:47.530910+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc39_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.37 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.61 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.366/1.489/1.613/0.123 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:48.597246+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc40_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.26 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.05 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.054/1.158/1.263/0.104 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:49.661106+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc41_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=2.06 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=1.38 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.377/1.718/2.060/0.341 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:50.734519+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc42_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.65 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=1.90 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.651/1.774/1.898/0.123 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:51.810192+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc43_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.72 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.54 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1007ms
+rtt min/avg/max/mdev = 1.719/2.131/2.543/0.412 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:52.877976+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc44_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.60 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.65 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.603/2.126/2.649/0.523 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:53.947104+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc45_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.51 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.47 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.513/1.989/2.465/0.476 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:55.019710+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc46_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.38 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.20 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.382/1.793/2.204/0.411 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:56.083636+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc47_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.33 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.21 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1007ms
+rtt min/avg/max/mdev = 1.208/1.268/1.328/0.060 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:57.148868+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc48_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.44 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.00 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.000/1.222/1.444/0.222 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:58.218066+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc49_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.45 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.06 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.445/1.752/2.059/0.307 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:53:59.283467+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc50_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.45 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.25 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.446/1.848/2.251/0.402 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:00.350048+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc51_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.81 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.93 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.808/2.371/2.934/0.563 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:01.413046+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc52_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.64 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.71 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.643/2.175/2.708/0.532 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:02.473339+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc53_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.33 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.45 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 1.330/1.889/2.449/0.559 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:03.539461+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc54_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.35 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=1.76 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.352/1.558/1.764/0.206 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:04.599517+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc55_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.74 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=1.44 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.435/1.589/1.743/0.154 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:05.660787+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc56_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.03 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.33 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.034/1.680/2.326/0.646 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:06.728157+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc57_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.30 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.43 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.302/1.364/1.427/0.062 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:07.795240+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc58_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.21 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.20 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.205/1.702/2.200/0.497 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:08.864990+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc59_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.24 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.43 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.236/1.335/1.434/0.099 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:09.925826+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_pc60_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.00 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.97 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.004/1.486/1.968/0.482 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:10.985985+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv01_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.42 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.37 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.369/1.396/1.423/0.027 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:12.058436+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv02_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.07 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.53 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.067/1.298/1.530/0.231 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:13.122888+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv03_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.19 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.21 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.187/1.196/1.205/0.009 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:14.186185+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv04_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.29 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=2.03 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1006ms
+rtt min/avg/max/mdev = 1.289/1.661/2.033/0.372 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:15.251342+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv05_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=62 time=1.11 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=62 time=1.34 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.113/1.228/1.344/0.115 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:16.326577+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv06_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.36 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=2.30 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.359/1.828/2.298/0.469 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:17.398776+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv07_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=60 time=1.53 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=60 time=2.11 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 1.532/1.822/2.112/0.290 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:18.462572+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_srv08_6qginRJDDiHhLa6XRmjAA', 'sh', '-c', 'command -v ping >/dev/null || exit 127; LC_ALL=C ping -n -c 2 -W 2 "$1"; rc=$?; [ "$rc" -le 1 ] || exit "$rc"; echo PING_RC="$rc"', 'sh', '10.10.1.20']
+PING 10.10.1.20 (10.10.1.20) 56(84) bytes of data.
+64 bytes from 10.10.1.20: icmp_seq=1 ttl=61 time=1.48 ms
+64 bytes from 10.10.1.20: icmp_seq=2 ttl=61 time=1.79 ms
+
+--- 10.10.1.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 1.477/1.634/1.792/0.157 ms
+PING_RC=0
+
+exit=0
+2026-10-21T10:54:18.520545+00:00 $ ['docker', 'exec', 'kathara_eason-pxchhp6ejrrfwgqlmzyfiq_r12_6qginRJDDiHhLa6XRmjAA', 'ip', '-4', 'route', 'show', 'exact', '10.10.1.0/24']
+10.10.1.0/24 nhid 22 proto ospf metric 20 
+	nexthop via 10.250.16.1 dev eth1 weight 1 
+	nexthop via 10.250.13.1 dev eth0 weight 1 
+
+exit=0
+2026-10-21T10:54:18.520704+00:00 PASS: healthy baseline (all 80 addresses, all router peers, all 68 endpoint probes)

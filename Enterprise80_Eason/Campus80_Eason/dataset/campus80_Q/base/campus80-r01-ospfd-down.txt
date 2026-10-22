@@ -1,0 +1,22 @@
+[PROMPT-TO-AGENT]
+Campus LAN01 users cannot reach remote campus hosts. Identify the faulty device, component, and root cause, then restore connectivity without changing the topology.
+
+[INJECTION]
+Run scripts/inject_fault.sh. It checks the healthy baseline, stops watchfrr then ospfd on r01, and validates the resulting fault. No interfaces are shut down.
+
+[POST-INJECT-CHECK]
+Run scripts/verify_fault.sh.
+
+[GROUND-TRUTH]
+Device: r01. Component: ospfd. Cause: routing daemon deliberately stopped.
+LAN01 10.10.1.0/24 has only r01 as its gateway. Backbone path redundancy does not replace its OSPF process.
+
+[FIX]
+Run scripts/recover.sh to restart FRR from persistent configuration and validate all endpoints.
+
+[SCORING-AXES]
+Device=r01; component=OSPF/ospfd; cause=stopped process; recovery=healthy checks pass.
+
+[METADATA]
+Fault family: routing_daemon_down. Same fault family as enterprise80-sydr1-ospfd-down.
+This text is scenario documentation, not a verified integration with any external benchmark runner.

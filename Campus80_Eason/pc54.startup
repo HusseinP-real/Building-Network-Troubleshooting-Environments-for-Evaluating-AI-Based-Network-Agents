@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+ip link set eth0 up
+ip addr replace 10.10.11.23/24 dev eth0
+ip route replace default via 10.10.11.1

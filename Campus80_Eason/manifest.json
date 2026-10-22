@@ -1,0 +1,893 @@
+{
+  "name": "campus80_final",
+  "device_count": 80,
+  "routers": 12,
+  "clients": 60,
+  "servers": 8,
+  "routed_links": 20,
+  "lan_count": 12,
+  "links": [
+    {
+      "a": "r01",
+      "b": "r02",
+      "subnet": "10.250.1.0/30",
+      "collision_domain": "BACK01"
+    },
+    {
+      "a": "r01",
+      "b": "r04",
+      "subnet": "10.250.2.0/30",
+      "collision_domain": "BACK02"
+    },
+    {
+      "a": "r01",
+      "b": "r06",
+      "subnet": "10.250.3.0/30",
+      "collision_domain": "BACK03"
+    },
+    {
+      "a": "r01",
+      "b": "r07",
+      "subnet": "10.250.4.0/30",
+      "collision_domain": "BACK04"
+    },
+    {
+      "a": "r02",
+      "b": "r03",
+      "subnet": "10.250.5.0/30",
+      "collision_domain": "BACK05"
+    },
+    {
+      "a": "r02",
+      "b": "r08",
+      "subnet": "10.250.6.0/30",
+      "collision_domain": "BACK06"
+    },
+    {
+      "a": "r03",
+      "b": "r04",
+      "subnet": "10.250.7.0/30",
+      "collision_domain": "BACK07"
+    },
+    {
+      "a": "r03",
+      "b": "r09",
+      "subnet": "10.250.8.0/30",
+      "collision_domain": "BACK08"
+    },
+    {
+      "a": "r04",
+      "b": "r05",
+      "subnet": "10.250.9.0/30",
+      "collision_domain": "BACK09"
+    },
+    {
+      "a": "r04",
+      "b": "r10",
+      "subnet": "10.250.10.0/30",
+      "collision_domain": "BACK10"
+    },
+    {
+      "a": "r05",
+      "b": "r06",
+      "subnet": "10.250.11.0/30",
+      "collision_domain": "BACK11"
+    },
+    {
+      "a": "r05",
+      "b": "r11",
+      "subnet": "10.250.12.0/30",
+      "collision_domain": "BACK12"
+    },
+    {
+      "a": "r06",
+      "b": "r12",
+      "subnet": "10.250.13.0/30",
+      "collision_domain": "BACK13"
+    },
+    {
+      "a": "r07",
+      "b": "r08",
+      "subnet": "10.250.14.0/30",
+      "collision_domain": "BACK14"
+    },
+    {
+      "a": "r07",
+      "b": "r10",
+      "subnet": "10.250.15.0/30",
+      "collision_domain": "BACK15"
+    },
+    {
+      "a": "r07",
+      "b": "r12",
+      "subnet": "10.250.16.0/30",
+      "collision_domain": "BACK16"
+    },
+    {
+      "a": "r08",
+      "b": "r09",
+      "subnet": "10.250.17.0/30",
+      "collision_domain": "BACK17"
+    },
+    {
+      "a": "r09",
+      "b": "r10",
+      "subnet": "10.250.18.0/30",
+      "collision_domain": "BACK18"
+    },
+    {
+      "a": "r10",
+      "b": "r11",
+      "subnet": "10.250.19.0/30",
+      "collision_domain": "BACK19"
+    },
+    {
+      "a": "r11",
+      "b": "r12",
+      "subnet": "10.250.20.0/30",
+      "collision_domain": "BACK20"
+    }
+  ],
+  "devices": {
+    "r01": [
+      {
+        "interface": "eth0",
+        "domain": "BACK01",
+        "ip": "10.250.1.1/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK02",
+        "ip": "10.250.2.1/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK03",
+        "ip": "10.250.3.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "BACK04",
+        "ip": "10.250.4.1/30"
+      },
+      {
+        "interface": "eth4",
+        "domain": "LAN01",
+        "ip": "10.10.1.1/24"
+      }
+    ],
+    "r02": [
+      {
+        "interface": "eth0",
+        "domain": "BACK01",
+        "ip": "10.250.1.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK05",
+        "ip": "10.250.5.1/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK06",
+        "ip": "10.250.6.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN02",
+        "ip": "10.10.2.1/24"
+      }
+    ],
+    "r03": [
+      {
+        "interface": "eth0",
+        "domain": "BACK05",
+        "ip": "10.250.5.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK07",
+        "ip": "10.250.7.1/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK08",
+        "ip": "10.250.8.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN03",
+        "ip": "10.10.3.1/24"
+      }
+    ],
+    "r04": [
+      {
+        "interface": "eth0",
+        "domain": "BACK02",
+        "ip": "10.250.2.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK07",
+        "ip": "10.250.7.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK09",
+        "ip": "10.250.9.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "BACK10",
+        "ip": "10.250.10.1/30"
+      },
+      {
+        "interface": "eth4",
+        "domain": "LAN04",
+        "ip": "10.10.4.1/24"
+      }
+    ],
+    "r05": [
+      {
+        "interface": "eth0",
+        "domain": "BACK09",
+        "ip": "10.250.9.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK11",
+        "ip": "10.250.11.1/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK12",
+        "ip": "10.250.12.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN05",
+        "ip": "10.10.5.1/24"
+      }
+    ],
+    "r06": [
+      {
+        "interface": "eth0",
+        "domain": "BACK03",
+        "ip": "10.250.3.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK11",
+        "ip": "10.250.11.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK13",
+        "ip": "10.250.13.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN06",
+        "ip": "10.10.6.1/24"
+      }
+    ],
+    "r07": [
+      {
+        "interface": "eth0",
+        "domain": "BACK04",
+        "ip": "10.250.4.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK14",
+        "ip": "10.250.14.1/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK15",
+        "ip": "10.250.15.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "BACK16",
+        "ip": "10.250.16.1/30"
+      },
+      {
+        "interface": "eth4",
+        "domain": "LAN07",
+        "ip": "10.10.7.1/24"
+      }
+    ],
+    "r08": [
+      {
+        "interface": "eth0",
+        "domain": "BACK06",
+        "ip": "10.250.6.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK14",
+        "ip": "10.250.14.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK17",
+        "ip": "10.250.17.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN08",
+        "ip": "10.10.8.1/24"
+      }
+    ],
+    "r09": [
+      {
+        "interface": "eth0",
+        "domain": "BACK08",
+        "ip": "10.250.8.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK17",
+        "ip": "10.250.17.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK18",
+        "ip": "10.250.18.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN09",
+        "ip": "10.10.9.1/24"
+      }
+    ],
+    "r10": [
+      {
+        "interface": "eth0",
+        "domain": "BACK10",
+        "ip": "10.250.10.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK15",
+        "ip": "10.250.15.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK18",
+        "ip": "10.250.18.2/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "BACK19",
+        "ip": "10.250.19.1/30"
+      },
+      {
+        "interface": "eth4",
+        "domain": "LAN10",
+        "ip": "10.10.10.1/24"
+      }
+    ],
+    "r11": [
+      {
+        "interface": "eth0",
+        "domain": "BACK12",
+        "ip": "10.250.12.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK19",
+        "ip": "10.250.19.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK20",
+        "ip": "10.250.20.1/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN11",
+        "ip": "10.10.11.1/24"
+      }
+    ],
+    "r12": [
+      {
+        "interface": "eth0",
+        "domain": "BACK13",
+        "ip": "10.250.13.2/30"
+      },
+      {
+        "interface": "eth1",
+        "domain": "BACK16",
+        "ip": "10.250.16.2/30"
+      },
+      {
+        "interface": "eth2",
+        "domain": "BACK20",
+        "ip": "10.250.20.2/30"
+      },
+      {
+        "interface": "eth3",
+        "domain": "LAN12",
+        "ip": "10.10.12.1/24"
+      }
+    ],
+    "pc01": [
+      {
+        "interface": "eth0",
+        "domain": "LAN01",
+        "ip": "10.10.1.20/24"
+      }
+    ],
+    "pc02": [
+      {
+        "interface": "eth0",
+        "domain": "LAN01",
+        "ip": "10.10.1.21/24"
+      }
+    ],
+    "pc03": [
+      {
+        "interface": "eth0",
+        "domain": "LAN01",
+        "ip": "10.10.1.22/24"
+      }
+    ],
+    "pc04": [
+      {
+        "interface": "eth0",
+        "domain": "LAN01",
+        "ip": "10.10.1.23/24"
+      }
+    ],
+    "pc05": [
+      {
+        "interface": "eth0",
+        "domain": "LAN01",
+        "ip": "10.10.1.24/24"
+      }
+    ],
+    "pc06": [
+      {
+        "interface": "eth0",
+        "domain": "LAN02",
+        "ip": "10.10.2.20/24"
+      }
+    ],
+    "pc07": [
+      {
+        "interface": "eth0",
+        "domain": "LAN02",
+        "ip": "10.10.2.21/24"
+      }
+    ],
+    "pc08": [
+      {
+        "interface": "eth0",
+        "domain": "LAN02",
+        "ip": "10.10.2.22/24"
+      }
+    ],
+    "pc09": [
+      {
+        "interface": "eth0",
+        "domain": "LAN02",
+        "ip": "10.10.2.23/24"
+      }
+    ],
+    "pc10": [
+      {
+        "interface": "eth0",
+        "domain": "LAN02",
+        "ip": "10.10.2.24/24"
+      }
+    ],
+    "pc11": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.20/24"
+      }
+    ],
+    "pc12": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.21/24"
+      }
+    ],
+    "pc13": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.22/24"
+      }
+    ],
+    "pc14": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.23/24"
+      }
+    ],
+    "pc15": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.24/24"
+      }
+    ],
+    "pc16": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.20/24"
+      }
+    ],
+    "pc17": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.21/24"
+      }
+    ],
+    "pc18": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.22/24"
+      }
+    ],
+    "pc19": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.23/24"
+      }
+    ],
+    "pc20": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.24/24"
+      }
+    ],
+    "pc21": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.20/24"
+      }
+    ],
+    "pc22": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.21/24"
+      }
+    ],
+    "pc23": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.22/24"
+      }
+    ],
+    "pc24": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.23/24"
+      }
+    ],
+    "pc25": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.24/24"
+      }
+    ],
+    "pc26": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.20/24"
+      }
+    ],
+    "pc27": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.21/24"
+      }
+    ],
+    "pc28": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.22/24"
+      }
+    ],
+    "pc29": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.23/24"
+      }
+    ],
+    "pc30": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.24/24"
+      }
+    ],
+    "pc31": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.20/24"
+      }
+    ],
+    "pc32": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.21/24"
+      }
+    ],
+    "pc33": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.22/24"
+      }
+    ],
+    "pc34": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.23/24"
+      }
+    ],
+    "pc35": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.24/24"
+      }
+    ],
+    "pc36": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.20/24"
+      }
+    ],
+    "pc37": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.21/24"
+      }
+    ],
+    "pc38": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.22/24"
+      }
+    ],
+    "pc39": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.23/24"
+      }
+    ],
+    "pc40": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.24/24"
+      }
+    ],
+    "pc41": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.20/24"
+      }
+    ],
+    "pc42": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.21/24"
+      }
+    ],
+    "pc43": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.22/24"
+      }
+    ],
+    "pc44": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.23/24"
+      }
+    ],
+    "pc45": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.24/24"
+      }
+    ],
+    "pc46": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.20/24"
+      }
+    ],
+    "pc47": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.21/24"
+      }
+    ],
+    "pc48": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.22/24"
+      }
+    ],
+    "pc49": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.23/24"
+      }
+    ],
+    "pc50": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.24/24"
+      }
+    ],
+    "pc51": [
+      {
+        "interface": "eth0",
+        "domain": "LAN11",
+        "ip": "10.10.11.20/24"
+      }
+    ],
+    "pc52": [
+      {
+        "interface": "eth0",
+        "domain": "LAN11",
+        "ip": "10.10.11.21/24"
+      }
+    ],
+    "pc53": [
+      {
+        "interface": "eth0",
+        "domain": "LAN11",
+        "ip": "10.10.11.22/24"
+      }
+    ],
+    "pc54": [
+      {
+        "interface": "eth0",
+        "domain": "LAN11",
+        "ip": "10.10.11.23/24"
+      }
+    ],
+    "pc55": [
+      {
+        "interface": "eth0",
+        "domain": "LAN11",
+        "ip": "10.10.11.24/24"
+      }
+    ],
+    "pc56": [
+      {
+        "interface": "eth0",
+        "domain": "LAN12",
+        "ip": "10.10.12.20/24"
+      }
+    ],
+    "pc57": [
+      {
+        "interface": "eth0",
+        "domain": "LAN12",
+        "ip": "10.10.12.21/24"
+      }
+    ],
+    "pc58": [
+      {
+        "interface": "eth0",
+        "domain": "LAN12",
+        "ip": "10.10.12.22/24"
+      }
+    ],
+    "pc59": [
+      {
+        "interface": "eth0",
+        "domain": "LAN12",
+        "ip": "10.10.12.23/24"
+      }
+    ],
+    "pc60": [
+      {
+        "interface": "eth0",
+        "domain": "LAN12",
+        "ip": "10.10.12.24/24"
+      }
+    ],
+    "srv01": [
+      {
+        "interface": "eth0",
+        "domain": "LAN03",
+        "ip": "10.10.3.100/24"
+      }
+    ],
+    "srv02": [
+      {
+        "interface": "eth0",
+        "domain": "LAN04",
+        "ip": "10.10.4.100/24"
+      }
+    ],
+    "srv03": [
+      {
+        "interface": "eth0",
+        "domain": "LAN05",
+        "ip": "10.10.5.100/24"
+      }
+    ],
+    "srv04": [
+      {
+        "interface": "eth0",
+        "domain": "LAN06",
+        "ip": "10.10.6.100/24"
+      }
+    ],
+    "srv05": [
+      {
+        "interface": "eth0",
+        "domain": "LAN07",
+        "ip": "10.10.7.100/24"
+      }
+    ],
+    "srv06": [
+      {
+        "interface": "eth0",
+        "domain": "LAN08",
+        "ip": "10.10.8.100/24"
+      }
+    ],
+    "srv07": [
+      {
+        "interface": "eth0",
+        "domain": "LAN09",
+        "ip": "10.10.9.100/24"
+      }
+    ],
+    "srv08": [
+      {
+        "interface": "eth0",
+        "domain": "LAN10",
+        "ip": "10.10.10.100/24"
+      }
+    ]
+  }
+}
