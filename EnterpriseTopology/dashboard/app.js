@@ -409,24 +409,6 @@ pollStatus();
 setInterval(pollStatus, 1500);
 
 (() => {
-  const toggle = document.getElementById('sidebarToggle');
-  const sidebar = document.getElementById('workspaceSidebar');
-  let saved;
-  try { saved = localStorage.getItem('sade-sidebar'); } catch (_) { /* Optional preference. */ }
-  let collapsed = saved ? saved === 'hidden' : matchMedia('(max-width:750px)').matches;
-  function setSidebar(hidden, persist = true) {
-    collapsed = hidden;
-    document.body.classList.toggle('sidebar-hidden', hidden);
-    sidebar.inert = hidden;
-    toggle.setAttribute('aria-expanded', String(!hidden));
-    toggle.setAttribute('aria-label', hidden ? 'Show sidebar' : 'Hide sidebar');
-    if (persist) { try { localStorage.setItem('sade-sidebar', hidden ? 'hidden' : 'visible'); } catch (_) {} }
-  }
-  setSidebar(collapsed, false);
-  toggle.addEventListener('click', () => setSidebar(!collapsed));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !collapsed) {setSidebar(true); toggle.focus();}
-  });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const targets = document.querySelectorAll('.evaluation-stage,.results-head,.stat-card,.chart-card,.table-card,.topology-metrics,.topology-layout');
   let observer;

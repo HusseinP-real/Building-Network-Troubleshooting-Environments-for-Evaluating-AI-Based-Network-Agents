@@ -229,6 +229,8 @@ class Handler(BaseHTTPRequestHandler):
                 "evaluation_enabled": False,
             },
         }
+        for item in json.loads((STATIC / "topologies/catalog.json").read_text()):
+            topologies[item["id"]] = {**item, "inventory": STATIC / "topologies" / item["inventory"]}
         if parsed.path == "/api/topologies":
             return self._json(200, [
                 {"id": key, "name": item["name"],
@@ -264,6 +266,12 @@ class Handler(BaseHTTPRequestHandler):
                 "scenario_count": topology["scenario_count"],
                 "evaluation_enabled": topology["evaluation_enabled"],
                 "health": health,
+                "layout": inventory.get("layout", "enterprise"),
+                "protocols": inventory.get("protocols", "OSPF · VRRP · VLAN"),
+                "note": inventory.get("note"),
+                "source_path": inventory.get("source_path"),
+                "source_commit": inventory.get("source_commit"),
+                "scenarios": inventory.get("scenarios", []),
             })
         if parsed.path == "/api/status":
             return self._json(200, self.state.snapshot())

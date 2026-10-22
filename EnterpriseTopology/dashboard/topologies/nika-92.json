@@ -1,0 +1,7105 @@
+{
+  "nodes": {
+    "super_spine_router_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_0",
+          "address": "172.16.0.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_1",
+          "address": "172.16.0.2/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_2",
+          "address": "172.16.0.4/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_3",
+          "address": "172.16.0.6/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_0",
+          "address": "172.16.0.8/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_1",
+          "address": "172.16.0.10/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_2",
+          "address": "172.16.0.12/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_3",
+          "address": "172.16.0.14/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_0",
+          "address": "172.16.0.16/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_1",
+          "address": "172.16.0.18/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_2",
+          "address": "172.16.0.20/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_3",
+          "address": "172.16.0.22/31"
+        },
+        {
+          "interface": "eth12",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_0",
+          "address": "172.16.0.24/31"
+        },
+        {
+          "interface": "eth13",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_1",
+          "address": "172.16.0.26/31"
+        },
+        {
+          "interface": "eth14",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_2",
+          "address": "172.16.0.28/31"
+        },
+        {
+          "interface": "eth15",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_3",
+          "address": "172.16.0.30/31"
+        },
+        {
+          "interface": "eth16",
+          "peer": "lan:super_spine_router_0_client_0",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:0",
+          "address": "192.168.0.1/24"
+        }
+      ]
+    },
+    "super_spine_router_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_0",
+          "address": "172.16.0.32/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_1",
+          "address": "172.16.0.34/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_2",
+          "address": "172.16.0.36/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_3",
+          "address": "172.16.0.38/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_0",
+          "address": "172.16.0.40/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_1",
+          "address": "172.16.0.42/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_2",
+          "address": "172.16.0.44/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_3",
+          "address": "172.16.0.46/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_0",
+          "address": "172.16.0.48/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_1",
+          "address": "172.16.0.50/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_2",
+          "address": "172.16.0.52/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_3",
+          "address": "172.16.0.54/31"
+        },
+        {
+          "interface": "eth12",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_0",
+          "address": "172.16.0.56/31"
+        },
+        {
+          "interface": "eth13",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_1",
+          "address": "172.16.0.58/31"
+        },
+        {
+          "interface": "eth14",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_2",
+          "address": "172.16.0.60/31"
+        },
+        {
+          "interface": "eth15",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_3",
+          "address": "172.16.0.62/31"
+        },
+        {
+          "interface": "eth16",
+          "peer": "client_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_client_1",
+          "address": "192.168.1.1/24"
+        }
+      ]
+    },
+    "super_spine_router_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_0",
+          "address": "172.16.0.64/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_1",
+          "address": "172.16.0.66/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_2",
+          "address": "172.16.0.68/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_3",
+          "address": "172.16.0.70/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_0",
+          "address": "172.16.0.72/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_1",
+          "address": "172.16.0.74/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_2",
+          "address": "172.16.0.76/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_3",
+          "address": "172.16.0.78/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_0",
+          "address": "172.16.0.80/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_1",
+          "address": "172.16.0.82/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_2",
+          "address": "172.16.0.84/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_3",
+          "address": "172.16.0.86/31"
+        },
+        {
+          "interface": "eth12",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_0",
+          "address": "172.16.0.88/31"
+        },
+        {
+          "interface": "eth13",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_1",
+          "address": "172.16.0.90/31"
+        },
+        {
+          "interface": "eth14",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_2",
+          "address": "172.16.0.92/31"
+        },
+        {
+          "interface": "eth15",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_3",
+          "address": "172.16.0.94/31"
+        },
+        {
+          "interface": "eth16",
+          "peer": "client_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_client_2",
+          "address": "192.168.2.1/24"
+        }
+      ]
+    },
+    "super_spine_router_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_0",
+          "address": "172.16.0.96/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_1",
+          "address": "172.16.0.98/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_2",
+          "address": "172.16.0.100/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_3",
+          "address": "172.16.0.102/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_0",
+          "address": "172.16.0.104/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_1",
+          "address": "172.16.0.106/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_2",
+          "address": "172.16.0.108/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_3",
+          "address": "172.16.0.110/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_0",
+          "address": "172.16.0.112/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_1",
+          "address": "172.16.0.114/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_2",
+          "address": "172.16.0.116/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_3",
+          "address": "172.16.0.118/31"
+        },
+        {
+          "interface": "eth12",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_0",
+          "address": "172.16.0.120/31"
+        },
+        {
+          "interface": "eth13",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_1",
+          "address": "172.16.0.122/31"
+        },
+        {
+          "interface": "eth14",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_2",
+          "address": "172.16.0.124/31"
+        },
+        {
+          "interface": "eth15",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_3",
+          "address": "172.16.0.126/31"
+        },
+        {
+          "interface": "eth16",
+          "peer": "client_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_client_3",
+          "address": "192.168.3.1/24"
+        }
+      ]
+    },
+    "spine_router_0_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_0",
+          "address": "172.16.0.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_0",
+          "address": "172.16.0.33/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_0",
+          "address": "172.16.0.65/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_0",
+          "address": "172.16.0.97/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_0",
+          "address": "172.16.0.128/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_1",
+          "address": "172.16.0.130/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_2",
+          "address": "172.16.0.132/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_3",
+          "address": "172.16.0.134/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_0_4",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_4",
+          "address": "172.16.0.136/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_0_5",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_5",
+          "address": "172.16.0.138/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_0_6",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_6",
+          "address": "172.16.0.140/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_0_7",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_7",
+          "address": "172.16.0.142/31"
+        }
+      ]
+    },
+    "spine_router_0_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_1",
+          "address": "172.16.0.3/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_1",
+          "address": "172.16.0.35/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_1",
+          "address": "172.16.0.67/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_1",
+          "address": "172.16.0.99/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_0",
+          "address": "172.16.0.144/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_1",
+          "address": "172.16.0.146/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_2",
+          "address": "172.16.0.148/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_3",
+          "address": "172.16.0.150/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_0_4",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_4",
+          "address": "172.16.0.152/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_0_5",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_5",
+          "address": "172.16.0.154/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_0_6",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_6",
+          "address": "172.16.0.156/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_0_7",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_7",
+          "address": "172.16.0.158/31"
+        }
+      ]
+    },
+    "spine_router_0_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_2",
+          "address": "172.16.0.5/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_2",
+          "address": "172.16.0.37/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_2",
+          "address": "172.16.0.69/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_2",
+          "address": "172.16.0.101/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_0",
+          "address": "172.16.0.160/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_1",
+          "address": "172.16.0.162/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_2",
+          "address": "172.16.0.164/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_3",
+          "address": "172.16.0.166/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_0_4",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_4",
+          "address": "172.16.0.168/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_0_5",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_5",
+          "address": "172.16.0.170/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_0_6",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_6",
+          "address": "172.16.0.172/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_0_7",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_7",
+          "address": "172.16.0.174/31"
+        }
+      ]
+    },
+    "spine_router_0_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_0_3",
+          "address": "172.16.0.7/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_0_3",
+          "address": "172.16.0.39/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_0_3",
+          "address": "172.16.0.71/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_0_3",
+          "address": "172.16.0.103/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_0",
+          "address": "172.16.0.176/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_1",
+          "address": "172.16.0.178/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_2",
+          "address": "172.16.0.180/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_3",
+          "address": "172.16.0.182/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_0_4",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_4",
+          "address": "172.16.0.184/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_0_5",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_5",
+          "address": "172.16.0.186/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_0_6",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_6",
+          "address": "172.16.0.188/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_0_7",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_7",
+          "address": "172.16.0.190/31"
+        }
+      ]
+    },
+    "leaf_router_0_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_0",
+          "address": "172.16.0.129/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_0",
+          "address": "172.16.0.145/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_0",
+          "address": "172.16.0.161/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_0",
+          "address": "172.16.0.177/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dns_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_0_dns_pod0",
+          "address": "10.0.0.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_1",
+          "address": "172.16.0.131/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_1",
+          "address": "172.16.0.147/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_1",
+          "address": "172.16.0.163/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_1",
+          "address": "172.16.0.179/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "lan:leaf_router_0_1_webserver0_pod0",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:0",
+          "address": "10.0.1.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_2",
+          "address": "172.16.0.133/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_2",
+          "address": "172.16.0.149/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_2",
+          "address": "172.16.0.165/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_2",
+          "address": "172.16.0.181/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver1_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_2_webserver1_pod0",
+          "address": "10.0.2.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_3",
+          "address": "172.16.0.135/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_3",
+          "address": "172.16.0.151/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_3",
+          "address": "172.16.0.167/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_3",
+          "address": "172.16.0.183/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver2_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_3_webserver2_pod0",
+          "address": "10.0.3.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_4",
+          "address": "172.16.0.137/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_4",
+          "address": "172.16.0.153/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_4",
+          "address": "172.16.0.169/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_4",
+          "address": "172.16.0.185/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver3_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_4_webserver3_pod0",
+          "address": "10.0.4.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_5",
+          "address": "172.16.0.139/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_5",
+          "address": "172.16.0.155/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_5",
+          "address": "172.16.0.171/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_5",
+          "address": "172.16.0.187/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver4_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_5_webserver4_pod0",
+          "address": "10.0.5.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_6",
+          "address": "172.16.0.141/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_6",
+          "address": "172.16.0.157/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_6",
+          "address": "172.16.0.173/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_6",
+          "address": "172.16.0.189/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver5_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_6_webserver5_pod0",
+          "address": "10.0.6.1/24"
+        }
+      ]
+    },
+    "leaf_router_0_7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_0_0",
+          "kind": "routed",
+          "link": "spine_router_0_0_leaf_router_0_7",
+          "address": "172.16.0.143/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_0_1",
+          "kind": "routed",
+          "link": "spine_router_0_1_leaf_router_0_7",
+          "address": "172.16.0.159/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_0_2",
+          "kind": "routed",
+          "link": "spine_router_0_2_leaf_router_0_7",
+          "address": "172.16.0.175/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_0_3",
+          "kind": "routed",
+          "link": "spine_router_0_3_leaf_router_0_7",
+          "address": "172.16.0.191/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver6_pod0",
+          "kind": "routed",
+          "link": "leaf_router_0_7_webserver6_pod0",
+          "address": "10.0.7.1/24"
+        }
+      ]
+    },
+    "dns_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_0",
+          "kind": "routed",
+          "link": "leaf_router_0_0_dns_pod0",
+          "address": "10.0.0.2/24"
+        }
+      ]
+    },
+    "webserver0_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_0_1_webserver0_pod0",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:1",
+          "address": "10.0.1.2/24"
+        }
+      ]
+    },
+    "webserver1_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_2",
+          "kind": "routed",
+          "link": "leaf_router_0_2_webserver1_pod0",
+          "address": "10.0.2.2/24"
+        }
+      ]
+    },
+    "webserver2_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_3",
+          "kind": "routed",
+          "link": "leaf_router_0_3_webserver2_pod0",
+          "address": "10.0.3.2/24"
+        }
+      ]
+    },
+    "webserver3_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_4",
+          "kind": "routed",
+          "link": "leaf_router_0_4_webserver3_pod0",
+          "address": "10.0.4.2/24"
+        }
+      ]
+    },
+    "webserver4_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_5",
+          "kind": "routed",
+          "link": "leaf_router_0_5_webserver4_pod0",
+          "address": "10.0.5.2/24"
+        }
+      ]
+    },
+    "webserver5_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_6",
+          "kind": "routed",
+          "link": "leaf_router_0_6_webserver5_pod0",
+          "address": "10.0.6.2/24"
+        }
+      ]
+    },
+    "webserver6_pod0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_0_7",
+          "kind": "routed",
+          "link": "leaf_router_0_7_webserver6_pod0",
+          "address": "10.0.7.2/24"
+        }
+      ]
+    },
+    "spine_router_1_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_0",
+          "address": "172.16.0.9/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_0",
+          "address": "172.16.0.41/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_0",
+          "address": "172.16.0.73/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_0",
+          "address": "172.16.0.105/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_0",
+          "address": "172.16.0.192/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_1",
+          "address": "172.16.0.194/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_2",
+          "address": "172.16.0.196/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_3",
+          "address": "172.16.0.198/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_1_4",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_4",
+          "address": "172.16.0.200/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_1_5",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_5",
+          "address": "172.16.0.202/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_1_6",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_6",
+          "address": "172.16.0.204/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_1_7",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_7",
+          "address": "172.16.0.206/31"
+        }
+      ]
+    },
+    "spine_router_1_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_1",
+          "address": "172.16.0.11/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_1",
+          "address": "172.16.0.43/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_1",
+          "address": "172.16.0.75/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_1",
+          "address": "172.16.0.107/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_0",
+          "address": "172.16.0.208/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_1",
+          "address": "172.16.0.210/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_2",
+          "address": "172.16.0.212/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_3",
+          "address": "172.16.0.214/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_1_4",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_4",
+          "address": "172.16.0.216/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_1_5",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_5",
+          "address": "172.16.0.218/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_1_6",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_6",
+          "address": "172.16.0.220/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_1_7",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_7",
+          "address": "172.16.0.222/31"
+        }
+      ]
+    },
+    "spine_router_1_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_2",
+          "address": "172.16.0.13/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_2",
+          "address": "172.16.0.45/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_2",
+          "address": "172.16.0.77/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_2",
+          "address": "172.16.0.109/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_0",
+          "address": "172.16.0.224/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_1",
+          "address": "172.16.0.226/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_2",
+          "address": "172.16.0.228/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_3",
+          "address": "172.16.0.230/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_1_4",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_4",
+          "address": "172.16.0.232/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_1_5",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_5",
+          "address": "172.16.0.234/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_1_6",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_6",
+          "address": "172.16.0.236/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_1_7",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_7",
+          "address": "172.16.0.238/31"
+        }
+      ]
+    },
+    "spine_router_1_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_1_3",
+          "address": "172.16.0.15/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_1_3",
+          "address": "172.16.0.47/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_1_3",
+          "address": "172.16.0.79/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_1_3",
+          "address": "172.16.0.111/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_0",
+          "address": "172.16.0.240/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_1",
+          "address": "172.16.0.242/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_2",
+          "address": "172.16.0.244/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_3",
+          "address": "172.16.0.246/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_1_4",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_4",
+          "address": "172.16.0.248/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_1_5",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_5",
+          "address": "172.16.0.250/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_1_6",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_6",
+          "address": "172.16.0.252/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_1_7",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_7",
+          "address": "172.16.0.254/31"
+        }
+      ]
+    },
+    "leaf_router_1_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_0",
+          "address": "172.16.0.193/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_0",
+          "address": "172.16.0.209/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_0",
+          "address": "172.16.0.225/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_0",
+          "address": "172.16.0.241/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dns_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_0_dns_pod1",
+          "address": "10.1.0.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_1",
+          "address": "172.16.0.195/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_1",
+          "address": "172.16.0.211/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_1",
+          "address": "172.16.0.227/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_1",
+          "address": "172.16.0.243/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver0_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_1_webserver0_pod1",
+          "address": "10.1.1.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_2",
+          "address": "172.16.0.197/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_2",
+          "address": "172.16.0.213/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_2",
+          "address": "172.16.0.229/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_2",
+          "address": "172.16.0.245/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver1_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_2_webserver1_pod1",
+          "address": "10.1.2.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_3",
+          "address": "172.16.0.199/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_3",
+          "address": "172.16.0.215/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_3",
+          "address": "172.16.0.231/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_3",
+          "address": "172.16.0.247/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver2_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_3_webserver2_pod1",
+          "address": "10.1.3.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_4",
+          "address": "172.16.0.201/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_4",
+          "address": "172.16.0.217/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_4",
+          "address": "172.16.0.233/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_4",
+          "address": "172.16.0.249/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver3_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_4_webserver3_pod1",
+          "address": "10.1.4.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_5",
+          "address": "172.16.0.203/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_5",
+          "address": "172.16.0.219/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_5",
+          "address": "172.16.0.235/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_5",
+          "address": "172.16.0.251/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver4_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_5_webserver4_pod1",
+          "address": "10.1.5.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_6",
+          "address": "172.16.0.205/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_6",
+          "address": "172.16.0.221/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_6",
+          "address": "172.16.0.237/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_6",
+          "address": "172.16.0.253/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver5_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_6_webserver5_pod1",
+          "address": "10.1.6.1/24"
+        }
+      ]
+    },
+    "leaf_router_1_7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_1_0",
+          "kind": "routed",
+          "link": "spine_router_1_0_leaf_router_1_7",
+          "address": "172.16.0.207/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_1_1",
+          "kind": "routed",
+          "link": "spine_router_1_1_leaf_router_1_7",
+          "address": "172.16.0.223/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_1_2",
+          "kind": "routed",
+          "link": "spine_router_1_2_leaf_router_1_7",
+          "address": "172.16.0.239/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_1_3",
+          "kind": "routed",
+          "link": "spine_router_1_3_leaf_router_1_7",
+          "address": "172.16.0.255/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver6_pod1",
+          "kind": "routed",
+          "link": "leaf_router_1_7_webserver6_pod1",
+          "address": "10.1.7.1/24"
+        }
+      ]
+    },
+    "dns_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_0",
+          "kind": "routed",
+          "link": "leaf_router_1_0_dns_pod1",
+          "address": "10.1.0.2/24"
+        }
+      ]
+    },
+    "webserver0_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_1",
+          "kind": "routed",
+          "link": "leaf_router_1_1_webserver0_pod1",
+          "address": "10.1.1.2/24"
+        }
+      ]
+    },
+    "webserver1_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_2",
+          "kind": "routed",
+          "link": "leaf_router_1_2_webserver1_pod1",
+          "address": "10.1.2.2/24"
+        }
+      ]
+    },
+    "webserver2_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_3",
+          "kind": "routed",
+          "link": "leaf_router_1_3_webserver2_pod1",
+          "address": "10.1.3.2/24"
+        }
+      ]
+    },
+    "webserver3_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_4",
+          "kind": "routed",
+          "link": "leaf_router_1_4_webserver3_pod1",
+          "address": "10.1.4.2/24"
+        }
+      ]
+    },
+    "webserver4_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_5",
+          "kind": "routed",
+          "link": "leaf_router_1_5_webserver4_pod1",
+          "address": "10.1.5.2/24"
+        }
+      ]
+    },
+    "webserver5_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_6",
+          "kind": "routed",
+          "link": "leaf_router_1_6_webserver5_pod1",
+          "address": "10.1.6.2/24"
+        }
+      ]
+    },
+    "webserver6_pod1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_1_7",
+          "kind": "routed",
+          "link": "leaf_router_1_7_webserver6_pod1",
+          "address": "10.1.7.2/24"
+        }
+      ]
+    },
+    "spine_router_2_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_0",
+          "address": "172.16.0.17/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_0",
+          "address": "172.16.0.49/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_0",
+          "address": "172.16.0.81/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_0",
+          "address": "172.16.0.113/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_0",
+          "address": "172.16.1.0/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_1",
+          "address": "172.16.1.2/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_2",
+          "address": "172.16.1.4/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_3",
+          "address": "172.16.1.6/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_2_4",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_4",
+          "address": "172.16.1.8/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_2_5",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_5",
+          "address": "172.16.1.10/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_2_6",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_6",
+          "address": "172.16.1.12/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_2_7",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_7",
+          "address": "172.16.1.14/31"
+        }
+      ]
+    },
+    "spine_router_2_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_1",
+          "address": "172.16.0.19/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_1",
+          "address": "172.16.0.51/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_1",
+          "address": "172.16.0.83/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_1",
+          "address": "172.16.0.115/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_0",
+          "address": "172.16.1.16/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_1",
+          "address": "172.16.1.18/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_2",
+          "address": "172.16.1.20/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_3",
+          "address": "172.16.1.22/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_2_4",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_4",
+          "address": "172.16.1.24/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_2_5",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_5",
+          "address": "172.16.1.26/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_2_6",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_6",
+          "address": "172.16.1.28/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_2_7",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_7",
+          "address": "172.16.1.30/31"
+        }
+      ]
+    },
+    "spine_router_2_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_2",
+          "address": "172.16.0.21/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_2",
+          "address": "172.16.0.53/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_2",
+          "address": "172.16.0.85/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_2",
+          "address": "172.16.0.117/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_0",
+          "address": "172.16.1.32/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_1",
+          "address": "172.16.1.34/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_2",
+          "address": "172.16.1.36/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_3",
+          "address": "172.16.1.38/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_2_4",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_4",
+          "address": "172.16.1.40/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_2_5",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_5",
+          "address": "172.16.1.42/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_2_6",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_6",
+          "address": "172.16.1.44/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_2_7",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_7",
+          "address": "172.16.1.46/31"
+        }
+      ]
+    },
+    "spine_router_2_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_2_3",
+          "address": "172.16.0.23/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_2_3",
+          "address": "172.16.0.55/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_2_3",
+          "address": "172.16.0.87/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_2_3",
+          "address": "172.16.0.119/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_0",
+          "address": "172.16.1.48/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_1",
+          "address": "172.16.1.50/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_2",
+          "address": "172.16.1.52/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_3",
+          "address": "172.16.1.54/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_2_4",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_4",
+          "address": "172.16.1.56/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_2_5",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_5",
+          "address": "172.16.1.58/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_2_6",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_6",
+          "address": "172.16.1.60/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_2_7",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_7",
+          "address": "172.16.1.62/31"
+        }
+      ]
+    },
+    "leaf_router_2_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_0",
+          "address": "172.16.1.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_0",
+          "address": "172.16.1.17/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_0",
+          "address": "172.16.1.33/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_0",
+          "address": "172.16.1.49/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dns_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_0_dns_pod2",
+          "address": "10.2.0.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_1",
+          "address": "172.16.1.3/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_1",
+          "address": "172.16.1.19/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_1",
+          "address": "172.16.1.35/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_1",
+          "address": "172.16.1.51/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver0_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_1_webserver0_pod2",
+          "address": "10.2.1.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_2",
+          "address": "172.16.1.5/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_2",
+          "address": "172.16.1.21/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_2",
+          "address": "172.16.1.37/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_2",
+          "address": "172.16.1.53/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver1_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_2_webserver1_pod2",
+          "address": "10.2.2.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_3",
+          "address": "172.16.1.7/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_3",
+          "address": "172.16.1.23/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_3",
+          "address": "172.16.1.39/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_3",
+          "address": "172.16.1.55/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver2_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_3_webserver2_pod2",
+          "address": "10.2.3.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_4",
+          "address": "172.16.1.9/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_4",
+          "address": "172.16.1.25/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_4",
+          "address": "172.16.1.41/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_4",
+          "address": "172.16.1.57/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver3_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_4_webserver3_pod2",
+          "address": "10.2.4.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_5",
+          "address": "172.16.1.11/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_5",
+          "address": "172.16.1.27/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_5",
+          "address": "172.16.1.43/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_5",
+          "address": "172.16.1.59/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver4_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_5_webserver4_pod2",
+          "address": "10.2.5.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_6",
+          "address": "172.16.1.13/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_6",
+          "address": "172.16.1.29/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_6",
+          "address": "172.16.1.45/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_6",
+          "address": "172.16.1.61/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver5_pod2",
+          "kind": "routed",
+          "link": "leaf_router_2_6_webserver5_pod2",
+          "address": "10.2.6.1/24"
+        }
+      ]
+    },
+    "leaf_router_2_7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_2_0",
+          "kind": "routed",
+          "link": "spine_router_2_0_leaf_router_2_7",
+          "address": "172.16.1.15/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_2_1",
+          "kind": "routed",
+          "link": "spine_router_2_1_leaf_router_2_7",
+          "address": "172.16.1.31/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_2_2",
+          "kind": "routed",
+          "link": "spine_router_2_2_leaf_router_2_7",
+          "address": "172.16.1.47/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_2_3",
+          "kind": "routed",
+          "link": "spine_router_2_3_leaf_router_2_7",
+          "address": "172.16.1.63/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "lan:leaf_router_2_7_webserver6_pod2",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:0",
+          "address": "10.2.7.1/24"
+        }
+      ]
+    },
+    "dns_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_0",
+          "kind": "routed",
+          "link": "leaf_router_2_0_dns_pod2",
+          "address": "10.2.0.2/24"
+        }
+      ]
+    },
+    "webserver0_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_1",
+          "kind": "routed",
+          "link": "leaf_router_2_1_webserver0_pod2",
+          "address": "10.2.1.2/24"
+        }
+      ]
+    },
+    "webserver1_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_2",
+          "kind": "routed",
+          "link": "leaf_router_2_2_webserver1_pod2",
+          "address": "10.2.2.2/24"
+        }
+      ]
+    },
+    "webserver2_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_3",
+          "kind": "routed",
+          "link": "leaf_router_2_3_webserver2_pod2",
+          "address": "10.2.3.2/24"
+        }
+      ]
+    },
+    "webserver3_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_4",
+          "kind": "routed",
+          "link": "leaf_router_2_4_webserver3_pod2",
+          "address": "10.2.4.2/24"
+        }
+      ]
+    },
+    "webserver4_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_5",
+          "kind": "routed",
+          "link": "leaf_router_2_5_webserver4_pod2",
+          "address": "10.2.5.2/24"
+        }
+      ]
+    },
+    "webserver5_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_2_6",
+          "kind": "routed",
+          "link": "leaf_router_2_6_webserver5_pod2",
+          "address": "10.2.6.2/24"
+        }
+      ]
+    },
+    "webserver6_pod2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_2_7_webserver6_pod2",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:1",
+          "address": "10.2.7.2/24"
+        }
+      ]
+    },
+    "spine_router_3_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_0",
+          "address": "172.16.0.25/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_0",
+          "address": "172.16.0.57/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_0",
+          "address": "172.16.0.89/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_0",
+          "address": "172.16.0.121/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_0",
+          "address": "172.16.1.64/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_1",
+          "address": "172.16.1.66/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_2",
+          "address": "172.16.1.68/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_3",
+          "address": "172.16.1.70/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_3_4",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_4",
+          "address": "172.16.1.72/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_3_5",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_5",
+          "address": "172.16.1.74/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_3_6",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_6",
+          "address": "172.16.1.76/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_3_7",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_7",
+          "address": "172.16.1.78/31"
+        }
+      ]
+    },
+    "spine_router_3_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_1",
+          "address": "172.16.0.27/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_1",
+          "address": "172.16.0.59/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_1",
+          "address": "172.16.0.91/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_1",
+          "address": "172.16.0.123/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_0",
+          "address": "172.16.1.80/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_1",
+          "address": "172.16.1.82/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_2",
+          "address": "172.16.1.84/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_3",
+          "address": "172.16.1.86/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_3_4",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_4",
+          "address": "172.16.1.88/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_3_5",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_5",
+          "address": "172.16.1.90/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_3_6",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_6",
+          "address": "172.16.1.92/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_3_7",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_7",
+          "address": "172.16.1.94/31"
+        }
+      ]
+    },
+    "spine_router_3_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_2",
+          "address": "172.16.0.29/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_2",
+          "address": "172.16.0.61/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_2",
+          "address": "172.16.0.93/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_2",
+          "address": "172.16.0.125/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_0",
+          "address": "172.16.1.96/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_1",
+          "address": "172.16.1.98/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_2",
+          "address": "172.16.1.100/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_3",
+          "address": "172.16.1.102/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_3_4",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_4",
+          "address": "172.16.1.104/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_3_5",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_5",
+          "address": "172.16.1.106/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_3_6",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_6",
+          "address": "172.16.1.108/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_3_7",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_7",
+          "address": "172.16.1.110/31"
+        }
+      ]
+    },
+    "spine_router_3_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_0",
+          "kind": "routed",
+          "link": "super_spine_router_0_spine_router_3_3",
+          "address": "172.16.0.31/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_spine_router_3_3",
+          "address": "172.16.0.63/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_spine_router_3_3",
+          "address": "172.16.0.95/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_spine_router_3_3",
+          "address": "172.16.0.127/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_0",
+          "address": "172.16.1.112/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_1",
+          "address": "172.16.1.114/31"
+        },
+        {
+          "interface": "eth6",
+          "peer": "leaf_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_2",
+          "address": "172.16.1.116/31"
+        },
+        {
+          "interface": "eth7",
+          "peer": "leaf_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_3",
+          "address": "172.16.1.118/31"
+        },
+        {
+          "interface": "eth8",
+          "peer": "leaf_router_3_4",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_4",
+          "address": "172.16.1.120/31"
+        },
+        {
+          "interface": "eth9",
+          "peer": "leaf_router_3_5",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_5",
+          "address": "172.16.1.122/31"
+        },
+        {
+          "interface": "eth10",
+          "peer": "leaf_router_3_6",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_6",
+          "address": "172.16.1.124/31"
+        },
+        {
+          "interface": "eth11",
+          "peer": "leaf_router_3_7",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_7",
+          "address": "172.16.1.126/31"
+        }
+      ]
+    },
+    "leaf_router_3_0": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_0",
+          "address": "172.16.1.65/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_0",
+          "address": "172.16.1.81/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_0",
+          "address": "172.16.1.97/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_0",
+          "address": "172.16.1.113/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dns_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_0_dns_pod3",
+          "address": "10.3.0.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_1",
+          "address": "172.16.1.67/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_1",
+          "address": "172.16.1.83/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_1",
+          "address": "172.16.1.99/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_1",
+          "address": "172.16.1.115/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver0_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_1_webserver0_pod3",
+          "address": "10.3.1.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_2",
+          "address": "172.16.1.69/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_2",
+          "address": "172.16.1.85/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_2",
+          "address": "172.16.1.101/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_2",
+          "address": "172.16.1.117/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver1_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_2_webserver1_pod3",
+          "address": "10.3.2.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_3",
+          "address": "172.16.1.71/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_3",
+          "address": "172.16.1.87/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_3",
+          "address": "172.16.1.103/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_3",
+          "address": "172.16.1.119/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver2_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_3_webserver2_pod3",
+          "address": "10.3.3.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_4",
+          "address": "172.16.1.73/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_4",
+          "address": "172.16.1.89/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_4",
+          "address": "172.16.1.105/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_4",
+          "address": "172.16.1.121/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver3_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_4_webserver3_pod3",
+          "address": "10.3.4.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_5",
+          "address": "172.16.1.75/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_5",
+          "address": "172.16.1.91/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_5",
+          "address": "172.16.1.107/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_5",
+          "address": "172.16.1.123/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver4_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_5_webserver4_pod3",
+          "address": "10.3.5.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_6",
+          "address": "172.16.1.77/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_6",
+          "address": "172.16.1.93/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_6",
+          "address": "172.16.1.109/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_6",
+          "address": "172.16.1.125/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "webserver5_pod3",
+          "kind": "routed",
+          "link": "leaf_router_3_6_webserver5_pod3",
+          "address": "10.3.6.1/24"
+        }
+      ]
+    },
+    "leaf_router_3_7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine_router_3_0",
+          "kind": "routed",
+          "link": "spine_router_3_0_leaf_router_3_7",
+          "address": "172.16.1.79/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine_router_3_1",
+          "kind": "routed",
+          "link": "spine_router_3_1_leaf_router_3_7",
+          "address": "172.16.1.95/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine_router_3_2",
+          "kind": "routed",
+          "link": "spine_router_3_2_leaf_router_3_7",
+          "address": "172.16.1.111/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "spine_router_3_3",
+          "kind": "routed",
+          "link": "spine_router_3_3_leaf_router_3_7",
+          "address": "172.16.1.127/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "lan:leaf_router_3_7_webserver6_pod3",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:0",
+          "address": "10.3.7.1/24"
+        }
+      ]
+    },
+    "dns_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_0",
+          "kind": "routed",
+          "link": "leaf_router_3_0_dns_pod3",
+          "address": "10.3.0.2/24"
+        }
+      ]
+    },
+    "webserver0_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_1",
+          "kind": "routed",
+          "link": "leaf_router_3_1_webserver0_pod3",
+          "address": "10.3.1.2/24"
+        }
+      ]
+    },
+    "webserver1_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_2",
+          "kind": "routed",
+          "link": "leaf_router_3_2_webserver1_pod3",
+          "address": "10.3.2.2/24"
+        }
+      ]
+    },
+    "webserver2_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_3",
+          "kind": "routed",
+          "link": "leaf_router_3_3_webserver2_pod3",
+          "address": "10.3.3.2/24"
+        }
+      ]
+    },
+    "webserver3_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_4",
+          "kind": "routed",
+          "link": "leaf_router_3_4_webserver3_pod3",
+          "address": "10.3.4.2/24"
+        }
+      ]
+    },
+    "webserver4_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_5",
+          "kind": "routed",
+          "link": "leaf_router_3_5_webserver4_pod3",
+          "address": "10.3.5.2/24"
+        }
+      ]
+    },
+    "webserver5_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf_router_3_6",
+          "kind": "routed",
+          "link": "leaf_router_3_6_webserver5_pod3",
+          "address": "10.3.6.2/24"
+        }
+      ]
+    },
+    "webserver6_pod3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_3_7_webserver6_pod3",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:1",
+          "address": "10.3.7.2/24"
+        }
+      ]
+    },
+    "client_0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:super_spine_router_0_client_0",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:1"
+        }
+      ]
+    },
+    "client_1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_1",
+          "kind": "routed",
+          "link": "super_spine_router_1_client_1",
+          "address": "192.168.1.2/24"
+        }
+      ]
+    },
+    "client_2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_2",
+          "kind": "routed",
+          "link": "super_spine_router_2_client_2",
+          "address": "192.168.2.2/24"
+        }
+      ]
+    },
+    "client_3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "super_spine_router_3",
+          "kind": "routed",
+          "link": "super_spine_router_3_client_3",
+          "address": "192.168.3.2/24"
+        }
+      ]
+    },
+    "dhcp1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:super_spine_router_0_client_0",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:2",
+          "address": "192.168.0.67/24"
+        }
+      ]
+    },
+    "lb1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_0_1_webserver0_pod0",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:2",
+          "address": "10.0.1.80/24"
+        }
+      ]
+    },
+    "monitor1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_2_7_webserver6_pod2",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:2",
+          "address": "10.2.7.200/24"
+        }
+      ]
+    },
+    "monitor2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:leaf_router_3_7_webserver6_pod3",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:2",
+          "address": "10.3.7.200/24"
+        }
+      ]
+    },
+    "lan:super_spine_router_0_client_0": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "super_spine_router_0",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "client_0",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "dhcp1",
+          "kind": "lan",
+          "link": "super_spine_router_0_client_0:2"
+        }
+      ]
+    },
+    "lan:leaf_router_0_1_webserver0_pod0": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "leaf_router_0_1",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "webserver0_pod0",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "lb1",
+          "kind": "lan",
+          "link": "leaf_router_0_1_webserver0_pod0:2"
+        }
+      ]
+    },
+    "lan:leaf_router_2_7_webserver6_pod2": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "leaf_router_2_7",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "webserver6_pod2",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "monitor1",
+          "kind": "lan",
+          "link": "leaf_router_2_7_webserver6_pod2:2"
+        }
+      ]
+    },
+    "lan:leaf_router_3_7_webserver6_pod3": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "leaf_router_3_7",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "webserver6_pod3",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "monitor2",
+          "kind": "lan",
+          "link": "leaf_router_3_7_webserver6_pod3:2"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "name": "super_spine_router_0_spine_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth3"
+        },
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth5"
+        },
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth6"
+        },
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth7"
+        },
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth8"
+        },
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth9"
+        },
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth10"
+        },
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth11"
+        },
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth12"
+        },
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth13"
+        },
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth14"
+        },
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_spine_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth15"
+        },
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_client_0:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "super_spine_router_0",
+          "interface": "eth16"
+        },
+        {
+          "node": "lan:super_spine_router_0_client_0",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_client_0:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "client_0",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:super_spine_router_0_client_0",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_0_client_0:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dhcp1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:super_spine_router_0_client_0",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth3"
+        },
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth5"
+        },
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth6"
+        },
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth7"
+        },
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth8"
+        },
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth9"
+        },
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth10"
+        },
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth11"
+        },
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth12"
+        },
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth13"
+        },
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth14"
+        },
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_spine_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth15"
+        },
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_1_client_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_1",
+          "interface": "eth16"
+        },
+        {
+          "node": "client_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth3"
+        },
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth5"
+        },
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth6"
+        },
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth7"
+        },
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth8"
+        },
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth9"
+        },
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth10"
+        },
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth11"
+        },
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth12"
+        },
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth13"
+        },
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth14"
+        },
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_spine_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth15"
+        },
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_2_client_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_2",
+          "interface": "eth16"
+        },
+        {
+          "node": "client_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth3"
+        },
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth5"
+        },
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth6"
+        },
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth7"
+        },
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth8"
+        },
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth9"
+        },
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth10"
+        },
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth11"
+        },
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth12"
+        },
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth13"
+        },
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth14"
+        },
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_spine_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth15"
+        },
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "super_spine_router_3_client_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "super_spine_router_3",
+          "interface": "eth16"
+        },
+        {
+          "node": "client_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_0_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_0_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_0_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_0_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_0_4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_0_5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_0_6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_0_leaf_router_0_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_0",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_0_7",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_0_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_0_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_0_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_0_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_0_4",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_0_5",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_0_6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_1_leaf_router_0_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_1",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_0_7",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_0_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_0_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_0_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_0_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_0_4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_0_5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_0_6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_2_leaf_router_0_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_2",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_0_7",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_0_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_0_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_0_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_0_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_0_4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_0_5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_0_6",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_0_3_leaf_router_0_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_0_3",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_0_7",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_0_dns_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "dns_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_1_webserver0_pod0:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "lan:leaf_router_0_1_webserver0_pod0",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_1_webserver0_pod0:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "webserver0_pod0",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_0_1_webserver0_pod0",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_1_webserver0_pod0:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "lb1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_0_1_webserver0_pod0",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_2_webserver1_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver1_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_3_webserver2_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver2_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_4_webserver3_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_4",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver3_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_5_webserver4_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_5",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver4_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_6_webserver5_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_6",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver5_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_0_7_webserver6_pod0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_0_7",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver6_pod0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_1_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_1_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_1_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_1_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_1_4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_1_5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_1_6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_0_leaf_router_1_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_0",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_1_7",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_1_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_1_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_1_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_1_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_1_4",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_1_5",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_1_6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_1_leaf_router_1_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_1",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_1_7",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_1_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_1_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_1_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_1_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_1_4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_1_5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_1_6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_2_leaf_router_1_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_2",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_1_7",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_1_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_1_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_1_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_1_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_1_4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_1_5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_1_6",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_1_3_leaf_router_1_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_1_3",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_1_7",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_0_dns_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "dns_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_1_webserver0_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver0_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_2_webserver1_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver1_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_3_webserver2_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver2_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_4_webserver3_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_4",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver3_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_5_webserver4_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_5",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver4_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_6_webserver5_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_6",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver5_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_1_7_webserver6_pod1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_1_7",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver6_pod1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_2_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_2_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_2_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_2_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_2_4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_2_5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_2_6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_0_leaf_router_2_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_0",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_2_7",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_2_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_2_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_2_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_2_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_2_4",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_2_5",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_2_6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_1_leaf_router_2_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_1",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_2_7",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_2_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_2_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_2_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_2_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_2_4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_2_5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_2_6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_2_leaf_router_2_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_2",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_2_7",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_2_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_2_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_2_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_2_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_2_4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_2_5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_2_6",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_2_3_leaf_router_2_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_2_3",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_2_7",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_0_dns_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "dns_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_1_webserver0_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver0_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_2_webserver1_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver1_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_3_webserver2_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver2_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_4_webserver3_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_4",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver3_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_5_webserver4_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_5",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver4_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_6_webserver5_pod2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_6",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver5_pod2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_7_webserver6_pod2:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "leaf_router_2_7",
+          "interface": "eth4"
+        },
+        {
+          "node": "lan:leaf_router_2_7_webserver6_pod2",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_7_webserver6_pod2:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "webserver6_pod2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_2_7_webserver6_pod2",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_2_7_webserver6_pod2:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "monitor1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_2_7_webserver6_pod2",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_3_0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_3_1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_3_2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_3_3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_3_4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_3_5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_3_6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_0_leaf_router_3_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_0",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_3_7",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_3_0",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_3_1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_3_2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_3_3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_3_4",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_3_5",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_3_6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_1_leaf_router_3_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_1",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_3_7",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_3_0",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_3_1",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_3_2",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_3_3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_3_4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_3_5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_3_6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_2_leaf_router_3_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_2",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_3_7",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_0",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "leaf_router_3_0",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth5"
+        },
+        {
+          "node": "leaf_router_3_1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth6"
+        },
+        {
+          "node": "leaf_router_3_2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth7"
+        },
+        {
+          "node": "leaf_router_3_3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth8"
+        },
+        {
+          "node": "leaf_router_3_4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth9"
+        },
+        {
+          "node": "leaf_router_3_5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth10"
+        },
+        {
+          "node": "leaf_router_3_6",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "spine_router_3_3_leaf_router_3_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "spine_router_3_3",
+          "interface": "eth11"
+        },
+        {
+          "node": "leaf_router_3_7",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_0_dns_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_0",
+          "interface": "eth4"
+        },
+        {
+          "node": "dns_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_1_webserver0_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_1",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver0_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_2_webserver1_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_2",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver1_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_3_webserver2_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_3",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver2_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_4_webserver3_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_4",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver3_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_5_webserver4_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_5",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver4_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_6_webserver5_pod3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_6",
+          "interface": "eth4"
+        },
+        {
+          "node": "webserver5_pod3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_7_webserver6_pod3:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "leaf_router_3_7",
+          "interface": "eth4"
+        },
+        {
+          "node": "lan:leaf_router_3_7_webserver6_pod3",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_7_webserver6_pod3:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "webserver6_pod3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_3_7_webserver6_pod3",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "leaf_router_3_7_webserver6_pod3:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "monitor2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:leaf_router_3_7_webserver6_pod3",
+          "interface": "port2"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "BGP \u00b7 DHCP \u00b7 DNS \u00b7 HAProxy",
+  "source_path": "FaulT-Bench/topology_kathara/NIKA_Clos_Jiayuan_92Devices",
+  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "scenarios": [
+    "nika92-client1-compound-gateway-and-tcp-filter",
+    "nika92-dhcp1-wrong-router-option",
+    "nika92-false-premise-pod1-web",
+    "nika92-lb1-wrong-backend-ports",
+    "nika92-pod0-leaf1-wrong-remote-as",
+    "nika92-pod1-leaf1-service-prefix-filter"
+  ],
+  "scenario_count": 6,
+  "evaluation_enabled": false,
+  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "health": null
+}

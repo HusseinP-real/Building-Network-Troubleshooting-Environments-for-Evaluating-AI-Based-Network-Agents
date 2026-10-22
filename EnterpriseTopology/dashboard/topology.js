@@ -52,14 +52,14 @@
     const term = byId('nodeSearch').value.trim().toLowerCase();
     const neighbors = new Set(selected ? [selected, ...inventory.nodes[selected].ports.map(p => p.peer)] : []);
     groups.forEach((el, name) => {
-      el.classList.toggle('dimmed', term ? !name.includes(term) : selected && !neighbors.has(name));
+      el.classList.toggle('dimmed', term ? !name.toLowerCase().includes(term) : selected && !neighbors.has(name));
       el.classList.toggle('selected', name === selected);
-      el.classList.toggle('search-match', !!term && name.includes(term));
+      el.classList.toggle('search-match', !!term && name.toLowerCase().includes(term));
     });
     edges.forEach(({el, a, b}) => {
       const match = selected && (a === selected || b === selected);
       el.classList.toggle('connected', !!match);
-      el.classList.toggle('dimmed', term ? !(a.includes(term) || b.includes(term)) : !!selected && !match);
+      el.classList.toggle('dimmed', term ? !(a.toLowerCase().includes(term) || b.toLowerCase().includes(term)) : !!selected && !match);
     });
   }
   function inspect(name) {
@@ -68,7 +68,7 @@
     byId('deviceName').textContent = name;
     byId('deviceSummary').textContent = `${node.role[0].toUpperCase() + node.role.slice(1)} · ${node.ports.length} connected interfaces`;
     const target = byId('deviceDetails'); target.replaceChildren();
-    for (const [label, value] of [['Address', node.address], ['Gateway', node.gateway], ['VLAN', node.vlan], ['Address mode', node.role === 'host' ? (node.dhcp ? 'DHCP' : 'Static') : null]]) {
+    for (const [label, value] of [['Role', node.source_role], ['AS', node.asn], ['Loopback', node.loopback], ['Address', node.address], ['Gateway', node.gateway], ['VLAN', node.vlan], ['Address mode', node.role === 'host' ? (node.dhcp ? 'DHCP' : 'Static') : null]]) {
       if (value === undefined || value === null) continue;
       const row = document.createElement('div'); row.className = 'device-property';
       const key = document.createElement('span'), val = document.createElement('strong');
@@ -88,7 +88,7 @@
   byId('nodeSearch').addEventListener('keydown', event => {
     if (event.key !== 'Enter' || !inventory) return;
     const term = event.target.value.trim().toLowerCase();
-    const name = Object.keys(inventory.nodes).find(n => n === term) || Object.keys(inventory.nodes).find(n => n.includes(term));
+    const name = Object.keys(inventory.nodes).find(n => n.toLowerCase() === term) || Object.keys(inventory.nodes).find(n => n.toLowerCase().includes(term));
     if (name) {inspect(name); const p = positions.get(name); view = [p.x - 400, p.y - 250, 800, 500]; applyView();}
   });
   function draw(data) {
@@ -103,16 +103,30 @@
     byId('deviceSummary').textContent = 'Choose any node to highlight its neighbors and inspect its interfaces.';
     byId('deviceDetails').replaceChildren();
     svg.setAttribute('aria-label', `${data.name} network topology`);
-    byId('topologySelectionNote').textContent = data.evaluation_enabled
+    byId('topologySelectionNote').textContent = data.note || (data.evaluation_enabled
       ? 'Current evaluation environment'
-      : 'Standalone copy · exploration only · runtime validation pending';
+      : 'Standalone copy · exploration only · runtime validation pending');
     const counts = {router:0, switch:0, host:0};
-    Object.values(data.nodes).forEach(node => {counts[node.role] += 1;});
+    Object.values(data.nodes).forEach(node => {if (!node.virtual) counts[node.role] = (counts[node.role] || 0) + 1;});
     const metrics = byId('topologyMetrics'); metrics.replaceChildren();
-    for (const [value, label] of [[Object.keys(data.nodes).length,'devices'], [data.links.length,'links'], [counts.router,'routers'], [counts.switch,'switches'], [counts.host,'hosts'], [data.scenario_count,'scenarios']]) {
+    for (const [value, label] of [[Object.values(data.nodes).filter(n => !n.virtual).length,'devices'], [data.links.length, Object.values(data.nodes).some(n => n.virtual) ? 'drawn connections' : 'links'], [counts.router,'routers'], [counts.switch,'switches'], [counts.host,'hosts'], [data.scenario_count,'scenarios']]) {
       const span = document.createElement('span'), strong = document.createElement('strong');
       strong.textContent = value; span.append(strong, ` ${label}`); metrics.append(span);
     }
+    if (data.layout === 'generic') {
+      const layers = ['router', 'switch', 'host'];
+      layers.forEach((role, layer) => {
+        const names = Object.keys(data.nodes).filter(name => data.nodes[name].role === role);
+        const columns = role === 'router' ? 8 : 10;
+        const rows = Math.ceil(names.length / columns);
+        const top = [80, 410, 650][layer];
+        svg.append(mark('text', {x:40,y:top-30,class:'zone-label'}, ({router:'ROUTERS',switch:'SWITCHES / SHARED LANS',host:'HOSTS'})[role]));
+        names.forEach((name, i) => positions.set(name, {
+          x:90 + (i % columns) * (1420 / Math.max(1, Math.min(columns, names.length)-1)),
+          y:top + Math.floor(i / columns) * Math.min(65, 245 / Math.max(1, rows-1))
+        }));
+      });
+    } else {
     const zones = [
       {name:'Shared services', x:210, routers:['r3','r4'], switches:['s13','s14','s15'], extra:[], vlans:[410,420,430]},
       {name:'Staff & guest', x:600, routers:['r5','r6'], switches:['s1','s2','s3','s4'], extra:['s16','s17','s18','s19'], vlans:[110,120]},
@@ -129,6 +143,22 @@
       const hosts = Object.entries(data.nodes).filter(([,node]) => node.role==='host' && zone.vlans.includes(node.vlan));
       hosts.forEach(([name],i) => positions.set(name,{x:zone.x-120+(i%3)*120,y:680+Math.floor(i/3)*58}));
     });
+    }
+    const info = byId('topologyCatalog'); info.replaceChildren();
+    const intro = document.createElement('p');
+    intro.textContent = `${data.protocols} · ${data.evaluation_enabled ? 'SADE evaluation available on Dashboard' : 'Explore only · SADE run adapter pending'}`;
+    info.append(intro);
+    if (data.source_path) {
+      const source = document.createElement('p');
+      source.textContent = `Source: ${data.source_path} · ${(data.source_commit || '').slice(0,8)}`;
+      info.append(source);
+    }
+    if ((data.scenarios || []).length) {
+      const title = document.createElement('h3'); title.textContent = 'Scenario catalog · includes healthy controls and compound cases'; info.append(title);
+      const list = document.createElement('ul');
+      data.scenarios.forEach(name => {const li = document.createElement('li');li.textContent = name;list.append(li);});
+      info.append(list);
+    }
     const edgeLayer = mark('g', {}); svg.append(edgeLayer);
     data.links.forEach(link => {
       const [a,b] = link.endpoints, start = positions.get(a.node), end = positions.get(b.node);
@@ -139,9 +169,11 @@
     });
     Object.entries(data.nodes).forEach(([name,node]) => {
       const p = positions.get(name); if (!p) return;
-      const g = mark('g',{transform:`translate(${p.x} ${p.y})`,class:`network-node ${node.role}`,tabindex:0,role:'button','aria-label':`${name}, ${node.role}, inspect device`});
+      const g = mark('g',{transform:`translate(${p.x} ${p.y})`,class:`network-node ${node.role}${data.layout === 'generic' ? ' generic-node' : ''}`,tabindex:0,role:'button','aria-label':`${name}, ${node.role}, inspect device`});
       g.append(mark('rect',{x:-37,y:-17,width:74,height:34,rx:node.role==='router'?17:node.role==='host'?10:4}));
-      g.append(mark('text',{'text-anchor':'middle','dominant-baseline':'central'},name));
+      g.append(mark('title', {}, name));
+      const displayName = name.startsWith('lan:') ? 'Shared LAN' : name.replace('super_spine_router_', 'ss-').replace('spine_router_', 'sp-').replace('leaf_router_', 'leaf-');
+      g.append(mark('text',{'text-anchor':'middle','dominant-baseline':'central'},displayName));
       g.onclick=()=>inspect(name); g.onkeydown=event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();inspect(name);}};
       svg.append(g); groups.set(name,g);
     });

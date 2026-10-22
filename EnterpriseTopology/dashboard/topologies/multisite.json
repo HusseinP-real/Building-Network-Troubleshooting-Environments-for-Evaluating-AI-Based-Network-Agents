@@ -1,0 +1,2879 @@
+{
+  "nodes": {
+    "a1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "a2",
+          "kind": "routed",
+          "link": "ispa_1",
+          "address": "172.20.1.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e1",
+          "kind": "routed",
+          "link": "ebgp_1",
+          "address": "172.31.1.1/31"
+        }
+      ]
+    },
+    "a2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "a1",
+          "kind": "routed",
+          "link": "ispa_1",
+          "address": "172.20.1.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "a3",
+          "kind": "routed",
+          "link": "ispa_2",
+          "address": "172.20.2.0/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ext_a_sw",
+          "kind": "routed",
+          "link": "ext_a_lan",
+          "address": "198.18.10.1/24"
+        }
+      ]
+    },
+    "a3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "a2",
+          "kind": "routed",
+          "link": "ispa_2",
+          "address": "172.20.2.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e3",
+          "kind": "routed",
+          "link": "ebgp_2",
+          "address": "172.31.2.1/31"
+        }
+      ]
+    },
+    "b1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "b2",
+          "kind": "routed",
+          "link": "ispb_1",
+          "address": "172.21.1.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e2",
+          "kind": "routed",
+          "link": "ebgp_3",
+          "address": "172.31.3.1/31"
+        }
+      ]
+    },
+    "b2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "b1",
+          "kind": "routed",
+          "link": "ispb_1",
+          "address": "172.21.1.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "b3",
+          "kind": "routed",
+          "link": "ispb_2",
+          "address": "172.21.2.0/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ext_b_sw",
+          "kind": "routed",
+          "link": "ext_b_lan",
+          "address": "198.18.20.1/24"
+        }
+      ]
+    },
+    "b3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "b2",
+          "kind": "routed",
+          "link": "ispb_2",
+          "address": "172.21.2.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e4",
+          "kind": "routed",
+          "link": "ebgp_4",
+          "address": "172.31.4.1/31"
+        }
+      ]
+    },
+    "ba_h01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw01",
+          "kind": "routed",
+          "link": "ba_access01",
+          "address": "10.20.10.21/24"
+        }
+      ]
+    },
+    "ba_h02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw02",
+          "kind": "routed",
+          "link": "ba_access02",
+          "address": "10.20.10.22/24"
+        }
+      ]
+    },
+    "ba_h03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw03",
+          "kind": "routed",
+          "link": "ba_access03",
+          "address": "10.20.10.23/24"
+        }
+      ]
+    },
+    "ba_h04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw04",
+          "kind": "routed",
+          "link": "ba_access04",
+          "address": "10.20.10.24/24"
+        }
+      ]
+    },
+    "ba_h05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw01",
+          "kind": "routed",
+          "link": "ba_access05",
+          "address": "10.20.10.25/24"
+        }
+      ]
+    },
+    "ba_h06": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw02",
+          "kind": "routed",
+          "link": "ba_access06",
+          "address": "10.20.10.26/24"
+        }
+      ]
+    },
+    "ba_h07": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw03",
+          "kind": "routed",
+          "link": "ba_access07",
+          "address": "10.20.10.27/24"
+        }
+      ]
+    },
+    "ba_h08": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw04",
+          "kind": "routed",
+          "link": "ba_access08",
+          "address": "10.20.10.28/24"
+        }
+      ]
+    },
+    "ba_h09": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ba_sw01",
+          "kind": "routed",
+          "link": "ba_access09",
+          "address": "10.20.10.29/24"
+        }
+      ]
+    },
+    "ba_r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "e2",
+          "kind": "routed",
+          "link": "core_7",
+          "address": "10.255.7.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:0",
+          "address": "10.20.10.1/24"
+        }
+      ]
+    },
+    "ba_r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:1",
+          "address": "10.20.10.2/24"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e3",
+          "kind": "routed",
+          "link": "core_8",
+          "address": "10.255.8.1/31"
+        }
+      ]
+    },
+    "ba_sw01": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "ba_h01",
+          "kind": "routed",
+          "link": "ba_access01"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ba_h05",
+          "kind": "routed",
+          "link": "ba_access05"
+        },
+        {
+          "interface": "eth3",
+          "peer": "ba_h09",
+          "kind": "routed",
+          "link": "ba_access09"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:2"
+        }
+      ]
+    },
+    "ba_sw02": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "ba_h02",
+          "kind": "routed",
+          "link": "ba_access02"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ba_h06",
+          "kind": "routed",
+          "link": "ba_access06"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:3"
+        }
+      ]
+    },
+    "ba_sw03": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "ba_h03",
+          "kind": "routed",
+          "link": "ba_access03"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ba_h07",
+          "kind": "routed",
+          "link": "ba_access07"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:4"
+        }
+      ]
+    },
+    "ba_sw04": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "ba_h04",
+          "kind": "routed",
+          "link": "ba_access04"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ba_h08",
+          "kind": "routed",
+          "link": "ba_access08"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:ba_lan",
+          "kind": "lan",
+          "link": "ba_lan:5"
+        }
+      ]
+    },
+    "bb_h01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw01",
+          "kind": "routed",
+          "link": "bb_access01",
+          "address": "10.30.10.21/24"
+        }
+      ]
+    },
+    "bb_h02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw02",
+          "kind": "routed",
+          "link": "bb_access02",
+          "address": "10.30.10.22/24"
+        }
+      ]
+    },
+    "bb_h03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw03",
+          "kind": "routed",
+          "link": "bb_access03",
+          "address": "10.30.10.23/24"
+        }
+      ]
+    },
+    "bb_h04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw04",
+          "kind": "routed",
+          "link": "bb_access04",
+          "address": "10.30.10.24/24"
+        }
+      ]
+    },
+    "bb_h05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw01",
+          "kind": "routed",
+          "link": "bb_access05",
+          "address": "10.30.10.25/24"
+        }
+      ]
+    },
+    "bb_h06": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw02",
+          "kind": "routed",
+          "link": "bb_access06",
+          "address": "10.30.10.26/24"
+        }
+      ]
+    },
+    "bb_h07": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw03",
+          "kind": "routed",
+          "link": "bb_access07",
+          "address": "10.30.10.27/24"
+        }
+      ]
+    },
+    "bb_h08": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw04",
+          "kind": "routed",
+          "link": "bb_access08",
+          "address": "10.30.10.28/24"
+        }
+      ]
+    },
+    "bb_h09": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "bb_sw01",
+          "kind": "routed",
+          "link": "bb_access09",
+          "address": "10.30.10.29/24"
+        }
+      ]
+    },
+    "bb_r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "e3",
+          "kind": "routed",
+          "link": "core_9",
+          "address": "10.255.9.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:0",
+          "address": "10.30.10.1/24"
+        }
+      ]
+    },
+    "bb_r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:1",
+          "address": "10.30.10.2/24"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e4",
+          "kind": "routed",
+          "link": "core_10",
+          "address": "10.255.10.1/31"
+        }
+      ]
+    },
+    "bb_sw01": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "bb_h01",
+          "kind": "routed",
+          "link": "bb_access01"
+        },
+        {
+          "interface": "eth2",
+          "peer": "bb_h05",
+          "kind": "routed",
+          "link": "bb_access05"
+        },
+        {
+          "interface": "eth3",
+          "peer": "bb_h09",
+          "kind": "routed",
+          "link": "bb_access09"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:2"
+        }
+      ]
+    },
+    "bb_sw02": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "bb_h02",
+          "kind": "routed",
+          "link": "bb_access02"
+        },
+        {
+          "interface": "eth2",
+          "peer": "bb_h06",
+          "kind": "routed",
+          "link": "bb_access06"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:3"
+        }
+      ]
+    },
+    "bb_sw03": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "bb_h03",
+          "kind": "routed",
+          "link": "bb_access03"
+        },
+        {
+          "interface": "eth2",
+          "peer": "bb_h07",
+          "kind": "routed",
+          "link": "bb_access07"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:4"
+        }
+      ]
+    },
+    "bb_sw04": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "bb_h04",
+          "kind": "routed",
+          "link": "bb_access04"
+        },
+        {
+          "interface": "eth2",
+          "peer": "bb_h08",
+          "kind": "routed",
+          "link": "bb_access08"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:bb_lan",
+          "kind": "lan",
+          "link": "bb_lan:5"
+        }
+      ]
+    },
+    "dc_h01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw01",
+          "kind": "routed",
+          "link": "dc_access01",
+          "address": "10.40.10.21/24"
+        }
+      ]
+    },
+    "dc_h02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw02",
+          "kind": "routed",
+          "link": "dc_access02",
+          "address": "10.40.10.22/24"
+        }
+      ]
+    },
+    "dc_h03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw03",
+          "kind": "routed",
+          "link": "dc_access03",
+          "address": "10.40.10.23/24"
+        }
+      ]
+    },
+    "dc_h04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw04",
+          "kind": "routed",
+          "link": "dc_access04",
+          "address": "10.40.10.24/24"
+        }
+      ]
+    },
+    "dc_h05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw01",
+          "kind": "routed",
+          "link": "dc_access05",
+          "address": "10.40.10.25/24"
+        }
+      ]
+    },
+    "dc_h06": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw02",
+          "kind": "routed",
+          "link": "dc_access06",
+          "address": "10.40.10.26/24"
+        }
+      ]
+    },
+    "dc_h07": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw03",
+          "kind": "routed",
+          "link": "dc_access07",
+          "address": "10.40.10.27/24"
+        }
+      ]
+    },
+    "dc_h08": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "dc_sw04",
+          "kind": "routed",
+          "link": "dc_access08",
+          "address": "10.40.10.28/24"
+        }
+      ]
+    },
+    "dc_r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "e4",
+          "kind": "routed",
+          "link": "core_11",
+          "address": "10.255.11.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:0",
+          "address": "10.40.10.1/24"
+        }
+      ]
+    },
+    "dc_r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:1",
+          "address": "10.40.10.2/24"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e1",
+          "kind": "routed",
+          "link": "core_12",
+          "address": "10.255.12.1/31"
+        }
+      ]
+    },
+    "dc_sw01": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "dc_h01",
+          "kind": "routed",
+          "link": "dc_access01"
+        },
+        {
+          "interface": "eth2",
+          "peer": "dc_h05",
+          "kind": "routed",
+          "link": "dc_access05"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:2"
+        }
+      ]
+    },
+    "dc_sw02": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "dc_h02",
+          "kind": "routed",
+          "link": "dc_access02"
+        },
+        {
+          "interface": "eth2",
+          "peer": "dc_h06",
+          "kind": "routed",
+          "link": "dc_access06"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:3"
+        }
+      ]
+    },
+    "dc_sw03": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "dc_h03",
+          "kind": "routed",
+          "link": "dc_access03"
+        },
+        {
+          "interface": "eth2",
+          "peer": "dc_h07",
+          "kind": "routed",
+          "link": "dc_access07"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:4"
+        }
+      ]
+    },
+    "dc_sw04": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "dc_h04",
+          "kind": "routed",
+          "link": "dc_access04"
+        },
+        {
+          "interface": "eth2",
+          "peer": "dc_h08",
+          "kind": "routed",
+          "link": "dc_access08"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan",
+          "kind": "lan",
+          "link": "dc_lan:5"
+        }
+      ]
+    },
+    "e1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "a1",
+          "kind": "routed",
+          "link": "ebgp_1",
+          "address": "172.31.1.0/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "dc_r2",
+          "kind": "routed",
+          "link": "core_12",
+          "address": "10.255.12.0/31"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e2",
+          "kind": "routed",
+          "link": "core_1",
+          "address": "10.255.1.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e4",
+          "kind": "routed",
+          "link": "core_4",
+          "address": "10.255.4.1/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_r1",
+          "kind": "routed",
+          "link": "core_5",
+          "address": "10.255.5.0/31"
+        }
+      ]
+    },
+    "e2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "b1",
+          "kind": "routed",
+          "link": "ebgp_3",
+          "address": "172.31.3.0/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "ba_r1",
+          "kind": "routed",
+          "link": "core_7",
+          "address": "10.255.7.0/31"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e1",
+          "kind": "routed",
+          "link": "core_1",
+          "address": "10.255.1.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e3",
+          "kind": "routed",
+          "link": "core_2",
+          "address": "10.255.2.0/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_r2",
+          "kind": "routed",
+          "link": "core_6",
+          "address": "10.255.6.0/31"
+        }
+      ]
+    },
+    "e3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "a3",
+          "kind": "routed",
+          "link": "ebgp_2",
+          "address": "172.31.2.0/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "ba_r2",
+          "kind": "routed",
+          "link": "core_8",
+          "address": "10.255.8.0/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "bb_r1",
+          "kind": "routed",
+          "link": "core_9",
+          "address": "10.255.9.0/31"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e2",
+          "kind": "routed",
+          "link": "core_2",
+          "address": "10.255.2.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e4",
+          "kind": "routed",
+          "link": "core_3",
+          "address": "10.255.3.0/31"
+        }
+      ]
+    },
+    "e4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "b3",
+          "kind": "routed",
+          "link": "ebgp_4",
+          "address": "172.31.4.0/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "bb_r2",
+          "kind": "routed",
+          "link": "core_10",
+          "address": "10.255.10.0/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "dc_r1",
+          "kind": "routed",
+          "link": "core_11",
+          "address": "10.255.11.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "e1",
+          "kind": "routed",
+          "link": "core_4",
+          "address": "10.255.4.0/31"
+        },
+        {
+          "interface": "eth0",
+          "peer": "e3",
+          "kind": "routed",
+          "link": "core_3",
+          "address": "10.255.3.1/31"
+        }
+      ]
+    },
+    "ext_a_sw": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "a2",
+          "kind": "routed",
+          "link": "ext_a_lan"
+        },
+        {
+          "interface": "eth1",
+          "peer": "ext_a_web",
+          "kind": "routed",
+          "link": "ext_a_access"
+        }
+      ]
+    },
+    "ext_a_web": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ext_a_sw",
+          "kind": "routed",
+          "link": "ext_a_access",
+          "address": "198.18.10.10/24"
+        }
+      ]
+    },
+    "ext_b_sw": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "b2",
+          "kind": "routed",
+          "link": "ext_b_lan"
+        },
+        {
+          "interface": "eth1",
+          "peer": "ext_b_web",
+          "kind": "routed",
+          "link": "ext_b_access"
+        }
+      ]
+    },
+    "ext_b_web": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "ext_b_sw",
+          "kind": "routed",
+          "link": "ext_b_access",
+          "address": "198.18.20.10/24"
+        }
+      ]
+    },
+    "hq_h01": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw01",
+          "kind": "routed",
+          "link": "hq_access01",
+          "address": "10.10.10.21/24"
+        }
+      ]
+    },
+    "hq_h02": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw02",
+          "kind": "routed",
+          "link": "hq_access02",
+          "address": "10.10.10.22/24"
+        }
+      ]
+    },
+    "hq_h03": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw03",
+          "kind": "routed",
+          "link": "hq_access03",
+          "address": "10.10.10.23/24"
+        }
+      ]
+    },
+    "hq_h04": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw04",
+          "kind": "routed",
+          "link": "hq_access04",
+          "address": "10.10.10.24/24"
+        }
+      ]
+    },
+    "hq_h05": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw05",
+          "kind": "routed",
+          "link": "hq_access05",
+          "address": "10.10.10.25/24"
+        }
+      ]
+    },
+    "hq_h06": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw06",
+          "kind": "routed",
+          "link": "hq_access06",
+          "address": "10.10.10.26/24"
+        }
+      ]
+    },
+    "hq_h07": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw01",
+          "kind": "routed",
+          "link": "hq_access07",
+          "address": "10.10.10.27/24"
+        }
+      ]
+    },
+    "hq_h08": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw02",
+          "kind": "routed",
+          "link": "hq_access08",
+          "address": "10.10.10.28/24"
+        }
+      ]
+    },
+    "hq_h09": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw03",
+          "kind": "routed",
+          "link": "hq_access09",
+          "address": "10.10.10.29/24"
+        }
+      ]
+    },
+    "hq_h10": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw04",
+          "kind": "routed",
+          "link": "hq_access10",
+          "address": "10.10.10.30/24"
+        }
+      ]
+    },
+    "hq_h11": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw05",
+          "kind": "routed",
+          "link": "hq_access11",
+          "address": "10.10.10.31/24"
+        }
+      ]
+    },
+    "hq_h12": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw06",
+          "kind": "routed",
+          "link": "hq_access12",
+          "address": "10.10.10.32/24"
+        }
+      ]
+    },
+    "hq_h13": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw01",
+          "kind": "routed",
+          "link": "hq_access13",
+          "address": "10.10.10.33/24"
+        }
+      ]
+    },
+    "hq_h14": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "hq_sw02",
+          "kind": "routed",
+          "link": "hq_access14",
+          "address": "10.10.10.34/24"
+        }
+      ]
+    },
+    "hq_r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "e1",
+          "kind": "routed",
+          "link": "core_5",
+          "address": "10.255.5.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:0",
+          "address": "10.10.10.1/24"
+        }
+      ]
+    },
+    "hq_r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "e2",
+          "kind": "routed",
+          "link": "core_6",
+          "address": "10.255.6.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:1",
+          "address": "10.10.10.2/24"
+        }
+      ]
+    },
+    "hq_sw01": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h01",
+          "kind": "routed",
+          "link": "hq_access01"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h07",
+          "kind": "routed",
+          "link": "hq_access07"
+        },
+        {
+          "interface": "eth3",
+          "peer": "hq_h13",
+          "kind": "routed",
+          "link": "hq_access13"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:2"
+        }
+      ]
+    },
+    "hq_sw02": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h02",
+          "kind": "routed",
+          "link": "hq_access02"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h08",
+          "kind": "routed",
+          "link": "hq_access08"
+        },
+        {
+          "interface": "eth3",
+          "peer": "hq_h14",
+          "kind": "routed",
+          "link": "hq_access14"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:3"
+        }
+      ]
+    },
+    "hq_sw03": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h03",
+          "kind": "routed",
+          "link": "hq_access03"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h09",
+          "kind": "routed",
+          "link": "hq_access09"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:4"
+        }
+      ]
+    },
+    "hq_sw04": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h04",
+          "kind": "routed",
+          "link": "hq_access04"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h10",
+          "kind": "routed",
+          "link": "hq_access10"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:5"
+        }
+      ]
+    },
+    "hq_sw05": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h05",
+          "kind": "routed",
+          "link": "hq_access05"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h11",
+          "kind": "routed",
+          "link": "hq_access11"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:6"
+        }
+      ]
+    },
+    "hq_sw06": {
+      "role": "switch",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "hq_h06",
+          "kind": "routed",
+          "link": "hq_access06"
+        },
+        {
+          "interface": "eth2",
+          "peer": "hq_h12",
+          "kind": "routed",
+          "link": "hq_access12"
+        },
+        {
+          "interface": "eth0",
+          "peer": "lan:hq_lan",
+          "kind": "lan",
+          "link": "hq_lan:7"
+        }
+      ]
+    },
+    "lan:ba_lan": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "ba_r1",
+          "kind": "lan",
+          "link": "ba_lan:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "ba_r2",
+          "kind": "lan",
+          "link": "ba_lan:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "ba_sw01",
+          "kind": "lan",
+          "link": "ba_lan:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "ba_sw02",
+          "kind": "lan",
+          "link": "ba_lan:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "ba_sw03",
+          "kind": "lan",
+          "link": "ba_lan:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "ba_sw04",
+          "kind": "lan",
+          "link": "ba_lan:5"
+        }
+      ]
+    },
+    "lan:bb_lan": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "bb_r1",
+          "kind": "lan",
+          "link": "bb_lan:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "bb_r2",
+          "kind": "lan",
+          "link": "bb_lan:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "bb_sw01",
+          "kind": "lan",
+          "link": "bb_lan:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "bb_sw02",
+          "kind": "lan",
+          "link": "bb_lan:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "bb_sw03",
+          "kind": "lan",
+          "link": "bb_lan:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "bb_sw04",
+          "kind": "lan",
+          "link": "bb_lan:5"
+        }
+      ]
+    },
+    "lan:dc_lan": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "dc_r1",
+          "kind": "lan",
+          "link": "dc_lan:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "dc_r2",
+          "kind": "lan",
+          "link": "dc_lan:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "dc_sw01",
+          "kind": "lan",
+          "link": "dc_lan:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "dc_sw02",
+          "kind": "lan",
+          "link": "dc_lan:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "dc_sw03",
+          "kind": "lan",
+          "link": "dc_lan:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "dc_sw04",
+          "kind": "lan",
+          "link": "dc_lan:5"
+        }
+      ]
+    },
+    "lan:hq_lan": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "hq_r1",
+          "kind": "lan",
+          "link": "hq_lan:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "hq_r2",
+          "kind": "lan",
+          "link": "hq_lan:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "hq_sw01",
+          "kind": "lan",
+          "link": "hq_lan:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "hq_sw02",
+          "kind": "lan",
+          "link": "hq_lan:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "hq_sw03",
+          "kind": "lan",
+          "link": "hq_lan:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "hq_sw04",
+          "kind": "lan",
+          "link": "hq_lan:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "hq_sw05",
+          "kind": "lan",
+          "link": "hq_lan:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "hq_sw06",
+          "kind": "lan",
+          "link": "hq_lan:7"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "name": "ispa_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "a1",
+          "interface": "eth0"
+        },
+        {
+          "node": "a2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ebgp_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "a1",
+          "interface": "eth1"
+        },
+        {
+          "node": "e1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "ispa_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "a2",
+          "interface": "eth1"
+        },
+        {
+          "node": "a3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ext_a_lan",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "a2",
+          "interface": "eth2"
+        },
+        {
+          "node": "ext_a_sw",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ebgp_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "a3",
+          "interface": "eth1"
+        },
+        {
+          "node": "e3",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "ispb_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "b1",
+          "interface": "eth0"
+        },
+        {
+          "node": "b2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ebgp_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "b1",
+          "interface": "eth1"
+        },
+        {
+          "node": "e2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "ispb_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "b2",
+          "interface": "eth1"
+        },
+        {
+          "node": "b3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ext_b_lan",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "b2",
+          "interface": "eth2"
+        },
+        {
+          "node": "ext_b_sw",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ebgp_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "b3",
+          "interface": "eth1"
+        },
+        {
+          "node": "e4",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "ba_access01",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h01",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw01",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "ba_access02",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h02",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw02",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "ba_access03",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h03",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw03",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "ba_access04",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h04",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw04",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "ba_access05",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h05",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw01",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "ba_access06",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h06",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw02",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "ba_access07",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h07",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw03",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "ba_access08",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h08",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw04",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "ba_access09",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_h09",
+          "interface": "eth0"
+        },
+        {
+          "node": "ba_sw01",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "core_7",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "e2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_sw01",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_sw02",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_sw03",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "ba_lan:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "ba_sw04",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:ba_lan",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "core_8",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ba_r2",
+          "interface": "eth0"
+        },
+        {
+          "node": "e3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "bb_access01",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h01",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw01",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "bb_access02",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h02",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw02",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "bb_access03",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h03",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw03",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "bb_access04",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h04",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw04",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "bb_access05",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h05",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw01",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "bb_access06",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h06",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw02",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "bb_access07",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h07",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw03",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "bb_access08",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h08",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw04",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "bb_access09",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_h09",
+          "interface": "eth0"
+        },
+        {
+          "node": "bb_sw01",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "core_9",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "e3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_sw01",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_sw02",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_sw03",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "bb_lan:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "bb_sw04",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bb_lan",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "core_10",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "bb_r2",
+          "interface": "eth0"
+        },
+        {
+          "node": "e4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "dc_access01",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h01",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw01",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "dc_access02",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h02",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw02",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "dc_access03",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h03",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw03",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "dc_access04",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h04",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw04",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "dc_access05",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h05",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw01",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "dc_access06",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h06",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw02",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "dc_access07",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h07",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw03",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "dc_access08",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_h08",
+          "interface": "eth0"
+        },
+        {
+          "node": "dc_sw04",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "core_11",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "e4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_sw01",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_sw02",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_sw03",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dc_sw04",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "core_12",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dc_r2",
+          "interface": "eth0"
+        },
+        {
+          "node": "e1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "core_1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e1",
+          "interface": "eth0"
+        },
+        {
+          "node": "e2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "core_4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e1",
+          "interface": "eth1"
+        },
+        {
+          "node": "e4",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "core_5",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e1",
+          "interface": "eth2"
+        },
+        {
+          "node": "hq_r1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "core_2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e2",
+          "interface": "eth1"
+        },
+        {
+          "node": "e3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "core_6",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e2",
+          "interface": "eth2"
+        },
+        {
+          "node": "hq_r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "core_3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "e3",
+          "interface": "eth1"
+        },
+        {
+          "node": "e4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ext_a_access",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ext_a_sw",
+          "interface": "eth1"
+        },
+        {
+          "node": "ext_a_web",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "ext_b_access",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "ext_b_sw",
+          "interface": "eth1"
+        },
+        {
+          "node": "ext_b_web",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "hq_access01",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h01",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw01",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access02",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h02",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw02",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access03",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h03",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw03",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access04",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h04",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw04",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access05",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h05",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw05",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access06",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h06",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw06",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "hq_access07",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h07",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw01",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access08",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h08",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw02",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access09",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h09",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw03",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access10",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h10",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw04",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access11",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h11",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw05",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access12",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h12",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw06",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "hq_access13",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h13",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw01",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "hq_access14",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "hq_h14",
+          "interface": "eth0"
+        },
+        {
+          "node": "hq_sw02",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw01",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw02",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw03",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw04",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw05",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "hq_lan:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "hq_sw06",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:hq_lan",
+          "interface": "port7"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "OSPF \u00b7 eBGP",
+  "source_path": "MultiSite_BGP_OSPF_Benchmark",
+  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "scenarios": [
+    "F01",
+    "F02",
+    "F03"
+  ],
+  "scenario_count": 3,
+  "evaluation_enabled": false,
+  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "health": null
+}

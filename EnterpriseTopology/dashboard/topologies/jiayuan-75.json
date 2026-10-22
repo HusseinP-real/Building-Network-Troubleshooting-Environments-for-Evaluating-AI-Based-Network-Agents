@@ -1,0 +1,2873 @@
+{
+  "nodes": {
+    "r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "kind": "routed",
+          "link": "A",
+          "address": "12.1.1.1/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r11",
+          "kind": "routed",
+          "link": "B",
+          "address": "111.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r3",
+          "kind": "routed",
+          "link": "C",
+          "address": "31.1.1.2/8"
+        },
+        {
+          "interface": "eth4",
+          "peer": "pc0",
+          "kind": "routed",
+          "link": "E",
+          "address": "20.1.1.1/8"
+        }
+      ]
+    },
+    "pc0": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "kind": "routed",
+          "link": "E",
+          "address": "20.1.1.10/8"
+        }
+      ]
+    },
+    "r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r1",
+          "kind": "routed",
+          "link": "A",
+          "address": "12.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r3",
+          "kind": "routed",
+          "link": "H",
+          "address": "23.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r10",
+          "kind": "routed",
+          "link": "I",
+          "address": "21.1.1.1/8"
+        }
+      ]
+    },
+    "r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "r1",
+          "kind": "routed",
+          "link": "C",
+          "address": "31.1.1.1/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r2",
+          "kind": "routed",
+          "link": "H",
+          "address": "23.1.1.2/8"
+        },
+        {
+          "interface": "eth0",
+          "peer": "r9",
+          "kind": "routed",
+          "link": "J",
+          "address": "39.1.1.1/8"
+        },
+        {
+          "interface": "eth3",
+          "peer": "r4",
+          "kind": "routed",
+          "link": "M",
+          "address": "34.1.1.1/8"
+        },
+        {
+          "interface": "eth7",
+          "peer": "r20",
+          "kind": "routed",
+          "link": "MGMT_UPLINK",
+          "address": "192.168.240.1/30"
+        }
+      ]
+    },
+    "r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "kind": "routed",
+          "link": "M",
+          "address": "34.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r5",
+          "kind": "routed",
+          "link": "R",
+          "address": "45.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r6",
+          "kind": "routed",
+          "link": "S",
+          "address": "46.1.1.1/8"
+        }
+      ]
+    },
+    "r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r4",
+          "kind": "routed",
+          "link": "R",
+          "address": "45.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r6",
+          "kind": "routed",
+          "link": "V",
+          "address": "56.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r8",
+          "kind": "routed",
+          "link": "W",
+          "address": "58.1.1.1/8"
+        },
+        {
+          "interface": "eth4",
+          "peer": "r16",
+          "kind": "routed",
+          "link": "GL",
+          "address": "192.168.220.1/30"
+        }
+      ]
+    },
+    "r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r4",
+          "kind": "routed",
+          "link": "S",
+          "address": "46.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r5",
+          "kind": "routed",
+          "link": "V",
+          "address": "56.1.1.2/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r7",
+          "kind": "routed",
+          "link": "Y",
+          "address": "67.1.1.1/8"
+        },
+        {
+          "interface": "eth4",
+          "peer": "r16",
+          "kind": "routed",
+          "link": "GM",
+          "address": "192.168.221.1/30"
+        }
+      ]
+    },
+    "r7": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r6",
+          "kind": "routed",
+          "link": "Y",
+          "address": "67.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:0",
+          "address": "70.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r14",
+          "kind": "routed",
+          "link": "FI",
+          "address": "192.168.214.1/30"
+        }
+      ]
+    },
+    "a1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:1",
+          "address": "70.1.1.11/8"
+        }
+      ]
+    },
+    "a2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:2",
+          "address": "70.1.1.12/8"
+        }
+      ]
+    },
+    "a3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:3",
+          "address": "70.1.1.13/8"
+        }
+      ]
+    },
+    "a4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:4",
+          "address": "70.1.1.14/8"
+        }
+      ]
+    },
+    "a5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:5",
+          "address": "70.1.1.15/8"
+        }
+      ]
+    },
+    "a6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:AA",
+          "kind": "lan",
+          "link": "AA:6",
+          "address": "70.1.1.16/8"
+        }
+      ]
+    },
+    "r8": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r5",
+          "kind": "routed",
+          "link": "W",
+          "address": "58.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:0",
+          "address": "80.1.1.1/8"
+        }
+      ]
+    },
+    "b1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:1",
+          "address": "80.1.1.11/8"
+        }
+      ]
+    },
+    "b2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:2",
+          "address": "80.1.1.12/8"
+        }
+      ]
+    },
+    "b3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:3",
+          "address": "80.1.1.13/8"
+        }
+      ]
+    },
+    "b4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:4",
+          "address": "80.1.1.14/8"
+        }
+      ]
+    },
+    "b5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:5",
+          "address": "80.1.1.15/8"
+        }
+      ]
+    },
+    "b6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:BB",
+          "kind": "lan",
+          "link": "BB:6",
+          "address": "80.1.1.16/8"
+        }
+      ]
+    },
+    "r9": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "kind": "routed",
+          "link": "J",
+          "address": "39.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:0",
+          "address": "90.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r19",
+          "kind": "routed",
+          "link": "DMZ_UPLINK",
+          "address": "192.168.230.1/30"
+        }
+      ]
+    },
+    "c1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:1",
+          "address": "90.1.1.11/8"
+        }
+      ]
+    },
+    "c2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:2",
+          "address": "90.1.1.12/8"
+        }
+      ]
+    },
+    "c3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:3",
+          "address": "90.1.1.13/8"
+        }
+      ]
+    },
+    "c4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:4",
+          "address": "90.1.1.14/8"
+        }
+      ]
+    },
+    "c5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:5",
+          "address": "90.1.1.15/8"
+        }
+      ]
+    },
+    "c6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:CC",
+          "kind": "lan",
+          "link": "CC:6",
+          "address": "90.1.1.16/8"
+        }
+      ]
+    },
+    "r10": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r2",
+          "kind": "routed",
+          "link": "I",
+          "address": "21.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:0",
+          "address": "100.1.1.1/8"
+        }
+      ]
+    },
+    "d1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:1",
+          "address": "100.1.1.11/8"
+        }
+      ]
+    },
+    "d2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:2",
+          "address": "100.1.1.12/8"
+        }
+      ]
+    },
+    "d3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:3",
+          "address": "100.1.1.13/8"
+        }
+      ]
+    },
+    "d4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:4",
+          "address": "100.1.1.14/8"
+        }
+      ]
+    },
+    "d5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:5",
+          "address": "100.1.1.15/8"
+        }
+      ]
+    },
+    "d6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DD",
+          "kind": "lan",
+          "link": "DD:6",
+          "address": "100.1.1.16/8"
+        }
+      ]
+    },
+    "r11": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth1",
+          "peer": "r1",
+          "kind": "routed",
+          "link": "B",
+          "address": "111.1.1.2/8"
+        },
+        {
+          "interface": "eth0",
+          "peer": "r12",
+          "kind": "routed",
+          "link": "EE",
+          "address": "112.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r13",
+          "kind": "routed",
+          "link": "FF",
+          "address": "103.1.1.1/8"
+        }
+      ]
+    },
+    "r12": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r11",
+          "kind": "routed",
+          "link": "EE",
+          "address": "112.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:0",
+          "address": "120.1.1.1/8"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r21",
+          "kind": "routed",
+          "link": "INTERNAL_UPLINK",
+          "address": "192.168.250.1/30"
+        }
+      ]
+    },
+    "pc12": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:1",
+          "address": "120.1.1.10/8"
+        }
+      ]
+    },
+    "e1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:2",
+          "address": "120.1.1.11/8"
+        }
+      ]
+    },
+    "e2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:3",
+          "address": "120.1.1.12/8"
+        }
+      ]
+    },
+    "e3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:4",
+          "address": "120.1.1.13/8"
+        }
+      ]
+    },
+    "e4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:5",
+          "address": "120.1.1.14/8"
+        }
+      ]
+    },
+    "e5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:6",
+          "address": "120.1.1.15/8"
+        }
+      ]
+    },
+    "e6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:7",
+          "address": "120.1.1.16/8"
+        }
+      ]
+    },
+    "e7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GG",
+          "kind": "lan",
+          "link": "GG:8",
+          "address": "120.1.1.17/8"
+        }
+      ]
+    },
+    "r13": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r11",
+          "kind": "routed",
+          "link": "FF",
+          "address": "103.1.1.2/8"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:HH",
+          "kind": "lan",
+          "link": "HH:0",
+          "address": "130.1.1.1/8"
+        }
+      ]
+    },
+    "web1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:HH",
+          "kind": "lan",
+          "link": "HH:1",
+          "address": "130.1.1.11/8"
+        }
+      ]
+    },
+    "dns1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:HH",
+          "kind": "lan",
+          "link": "HH:2",
+          "address": "130.1.1.12/8"
+        }
+      ]
+    },
+    "db1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:HH",
+          "kind": "lan",
+          "link": "HH:3",
+          "address": "130.1.1.13/8"
+        }
+      ]
+    },
+    "file1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:HH",
+          "kind": "lan",
+          "link": "HH:4",
+          "address": "130.1.1.14/8"
+        }
+      ]
+    },
+    "r14": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r7",
+          "kind": "routed",
+          "link": "FI",
+          "address": "192.168.214.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r15",
+          "kind": "routed",
+          "link": "FJ",
+          "address": "192.168.215.1/30"
+        }
+      ]
+    },
+    "r15": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r14",
+          "kind": "routed",
+          "link": "FJ",
+          "address": "192.168.215.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:0",
+          "address": "192.168.216.1/24"
+        }
+      ]
+    },
+    "f1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:1",
+          "address": "192.168.216.11/24"
+        }
+      ]
+    },
+    "f2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:2",
+          "address": "192.168.216.12/24"
+        }
+      ]
+    },
+    "f3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:3",
+          "address": "192.168.216.13/24"
+        }
+      ]
+    },
+    "f4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:4",
+          "address": "192.168.216.14/24"
+        }
+      ]
+    },
+    "f5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:FK",
+          "kind": "lan",
+          "link": "FK:5",
+          "address": "192.168.216.15/24"
+        }
+      ]
+    },
+    "r16": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r5",
+          "kind": "routed",
+          "link": "GL",
+          "address": "192.168.220.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r6",
+          "kind": "routed",
+          "link": "GM",
+          "address": "192.168.221.2/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "r17",
+          "kind": "routed",
+          "link": "GN",
+          "address": "192.168.222.1/30"
+        }
+      ]
+    },
+    "r17": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r16",
+          "kind": "routed",
+          "link": "GN",
+          "address": "192.168.222.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "r18",
+          "kind": "routed",
+          "link": "GO",
+          "address": "192.168.223.1/30"
+        }
+      ]
+    },
+    "r18": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r17",
+          "kind": "routed",
+          "link": "GO",
+          "address": "192.168.223.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:GP",
+          "kind": "lan",
+          "link": "GP:0",
+          "address": "192.168.224.1/24"
+        }
+      ]
+    },
+    "g1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GP",
+          "kind": "lan",
+          "link": "GP:1",
+          "address": "192.168.224.11/24"
+        }
+      ]
+    },
+    "g2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GP",
+          "kind": "lan",
+          "link": "GP:2",
+          "address": "192.168.224.12/24"
+        }
+      ]
+    },
+    "g3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GP",
+          "kind": "lan",
+          "link": "GP:3",
+          "address": "192.168.224.13/24"
+        }
+      ]
+    },
+    "g4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:GP",
+          "kind": "lan",
+          "link": "GP:4",
+          "address": "192.168.224.14/24"
+        }
+      ]
+    },
+    "r19": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r9",
+          "kind": "routed",
+          "link": "DMZ_UPLINK",
+          "address": "192.168.230.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:DMZ_LAN",
+          "kind": "lan",
+          "link": "DMZ_LAN:0",
+          "address": "192.168.231.1/24"
+        }
+      ]
+    },
+    "dmzweb1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DMZ_LAN",
+          "kind": "lan",
+          "link": "DMZ_LAN:1",
+          "address": "192.168.231.11/24"
+        }
+      ]
+    },
+    "dmzweb2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DMZ_LAN",
+          "kind": "lan",
+          "link": "DMZ_LAN:2",
+          "address": "192.168.231.12/24"
+        }
+      ]
+    },
+    "dmzdns1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:DMZ_LAN",
+          "kind": "lan",
+          "link": "DMZ_LAN:3",
+          "address": "192.168.231.13/24"
+        }
+      ]
+    },
+    "r20": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r3",
+          "kind": "routed",
+          "link": "MGMT_UPLINK",
+          "address": "192.168.240.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:MGMT_LAN",
+          "kind": "lan",
+          "link": "MGMT_LAN:0",
+          "address": "192.168.241.1/24"
+        }
+      ]
+    },
+    "mgmt1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:MGMT_LAN",
+          "kind": "lan",
+          "link": "MGMT_LAN:1",
+          "address": "192.168.241.11/24"
+        }
+      ]
+    },
+    "mgmt2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:MGMT_LAN",
+          "kind": "lan",
+          "link": "MGMT_LAN:2",
+          "address": "192.168.241.12/24"
+        }
+      ]
+    },
+    "mgmt3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:MGMT_LAN",
+          "kind": "lan",
+          "link": "MGMT_LAN:3",
+          "address": "192.168.241.13/24"
+        }
+      ]
+    },
+    "r21": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "r12",
+          "kind": "routed",
+          "link": "INTERNAL_UPLINK",
+          "address": "192.168.250.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "lan:INTERNAL_LAN",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:0",
+          "address": "192.168.251.1/24"
+        }
+      ]
+    },
+    "intdns1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:INTERNAL_LAN",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:1",
+          "address": "192.168.251.11/24"
+        }
+      ]
+    },
+    "intapp1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:INTERNAL_LAN",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:2",
+          "address": "192.168.251.12/24"
+        }
+      ]
+    },
+    "lan:AA": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r7",
+          "kind": "lan",
+          "link": "AA:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "a1",
+          "kind": "lan",
+          "link": "AA:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "a2",
+          "kind": "lan",
+          "link": "AA:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "a3",
+          "kind": "lan",
+          "link": "AA:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "a4",
+          "kind": "lan",
+          "link": "AA:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "a5",
+          "kind": "lan",
+          "link": "AA:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "a6",
+          "kind": "lan",
+          "link": "AA:6"
+        }
+      ]
+    },
+    "lan:BB": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r8",
+          "kind": "lan",
+          "link": "BB:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "b1",
+          "kind": "lan",
+          "link": "BB:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "b2",
+          "kind": "lan",
+          "link": "BB:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "b3",
+          "kind": "lan",
+          "link": "BB:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "b4",
+          "kind": "lan",
+          "link": "BB:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "b5",
+          "kind": "lan",
+          "link": "BB:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "b6",
+          "kind": "lan",
+          "link": "BB:6"
+        }
+      ]
+    },
+    "lan:CC": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r9",
+          "kind": "lan",
+          "link": "CC:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "c1",
+          "kind": "lan",
+          "link": "CC:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "c2",
+          "kind": "lan",
+          "link": "CC:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "c3",
+          "kind": "lan",
+          "link": "CC:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "c4",
+          "kind": "lan",
+          "link": "CC:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "c5",
+          "kind": "lan",
+          "link": "CC:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "c6",
+          "kind": "lan",
+          "link": "CC:6"
+        }
+      ]
+    },
+    "lan:DD": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r10",
+          "kind": "lan",
+          "link": "DD:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "d1",
+          "kind": "lan",
+          "link": "DD:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "d2",
+          "kind": "lan",
+          "link": "DD:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "d3",
+          "kind": "lan",
+          "link": "DD:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "d4",
+          "kind": "lan",
+          "link": "DD:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "d5",
+          "kind": "lan",
+          "link": "DD:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "d6",
+          "kind": "lan",
+          "link": "DD:6"
+        }
+      ]
+    },
+    "lan:GG": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r12",
+          "kind": "lan",
+          "link": "GG:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "pc12",
+          "kind": "lan",
+          "link": "GG:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "e1",
+          "kind": "lan",
+          "link": "GG:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "e2",
+          "kind": "lan",
+          "link": "GG:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "e3",
+          "kind": "lan",
+          "link": "GG:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "e4",
+          "kind": "lan",
+          "link": "GG:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "e5",
+          "kind": "lan",
+          "link": "GG:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "e6",
+          "kind": "lan",
+          "link": "GG:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "e7",
+          "kind": "lan",
+          "link": "GG:8"
+        }
+      ]
+    },
+    "lan:HH": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r13",
+          "kind": "lan",
+          "link": "HH:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "web1",
+          "kind": "lan",
+          "link": "HH:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "dns1",
+          "kind": "lan",
+          "link": "HH:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "db1",
+          "kind": "lan",
+          "link": "HH:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "file1",
+          "kind": "lan",
+          "link": "HH:4"
+        }
+      ]
+    },
+    "lan:FK": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r15",
+          "kind": "lan",
+          "link": "FK:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "f1",
+          "kind": "lan",
+          "link": "FK:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "f2",
+          "kind": "lan",
+          "link": "FK:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "f3",
+          "kind": "lan",
+          "link": "FK:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "f4",
+          "kind": "lan",
+          "link": "FK:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "f5",
+          "kind": "lan",
+          "link": "FK:5"
+        }
+      ]
+    },
+    "lan:GP": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r18",
+          "kind": "lan",
+          "link": "GP:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "g1",
+          "kind": "lan",
+          "link": "GP:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "g2",
+          "kind": "lan",
+          "link": "GP:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "g3",
+          "kind": "lan",
+          "link": "GP:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "g4",
+          "kind": "lan",
+          "link": "GP:4"
+        }
+      ]
+    },
+    "lan:DMZ_LAN": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r19",
+          "kind": "lan",
+          "link": "DMZ_LAN:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "dmzweb1",
+          "kind": "lan",
+          "link": "DMZ_LAN:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "dmzweb2",
+          "kind": "lan",
+          "link": "DMZ_LAN:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "dmzdns1",
+          "kind": "lan",
+          "link": "DMZ_LAN:3"
+        }
+      ]
+    },
+    "lan:MGMT_LAN": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r20",
+          "kind": "lan",
+          "link": "MGMT_LAN:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "mgmt1",
+          "kind": "lan",
+          "link": "MGMT_LAN:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "mgmt2",
+          "kind": "lan",
+          "link": "MGMT_LAN:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "mgmt3",
+          "kind": "lan",
+          "link": "MGMT_LAN:3"
+        }
+      ]
+    },
+    "lan:INTERNAL_LAN": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "r21",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "intdns1",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "intapp1",
+          "kind": "lan",
+          "link": "INTERNAL_LAN:2"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "name": "A",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "r11",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "C",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "E",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r1",
+          "interface": "eth4"
+        },
+        {
+          "node": "pc0",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "H",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "r3",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "I",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "r10",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "J",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth0"
+        },
+        {
+          "node": "r9",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "M",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth3"
+        },
+        {
+          "node": "r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "S",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r4",
+          "interface": "eth2"
+        },
+        {
+          "node": "r6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "V",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "W",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r5",
+          "interface": "eth2"
+        },
+        {
+          "node": "r8",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "Y",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r6",
+          "interface": "eth2"
+        },
+        {
+          "node": "r7",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "AA:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r7",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "AA:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "AA:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "AA:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "AA:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "AA:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "AA:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "a6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:AA",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "BB:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r8",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "BB:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "BB:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "BB:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "BB:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "BB:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "BB:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "b6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:BB",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "CC:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r9",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "CC:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "CC:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "CC:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "CC:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "CC:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "CC:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "c6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:CC",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "DD:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r10",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "DD:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "DD:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "DD:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "DD:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "DD:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "DD:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "d6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DD",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "EE",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r11",
+          "interface": "eth0"
+        },
+        {
+          "node": "r12",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "FF",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r11",
+          "interface": "eth2"
+        },
+        {
+          "node": "r13",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "GG:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r12",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "GG:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "pc12",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "GG:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "GG:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "GG:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "GG:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "GG:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "GG:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "GG:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "e7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GG",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "HH:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r13",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:HH",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "HH:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:HH",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "HH:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dns1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:HH",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "HH:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:HH",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "HH:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "file1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:HH",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "FI",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r7",
+          "interface": "eth2"
+        },
+        {
+          "node": "r14",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "FJ",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r14",
+          "interface": "eth1"
+        },
+        {
+          "node": "r15",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "FK:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r15",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "FK:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "f1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "FK:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "f2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "FK:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "f3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "FK:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "f4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "FK:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "f5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:FK",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "GL",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r5",
+          "interface": "eth4"
+        },
+        {
+          "node": "r16",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "GM",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r6",
+          "interface": "eth4"
+        },
+        {
+          "node": "r16",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "GN",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r16",
+          "interface": "eth2"
+        },
+        {
+          "node": "r17",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "GO",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r17",
+          "interface": "eth1"
+        },
+        {
+          "node": "r18",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "GP:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r18",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:GP",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "GP:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "g1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GP",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "GP:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "g2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GP",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "GP:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "g3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GP",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "GP:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "g4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:GP",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "DMZ_UPLINK",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r9",
+          "interface": "eth2"
+        },
+        {
+          "node": "r19",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "DMZ_LAN:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r19",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:DMZ_LAN",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "DMZ_LAN:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dmzweb1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DMZ_LAN",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "DMZ_LAN:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dmzweb2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DMZ_LAN",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "DMZ_LAN:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dmzdns1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:DMZ_LAN",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "MGMT_UPLINK",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r3",
+          "interface": "eth7"
+        },
+        {
+          "node": "r20",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "MGMT_LAN:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r20",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:MGMT_LAN",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "MGMT_LAN:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "mgmt1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:MGMT_LAN",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "MGMT_LAN:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "mgmt2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:MGMT_LAN",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "MGMT_LAN:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "mgmt3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:MGMT_LAN",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "INTERNAL_UPLINK",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "r12",
+          "interface": "eth2"
+        },
+        {
+          "node": "r21",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "INTERNAL_LAN:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "r21",
+          "interface": "eth1"
+        },
+        {
+          "node": "lan:INTERNAL_LAN",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "INTERNAL_LAN:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "intdns1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:INTERNAL_LAN",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "INTERNAL_LAN:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "intapp1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:INTERNAL_LAN",
+          "interface": "port2"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "OSPF \u00b7 EIGRP \u00b7 DNS \u00b7 HTTP",
+  "source_path": "FaulT-Bench/topology_kathara/Kath5_Jiayuan_75Devices",
+  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "scenarios": [
+    "jiayuan75-false-premise-internal-application",
+    "jiayuan75-intapp1-http-stopped",
+    "jiayuan75-intdns1-wrong-record",
+    "jiayuan75-r15-ospf-advertisement",
+    "jiayuan75-r21-eigrp-as-mismatch"
+  ],
+  "scenario_count": 5,
+  "evaluation_enabled": false,
+  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "health": null
+}

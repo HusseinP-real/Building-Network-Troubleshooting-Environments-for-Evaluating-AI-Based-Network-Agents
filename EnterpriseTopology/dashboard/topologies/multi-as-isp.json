@@ -1,0 +1,3059 @@
+{
+  "nodes": {
+    "as65010h1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd009",
+          "address": "10.10.1.2/30"
+        }
+      ]
+    },
+    "as65010h2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd010",
+          "address": "10.10.1.6/30"
+        }
+      ]
+    },
+    "as65010h3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r3",
+          "kind": "routed",
+          "link": "cd011",
+          "address": "10.10.1.10/30"
+        }
+      ]
+    },
+    "as65010h4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r4",
+          "kind": "routed",
+          "link": "cd012",
+          "address": "10.10.1.14/30"
+        }
+      ]
+    },
+    "as65010h5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r5",
+          "kind": "routed",
+          "link": "cd013",
+          "address": "10.10.1.18/30"
+        }
+      ]
+    },
+    "as65010h6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r6",
+          "kind": "routed",
+          "link": "cd014",
+          "address": "10.10.1.22/30"
+        }
+      ]
+    },
+    "as65010h7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd015",
+          "address": "10.10.1.26/30"
+        }
+      ]
+    },
+    "as65010h8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd016",
+          "address": "10.10.1.30/30"
+        }
+      ]
+    },
+    "as65010h9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65010r3",
+          "kind": "routed",
+          "link": "cd017",
+          "address": "10.10.1.34/30"
+        }
+      ]
+    },
+    "as65010r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65010h1",
+          "kind": "routed",
+          "link": "cd009",
+          "address": "10.10.1.1/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65010h7",
+          "kind": "routed",
+          "link": "cd015",
+          "address": "10.10.1.25/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd001",
+          "address": "10.10.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r6",
+          "kind": "routed",
+          "link": "cd006",
+          "address": "10.10.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65010r4",
+          "kind": "routed",
+          "link": "cd007",
+          "address": "10.10.0.25/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd086",
+          "address": "172.20.0.1/30"
+        }
+      ]
+    },
+    "as65010r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65010h2",
+          "kind": "routed",
+          "link": "cd010",
+          "address": "10.10.1.5/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65010h8",
+          "kind": "routed",
+          "link": "cd016",
+          "address": "10.10.1.29/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd001",
+          "address": "10.10.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r3",
+          "kind": "routed",
+          "link": "cd002",
+          "address": "10.10.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65010r5",
+          "kind": "routed",
+          "link": "cd008",
+          "address": "10.10.0.29/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd087",
+          "address": "172.20.0.5/30"
+        }
+      ]
+    },
+    "as65010r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65010h3",
+          "kind": "routed",
+          "link": "cd011",
+          "address": "10.10.1.9/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65010h9",
+          "kind": "routed",
+          "link": "cd017",
+          "address": "10.10.1.33/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd002",
+          "address": "10.10.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r4",
+          "kind": "routed",
+          "link": "cd003",
+          "address": "10.10.0.9/30"
+        }
+      ]
+    },
+    "as65010r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65010h4",
+          "kind": "routed",
+          "link": "cd012",
+          "address": "10.10.1.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd007",
+          "address": "10.10.0.26/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r3",
+          "kind": "routed",
+          "link": "cd003",
+          "address": "10.10.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r5",
+          "kind": "routed",
+          "link": "cd004",
+          "address": "10.10.0.13/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65100r3",
+          "kind": "routed",
+          "link": "cd091",
+          "address": "172.20.0.21/30"
+        }
+      ]
+    },
+    "as65010r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65010h5",
+          "kind": "routed",
+          "link": "cd013",
+          "address": "10.10.1.17/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd008",
+          "address": "10.10.0.30/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r4",
+          "kind": "routed",
+          "link": "cd004",
+          "address": "10.10.0.14/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r6",
+          "kind": "routed",
+          "link": "cd005",
+          "address": "10.10.0.17/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65200r5",
+          "kind": "routed",
+          "link": "cd094",
+          "address": "172.20.0.33/30"
+        }
+      ]
+    },
+    "as65010r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65010h6",
+          "kind": "routed",
+          "link": "cd014",
+          "address": "10.10.1.21/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd006",
+          "address": "10.10.0.21/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65010r5",
+          "kind": "routed",
+          "link": "cd005",
+          "address": "10.10.0.18/30"
+        }
+      ]
+    },
+    "as65020h1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd026",
+          "address": "10.20.1.2/30"
+        }
+      ]
+    },
+    "as65020h2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd027",
+          "address": "10.20.1.6/30"
+        }
+      ]
+    },
+    "as65020h3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r3",
+          "kind": "routed",
+          "link": "cd028",
+          "address": "10.20.1.10/30"
+        }
+      ]
+    },
+    "as65020h4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r4",
+          "kind": "routed",
+          "link": "cd029",
+          "address": "10.20.1.14/30"
+        }
+      ]
+    },
+    "as65020h5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r5",
+          "kind": "routed",
+          "link": "cd030",
+          "address": "10.20.1.18/30"
+        }
+      ]
+    },
+    "as65020h6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r6",
+          "kind": "routed",
+          "link": "cd031",
+          "address": "10.20.1.22/30"
+        }
+      ]
+    },
+    "as65020h7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd032",
+          "address": "10.20.1.26/30"
+        }
+      ]
+    },
+    "as65020h8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd033",
+          "address": "10.20.1.30/30"
+        }
+      ]
+    },
+    "as65020h9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65020r3",
+          "kind": "routed",
+          "link": "cd034",
+          "address": "10.20.1.34/30"
+        }
+      ]
+    },
+    "as65020r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65010r1",
+          "kind": "routed",
+          "link": "cd086",
+          "address": "172.20.0.2/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65020h1",
+          "kind": "routed",
+          "link": "cd026",
+          "address": "10.20.1.1/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65020h7",
+          "kind": "routed",
+          "link": "cd032",
+          "address": "10.20.1.25/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd018",
+          "address": "10.20.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r6",
+          "kind": "routed",
+          "link": "cd023",
+          "address": "10.20.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65020r4",
+          "kind": "routed",
+          "link": "cd024",
+          "address": "10.20.0.25/30"
+        }
+      ]
+    },
+    "as65020r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65020h2",
+          "kind": "routed",
+          "link": "cd027",
+          "address": "10.20.1.5/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65020h8",
+          "kind": "routed",
+          "link": "cd033",
+          "address": "10.20.1.29/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd018",
+          "address": "10.20.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r3",
+          "kind": "routed",
+          "link": "cd019",
+          "address": "10.20.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65020r5",
+          "kind": "routed",
+          "link": "cd025",
+          "address": "10.20.0.29/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd088",
+          "address": "172.20.0.9/30"
+        }
+      ]
+    },
+    "as65020r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65020h3",
+          "kind": "routed",
+          "link": "cd028",
+          "address": "10.20.1.9/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65020h9",
+          "kind": "routed",
+          "link": "cd034",
+          "address": "10.20.1.33/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd019",
+          "address": "10.20.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r4",
+          "kind": "routed",
+          "link": "cd020",
+          "address": "10.20.0.9/30"
+        }
+      ]
+    },
+    "as65020r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65020h4",
+          "kind": "routed",
+          "link": "cd029",
+          "address": "10.20.1.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd024",
+          "address": "10.20.0.26/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r3",
+          "kind": "routed",
+          "link": "cd020",
+          "address": "10.20.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r5",
+          "kind": "routed",
+          "link": "cd021",
+          "address": "10.20.0.13/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd089",
+          "address": "172.20.0.13/30"
+        }
+      ]
+    },
+    "as65020r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65020h5",
+          "kind": "routed",
+          "link": "cd030",
+          "address": "10.20.1.17/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd025",
+          "address": "10.20.0.30/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r4",
+          "kind": "routed",
+          "link": "cd021",
+          "address": "10.20.0.14/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r6",
+          "kind": "routed",
+          "link": "cd022",
+          "address": "10.20.0.17/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65200r4",
+          "kind": "routed",
+          "link": "cd093",
+          "address": "172.20.0.29/30"
+        }
+      ]
+    },
+    "as65020r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65020h6",
+          "kind": "routed",
+          "link": "cd031",
+          "address": "10.20.1.21/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65020r1",
+          "kind": "routed",
+          "link": "cd023",
+          "address": "10.20.0.21/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65020r5",
+          "kind": "routed",
+          "link": "cd022",
+          "address": "10.20.0.18/30"
+        }
+      ]
+    },
+    "as65030h1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd043",
+          "address": "10.30.1.2/30"
+        }
+      ]
+    },
+    "as65030h2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd044",
+          "address": "10.30.1.6/30"
+        }
+      ]
+    },
+    "as65030h3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r3",
+          "kind": "routed",
+          "link": "cd045",
+          "address": "10.30.1.10/30"
+        }
+      ]
+    },
+    "as65030h4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r4",
+          "kind": "routed",
+          "link": "cd046",
+          "address": "10.30.1.14/30"
+        }
+      ]
+    },
+    "as65030h5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r5",
+          "kind": "routed",
+          "link": "cd047",
+          "address": "10.30.1.18/30"
+        }
+      ]
+    },
+    "as65030h6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r6",
+          "kind": "routed",
+          "link": "cd048",
+          "address": "10.30.1.22/30"
+        }
+      ]
+    },
+    "as65030h7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd049",
+          "address": "10.30.1.26/30"
+        }
+      ]
+    },
+    "as65030h8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd050",
+          "address": "10.30.1.30/30"
+        }
+      ]
+    },
+    "as65030h9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65030r3",
+          "kind": "routed",
+          "link": "cd051",
+          "address": "10.30.1.34/30"
+        }
+      ]
+    },
+    "as65030r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65010r2",
+          "kind": "routed",
+          "link": "cd087",
+          "address": "172.20.0.6/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65030h1",
+          "kind": "routed",
+          "link": "cd043",
+          "address": "10.30.1.1/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65030h7",
+          "kind": "routed",
+          "link": "cd049",
+          "address": "10.30.1.25/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd035",
+          "address": "10.30.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r6",
+          "kind": "routed",
+          "link": "cd040",
+          "address": "10.30.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65030r4",
+          "kind": "routed",
+          "link": "cd041",
+          "address": "10.30.0.25/30"
+        }
+      ]
+    },
+    "as65030r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65020r2",
+          "kind": "routed",
+          "link": "cd088",
+          "address": "172.20.0.10/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65030h2",
+          "kind": "routed",
+          "link": "cd044",
+          "address": "10.30.1.5/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65030h8",
+          "kind": "routed",
+          "link": "cd050",
+          "address": "10.30.1.29/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd035",
+          "address": "10.30.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r3",
+          "kind": "routed",
+          "link": "cd036",
+          "address": "10.30.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65030r5",
+          "kind": "routed",
+          "link": "cd042",
+          "address": "10.30.0.29/30"
+        }
+      ]
+    },
+    "as65030r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65030h3",
+          "kind": "routed",
+          "link": "cd045",
+          "address": "10.30.1.9/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65030h9",
+          "kind": "routed",
+          "link": "cd051",
+          "address": "10.30.1.33/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd036",
+          "address": "10.30.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r4",
+          "kind": "routed",
+          "link": "cd037",
+          "address": "10.30.0.9/30"
+        }
+      ]
+    },
+    "as65030r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65030h4",
+          "kind": "routed",
+          "link": "cd046",
+          "address": "10.30.1.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd041",
+          "address": "10.30.0.26/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r3",
+          "kind": "routed",
+          "link": "cd037",
+          "address": "10.30.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r5",
+          "kind": "routed",
+          "link": "cd038",
+          "address": "10.30.0.13/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd090",
+          "address": "172.20.0.17/30"
+        }
+      ]
+    },
+    "as65030r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65030h5",
+          "kind": "routed",
+          "link": "cd047",
+          "address": "10.30.1.17/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65030r2",
+          "kind": "routed",
+          "link": "cd042",
+          "address": "10.30.0.30/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r4",
+          "kind": "routed",
+          "link": "cd038",
+          "address": "10.30.0.14/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r6",
+          "kind": "routed",
+          "link": "cd039",
+          "address": "10.30.0.17/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65100r5",
+          "kind": "routed",
+          "link": "cd092",
+          "address": "172.20.0.25/30"
+        }
+      ]
+    },
+    "as65030r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65030h6",
+          "kind": "routed",
+          "link": "cd048",
+          "address": "10.30.1.21/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65030r1",
+          "kind": "routed",
+          "link": "cd040",
+          "address": "10.30.0.21/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65030r5",
+          "kind": "routed",
+          "link": "cd039",
+          "address": "10.30.0.18/30"
+        }
+      ]
+    },
+    "as65100h1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd060",
+          "address": "10.40.1.2/30"
+        }
+      ]
+    },
+    "as65100h2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd061",
+          "address": "10.40.1.6/30"
+        }
+      ]
+    },
+    "as65100h3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r3",
+          "kind": "routed",
+          "link": "cd062",
+          "address": "10.40.1.10/30"
+        }
+      ]
+    },
+    "as65100h4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r4",
+          "kind": "routed",
+          "link": "cd063",
+          "address": "10.40.1.14/30"
+        }
+      ]
+    },
+    "as65100h5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r5",
+          "kind": "routed",
+          "link": "cd064",
+          "address": "10.40.1.18/30"
+        }
+      ]
+    },
+    "as65100h6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r6",
+          "kind": "routed",
+          "link": "cd065",
+          "address": "10.40.1.22/30"
+        }
+      ]
+    },
+    "as65100h7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd066",
+          "address": "10.40.1.26/30"
+        }
+      ]
+    },
+    "as65100h8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd067",
+          "address": "10.40.1.30/30"
+        }
+      ]
+    },
+    "as65100h9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65100r3",
+          "kind": "routed",
+          "link": "cd068",
+          "address": "10.40.1.34/30"
+        }
+      ]
+    },
+    "as65100r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65020r4",
+          "kind": "routed",
+          "link": "cd089",
+          "address": "172.20.0.14/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65100h1",
+          "kind": "routed",
+          "link": "cd060",
+          "address": "10.40.1.1/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65100h7",
+          "kind": "routed",
+          "link": "cd066",
+          "address": "10.40.1.25/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd052",
+          "address": "10.40.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r6",
+          "kind": "routed",
+          "link": "cd057",
+          "address": "10.40.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65100r4",
+          "kind": "routed",
+          "link": "cd058",
+          "address": "10.40.0.25/30"
+        }
+      ]
+    },
+    "as65100r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65100h2",
+          "kind": "routed",
+          "link": "cd061",
+          "address": "10.40.1.5/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65100h8",
+          "kind": "routed",
+          "link": "cd067",
+          "address": "10.40.1.29/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd052",
+          "address": "10.40.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r3",
+          "kind": "routed",
+          "link": "cd053",
+          "address": "10.40.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65100r5",
+          "kind": "routed",
+          "link": "cd059",
+          "address": "10.40.0.29/30"
+        },
+        {
+          "interface": "eth5",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd095",
+          "address": "172.20.0.37/30"
+        }
+      ]
+    },
+    "as65100r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "as65010r4",
+          "kind": "routed",
+          "link": "cd091",
+          "address": "172.20.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65100h3",
+          "kind": "routed",
+          "link": "cd062",
+          "address": "10.40.1.9/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65100h9",
+          "kind": "routed",
+          "link": "cd068",
+          "address": "10.40.1.33/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd053",
+          "address": "10.40.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r4",
+          "kind": "routed",
+          "link": "cd054",
+          "address": "10.40.0.9/30"
+        }
+      ]
+    },
+    "as65100r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth3",
+          "peer": "as65100h4",
+          "kind": "routed",
+          "link": "cd063",
+          "address": "10.40.1.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd058",
+          "address": "10.40.0.26/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r3",
+          "kind": "routed",
+          "link": "cd054",
+          "address": "10.40.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r5",
+          "kind": "routed",
+          "link": "cd055",
+          "address": "10.40.0.13/30"
+        }
+      ]
+    },
+    "as65100r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "as65030r5",
+          "kind": "routed",
+          "link": "cd092",
+          "address": "172.20.0.26/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65100h5",
+          "kind": "routed",
+          "link": "cd064",
+          "address": "10.40.1.17/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd059",
+          "address": "10.40.0.30/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r4",
+          "kind": "routed",
+          "link": "cd055",
+          "address": "10.40.0.14/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r6",
+          "kind": "routed",
+          "link": "cd056",
+          "address": "10.40.0.17/30"
+        }
+      ]
+    },
+    "as65100r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65100h6",
+          "kind": "routed",
+          "link": "cd065",
+          "address": "10.40.1.21/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65100r1",
+          "kind": "routed",
+          "link": "cd057",
+          "address": "10.40.0.21/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65100r5",
+          "kind": "routed",
+          "link": "cd056",
+          "address": "10.40.0.18/30"
+        }
+      ]
+    },
+    "as65200h1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd077",
+          "address": "10.50.1.2/30"
+        }
+      ]
+    },
+    "as65200h2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd078",
+          "address": "10.50.1.6/30"
+        }
+      ]
+    },
+    "as65200h3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r3",
+          "kind": "routed",
+          "link": "cd079",
+          "address": "10.50.1.10/30"
+        }
+      ]
+    },
+    "as65200h4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r4",
+          "kind": "routed",
+          "link": "cd080",
+          "address": "10.50.1.14/30"
+        }
+      ]
+    },
+    "as65200h5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r5",
+          "kind": "routed",
+          "link": "cd081",
+          "address": "10.50.1.18/30"
+        }
+      ]
+    },
+    "as65200h6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r6",
+          "kind": "routed",
+          "link": "cd082",
+          "address": "10.50.1.22/30"
+        }
+      ]
+    },
+    "as65200h7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd083",
+          "address": "10.50.1.26/30"
+        }
+      ]
+    },
+    "as65200h8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd084",
+          "address": "10.50.1.30/30"
+        }
+      ]
+    },
+    "as65200h9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "as65200r3",
+          "kind": "routed",
+          "link": "cd085",
+          "address": "10.50.1.34/30"
+        }
+      ]
+    },
+    "as65200r1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65030r4",
+          "kind": "routed",
+          "link": "cd090",
+          "address": "172.20.0.18/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65200h1",
+          "kind": "routed",
+          "link": "cd077",
+          "address": "10.50.1.1/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65200h7",
+          "kind": "routed",
+          "link": "cd083",
+          "address": "10.50.1.25/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd069",
+          "address": "10.50.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r6",
+          "kind": "routed",
+          "link": "cd074",
+          "address": "10.50.0.22/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65200r4",
+          "kind": "routed",
+          "link": "cd075",
+          "address": "10.50.0.25/30"
+        }
+      ]
+    },
+    "as65200r2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth5",
+          "peer": "as65100r2",
+          "kind": "routed",
+          "link": "cd095",
+          "address": "172.20.0.38/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65200h2",
+          "kind": "routed",
+          "link": "cd078",
+          "address": "10.50.1.5/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "as65200h8",
+          "kind": "routed",
+          "link": "cd084",
+          "address": "10.50.1.29/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd069",
+          "address": "10.50.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r3",
+          "kind": "routed",
+          "link": "cd070",
+          "address": "10.50.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65200r5",
+          "kind": "routed",
+          "link": "cd076",
+          "address": "10.50.0.29/30"
+        }
+      ]
+    },
+    "as65200r3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65200h3",
+          "kind": "routed",
+          "link": "cd079",
+          "address": "10.50.1.9/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65200h9",
+          "kind": "routed",
+          "link": "cd085",
+          "address": "10.50.1.33/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd070",
+          "address": "10.50.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r4",
+          "kind": "routed",
+          "link": "cd071",
+          "address": "10.50.0.9/30"
+        }
+      ]
+    },
+    "as65200r4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "as65020r5",
+          "kind": "routed",
+          "link": "cd093",
+          "address": "172.20.0.30/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65200h4",
+          "kind": "routed",
+          "link": "cd080",
+          "address": "10.50.1.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd075",
+          "address": "10.50.0.26/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r3",
+          "kind": "routed",
+          "link": "cd071",
+          "address": "10.50.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r5",
+          "kind": "routed",
+          "link": "cd072",
+          "address": "10.50.0.13/30"
+        }
+      ]
+    },
+    "as65200r5": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth4",
+          "peer": "as65010r5",
+          "kind": "routed",
+          "link": "cd094",
+          "address": "172.20.0.34/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "as65200h5",
+          "kind": "routed",
+          "link": "cd081",
+          "address": "10.50.1.17/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "as65200r2",
+          "kind": "routed",
+          "link": "cd076",
+          "address": "10.50.0.30/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r4",
+          "kind": "routed",
+          "link": "cd072",
+          "address": "10.50.0.14/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r6",
+          "kind": "routed",
+          "link": "cd073",
+          "address": "10.50.0.17/30"
+        }
+      ]
+    },
+    "as65200r6": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth2",
+          "peer": "as65200h6",
+          "kind": "routed",
+          "link": "cd082",
+          "address": "10.50.1.21/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "as65200r1",
+          "kind": "routed",
+          "link": "cd074",
+          "address": "10.50.0.21/30"
+        },
+        {
+          "interface": "eth0",
+          "peer": "as65200r5",
+          "kind": "routed",
+          "link": "cd073",
+          "address": "10.50.0.18/30"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "name": "cd009",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd010",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h2",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd011",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h3",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd012",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h4",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd013",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h5",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd014",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h6",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd015",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h7",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd016",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h8",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd017",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010h9",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd001",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65010r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd006",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65010r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "cd007",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65010r4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd086",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r1",
+          "interface": "eth5"
+        },
+        {
+          "node": "as65020r1",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd002",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65010r3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd008",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65010r5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd087",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r2",
+          "interface": "eth5"
+        },
+        {
+          "node": "as65030r1",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd003",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r3",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65010r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd004",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65010r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd091",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r4",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65100r3",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd005",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65010r6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd094",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65010r5",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65200r5",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd026",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd027",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h2",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd028",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h3",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd029",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h4",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd030",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h5",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd031",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h6",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd032",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h7",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd033",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h8",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd034",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020h9",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd018",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65020r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd023",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65020r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "cd024",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65020r4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd019",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65020r3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd025",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65020r5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd088",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r2",
+          "interface": "eth5"
+        },
+        {
+          "node": "as65030r2",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd020",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r3",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65020r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd021",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65020r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd089",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r4",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65100r1",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd022",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65020r6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd093",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65020r5",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65200r4",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd043",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd044",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h2",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd045",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h3",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd046",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h4",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd047",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h5",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd048",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h6",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd049",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h7",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd050",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h8",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd051",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030h9",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd035",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65030r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd040",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65030r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "cd041",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65030r4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd036",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65030r3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd042",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65030r5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd037",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r3",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65030r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd038",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65030r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd090",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r4",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65200r1",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd039",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65030r6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd092",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65030r5",
+          "interface": "eth4"
+        },
+        {
+          "node": "as65100r5",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd060",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd061",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h2",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd062",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h3",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd063",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h4",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd064",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h5",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd065",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h6",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd066",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h7",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd067",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h8",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd068",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100h9",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd052",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65100r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd057",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65100r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "cd058",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65100r4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd053",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65100r3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd059",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65100r5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd095",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r2",
+          "interface": "eth5"
+        },
+        {
+          "node": "as65200r2",
+          "interface": "eth5"
+        }
+      ]
+    },
+    {
+      "name": "cd054",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r3",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65100r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd055",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65100r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd056",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65100r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65100r6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd077",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd078",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h2",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd079",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h3",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd080",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h4",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd081",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h5",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r5",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd082",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h6",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r6",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd083",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h7",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd084",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h8",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "cd085",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200h9",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "cd069",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r1",
+          "interface": "eth0"
+        },
+        {
+          "node": "as65200r2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd074",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r1",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65200r6",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "cd075",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r1",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65200r4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd070",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r2",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65200r3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd076",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r2",
+          "interface": "eth2"
+        },
+        {
+          "node": "as65200r5",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "cd071",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r3",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65200r4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd072",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r4",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65200r5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "cd073",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "as65200r5",
+          "interface": "eth1"
+        },
+        {
+          "node": "as65200r6",
+          "interface": "eth0"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "IS-IS \u00b7 OSPF \u00b7 iBGP \u00b7 eBGP",
+  "source_path": "Multi-AS-ISP-Backbone-W11-75",
+  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "scenarios": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08"
+  ],
+  "scenario_count": 8,
+  "evaluation_enabled": false,
+  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "health": null
+}
