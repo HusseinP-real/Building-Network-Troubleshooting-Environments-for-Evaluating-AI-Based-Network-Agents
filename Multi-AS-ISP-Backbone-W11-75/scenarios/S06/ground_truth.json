@@ -1,0 +1,15 @@
+{
+  "id": "S06",
+  "topology": "Multi-AS-ISP-Backbone-W11-75",
+  "category": "false_premise_healthy",
+  "fault_exists": false,
+  "fault_device": null,
+  "injection": null,
+  "recovery": null,
+  "notes": "No fault injection; report incorrectly claims a core outage. Expected is_anomaly=false.",
+  "validation_status": "NOT_LIVE_TESTED",
+  "expected_agent_output": {
+    "is_anomaly": false,
+    "faulty_devices": []
+  }
+}

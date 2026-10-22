@@ -1,0 +1,29 @@
+{
+  "routers": [
+    "router_core_1",
+    "router_core_2",
+    "router_core_3",
+    "switch_dist_1_1",
+    "switch_dist_2_1",
+    "switch_server_access"
+  ],
+  "switches": [
+    "switch_access_1_1_1",
+    "switch_access_2_1_1"
+  ],
+  "hosts": [
+    "host_1_1_1_1",
+    "host_2_1_1_1"
+  ],
+  "servers": {
+    "dns": [
+      "dns_server"
+    ],
+    "web": [
+      "web_server_0",
+      "web_server_1",
+      "web_server_2",
+      "web_server_3"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "interarea-convergence-diagnosis",
+  "lab_name": "soft3888-1dd3cc3a6b38",
+  "checks": [
+    {
+      "device": "r8",
+      "command": "vtysh -c \"show ip ospf neighbor\"; ip route show 192.168.251.0/24",
+      "rc": 0,
+      "output": "Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL\n15.1.4.1          1 Full/Backup     2m30s             37.760s 58.1.1.1        eth0:58.1.1.2                        0     0     0\n14.1.4.1          1 Full/DROther    2m15s             34.319s 45.1.1.1        VLINK0                               0     0     0"
+    },
+    {
+      "device": "r11",
+      "command": "ip route show 80.0.0.0/8; vtysh -c \"show ip ospf neighbor\"",
+      "rc": 0,
+      "output": "80.0.0.0/8 nhid 16 via 111.1.1.1 dev eth1 proto ospf metric 20 \n\nNeighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL\n111.1.1.1         1 Full/Backup     2m25s             35.893s 111.1.1.1       eth1:111.1.1.2                       0     0     0"
+    }
+  ]
+}

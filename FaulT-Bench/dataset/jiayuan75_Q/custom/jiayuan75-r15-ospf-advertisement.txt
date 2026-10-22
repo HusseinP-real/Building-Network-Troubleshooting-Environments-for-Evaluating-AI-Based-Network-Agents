@@ -1,0 +1,74 @@
+Scenario: jiayuan75-r15-ospf-advertisement
+Topology: Kath5_Jiayuan_75Devices
+Validation: strict
+Fault family: OSPF LAN advertisement removed
+
+[PROMPT-TO-AGENT]
+Branch A cannot reach Branch F host f1. The Branch F gateway is reachable locally and Branch B still works. Diagnose the failure.
+
+[PRE-CHECK]
+r15  vtysh -c "show ip ospf neighbor" | grep -c Full  => expect 1
+a1  ping -n -W1 -c1 192.168.216.11  => expect 0% loss
+f1  ping -n -W1 -c1 192.168.216.1  => expect 0% loss
+a1  ping -n -W1 -c1 80.1.1.11  => expect 0% loss
+r15  vtysh -c "show running-config" | awk '$1 == "network" && $2 == "192.168.216.0/24" {n++} END {print n+0}'  => expect 1
+
+[INJECTION]
+device: r15
+action: OSPF LAN advertisement removed
+cmd: |
+  config=$(vtysh -c "show running-config") || exit $?
+  present=$(printf '%s\n' "$config" | awk '$1 == "network" && $2 == "192.168.216.0/24" {n++} END {print n+0}') || exit $?
+  case "$present" in
+    0) echo 'Advertisement already absent' ;;
+    1) vtysh -c "configure terminal" -c "router ospf" -c "no network 192.168.216.0/24 area 1" -c "end" ;;
+    *) echo 'Unexpected network statement count' >&2; exit 2 ;;
+  esac
+
+[POST-INJECT-CHECK]
+r15  vtysh -c "show ip ospf neighbor" | grep -c Full  => expect 1
+a1  ping -n -W1 -c1 192.168.216.11  => expect loss>0
+f1  ping -n -W1 -c1 192.168.216.1  => expect 0% loss
+a1  ping -n -W1 -c1 80.1.1.11  => expect 0% loss
+r15  vtysh -c "show running-config" | awk '$1 == "network" && $2 == "192.168.216.0/24" {n++} END {print n+0}'  => expect 0
+
+[GROUND-TRUTH]
+Fault location: r15
+Fault type: OSPF LAN advertisement removed
+Root cause and mechanism: R15 no longer advertises 192.168.216.0/24 into OSPF area 1, removing remote return routes to Branch F while its local LAN stays up.
+Expected symptoms: exactly the post-injection differential checks above.
+Unaffected paths: preserved by the positive control checks.
+
+[FIX]
+On r15, execute:
+vtysh -c "configure terminal" -c "router ospf" -c "network 192.168.216.0/24 area 1" -c "end"
+Changes are runtime-only; a fresh lab also restores the shipped healthy configuration.
+
+[RECOVERY]
+device: r15
+action: restore healthy state
+cmd: |
+  vtysh -c "configure terminal" -c "router ospf" -c "network 192.168.216.0/24 area 1" -c "end"
+
+[RECOVERY-CHECK]
+r15  vtysh -c "show ip ospf neighbor" | grep -c Full  => expect 1
+a1  ping -n -W1 -c1 192.168.216.11  => expect 0% loss
+f1  ping -n -W1 -c1 192.168.216.1  => expect 0% loss
+a1  ping -n -W1 -c1 80.1.1.11  => expect 0% loss
+r15  vtysh -c "show running-config" | awk '$1 == "network" && $2 == "192.168.216.0/24" {n++} END {print n+0}'  => expect 1
+
+[DIAGNOSTIC-PROCESS]
+Compare the reported failure with the positive controls. Inspect the relevant
+routes, running configuration or listener on the owning device. Explain the
+observed mechanism before proposing the corrective action in FIX.
+
+[SCORING-AXES]
+assert-identifies: r15
+must-identify-device: r15
+must-identify-component: OSPF LAN advertisement removed
+must-identify-mechanism: R15 no longer advertises 192.168.216.0/24 into OSPF area 1, removing remote return routes to Branch F while its local LAN stays up.
+
+[NIKA-LABEL]
+nika_category: MISCONFIGURATION
+in_taxonomy: not verified
+note: Custom SOFT3888 scenario; no exact NIKA taxonomy match claimed.

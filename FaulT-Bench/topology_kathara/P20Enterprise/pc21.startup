@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+ip link set lo up
+ip link set eth0 up
+ip address replace 10.10.5.15/24 dev eth0
+ip route replace default via 10.10.5.1
+touch /tmp/p20-ready

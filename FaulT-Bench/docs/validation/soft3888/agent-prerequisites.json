@@ -1,0 +1,12 @@
+{
+  "kind": "agent-prerequisite-check-no-inference",
+  "credentials_present": {
+    "ANTHROPIC_API_KEY": false,
+    "OPENAI_API_KEY": false,
+    "FAULTBENCH_OPENAI_API_KEY": false
+  },
+  "context": {
+    "sade": "isolated",
+    "cc-baseline": "isolated"
+  }
+}

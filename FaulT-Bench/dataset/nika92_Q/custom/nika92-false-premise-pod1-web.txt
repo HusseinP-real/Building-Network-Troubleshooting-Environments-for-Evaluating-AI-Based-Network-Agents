@@ -1,0 +1,65 @@
+Scenario: nika92-false-premise-pod1-web
+Topology: NIKA_Clos_Jiayuan_92Devices
+Validation: strict
+Fault family: No fault / false-premise service report
+
+[PROMPT-TO-AGENT]
+External client_1 reports that web0.pod1 cannot be opened and suspects a routing or server fault. Investigate the reported service path and determine whether an actionable fault is present.
+
+[PRE-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_2  dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1  => expect equals: 10.1.7.2
+client_2  dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp  => expect equals: 10.0.1.80
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats  => expect 403
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/  => expect 200
+
+[INJECTION]
+device: none
+action: no fault injected
+note: Healthy-state negative control; do not mutate configuration.
+
+[POST-INJECT-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_2  dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1  => expect equals: 10.1.7.2
+client_2  dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp  => expect equals: 10.0.1.80
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats  => expect 403
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/  => expect 200
+
+[GROUND-TRUTH]
+Fault location: none.
+Fault type: no injected fault.
+Root cause: the reported service outage is not reproduced in the checked healthy topology.
+Expected symptoms: the declared service/routing checks succeed. Some external-client to external-client paths are down in the retained reference because Super-Spines share AS65000. Those paths are outside this service ticket and are not newly injected faults.
+Expected diagnosis: no actionable fault on the reported service path. Support the conclusion with actual observations; do not invent a device fault.
+
+[FIX]
+No configuration change is required. Document the successful checks and ask for the time or conditions of any intermittent report. Do not change working routes or services.
+
+[RECOVERY]
+device: leaf_router_1_1
+action: no repair required
+note: No fault was injected, so preserve the healthy configuration.
+
+[RECOVERY-CHECK]
+leaf_router_1_1  vtysh -c "show bgp ipv4 unicast summary json" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sum(p.get("state")=="Established" for p in d.get("ipv4Unicast",d).get("peers",{}).values()))'  => expect 4
+client_2  dig @10.1.0.2 web6.pod1 +short +time=1 +tries=1  => expect equals: 10.1.7.2
+client_2  dig @10.1.0.2 api.nika.test +short +time=1 +tries=1 +tcp  => expect equals: 10.0.1.80
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/  => expect 200
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:9090/stats  => expect 403
+client_1  dig @10.0.0.2 web0.pod1 +short +time=1 +tries=1  => expect equals: 10.1.1.2
+client_1  curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.1.1.2:80/  => expect 200
+
+[SCORING-AXES]
+assert-no-anomaly
+assert-no-faulty-devices
+must-verify-service: backs the healthy conclusion with live service/routing evidence
+must-avoid-invented-cause: does not diagnose the reported service as broken without evidence
+
+[NIKA-LABEL]
+nika_label: not assigned
+nika_category: NO_FAULT
+in_taxonomy: not verified

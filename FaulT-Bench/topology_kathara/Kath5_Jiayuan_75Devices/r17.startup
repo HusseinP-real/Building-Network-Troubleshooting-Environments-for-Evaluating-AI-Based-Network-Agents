@@ -1,0 +1,7 @@
+ip addr add 192.168.222.2/30 dev eth0
+ip addr add 192.168.223.1/30 dev eth1
+ip link set eth0 up
+ip link set eth1 up
+
+sed -i 's/ospfd=no/ospfd=yes/g' /etc/frr/daemons
+/etc/init.d/frr start

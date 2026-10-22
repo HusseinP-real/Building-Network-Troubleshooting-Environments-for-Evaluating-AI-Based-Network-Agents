@@ -1,0 +1,155 @@
+{
+  "harness_sha256": "29df21a7c7d6672c7215f1faede9ba2b599d091007a390fac20e90b7595596a6",
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "Kath2",
+  "lab_name": "team-smoke-f46a677286c1",
+  "passed": true,
+  "started_at": "2026-10-21T08:49:36.965097+00:00",
+  "probes": [
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 192.168.4.1",
+      "rc": 1,
+      "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n\n--- 192.168.4.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1006ms",
+      "passed": false,
+      "rationale": "rc=1, loss=100.0%"
+    },
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 192.168.4.1",
+      "rc": 1,
+      "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n\n--- 192.168.4.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1026ms",
+      "passed": false,
+      "rationale": "rc=1, loss=100.0%"
+    },
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 192.168.4.1",
+      "rc": 1,
+      "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n\n--- 192.168.4.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1026ms",
+      "passed": false,
+      "rationale": "rc=1, loss=100.0%"
+    },
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 192.168.4.1",
+      "rc": 1,
+      "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n\n--- 192.168.4.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1019ms",
+      "passed": false,
+      "rationale": "rc=1, loss=100.0%"
+    },
+    {
+      "device": "pc0",
+      "command": "ping -n -c2 -W1 192.168.4.1",
+      "rc": 0,
+      "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n64 bytes from 192.168.4.1: icmp_seq=1 ttl=64 time=1004 ms\n64 bytes from 192.168.4.1: icmp_seq=2 ttl=64 time=4.58 ms\n\n--- 192.168.4.1 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1001ms\nrtt min/avg/max/mdev = 4.576/504.308/1004.040/499.732 ms, pipe 2",
+      "passed": true,
+      "rationale": "rc=0, loss=0.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr": {
+        "source": "kathara/frr:latest",
+        "source_id": "sha256:30e5337da4f35f63134c5806b59efcf62df7e90772613d386c00c3188370e5b7",
+        "device_image": "soft3888/source-05bddb1601dd:shared-v1",
+        "device_image_id": "sha256:9ba1b0d56e19effb9a063fd819f7eb95ee5bd7af1456cf2b08c82971c006fc6b",
+        "usr_sha256": "c1c40b40bddc1b1c7a75deb41526af7d92dd2004407bbc78069e5cd06be2dc0a",
+        "created_at": "2026-10-21T08:42:42.851383+00:00"
+      },
+      "kathara/base": {
+        "source": "kathara/base:latest",
+        "source_id": "sha256:3c3120750815effab83dbcf5baa0e9093e0805ac1f3743fc83e5ed554080ab67",
+        "device_image": "soft3888/source-49c084bdc95b:shared-v1",
+        "device_image_id": "sha256:2c6ea3bafc281c5e68ab237430d64bbdd94e69e255e3cdde57f55bb5fd35fe69",
+        "usr_sha256": "122bfbf0d867091009c708653ec6fb880b0505365735df5a82b43e40948a29a9",
+        "created_at": "2026-10-21T08:42:00.883150+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 30,
+  "inventory_complete": true,
+  "mcp_smoke": [
+    {
+      "server": "kathara_base_mcp_server",
+      "tools": [
+        "get_reachability",
+        "ping_pair",
+        "systemctl_ops",
+        "get_host_net_config",
+        "get_tc_statistics",
+        "netstat",
+        "ip_addr_statistics",
+        "ethtool",
+        "curl_web_test",
+        "iperf_test",
+        "cat_file",
+        "exec_shell",
+        "exec_shell_dual"
+      ],
+      "calls": [
+        {
+          "tool": "exec_shell",
+          "arguments": {
+            "host_name": "pc0",
+            "command": "ping -n -W1 -c1 192.168.4.1"
+          },
+          "is_error": false,
+          "output": "PING 192.168.4.1 (192.168.4.1) 56(84) bytes of data.\n64 bytes from 192.168.4.1: icmp_seq=1 ttl=64 time=1.03 ms\n\n--- 192.168.4.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.034/1.034/1.034/0.000 ms"
+        },
+        {
+          "tool": "get_reachability",
+          "arguments": {},
+          "is_error": false,
+          "output": "{\"hosts\":{\"cs_hod\":\"192.168.2.2\",\"cs_lab1\":\"192.168.2.3\",\"cs_lab2\":\"192.168.2.4\",\"cs_lab3\":\"192.168.2.5\",\"cs_lab4\":\"192.168.2.6\",\"enquiry\":\"192.168.3.4\",\"exam_cell\":\"192.168.3.3\",\"it_hod\":\"192.168.1.2\",\"it_lab1\":\"192.168.1.3\",\"it_lab2\":\"192.168.1.4\",\"it_lab3\":\"192.168.1.5\",\"it_lab4\":\"192.168.1.6\",\"laptop0\":\"192.168.4.3\",\"office_pc\":\"192.168.3.2\",\"pc0\":\"192.168.4.2\",\"pc1\":\"1.0.0.5\",\"pc2\":\"128.168.0.2\",\"pc3\":\"128.168.0.3\",\"pc4\":\"128.168.0.4\",\"pc5\":\"128.168.0.5\",\"tpo\":\"192.168.3.5\"},\"results\":[{\"src\":\"cs_hod\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1031.0,\"rtt_avg_ms\":0.646,\"rtt_min_ms\":0.527,\"rtt_max_ms\":0.765,\"rtt_mdev_ms\":0.119,\"status\":\"ok\"},{\"src\":\"cs_lab1\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":1.395,\"rtt_min_ms\":0.404,\"rtt_max_ms\":2.387,\"rtt_mdev_ms\":0.991,\"status\":\"ok\"},{\"src\":\"cs_lab2\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":0.812,\"rtt_min_ms\":0.453,\"rtt_max_ms\":1.171,\"rtt_mdev_ms\":0.359,\"status\":\"ok\"},{\"src\":\"cs_lab2\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1005.0,\"rtt_avg_ms\":1.008,\"rtt_min_ms\":0.907,\"rtt_max_ms\":1.109,\"rtt_mdev_ms\":0.101,\"status\":\"ok\"},{\"src\":\"cs_lab3\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.068,\"rtt_min_ms\":0.546,\"rtt_max_ms\":5.59,\"rtt_mdev_ms\":2.522,\"status\":\"ok\"},{\"src\":\"cs_lab3\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":1.073,\"rtt_min_ms\":0.549,\"rtt_max_ms\":1.597,\"rtt_mdev_ms\":0.524,\"status\":\"ok\"},{\"src\":\"cs_lab4\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":0.804,\"rtt_min_ms\":0.569,\"rtt_max_ms\":1.039,\"rtt_mdev_ms\":0.235,\"status\":\"ok\"},{\"src\":\"cs_lab4\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":0.727,\"rtt_min_ms\":0.471,\"rtt_max_ms\":0.984,\"rtt_mdev_ms\":0.256,\"status\":\"ok\"},{\"src\":\"enquiry\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":8.068,\"rtt_min_ms\":7.483,\"rtt_max_ms\":8.653,\"rtt_mdev_ms\":0.585,\"status\":\"ok\"},{\"src\":\"enquiry\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":9.401,\"rtt_min_ms\":3.16,\"rtt_max_ms\":15.642,\"rtt_mdev_ms\":6.241,\"status\":\"ok\"},{\"src\":\"exam_cell\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1004.0,\"rtt_avg_ms\":8.335,\"rtt_min_ms\":4.989,\"rtt_max_ms\":11.681,\"rtt_mdev_ms\":3.346,\"status\":\"ok\"},{\"src\":\"exam_cell\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":12.64,\"rtt_min_ms\":8.543,\"rtt_max_ms\":16.737,\"rtt_mdev_ms\":4.097,\"status\":\"ok\"},{\"src\":\"it_hod\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":17.234,\"rtt_min_ms\":12.269,\"rtt_max_ms\":22.199,\"rtt_mdev_ms\":4.965,\"status\":\"ok\"},{\"src\":\"it_hod\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":16.094,\"rtt_min_ms\":14.952,\"rtt_max_ms\":17.236,\"rtt_mdev_ms\":1.142,\"status\":\"ok\"},{\"src\":\"it_lab1\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.587,\"rtt_min_ms\":3.38,\"rtt_max_ms\":7.795,\"rtt_mdev_ms\":2.207,\"status\":\"ok\"},{\"src\":\"it_lab1\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.516,\"rtt_min_ms\":4.237,\"rtt_max_ms\":8.795,\"rtt_mdev_ms\":2.279,\"status\":\"ok\"},{\"src\":\"it_lab2\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.11,\"rtt_min_ms\":1.61,\"rtt_max_ms\":6.611,\"rtt_mdev_ms\":2.5,\"status\":\"ok\"},{\"src\":\"it_lab2\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.729,\"rtt_min_ms\":2.978,\"rtt_max_ms\":6.48,\"rtt_mdev_ms\":1.751,\"status\":\"ok\"},{\"src\":\"it_lab3\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1003.0,\"rtt_avg_ms\":5.791,\"rtt_min_ms\":3.848,\"rtt_max_ms\":7.734,\"rtt_mdev_ms\":1.943,\"status\":\"ok\"},{\"src\":\"it_lab3\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":2.932,\"rtt_min_ms\":2.244,\"rtt_max_ms\":3.62,\"rtt_mdev_ms\":0.688,\"status\":\"ok\"},{\"src\":\"it_lab4\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":2.451,\"rtt_min_ms\":1.568,\"rtt_max_ms\":3.335,\"rtt_mdev_ms\":0.883,\"status\":\"ok\"},{\"src\":\"it_lab4\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.991,\"rtt_min_ms\":2.542,\"rtt_max_ms\":5.441,\"rtt_mdev_ms\":1.449,\"status\":\"ok\"},{\"src\":\"laptop0\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":4.658,\"rtt_min_ms\":3.747,\"rtt_max_ms\":5.57,\"rtt_mdev_ms\":0.911,\"status\":\"ok\"},{\"src\":\"laptop0\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.87,\"rtt_min_ms\":3.046,\"rtt_max_ms\":4.694,\"rtt_mdev_ms\":0.824,\"status\":\"ok\"},{\"src\":\"office_pc\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1005.0,\"rtt_avg_ms\":11.28,\"rtt_min_ms\":10.731,\"rtt_max_ms\":11.83,\"rtt_mdev_ms\":0.549,\"status\":\"ok\"},{\"src\":\"office_pc\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":11.346,\"rtt_min_ms\":11.332,\"rtt_max_ms\":11.36,\"rtt_mdev_ms\":0.014,\"status\":\"ok\"},{\"src\":\"pc0\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":10.774,\"rtt_min_ms\":7.796,\"rtt_max_ms\":13.753,\"rtt_mdev_ms\":2.978,\"status\":\"ok\"},{\"src\":\"pc0\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.594,\"rtt_min_ms\":4.019,\"rtt_max_ms\":7.169,\"rtt_mdev_ms\":1.575,\"status\":\"ok\"},{\"src\":\"pc1\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":5.105,\"rtt_min_ms\":4.387,\"rtt_max_ms\":5.823,\"rtt_mdev_ms\":0.718,\"status\":\"ok\"},{\"src\":\"pc1\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":12.658,\"rtt_min_ms\":3.05,\"rtt_max_ms\":22.266,\"rtt_mdev_ms\":9.608,\"status\":\"ok\"},{\"src\":\"pc2\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":6.787,\"rtt_min_ms\":3.331,\"rtt_max_ms\":10.243,\"rtt_mdev_ms\":3.456,\"status\":\"ok\"},{\"src\":\"pc2\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":6.228,\"rtt_min_ms\":4.774,\"rtt_max_ms\":7.682,\"rtt_mdev_ms\":1.454,\"status\":\"ok\"},{\"src\":\"pc3\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.998,\"rtt_min_ms\":2.66,\"rtt_max_ms\":7.337,\"rtt_mdev_ms\":2.338,\"status\":\"ok\"},{\"src\":\"pc3\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":3.59,\"rtt_min_ms\":3.459,\"rtt_max_ms\":3.722,\"rtt_mdev_ms\":0.131,\"status\":\"ok\"},{\"src\":\"pc4\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":5.46,\"rtt_min_ms\":4.085,\"rtt_max_ms\":6.836,\"rtt_mdev_ms\":1.375,\"status\":\"ok\"},{\"src\":\"pc4\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.671,\"rtt_min_ms\":3.203,\"rtt_max_ms\":6.139,\"rtt_mdev_ms\":1.468,\"status\":\"ok\"},{\"src\":\"pc5\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.818,\"rtt_min_ms\":2.727,\"rtt_max_ms\":6.91,\"rtt_mdev_ms\":2.091,\"status\":\"ok\"},{\"src\":\"pc5\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.129,\"rtt_min_ms\":3.535,\"rtt_max_ms\":4.723,\"rtt_mdev_ms\":0.594,\"status\":\"ok\"},{\"src\":\"tpo\",\"dst\":\"cs_hod\",\"dst_ip\":\"192.168.2.2\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1002.0,\"rtt_avg_ms\":4.489,\"rtt_min_ms\":2.613,\"rtt_max_ms\":6.366,\"rtt_mdev_ms\":1.876,\"status\":\"ok\"},{\"src\":\"tpo\",\"dst\":\"cs_lab1\",\"dst_ip\":\"192.168.2.3\",\"tx\":2,\"rx\":2,\"loss_percent\":0.0,\"time_ms\":1001.0,\"rtt_avg_ms\":3.2,\"rtt_min_ms\":2.589,\"rtt_max_ms\":3.812,\"rtt_mdev_ms\":0.611,\"status\":\"ok\"}],\"sampling\":{\"destinations\":[\"cs_hod\",\"cs_lab1\"],\"concurrency\":4}}"
+        }
+      ],
+      "reachability_status_counts": {
+        "ok": 40
+      },
+      "inventory_endpoints": 21
+    },
+    {
+      "server": "kathara_frr_mcp_server",
+      "tools": [
+        "frr_get_bgp_conf",
+        "frr_show_running_config",
+        "frr_show_ip_route",
+        "frr_get_ospf_conf",
+        "frr_exec"
+      ],
+      "calls": [
+        {
+          "tool": "frr_exec",
+          "arguments": {
+            "router_name": "router0",
+            "command": "show ip route 192.168.4.0/24"
+          },
+          "is_error": false,
+          "output": "Routing entry for 192.168.4.0/24\n  Known via \"rip\", distance 120, metric 2, best\n  Last update 00:01:01 ago\n  Flags: Selected \n  Status: Installed \n  * 10.10.0.2, via eth2, weight 1"
+        }
+      ]
+    },
+    {
+      "server": "kathara_telemetry_mcp_server",
+      "tools": [
+        "influx_list_buckets",
+        "influx_get_measurements",
+        "influx_count_measurements",
+        "influx_query_measurement"
+      ],
+      "calls": []
+    }
+  ],
+  "status": "passed",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:51:07.369793+00:00"
+}

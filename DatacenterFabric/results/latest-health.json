@@ -1,0 +1,1141 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "spine1: startup complete",
+      "node": "spine1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "spine2: startup complete",
+      "node": "spine2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "spine3: startup complete",
+      "node": "spine3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf1: startup complete",
+      "node": "leaf1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack1: startup complete",
+      "node": "rack1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack1h1: startup complete",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack1h2: startup complete",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack1h3: startup complete",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack1h4: startup complete",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf2: startup complete",
+      "node": "leaf2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack2: startup complete",
+      "node": "rack2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack2h1: startup complete",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack2h2: startup complete",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack2h3: startup complete",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack2h4: startup complete",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf3: startup complete",
+      "node": "leaf3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack3: startup complete",
+      "node": "rack3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack3h1: startup complete",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack3h2: startup complete",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack3h3: startup complete",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack3h4: startup complete",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf4: startup complete",
+      "node": "leaf4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack4: startup complete",
+      "node": "rack4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack4h1: startup complete",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack4h2: startup complete",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack4h3: startup complete",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack4h4: startup complete",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf5: startup complete",
+      "node": "leaf5",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack5: startup complete",
+      "node": "rack5",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack5h1: startup complete",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack5h2: startup complete",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack5h3: startup complete",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack5h4: startup complete",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "leaf6: startup complete",
+      "node": "leaf6",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack6: startup complete",
+      "node": "rack6",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack6h1: startup complete",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack6h2: startup complete",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack6h3: startup complete",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "rack6h4: startup complete",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "test -f /tmp/fabric-ready",
+      "output": ""
+    },
+    {
+      "check": "spine1: all eBGP peers established and receiving routes",
+      "node": "spine1",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==6, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.0': {'hostname': 'leaf1', 'softwareVersion': 'n/a', 'remoteAs': 65101, 'localAs': 65000, 'version': 4, 'msgRcvd': 33, 'msgSent': 48, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:00:12', 'peerUptimeMsec': 12000, 'peerUptimeEstablishedEpoch': 1792403456, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 2, 'connectionsDropped': 1, 'desc': 'leaf1', 'idType': 'ipv4'}, '172.22.0.6': {'hostname': 'leaf2', 'softwareVersion': 'n/a', 'remoteAs': 65102, 'localAs': 65000, 'version': 4, 'msgRcvd': 35, 'msgSent': 43, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf2', 'idType': 'ipv4'}, '172.22.0.12': {'hostname': 'leaf3', 'softwareVersion': 'n/a', 'remoteAs': 65103, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 43, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf3', 'idType': 'ipv4'}, '172.22.0.18': {'hostname': 'leaf4', 'softwareVersion': 'n/a', 'remoteAs': 65104, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 43, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf4', 'idType': 'ipv4'}, '172.22.0.24': {'hostname': 'leaf5', 'softwareVersion': 'n/a', 'remoteAs': 65105, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 42, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf5', 'idType': 'ipv4'}, '172.22.0.30': {'hostname': 'leaf6', 'softwareVersion': 'n/a', 'remoteAs': 65106, 'localAs': 65000, 'version': 4, 'msgRcvd': 33, 'msgSent': 41, 'tableVersion': 17, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf6', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "spine2: all eBGP peers established and receiving routes",
+      "node": "spine2",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==6, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.2': {'hostname': 'leaf1', 'softwareVersion': 'n/a', 'remoteAs': 65101, 'localAs': 65000, 'version': 4, 'msgRcvd': 35, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf1', 'idType': 'ipv4'}, '172.22.0.8': {'hostname': 'leaf2', 'softwareVersion': 'n/a', 'remoteAs': 65102, 'localAs': 65000, 'version': 4, 'msgRcvd': 35, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf2', 'idType': 'ipv4'}, '172.22.0.14': {'hostname': 'leaf3', 'softwareVersion': 'n/a', 'remoteAs': 65103, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf3', 'idType': 'ipv4'}, '172.22.0.20': {'hostname': 'leaf4', 'softwareVersion': 'n/a', 'remoteAs': 65104, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf4', 'idType': 'ipv4'}, '172.22.0.26': {'hostname': 'leaf5', 'softwareVersion': 'n/a', 'remoteAs': 65105, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 40, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf5', 'idType': 'ipv4'}, '172.22.0.32': {'hostname': 'leaf6', 'softwareVersion': 'n/a', 'remoteAs': 65106, 'localAs': 65000, 'version': 4, 'msgRcvd': 33, 'msgSent': 39, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf6', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "spine3: all eBGP peers established and receiving routes",
+      "node": "spine3",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==6, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.4': {'hostname': 'leaf1', 'softwareVersion': 'n/a', 'remoteAs': 65101, 'localAs': 65000, 'version': 4, 'msgRcvd': 35, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf1', 'idType': 'ipv4'}, '172.22.0.10': {'hostname': 'leaf2', 'softwareVersion': 'n/a', 'remoteAs': 65102, 'localAs': 65000, 'version': 4, 'msgRcvd': 35, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf2', 'idType': 'ipv4'}, '172.22.0.16': {'hostname': 'leaf3', 'softwareVersion': 'n/a', 'remoteAs': 65103, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf3', 'idType': 'ipv4'}, '172.22.0.22': {'hostname': 'leaf4', 'softwareVersion': 'n/a', 'remoteAs': 65104, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 41, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf4', 'idType': 'ipv4'}, '172.22.0.28': {'hostname': 'leaf5', 'softwareVersion': 'n/a', 'remoteAs': 65105, 'localAs': 65000, 'version': 4, 'msgRcvd': 34, 'msgSent': 40, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf5', 'idType': 'ipv4'}, '172.22.0.34': {'hostname': 'leaf6', 'softwareVersion': 'n/a', 'remoteAs': 65106, 'localAs': 65000, 'version': 4, 'msgRcvd': 33, 'msgSent': 39, 'tableVersion': 13, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 2, 'pfxSnt': 13, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'leaf6', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf1: all eBGP peers established and receiving routes",
+      "node": "leaf1",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.1': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65101, 'version': 4, 'msgRcvd': 45, 'msgSent': 34, 'tableVersion': 49, 'outq': 0, 'inq': 0, 'peerUptime': '00:00:12', 'peerUptimeMsec': 12000, 'peerUptimeEstablishedEpoch': 1792403456, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 2, 'connectionsDropped': 1, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.3': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65101, 'version': 4, 'msgRcvd': 41, 'msgSent': 36, 'tableVersion': 49, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.5': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65101, 'version': 4, 'msgRcvd': 41, 'msgSent': 36, 'tableVersion': 49, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf1: three installed ECMP paths to 10.60.2.0/24",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.1', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf1: three installed ECMP paths to 10.60.3.0/24",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.1', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf1: three installed ECMP paths to 10.60.4.0/24",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.1', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf1: three installed ECMP paths to 10.60.5.0/24",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.1', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf1: three installed ECMP paths to 10.60.6.0/24",
+      "node": "leaf1",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.1', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.3', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.5', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack1: five ports on isolated rack bridge",
+      "node": "rack1",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "leaf2: all eBGP peers established and receiving routes",
+      "node": "leaf2",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.7': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65102, 'version': 4, 'msgRcvd': 43, 'msgSent': 36, 'tableVersion': 21, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.9': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65102, 'version': 4, 'msgRcvd': 41, 'msgSent': 36, 'tableVersion': 21, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.11': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65102, 'version': 4, 'msgRcvd': 41, 'msgSent': 36, 'tableVersion': 21, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:34', 'peerUptimeMsec': 94000, 'peerUptimeEstablishedEpoch': 1792403374, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf2: three installed ECMP paths to 10.60.1.0/24",
+      "node": "leaf2",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.1.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.1.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.7', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.9', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.11', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf2: three installed ECMP paths to 10.60.3.0/24",
+      "node": "leaf2",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.7', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.9', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.11', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf2: three installed ECMP paths to 10.60.4.0/24",
+      "node": "leaf2",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.7', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.9', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.11', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf2: three installed ECMP paths to 10.60.5.0/24",
+      "node": "leaf2",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.7', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.9', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.11', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf2: three installed ECMP paths to 10.60.6.0/24",
+      "node": "leaf2",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 17, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.7', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.9', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.11', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack2: five ports on isolated rack bridge",
+      "node": "rack2",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "leaf3: all eBGP peers established and receiving routes",
+      "node": "leaf3",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.13': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65103, 'version': 4, 'msgRcvd': 42, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.15': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65103, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.17': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65103, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf3: three installed ECMP paths to 10.60.1.0/24",
+      "node": "leaf3",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.1.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.1.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.13', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.15', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.17', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf3: three installed ECMP paths to 10.60.2.0/24",
+      "node": "leaf3",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.13', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.15', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.17', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf3: three installed ECMP paths to 10.60.4.0/24",
+      "node": "leaf3",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.13', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.15', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.17', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf3: three installed ECMP paths to 10.60.5.0/24",
+      "node": "leaf3",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.13', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.15', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.17', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf3: three installed ECMP paths to 10.60.6.0/24",
+      "node": "leaf3",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.13', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.15', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.17', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack3: five ports on isolated rack bridge",
+      "node": "rack3",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "leaf4: all eBGP peers established and receiving routes",
+      "node": "leaf4",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.19': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65104, 'version': 4, 'msgRcvd': 42, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.21': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65104, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.23': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65104, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:32', 'peerUptimeMsec': 92000, 'peerUptimeEstablishedEpoch': 1792403376, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf4: three installed ECMP paths to 10.60.1.0/24",
+      "node": "leaf4",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.1.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.1.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.19', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.21', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.23', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf4: three installed ECMP paths to 10.60.2.0/24",
+      "node": "leaf4",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.19', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.21', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.23', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf4: three installed ECMP paths to 10.60.3.0/24",
+      "node": "leaf4",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.19', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.21', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.23', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf4: three installed ECMP paths to 10.60.5.0/24",
+      "node": "leaf4",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.19', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.21', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.23', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf4: three installed ECMP paths to 10.60.6.0/24",
+      "node": "leaf4",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.19', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.21', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.23', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack4: five ports on isolated rack bridge",
+      "node": "rack4",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "leaf5: all eBGP peers established and receiving routes",
+      "node": "leaf5",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.25': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65105, 'version': 4, 'msgRcvd': 42, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.27': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65105, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.29': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65105, 'version': 4, 'msgRcvd': 40, 'msgSent': 34, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:31', 'peerUptimeMsec': 91000, 'peerUptimeEstablishedEpoch': 1792403377, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf5: three installed ECMP paths to 10.60.1.0/24",
+      "node": "leaf5",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.1.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.1.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.25', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.27', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.29', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf5: three installed ECMP paths to 10.60.2.0/24",
+      "node": "leaf5",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.25', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.27', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.29', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf5: three installed ECMP paths to 10.60.3.0/24",
+      "node": "leaf5",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.25', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.27', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.29', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf5: three installed ECMP paths to 10.60.4.0/24",
+      "node": "leaf5",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.25', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.27', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.29', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf5: three installed ECMP paths to 10.60.6.0/24",
+      "node": "leaf5",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.6.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.6.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.25', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.27', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.29', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack5: five ports on isolated rack bridge",
+      "node": "rack5",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "leaf6: all eBGP peers established and receiving routes",
+      "node": "leaf6",
+      "passed": true,
+      "command": "vtysh -c 'show bgp summary json' | python3 -c 'import json,sys; d=json.load(sys.stdin); peers=d[\"ipv4Unicast\"][\"peers\"]; assert len(peers)==3, peers; assert all(p[\"state\"]==\"Established\" and p[\"pfxRcd\"]>0 for p in peers.values()), peers; print(peers)'",
+      "output": "{'172.22.0.31': {'hostname': 'spine1', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65106, 'version': 4, 'msgRcvd': 41, 'msgSent': 33, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine1', 'idType': 'ipv4'}, '172.22.0.33': {'hostname': 'spine2', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65106, 'version': 4, 'msgRcvd': 39, 'msgSent': 33, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine2', 'idType': 'ipv4'}, '172.22.0.35': {'hostname': 'spine3', 'softwareVersion': 'n/a', 'remoteAs': 65000, 'localAs': 65106, 'version': 4, 'msgRcvd': 39, 'msgSent': 33, 'tableVersion': 19, 'outq': 0, 'inq': 0, 'peerUptime': '00:01:29', 'peerUptimeMsec': 89000, 'peerUptimeEstablishedEpoch': 1792403379, 'pfxRcd': 11, 'pfxSnt': 2, 'state': 'Established', 'peerState': 'OK', 'connectionsEstablished': 1, 'connectionsDropped': 0, 'desc': 'spine3', 'idType': 'ipv4'}}\n"
+    },
+    {
+      "check": "leaf6: three installed ECMP paths to 10.60.1.0/24",
+      "node": "leaf6",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.1.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.1.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.31', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.33', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.35', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf6: three installed ECMP paths to 10.60.2.0/24",
+      "node": "leaf6",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.2.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.2.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.31', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.33', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.35', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf6: three installed ECMP paths to 10.60.3.0/24",
+      "node": "leaf6",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.3.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.3.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.31', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.33', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.35', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf6: three installed ECMP paths to 10.60.4.0/24",
+      "node": "leaf6",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.4.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.4.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.31', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.33', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.35', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "leaf6: three installed ECMP paths to 10.60.5.0/24",
+      "node": "leaf6",
+      "passed": true,
+      "command": "ip -j route show exact 10.60.5.0/24 | python3 -c 'import json,sys; rows=json.load(sys.stdin); assert rows, \"missing route\"; hops=rows[0].get(\"nexthops\", []); active=[h for h in hops if \"dead\" not in h.get(\"flags\", [])]; assert len(active)==3, rows; assert len({h[\"gateway\"] for h in active})==3, rows; print(rows)'",
+      "output": "[{'dst': '10.60.5.0/24', 'nhid': 15, 'protocol': 'bgp', 'metric': 20, 'flags': [], 'nexthops': [{'gateway': '172.22.0.31', 'dev': 'eth0', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.33', 'dev': 'eth1', 'weight': 1, 'flags': []}, {'gateway': '172.22.0.35', 'dev': 'eth2', 'weight': 1, 'flags': []}]}]\n"
+    },
+    {
+      "check": "rack6: five ports on isolated rack bridge",
+      "node": "rack6",
+      "passed": true,
+      "command": "ip -j link show master br0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i[\"master\"]==\"br0\" for i in d)'",
+      "output": ""
+    },
+    {
+      "check": "rack1h1: address and gateway",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.1.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.1.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack1h1: all 23 other endpoints reachable",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "for target in 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h1: application and backend dependency healthy",
+      "node": "rack1h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h2: address and gateway",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.1.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.1.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack1h2: all 23 other endpoints reachable",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h2: application and backend dependency healthy",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h3: address and gateway",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.1.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.1.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack1h3: all 23 other endpoints reachable",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h3: application and backend dependency healthy",
+      "node": "rack1h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1h4: address and gateway",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.1.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.1.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack1h4: all 23 other endpoints reachable",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack1h4: application and backend dependency healthy",
+      "node": "rack1h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h1: address and gateway",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.2.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.2.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack2h1: all 23 other endpoints reachable",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h1: application and backend dependency healthy",
+      "node": "rack2h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h2: address and gateway",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.2.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.2.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack2h2: all 23 other endpoints reachable",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h2: application and backend dependency healthy",
+      "node": "rack2h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h3: address and gateway",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.2.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.2.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack2h3: all 23 other endpoints reachable",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h3: application and backend dependency healthy",
+      "node": "rack2h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack2h4: address and gateway",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.2.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.2.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack2h4: all 23 other endpoints reachable",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack2h4: application and backend dependency healthy",
+      "node": "rack2h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h1: address and gateway",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.3.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.3.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack3h1: all 23 other endpoints reachable",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h1: application and backend dependency healthy",
+      "node": "rack3h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h2: address and gateway",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.3.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.3.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack3h2: all 23 other endpoints reachable",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h2: application and backend dependency healthy",
+      "node": "rack3h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h3: address and gateway",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.3.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.3.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack3h3: all 23 other endpoints reachable",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h3: application and backend dependency healthy",
+      "node": "rack3h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack3h4: address and gateway",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.3.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.3.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack3h4: all 23 other endpoints reachable",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack3h4: application and backend dependency healthy",
+      "node": "rack3h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h1: address and gateway",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.4.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.4.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack4h1: all 23 other endpoints reachable",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h1: application and backend dependency healthy",
+      "node": "rack4h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h2: address and gateway",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.4.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.4.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack4h2: all 23 other endpoints reachable",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h2: application and backend dependency healthy",
+      "node": "rack4h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h3: address and gateway",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.4.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.4.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack4h3: all 23 other endpoints reachable",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h3: application and backend dependency healthy",
+      "node": "rack4h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack4h4: address and gateway",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.4.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.4.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack4h4: all 23 other endpoints reachable",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack4h4: application and backend dependency healthy",
+      "node": "rack4h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h1: address and gateway",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.5.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.5.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack5h1: all 23 other endpoints reachable",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h1: application and backend dependency healthy",
+      "node": "rack5h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h2: address and gateway",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.5.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.5.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack5h2: all 23 other endpoints reachable",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h2: application and backend dependency healthy",
+      "node": "rack5h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h3: address and gateway",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.5.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.5.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack5h3: all 23 other endpoints reachable",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h3: application and backend dependency healthy",
+      "node": "rack5h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack5h4: address and gateway",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.5.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.5.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack5h4: all 23 other endpoints reachable",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.6.11 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack5h4: application and backend dependency healthy",
+      "node": "rack5h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h1: address and gateway",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.6.11'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.6.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack6h1: all 23 other endpoints reachable",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.12 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h1: application and backend dependency healthy",
+      "node": "rack6h1",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h2: address and gateway",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.6.12'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.6.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack6h2: all 23 other endpoints reachable",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.13 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h2: application and backend dependency healthy",
+      "node": "rack6h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h3: address and gateway",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.6.13'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.6.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack6h3: all 23 other endpoints reachable",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.14; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h3: application and backend dependency healthy",
+      "node": "rack6h3",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6h4: address and gateway",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "ip -j -4 addr show dev eth0 | python3 -c 'import json,sys; d=json.load(sys.stdin); assert any(a[\"local\"]=='\"'\"'10.60.6.14'\"'\"' for i in d for a in i.get(\"addr_info\",[]))' && ping -n -c 1 -W 2 10.60.6.1 >/dev/null",
+      "output": ""
+    },
+    {
+      "check": "rack6h4: all 23 other endpoints reachable",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "for target in 10.60.1.11 10.60.1.12 10.60.1.13 10.60.1.14 10.60.2.11 10.60.2.12 10.60.2.13 10.60.2.14 10.60.3.11 10.60.3.12 10.60.3.13 10.60.3.14 10.60.4.11 10.60.4.12 10.60.4.13 10.60.4.14 10.60.5.11 10.60.5.12 10.60.5.13 10.60.5.14 10.60.6.11 10.60.6.12 10.60.6.13; do ping -n -c 1 -W 2 \"$target\" >/dev/null || { echo \"unreachable: $target\"; exit 1; }; done",
+      "output": ""
+    },
+    {
+      "check": "rack6h4: application and backend dependency healthy",
+      "node": "rack6h4",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack1: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.1.11:8080/ | grep -F 'rack1h1: healthy'",
+      "output": "rack1h1: healthy\n"
+    },
+    {
+      "check": "rack2: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.2.11:8080/ | grep -F 'rack2h1: healthy'",
+      "output": "rack2h1: healthy\n"
+    },
+    {
+      "check": "rack3: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.3.11:8080/ | grep -F 'rack3h1: healthy'",
+      "output": "rack3h1: healthy\n"
+    },
+    {
+      "check": "rack4: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.4.11:8080/ | grep -F 'rack4h1: healthy'",
+      "output": "rack4h1: healthy\n"
+    },
+    {
+      "check": "rack5: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'",
+      "output": "application: healthy\n"
+    },
+    {
+      "check": "rack6: HTTP service reachable from rack1",
+      "node": "rack1h2",
+      "passed": true,
+      "command": "curl -fsS --max-time 6 http://10.60.6.11:8080/ | grep -F 'rack6h1: healthy'",
+      "output": "rack6h1: healthy\n"
+    }
+  ],
+  "endpoint_pairs": 552,
+  "timestamp": "2026-10-19T09:51:10.055372+00:00"
+}

@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import time
+import json
+import hashlib
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,14 +12,17 @@ from .checks import all_passed, run_checks
 from .inject import apply_injection
 from .lab import kathara_container_count, lclean, lstart
 from .results import write_detail, write_row
+from .preflight import require_credentials
+from .provenance import snapshot_runtime
 from .runners.base import AgentResult
 from .runners.cc_baseline import run_cc_baseline
 from .runners.react_full import run_react_full
 from .runners.sade import run_sade
-from .scenario import Scenario, parse_scenario
+from .scenario import Scenario, CheckLine, parse_scenario
 from .scoring import score_submission
 from .scoring.trace_digest import build_trace_digest
 from .topology import summarize_topology
+from .paths import KATH_BASE
 
 
 def _build_agent_prompt(sc: Scenario) -> str:
@@ -110,6 +115,7 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
     accumulates every run so N>=3 repeats sit side by side. ``run_group`` tags
     the row's provenance (e.g. the bench manifest name) without changing layout.
     """
+    require_credentials([agent])
     sc = parse_scenario(scenario_path)
     now = datetime.now(timezone.utc)
     timestamp = now.isoformat()
@@ -163,18 +169,16 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
 
     try:
         expected = lstart(sc.topology)
-        # Deployment gate ONLY: wait until all containers have launched. We do
-        # NOT functionally pre-check the baseline (no reachability/OSPF probes) --
-        # a fully-deployed lab is assumed good; the meaningful gate is that the
-        # INJECTION takes and stays alive (post-inject below).
+        # Deployment gate; declared PRE-CHECKs below separately gate health.
+        # Legacy scenarios without PRE-CHECKs retain their settle-only baseline.
         elapsed = 0
-        n = kathara_container_count()
+        n = kathara_container_count(sc.topology)
         while n < expected and elapsed < DEPLOY_WAIT:
             if stream:
                 print(f"[DEPLOY] {n}/{expected} containers up @ {elapsed}s", flush=True)
             time.sleep(DEPLOY_POLL_INTERVAL)
             elapsed += DEPLOY_POLL_INTERVAL
-            n = kathara_container_count()
+            n = kathara_container_count(sc.topology)
         detail["phases"]["lstart"] = {"ok": n >= expected,
                                       "containers": n, "expected": expected}
         if n < expected:
@@ -182,6 +186,7 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
             row["error"] = f"only {n}/{expected} containers launched after {elapsed}s"
             return _finalize(row, detail, csv_path, detail_path,
                              trace_path, "", t0, sc, keep_lab)
+        detail["provenance"] = snapshot_runtime(sc.topology, scenario_path)
         # Settle: plain wait so the lab converges (faults become meaningful and
         # the agent sees a converged network). NOT a gated health check.
         if stream:
@@ -190,8 +195,46 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
         time.sleep(converge_wait)
         detail["phases"]["settle"] = {"converge_wait": converge_wait}
 
+        baseline=list(sc.pre_check)
+        healthy_contract=KATH_BASE/sc.topology/'benchmark.json'
+        if healthy_contract.exists():
+            contract=json.loads(healthy_contract.read_text())
+            baseline=[CheckLine(**c) for c in contract.get('baseline',[])]+baseline
+            baseline=list({(c.device,c.command,c.expect):c for c in baseline}.values())
+            detail['phases']['healthy_contract']=dict(path=str(healthy_contract),sha256=hashlib.sha256(healthy_contract.read_bytes()).hexdigest(),checks=len(baseline))
+        if baseline:
+            deadline = time.monotonic() + 300
+            while True:
+                pre = run_checks(sc.topology, baseline)
+                if all_passed(pre) or time.monotonic() >= deadline:
+                    break
+                time.sleep(POST_INJECT_POLL_INTERVAL)
+            detail["phases"]["pre_check"] = [asdict(r) for r in pre]
+            if not all_passed(pre):
+                row["status"] = "baseline_failed"
+                row["error"] = "Healthy baseline failed; no fault was injected"
+                return _finalize(row, detail, csv_path, detail_path,
+                                 trace_path, "", t0, sc, keep_lab)
+        if sc.injection.command and not sc.post_inject_check:
+            raise ValueError("Executable injections require nonempty POST-INJECT-CHECK")
+
         inj = apply_injection(sc.topology, sc.injection)
         detail["phases"]["injection"] = asdict(inj)
+
+        if inj.applied and inj.rc != 0:
+            row["status"] = "injection_failed"
+            row["error"] = f"Injection command failed (rc={inj.rc}): {inj.output}"
+            return _finalize(row, detail, csv_path, detail_path,
+                             trace_path, "", t0, sc, keep_lab)
+
+        if inj.applied and sc.trigger is not None:
+            trigger = apply_injection(sc.topology, sc.trigger)
+            detail["phases"]["trigger_after_injection"] = asdict(trigger)
+            if not trigger.applied or trigger.rc != 0:
+                row["status"] = "injection_failed"
+                row["error"] = f"Traffic trigger failed: {trigger.output}"
+                return _finalize(row, detail, csv_path, detail_path,
+                                 trace_path, "", t0, sc, keep_lab)
 
         if inj.applied:
             post: list = []
@@ -221,6 +264,7 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
         # Persist exactly what every agent receives so we can verify all three
         # got identical input (topology summary + symptom).
         detail["agent_input_prompt"] = agent_prompt
+        agent_started = time.monotonic()
         ar = runner(
             prompt_to_agent=agent_prompt,
             lab_name=sc.topology,
@@ -231,7 +275,9 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
         # lose the trace.
         _write_trace(trace_path, ar.raw_trace)
         # Detail stores everything EXCEPT raw_trace (which goes to its own file)
+        row["agent_wall_seconds"] = time.monotonic() - agent_started
         ar_dict = asdict(ar)
+        ar_dict["wall_seconds"] = row["agent_wall_seconds"]
         ar_dict.pop("raw_trace", None)
         detail["phases"]["agent"] = ar_dict
 
@@ -277,6 +323,7 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
             return _finalize(row, detail, csv_path, detail_path,
                              trace_path, ar.raw_trace, t0, sc, keep_lab)
 
+        judge_started = time.monotonic()
         try:
             score = score_submission(
                 diagnosis_text=ar.diagnosis_text,
@@ -301,6 +348,7 @@ def run_one(scenario_path: Path, agent: str, runs_root: Path | None = None,
             detail["phases"]["error"] = row["error"]
             return _finalize(row, detail, csv_path, detail_path,
                              trace_path, ar.raw_trace, t0, sc, keep_lab)
+        row["judge_wall_seconds"] = time.monotonic() - judge_started
         detail["phases"]["score"] = asdict(score)
 
         row["must_passed"] = score.must_passed
@@ -346,10 +394,16 @@ def _finalize(row: dict, detail: dict, csv_path: Path, detail_path: Path,
     if not keep_lab:
         try:
             lclean(sc.topology)
-        except Exception:
-            pass
+            detail["phases"]["cleanup"] = {"ok": True}
+        except Exception as exc:
+            detail["phases"]["cleanup"] = {"ok": False, "error": str(exc)}
+            row["status"] = "cleanup_failed"
+            row["error"] = (row.get("error") or "") + f" | cleanup failed: {exc}"
+    else:
+        detail["phases"]["cleanup"] = {"skipped": "keep_lab"}
     row["wall_seconds"] = round(time.time() - t0, 1)
     write_row(csv_path, row)
+    detail["result"] = dict(row)
     write_detail(detail_path, detail)
     _write_trace(trace_path, trace_text)   # idempotent: same content if already written
     return row

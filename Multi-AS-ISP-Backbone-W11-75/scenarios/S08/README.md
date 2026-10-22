@@ -1,0 +1,1 @@
+Two-fault experiment: on a fresh baseline execute `./scripts/scenario.sh inject S01`, then `./scripts/scenario.sh inject S04`; recover in reverse order. **Not integrated as atomic scenario**; ground truth must include both faults.

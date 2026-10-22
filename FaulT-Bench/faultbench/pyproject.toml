@@ -22,3 +22,6 @@ dependencies = [
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["faultbench*"]
+
+[tool.setuptools.package-data]
+faultbench = ["inventories/*.json"]

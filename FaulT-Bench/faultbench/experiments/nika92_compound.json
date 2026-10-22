@@ -1,0 +1,254 @@
+{
+  "name": "nika92-client1-compound-gateway-and-tcp-filter",
+  "topology": "NIKA_Clos_Jiayuan_92Devices",
+  "scenario": "nika92-client1-compound-gateway-and-tcp-filter",
+  "steps": [
+    {
+      "action": "inject"
+    },
+    {
+      "action": "check",
+      "name": "both-faults",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.254"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "1"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "ping -n -c1 -W1 192.168.1.1",
+          "expect": "0% loss"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    },
+    {
+      "action": "inject"
+    },
+    {
+      "action": "check",
+      "name": "repeat-injection-one-rule",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.254"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "1"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "ping -n -c1 -W1 192.168.1.1",
+          "expect": "0% loss"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    },
+    {
+      "action": "mutate",
+      "device": "client_1",
+      "command": "ip route replace default via 192.168.1.1 dev eth0"
+    },
+    {
+      "action": "check",
+      "name": "gateway-fixed-filter-remains",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.1"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "1"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+          "expect": "200"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    },
+    {
+      "action": "check",
+      "name": "filter-counter-confirms-drops",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "iptables-legacy -L OUTPUT -n -v -x | awk '/soft3888-nika92-compound/ {print $1}'",
+          "expect": ">=1"
+        }
+      ]
+    },
+    {
+      "action": "recover"
+    },
+    {
+      "action": "check",
+      "name": "both-fixed-route-first",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.1"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "0"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+          "expect": "200"
+        },
+        {
+          "device": "client_1",
+          "command": "ping -n -c1 -W1 192.168.1.1",
+          "expect": "0% loss"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    },
+    {
+      "action": "inject"
+    },
+    {
+      "action": "mutate",
+      "device": "client_1",
+      "command": "if iptables-legacy -C OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP 2>/dev/null; then iptables-legacy -D OUTPUT -d 10.0.1.80/32 -p tcp --dport 8080 -m comment --comment soft3888-nika92-compound -j DROP; fi"
+    },
+    {
+      "action": "check",
+      "name": "filter-fixed-wrong-gateway-remains",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.254"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "0"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/ 2>/dev/null || { rc=$?; test \"$rc\" = 7 || test \"$rc\" = 28; }",
+          "expect": "000"
+        },
+        {
+          "device": "client_1",
+          "command": "ping -n -c1 -W1 192.168.1.1",
+          "expect": "0% loss"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    },
+    {
+      "action": "recover"
+    },
+    {
+      "action": "check",
+      "name": "both-fixed-filter-first",
+      "checks": [
+        {
+          "device": "client_1",
+          "command": "ip route show default | awk '{print $3}'",
+          "expect": "equals: 192.168.1.1"
+        },
+        {
+          "device": "client_1",
+          "command": "rules=$(iptables-legacy -S OUTPUT) && printf '%s\\n' \"$rules\" | awk '/soft3888-nika92-compound/ {n++} END {print n+0}'",
+          "expect": "0"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        },
+        {
+          "device": "client_1",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.2:80/",
+          "expect": "200"
+        },
+        {
+          "device": "client_1",
+          "command": "ping -n -c1 -W1 192.168.1.1",
+          "expect": "0% loss"
+        },
+        {
+          "device": "client_2",
+          "command": "curl --noproxy '*' -sS --max-time 3 -o /dev/null -w '%{http_code}' http://10.0.1.80:8080/",
+          "expect": "200"
+        }
+      ]
+    }
+  ]
+}

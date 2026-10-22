@@ -1,0 +1,22 @@
+#!/bin/bash
+set -euo pipefail
+exec > /var/log/fabric-startup.log 2>&1
+ip link set lo up
+ip link set eth0 up
+ip addr add 172.22.0.3/31 dev eth0
+ip link set eth1 up
+ip addr add 172.22.0.9/31 dev eth1
+ip link set eth2 up
+ip addr add 172.22.0.15/31 dev eth2
+ip link set eth3 up
+ip addr add 172.22.0.21/31 dev eth3
+ip link set eth4 up
+ip addr add 172.22.0.27/31 dev eth4
+ip link set eth5 up
+ip addr add 172.22.0.33/31 dev eth5
+ip addr add 10.254.0.2/32 dev lo
+sed -i -E 's/^(zebra|bgpd)=no/\1=yes/; s/^(ospfd|ospf6d|isisd|ripd|ripngd)=yes/\1=no/' /etc/frr/daemons
+chown frr:frr /etc/frr/frr.conf
+chmod 640 /etc/frr/frr.conf
+service frr start
+touch /tmp/fabric-ready

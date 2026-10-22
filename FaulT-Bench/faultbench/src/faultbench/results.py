@@ -16,7 +16,7 @@ CSV_COLUMNS = [
     "outcome_score", "fix_score", "reasoning_score",
     "in_tokens", "cache_read_tokens", "cache_write_tokens",
     "out_tokens", "cost_usd", "tool_calls",
-    "wall_seconds", "error",
+    "wall_seconds", "error", "agent_wall_seconds", "judge_wall_seconds",
 ]
 
 

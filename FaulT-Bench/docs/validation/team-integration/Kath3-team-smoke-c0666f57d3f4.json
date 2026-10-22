@@ -1,0 +1,51 @@
+{
+  "kind": "team-live-integration-smoke-without-llm",
+  "scope": "Deployment, exact inventory, representative local gateway and real MCP tools only; not comprehensive healthy-state, fault, repair or model-score validation.",
+  "topology": "Kath3",
+  "lab_name": "team-smoke-c0666f57d3f4",
+  "passed": false,
+  "started_at": "2026-10-21T08:46:21.064082+00:00",
+  "probes": [
+    {
+      "device": "laptop0",
+      "command": "ping -n -c2 -W1 172.16.20.1",
+      "rc": 1,
+      "output": "PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.\n\n--- 172.16.20.1 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1010ms",
+      "passed": false,
+      "rationale": "rc=1, loss=100.0%"
+    }
+  ],
+  "runtime": {
+    "mode": "shared-readonly-usr",
+    "roles": {
+      "kathara/frr": {
+        "source": "kathara/frr:latest",
+        "source_id": "sha256:30e5337da4f35f63134c5806b59efcf62df7e90772613d386c00c3188370e5b7",
+        "device_image": "soft3888/source-05bddb1601dd:shared-v1",
+        "device_image_id": "sha256:9ba1b0d56e19effb9a063fd819f7eb95ee5bd7af1456cf2b08c82971c006fc6b",
+        "usr_sha256": "c1c40b40bddc1b1c7a75deb41526af7d92dd2004407bbc78069e5cd06be2dc0a",
+        "created_at": "2026-10-21T08:42:42.851383+00:00"
+      },
+      "kathara/base": {
+        "source": "kathara/base:latest",
+        "source_id": "sha256:3c3120750815effab83dbcf5baa0e9093e0805ac1f3743fc83e5ed554080ab67",
+        "device_image": "soft3888/source-49c084bdc95b:shared-v1",
+        "device_image_id": "sha256:2c6ea3bafc281c5e68ab237430d64bbdd94e69e255e3cdde57f55bb5fd35fe69",
+        "usr_sha256": "122bfbf0d867091009c708653ec6fb880b0505365735df5a82b43e40948a29a9",
+        "created_at": "2026-10-21T08:42:00.883150+00:00"
+      }
+    }
+  },
+  "deploy": {
+    "rc": 0,
+    "output": ""
+  },
+  "running_devices": 32,
+  "inventory_complete": true,
+  "status": "failed",
+  "error": "RuntimeError: Representative local-gateway ping failed",
+  "cleanup": {
+    "passed": true
+  },
+  "finished_at": "2026-10-21T08:47:08.159099+00:00"
+}

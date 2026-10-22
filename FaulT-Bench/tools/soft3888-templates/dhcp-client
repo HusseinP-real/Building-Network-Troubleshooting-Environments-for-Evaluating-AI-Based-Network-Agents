@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+[ "${1:-}" = renew ] || exit 2
+mkdir -p /var/lib/dhcp
+# Release only this lab client's daemon and its own lease file.
+dhclient -r -pf /run/clos-dhclient.pid -lf /var/lib/dhcp/clos.leases eth0 2>/dev/null || true
+rm -f /var/lib/dhcp/clos.leases
+ip -4 addr flush dev eth0 scope global
+ip route del default dev eth0 2>/dev/null || true
+dhclient -4 -1 -v -pf /run/clos-dhclient.pid -lf /var/lib/dhcp/clos.leases eth0

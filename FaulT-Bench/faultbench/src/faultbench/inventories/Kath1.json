@@ -1,0 +1,31 @@
+{
+  "routers": [
+    "aswa1",
+    "aswa2",
+    "aswa3",
+    "dswa1",
+    "dswa2",
+    "aswb1",
+    "aswb2",
+    "aswb3",
+    "dswb1",
+    "dswb2",
+    "csw1",
+    "csw2",
+    "ispa",
+    "ispb",
+    "r1"
+  ],
+  "switches": [],
+  "hosts": [
+    "laptop1",
+    "pc1",
+    "pc2",
+    "pc3"
+  ],
+  "servers": {
+    "service": [
+      "srv1"
+    ]
+  }
+}

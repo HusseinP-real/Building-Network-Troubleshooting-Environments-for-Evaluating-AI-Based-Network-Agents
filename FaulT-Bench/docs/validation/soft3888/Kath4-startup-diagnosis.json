@@ -1,0 +1,18 @@
+{
+  "kind": "read-only-legacy-startup-diagnosis",
+  "lab_name": "team-smoke-1d1bfe5ddf1a",
+  "checks": [
+    {
+      "node": "mswitch0",
+      "command": "ip -br addr; ip route; tail -n 45 /var/log/startup.log 2>/dev/null",
+      "rc": 0,
+      "output": "lo               UNKNOWN        127.0.0.1/8 \nbr0              UP             10.2.2.2/24 \neth0             UP             \neth1             UP             \neth2             UP             \neth3             UP             \neth4             UP             \neth5             UP             \n10.2.2.0/24 dev br0 proto kernel scope link src 10.2.2.2 \nCannot find device \"bond0\"\n++ for port in 2 3 4 5\n++ ip link set eth2 up\n++ ip link set eth2 master br0\n++ for port in 2 3 4 5\n++ ip link set eth3 up\n++ ip link set eth3 master br0\n++ for port in 2 3 4 5\n++ ip link set eth4 up\n++ ip link set eth4 master br0\n++ for port in 2 3 4 5\n++ ip link set eth5 up\n++ ip link set eth5 master br0\n++ ip address add 10.2.2.2/24 dev br0\n++ ip link add link br0 name vlan10 type vlan id 10\nError: Unknown device type.\n++ ip link set vlan10 up\nCannot find device \"vlan10\"\n++ ip link set vlan10 address 00:01:97:e4:04:01\nCannot find device \"vlan10\"\n++ ip address add 172.16.10.254/24 dev vlan10\nCannot find device \"vlan10\"\n++ ip link add link br0 name vlan20 type vlan id 20\nError: Unknown device type.\n++ ip link set vlan20 up\nCannot find device \"vlan20\"\n++ ip link set vlan20 address 00:01:97:e4:04:02\nCannot find device \"vlan20\"\n++ ip address add 172.16.20.254/24 dev vlan20\nCannot find device \"vlan20\"\n++ ip link add link br0 name vlan30 type vlan id 30\nError: Unknown device type.\n++ ip link set vlan30 up\nCannot find device \"vlan30\"\n++ ip link set vlan30 address 00:01:97:e4:04:03\nCannot find device \"vlan30\"\n++ ip address add 172.16.30.254/24 dev vlan30\nCannot find device \"vlan30\"\n++ sed -i s/ospfd=no/ospfd=yes/g /etc/frr/daemons\n++ /etc/init.d/frr start\nStarting watchfrr with command: '  /usr/lib/frr/watchfrr  -d   mgmtd zebra ospfd staticd'.\n2026/10/21 08:54:16 ZEBRA: [KGY44-D47GD][EC 4043309111] Disabling MPLS support (no kernel support)\n/etc/frr/frr.conf does not exist; skipping config apply\nStarted watchfrr.\n++ vtysh -c 'configure terminal' -c 'router ospf' -c 'network 10.2.2.0/24 area 0' -c 'network 172.16.10.0/24 area 0' -c 'network 172.16.20.0/24 area 0' -c 'network 172.16.30.0/24 area 0' -c exit -c exit"
+    },
+    {
+      "node": "router0",
+      "command": "ip -br addr; ip route; tail -n 45 /var/log/startup.log 2>/dev/null",
+      "rc": 125,
+      "output": "[exec error] MachineNotRunningError: Device `router0` is not running."
+    }
+  ]
+}

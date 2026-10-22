@@ -1,0 +1,20 @@
+[
+  {
+    "image": "kathara/base-stress:latest",
+    "image_id": "sha256:8a23551d1219b996b971847880da77e305a0999b1c47def8ea8468328f3905f4",
+    "source_digest": "kathara/base@sha256:8a2e70ac8f51bb283b8549fd686f65f9a1ef4487fe2c81849cb74d301e61970b",
+    "package_reference": "SADE-NetworkAgent/src/nika/net_env/utils/DockerFiles/Dockerfile.base"
+  },
+  {
+    "image": "kathara/frr-stress:latest",
+    "image_id": "sha256:e391148daacfdf9d08430b1e9a412833b629df97a7e20f01a7644d6e649df521",
+    "source_digest": "kathara/frr@sha256:3b7a3f630d8ecd9efddd4586ba2f0a41e2c462f13bc81dee8e3c6ebac183f57c",
+    "package_reference": "SADE-NetworkAgent/src/nika/net_env/utils/DockerFiles/Dockerfile.frr"
+  },
+  {
+    "image": "frr-with-vrrp-relay:latest",
+    "image_id": "sha256:0fe16948e738cd410cf69e2e93a784f7ee9865a99896ba4c19a3ba3379598fa8",
+    "source_digest": "kathara/frr@sha256:3b7a3f630d8ecd9efddd4586ba2f0a41e2c462f13bc81dee8e3c6ebac183f57c",
+    "package_reference": "topology_kathara/Kath1/Dockerfile.relay"
+  }
+]

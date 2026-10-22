@@ -1,0 +1,126 @@
+{
+  "kind": "environment-and-team-integration-preflight",
+  "missing_credentials": [
+    "ANTHROPIC_API_KEY",
+    "OPENAI_API_KEY"
+  ],
+  "topologies": [
+    {
+      "topology": "Kath1",
+      "devices": 20,
+      "inventory_complete": true,
+      "missing_images": [
+        "kathara/dhcp"
+      ],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": true
+    },
+    {
+      "topology": "Kath2",
+      "devices": 30,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": false
+    },
+    {
+      "topology": "Kath3",
+      "devices": 32,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 71,
+      "requires_vlan": true
+    },
+    {
+      "topology": "Kath4",
+      "devices": 28,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": true
+    },
+    {
+      "topology": "Kath5",
+      "devices": 15,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 71,
+      "requires_vlan": false
+    },
+    {
+      "topology": "Kath5_Jiayuan_75Devices",
+      "devices": 75,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 5,
+      "legacy_validation_gaps": 0,
+      "requires_vlan": false
+    },
+    {
+      "topology": "Kath5_Jiayuan_Extended",
+      "devices": 50,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 1,
+      "requires_vlan": false
+    },
+    {
+      "topology": "Kath5_Jiayuan_R13_EIGRP_Fault",
+      "devices": 50,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 0,
+      "requires_vlan": false
+    },
+    {
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "devices": 92,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 6,
+      "legacy_validation_gaps": 0,
+      "requires_vlan": false
+    },
+    {
+      "topology": "dc_clos_bgp",
+      "devices": 7,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": false
+    },
+    {
+      "topology": "ospf_enterprise_static",
+      "devices": 15,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": false
+    },
+    {
+      "topology": "simple_bgp",
+      "devices": 4,
+      "inventory_complete": true,
+      "missing_images": [],
+      "current_live_cases": 0,
+      "legacy_validation_gaps": 70,
+      "requires_vlan": false
+    }
+  ],
+  "docker_error": null,
+  "docker_version": "28.4.0",
+  "storage_driver": "vfs",
+  "vlan_capability": {
+    "available": false,
+    "error": "Command '['sh', '-c', 'ip link add preflighta type veth peer name preflightb && ip link add link preflighta name preflighta.100 type vlan id 100']' in image 'kathara/base:latest' returned non-zero exit status 2: b'Error: Unknown device type.\\n'"
+  }
+}

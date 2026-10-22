@@ -1,0 +1,48 @@
+Scenario: kath3-client-demo-false-premise-connectivity
+Topology: Kath3
+Fault family: none; false-premise control
+
+[PROMPT-TO-AGENT]
+Laptop0 cannot reach PC4 or Router2. Please investigate this report and determine whether there is a reproducible connectivity problem.
+
+[PRE-CHECK]
+laptop0  ip route show default | grep -c 'via 172.16.20.1' => expect 1
+laptop0  rules=$(iptables -S OUTPUT) && printf '%s\n' "$rules" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}' => expect 0
+laptop0  ping -W2 -c2 172.16.20.1 => expect 0% loss
+laptop0  ping -W2 -c2 172.16.10.4 => expect 0% loss
+laptop0  ping -W2 -c2 192.168.100.1 => expect 0% loss
+pc4  ping -W2 -c2 192.168.100.1 => expect 0% loss
+
+[INJECTION]
+device: laptop0
+action: none
+
+[POST-INJECT-CHECK]
+laptop0  ip route show default | grep -c 'via 172.16.20.1' => expect 1
+laptop0  rules=$(iptables -S OUTPUT) && printf '%s\n' "$rules" | awk '/haosenpeng-compound-icmp/ {n++} END {print n+0}' => expect 0
+laptop0  ping -W2 -c2 172.16.20.1 => expect 0% loss
+laptop0  ping -W2 -c2 172.16.10.4 => expect 0% loss
+laptop0  ping -W2 -c2 192.168.100.1 => expect 0% loss
+pc4  ping -W2 -c2 192.168.100.1 => expect 0% loss
+
+[GROUND-TRUTH]
+The network is healthy. Both reported paths and the independent PC4 control succeed. Do not invent a gateway, RIP or firewall fault.
+
+[FIX]
+No network configuration change is required. Explain how repeated probes disconfirm the ticket.
+Preserve unrelated routes and firewall rules. Verify the complete healthy check matrix afterward.
+
+[DIAGNOSTIC-PROCESS]
+Compare Laptop0 on-link and off-subnet probes with PC4's remote probe.
+Inspect the default route and OUTPUT rules. Check evidence before accepting the ticket's premise.
+
+[SCORING-AXES]
+must-diagnose: The network is healthy. Both reported paths and the independent PC4 control succeed. Do not invent a gateway, RIP or firewall fault.
+must-scope-impact: distinguish the affected Laptop0 paths from the healthy PC4 control
+must-verify: compare configuration evidence with reachability checks
+
+[NIKA-LABEL]
+nika_label: none
+nika_category: PROJECT_REFERENCE
+in_taxonomy: false
+note: NIKA scenario/problem/evaluation separation is the reference; no version-specific label mapping is asserted

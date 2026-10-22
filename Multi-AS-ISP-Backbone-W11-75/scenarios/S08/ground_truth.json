@@ -1,0 +1,21 @@
+{
+  "id": "S08",
+  "topology": "Multi-AS-ISP-Backbone-W11-75",
+  "category": "multi_fault_isis_and_blackhole",
+  "fault_exists": true,
+  "fault_device": [
+    "as65010r2",
+    "as65200r1"
+  ],
+  "injection": null,
+  "recovery": null,
+  "notes": "Composition of S01 + S04 in one fresh lab; validate each component then combine.",
+  "validation_status": "NOT_LIVE_TESTED",
+  "expected_agent_output": {
+    "is_anomaly": true,
+    "faulty_devices": [
+      "as65010r2",
+      "as65200r1"
+    ]
+  }
+}

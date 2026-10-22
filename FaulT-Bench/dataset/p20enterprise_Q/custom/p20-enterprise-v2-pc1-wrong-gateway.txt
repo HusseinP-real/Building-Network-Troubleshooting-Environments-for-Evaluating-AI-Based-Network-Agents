@@ -1,0 +1,144 @@
+Scenario: p20-enterprise-v2-pc1-wrong-gateway
+Topology: P20Enterprise
+Fault family: gateway
+
+[PROMPT-TO-AGENT]
+Only PC1 cannot communicate outside its local LAN. PC1 can reach PC2, and the other HQ devices and remote sites work.
+
+[PRE-CHECK]
+pc5  ping -n -W 1 -c 2 10.10.1.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.2.11 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+server1  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc9  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+server3  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+r13  flags=$(cat /sys/class/net/eth0/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth1/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth3/flags) && echo $((flags & 1)) => expect 1
+r1  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r2  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 4
+r3  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r4  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 4
+r5  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r6  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r7  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r8  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r9  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r10  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r11  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r12  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r14  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r15  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r16  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  routes=$(ip -4 route show exact 10.10.2.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.2.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.255.8.1" && proto=="ospf") n++} END {print n+0}' => expect 1
+r14  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(proto=="ospf") n++} END {print n+0}' => expect 1
+r13  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(1) n++} END {print n+0}' => expect 1
+r13  config=$(vtysh -c 'show running-config') && printf '%s\n' "$config" | awk '$1=="network" && $2=="10.40.1.0/24" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show exact default) && printf '%s\n' "$routes" | awk '$1=="default" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.10.1.1") n++} END {print n+0}' => expect 1
+
+[INJECTION]
+device: pc1
+action: gateway
+cmd: |
+  ip route replace default via 10.10.1.254
+
+[POST-INJECT-CHECK]
+pc5  ping -n -W 1 -c 2 10.10.1.11 => expect loss>0
+pc5  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.1.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.2.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.2.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.3.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.3.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.12 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.13 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.10.4.14 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.11 => expect 0% loss
+pc5  ping -n -W 1 -c 2 10.40.4.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.10.2.11 => expect loss>0
+pc1  ping -n -W 1 -c 2 10.10.1.12 => expect 0% loss
+pc1  ping -n -W 1 -c 2 10.40.1.11 => expect loss>0
+server1  ping -n -W 1 -c 2 10.40.1.12 => expect 0% loss
+pc9  ping -n -W 1 -c 2 10.10.4.11 => expect 0% loss
+server3  ping -n -W 1 -c 2 10.40.3.11 => expect 0% loss
+r13  flags=$(cat /sys/class/net/eth0/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth1/flags) && echo $((flags & 1)) => expect 1
+r13  flags=$(cat /sys/class/net/eth3/flags) && echo $((flags & 1)) => expect 1
+r1  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r2  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 4
+r3  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 5
+r4  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 4
+r5  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r6  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r7  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r8  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r9  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r10  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r11  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r12  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r14  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r15  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r16  neighbors=$(vtysh -c 'show ip ospf neighbor') && printf '%s\n' "$neighbors" | awk '/Full/ {n++} END {print n+0}' => expect 2
+r13  routes=$(ip -4 route show exact 10.10.2.0/24) && printf '%s\n' "$routes" | awk '$1=="10.10.2.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.255.8.1" && proto=="ospf") n++} END {print n+0}' => expect 1
+r14  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(proto=="ospf") n++} END {print n+0}' => expect 1
+r13  routes=$(ip -4 route show exact 10.40.1.0/24) && printf '%s\n' "$routes" | awk '$1=="10.40.1.0/24" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(1) n++} END {print n+0}' => expect 1
+r13  config=$(vtysh -c 'show running-config') && printf '%s\n' "$config" | awk '$1=="network" && $2=="10.40.1.0/24" {n++} END {print n+0}' => expect 1
+pc1  routes=$(ip -4 route show exact default) && printf '%s\n' "$routes" | awk '$1=="default" {via=""; proto=""; for(i=2;i<NF;i++) {if($i=="via") via=$(i+1); if($i=="proto") proto=$(i+1)} if(via=="10.10.1.254") n++} END {print n+0}' => expect 1
+
+[GROUND-TRUTH]
+PC1 uses the unassigned gateway 10.10.1.254 instead of R13 at 10.10.1.1. Its local LAN works, but off-subnet exchanges fail in either direction. Restore the correct default gateway.
+
+[FIX]
+On pc1:
+ip route replace default via 10.10.1.1
+Repeat healthy checks, including preferred routing and all OSPF adjacencies.
+
+[DIAGNOSTIC-PROCESS]
+Compare local and remote paths. Inspect interface state, OSPF neighbors, advertisements and installed routes. Distinguish successful failover from an outage.
+
+[SCORING-AXES]
+must-identify-cause: PC1 uses the unassigned gateway 10.10.1.254 instead of R13 at 10.10.1.1. Its local LAN works, but off-subnet exchanges fail in either direction. Restore the correct default gateway.
+must-scope-impact: explain affected and unaffected paths
+must-verify-recovery: verify configuration and full baseline after the precise repair
+
+[NIKA-LABEL]
+nika_label: none
+nika_category: PROJECT_REFERENCE
+in_taxonomy: false
+note: NIKA task separation is the reference; native NIKA/SADE execution is not established.

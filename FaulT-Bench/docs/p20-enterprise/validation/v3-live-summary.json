@@ -1,0 +1,199 @@
+{
+  "version": 3,
+  "devices": 75,
+  "routers": 25,
+  "pcs": 35,
+  "servers": 15,
+  "subnets": 47,
+  "ospf_areas": 8,
+  "started_at": "20261013T041446103469Z",
+  "finished_at": "2026-10-13T04:30:41.458209+00:00",
+  "completed_cycles": 1,
+  "completed_cycle_passed": true,
+  "run_stopped_on_user_request": true,
+  "full_three_cycle_run_passed": false,
+  "stop_reason": "KeyboardInterrupt: ",
+  "initial_configuration_devices_checked": 75,
+  "live_check_rounds": 95,
+  "passing_rounds": 89,
+  "cleanup": {
+    "rc": 0,
+    "output": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                          Stopping Network Scenario                           \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n[Deleting devices]   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 75/75\n[Deleting collision domains]   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 47/47\n"
+  },
+  "docker_version": "28.4.0",
+  "kathara_version": "Current version: 3.8.3",
+  "image_digests": {
+    "kathara/base": [
+      "kathara/base@sha256:8a2e70ac8f51bb283b8549fd686f65f9a1ef4487fe2c81849cb74d301e61970b"
+    ],
+    "kathara/frr": [
+      "kathara/frr@sha256:3b7a3f630d8ecd9efddd4586ba2f0a41e2c462f13bc81dee8e3c6ebac183f57c"
+    ]
+  },
+  "topology_sha256": {
+    "lab.conf": "9902e907dea6744db4bb68e38a61e9bce25273d89601df8746cf38c462c42773",
+    "pc1.startup": "46a4bd9338dbe49c7b2e8a83572ca008edabe19784f7a69a521941c662956f53",
+    "pc10.startup": "01a489ea0126f48d1bcf95592ddedfdd27f606a6389c2d4ce84640c0148c6dd8",
+    "pc11.startup": "c8db693fee59a260deb9158430390e27dc9d411605f0e8d48f22fce89cba69a9",
+    "pc12.startup": "e4be0925d3400041f95e5b546d0513b03eea5e6ae3219d0570f5f6fcbe1a67b8",
+    "pc13.startup": "05f5be3db97464e1f156747c07ff620e3d69a0d748deab5d943aaaaa2997d4c0",
+    "pc14.startup": "28ee69d721885d0b351579edeb521b5e0cc9b0417b67ff9e65890591c8ebd775",
+    "pc15.startup": "938da6221dfbfe183430d1fb6554e4b7cfb4bc1ca5cce2fc54b40e2db32f0c57",
+    "pc16.startup": "f6d723ad9d192df87fa3a492a43d86a181f2bb501bf0e9dc437e5be1f0b8cbe7",
+    "pc17.startup": "390280e79dee5a16f1aa5305cbaa620e59f7bfcef5969188f0a8c3ddac31252e",
+    "pc18.startup": "2f4542aa653d2a966f4167d78ba68d2a6f4542368327344fc9fb08a83a2f905c",
+    "pc19.startup": "ac34355a1ab337d567935aeee54016295ba037561129bc572f4447f6fdaeda1c",
+    "pc2.startup": "c77264f612d32faa98d08e9e3d8f4f905ac7166332dac9c3be38638368453d78",
+    "pc20.startup": "82c6a0d0907121461ac16038ac5db1a8219e3bd9fb37c81c2698da2f8ca41899",
+    "pc21.startup": "d5dfab346ac583a8c1472f5408b8e1b66679a4b173605c2cee7255b913580f6a",
+    "pc22.startup": "b43fa3f54a7dfa53584b8e98fca1a522b36a6bb1bd6bbe84c8cd1ad93e3ea0c1",
+    "pc23.startup": "a3a0fbe72f2db3855591c359d75ffed68072f41ae291bfae39e57448b66cda3c",
+    "pc24.startup": "c1c42c063a0fa99f7d979242b91b1eade1a544cd96d1558d11c11171fae494a8",
+    "pc25.startup": "1d4972ba95c1e1287ebf059dbf9601862a4a8133aeee27d051249219a726d57c",
+    "pc26.startup": "8a4d0215607da7b0e988f7cd3eb9235bc139a4f4e787c07cdabe91931cb530f3",
+    "pc27.startup": "f3b1a0d86980d50897a16376608c1363b257a25f6257c0a67961ff63358c8720",
+    "pc28.startup": "796dd7f1f22a7f2bf9ebea5b7edfeaa4b63f9215839cb83ef6aa3e9519831a96",
+    "pc29.startup": "4a6021a126b99f26b6d9f88261ee45e26503a2cbaa21416ddc08813a59fda59f",
+    "pc3.startup": "211f5e787136728d52e7c2f7396feecdd65c514fe1952c5de97be84a0c0e238e",
+    "pc30.startup": "0c24f4d799d1dc2ef32509d1c8fddb2fd4bbbfca1df2eede64d6d31ce8681784",
+    "pc31.startup": "cc4b738ce2e2efa5aaf8d8a0af8a6c94ff0a9be8ba9fe67d9208acb187bcd4f8",
+    "pc32.startup": "66616d975c3036ceb15e90a23db42008ae234419042cdb5853dc47c41c5f9598",
+    "pc33.startup": "9d8b00bdea5da64bbdfbcddb99cbb0b6c3d66bad9370015fe0cb42b6aa5b599f",
+    "pc34.startup": "c69fe838782cd5bc8f16c0ddac268a0e169ee6cfbcf7038f84f08881b96c245e",
+    "pc35.startup": "61c39a6149f39f6c1f9fd9fb81d8a288e4b22dcbede4307cfec9276129dfa8df",
+    "pc4.startup": "2a5b45616a6d37886c39e066db745b299be97d0b6840cc89e341d125e6a4e476",
+    "pc5.startup": "28e36bf686b013ed490281b9902989ece1c1a0d2a396d811372211c218a717df",
+    "pc6.startup": "a85e6fe1071f7ab895e3f6d858e8e598de0460c67032f8f234b6084f59dd72f7",
+    "pc7.startup": "79adfd17261cf5e1dae45f1511670211e0a3e8e2d1d0f4ba9c993597a5b5c5ac",
+    "pc8.startup": "e8dae063964b20a42a0947bdee0a306ec576e10633e728b01ad94f83a5d417bc",
+    "pc9.startup": "668ad2909d6558539e44aff3da8a32f982690ab83ebde7b4a180fff8c1537d33",
+    "r1/etc/frr/frr.conf": "8b750d2fc2c1b8122a104ad4aaf354d54d107df68892fb48ef612867c4e6628a",
+    "r1.startup": "09eb71a590eb30285b1a483281bd611185594a4d318f83dd970cc1affd36fe34",
+    "r10/etc/frr/frr.conf": "d10f6b828389cf439072da2e487be3f53507f11cb6867e99ae107e0afc0da99a",
+    "r10.startup": "721c67e067afca490f0755d9c06755c10bdca7aa25b22015fe366775744750cb",
+    "r11/etc/frr/frr.conf": "9a380eb7147550c76c1c11341f5feb4334391b495419356c39b1c8f25b89989c",
+    "r11.startup": "beb9b5b1745d90e682c55e4494c75c9f88cb10ac4b0a1a9da156c1f13bf3e543",
+    "r12/etc/frr/frr.conf": "18a0b6e4cec82a6d1516cada357ac854db2130f5df6d12ee2f4d817367d9f7fe",
+    "r12.startup": "d816ed764c334fdfd6c5476a6eaec1ce739a9436f686f6be5966aefbbc03f37f",
+    "r13/etc/frr/frr.conf": "c4d09786fd5e81a2607b372a6012cbb52b91de77a0148df1cecb35df93334332",
+    "r13.startup": "d14560aa1879edbf0b88668aeef578b85293e0af1a9903f0345bef6f4f7108c7",
+    "r14/etc/frr/frr.conf": "7ecd647cfc73bf7f37d0d6d91f8e7b8815270f23123e5923bc2005caa6bf4f4a",
+    "r14.startup": "dd9dd30f69175b160baf910a739ff7d07b30e4401efb8f77fc69933f593be1cb",
+    "r15/etc/frr/frr.conf": "bf4e987364da24269c1e24298f485245d757682cb043b4f3dcfbbf495939ad2d",
+    "r15.startup": "122a462c4e36a86486771ed1c5dbaebdc67e48c3e51662a480f6909d3898a0e7",
+    "r16/etc/frr/frr.conf": "4915684e7cd36fe3f89aed4494a782a192641fb25b7524378cbe7f2929efe7d1",
+    "r16.startup": "8c3ce765ff5d1143608034e42bcf205b148903bf22ba50e4d21042eebf291c10",
+    "r17/etc/frr/frr.conf": "ea037a91d32b8993f99444361677966057f9e33d74666e2e1c8ed250bbb69d60",
+    "r17.startup": "1db390266f9b146816de19b757f4675efcebefc542be73cc56a855ba1ea158ca",
+    "r18/etc/frr/frr.conf": "d882c659ac99f8e5849ff502a9b459905056d2827180fa8bc896c540588dcb08",
+    "r18.startup": "16e977950d3a9ec7cd2099d46131352b98688bedb20fe58bd5d08320fada3e80",
+    "r19/etc/frr/frr.conf": "a7de050c3b66ca8cf2dd5d9ed91e124d5cf34fcb13611424c5188873a9e1cb53",
+    "r19.startup": "e61a529a36378e064a273969b8adb9fee52f24c41f97e6855048d855521b7462",
+    "r2/etc/frr/frr.conf": "b6f467d60fe2ce288e46d4557449a4c36bdda9bcef1829af3bae773067153f64",
+    "r2.startup": "91b00169d9355750cd21cfcd50423ba79513e7cc82ac15fd82ff120a29ed0c9c",
+    "r20/etc/frr/frr.conf": "d30d7f95e1786397eb8a3454e0f99003ab947845b198e9560611ea83f65bce25",
+    "r20.startup": "9cfece17285f5d48a598e64233b738776ea40678785e6a36d493b76e67aaf164",
+    "r21/etc/frr/frr.conf": "df9cad47c12da100c6a6e71e6198c2cdff149776a4d3ce969df59f53a5f5398a",
+    "r21.startup": "dca87dc4ce54b9b781bbdd2e7fd166e9f14cd1b6647d0d1165287ecbe72fe188",
+    "r22/etc/frr/frr.conf": "2d637f5277b995f51a9888e0741678246c3783d9a00163af2ab17532d8f41931",
+    "r22.startup": "0596de81fb62cc7d743917adc3bd9afb830c287d215a8a43e36f97d6351c2426",
+    "r23/etc/frr/frr.conf": "1a39114dfeb90a76e7f2bd38a0e17f3a754f0d58d6eaf6dc72b8597f9b5210f1",
+    "r23.startup": "b17a9b60e0e9ac34f141bca70765abf457d8cd498ea6ae36bf4563e4fa3ce7ed",
+    "r24/etc/frr/frr.conf": "cba242658c537f65a743dbcabc8d2b8b544eaa5ecae8709d84f570b0f16b4bda",
+    "r24.startup": "d4d192bcaa7f9e452a98008ff9d59ee326f8dfea82e1eb1ea0d2155f587b11f6",
+    "r25/etc/frr/frr.conf": "0792dc0c8bf46064fc55e64703612084588725de40d61871ff81ab3202b8c94f",
+    "r25.startup": "17b1ef9f689fcd1648cbd833605a29bb81d1e383483cce95be873af07f7b8164",
+    "r3/etc/frr/frr.conf": "f93433a84b8109d409c1a31f9d35e8b6abd9beebd62bac8976e5e33bd39fd9e9",
+    "r3.startup": "47c4e431480b52dc7e06dceef2915128754433a3ae8ea465d6bbbbf2f33fff35",
+    "r4/etc/frr/frr.conf": "336f4fc7fa612136d80a5196729da389e97291bedf29b9cfa51d08261ff4ad55",
+    "r4.startup": "7c21fe95675cc3ead8c38912b9f4d07eea8bd2679288481ecbd1d168a704cdbd",
+    "r5/etc/frr/frr.conf": "7c527ebaf1376b7505c613260763834556bf34f1d566a872eeabe470a2dbf5a3",
+    "r5.startup": "5481037cbfcf31e16f48caf7929e8a3128f831af27db4fc4bee38c797320142e",
+    "r6/etc/frr/frr.conf": "df1d1afcb3c849a147686408f13cd22f1913e7ae8431b2f204b718f6cbc36233",
+    "r6.startup": "824f9655dd8f4f7dfe060b1dd4a452984512fdb8035d2816aa14ec1c71666878",
+    "r7/etc/frr/frr.conf": "dc888acba542360e5a1317c70a479c56b1abbd13dde6bab0e3045ad31042d3d2",
+    "r7.startup": "dc9a34378eb547a86cda56e7f5253a632dd8da42d39fdb8ef8e913d4ae9e02b7",
+    "r8/etc/frr/frr.conf": "878f370db89b9a0b8db4f906023a34fa844e11f220e904863771dd0c51565003",
+    "r8.startup": "5857998314cc30fb69a974370c85c7a82cdd2b287ab77d50e92e078ca417caea",
+    "r9/etc/frr/frr.conf": "1edb9e9087dcc2c13d49b7b871a135e726d2f38e1eb99bbf037469a9976b4380",
+    "r9.startup": "da500ba4fd2938c7beca028347f27ef364eb07df9123d7037f0f41c4789f6595",
+    "server1.startup": "121fd8e0f8ccea2dd6c7e6adb9ce6a431b3a31f9f2279aafde5590119d1ebcc5",
+    "server10.startup": "5ab2ef1d605220b281dd06e2f79873d19ecdc929d5bfb094d5839a4d0898a7f8",
+    "server11.startup": "9807e7210a4619f2c8e2bb09ca2706676ef83f697c8079a03d82f0db99e04219",
+    "server12.startup": "c204dd2eec2035fa729809583fc81d17e72cd636c3aee5141b1ecbfc96105266",
+    "server13.startup": "54363ea0699db69a84a73cc21e0650f779f6fd4d52db1809e1d0e5f3c864e9c2",
+    "server14.startup": "d84980a9ac6702cd9fbe7630216744ac488b26a86b8b5262f97df51fa2847cea",
+    "server15.startup": "551b8e855365e71d701cef97c4ac7a791464f618877dce48eb3f4613457cc22b",
+    "server2.startup": "b3f8a806a645c55c28734c6c992bfb0aa3801177091801b14db66d78d7b79ff2",
+    "server3.startup": "04259706232f6000f74fc5181e0494c53a20b71bfd0574c53c75a2279e0c6917",
+    "server4.startup": "0b761cf493f18cadca2ddebfaf8782f810723a6f515ab077238a95cc06be02de",
+    "server5.startup": "d9485906aa7550452d9aad1e947c0ca9c2380b693d3a47027583e5e9721fd73e",
+    "server6.startup": "c3f3c136a0192f9dffca1a87c6176de672780980937d43ab31a70655a507c02a",
+    "server7.startup": "215b43ec289c96de10b3e556182ea908051855d9cd9b605db236ca91a542539e",
+    "server8.startup": "f92fe381aa60a356810f3171e7e3e9087b8b4e5f89ebd6e237745bb91e6d43b6",
+    "server9.startup": "3766d6b45650e680f698d472872da43c486df6604e5faab2fe59ad8eb581a7ee"
+  },
+  "scenario_sha256": {
+    "p20-enterprise-v3-false-premise-outage": "747b9b488fde1b5cfa7971b9e6414a6c577dd9e42b2e3f873f11f33cb53280bb",
+    "p20-enterprise-v3-primary-uplink-failover": "f9417882e41de897117dc8ca754e763d3a6d470d5ad424abe95f281e3614b399",
+    "p20-enterprise-v3-hq-both-uplinks-down": "39aa145cb7af073461c491429fb1c37f91204c51f5552ea0adf4856c9dab5537",
+    "p20-enterprise-v3-hq-server-ospf-withdrawal": "cbc37a73bf33ae420dd48b101a9cb08756d65355fb2065bfd3b2bba54a68c7e9",
+    "p20-enterprise-v3-hq-server-interface-down": "e8bbc8932194bbdf6a24a57d899a7117e919af7971feafc4d1e3e68558876834",
+    "p20-enterprise-v3-pc1-wrong-gateway": "8a28542faadc5cdd682e7ff527161c4e96002d60ea764ddf3d5f73b2f702249a"
+  },
+  "cases": {
+    "healthy": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-healthy": 2,
+        "healthy": 2,
+        "recovered-after-healthy": 2
+      }
+    },
+    "failover": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-failover": 2,
+        "failover": 2,
+        "recovered-after-failover": 2,
+        "failover-repeat-injection": 2
+      }
+    },
+    "isolation": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-isolation": 2,
+        "isolation": 2,
+        "recovered-after-isolation": 2,
+        "isolation-repeat-injection": 2
+      }
+    },
+    "advertisement": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-advertisement": 2,
+        "advertisement": 2,
+        "recovered-after-advertisement": 2,
+        "advertisement-repeat-injection": 2
+      }
+    },
+    "server-link": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-server-link": 2,
+        "server-link": 2,
+        "recovered-after-server-link": 2,
+        "server-link-repeat-injection": 2
+      }
+    },
+    "gateway": {
+      "first_cycle_passed": true,
+      "passing_rounds_by_stage": {
+        "baseline-before-gateway": 2,
+        "gateway": 2,
+        "recovered-after-gateway": 2,
+        "gateway-repeat-injection": 2
+      }
+    }
+  }
+}

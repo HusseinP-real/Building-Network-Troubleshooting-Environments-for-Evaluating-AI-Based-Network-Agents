@@ -1,0 +1,32 @@
+{
+  "kind": "runtime-workaround-diagnosis-not-pristine-baseline",
+  "lab_name": "soft3888-1dd3cc3a6b38",
+  "checks": [
+    {
+      "device": "r8",
+      "command": "ip route replace default via 58.1.1.1 dev eth0",
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "device": "b1",
+      "command": "curl --noproxy '*' -fsS --max-time 4 http://192.168.251.12/",
+      "rc": 0,
+      "output": "<!doctype html><title>Internal Services</title><h1>SOFT3888 Internal Application</h1><p>Service: intapp1; zone: Internal Services; version: 1.</p>"
+    },
+    {
+      "device": "b1",
+      "command": "dig @192.168.251.11 app.internal.test +short +time=1 +tries=1",
+      "rc": 0,
+      "output": "192.168.251.12"
+    },
+    {
+      "device": "intapp1",
+      "command": "ping -n -c2 -W1 80.1.1.11",
+      "rc": 0,
+      "output": "PING 80.1.1.11 (80.1.1.11) 56(84) bytes of data.\n64 bytes from 80.1.1.11: icmp_seq=1 ttl=56 time=14.3 ms\n64 bytes from 80.1.1.11: icmp_seq=2 ttl=56 time=6.46 ms\n\n--- 80.1.1.11 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1002ms\nrtt min/avg/max/mdev = 6.457/10.398/14.340/3.941 ms"
+    }
+  ],
+  "passed": true,
+  "note": "Runtime override trial; enclosing full run will be aborted and must not count as pristine acceptance."
+}

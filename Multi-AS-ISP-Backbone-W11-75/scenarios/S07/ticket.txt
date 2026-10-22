@@ -1,0 +1,1 @@
+We think ISP North edge r1 has failed; our Transit-to-Customer-West link seems unavailable.

@@ -1,0 +1,55 @@
+{
+  "kind": "isolated-container-network-capability-probe",
+  "image_id": "sha256:3c3120750815effab83dbcf5baa0e9093e0805ac1f3743fc83e5ed554080ab67",
+  "checks": [
+    {
+      "command": [
+        "ip",
+        "-Version"
+      ],
+      "rc": 0,
+      "output": "ip utility, iproute2-6.19.0, libbpf 1.1.2\n"
+    },
+    {
+      "command": [
+        "ip",
+        "link",
+        "add",
+        "probea",
+        "type",
+        "veth",
+        "peer",
+        "name",
+        "probeb"
+      ],
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "ip",
+        "link",
+        "add",
+        "link",
+        "probea",
+        "name",
+        "probea.100",
+        "type",
+        "vlan",
+        "id",
+        "100"
+      ],
+      "rc": 2,
+      "output": "Error: Unknown device type.\n"
+    },
+    {
+      "command": [
+        "ip",
+        "-br",
+        "link"
+      ],
+      "rc": 0,
+      "output": "lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> \nprobeb@probea    DOWN           7a:15:b8:dc:7d:5a <BROADCAST,MULTICAST,M-DOWN> \nprobea@probeb    DOWN           ea:14:5e:33:0c:bc <BROADCAST,MULTICAST,M-DOWN> \n"
+    }
+  ]
+}

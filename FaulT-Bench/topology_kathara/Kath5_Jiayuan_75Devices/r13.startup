@@ -1,0 +1,41 @@
+# Physical Interfaces
+ip link set eth0 up
+ip addr add 103.1.1.2/8 dev eth0
+
+ip link set eth1 up
+ip addr add 130.1.1.1/8 dev eth1
+
+# Loopback Interfaces — each /24 on its own dummy so FRR eigrpd advertises
+# all four (it picks one prefix per Linux interface).
+ip addr add 113.1.1.1/24 dev lo
+# Prefer dummy; use an isolated veth stub if this kernel has no dummy driver.
+for stub in 1 2 3; do
+  if ! ip link show "lo$stub" >/dev/null 2>&1; then
+    ip link add "lo$stub" type dummy 2>/dev/null ||
+      ip link add "lo$stub" type veth peer name "lo${stub}peer"
+  fi
+  ip link set "lo$stub" up
+  if ip link show "lo${stub}peer" >/dev/null 2>&1; then ip link set "lo${stub}peer" up; fi
+  ip addr replace 113.1.$((stub + 1)).1/24 dev "lo$stub"
+done
+
+# Default route toward R11 — FRR eigrpd's `redistribute ospf` on R11 does
+# not actually inject OSPF routes into EIGRP, so a static default via R11
+# is needed for return paths.
+ip route add default via 103.1.1.1 dev eth0
+
+# Enable EIGRP daemon only
+sed -i 's/eigrpd=no/eigrpd=yes/g' /etc/frr/daemons
+# Ensure ospfd is off to save resources on this edge node
+sed -i 's/ospfd=yes/ospfd=no/g' /etc/frr/daemons
+
+# Start FRR
+/etc/init.d/frr restart
+
+# FRR 10.5 parallel init can report a transient datastore lock; reload serially.
+configured=0
+for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  if vtysh -b; then configured=1; break; fi
+  sleep 1
+done
+[ "$configured" = 1 ] || exit 1

@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+pid=/run/internal-dns.pid
+stop() {
+  if [ -s "$pid" ]; then
+    dns_pid=$(cat "$pid")
+    if [ -r "/proc/$dns_pid/comm" ] && [ "$(cat "/proc/$dns_pid/comm")" = dnsmasq ]; then
+      kill "$dns_pid"
+      for attempt in 1 2 3 4 5 6 7 8 9 10; do
+        kill -0 "$dns_pid" 2>/dev/null || break
+        sleep 0.1
+      done
+    fi
+    rm -f "$pid"
+  fi
+}
+case "${1:-}" in
+  stop) stop ;;
+  start|restart)
+    stop
+    mkdir -p /run
+    dnsmasq --test --conf-file=/etc/dnsmasq.d/internal.conf
+    dnsmasq --pid-file="$pid" --conf-file=/etc/dnsmasq.d/internal.conf
+    ;;
+  *) echo 'usage: internal-dns start|stop|restart' >&2; exit 2 ;;
+esac

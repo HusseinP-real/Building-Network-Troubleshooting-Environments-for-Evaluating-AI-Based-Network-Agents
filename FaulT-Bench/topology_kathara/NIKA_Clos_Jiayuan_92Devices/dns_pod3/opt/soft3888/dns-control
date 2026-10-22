@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+pid=/run/clos-dns.pid
+stop() {
+  if [ -s "$pid" ]; then
+    p=$(cat "$pid")
+    if [ -r "/proc/$p/comm" ] && [ "$(cat "/proc/$p/comm")" = dnsmasq ]; then
+      kill "$p"
+      for n in 1 2 3 4 5 6 7 8 9 10; do kill -0 "$p" 2>/dev/null || break; sleep 0.1; done
+    fi
+    rm -f "$pid"
+  fi
+}
+case "${1:-}" in
+ stop) stop ;;
+ start|restart)
+   stop
+   install -d -o nobody -g nogroup /var/lib/misc
+   dnsmasq --test --conf-file=/etc/dnsmasq.d/clos.conf
+   dnsmasq --pid-file="$pid" --conf-file=/etc/dnsmasq.d/clos.conf ;;
+ *) exit 2 ;;
+esac

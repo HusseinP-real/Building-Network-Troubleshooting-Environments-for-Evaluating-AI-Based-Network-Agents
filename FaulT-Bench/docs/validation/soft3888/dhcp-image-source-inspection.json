@@ -1,0 +1,31 @@
+{
+  "kind": "read-only-current-official-image-source-inspection",
+  "repository": "https://github.com/KatharaFramework/Docker-Images",
+  "commit": "e58ff0532839c7c94a6c97f8f1b5c08ca66d5b7f",
+  "dockerfiles": [
+    "apache/Dockerfile",
+    "base/Dockerfile",
+    "bind/Dockerfile",
+    "bind/Dockerfile_version",
+    "bird/Dockerfile",
+    "bird2/Dockerfile",
+    "bird2/Dockerfile-2.0.8",
+    "bird2/Dockerfile-2.15.1",
+    "bird3/Dockerfile",
+    "bmv2/Dockerfile",
+    "core/Dockerfile",
+    "dnsmasq/Dockerfile",
+    "frr/Dockerfile_version",
+    "krill/Dockerfile",
+    "openbgpd/Dockerfile",
+    "openvswitch/Dockerfile",
+    "pox/Dockerfile",
+    "quagga/Dockerfile",
+    "rift-python/Dockerfile",
+    "routinator/Dockerfile",
+    "rpki-client/Dockerfile",
+    "scion/Dockerfile_version"
+  ],
+  "dhcp_recipe_in_current_tree": false,
+  "scope": "Current official repository tree only; not a claim to have exhausted all historical commits or private team artifacts."
+}

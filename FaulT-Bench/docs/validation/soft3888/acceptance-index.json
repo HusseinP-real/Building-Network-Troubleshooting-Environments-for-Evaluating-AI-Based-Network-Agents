@@ -1,0 +1,43 @@
+{
+  "kind": "acceptance-index-without-llm",
+  "required_device_range": [
+    75,
+    100
+  ],
+  "deliverables": [
+    {
+      "topology": "Kath5_Jiayuan_75Devices",
+      "devices": 75,
+      "collision_domains": 43,
+      "core_faults": 4
+    },
+    {
+      "topology": "NIKA_Clos_Jiayuan_92Devices",
+      "devices": 92,
+      "collision_domains": 228,
+      "core_faults": 4,
+      "reference": "Pinned NIKA DCClosService(l):88 devices +4 service/management endpoints"
+    }
+  ],
+  "core_reports": [
+    "docs/validation/soft3888/Kath5_Jiayuan_75Devices-cycle1-soft3888-18d0f5f4ec85.json",
+    "docs/validation/soft3888/Kath5_Jiayuan_75Devices-cycle2-soft3888-50be7409696e.json",
+    "docs/validation/soft3888/NIKA_Clos_Jiayuan_92Devices-cycle1-soft3888-334b26835113.json",
+    "docs/validation/soft3888/NIKA_Clos_Jiayuan_92Devices-cycle2-soft3888-d44d6583784d.json"
+  ],
+  "all_core_passed": true,
+  "historical_excluded": [
+    "Clos_Jiayuan_41Devices: undersized prototype; not Topology2 acceptance"
+  ],
+  "supplementary_status": "passed",
+  "notes": "Core live reports retain their original harness hashes and raw MCP unknowns. Updated ping parsing is verified in the separate supplemental fresh lab; see its outcome when complete. No model inference or scores.",
+  "supplementary_reports": [
+    "docs/validation/soft3888/NIKA_Clos_Jiayuan_92Devices-cycle1-soft3888-b5401538db83.json"
+  ],
+  "supplementary_cycles": 1,
+  "mcp_sample_status_counts": {
+    "down": 7,
+    "ok": 71
+  },
+  "remaining_kathara_container_names": []
+}

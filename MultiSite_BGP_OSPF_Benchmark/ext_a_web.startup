@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+ip link set eth0 up
+ip addr replace 198.18.10.10/24 dev eth0
+ip route replace default via 198.18.10.1
+mkdir -p /srv/www
+echo 'SOFT3888 ext_a_web healthy' > /srv/www/index.html
+cd /srv/www
+nohup python3 -m http.server 8080 --bind 0.0.0.0 >/tmp/http.log 2>&1 &

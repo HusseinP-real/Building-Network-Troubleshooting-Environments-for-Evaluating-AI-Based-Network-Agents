@@ -1,0 +1,7 @@
+scenario
+p20-enterprise-v3-false-premise-outage
+p20-enterprise-v3-primary-uplink-failover
+p20-enterprise-v3-hq-both-uplinks-down
+p20-enterprise-v3-hq-server-ospf-withdrawal
+p20-enterprise-v3-hq-server-interface-down
+p20-enterprise-v3-pc1-wrong-gateway

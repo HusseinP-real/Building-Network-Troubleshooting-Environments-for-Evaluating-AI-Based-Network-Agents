@@ -1,0 +1,5 @@
+ip addr replace 192.168.251.12/24 dev eth0
+ip link set eth0 up
+ip route replace default via 192.168.251.1
+
+sh /opt/soft3888/internal-app start
