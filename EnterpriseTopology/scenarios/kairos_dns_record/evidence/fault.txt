@@ -1,0 +1,7 @@
+=== FAULT PHASE ===
+10.30.10.99     STREAM app.enterprise.test
+10.30.10.99     DGRAM  
+10.30.10.99     RAW
+http://app.enterprise.test/: HTTP status: 000
+http://10.30.10.10/: HTTP status: 200
+FAULT: PASS
