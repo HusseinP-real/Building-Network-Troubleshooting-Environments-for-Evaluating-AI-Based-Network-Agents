@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+exec > /var/log/enterprise-startup.log 2>&1
+ip link set lo up
+ip link set eth0 up
+ip addr add 10.30.10.21/24 dev eth0
+ip route replace default via 10.30.10.1
+printf 'nameserver 10.40.20.10\n' > /etc/resolv.conf
+touch /tmp/enterprise-ready

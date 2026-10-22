@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-10-08T04:02:01.685415+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Baseline application and database dependency",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "core-uplink: inject",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Uplink is administratively down",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "R5 retains two Full neighbors",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Application survives core uplink failure",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "core-uplink: repair",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "core-uplink: recovered application",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "gateway-service: inject",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Primary VRRP process stopped",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Backup owns staff virtual gateway",
+      "node": "r6",
+      "passed": true,
+      "output": "inet 10.10.10.1/24 scope global secondary eth3.110"
+    },
+    {
+      "check": "Primary released staff virtual gateway",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Application survives gateway takeover",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "gateway-service: repair",
+      "node": "r5",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "gateway-service: recovered application",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    },
+    {
+      "check": "database-acl: inject",
+      "node": "app",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Injected database ACL exists",
+      "node": "app",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "Application reports backend failure",
+      "node": "office",
+      "passed": true,
+      "output": "app: database dependency unavailable"
+    },
+    {
+      "check": "Database remains healthy from operations",
+      "node": "ops",
+      "passed": true,
+      "output": "database: healthy"
+    },
+    {
+      "check": "database-acl: repair",
+      "node": "app",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "check": "database-acl: recovered application",
+      "node": "staff",
+      "passed": true,
+      "output": "app: healthy"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "scenario_id": "campus80-r01-ospfd-down",
+  "topology": "Campus80",
+  "fault": {
+    "device": "r01",
+    "component": "ospfd",
+    "type": "routing_daemon_down"
+  },
+  "injection_support_action": "Stop watchfrr before stopping ospfd; same mechanism as Enterprise80 v2",
+  "affected_subnet": "10.10.1.0/24",
+  "affected_hosts": [
+    "pc01",
+    "pc02",
+    "pc03",
+    "pc04",
+    "pc05"
+  ],
+  "expected_symptoms": [
+    "LAN01 gateway and same-LAN peer reachable",
+    "LAN01 remote connectivity fails",
+    "Other routers lose exact route to 10.10.1.0/24",
+    "Remaining backbone adjacencies and other LAN connectivity preserved"
+  ],
+  "fix": "python3 fault.py recover",
+  "validation": "Static checks passed; see VALIDATION.md for runtime status"
+}
