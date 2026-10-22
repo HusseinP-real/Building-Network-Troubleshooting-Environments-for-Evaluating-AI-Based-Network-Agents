@@ -1,0 +1,28 @@
+{
+  "scenario_id": "kairos_wrong_default_gateway",
+  "topology": "Kath3",
+  "fault_category": "endpoint_routing_misconfiguration",
+  "fault_type": "wrong_default_gateway",
+  "affected_device": "laptop0",
+  "affected_interface": "eth0",
+  "device_ip": "172.16.20.10",
+  "correct_gateway": "172.16.20.1",
+  "injected_gateway": "172.16.20.254",
+  "local_test_target": "172.16.20.1",
+  "remote_test_target": "192.168.100.1",
+  "expected_symptoms": {
+    "local_gateway_reachable": true,
+    "remote_network_reachable": false,
+    "remote_packet_loss_percent": 100
+  },
+  "root_cause": "laptop0 has an incorrect default gateway configured",
+  "recovery": [
+    "ip route del default",
+    "ip route add default via 172.16.20.1 dev eth0"
+  ],
+  "recovery_success_criteria": {
+    "default_gateway": "172.16.20.1",
+    "local_gateway_reachable": true,
+    "remote_network_reachable": true
+  }
+}
