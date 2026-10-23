@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Configure DNS server network
+ip addr add 10.20.3.10/24 dev eth0
+ip link set eth0 up
+ip route replace default via 10.20.3.1
+
+# Create DNS configuration
+cat > /etc/sarah-dnsmasq.conf <<'CONFIG'
+port=53
+listen-address=10.20.3.10
+bind-interfaces
+no-resolv
+no-hosts
+address=/app.sarah.test/10.20.3.20
+log-queries
+CONFIG
+
+# Start DNS service
+dnsmasq --conf-file=/etc/sarah-dnsmasq.conf --pid-file=/tmp/sarah-dnsmasq.pid
