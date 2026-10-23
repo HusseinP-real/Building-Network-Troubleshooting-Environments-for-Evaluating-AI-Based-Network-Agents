@@ -1,0 +1,50 @@
+{
+  "fault_id": "SARAH-ENT-001",
+  "topology": "Sarah_Enterprise_Network",
+  "fault_present": true,
+  "fault_type": "incorrect_default_gateway",
+  "fault_location": {
+    "device": "pc1",
+    "interface": "eth0"
+  },
+  "description": "The default gateway on the HR workstation pc1 is incorrectly configured.",
+  "healthy_configuration": {
+    "default_gateway": "10.10.1.1"
+  },
+  "faulty_configuration": {
+    "default_gateway": "10.10.1.99"
+  },
+  "fault_injection": {
+    "command": "ip route replace default via 10.10.1.99"
+  },
+  "recovery": {
+    "command": "ip route replace default via 10.10.1.1"
+  },
+  "expected_symptoms": [
+    "PC1 can communicate with PC2 on the local HR subnet.",
+    "PC1 cannot communicate with the Finance subnet.",
+    "PC1 cannot communicate with the company server."
+  ],
+  "observed_results": {
+    "healthy": {
+      "hr_to_hr": "PASS",
+      "hr_to_finance": "PASS",
+      "hr_to_server": "PASS"
+    },
+    "faulty": {
+      "hr_to_hr": "PASS",
+      "hr_to_finance": "FAIL",
+      "hr_to_server": "FAIL"
+    },
+    "recovered": {
+      "hr_to_hr": "PASS",
+      "hr_to_finance": "PASS",
+      "hr_to_server": "PASS"
+    }
+  },
+  "user_report": {
+    "reporter_type": "general_user",
+    "ticket": "I work in the HR department. I can connect to my colleague's computer, but I cannot access the Finance network or the company server."
+  },
+  "validation_status": "passed"
+}
