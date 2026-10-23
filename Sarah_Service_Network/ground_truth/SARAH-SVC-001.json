@@ -1,0 +1,38 @@
+{
+  "scenario_id": "SARAH-SVC-001",
+  "topology": "Sarah_Service_Network",
+  "scenario_name": "DNS Service Down",
+  "fault_present": true,
+  "fault_type": "dns_service_down",
+  "fault_location": {
+    "device": "dns",
+    "service": "dnsmasq",
+    "ip_address": "10.20.3.10",
+    "port": 53
+  },
+  "description": "The DNS service on the enterprise DNS server is stopped, preventing clients from resolving the application server hostname.",
+  "user_ticket": {
+    "reporter_type": "general_user",
+    "message": "I cannot access our application using its usual website name, but the network connection seems to be working."
+  },
+  "expected_behaviour": {
+    "healthy": "app.sarah.test resolves to 10.20.3.20.",
+    "faulty": "DNS queries fail while IP connectivity to 10.20.3.20 remains available.",
+    "recovered": "DNS resolution succeeds after restarting dnsmasq."
+  },
+  "fault_injection": {
+    "device": "dns",
+    "command": "kill \"$(cat /tmp/sarah-dnsmasq.pid)\""
+  },
+  "recovery": {
+    "device": "dns",
+    "command": "dnsmasq --conf-file=/etc/sarah-dnsmasq.conf --pid-file=/tmp/sarah-dnsmasq.pid"
+  },
+  "validation": {
+    "healthy_dns": "PASS",
+    "faulty_dns": "FAIL_AS_EXPECTED",
+    "faulty_ip_connectivity": "PASS",
+    "recovered_dns": "PASS",
+    "overall": "PASS"
+  }
+}
