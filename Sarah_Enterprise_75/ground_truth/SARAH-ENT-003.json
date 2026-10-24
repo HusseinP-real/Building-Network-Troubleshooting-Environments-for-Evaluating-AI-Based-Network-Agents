@@ -1,0 +1,66 @@
+{
+  "fault_id": "SARAH-ENT-003",
+  "topology": "Sarah_Enterprise_75",
+  "fault_present": true,
+  "fault_type": "router_interface_down",
+  "fault_location": {
+    "device": "r1",
+    "interface": "eth1",
+    "affected_network": "10.10.2.0/24"
+  },
+  "description": "The Finance-facing interface eth1 on Router1 is administratively disabled, preventing traffic from reaching the Finance subnet while leaving the company server reachable.",
+  "healthy_configuration": {
+    "interface": "eth1",
+    "state": "UP",
+    "ip_address": "10.10.2.1/24"
+  },
+  "faulty_configuration": {
+    "interface": "eth1",
+    "state": "DOWN"
+  },
+  "fault_injection": {
+    "command": "ip link set eth1 down",
+    "script": "scripts/inject_ENT_003.sh"
+  },
+  "recovery": {
+    "command": "ip link set eth1 up",
+    "script": "scripts/recover_ENT_003.sh"
+  },
+  "expected_symptoms": [
+    "PC1 cannot reach Finance workstation 10.10.2.10.",
+    "PC1 can still reach company server 10.10.3.10.",
+    "Router1 eth1 is administratively DOWN."
+  ],
+  "observed_results": {
+    "healthy": {
+      "pc1_to_finance": "PASS",
+      "pc1_to_server": "PASS"
+    },
+    "faulty": {
+      "pc1_to_finance": "FAIL_AS_EXPECTED",
+      "pc1_to_server": "PASS",
+      "r1_eth1_down": "PASS"
+    },
+    "recovered": {
+      "pc1_to_finance": "PASS",
+      "r1_eth1_up": "PASS"
+    }
+  },
+  "user_report": {
+    "reporter_type": "general_user",
+    "ticket": "I cannot access the Finance network, but the company server is working normally. This problem started suddenly."
+  },
+  "validation_environment": "Sarah_Enterprise_75",
+  "validation_status": "automated_pass",
+  "validation_script": "scripts/validate_ENT_003.sh",
+  "automated_validation": {
+    "healthy_finance": "PASS",
+    "healthy_server": "PASS",
+    "interface_down_injection": "PASS",
+    "faulty_finance": "FAIL_AS_EXPECTED",
+    "faulty_server": "PASS",
+    "interface_recovery": "PASS",
+    "recovered_finance": "PASS",
+    "exit_code": 0
+  }
+}

@@ -1,0 +1,17 @@
+LAB_NAME="Sarah Service 75 Device Network"
+
+pc1[0]=CLIENT_LAN
+pc2[0]=CLIENT_LAN
+
+r1[0]=CLIENT_LAN
+r1[1]=DHCP_LAN
+r1[2]=BACKBONE
+
+dhcp[0]=DHCP_LAN
+dhcp[1]=CLIENT_LAN
+
+r2[0]=BACKBONE
+r2[1]=SERVICE_LAN
+
+dns[0]=SERVICE_LAN
+app[0]=SERVICE_LAN

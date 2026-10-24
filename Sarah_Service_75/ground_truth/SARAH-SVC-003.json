@@ -1,0 +1,40 @@
+{
+  "scenario_id": "SARAH-SVC-003",
+  "topology": "Sarah_Service_75",
+  "scenario_name": "Router3 Incorrect Default Gateway",
+  "fault_present": true,
+  "fault_type": "incorrect_default_gateway",
+  "fault_location": {
+    "device": "r3",
+    "interface": "eth0",
+    "correct_gateway": "10.20.1.1",
+    "incorrect_gateway": "10.20.1.99"
+  },
+  "description": "Router3 has an incorrect default gateway, preventing devices behind Router3 from reaching remote network services.",
+  "user_ticket": {
+    "reporter_type": "general_user",
+    "message": "Our computer cannot reach the company DNS server, but we are not sure what is causing the connection problem."
+  },
+  "expected_behaviour": {
+    "healthy": "PC3 can reach the DNS server at 10.20.3.10.",
+    "faulty": "PC3 cannot reach 10.20.3.10 because Router3 has an incorrect default gateway.",
+    "recovered": "PC3 can reach 10.20.3.10 after Router3's default gateway is restored."
+  },
+  "fault_injection": {
+    "device": "r3",
+    "command": "ip route replace default via 10.20.1.99",
+    "script": "scripts/inject_SVC_003.sh"
+  },
+  "recovery": {
+    "device": "r3",
+    "command": "ip route replace default via 10.20.1.1",
+    "script": "scripts/recover_SVC_003.sh"
+  },
+  "validation": {
+    "fault_injection": "PASS",
+    "faulty_connectivity": "FAIL_AS_EXPECTED",
+    "recovery": "PASS",
+    "recovered_connectivity": "PASS",
+    "overall": "PASS"
+  }
+}
