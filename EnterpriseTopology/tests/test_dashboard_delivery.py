@@ -120,6 +120,28 @@ class DashboardDeliveryTests(unittest.TestCase):
                 )
             start.assert_not_called()
 
+    def test_new_catalogs_reject_manual_execution_without_creating_a_lease(self):
+        with patch.object(self.state.operations, "lease") as lease:
+            for topology in (
+                "kairos-enterprise",
+                "campus80-eason",
+                "enterprise80-eason",
+            ):
+                for fault in server.catalog(topology):
+                    with self.subTest(topology=topology, fault=fault["id"]):
+                        status, body = self.request(
+                            "/api/manual",
+                            {
+                                "topology_id": topology,
+                                "fault_id": fault["id"],
+                                "action": "inject",
+                            },
+                            "POST",
+                        )
+                        self.assertEqual(status, 400)
+                        self.assertIn("Catalog only", body["error"])
+            lease.assert_not_called()
+
     def test_malformed_or_oversized_body_never_launches_a_run(self):
         with patch.object(self.state, "start") as start:
             for raw in ("{broken", "null", "[]", " ", "x" * 4097):

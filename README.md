@@ -42,10 +42,14 @@ See the [FaulT-Bench README](FaulT-Bench/README.md) for external agent setup and
 
 ## Other team topologies
 
+- [Main integration and Dashboard support matrix](EnterpriseTopology/docs/main-integration-2026-10-24.md): merge status, nine displayed topologies, execution limits, cleanup and validation.
 - [Enterprise topology and SADE evaluation](EnterpriseTopology/README.md), including Haosen’s existing dashboard.
 - [Standalone 75-device enterprise topology](EnterpriseTopology75/README.md).
 - [Multi-site BGP/OSPF benchmark](MultiSite_BGP_OSPF_Benchmark/README.md).
 - [Abilene/YUMAng extension](SOFT3888_Abilene_YUMAng_Deliverable/README.md).
 - [Missing-return-route scenario](kathara_scenario/missing_return_route/README.md).
+- [Kairos enterprise topology](EnterpriseTopology_Kairos/README.md) and [Kath3 wrong gateway scenario](FaulT-Bench/topology_kathara/Kath3_Kairos/kairos_wrong_gateway/README.md).
+- [Eason Campus80](Campus80_Eason/README.md) and [Enterprise80](Enterprise80_Eason/README.md).
+- [Sarah enterprise](Sarah_Enterprise_Network/README.md) and [DNS/DHCP service network](Sarah_Service_Network/README.md).
 
 Additional member documentation is in `Topology_README-wk7/`.

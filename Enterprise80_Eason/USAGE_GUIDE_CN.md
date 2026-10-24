@@ -3,7 +3,7 @@
 ## 重要说明
 此版本加入**显式配置脚本**：不依赖 Kathará 是否自动执行 `.startup`，而是逐台进入同一 lab 的 Docker 容器执行配置并检查错误。已做静态检查，**没有在你的 Mac / Docker / Kathará 环境实机运行**，因此不能承诺零兼容性问题。
 
-在 `Enterprise80_Final_v2` 根目录运行（不要在旧版目录运行）：
+在 `Enterprise80_Eason` 根目录运行（不要在旧版目录运行）：
 
 ```bash
 chmod +x scripts/*.sh

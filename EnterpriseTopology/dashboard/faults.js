@@ -160,7 +160,7 @@
     el('recoverButton').disabled ||= !owns;
     el('runButton').disabled = !ready || loading || busy || !!pending.length || !selected?.evaluation_enabled;
     el('evaluationScope').disabled = automatic || !selected?.evaluation_enabled;
-    const scope = el('evaluationScope').value === 'all' ? '20 ticket cases' : `${selected?.case_ids.length || 0} ticket case${selected?.case_ids.length === 1 ? '' : 's'}`;
+    const scope = !selected?.evaluation_enabled ? 'Fault catalog' : el('evaluationScope').value === 'all' ? '20 ticket cases' : `${selected?.case_ids.length || 0} ticket case${selected?.case_ids.length === 1 ? '' : 's'}`;
     el('evaluationTarget').textContent = `${el('topologySelect').selectedOptions[0]?.textContent || topology} · ${scope}`;
     const status = !ready ? (!selected?.evaluation_enabled && !loading ? ['catalog', 'Benchmark unavailable'] : ['loading', 'Preparing'])
       : pending.length ? ['recovery', 'Recovery required'] : busy ? ['running', automatic ? 'Benchmark running' : 'Lab busy'] : ['ready', 'Ready to run'];
@@ -176,7 +176,7 @@
     el('executionTarget').textContent = state?.target ? `Execution target: ${state.target}` : 'Execution disabled for this topology.';
     el('pendingFaults').replaceChildren();
     el('pendingFaults').dataset.dirty = String(!!pending.length);
-    el('pendingFaults').append(document.createTextNode(pending.length ? `Pending recovery (${pending.length}): ` : 'No recorded pending faults. Run a live baseline to confirm health.'));
+    el('pendingFaults').append(document.createTextNode(pending.length ? `Pending recovery (${pending.length}): ` : selected?.execution_enabled ? 'No recorded pending faults. Run a live baseline to confirm health.' : 'Catalog only. Live environment state is unavailable.'));
     pending.forEach(fault => {
       const button = document.createElement('button');
       button.textContent = `${fault} · select for recovery`;
@@ -194,7 +194,7 @@
       el('manualLog').textContent = (op.lines || []).join('\n');
     } else {
       el('manualStatus').dataset.status = '';
-      el('manualStatus').textContent = busy ? 'Experiment is busy. Manual actions are locked.' : 'Ready. Check the environment and baseline before injecting.';
+      el('manualStatus').textContent = busy ? 'Experiment is busy. Manual actions are locked.' : selected?.execution_enabled ? 'Ready. Check the environment and baseline before injecting.' : 'Catalog only. Manual execution is unavailable.';
       el('manualLog').textContent = '';
       el('manualProgress').hidden = true;
     }
@@ -204,8 +204,8 @@
     const selected = row();
     el('faultDetail').replaceChildren();
     if (!selected) return;
-    const kind = {fault: 'Actual fault', healthy: 'Healthy negative control · no injection', compound: 'Compound fault'}[selected.kind];
-    el('faultKind').textContent = selected.kind === 'healthy' ? 'Healthy control · no fault injected' : `${selected.kind === 'compound' ? 'Compound fault' : 'Actual fault'} · ${selected.case_ids.length} ticket variant${selected.case_ids.length === 1 ? '' : 's'}`;
+    const variants = selected.case_ids.length;
+    el('faultKind').textContent = selected.kind === 'healthy' ? 'Healthy control · no fault injected' : `${selected.kind === 'compound' ? 'Compound fault' : 'Actual fault'} · ${variants ? `${variants} ticket variant${variants === 1 ? '' : 's'}` : 'native scenario catalog'}`;
     for (const [label, text] of [['Description', selected.description], ['Targets / interfaces', selected.targets.join(' · ') || 'None — healthy baseline'], ['Expected impact', selected.expected_impact]]) {
       const p = document.createElement('p'), strong = document.createElement('strong');
       strong.textContent = label + ': ';
@@ -240,7 +240,7 @@
       data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.id;
-        option.textContent = faultTitles[item.id] || item.id.replace(/-/g, ' ').replace(/\b(acl|ospf|bgp|dhcp|dns)\b/gi, word => word.toUpperCase()).replace(/^./, letter => letter.toUpperCase());
+        option.textContent = faultTitles[item.id] || item.id.replace(/[-_]/g, ' ').replace(/\b(acl|ospf|bgp|dhcp|dns)\b/gi, word => word.toUpperCase()).replace(/^./, letter => letter.toUpperCase());
         option.dataset.supportingText = `${{fault: 'Actual fault', healthy: 'Healthy control', compound: 'Compound fault'}[item.kind]}${item.targets.length ? ' · ' + item.targets.join(', ') : ' · no injection'}`;
         el('faultSelect').append(option);
       });

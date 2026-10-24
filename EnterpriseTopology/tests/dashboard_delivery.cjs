@@ -86,6 +86,29 @@ test('Client benchmark browser workflows (MOCK execution only)', {timeout: 12000
     } finally { await page.close(); }
   });
 
+  await t.test('new native catalogs synchronize maps and keep execution disabled', async () => {
+    const page = await open();
+    try {
+      for (const [topology, count, target] of [['kairos-enterprise', 8, 'infra'],
+          ['campus80-eason', 1, 'r01'], ['enterprise80-eason', 1, 'sydr1']]) {
+        await page.locator('#navTopology').click();
+        await page.locator('#mapTopologySelect').selectOption(topology);
+        await page.waitForFunction(({id, count}) =>
+          document.getElementById('topologySelect').value === id &&
+          document.getElementById('faultSelect').options.length === count &&
+          document.getElementById('manualStatus').textContent.includes('Catalog only'),
+          {id: topology, count});
+        assert.equal(await page.locator('svg[aria-label*="network topology"]').count(), 1);
+        assert.equal(await page.locator('#runButton').isDisabled(), true);
+        for (const id of ['baselineButton', 'injectButton', 'verifyButton', 'recoverButton'])
+          assert.equal(await page.locator('#' + id).isDisabled(), true);
+        const faults = await (await page.request.get(`${url}/api/faults?topology_id=${topology}`)).json();
+        assert.ok(faults.some(row => row.targets.includes(target)));
+        assert.equal(await page.locator('#topologySelect').inputValue(), topology);
+      }
+    } finally { await page.close(); }
+  });
+
   await t.test('healthy control cannot be manually injected', async () => {
     const page = await open();
     try {

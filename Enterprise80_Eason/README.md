@@ -6,17 +6,16 @@ The package includes topology definitions, device startup configurations, an add
 
 **Validation status:** this README describes the supplied configuration and script behaviour. No live Kathará/Docker integration test was performed for this documentation update. Expected ground truth must be confirmed in a running lab before it is treated as an experimentally validated result. Integration with a FaulT-Bench, NIKA, or SADE runner is not included.
 
+The Campus80 companion lab is maintained once at [../Campus80_Eason](../Campus80_Eason/README.md). The former nested copy was byte-identical and has been removed; its validation evidence remains in the canonical directory.
+
 ## 1. Package contents
 
 ```text
-Enterprise80_Final_v2/
+Enterprise80_Eason/
 ├── README.md
 ├── USAGE_GUIDE_CN.md
 ├── addressing.csv
 ├── ground_truth.json
-├── docs/
-│   ├── enterprise80-topology.png
-│   └── enterprise80-topology.svg
 ├── topology_kathara/Enterprise80/
 │   ├── lab.conf
 │   └── <device>.startup              # 80 device configurations
@@ -63,12 +62,7 @@ There are **18 routed /30 links**: six core-to-core links, eight site-to-core up
 
 The core is a complete four-router mesh: `core1` connects to `core2`, `core3`, and `core4`; `core2` also connects to `core3` and `core4`; and `core3` connects to `core4`.
 
-![Enterprise80 network topology: four fully meshed core routers, four sites, eight LANs, and the sydr1 fault target](docs/enterprise80-topology.png)
-
-[View the scalable SVG diagram](docs/enterprise80-topology.svg) · [Open the high-resolution PNG](docs/enterprise80-topology.png)
-
-The diagram follows the router connections in `lab.conf`. All 12 routers and 18 transit links are shown; the 68 end hosts are grouped into their eight LANs. Grey links connect routers, and pale green links connect each gateway to its LAN. Line crossings are not junctions. The highlighted `sydr1` is the controlled fault target; its physical connections remain configured during the OSPF-process failure.
-
+The shared Dashboard provides an explorable map under **Eason Enterprise**. Its 80 real devices and 18 router transit links come from `lab.conf`; shared LANs are drawn with virtual junctions. The controlled fault targets `sydr1` while its physical connections remain configured.
 
 Each site has two backbone attachments, but each LAN has only one directly attached gateway router. In particular, `sydr2` is not a second gateway on Sydney LAN1. Alternative backbone paths therefore do not provide gateway redundancy for `10.10.10.0/24` when `sydr1` loses OSPF participation. No VRRP/HSRP configuration is supplied.
 
@@ -103,7 +97,7 @@ The host must have enough resources to run 80 containers. No measured minimum CP
 
 ### Start and provision
 
-Run all commands from the extracted `Enterprise80_Final_v2` directory:
+Run all commands from the `Enterprise80_Eason` directory:
 
 ```bash
 chmod +x scripts/*.sh

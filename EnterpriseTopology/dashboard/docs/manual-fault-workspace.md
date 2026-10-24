@@ -33,6 +33,9 @@ Saved health on the topology page is historical. Empty pending state is not proo
 | `multi-as-isp` | 75 | Catalog only: 8 scenarios | Disabled |
 | `jiayuan-75` | 75 | Catalog only: 5 scenarios | Disabled |
 | `nika-92` | 92 | Catalog only: 6 scenarios | Disabled |
+| `kairos-enterprise` | 75 | Catalog only: 7 native faults + DNS record error | Disabled |
+| `campus80-eason` | 80 | Catalog only: r01 ospfd stopped | Disabled |
+| `enterprise80-eason` | 80 | Catalog only: sydr1 ospfd stopped | Disabled |
 
 EnterpriseTopology mechanisms come directly from `lab.py:FAULTS`; metadata and verification predicates come from `tools/sade_cases.json`. Ticket wording variants are grouped by their `fault` field. The three healthy tickets are grouped as one no-mutation control.
 

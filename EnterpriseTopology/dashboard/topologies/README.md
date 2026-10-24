@@ -1,6 +1,6 @@
 # Shared topology explorer
 
-`catalog.json` lists four teammate topology snapshots with at least 75 real devices imported from main. The two existing enterprise options remain available. Inventories below 75 real devices are excluded on import; virtual shared LAN nodes do not count toward this minimum. Only Enterprise Topology is connected to the current automatic SADE runner. The shared operator workspace also adapts native manual fault controls for EnterpriseTopology75 and MultiSite; other entries remain catalog-only. See [manual fault workspace](../docs/manual-fault-workspace.md) for the support matrix, execution checks and validation limits.
+`catalog.json` lists seven teammate topology snapshots with at least 75 real devices imported from main. The two existing enterprise options remain available, giving nine displayed topologies. Inventories below 75 real devices are recorded in `excluded.json`; virtual shared LAN nodes do not count toward this minimum. Only Enterprise Topology is connected to the current automatic SADE runner. The shared operator workspace also adapts native manual fault controls for EnterpriseTopology75 and MultiSite; other entries remain catalog-only. See [manual fault workspace](../docs/manual-fault-workspace.md) for execution checks and [the integration record](../../docs/main-integration-2026-10-24.md) for the complete support matrix.
 
 Refresh after fetching main:
 

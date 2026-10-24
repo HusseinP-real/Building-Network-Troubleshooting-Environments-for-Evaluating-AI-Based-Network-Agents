@@ -3041,7 +3041,7 @@
   "layout": "generic",
   "protocols": "IS-IS \u00b7 OSPF \u00b7 iBGP \u00b7 eBGP",
   "source_path": "Multi-AS-ISP-Backbone-W11-75",
-  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "source_commit": "1711b1691b8287a06b4b0cc80206ef114dc9c88a",
   "scenarios": [
     "S01",
     "S02",
@@ -3053,7 +3053,8 @@
     "S08"
   ],
   "scenario_count": 8,
+  "fault_catalog": [],
   "evaluation_enabled": false,
-  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "note": "Imported topology and operator fault catalog \u00b7 runtime and automatic evaluation adapters pending",
   "health": null
 }

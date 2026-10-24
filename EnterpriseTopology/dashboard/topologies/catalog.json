@@ -26,5 +26,26 @@
     "inventory": "nika-92.json",
     "scenario_count": 6,
     "evaluation_enabled": false
+  },
+  {
+    "id": "kairos-enterprise",
+    "name": "Kairos Enterprise \u00b7 75 devices",
+    "inventory": "kairos-enterprise.json",
+    "scenario_count": 8,
+    "evaluation_enabled": false
+  },
+  {
+    "id": "campus80-eason",
+    "name": "Eason Campus \u00b7 80 devices",
+    "inventory": "campus80-eason.json",
+    "scenario_count": 1,
+    "evaluation_enabled": false
+  },
+  {
+    "id": "enterprise80-eason",
+    "name": "Eason Enterprise \u00b7 80 devices",
+    "inventory": "enterprise80-eason.json",
+    "scenario_count": 1,
+    "evaluation_enabled": false
   }
 ]

@@ -1,0 +1,3043 @@
+{
+  "nodes": {
+    "core1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core2",
+          "kind": "routed",
+          "link": "p2p_core1_core2",
+          "address": "10.255.0.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "core4",
+          "kind": "routed",
+          "link": "p2p_core4_core1",
+          "address": "10.255.0.14/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "core3",
+          "kind": "routed",
+          "link": "p2p_core1_core3",
+          "address": "10.255.0.17/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "sydr1",
+          "kind": "routed",
+          "link": "p2p_sydr1_core1",
+          "address": "10.255.1.2/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dcr2",
+          "kind": "routed",
+          "link": "p2p_dcr2_core1",
+          "address": "10.255.4.6/30"
+        }
+      ]
+    },
+    "core2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core1",
+          "kind": "routed",
+          "link": "p2p_core1_core2",
+          "address": "10.255.0.2/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "core3",
+          "kind": "routed",
+          "link": "p2p_core2_core3",
+          "address": "10.255.0.5/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "core4",
+          "kind": "routed",
+          "link": "p2p_core2_core4",
+          "address": "10.255.0.21/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "sydr2",
+          "kind": "routed",
+          "link": "p2p_sydr2_core2",
+          "address": "10.255.1.6/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "melr1",
+          "kind": "routed",
+          "link": "p2p_melr1_core2",
+          "address": "10.255.2.2/30"
+        }
+      ]
+    },
+    "core3": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core2",
+          "kind": "routed",
+          "link": "p2p_core2_core3",
+          "address": "10.255.0.6/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "core4",
+          "kind": "routed",
+          "link": "p2p_core3_core4",
+          "address": "10.255.0.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "core1",
+          "kind": "routed",
+          "link": "p2p_core1_core3",
+          "address": "10.255.0.18/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "melr2",
+          "kind": "routed",
+          "link": "p2p_melr2_core3",
+          "address": "10.255.2.6/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "brisr1",
+          "kind": "routed",
+          "link": "p2p_brisr1_core3",
+          "address": "10.255.3.2/30"
+        }
+      ]
+    },
+    "core4": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core3",
+          "kind": "routed",
+          "link": "p2p_core3_core4",
+          "address": "10.255.0.10/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "core1",
+          "kind": "routed",
+          "link": "p2p_core4_core1",
+          "address": "10.255.0.13/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "core2",
+          "kind": "routed",
+          "link": "p2p_core2_core4",
+          "address": "10.255.0.22/30"
+        },
+        {
+          "interface": "eth3",
+          "peer": "brisr2",
+          "kind": "routed",
+          "link": "p2p_brisr2_core4",
+          "address": "10.255.3.6/30"
+        },
+        {
+          "interface": "eth4",
+          "peer": "dcr1",
+          "kind": "routed",
+          "link": "p2p_dcr1_core4",
+          "address": "10.255.4.2/30"
+        }
+      ]
+    },
+    "sydr1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core1",
+          "kind": "routed",
+          "link": "p2p_sydr1_core1",
+          "address": "10.255.1.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "sydr2",
+          "kind": "routed",
+          "link": "p2p_sydr1_sydr2",
+          "address": "10.255.1.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:0",
+          "address": "10.10.10.1/24"
+        }
+      ]
+    },
+    "sydr2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core2",
+          "kind": "routed",
+          "link": "p2p_sydr2_core2",
+          "address": "10.255.1.5/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "sydr1",
+          "kind": "routed",
+          "link": "p2p_sydr1_sydr2",
+          "address": "10.255.1.10/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:0",
+          "address": "10.10.20.1/24"
+        }
+      ]
+    },
+    "melr1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core2",
+          "kind": "routed",
+          "link": "p2p_melr1_core2",
+          "address": "10.255.2.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "melr2",
+          "kind": "routed",
+          "link": "p2p_melr1_melr2",
+          "address": "10.255.2.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:0",
+          "address": "10.20.10.1/24"
+        }
+      ]
+    },
+    "melr2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core3",
+          "kind": "routed",
+          "link": "p2p_melr2_core3",
+          "address": "10.255.2.5/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "melr1",
+          "kind": "routed",
+          "link": "p2p_melr1_melr2",
+          "address": "10.255.2.10/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:0",
+          "address": "10.20.20.1/24"
+        }
+      ]
+    },
+    "brisr1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core3",
+          "kind": "routed",
+          "link": "p2p_brisr1_core3",
+          "address": "10.255.3.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "brisr2",
+          "kind": "routed",
+          "link": "p2p_brisr1_brisr2",
+          "address": "10.255.3.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:0",
+          "address": "10.30.10.1/24"
+        }
+      ]
+    },
+    "brisr2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core4",
+          "kind": "routed",
+          "link": "p2p_brisr2_core4",
+          "address": "10.255.3.5/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "brisr1",
+          "kind": "routed",
+          "link": "p2p_brisr1_brisr2",
+          "address": "10.255.3.10/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:0",
+          "address": "10.30.20.1/24"
+        }
+      ]
+    },
+    "dcr1": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core4",
+          "kind": "routed",
+          "link": "p2p_dcr1_core4",
+          "address": "10.255.4.1/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "dcr2",
+          "kind": "routed",
+          "link": "p2p_dcr1_dcr2",
+          "address": "10.255.4.9/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:0",
+          "address": "10.100.10.1/24"
+        }
+      ]
+    },
+    "dcr2": {
+      "role": "router",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "core1",
+          "kind": "routed",
+          "link": "p2p_dcr2_core1",
+          "address": "10.255.4.5/30"
+        },
+        {
+          "interface": "eth1",
+          "peer": "dcr1",
+          "kind": "routed",
+          "link": "p2p_dcr1_dcr2",
+          "address": "10.255.4.10/30"
+        },
+        {
+          "interface": "eth2",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:0",
+          "address": "10.100.20.1/24"
+        }
+      ]
+    },
+    "sydpc1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:1",
+          "address": "10.10.10.11/24"
+        }
+      ]
+    },
+    "sydpc2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:2",
+          "address": "10.10.10.12/24"
+        }
+      ]
+    },
+    "sydpc3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:3",
+          "address": "10.10.10.13/24"
+        }
+      ]
+    },
+    "sydpc4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:4",
+          "address": "10.10.10.14/24"
+        }
+      ]
+    },
+    "sydpc5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:5",
+          "address": "10.10.10.15/24"
+        }
+      ]
+    },
+    "sydpc6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:6",
+          "address": "10.10.10.16/24"
+        }
+      ]
+    },
+    "sydpc7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:7",
+          "address": "10.10.10.17/24"
+        }
+      ]
+    },
+    "sydpc8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:8",
+          "address": "10.10.10.18/24"
+        }
+      ]
+    },
+    "sydpc9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan1",
+          "kind": "lan",
+          "link": "syd_lan1:9",
+          "address": "10.10.10.19/24"
+        }
+      ]
+    },
+    "sydpc10": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:1",
+          "address": "10.10.20.11/24"
+        }
+      ]
+    },
+    "sydpc11": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:2",
+          "address": "10.10.20.12/24"
+        }
+      ]
+    },
+    "sydpc12": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:3",
+          "address": "10.10.20.13/24"
+        }
+      ]
+    },
+    "sydpc13": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:4",
+          "address": "10.10.20.14/24"
+        }
+      ]
+    },
+    "sydpc14": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:5",
+          "address": "10.10.20.15/24"
+        }
+      ]
+    },
+    "sydpc15": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:6",
+          "address": "10.10.20.16/24"
+        }
+      ]
+    },
+    "sydpc16": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:7",
+          "address": "10.10.20.17/24"
+        }
+      ]
+    },
+    "sydpc17": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:syd_lan2",
+          "kind": "lan",
+          "link": "syd_lan2:8",
+          "address": "10.10.20.18/24"
+        }
+      ]
+    },
+    "melpc1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:1",
+          "address": "10.20.10.11/24"
+        }
+      ]
+    },
+    "melpc2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:2",
+          "address": "10.20.10.12/24"
+        }
+      ]
+    },
+    "melpc3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:3",
+          "address": "10.20.10.13/24"
+        }
+      ]
+    },
+    "melpc4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:4",
+          "address": "10.20.10.14/24"
+        }
+      ]
+    },
+    "melpc5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:5",
+          "address": "10.20.10.15/24"
+        }
+      ]
+    },
+    "melpc6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:6",
+          "address": "10.20.10.16/24"
+        }
+      ]
+    },
+    "melpc7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:7",
+          "address": "10.20.10.17/24"
+        }
+      ]
+    },
+    "melpc8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:8",
+          "address": "10.20.10.18/24"
+        }
+      ]
+    },
+    "melpc9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan1",
+          "kind": "lan",
+          "link": "mel_lan1:9",
+          "address": "10.20.10.19/24"
+        }
+      ]
+    },
+    "melpc10": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:1",
+          "address": "10.20.20.11/24"
+        }
+      ]
+    },
+    "melpc11": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:2",
+          "address": "10.20.20.12/24"
+        }
+      ]
+    },
+    "melpc12": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:3",
+          "address": "10.20.20.13/24"
+        }
+      ]
+    },
+    "melpc13": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:4",
+          "address": "10.20.20.14/24"
+        }
+      ]
+    },
+    "melpc14": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:5",
+          "address": "10.20.20.15/24"
+        }
+      ]
+    },
+    "melpc15": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:6",
+          "address": "10.20.20.16/24"
+        }
+      ]
+    },
+    "melpc16": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:7",
+          "address": "10.20.20.17/24"
+        }
+      ]
+    },
+    "melpc17": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:mel_lan2",
+          "kind": "lan",
+          "link": "mel_lan2:8",
+          "address": "10.20.20.18/24"
+        }
+      ]
+    },
+    "brispc1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:1",
+          "address": "10.30.10.11/24"
+        }
+      ]
+    },
+    "brispc2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:2",
+          "address": "10.30.10.12/24"
+        }
+      ]
+    },
+    "brispc3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:3",
+          "address": "10.30.10.13/24"
+        }
+      ]
+    },
+    "brispc4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:4",
+          "address": "10.30.10.14/24"
+        }
+      ]
+    },
+    "brispc5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:5",
+          "address": "10.30.10.15/24"
+        }
+      ]
+    },
+    "brispc6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:6",
+          "address": "10.30.10.16/24"
+        }
+      ]
+    },
+    "brispc7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:7",
+          "address": "10.30.10.17/24"
+        }
+      ]
+    },
+    "brispc8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:8",
+          "address": "10.30.10.18/24"
+        }
+      ]
+    },
+    "brispc9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan1",
+          "kind": "lan",
+          "link": "bris_lan1:9",
+          "address": "10.30.10.19/24"
+        }
+      ]
+    },
+    "brispc10": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:1",
+          "address": "10.30.20.11/24"
+        }
+      ]
+    },
+    "brispc11": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:2",
+          "address": "10.30.20.12/24"
+        }
+      ]
+    },
+    "brispc12": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:3",
+          "address": "10.30.20.13/24"
+        }
+      ]
+    },
+    "brispc13": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:4",
+          "address": "10.30.20.14/24"
+        }
+      ]
+    },
+    "brispc14": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:5",
+          "address": "10.30.20.15/24"
+        }
+      ]
+    },
+    "brispc15": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:6",
+          "address": "10.30.20.16/24"
+        }
+      ]
+    },
+    "brispc16": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:7",
+          "address": "10.30.20.17/24"
+        }
+      ]
+    },
+    "brispc17": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:bris_lan2",
+          "kind": "lan",
+          "link": "bris_lan2:8",
+          "address": "10.30.20.18/24"
+        }
+      ]
+    },
+    "web1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:1",
+          "address": "10.100.10.11/24"
+        }
+      ]
+    },
+    "web2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:2",
+          "address": "10.100.10.12/24"
+        }
+      ]
+    },
+    "web3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:3",
+          "address": "10.100.10.13/24"
+        }
+      ]
+    },
+    "web4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:4",
+          "address": "10.100.10.14/24"
+        }
+      ]
+    },
+    "web5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:5",
+          "address": "10.100.10.15/24"
+        }
+      ]
+    },
+    "web6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:6",
+          "address": "10.100.10.16/24"
+        }
+      ]
+    },
+    "web7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:7",
+          "address": "10.100.10.17/24"
+        }
+      ]
+    },
+    "web8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:8",
+          "address": "10.100.10.18/24"
+        }
+      ]
+    },
+    "web9": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan1",
+          "kind": "lan",
+          "link": "dc_lan1:9",
+          "address": "10.100.10.19/24"
+        }
+      ]
+    },
+    "db1": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:1",
+          "address": "10.100.20.11/24"
+        }
+      ]
+    },
+    "db2": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:2",
+          "address": "10.100.20.12/24"
+        }
+      ]
+    },
+    "db3": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:3",
+          "address": "10.100.20.13/24"
+        }
+      ]
+    },
+    "db4": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:4",
+          "address": "10.100.20.14/24"
+        }
+      ]
+    },
+    "db5": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:5",
+          "address": "10.100.20.15/24"
+        }
+      ]
+    },
+    "db6": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:6",
+          "address": "10.100.20.16/24"
+        }
+      ]
+    },
+    "db7": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:7",
+          "address": "10.100.20.17/24"
+        }
+      ]
+    },
+    "db8": {
+      "role": "host",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "lan:dc_lan2",
+          "kind": "lan",
+          "link": "dc_lan2:8",
+          "address": "10.100.20.18/24"
+        }
+      ]
+    },
+    "lan:syd_lan1": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "sydr1",
+          "kind": "lan",
+          "link": "syd_lan1:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "sydpc1",
+          "kind": "lan",
+          "link": "syd_lan1:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "sydpc2",
+          "kind": "lan",
+          "link": "syd_lan1:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "sydpc3",
+          "kind": "lan",
+          "link": "syd_lan1:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "sydpc4",
+          "kind": "lan",
+          "link": "syd_lan1:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "sydpc5",
+          "kind": "lan",
+          "link": "syd_lan1:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "sydpc6",
+          "kind": "lan",
+          "link": "syd_lan1:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "sydpc7",
+          "kind": "lan",
+          "link": "syd_lan1:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "sydpc8",
+          "kind": "lan",
+          "link": "syd_lan1:8"
+        },
+        {
+          "interface": "port9",
+          "peer": "sydpc9",
+          "kind": "lan",
+          "link": "syd_lan1:9"
+        }
+      ]
+    },
+    "lan:syd_lan2": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "sydr2",
+          "kind": "lan",
+          "link": "syd_lan2:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "sydpc10",
+          "kind": "lan",
+          "link": "syd_lan2:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "sydpc11",
+          "kind": "lan",
+          "link": "syd_lan2:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "sydpc12",
+          "kind": "lan",
+          "link": "syd_lan2:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "sydpc13",
+          "kind": "lan",
+          "link": "syd_lan2:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "sydpc14",
+          "kind": "lan",
+          "link": "syd_lan2:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "sydpc15",
+          "kind": "lan",
+          "link": "syd_lan2:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "sydpc16",
+          "kind": "lan",
+          "link": "syd_lan2:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "sydpc17",
+          "kind": "lan",
+          "link": "syd_lan2:8"
+        }
+      ]
+    },
+    "lan:mel_lan1": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "melr1",
+          "kind": "lan",
+          "link": "mel_lan1:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "melpc1",
+          "kind": "lan",
+          "link": "mel_lan1:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "melpc2",
+          "kind": "lan",
+          "link": "mel_lan1:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "melpc3",
+          "kind": "lan",
+          "link": "mel_lan1:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "melpc4",
+          "kind": "lan",
+          "link": "mel_lan1:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "melpc5",
+          "kind": "lan",
+          "link": "mel_lan1:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "melpc6",
+          "kind": "lan",
+          "link": "mel_lan1:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "melpc7",
+          "kind": "lan",
+          "link": "mel_lan1:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "melpc8",
+          "kind": "lan",
+          "link": "mel_lan1:8"
+        },
+        {
+          "interface": "port9",
+          "peer": "melpc9",
+          "kind": "lan",
+          "link": "mel_lan1:9"
+        }
+      ]
+    },
+    "lan:mel_lan2": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "melr2",
+          "kind": "lan",
+          "link": "mel_lan2:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "melpc10",
+          "kind": "lan",
+          "link": "mel_lan2:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "melpc11",
+          "kind": "lan",
+          "link": "mel_lan2:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "melpc12",
+          "kind": "lan",
+          "link": "mel_lan2:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "melpc13",
+          "kind": "lan",
+          "link": "mel_lan2:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "melpc14",
+          "kind": "lan",
+          "link": "mel_lan2:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "melpc15",
+          "kind": "lan",
+          "link": "mel_lan2:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "melpc16",
+          "kind": "lan",
+          "link": "mel_lan2:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "melpc17",
+          "kind": "lan",
+          "link": "mel_lan2:8"
+        }
+      ]
+    },
+    "lan:bris_lan1": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "brisr1",
+          "kind": "lan",
+          "link": "bris_lan1:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "brispc1",
+          "kind": "lan",
+          "link": "bris_lan1:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "brispc2",
+          "kind": "lan",
+          "link": "bris_lan1:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "brispc3",
+          "kind": "lan",
+          "link": "bris_lan1:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "brispc4",
+          "kind": "lan",
+          "link": "bris_lan1:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "brispc5",
+          "kind": "lan",
+          "link": "bris_lan1:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "brispc6",
+          "kind": "lan",
+          "link": "bris_lan1:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "brispc7",
+          "kind": "lan",
+          "link": "bris_lan1:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "brispc8",
+          "kind": "lan",
+          "link": "bris_lan1:8"
+        },
+        {
+          "interface": "port9",
+          "peer": "brispc9",
+          "kind": "lan",
+          "link": "bris_lan1:9"
+        }
+      ]
+    },
+    "lan:bris_lan2": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "brisr2",
+          "kind": "lan",
+          "link": "bris_lan2:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "brispc10",
+          "kind": "lan",
+          "link": "bris_lan2:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "brispc11",
+          "kind": "lan",
+          "link": "bris_lan2:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "brispc12",
+          "kind": "lan",
+          "link": "bris_lan2:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "brispc13",
+          "kind": "lan",
+          "link": "bris_lan2:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "brispc14",
+          "kind": "lan",
+          "link": "bris_lan2:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "brispc15",
+          "kind": "lan",
+          "link": "bris_lan2:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "brispc16",
+          "kind": "lan",
+          "link": "bris_lan2:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "brispc17",
+          "kind": "lan",
+          "link": "bris_lan2:8"
+        }
+      ]
+    },
+    "lan:dc_lan1": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "dcr1",
+          "kind": "lan",
+          "link": "dc_lan1:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "web1",
+          "kind": "lan",
+          "link": "dc_lan1:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "web2",
+          "kind": "lan",
+          "link": "dc_lan1:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "web3",
+          "kind": "lan",
+          "link": "dc_lan1:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "web4",
+          "kind": "lan",
+          "link": "dc_lan1:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "web5",
+          "kind": "lan",
+          "link": "dc_lan1:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "web6",
+          "kind": "lan",
+          "link": "dc_lan1:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "web7",
+          "kind": "lan",
+          "link": "dc_lan1:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "web8",
+          "kind": "lan",
+          "link": "dc_lan1:8"
+        },
+        {
+          "interface": "port9",
+          "peer": "web9",
+          "kind": "lan",
+          "link": "dc_lan1:9"
+        }
+      ]
+    },
+    "lan:dc_lan2": {
+      "role": "switch",
+      "source_role": "shared LAN",
+      "virtual": true,
+      "ports": [
+        {
+          "interface": "port0",
+          "peer": "dcr2",
+          "kind": "lan",
+          "link": "dc_lan2:0"
+        },
+        {
+          "interface": "port1",
+          "peer": "db1",
+          "kind": "lan",
+          "link": "dc_lan2:1"
+        },
+        {
+          "interface": "port2",
+          "peer": "db2",
+          "kind": "lan",
+          "link": "dc_lan2:2"
+        },
+        {
+          "interface": "port3",
+          "peer": "db3",
+          "kind": "lan",
+          "link": "dc_lan2:3"
+        },
+        {
+          "interface": "port4",
+          "peer": "db4",
+          "kind": "lan",
+          "link": "dc_lan2:4"
+        },
+        {
+          "interface": "port5",
+          "peer": "db5",
+          "kind": "lan",
+          "link": "dc_lan2:5"
+        },
+        {
+          "interface": "port6",
+          "peer": "db6",
+          "kind": "lan",
+          "link": "dc_lan2:6"
+        },
+        {
+          "interface": "port7",
+          "peer": "db7",
+          "kind": "lan",
+          "link": "dc_lan2:7"
+        },
+        {
+          "interface": "port8",
+          "peer": "db8",
+          "kind": "lan",
+          "link": "dc_lan2:8"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "name": "p2p_core1_core2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core1",
+          "interface": "eth0"
+        },
+        {
+          "node": "core2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "p2p_core2_core3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core2",
+          "interface": "eth1"
+        },
+        {
+          "node": "core3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "p2p_core3_core4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core3",
+          "interface": "eth1"
+        },
+        {
+          "node": "core4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "p2p_core4_core1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core4",
+          "interface": "eth1"
+        },
+        {
+          "node": "core1",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "p2p_core1_core3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core1",
+          "interface": "eth2"
+        },
+        {
+          "node": "core3",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "p2p_core2_core4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "core2",
+          "interface": "eth2"
+        },
+        {
+          "node": "core4",
+          "interface": "eth2"
+        }
+      ]
+    },
+    {
+      "name": "p2p_sydr1_core1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "sydr1",
+          "interface": "eth0"
+        },
+        {
+          "node": "core1",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "p2p_sydr2_core2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "sydr2",
+          "interface": "eth0"
+        },
+        {
+          "node": "core2",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "p2p_sydr1_sydr2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "sydr1",
+          "interface": "eth1"
+        },
+        {
+          "node": "sydr2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "p2p_melr1_core2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "melr1",
+          "interface": "eth0"
+        },
+        {
+          "node": "core2",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "p2p_melr2_core3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "melr2",
+          "interface": "eth0"
+        },
+        {
+          "node": "core3",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "p2p_melr1_melr2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "melr1",
+          "interface": "eth1"
+        },
+        {
+          "node": "melr2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "p2p_brisr1_core3",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "brisr1",
+          "interface": "eth0"
+        },
+        {
+          "node": "core3",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "p2p_brisr2_core4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "brisr2",
+          "interface": "eth0"
+        },
+        {
+          "node": "core4",
+          "interface": "eth3"
+        }
+      ]
+    },
+    {
+      "name": "p2p_brisr1_brisr2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "brisr1",
+          "interface": "eth1"
+        },
+        {
+          "node": "brisr2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "p2p_dcr1_core4",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dcr1",
+          "interface": "eth0"
+        },
+        {
+          "node": "core4",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "p2p_dcr2_core1",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dcr2",
+          "interface": "eth0"
+        },
+        {
+          "node": "core1",
+          "interface": "eth4"
+        }
+      ]
+    },
+    {
+      "name": "p2p_dcr1_dcr2",
+      "kind": "routed",
+      "endpoints": [
+        {
+          "node": "dcr1",
+          "interface": "eth1"
+        },
+        {
+          "node": "dcr2",
+          "interface": "eth1"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydr1",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc8",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan1:9",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc9",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan1",
+          "interface": "port9"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydr2",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc10",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc11",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc12",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc13",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc14",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc15",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc16",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "syd_lan2:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "sydpc17",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:syd_lan2",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melr1",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc8",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan1:9",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc9",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan1",
+          "interface": "port9"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melr2",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc10",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc11",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc12",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc13",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc14",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc15",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc16",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "mel_lan2:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "melpc17",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:mel_lan2",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brisr1",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc8",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan1:9",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc9",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan1",
+          "interface": "port9"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brisr2",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc10",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc11",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc12",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc13",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc14",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc15",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc16",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "bris_lan2:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "brispc17",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:bris_lan2",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dcr1",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web8",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port8"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan1:9",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "web9",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan1",
+          "interface": "port9"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:0",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "dcr2",
+          "interface": "eth2"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port0"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:1",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db1",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port1"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:2",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db2",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port2"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:3",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db3",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port3"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:4",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db4",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port4"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:5",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db5",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port5"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:6",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db6",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port6"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:7",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db7",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port7"
+        }
+      ]
+    },
+    {
+      "name": "dc_lan2:8",
+      "kind": "lan",
+      "endpoints": [
+        {
+          "node": "db8",
+          "interface": "eth0"
+        },
+        {
+          "node": "lan:dc_lan2",
+          "interface": "port8"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "OSPF",
+  "source_path": "Enterprise80_Eason",
+  "source_commit": "1711b1691b8287a06b4b0cc80206ef114dc9c88a",
+  "scenarios": [
+    "enterprise80-sydr1-ospfd-down"
+  ],
+  "scenario_count": 1,
+  "fault_catalog": [
+    {
+      "id": "enterprise80-sydr1-ospfd-down",
+      "kind": "fault",
+      "components": [],
+      "description": "ospfd stopped on sydr1 (routing_daemon_down).",
+      "targets": [
+        "sydr1"
+      ],
+      "expected_impact": "Sydney LAN1 gateway reachable; remote services unreachable; 10.10.10.0/24 withdrawn remotely",
+      "case_ids": [],
+      "source_path": "Enterprise80_Eason/ground_truth.json"
+    }
+  ],
+  "evaluation_enabled": false,
+  "note": "Imported topology and operator fault catalog \u00b7 runtime and automatic evaluation adapters pending",
+  "health": null
+}

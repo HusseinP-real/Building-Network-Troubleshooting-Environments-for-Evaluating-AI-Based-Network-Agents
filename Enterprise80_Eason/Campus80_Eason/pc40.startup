@@ -1,5 +1,0 @@
-#!/bin/sh
-set -e
-ip link set eth0 up
-ip addr replace 10.10.8.24/24 dev eth0
-ip route replace default via 10.10.8.1

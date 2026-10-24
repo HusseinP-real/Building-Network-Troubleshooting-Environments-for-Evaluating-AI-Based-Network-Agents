@@ -7089,7 +7089,7 @@
   "layout": "generic",
   "protocols": "BGP \u00b7 DHCP \u00b7 DNS \u00b7 HAProxy",
   "source_path": "FaulT-Bench/topology_kathara/NIKA_Clos_Jiayuan_92Devices",
-  "source_commit": "009c700198ffc599cb80e4c590a523d3339f3353",
+  "source_commit": "1711b1691b8287a06b4b0cc80206ef114dc9c88a",
   "scenarios": [
     "nika92-client1-compound-gateway-and-tcp-filter",
     "nika92-dhcp1-wrong-router-option",
@@ -7099,7 +7099,8 @@
     "nika92-pod1-leaf1-service-prefix-filter"
   ],
   "scenario_count": 6,
+  "fault_catalog": [],
   "evaluation_enabled": false,
-  "note": "Imported from main \u00b7 exploration and scenario catalog \u00b7 live evaluation adapter pending",
+  "note": "Imported topology and operator fault catalog \u00b7 runtime and automatic evaluation adapters pending",
   "health": null
 }
