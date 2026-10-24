@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Configure DHCP server networks
+ip addr add 10.20.2.10/24 dev eth0
+ip link set eth0 up
+
+ip addr add 10.20.1.2/24 dev eth1
+ip link set eth1 up
+
+ip route replace default via 10.20.2.1
+
+# Create DHCP configuration
+cat > /etc/sarah-dhcp.conf <<'CONFIG'
+port=0
+interface=eth1
+bind-interfaces
+dhcp-range=10.20.1.100,10.20.1.150,255.255.255.0,12h
+dhcp-option=option:router,10.20.1.1
+dhcp-option=option:dns-server,10.20.3.10
+dhcp-authoritative
+log-dhcp
+CONFIG
+
+# Start DHCP service
+dnsmasq --conf-file=/etc/sarah-dhcp.conf --pid-file=/tmp/sarah-dhcp.pid

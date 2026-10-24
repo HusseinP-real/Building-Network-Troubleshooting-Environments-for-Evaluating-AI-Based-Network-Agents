@@ -1,0 +1,64 @@
+{
+  "fault_id": "SARAH-ENT-004",
+  "topology": "Sarah_Enterprise_75",
+  "fault_present": true,
+  "fault_type": "firewall_misconfiguration",
+  "fault_location": {
+    "device": "r1",
+    "chain": "FORWARD",
+    "source_ip": "10.10.1.10",
+    "destination_ip": "10.10.3.10"
+  },
+  "description": "An incorrect firewall DROP rule on Router1 blocks forwarded traffic from PC1 to the company server, while Finance network connectivity remains unaffected.",
+  "healthy_configuration": {
+    "forward_policy": "ACCEPT",
+    "blocking_rule_present": false
+  },
+  "faulty_configuration": {
+    "rule": "iptables -I FORWARD 1 -s 10.10.1.10 -d 10.10.3.10 -j DROP"
+  },
+  "fault_injection": {
+    "script": "scripts/inject_ENT_004.sh"
+  },
+  "recovery": {
+    "script": "scripts/recover_ENT_004.sh"
+  },
+  "expected_symptoms": [
+    "PC1 cannot reach the company server at 10.10.3.10.",
+    "PC1 can still reach the Finance workstation at 10.10.2.10.",
+    "Router1 contains an incorrect firewall DROP rule."
+  ],
+  "observed_results": {
+    "healthy": {
+      "pc1_to_server": "PASS",
+      "pc1_to_finance": "PASS"
+    },
+    "faulty": {
+      "pc1_to_server": "FAIL_AS_EXPECTED",
+      "pc1_to_finance": "PASS",
+      "firewall_rule_present": "PASS"
+    },
+    "recovered": {
+      "pc1_to_server": "PASS",
+      "firewall_rule_removed": "PASS"
+    }
+  },
+  "user_report": {
+    "reporter_type": "general_user",
+    "ticket": "I can access the Finance network, but I cannot connect to the company server. The rest of my network connection seems fine."
+  },
+  "validation_environment": "Sarah_Enterprise_75",
+  "validation_status": "automated_pass",
+  "validation_script": "scripts/validate_ENT_004.sh",
+  "automated_validation": {
+    "healthy_server": "PASS",
+    "healthy_finance": "PASS",
+    "firewall_rule_injection": "PASS",
+    "firewall_rule_present": "PASS",
+    "faulty_server": "FAIL_AS_EXPECTED",
+    "faulty_finance": "PASS",
+    "firewall_rule_recovery": "PASS",
+    "recovered_server": "PASS",
+    "exit_code": 0
+  }
+}

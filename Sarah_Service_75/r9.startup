@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+ip addr show dev eth0 | grep -q '10.20.1.19/24' || ip addr add 10.20.1.19/24 dev eth0
+ip addr show dev eth1 | grep -q '10.21.9.1/24' || ip addr add 10.21.9.1/24 dev eth1
+ip link set eth0 up
+ip link set eth1 up
+sysctl -w net.ipv4.ip_forward=1 || true
+ip route replace default via 10.20.1.1

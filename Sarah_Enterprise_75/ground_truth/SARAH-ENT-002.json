@@ -1,0 +1,62 @@
+{
+  "fault_id": "SARAH-ENT-002",
+  "topology": "Sarah_Enterprise_75",
+  "fault_present": true,
+  "fault_type": "incorrect_static_route_blackhole",
+  "fault_location": {
+    "device": "r1",
+    "destination_network": "10.10.3.0/24",
+    "interface": "eth2"
+  },
+  "description": "Router1 contains an incorrect static blackhole route for the company server subnet, causing packets destined for 10.10.3.0/24 to be dropped.",
+  "healthy_configuration": {
+    "route": "10.10.3.0/24 via 10.10.12.2 dev eth2"
+  },
+  "faulty_configuration": {
+    "route": "blackhole 10.10.3.0/24"
+  },
+  "fault_injection": {
+    "command": "ip route replace blackhole 10.10.3.0/24",
+    "script": "scripts/inject_ENT_002.sh"
+  },
+  "recovery": {
+    "command": "ip route replace 10.10.3.0/24 via 10.10.12.2 dev eth2",
+    "script": "scripts/recover_ENT_002.sh"
+  },
+  "expected_symptoms": [
+    "PC1 cannot reach the company server at 10.10.3.10.",
+    "PC1 can still reach the Finance workstation at 10.10.2.10.",
+    "The failure is isolated to the server subnet."
+  ],
+  "observed_results": {
+    "healthy": {
+      "pc1_to_server": "PASS",
+      "pc1_to_finance": "PASS"
+    },
+    "faulty": {
+      "pc1_to_server": "FAIL_AS_EXPECTED",
+      "pc1_to_finance": "PASS"
+    },
+    "recovered": {
+      "pc1_to_server": "PASS",
+      "r1_route_restored": "PASS"
+    }
+  },
+  "user_report": {
+    "reporter_type": "general_user",
+    "ticket": "I can access the Finance network, but I cannot connect to the company server. Other network connections seem to work normally."
+  },
+  "validation_environment": "Sarah_Enterprise_75",
+  "validation_status": "automated_pass",
+  "validation_script": "scripts/validate_ENT_002.sh",
+  "automated_validation": {
+    "healthy_server": "PASS",
+    "healthy_finance": "PASS",
+    "blackhole_route_injection": "PASS",
+    "faulty_server": "FAIL_AS_EXPECTED",
+    "faulty_finance": "PASS",
+    "route_recovery": "PASS",
+    "recovered_server": "PASS",
+    "exit_code": 0
+  }
+}
