@@ -24,8 +24,36 @@
           <p class="hero-sub">Choose a network and a fault. Run the experiment. Compare the agent’s diagnosis against verified benchmark results.</p>
           <div class="hero-tags"><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">lan</span>20 scenarios</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">pentagon</span>8 scoring axes</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>Live lab</span></div>
         </div>
-        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="orbit-node n1"></span><span class="orbit-node n2"></span><span class="orbit-node n3"></span><div class="art-core">S<span>SADE</span></div></div>
-        <a class="hero-scroll" href="#evaluation">Configure a benchmark <span>↓</span></a>
+        <div class="hero-art" aria-hidden="true">
+          <svg class="network-scout" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="scout-shell" x1="90" y1="90" x2="230" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="var(--surface)"/><stop offset="1" stop-color="var(--secondary-container)"/></linearGradient></defs>
+            <ellipse cx="160" cy="262" rx="73" ry="12" fill="var(--primary)" opacity=".1"/>
+            <path d="M40 105C13 166 40 233 109 245M214 51C266 52 303 108 282 164" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 9" opacity=".3"/>
+            <path d="M44 99L68 76L102 83M251 202L277 222L265 249" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+            <circle cx="44" cy="99" r="9" fill="var(--success-container)" stroke="var(--success)" stroke-width="2.5"/>
+            <circle cx="68" cy="76" r="5" fill="var(--primary)"/>
+            <circle cx="102" cy="83" r="6" fill="var(--surface)" stroke="var(--primary)" stroke-width="2"/>
+            <circle cx="277" cy="222" r="6" fill="var(--primary)"/>
+            <circle cx="265" cy="249" r="9" fill="var(--tertiary-container)" stroke="var(--tertiary)" stroke-width="2.5"/>
+            <g transform="rotate(-7 160 155)">
+              <path d="M160 85V62" stroke="var(--primary)" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="160" cy="51" r="11" fill="var(--tertiary-container)" stroke="var(--primary)" stroke-width="3"/>
+              <path d="M98 213L84 238M222 213L236 238" stroke="var(--primary)" stroke-width="8" stroke-linecap="round"/>
+              <rect x="65" y="130" width="22" height="44" rx="11" fill="var(--secondary-container)" stroke="var(--primary)" stroke-width="3"/>
+              <rect x="233" y="130" width="22" height="44" rx="11" fill="var(--secondary-container)" stroke="var(--primary)" stroke-width="3"/>
+              <rect x="78" y="86" width="164" height="139" rx="47" fill="url(#scout-shell)" stroke="var(--primary)" stroke-width="3"/>
+              <rect x="95" y="111" width="130" height="76" rx="27" fill="var(--primary)"/>
+              <ellipse cx="132" cy="143" rx="9" ry="12" fill="var(--on-primary)"/>
+              <path d="M177 143C182 132 191 132 196 143" stroke="var(--on-primary)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M149 165Q160 174 171 165" stroke="var(--on-primary)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M145 205H160M169 205H175" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+              <circle cx="208" cy="204" r="5" fill="var(--success)"/>
+            </g>
+            <path d="M263 75V91M255 83H271" stroke="var(--tertiary)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M54 203V215M48 209H60" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <a class="hero-scroll" href="#evaluation">Configure a benchmark</a>
       </section>
 
       <section id="evaluation" class="evaluation-stage" aria-labelledby="benchmarkHeading">
