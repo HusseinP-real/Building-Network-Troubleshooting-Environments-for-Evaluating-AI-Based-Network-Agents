@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import lab
+from environment_guard import Lease, evaluation_session
 
 CASES = json.loads((ROOT / "tools" / "sade_cases.json").read_text())
 BENCHMARK_VERSION = "3.0"
@@ -632,6 +633,7 @@ def _assert_state(case_name: str, phase: str) -> None:
         )
 
 
+@evaluation_session
 def run_case(
     case_name: str,
     nika_root: Path,
@@ -677,6 +679,7 @@ def run_case(
             )
         for fault in case_faults(case_name):
             node, inject, repair = lab.FAULTS[fault]
+            Lease(ROOT).mark(fault)  # Durable before an uncertain/partial mutation.
             injected.append(fault)  # Include partially applied injections in cleanup.
             ok, detail = lab.execute(node, inject)
             if not ok:
@@ -760,6 +763,8 @@ def run_case(
                 report["repair_verified"] = lab.check() == 0
             except Exception as exc:  # noqa: BLE001 - preserve reports and always restore owned faults
                 report["repair_error"] = str(exc)
+        if report["repair_verified"]:
+            Lease(ROOT).clear(injected)
         report["environment_restored"] = report["repair_verified"]
         report["wall_seconds"] = round(time.monotonic() - started, 3)
         out.write_text(json.dumps(report, indent=2, default=str) + "\n")

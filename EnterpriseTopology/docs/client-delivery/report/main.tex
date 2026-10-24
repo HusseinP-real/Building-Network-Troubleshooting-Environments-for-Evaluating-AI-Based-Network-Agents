@@ -1,0 +1,136 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,booktabs,tabularx,longtable,array,xcolor,enumitem,fancyhdr,hyperref}
+\definecolor{accent}{HTML}{B74814}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small P20 Network Troubleshooting Benchmark}\fancyhead[R]{\small Delivery review}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlist[itemize]{leftmargin=*,itemsep=3pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{document}
+{\color{accent}\Large\bfseries Client Delivery and Validation Report}\par
+\textbf{SOFT3888\_TU14\_04 \quad | \quad 23 October 2026, Australia/Sydney}\par
+\textbf{Status: delivery-review draft; client acceptance pending.}\par
+Project title above is a working title. Confirm the formal course project name, recipient, final agreed scope and deployment environment before sign-off.
+
+\section*{1. Delivery position}
+The deliverable provides a web interface for inspecting network topologies, selecting fault scenarios and configuring an agent benchmark. The current automatic SADE execution adapter supports \texttt{enterprise-75}. Other displayed topologies have varying manual or catalog support and must not be presented as completed automatic benchmark integrations.
+
+This report records software validation, requirement provenance, limitations and handover actions. At the team's request, no model benchmark was rerun and no new agent accuracy is asserted. Offline fixtures and synthetic model answers are used to test software behavior; they are not agent-performance observations.
+
+\subsection*{Recorded test results}
+\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}\toprule
+Evidence group & Pass & Fail/error & Skip & Pass rate \\
+\midrule
+Offline + HTTP regression & 68 & 0 & 11 & 100.0\% \\
+Browser workflows (MOCK executor) & 5 & 0 & 0 & 100.0\% \\
+Real network cycles (no model) & 11 & 0 & 0 & 100.0\% \\
+\bottomrule\end{tabularx}
+
+Pass rate is passed divided by executed cases (passed + failed + errors). Skipped/not-run work is separate. The supplied rubric does not prescribe a 100\% threshold. A perfect scoped result does not imply complete coverage or client acceptance; failures in core execution, scoring or recovery require particular attention.
+
+Offline execution proportion: 68/79 (86.1\%). Browser counts exclude the parent test group; pytest subtests are not additional independent cases.
+
+
+\subsection*{Evidence and version}
+Raw evidence is under \texttt{EnterpriseTopology/results/delivery/}. The companion \texttt{test-results.json} records source hashes, timestamps and individual network cycles. The tested tree includes existing local changes; the base commit alone is not the source snapshot.
+
+Base revision: \texttt{28bfc7ffb42c}.
+
+\newpage
+\section*{2. Requirements and acceptance basis}
+The team reported the client's feedback on 23 October: select a topology and fault on the web page, then run a benchmark; intended agent diagnostic accuracy is approximately 50--70\%. The original meeting date/minutes have not been independently verified. Newly documented team proposals are explicitly separate from that feedback.
+
+\begin{tabularx}{\textwidth}{@{}lXl@{}}\toprule
+ID & User goal & Provenance \\
+\midrule
+US01 & Select and inspect a topology & Client feedback \\
+US02 & Select a compatible fault & Client feedback \\
+US03 & Run the selected benchmark workflow & Client feedback \\
+US04 & Measure a useful level of diagnostic difficulty & Client feedback \\
+US05 & Use reproducible validated fault scenarios & Team proposal \\
+US06 & Produce trustworthy diagnosis scores & Team proposal \\
+US07 & Evaluate misleading reports and healthy controls & Team proposal \\
+US08 & Recover safely from failed operations & Team proposal \\
+US09 & Follow execution progress and errors & Team proposal \\
+US10 & Inspect traceable saved results & Team proposal \\
+US11 & Install and operate the delivered system & Team proposal \\
+US12 & Operate the interface on common screen sizes & Team proposal \\
+\bottomrule\end{tabularx}
+
+\subsection*{Acceptance conditions that matter most}
+\begin{itemize}
+\item Selecting a topology updates its map and applicable fault catalog, with matching execution support. A topology/fault mismatch must be rejected.
+\item For an adapted target, submitted configuration reaches the intended runner. Baseline, actual fault state, results and verified recovery must be traceable.
+\item Diagnosis fields, explanations and repair recommendations are scored separately. Wrong or additional root causes must not receive exact-match credit. Unknown judgement remains unknown.
+\item A healthy control causes no injection. Redundant failures may preserve application access; state and unaffected-path checks are still required.
+\item Full multi-topology automatic evaluation, client UAT and independent installation are not established by passing UI tests.
+\end{itemize}
+
+The full story statements, per-story acceptance criteria, current implementation limits and named regression evidence are in \texttt{user-stories.md} and \texttt{user-stories.json}. No overall story-completion percentage is asserted because the final client-approved denominator and acceptance decisions are pending.
+
+\newpage
+\section*{3. Test approach and observed findings}
+\subsection*{Software contracts and HTTP integration}
+Independent literal diagnosis examples exercise correct answers, wrong interfaces, contradictory scalar/structured fields, duplicate causes, malformed outputs, healthy false positives and missing quality judgements. Summary tests cover empty data, all-attempt denominators, separate configurations and duplicate input paths. HTTP tests use real loopback servers, validate configuration and scope, preserve saved report identity, reject malformed input and prevent unsupported automatic targets from launching the enterprise runner.
+
+\subsection*{Browser workflows}
+Real Chrome exercises the actual UI/HTTP/lease coordinator with a visibly labelled MOCK executor: selected-fault submission and report display; synchronized topology selection; partial compound injection and recovery; healthy controls; keyboard selection and mobile layout. Tested viewports are 1440\,$\times$\,1000 and 390\,$\times$\,844. These checks do not establish real agent diagnosis, comprehensive accessibility conformance or cross-browser compatibility.
+
+\subsection*{Real network evidence}
+Opt-in Kathara tests use the existing EnterpriseTopology environment and its process-shared lease. They verify actual state, intended application symptoms, unaffected controls and full post-repair baseline. Only attempted fault components are repaired; uncertain recovery retains pending intent. No model API is called.
+
+\begin{tabularx}{\textwidth}{@{}Xllr@{}}\toprule
+Saved cycle & Result & Recovery & Seconds \\
+\midrule
+healthy & Pass & Verified & 31.5 \\
+core-uplink & Pass & Verified & 56.2 \\
+core-uplink-r6 & Pass & Verified & 51.8 \\
+gateway-service & Pass & Verified & 52.4 \\
+gateway-service-r8 & Pass & Verified & 55.6 \\
+database-acl & Pass & Verified & 51.4 \\
+database-ingress-acl & Pass & Verified & 50.7 \\
+ospf-passive-r7 & Pass & Verified & 51.4 \\
+compound-uplink-acl & Pass & Verified & 53.3 \\
+compound-ospf-gateway & Pass & Verified & 53.2 \\
+database-acl & Pass & Verified & 51.4 \\
+\bottomrule\end{tabularx}
+
+Suite completion recorded: \textbf{True}. Pending owned faults in saved evidence: \texttt{[]}. An incomplete suite is reported only as its executed subset.
+
+
+\subsection*{Defects corrected}
+Repeated references to the same result file previously inflated attempt counts; resolved paths are now deduplicated. Malformed saved-report structures previously broke the report index; invalid entries no longer prevent valid reports from loading. Final regression results above are recorded after these corrections.
+
+\newpage
+\section*{4. Diagnostic difficulty and metric interpretation}
+The 50--70\% figure is a client-reported \textbf{agent diagnostic difficulty target}, not a threshold for software-test success. A benchmark may correctly process an incorrect diagnosis: that is a software pass and an agent mistake. Conversely, a correct diagnosis lost or mis-scored by the software is a software failure.
+
+The proposed primary diagnostic metric is \textbf{exact RCA correct / all attempted diagnoses}, with scored-only accuracy, failures, healthy false positives, full correctness and uncertainty reported separately. Confirm whether the client instead intends full correctness, which also requires explanation and repair credit.
+
+For a defensible existing result, retain the model/version, manifest/hash, scorer, prompt, tools, turn budget, seed, repetition count, case/category composition and denominator. Do not mix configurations into a single comparison, discard failed attempts or treat repeated ticket variants as independent physical fault mechanisms. Confidence intervals require caution when trials share the same scenarios.
+
+No model experiment was rerun for this report. Accordingly, this report makes \textbf{no new claim that 50--70\% was achieved}. Scores must be reported as observed even outside the desired range. Any future difficulty calibration should be declared on development cases, with a fixed evaluation set retained for the final comparison.
+
+\section*{5. Remaining limitations and client review}
+\begin{itemize}
+\item Automatic evaluation across every displayed topology remains incomplete. Current automatic support is limited to EnterpriseTopology; other catalogs and adapters have explicit boundaries.
+\item A fresh model-backed end-to-end run, agent accuracy and API cost were not measured in this validation.
+\item No source-code line/branch coverage percentage or agreed performance SLA is claimed. Measured cycle durations are observations, not performance acceptance results.
+\item Deployment in the client's intended environment, independent installation, client UAT and formal sign-off remain pending.
+\end{itemize}
+
+\subsection*{Handover and review record}
+Provide the source revision plus local changes, dependency/prerequisite instructions, dashboard startup guide, topology support matrix, native operating/recovery guides, scenario and scoring contracts, story registry and raw test evidence. Review the formal project identity, access permissions, target environment, primary accuracy metric and acceptance criteria with the client. Capture decisions and remaining defects in the project wiki and final meeting record.
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}\toprule
+Review item & Client record \\
+\midrule
+Recipient and review date & To be completed \\
+Agreed final requirements & To be confirmed; team proposals are not assumed accepted \\
+Accepted limitations / open actions & To be recorded at review \\
+Deployment / UAT result & Pending \\
+Client acceptance / sign-off & Pending \\
+\bottomrule\end{tabularx}
+\end{document}

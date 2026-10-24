@@ -1,0 +1,47 @@
+TAP version 13
+# Subtest: Client benchmark browser workflows (MOCK execution only)
+    # Subtest: selected topology/fault reaches the benchmark and its report
+    ok 1 - selected topology/fault reaches the benchmark and its report
+      ---
+      duration_ms: 7120.691167
+      type: 'test'
+      ...
+    # Subtest: topology selection refreshes faults and disables unadapted benchmark
+    ok 2 - topology selection refreshes faults and disables unadapted benchmark
+      ---
+      duration_ms: 1385.466583
+      type: 'test'
+      ...
+    # Subtest: partial compound injection blocks benchmark until targeted recovery
+    ok 3 - partial compound injection blocks benchmark until targeted recovery
+      ---
+      duration_ms: 5417.834875
+      type: 'test'
+      ...
+    # Subtest: healthy control cannot be manually injected
+    ok 4 - healthy control cannot be manually injected
+      ---
+      duration_ms: 1074.612542
+      type: 'test'
+      ...
+    # Subtest: mobile form remains usable without horizontal page overflow
+    ok 5 - mobile form remains usable without horizontal page overflow
+      ---
+      duration_ms: 2966.585666
+      type: 'test'
+      ...
+    1..5
+ok 1 - Client benchmark browser workflows (MOCK execution only)
+  ---
+  duration_ms: 19310.989042
+  type: 'test'
+  ...
+1..1
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19578.536792

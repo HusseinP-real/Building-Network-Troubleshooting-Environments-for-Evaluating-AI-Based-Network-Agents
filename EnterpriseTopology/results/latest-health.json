@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-19T13:32:08.587232+00:00",
+  "timestamp": "2026-10-23T06:41:42.297881+00:00",
   "passed": true,
   "checks": [
     {
@@ -2238,11 +2238,11 @@
       "check": "office: direct database denied",
       "node": "office",
       "passed": true,
-      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 1 ms: Couldn't connect to server",
+      "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server",
       "attempts": [
         {
           "passed": true,
-          "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 1 ms: Couldn't connect to server"
+          "output": "curl: (7) Failed to connect to 10.30.20.10 port 8080 after 0 ms: Couldn't connect to server"
         }
       ]
     },
@@ -2334,11 +2334,11 @@
       "check": "r5: VRRP process",
       "node": "r5",
       "passed": true,
-      "output": "3968\n3969",
+      "output": "5069\n5070",
       "attempts": [
         {
           "passed": true,
-          "output": "3968\n3969"
+          "output": "5069\n5070"
         }
       ]
     },
@@ -2394,11 +2394,11 @@
       "check": "r8: VRRP process",
       "node": "r8",
       "passed": true,
-      "output": "2440\n2441",
+      "output": "4058\n4059",
       "attempts": [
         {
           "passed": true,
-          "output": "2440\n2441"
+          "output": "4058\n4059"
         }
       ]
     },

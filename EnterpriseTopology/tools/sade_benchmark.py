@@ -76,7 +76,12 @@ def summarize_metric(rows: list[dict], key: str) -> dict:
 
 def summarize(paths: list[Path]) -> dict:
     records = []
+    seen = set()
     for path in paths:
+        path = path.resolve()
+        if path in seen:
+            continue
+        seen.add(path)
         data = json.loads(path.read_text())
         if data.get("case") not in sade_eval.CASES:
             continue
@@ -480,4 +485,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from environment_guard import evaluation_session
+    entrypoint = evaluation_session(main) if len(sys.argv) > 1 and sys.argv[1] == "run" else main
+    raise SystemExit(entrypoint())

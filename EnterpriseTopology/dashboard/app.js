@@ -274,6 +274,8 @@ function render(report) {
   $('emptyState').hidden = true;
   $('dashboard').hidden = false;
   const runs = report.runs || [];
+  const mechanisms = [...new Set(runs.flatMap(run => run.faults?.length ? run.faults : [run.fault || 'healthy control']))];
+  $('reportContext').textContent = `Saved report · ${report.topology_name || 'Enterprise Topology'} · ${report.attempted ?? runs.length} attempts · ${mechanisms.length <= 3 ? mechanisms.join(', ') : mechanisms.length + ' fault mechanisms / controls'}. Changing the configuration prepares a new run.`;
   const headline = report.metrics?.full_correct ? 'full_correct' : 'rca_exact';
   $('exactLabel').textContent = headline === 'full_correct' ? 'Full correctness' : 'Exact RCA fields · legacy';
   $('exactValue').textContent = report.metrics?.[headline]?.scored_denominator === 0 ? '—' : pct(rate(report, headline));
@@ -350,9 +352,9 @@ async function loadReport(id) {
   selectedReport = id;
   render(await json(`/api/report?id=${encodeURIComponent(id)}`));
 }
-function progress(lines, repeats, running, successful, caseCount = 20) {
+function progress(lines, repeats, running, successful, caseCount = 20, completionCount = null) {
   const total = repeats * caseCount;
-  const completed = lines.filter(line => /^  (scored|error);/.test(line)).length;
+  const completed = completionCount ?? lines.filter(line => /^  (scored|error);/.test(line)).length;
   const activeCase = [...lines].reverse().find(line => line.startsWith('Running '));
   $('progressFill').style.width = `${Math.min(100, completed / total * 100)}%`;
   $('progressFill').parentElement.setAttribute('aria-valuenow', String(Math.round(completed / total * 100)));
@@ -362,18 +364,17 @@ function progress(lines, repeats, running, successful, caseCount = 20) {
 async function pollStatus() {
   try {
     const state = await json('/api/status');
-    $('runButton').disabled = state.running;
+    window.dispatchEvent(new CustomEvent('benchmark-status', {detail: state}));
     $('model').disabled = state.running;
     $('judgeModel').disabled = state.running;
     $('repeats').disabled = state.running;
     $('mode').disabled = state.running;
     $('promptStyle').disabled = state.running;
     $('toolProfile').disabled = state.running;
-    $('runLabel').textContent = state.running ? 'Benchmark running…' : 'Run benchmark';
     if (state.started_at) {
       $('runPanel').hidden = false;
       $('runLog').textContent = state.lines.join('\n');
-      progress(state.lines, state.repeats || 1, state.running, state.returncode === 0, state.case_count || 20);
+      progress(state.lines, state.repeats || 1, state.running, state.returncode === 0, state.case_count || 20, state.completion_count);
       $('runTitle').textContent = state.running ? 'Diagnosing live faults…' : state.returncode === 0 ? 'Benchmark complete' : 'Benchmark finished with issues';
       $('runBadge').className = `badge ${state.running ? 'running' : state.returncode === 0 ? 'done' : 'failed'}`;
       $('runBadge').textContent = state.running ? 'Running' : state.returncode === 0 ? 'Complete' : 'Check log';
@@ -389,17 +390,21 @@ async function pollStatus() {
 }
 $('runButton').addEventListener('click', async () => {
   try {
+    const selection = window.faultWorkspace.request();
+    window.dispatchEvent(new CustomEvent('benchmark-submitting', {detail: true}));
     $('runButton').disabled = true;
-    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: $('model').value.trim(), judge_model: $('judgeModel').value, repeats: Number($('repeats').value), mode: $('mode').value, prompt_style: $('promptStyle').value, tool_profile: $('toolProfile').value})});
+    await json('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({...selection, model: $('model').value.trim(), judge_model: $('judgeModel').value, repeats: Number($('repeats').value), mode: $('mode').value, prompt_style: $('promptStyle').value, tool_profile: $('toolProfile').value})});
     $('runPanel').hidden = false;
     $('runPanel').scrollIntoView({behavior: 'smooth', block: 'center'});
     await pollStatus();
   } catch (error) {
-    $('runButton').disabled = false;
+    window.faultWorkspace.refresh();
     $('runPanel').hidden = false;
     $('runTitle').textContent = error.message;
     $('runBadge').className = 'badge failed';
     $('runBadge').textContent = 'Error';
+  } finally {
+    window.dispatchEvent(new CustomEvent('benchmark-submitting', {detail: false}));
   }
 });
 $('reportSelect').addEventListener('change', event => loadReport(event.target.value).catch(console.error));

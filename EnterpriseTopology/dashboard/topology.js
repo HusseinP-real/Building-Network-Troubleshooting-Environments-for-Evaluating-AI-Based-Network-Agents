@@ -103,9 +103,7 @@
     byId('deviceSummary').textContent = 'Choose any node to highlight its neighbors and inspect its interfaces.';
     byId('deviceDetails').replaceChildren();
     svg.setAttribute('aria-label', `${data.name} network topology`);
-    byId('topologySelectionNote').textContent = data.note || (data.evaluation_enabled
-      ? 'Current evaluation environment'
-      : 'Standalone copy · exploration only · runtime validation pending');
+    byId('topologySelectionNote').textContent = `${Object.values(data.nodes).filter(node => !node.virtual).length} devices · ${data.evaluation_enabled ? 'Benchmark available' : data.execution_enabled ? 'Manual testing available' : 'Catalog only'}`;
     const counts = {router:0, switch:0, host:0};
     Object.values(data.nodes).forEach(node => {if (!node.virtual) counts[node.role] = (counts[node.role] || 0) + 1;});
     const metrics = byId('topologyMetrics'); metrics.replaceChildren();
@@ -146,7 +144,7 @@
     }
     const info = byId('topologyCatalog'); info.replaceChildren();
     const intro = document.createElement('p');
-    intro.textContent = `${data.protocols} · ${data.evaluation_enabled ? 'SADE evaluation available on Dashboard' : 'Explore only · SADE run adapter pending'}`;
+    intro.textContent = `${data.protocols} · ${data.evaluation_enabled ? 'SADE evaluation available on Dashboard' : data.execution_enabled ? 'Manual fault controls available · automatic SADE adapter pending' : 'Catalog only · execution adapter pending'}`;
     info.append(intro);
     if (data.source_path) {
       const source = document.createElement('p');
@@ -180,20 +178,25 @@
     const health=data.health;
     const summary=health ? `${health.passing}/${health.total} checks passed · ${new Date(health.timestamp).toLocaleString()}` : 'No saved health check available';
     byId('topologyHealth').textContent=summary;
-    if (data.evaluation_enabled) byId('workspaceHealth').textContent=health ? `Saved health · ${health.passing}/${health.total}` : 'Saved health · unavailable';
+    byId('workspaceTopology').textContent = data.name;
+    document.querySelector('.lab-name').textContent = `${Object.values(data.nodes).filter(node => !node.virtual).length}-device selected lab`;
+    byId('workspaceHealth').textContent=health ? `Saved health · ${health.passing}/${health.total}` : 'Saved health · unavailable';
   }
   async function loadTopology(id) {
     const sequence = ++loadSequence;
     byId('topologyError').hidden = true;
     svg.setAttribute('aria-busy', 'true');
+    window.dispatchEvent(new CustomEvent('topology-selected', {detail: {id}}));
     try {
       const response = await fetch(`/api/topology?id=${encodeURIComponent(id)}`);
       if (!response.ok) throw Error('Topology could not be loaded');
       const data = await response.json();
       if (sequence !== loadSequence) return;
       draw(data);
+      window.dispatchEvent(new CustomEvent('topology-loaded', {detail: data}));
     } catch (error) {
       if (sequence !== loadSequence) return;
+      window.dispatchEvent(new CustomEvent('topology-error', {detail: {id}}));
       inventory = null; selected = ''; positions.clear(); groups.clear(); edges.length = 0;
       svg.replaceChildren();
       byId('deviceName').textContent = 'Select a device';
@@ -207,20 +210,30 @@
       if (sequence === loadSequence) svg.setAttribute('aria-busy', 'false');
     }
   }
-  byId('topologySelect').addEventListener('change', event => loadTopology(event.target.value));
+  for (const id of ['topologySelect', 'mapTopologySelect']) {
+    byId(id).addEventListener('change', event => {
+      const target = event.target.value;
+      byId('topologySelect').value = target;
+      byId('mapTopologySelect').value = target;
+      loadTopology(target);
+    });
+  }
   async function initialize() {
     try {
       const response = await fetch('/api/topologies');
       if (!response.ok) throw Error('Topology selection could not be loaded');
       const topologies = await response.json();
-      const select = byId('topologySelect'); select.replaceChildren();
-      topologies.forEach(topology => {
-        const option = document.createElement('option');
-        option.value = topology.id; option.textContent = topology.name;
-        select.append(option);
-      });
-      select.disabled = false;
-      await loadTopology(select.value);
+      for (const id of ['topologySelect', 'mapTopologySelect']) {
+        const select = byId(id); select.replaceChildren();
+        topologies.forEach(topology => {
+          const option = document.createElement('option');
+          option.value = topology.id; option.textContent = topology.name.replace(/ · \d+ devices$/, '');
+          option.dataset.supportingText = topology.evaluation_enabled ? 'Automatic benchmark available' : 'Catalog browsing · automatic adapter pending';
+          select.append(option);
+        });
+        select.disabled = false;
+      }
+      await loadTopology(byId('topologySelect').value);
     } catch (error) {
       byId('topologyError').hidden = false;
       byId('topologyError').textContent = error.message;

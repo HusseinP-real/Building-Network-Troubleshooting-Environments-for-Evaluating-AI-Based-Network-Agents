@@ -15,37 +15,41 @@
       <div class="top-right"><span class="lab-chip"><span class="live-dot"></span> Local evaluation</span><span class="top-divider"></span><span class="lab-name">75-device enterprise lab</span><button id="themeButton" class="icon-button m3-interactive" type="button" aria-label="Switch to dark theme" title="Switch theme"><span id="themeIcon" class="material-symbols-outlined" aria-hidden="true">dark_mode</span></button></div>
     </header>
 
-    <div class="workspace-context"><span>EVALUATION LAB</span><strong>Enterprise Topology</strong><span id="workspaceHealth">Saved health: loading…</span></div>
+    <div class="workspace-context"><span>BENCHMARK TARGET</span><strong id="workspaceTopology">Enterprise Topology</strong><span id="workspaceHealth">Saved health: loading…</span></div>
     <main id="dashboardPage">
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><span class="material-symbols-outlined" aria-hidden="true">monitoring</span> Network troubleshooting intelligence</div>
           <h1>From fault<br>to <em>finding.</em></h1>
-          <p class="hero-sub">Twenty scenarios. Real faults, vague reports, misleading claims and healthy networks. Test whether the agent verifies evidence before diagnosing.</p>
+          <p class="hero-sub">Choose a network and a fault. Run the experiment. Compare the agent’s diagnosis against verified benchmark results.</p>
           <div class="hero-tags"><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">lan</span>20 scenarios</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">pentagon</span>8 scoring axes</span><span class="info-chip"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>Live lab</span></div>
         </div>
         <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="orbit-node n1"></span><span class="orbit-node n2"></span><span class="orbit-node n3"></span><div class="art-core">S<span>SADE</span></div></div>
-        <a class="hero-scroll" href="#evaluation">Explore the workspace <span>↓</span></a>
+        <a class="hero-scroll" href="#evaluation">Configure a benchmark <span>↓</span></a>
       </section>
 
-      <section id="evaluation" class="evaluation-stage">
-        <div class="stage-copy"><div class="eyebrow">01 / INVESTIGATE</div><h2>Real networks.<br>Measurable answers.</h2><p>Put the agent to work on the enterprise lab. Choose a diagnostic profile, then follow the evidence from the first observation to the final diagnosis.</p><a class="text-link" href="#topology">Explore the topology ↗</a><div class="stage-facts"><span><strong>75</strong> devices</span><span><strong>20</strong> scenarios</span><span><strong>8</strong> scoring axes</span></div></div>
+      <section id="evaluation" class="evaluation-stage" aria-labelledby="benchmarkHeading">
+        <div class="stage-copy"><div class="eyebrow">01 / CONFIGURE YOUR BENCHMARK</div><h2 id="benchmarkHeading">Choose the network.<br>Test the diagnosis.</h2><p>Select a topology, the fault to inject, and an agent model. One run handles the full experiment and produces a benchmark report.</p><div class="benchmark-flow" aria-label="Automatic benchmark workflow"><span>Baseline</span><span>Inject fault</span><span>Diagnose</span><span>Score</span><span>Recover</span></div></div>
         <div class="launch-card glass">
-          <div class="launch-top"><div><div class="card-kicker">New evaluation</div><h2>Launch benchmark</h2></div><span class="launch-icon material-symbols-outlined" aria-hidden="true">rocket_launch</span></div>
-          <label class="field-label" for="model">Agent model</label>
-          <select id="model">
-            <option value="claude-haiku-5-5">Claude Haiku · existing baseline</option>
-            <option value="deepseek-flash">DeepSeek Flash · lower cost</option>
-            <option value="deepseek-v4-pro">DeepSeek V4 Pro</option>
-          </select>
-          <div class="field-row"><label class="field-label" for="judgeModel">Quality judge</label><select id="judgeModel"><option value="claude-haiku-5-5">Claude Haiku · fixed comparison</option><option value="same">Same as agent · separate call</option><option value="deepseek-flash">DeepSeek Flash</option><option value="deepseek-v4-pro">DeepSeek V4 Pro</option></select></div>
-          <p class="launch-foot">DeepSeek requires DEEPSEEK_API_KEY in the server terminal. Restart the server after setting it. A Claude judge also requires Claude authentication.</p>
-          <div class="field-row"><label class="field-label" for="repeats">Passes per scenario</label><select id="repeats"><option value="1">1 pass · quick demo</option><option value="3">3 passes · comparison</option><option value="5">5 passes · deeper sample</option></select></div>
-          <div class="field-row"><label class="field-label" for="mode">Evaluation mode</label><select id="mode"><option value="live">Live diagnostic tools</option><option value="no-tools">No tools · guessing control</option></select></div>
-          <div class="field-row"><label class="field-label" for="promptStyle">Instructions</label><select id="promptStyle"><option value="generic">Generic investigation</option><option value="guided">Guided diagnosis hints</option></select></div>
-          <div class="field-row"><label class="field-label" for="toolProfile">Diagnostic tools</label><select id="toolProfile"><option value="atomic">Individual device commands</option><option value="sweep">Bulk diagnostic helpers</option></select></div>
-          <button id="runButton" class="run-button m3-interactive"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span><span id="runLabel">Run benchmark</span></button>
-          <p class="launch-foot"><span class="material-symbols-outlined" aria-hidden="true">info</span>Runs the existing SADE evaluator locally. Docker/Kathara and model authentication must be ready. Each case also calls an independent quality judge.</p>
+          <div class="launch-top"><div><div class="card-kicker">NEW EXPERIMENT</div><h2>Configure a run</h2><p class="launch-description">Choose the environment, fault scenario and diagnosis model.</p></div><a class="text-link topology-link" href="#topology" aria-label="Explore topology"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="5" rx="1.5"/><rect x="2" y="16" width="7" height="5" rx="1.5"/><rect x="15" y="16" width="7" height="5" rx="1.5"/><path d="M12 8v4M5.5 16v-4h13v4"/></svg><span>Explore topology</span></a></div>
+          <div class="benchmark-fields"><div class="md-select-field"><div class="md-select-anchor has-icon"><label id="topologySelectLabel" class="md-field-label" for="topologySelect">Topology</label><span class="md-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="5" rx="1.5"/><rect x="2" y="16" width="7" height="5" rx="1.5"/><rect x="15" y="16" width="7" height="5" rx="1.5"/><path d="M12 8v4M5.5 16v-4h13v4"/></svg></span><select id="topologySelect" data-md-select aria-describedby="topologySelectionNote" disabled><option value="enterprise-75">Loading topologies…</option></select></div><p class="md-supporting-text" id="topologySelectionNote">Loading supported networks…</p></div>
+<div class="md-select-field"><div class="md-select-anchor has-icon"><label id="faultSelectLabel" class="md-field-label" for="faultSelect">Fault injection</label><span class="md-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-9 11h7l-1 9 10-12h-7V2Z"/></svg></span><select id="faultSelect" data-md-select aria-describedby="faultKind" disabled><option>Loading faults…</option></select></div><p class="md-supporting-text" id="faultKind"></p></div>
+<div class="md-select-field"><div class="md-select-anchor has-icon"><label id="modelLabel" class="md-field-label" for="model">Agent model</label><span class="md-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"/><path d="M9 10h.01M15 10h.01M9 14h6"/></svg></span><select id="model" data-md-select><option value="claude-haiku-5-5">Claude Haiku</option>
+            <option value="deepseek-flash">DeepSeek Flash</option>
+            <option value="deepseek-v4-pro">DeepSeek V4 Pro</option></select></div><p class="md-supporting-text">Model used for network diagnosis</p></div></div>
+          <p id="benchmarkSupport" class="launch-foot benchmark-support" role="status"></p>
+          <div class="configuration-sections">
+            <details class="benchmark-details"><summary aria-label="Fault scenario"><span class="disclosure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></svg></span><span class="disclosure-copy"><strong>Fault scenario</strong><small>Description, targets and expected impact</small></span><span class="disclosure-chevron" aria-hidden="true"></span></summary><div class="details-content"><div id="faultDetail" class="fault-detail" aria-live="polite"></div><p id="faultSupport" class="launch-foot"></p><p id="executionTarget" class="launch-foot"></p></div></details>
+            <details class="benchmark-details" id="evaluationSettings"><summary aria-label="Evaluation settings"><span class="disclosure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></span><span class="disclosure-copy"><strong>Evaluation settings</strong><small>Judge, repetitions and diagnostic options</small></span><span class="disclosure-chevron" aria-hidden="true"></span></summary><div class="details-content"><div class="advanced-grid"><div class="md-select-field"><div class="md-select-anchor"><label id="evaluationScopeLabel" class="md-field-label" for="evaluationScope">Scenario coverage</label><select id="evaluationScope" data-md-select><option value="selected">Selected fault group</option><option value="all">Full topology suite</option></select></div><p class="md-supporting-text">Choose a fault group or the full suite</p></div>
+<div class="md-select-field"><div class="md-select-anchor"><label id="judgeModelLabel" class="md-field-label" for="judgeModel">Quality judge</label><select id="judgeModel" data-md-select><option value="claude-haiku-5-5">Claude Haiku</option><option value="same">Same as agent</option><option value="deepseek-flash">DeepSeek Flash</option><option value="deepseek-v4-pro">DeepSeek V4 Pro</option></select></div><p class="md-supporting-text">Independent diagnosis assessment</p></div>
+<div class="md-select-field"><div class="md-select-anchor"><label id="repeatsLabel" class="md-field-label" for="repeats">Passes per scenario</label><select id="repeats" data-md-select><option value="1">1 pass</option><option value="3">3 passes</option><option value="5">5 passes</option></select></div><p class="md-supporting-text">Repeat each ticket for comparison</p></div>
+<div class="md-select-field"><div class="md-select-anchor"><label id="modeLabel" class="md-field-label" for="mode">Evaluation mode</label><select id="mode" data-md-select><option value="live">Live tools</option><option value="no-tools">No tools (control)</option></select></div><p class="md-supporting-text">Access to live diagnostic tools</p></div>
+<div class="md-select-field"><div class="md-select-anchor"><label id="promptStyleLabel" class="md-field-label" for="promptStyle">Instructions</label><select id="promptStyle" data-md-select><option value="generic">Standard investigation</option><option value="guided">Guided investigation</option></select></div><p class="md-supporting-text">Investigation guidance for the agent</p></div>
+<div class="md-select-field"><div class="md-select-anchor"><label id="toolProfileLabel" class="md-field-label" for="toolProfile">Diagnostic tools</label><select id="toolProfile" data-md-select><option value="atomic">Individual commands</option><option value="sweep">Bulk diagnostic helpers</option></select></div><p class="md-supporting-text">How the agent inspects the network</p></div></div><details class="provider-note"><summary>Model connection requirements</summary><p>DeepSeek requires DEEPSEEK_API_KEY in the server terminal. Restart the server after setting it. A Claude judge requires Claude authentication.</p></details></div></details>
+          </div>
+          <div id="recoveryNotice" class="recovery-notice" role="status" hidden><span id="recoveryNoticeText"></span><button id="reviewRecovery" class="manual-button">Review recovery</button></div>
+          <div class="launch-actions"><div class="launch-status"><span id="setupStatus" class="setup-status" data-state="loading">Preparing</span><p id="evaluationTarget" class="benchmark-summary" aria-live="polite">Choose a topology and fault.</p></div><button id="runButton" class="run-button m3-interactive"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span><span id="runLabel">Run benchmark</span></button></div>
+          <p class="automation-note">Baseline checks, fault injection, diagnosis, scoring and recovery are handled automatically.</p>
         </div>
       </section>
       <section id="runPanel" class="run-panel glass" hidden>
@@ -55,8 +59,26 @@
         <details class="log-details"><summary class="m3-interactive">View execution log <span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary><pre id="runLog" class="run-log"></pre></details>
       </section>
 
+      <details id="manualTools" class="manual-tools">
+        <summary>Advanced · laboratory debugging</summary>
+        <section id="faultWorkspace" class="fault-workspace glass" aria-labelledby="manualHeading">
+          <div class="card-kicker">OPTIONAL MANUAL TOOLS · NO MODEL CALLS</div><h2 id="manualHeading">Debug the selected experiment</h2><p class="launch-foot">For inspecting or recovering the selected lab independently. A normal benchmark performs its own injection and recovery; no manual preparation is needed.</p>
+      <div class="manual-actions" aria-label="Manual fault controls">
+        <button id="baselineButton" class="manual-button" disabled>1 · Check environment &amp; baseline</button>
+        <button id="injectButton" class="manual-button" disabled>2 · Inject selected fault</button>
+        <button id="verifyButton" class="manual-button" disabled>3 · Verify fault effect</button>
+        <button id="recoverButton" class="manual-button" disabled>4 · Recover &amp; verify baseline</button>
+      </div>
+      <p class="launch-foot">Manual injection checks the full baseline first and verifies the resulting fault. Recovery attempts every pending component, then verifies repair and the full baseline. No model API is called.</p>
+      <div id="pendingFaults" class="pending-faults" aria-live="polite"></div>
+      <div id="manualStatus" role="status" aria-live="polite">Select a topology and fault to begin.</div>
+      <progress id="manualProgress" max="1" value="0" aria-label="Manual operation progress" hidden></progress>
+      <details id="manualLogDetails" class="log-details"><summary>Manual execution log</summary><pre id="manualLog" class="run-log"></pre></details>
+        </section>
+      </details>
+
       <section class="results-head">
-        <div><div class="eyebrow">02 / UNDERSTAND</div><h2>Results, in focus.</h2><p>Every score is traceable to a saved run and its verified lab state.</p></div>
+        <div><div class="eyebrow">02 / UNDERSTAND</div><h2>Results, in focus.</h2><p id="reportContext">Saved benchmark reports appear here after a run finishes.</p></div>
         <div class="report-controls"><label for="reportSelect">Saved report</label><select id="reportSelect"></select><button id="refreshButton" class="icon-button m3-interactive" title="Refresh reports" aria-label="Refresh reports"><span class="material-symbols-outlined" aria-hidden="true">refresh</span></button></div>
       </section>
       <div id="emptyState" class="empty-state glass" hidden><span>◌</span><h3>No benchmark report yet</h3><p>Start a run above. Results will appear here when the run finishes.</p></div>
@@ -109,7 +131,7 @@
       </div>
     </main>
     <main id="topologyPage" hidden>
-      <section class="topology-heading"><div><div class="eyebrow">NETWORK EXPLORER</div><h1>Your network,<br><em>in view.</em></h1><p>Explore devices, interfaces and the connections behind each evaluation.</p></div><div class="topology-picker"><label for="topologySelect">Selected topology</label><select id="topologySelect" disabled><option value="enterprise-75">Loading topologies…</option></select><small id="topologySelectionNote">Current evaluation environment</small></div></section>
+      <section class="topology-heading"><div><div class="eyebrow">NETWORK EXPLORER</div><h1>Your network,<br><em>in view.</em></h1><p>Explore devices, interfaces and the connections behind each evaluation.</p></div><div class="topology-picker"><label for="mapTopologySelect">Explore topology</label><select id="mapTopologySelect" disabled><option>Loading topologies…</option></select><a class="text-link" href="#evaluation">Configure benchmark →</a></div></section>
       <div class="topology-metrics" id="topologyMetrics" aria-live="polite"><span><strong>75</strong> devices</span><span><strong>108</strong> links</span><span><strong>10</strong> routers</span><span><strong>25</strong> switches</span><span><strong>40</strong> hosts</span><span><strong>20</strong> scenarios</span></div>
       <section id="topologyCatalog" class="scope-note" aria-live="polite"></section>
       <section class="topology-layout">
@@ -124,6 +146,7 @@
     <footer><span>SADE · Symptom-aware diagnosis evaluation</span><span>Built for reproducible network troubleshooting</span></footer>
   </div>
   <script src="/app.js" defer></script>
+  <script src="/faults.js" defer></script>
   <script src="/topology.js" defer></script>
 </body>
 </html>

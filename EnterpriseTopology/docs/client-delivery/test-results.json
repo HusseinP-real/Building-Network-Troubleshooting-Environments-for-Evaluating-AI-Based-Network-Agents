@@ -1,0 +1,370 @@
+{
+  "recorded_at": "2026-10-23T18:45:42.078632+11:00",
+  "scope": "Current EnterpriseTopology delivery workflow; not exhaustive testing of every repository or topology",
+  "base_revision": "28bfc7ffb42c3c6f4a256d23bc0bcca19cf5a3bc",
+  "working_tree": "Includes local uncommitted changes; base revision alone is not the tested source snapshot",
+  "source_sha256": {
+    "tools/sade_cases.json": "3bcb5ae13db67dad69fd9fbc492d96d5ec45aa3f030ff2c6b54eef0433fb720f",
+    "tools/sade_benchmark.py": "7f96307951bad248aab12970ddc6202f06e2b06c0f4fbc7613a56ad98389d2a2",
+    "dashboard/server.py": "e34b3a70e566257a86dfb25a7ea634bffacb0352894c322f053483ff68c7f1f1"
+  },
+  "offline": {
+    "passed": 68,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 11,
+    "executed": 68,
+    "collected": 79,
+    "pass_rate": 1.0,
+    "execution_rate": 0.8607594936708861
+  },
+  "browser": {
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "executed": 5,
+    "collected": 5,
+    "pass_rate": 1.0,
+    "execution_rate": 1.0,
+    "workflows": [
+      {
+        "name": "selected topology/fault reaches the benchmark and its report",
+        "passed": true
+      },
+      {
+        "name": "topology selection refreshes faults and disables unadapted benchmark",
+        "passed": true
+      },
+      {
+        "name": "partial compound injection blocks benchmark until targeted recovery",
+        "passed": true
+      },
+      {
+        "name": "healthy control cannot be manually injected",
+        "passed": true
+      },
+      {
+        "name": "mobile form remains usable without horizontal page overflow",
+        "passed": true
+      }
+    ],
+    "execution": "real Chrome / real UI and HTTP / MOCK network and model executor"
+  },
+  "live": {
+    "passed": 11,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "executed": 11,
+    "collected": 11,
+    "pass_rate": 1.0,
+    "execution_rate": 1.0,
+    "cycles": [
+      {
+        "scenario": "healthy",
+        "components": [],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:32:26.067069+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 31.471
+      },
+      {
+        "scenario": "core-uplink",
+        "components": [
+          "core-uplink"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:32:57.545491+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 56.211
+      },
+      {
+        "scenario": "core-uplink-r6",
+        "components": [
+          "core-uplink-r6"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:33:53.762197+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 51.826
+      },
+      {
+        "scenario": "gateway-service",
+        "components": [
+          "gateway-service"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          },
+          {
+            "label": "Backup assumes the staff virtual gateway",
+            "node": "r6",
+            "command": "ip -4 addr | grep -F '10.10.10.1/24'",
+            "passed": true,
+            "output": "inet 10.10.10.1/24 scope global secondary eth3.110"
+          },
+          {
+            "label": "Stopped primary releases the staff virtual gateway",
+            "node": "r5",
+            "command": "! ip -4 addr | grep -F '10.10.10.1/24'",
+            "passed": true,
+            "output": ""
+          }
+        ],
+        "started_at": "2026-10-23T06:34:45.599103+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 52.401
+      },
+      {
+        "scenario": "gateway-service-r8",
+        "components": [
+          "gateway-service-r8"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          },
+          {
+            "label": "Branch primary retains the engineering gateway",
+            "node": "r7",
+            "command": "ip -4 addr | grep -F '10.20.10.1/24'",
+            "passed": true,
+            "output": "inet 10.20.10.1/24 scope global secondary eth3.210"
+          }
+        ],
+        "started_at": "2026-10-23T06:35:38.008145+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 55.633
+      },
+      {
+        "scenario": "database-acl",
+        "components": [
+          "database-acl"
+        ],
+        "checks": [
+          {
+            "label": "Application has the intended HTTP 503 symptom",
+            "node": "office",
+            "command": "test \"$(curl -s --max-time 6 -o /tmp/delivery-fault-body -w \"%{http_code}\" http://app.enterprise.test/)\" = 503 && grep -F \"database dependency unavailable\" /tmp/delivery-fault-body",
+            "passed": true,
+            "output": "app: database dependency unavailable"
+          },
+          {
+            "label": "Database remains healthy from unaffected operations path",
+            "node": "ops",
+            "command": "curl -fsS --max-time 6 http://10.30.20.10:8080/ | grep -F \"database: healthy\"",
+            "passed": true,
+            "output": "database: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:36:33.647590+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 51.391
+      },
+      {
+        "scenario": "database-ingress-acl",
+        "components": [
+          "database-ingress-acl"
+        ],
+        "checks": [
+          {
+            "label": "Application has the intended HTTP 503 symptom",
+            "node": "office",
+            "command": "test \"$(curl -s --max-time 6 -o /tmp/delivery-fault-body -w \"%{http_code}\" http://app.enterprise.test/)\" = 503 && grep -F \"database dependency unavailable\" /tmp/delivery-fault-body",
+            "passed": true,
+            "output": "app: database dependency unavailable"
+          },
+          {
+            "label": "Database remains healthy from unaffected operations path",
+            "node": "ops",
+            "command": "curl -fsS --max-time 6 http://10.30.20.10:8080/ | grep -F \"database: healthy\"",
+            "passed": true,
+            "output": "database: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:37:25.047028+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 50.654
+      },
+      {
+        "scenario": "ospf-passive-r7",
+        "components": [
+          "ospf-passive-r7"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          },
+          {
+            "label": "Passive OSPF failure leaves the physical interface up",
+            "node": "r7",
+            "command": "test \"$(cat /sys/class/net/eth0/operstate)\" = up",
+            "passed": true,
+            "output": ""
+          }
+        ],
+        "started_at": "2026-10-23T06:38:15.710798+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 51.359
+      },
+      {
+        "scenario": "compound-uplink-acl",
+        "components": [
+          "core-uplink-r6",
+          "database-ingress-acl"
+        ],
+        "checks": [
+          {
+            "label": "Application has the intended HTTP 503 symptom",
+            "node": "office",
+            "command": "test \"$(curl -s --max-time 6 -o /tmp/delivery-fault-body -w \"%{http_code}\" http://app.enterprise.test/)\" = 503 && grep -F \"database dependency unavailable\" /tmp/delivery-fault-body",
+            "passed": true,
+            "output": "app: database dependency unavailable"
+          },
+          {
+            "label": "Database remains healthy from unaffected operations path",
+            "node": "ops",
+            "command": "curl -fsS --max-time 6 http://10.30.20.10:8080/ | grep -F \"database: healthy\"",
+            "passed": true,
+            "output": "database: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:39:07.077642+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 53.289
+      },
+      {
+        "scenario": "compound-ospf-gateway",
+        "components": [
+          "ospf-passive-r7",
+          "gateway-service-r8"
+        ],
+        "checks": [
+          {
+            "label": "Redundant paths preserve application access",
+            "node": "staff",
+            "command": "curl -fsS --max-time 6 http://app.enterprise.test/ | grep -F \"app: healthy\"",
+            "passed": true,
+            "output": "app: healthy"
+          },
+          {
+            "label": "Branch primary retains the engineering gateway",
+            "node": "r7",
+            "command": "ip -4 addr | grep -F '10.20.10.1/24'",
+            "passed": true,
+            "output": "inet 10.20.10.1/24 scope global secondary eth3.210"
+          },
+          {
+            "label": "Passive OSPF failure leaves the physical interface up",
+            "node": "r7",
+            "command": "test \"$(cat /sys/class/net/eth0/operstate)\" = up",
+            "passed": true,
+            "output": ""
+          }
+        ],
+        "started_at": "2026-10-23T06:40:00.375839+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 53.226
+      },
+      {
+        "scenario": "database-acl",
+        "components": [
+          "database-acl"
+        ],
+        "checks": [
+          {
+            "label": "Application has the intended HTTP 503 symptom",
+            "node": "office",
+            "command": "test \"$(curl -s --max-time 6 -o /tmp/delivery-fault-body -w \"%{http_code}\" http://app.enterprise.test/)\" = 503 && grep -F \"database dependency unavailable\" /tmp/delivery-fault-body",
+            "passed": true,
+            "output": "app: database dependency unavailable"
+          },
+          {
+            "label": "Database remains healthy from unaffected operations path",
+            "node": "ops",
+            "command": "curl -fsS --max-time 6 http://10.30.20.10:8080/ | grep -F \"database: healthy\"",
+            "passed": true,
+            "output": "database: healthy"
+          }
+        ],
+        "started_at": "2026-10-23T06:40:53.609990+00:00",
+        "passed": true,
+        "restored": true,
+        "seconds": 51.425
+      }
+    ],
+    "pending": [],
+    "suite_finished": true,
+    "model_evaluation": false,
+    "evidence": "results/delivery/live-20261023T063153Z.json"
+  },
+  "benchmark": {
+    "rerun": false,
+    "accuracy": null,
+    "client_target": [
+      0.5,
+      0.7
+    ],
+    "working_primary_metric": "exact RCA correct / all attempted diagnoses; confirm with client",
+    "status": "Not remeasured, as requested by the user"
+  },
+  "known_limits": [
+    "Automatic SADE evaluation is adapted only for enterprise-75; other catalogs are not equivalent to executable automatic benchmarks.",
+    "No new model-backed end-to-end evaluation, diagnostic accuracy measurement or paid API cost measurement.",
+    "Client UAT, independent installation in the intended client environment, and final sign-off remain pending.",
+    "No source-code line/branch coverage percentage, broad performance SLA, full accessibility conformance or cross-browser claim is made.",
+    "Offline live-test skips are counted separately from the explicitly opted-in real-network suite; browser parent groups and pytest subtests are not extra test cases."
+  ],
+  "fixed_findings": [
+    "Repeated paths to the same result file previously inflated attempted counts; resolved paths are now deduplicated.",
+    "Malformed saved report shapes previously crashed the report index; invalid entries are now skipped without hiding valid reports."
+  ]
+}

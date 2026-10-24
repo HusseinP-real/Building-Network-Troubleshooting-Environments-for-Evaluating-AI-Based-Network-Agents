@@ -8,6 +8,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 import threading
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -17,6 +18,10 @@ from urllib.parse import parse_qs, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 STATIC = Path(__file__).resolve().parent
 RESULTS = ROOT / "results" / "sade"
+sys.path.insert(0, str(STATIC))
+from fault_runtime import topologies, catalog, selected, support, Conflict
+from operation_control import Operations, sanitized
+
 MODEL_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,99}$")
 CASE_COUNT = len(json.loads((ROOT / "tools" / "sade_cases.json").read_text()))
 
@@ -34,6 +39,10 @@ class RunState:
         self.repeats = 1
         self.lines: list[str] = []
         self.process: subprocess.Popen | None = None
+        self.operations = Operations(python)
+        self.case_count = CASE_COUNT
+        self.fault_id = None
+        self.completion_count = 0
 
     def snapshot(self) -> dict:
         with self.lock:
@@ -44,7 +53,10 @@ class RunState:
                 "returncode": self.returncode,
                 "report": self.report,
                 "repeats": self.repeats,
-                "case_count": CASE_COUNT,
+                "case_count": self.case_count,
+                "topology_id": "enterprise-75",
+                "fault_id": self.fault_id,
+                "completion_count": self.completion_count,
                 "lines": self.lines[-160:],
             }
 
@@ -56,10 +68,16 @@ class RunState:
         prompt_style: str = "generic",
         tool_profile: str = "atomic",
         judge_model: str | None = None,
+        fault_id: str | None = None,
     ) -> bool:
         with self.lock:
             if self.running:
                 return False
+            count = len(selected("enterprise-75", fault_id)["case_ids"]) if fault_id else CASE_COUNT
+            lease = self.operations.reserve_auto("enterprise-75")
+            self.fault_id = fault_id
+            self.case_count = count
+            self.completion_count = 0
             self.running = True
             self.started_at = datetime.now(timezone.utc).isoformat()
             self.finished_at = None
@@ -67,13 +85,19 @@ class RunState:
             self.report = None
             self.repeats = repeats
             self.lines = [
-                f"Starting {repeats} pass(es) × {CASE_COUNT} scenarios with {model} ({mode})…"
+                f"Starting {repeats} pass(es) × {self.case_count} scenarios with {model} ({mode})…"
             ]
-        threading.Thread(
-            target=self._run,
-            args=(model, repeats, mode, prompt_style, tool_profile, judge_model),
-            daemon=True,
-        ).start()
+        try:
+            threading.Thread(
+                target=self._run,
+                args=(model, repeats, mode, prompt_style, tool_profile, judge_model, fault_id, lease),
+                daemon=True,
+            ).start()
+        except Exception:
+            lease.release()
+            with self.lock:
+                self.running = False
+            raise
         return True
 
     def _run(
@@ -84,6 +108,8 @@ class RunState:
         prompt_style: str = "generic",
         tool_profile: str = "atomic",
         judge_model: str | None = None,
+        fault_id: str | None = None,
+        lease=None,
     ) -> None:
         command = [
             str(self.python),
@@ -103,9 +129,13 @@ class RunState:
             "--tool-profile",
             tool_profile,
         ]
+        if fault_id:
+            command.extend(["--cases", *selected("enterprise-75", fault_id)["case_ids"]])
         if judge_model:
             command.extend(["--judge-model", judge_model])
         try:
+            environment = os.environ.copy()
+            environment["SADE_ENV_LOCK_FD"] = str(lease.file.fileno())
             process = subprocess.Popen(
                 command,
                 cwd=ROOT,
@@ -113,15 +143,18 @@ class RunState:
                 stderr=subprocess.STDOUT,
                 text=True,
                 bufsize=1,
-                env=os.environ.copy(),
+                env=environment,
+                pass_fds=(lease.file.fileno(),),
             )
             with self.lock:
                 self.process = process
             assert process.stdout is not None
             for raw in process.stdout:
-                line = raw.rstrip("\n")
+                line = sanitized(raw.rstrip("\n"))
                 with self.lock:
                     self.lines.append(line)
+                    if re.match(r"^  (scored|error);", line):
+                        self.completion_count += 1
                     if len(self.lines) > 500:
                         self.lines = self.lines[-500:]
                     if line.startswith("Summary: "):
@@ -132,10 +165,13 @@ class RunState:
                         ):
                             self.report = candidate.name
             code = process.wait()
-        except (OSError, ValueError) as exc:
+        except Exception as exc:
             code = -1
             with self.lock:
-                self.lines.append(f"Unable to start benchmark: {exc}")
+                self.lines.append(sanitized(f"Unable to start benchmark: {exc}"))
+        finally:
+            if lease:
+                lease.release()
         with self.lock:
             self.returncode = code
             self.finished_at = datetime.now(timezone.utc).isoformat()
@@ -156,6 +192,18 @@ def report_index() -> list[dict]:
     for path in report_files():
         try:
             data = json.loads(path.read_text())
+            if not isinstance(data, dict):
+                continue
+            runs = data.get("runs", [])
+            metrics = data.get("metrics", {})
+            if (
+                not isinstance(runs, list)
+                or any(not isinstance(run, dict) for run in runs)
+                or not isinstance(metrics, dict)
+                or any(not isinstance(metrics.get(key, {}), dict)
+                       for key in ("rca_exact", "full_correct"))
+            ):
+                continue
             rows.append(
                 {
                     "id": path.name,
@@ -213,33 +261,20 @@ class Handler(BaseHTTPRequestHandler):
             return self._file(STATIC / "style.css", "text/css; charset=utf-8")
         if parsed.path == "/app.js":
             return self._file(STATIC / "app.js", "text/javascript; charset=utf-8")
+        if parsed.path == "/faults.js":
+            return self._file(STATIC / "faults.js", "text/javascript; charset=utf-8")
         if parsed.path == "/topology.js":
             return self._file(STATIC / "topology.js", "text/javascript; charset=utf-8")
-        topologies = {
-            "enterprise-75": {
-                "name": "Enterprise Topology",
-                "inventory": ROOT / "inventory.json",
-                "scenario_count": CASE_COUNT,
-                "evaluation_enabled": True,
-            },
-            "enterprise-75-standalone": {
-                "name": "Enterprise Topology · Standalone",
-                "inventory": STATIC / "topologies" / "enterprise-75-standalone.json",
-                "scenario_count": 0,
-                "evaluation_enabled": False,
-            },
-        }
-        for item in json.loads((STATIC / "topologies/catalog.json").read_text()):
-            topologies[item["id"]] = {**item, "inventory": STATIC / "topologies" / item["inventory"]}
+        topology_map = topologies()
         if parsed.path == "/api/topologies":
             return self._json(200, [
                 {"id": key, "name": item["name"],
                  "evaluation_enabled": item["evaluation_enabled"]}
-                for key, item in topologies.items()
+                for key, item in topology_map.items()
             ])
         if parsed.path == "/api/topology":
             topology_id = parse_qs(parsed.query).get("id", ["enterprise-75"])[0]
-            topology = topologies.get(topology_id)
+            topology = topology_map.get(topology_id)
             if topology is None:
                 return self._json(404, {"error": "Topology not found"})
             try:
@@ -258,8 +293,11 @@ class Handler(BaseHTTPRequestHandler):
                     }
                 except (OSError, ValueError, KeyError):
                     pass
+            executable, runtime_note = support(topology_id)
             return self._json(200, {
                 "id": topology_id,
+                "execution_enabled": executable,
+                "support_reason": runtime_note,
                 "name": topology["name"],
                 "nodes": inventory["nodes"],
                 "links": inventory["links"],
@@ -268,11 +306,20 @@ class Handler(BaseHTTPRequestHandler):
                 "health": health,
                 "layout": inventory.get("layout", "enterprise"),
                 "protocols": inventory.get("protocols", "OSPF · VRRP · VLAN"),
-                "note": inventory.get("note"),
+                "note": runtime_note if executable else inventory.get("note"),
                 "source_path": inventory.get("source_path"),
                 "source_commit": inventory.get("source_commit"),
                 "scenarios": inventory.get("scenarios", []),
             })
+        if parsed.path in ("/api/faults", "/api/manual/status"):
+            topology_id = parse_qs(parsed.query).get("topology_id", [""])[0]
+            try:
+                data = catalog(topology_id) if parsed.path == "/api/faults" else self.state.operations.snapshot(topology_id)
+                return self._json(200, data)
+            except ValueError as exc:
+                return self._json(400, {"error": str(exc)})
+            except (OSError, KeyError) as exc:
+                return self._json(503, {"error": "Runtime journal or adapter unavailable"})
         if parsed.path == "/api/status":
             return self._json(200, self.state.snapshot())
         if parsed.path == "/api/reports":
@@ -288,9 +335,17 @@ class Handler(BaseHTTPRequestHandler):
         self._json(404, {"error": "Not found"})
 
     def do_POST(self) -> None:
-        if self.path != "/api/run":
+        if self.path not in ("/api/run", "/api/manual"):
             return self._json(404, {"error": "Not found"})
         # Browser requests must originate from this loopback server.
+        try:
+            host = urlparse("http://" + self.headers.get("Host", "")).hostname
+        except ValueError:
+            return self._json(403, {"error": "Invalid loopback host"})
+        if host not in ("127.0.0.1", "localhost", "::1"):
+            return self._json(403, {"error": "Loopback host required"})
+        if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
+            return self._json(415, {"error": "application/json required"})
         origin = self.headers.get("Origin", "")
         if origin and origin != f"http://{self.headers.get('Host', '')}":
             return self._json(403, {"error": "Invalid origin"})
@@ -299,6 +354,30 @@ class Handler(BaseHTTPRequestHandler):
             if length < 1 or length > 4096:
                 raise ValueError("Invalid request size")
             payload = json.loads(self.rfile.read(length))
+            if not isinstance(payload, dict):
+                raise ValueError("Request must be a JSON object")
+            allowed = {"topology_id", "fault_id", "action"} if self.path == "/api/manual" else {
+                "topology_id", "fault_id", "scope", "model", "judge_model", "repeats", "mode", "prompt_style", "tool_profile"}
+            if set(payload) - allowed:
+                raise ValueError("Unexpected request fields")
+            topology_id = payload.get("topology_id")
+            fault_id = payload.get("fault_id")
+            if not isinstance(topology_id, str) or topology_id not in topologies():
+                raise ValueError("Unknown topology ID")
+            if not isinstance(fault_id, str):
+                raise ValueError("A fault ID is required")
+            row = selected(topology_id, fault_id)
+            if self.path == "/api/manual":
+                action = payload.get("action")
+                if not isinstance(action, str):
+                    raise ValueError("A manual action is required")
+                self.state.operations.start(topology_id, action, fault_id)
+                return self._json(202, self.state.operations.snapshot(topology_id))
+            if topology_id != "enterprise-75":
+                raise ValueError("Automatic evaluation is not adapted for the selected topology")
+            scope = payload.get("scope", "selected")
+            if scope not in ("selected", "all"):
+                raise ValueError("Invalid evaluation scope")
             model = payload.get("model", "claude-haiku-5-5")
             judge_model = payload.get("judge_model")
             if judge_model == "same":
@@ -320,16 +399,26 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Invalid model ID")
             if type(repeats) is not int or not 1 <= repeats <= 10:
                 raise ValueError("Repeats must be between 1 and 10")
+        except Conflict as exc:
+            return self._json(409, {"error": str(exc)})
         except (ValueError, TypeError, json.JSONDecodeError) as exc:
             return self._json(400, {"error": str(exc)})
+        except (OSError, KeyError):
+            return self._json(503, {"error": "Runtime recovery journal unavailable; inspect it before proceeding"})
         if any(selected.startswith("deepseek-") for selected in (model, judge_model or model)) and not os.getenv("DEEPSEEK_API_KEY", "").strip():
             return self._json(400, {"error": "Set DEEPSEEK_API_KEY in the server terminal, then restart the dashboard"})
-        if not self.state.start(model, repeats, mode, prompt_style, tool_profile, judge_model):
-            return self._json(409, {"error": "A benchmark is already running"})
+        try:
+            if not self.state.start(model, repeats, mode, prompt_style, tool_profile, judge_model,
+                                    fault_id if scope == "selected" else None):
+                return self._json(409, {"error": "A benchmark is already running"})
+        except Conflict as exc:
+            return self._json(409, {"error": str(exc)})
+        except (OSError, ValueError, KeyError):
+            return self._json(503, {"error": "Runtime recovery journal unavailable; inspect it before proceeding"})
         self._json(202, self.state.snapshot())
 
     def log_message(self, format: str, *args: object) -> None:
-        if not self.path.startswith("/api/status"):
+        if not self.path.startswith(("/api/status", "/api/manual/status")):
             super().log_message(format, *args)
 
 
