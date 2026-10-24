@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+ip link set eth0 up
+ip addr replace 10.10.9.100/24 dev eth0
+ip route replace default via 10.10.9.1
+mkdir -p /var/www/html
+echo "Campus80 service srv07" > /var/www/html/index.html
+(command -v python3 >/dev/null && nohup python3 -m http.server 8080 --directory /var/www/html >/tmp/http.log 2>&1 &) || true

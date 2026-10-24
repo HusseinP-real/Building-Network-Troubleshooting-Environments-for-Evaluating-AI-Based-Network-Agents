@@ -1,0 +1,27 @@
+=== FAULT STATE ===
+
+--- Routing table ---
+default via 172.16.20.254 dev eth0 
+172.16.20.0/24 dev eth0 proto kernel scope link src 172.16.20.10 
+
+--- Local gateway test ---
+PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.
+64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=1.44 ms
+64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=4.51 ms
+64 bytes from 172.16.20.1: icmp_seq=3 ttl=64 time=3.24 ms
+64 bytes from 172.16.20.1: icmp_seq=4 ttl=64 time=2.04 ms
+
+--- 172.16.20.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 1.438/2.807/4.509/1.177 ms
+
+--- Remote connectivity test ---
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 172.16.20.10 icmp_seq=1 Destination Host Unreachable
+From 172.16.20.10 icmp_seq=2 Destination Host Unreachable
+From 172.16.20.10 icmp_seq=3 Destination Host Unreachable
+From 172.16.20.10 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3090ms
+pipe 3

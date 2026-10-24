@@ -1,0 +1,28 @@
+=== KAIROS WRONG DEFAULT GATEWAY SCENARIO ===
+STATE: FAULT INJECTED
+
+Device: laptop0
+IP address: 172.16.20.10
+
+Injected configuration:
+ip route del default
+ip route add default via 172.16.20.254 dev eth0
+
+Routing table after injection:
+default via 172.16.20.254 dev eth0
+172.16.20.0/24 dev eth0 proto kernel scope link src 172.16.20.10
+
+Local gateway test:
+Target: 172.16.20.1
+Packets: 4 transmitted, 4 received
+Packet loss: 0%
+
+Remote connectivity test:
+Target: 192.168.100.1
+Packets: 4 transmitted, 0 received
+Packet loss: 100%
+Observed symptom: Destination Host Unreachable
+
+RESULT: PASS
+Fault successfully reproduced.
+Local subnet remains reachable while remote connectivity fails.

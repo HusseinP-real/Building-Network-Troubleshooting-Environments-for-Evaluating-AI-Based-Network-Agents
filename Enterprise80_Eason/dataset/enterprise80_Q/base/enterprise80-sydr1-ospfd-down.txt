@@ -1,0 +1,51 @@
+==================================================
+Scenario: enterprise80-sydr1-ospfd-down
+Topology: Enterprise80
+Fault family: routing daemon failure (OSPF process down)
+==================================================
+
+[PROMPT-TO-AGENT]
+Users on the Sydney Staff LAN (10.10.10.0/24) report that their local gateway is reachable, but remote enterprise services such as the data-centre web subnet are unreachable. Other sites still appear to communicate normally. Diagnose the Sydney problem.
+
+[INJECTION]
+device: sydr1
+action: stop the OSPF daemon while leaving interfaces and IP addresses up
+cmd: |
+  pkill ospfd
+
+[POST-INJECT-CHECK]
+sydr1  ip -br addr                                      => interfaces remain UP
+sydr1  vtysh -c "show ip ospf neighbor"                 => OSPF unavailable/no neighbours
+dcr1   ip route | grep 10.10.10.0                       => route withdrawn/absent
+sydpc1 ping -W2 -c2 10.100.10.11                        => expect loss>0
+
+[GROUND-TRUTH]
+Affected component: OSPF routing process on sydr1
+Mechanism: sydr1 remains physically connected and its LAN gateway remains reachable, but ospfd is stopped. The router therefore stops participating in OSPF and stops advertising Sydney LAN1 (10.10.10.0/24). Remote routers withdraw the route, breaking return-path reachability for hosts behind sydr1.
+Localization: sydr1
+Root cause: OSPF daemon (ospfd) stopped on sydr1
+Fix: restart FRR/OSPF on sydr1 using `/etc/init.d/frr restart`
+
+[FIX]
+restart FRR/OSPF on sydr1 -- `/etc/init.d/frr restart`
+
+[DIAGNOSTIC-PROCESS]
+1. Confirm sydpc1 can reach its gateway 10.10.10.1.
+2. Confirm the physical interfaces on sydr1 are still UP.
+3. Inspect sydr1 routing and OSPF neighbour state.
+4. Check whether the OSPF process is running.
+5. From a remote router, confirm 10.10.10.0/24 has been withdrawn.
+6. Localize the fault to sydr1's routing process rather than a link failure.
+7. Restart FRR/OSPF.
+8. Wait for convergence, then verify neighbours, routes and end-to-end ping.
+
+[SCORING-AXES]
+assert-identifies: sydr1
+must-identify-device: sydr1
+must-identify-component: OSPF / ospfd routing process
+must-identify-cause: OSPF daemon stopped/down
+
+[NIKA-LABEL]
+nika_label: routing_daemon_down
+nika_category: ROUTING_FAILURE
+in_taxonomy: true

@@ -1,0 +1,37 @@
+{
+  "scenario_id": "SARAH-SVC-002",
+  "topology": "Sarah_Service_Network",
+  "fault_present": true,
+  "fault_type": "dhcp_service_down",
+  "fault_location": "dhcp",
+  "affected_service": "DHCP",
+  "affected_port": 67,
+  "user_ticket": "My computer cannot obtain an IP address automatically, so I cannot connect to the company network.",
+  "root_cause": "The dnsmasq DHCP service on the DHCP server has been stopped.",
+  "expected_healthy_behavior": {
+    "client": "pc2",
+    "dhcp_server": "10.20.1.2",
+    "address_pool": "10.20.1.100-10.20.1.150",
+    "result": "PC2 successfully obtains an IPv4 address using DHCP."
+  },
+  "fault_injection": {
+    "command": "python3 -m kathara exec dhcp -- sh -c 'kill \"$(cat /tmp/sarah-dhcp.pid)\"'",
+    "expected_result": "The DHCP server stops responding to new DHCP requests."
+  },
+  "fault_validation": {
+    "command": "python3 -m kathara exec pc2 -- sh -c 'dhclient -r eth0 2>/dev/null; ip addr flush dev eth0; timeout 25 dhclient -1 -v eth0'",
+    "expected_result": "PC2 sends DHCPDISCOVER messages but receives no DHCPOFFER.",
+    "observed_result": "PC2 did not obtain an IPv4 address.",
+    "status": "PASS"
+  },
+  "recovery": {
+    "command": "python3 -m kathara exec dhcp -- dnsmasq --conf-file=/etc/sarah-dhcp.conf --pid-file=/tmp/sarah-dhcp.pid",
+    "expected_result": "The DHCP service resumes responding to client requests."
+  },
+  "recovery_validation": {
+    "client": "pc2",
+    "assigned_ip": "10.20.1.102",
+    "observed_result": "PC2 received DHCPOFFER and DHCPACK and successfully obtained an IPv4 address.",
+    "status": "PASS"
+  }
+}

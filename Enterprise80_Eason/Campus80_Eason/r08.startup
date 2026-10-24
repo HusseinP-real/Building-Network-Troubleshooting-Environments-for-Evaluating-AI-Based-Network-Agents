@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+ip link set eth0 up
+ip addr replace 10.250.6.2/30 dev eth0
+ip link set eth1 up
+ip addr replace 10.250.14.2/30 dev eth1
+ip link set eth2 up
+ip addr replace 10.250.17.1/30 dev eth2
+ip link set eth3 up
+ip addr replace 10.10.8.1/24 dev eth3
+# Enable required FRR daemons, even when the image has different defaults.
+for daemon in zebra ospfd; do
+  if grep -q "^${daemon}=" /etc/frr/daemons; then
+    sed -i "s/^${daemon}=.*/${daemon}=yes/" /etc/frr/daemons
+  else
+    echo "${daemon}=yes" >> /etc/frr/daemons
+  fi
+done
+chown frr:frr /etc/frr/frr.conf
+chmod 640 /etc/frr/frr.conf
+# FRR image may already have a daemon running; restart loads mounted config.
+/etc/init.d/frr restart || /etc/init.d/frr start
+# Fail loudly if OSPF is not available.
+sleep 2
+vtysh -c 'show ip ospf' >/dev/null

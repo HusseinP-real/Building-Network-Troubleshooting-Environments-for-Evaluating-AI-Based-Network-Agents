@@ -1,0 +1,27 @@
+=== RECOVERY STATE ===
+
+--- Routing table ---
+default via 172.16.20.1 dev eth0 
+172.16.20.0/24 dev eth0 proto kernel scope link src 172.16.20.10 
+
+--- Local gateway test ---
+PING 172.16.20.1 (172.16.20.1) 56(84) bytes of data.
+64 bytes from 172.16.20.1: icmp_seq=1 ttl=64 time=3.17 ms
+64 bytes from 172.16.20.1: icmp_seq=2 ttl=64 time=1.34 ms
+64 bytes from 172.16.20.1: icmp_seq=3 ttl=64 time=3.44 ms
+64 bytes from 172.16.20.1: icmp_seq=4 ttl=64 time=2.85 ms
+
+--- 172.16.20.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 1.340/2.701/3.439/0.812 ms
+
+--- Remote connectivity test ---
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=62 time=3.18 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=62 time=4.54 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=62 time=4.99 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=62 time=3.84 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 3.180/4.135/4.989/0.688 ms

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Enable client network interface
+ip link set eth0 up
+
+# Obtain IP address from DHCP server
+dhclient -1 eth0

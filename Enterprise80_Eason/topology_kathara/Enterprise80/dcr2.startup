@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+ip link set eth0 up
+ip addr replace 10.255.4.5/30 dev eth0
+ip link set eth1 up
+ip addr replace 10.255.4.10/30 dev eth1
+ip link set eth2 up
+ip addr replace 10.100.20.1/24 dev eth2
+sed -i 's/^ospfd=no/ospfd=yes/' /etc/frr/daemons
+/etc/init.d/frr restart
+sleep 2
+vtysh -c "configure terminal" \
+-c "router ospf" \
+-c "ospf router-id 12.12.12.12" \
+-c "network 10.255.4.4/30 area 0" \
+-c "network 10.255.4.8/30 area 0" \
+-c "network 10.100.20.0/24 area 0" \
+-c "end"

@@ -1,0 +1,43 @@
+{
+  "scenario_id": "kairos_dns_record_misconfiguration",
+  "topology": "EnterpriseTopology",
+  "fault_exists": true,
+  "fault_category": "dns_service_misconfiguration",
+  "fault_type": "incorrect_dns_a_record",
+  "affected_device": "infra",
+  "affected_service": "dnsmasq",
+  "dns_server_ip": "10.40.20.10",
+  "dns_configuration_file": "/etc/dnsmasq.conf",
+  "affected_hostname": "app.enterprise.test",
+  "correct_dns_record": "10.30.10.10",
+  "injected_dns_record": "10.30.10.99",
+  "test_client": "office",
+  "expected_symptoms": {
+    "hostname_resolves_to_wrong_ip": true,
+    "application_accessible_by_hostname": false,
+    "application_accessible_by_correct_ip": true,
+    "other_dns_records_unaffected": true
+  },
+  "root_cause": "The DNS A record for app.enterprise.test on the infra DNS server incorrectly points to 10.30.10.99 instead of 10.30.10.10.",
+  "expected_diagnosis": "DNS record misconfiguration on infra. The application server and IP connectivity remain functional.",
+  "required_fix": "Restore the app.enterprise.test A record to 10.30.10.10 and reload dnsmasq.",
+  "recovery": [
+    "Restore the original /etc/dnsmasq.conf configuration on infra",
+    "Restart dnsmasq",
+    "Verify correct DNS resolution from office",
+    "Verify application HTTP connectivity",
+    "Run the full topology health check"
+  ],
+  "recovery_success_criteria": {
+    "dns_record": "10.30.10.10",
+    "hostname_http_status": 200,
+    "direct_ip_http_status": 200,
+    "topology_health_checks_passed": 222,
+    "topology_health_checks_total": 222
+  },
+  "evidence": {
+    "healthy": "evidence/healthy.txt",
+    "fault": "evidence/fault.txt",
+    "recovery": "evidence/recovery.txt"
+  }
+}
