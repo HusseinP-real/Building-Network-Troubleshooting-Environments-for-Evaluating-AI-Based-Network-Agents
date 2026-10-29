@@ -13,7 +13,41 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "EnterpriseTopology/dashboard/topologies"
+# Jennie's candidate is not merged into main; retain an immutable source revision.
+JENNIE_REF = "2acf8e01660a8c5721126c022af0ce97a57feb07"
 SPECS = [
+    (
+        "p20-enterprise",
+        "P20 Enterprise · 75 devices",
+        "FaulT-Bench/topology_kathara/P20Enterprise",
+        ".",
+        [],
+        "OSPF",
+    ),
+    (
+        "sarah-enterprise-75",
+        "Sarah Enterprise · 75 devices",
+        "Sarah_Enterprise_75",
+        ".",
+        [],
+        "Static routing",
+    ),
+    (
+        "sarah-service-75",
+        "Sarah Service · 75 devices",
+        "Sarah_Service_75",
+        ".",
+        [],
+        "Static routing · DNS · DHCP",
+    ),
+    (
+        "jennie-enterprise-75",
+        "Jennie Enterprise · 75 devices (candidate)",
+        "Enterprise-SADE-W11-75",
+        "lab",
+        [],
+        "OSPF · eBGP",
+    ),
     (
         "datacenter-fabric",
         "Data Centre Fabric · 39 devices",
@@ -194,6 +228,16 @@ def export(ref):
             m.name: tar.extractfile(m).read() for m in tar.getmembers() if m.isfile()
         }
 
+    main_files = files
+    main_commit = commit
+    candidate_archive = subprocess.check_output(
+        ["git", "archive", JENNIE_REF], cwd=REPO
+    )
+    with tarfile.open(fileobj=io.BytesIO(candidate_archive)) as tar:
+        candidate_files = {
+            m.name: tar.extractfile(m).read() for m in tar.getmembers() if m.isfile()
+        }
+
     def read(path):
         return files.get(str(path), b"").decode("utf-8", errors="replace")
 
@@ -201,6 +245,8 @@ def export(ref):
     excluded = []
     outputs = {}
     for key, name, source, labpath, cases, protocols in SPECS:
+        files = candidate_files if key == "jennie-enterprise-75" else main_files
+        commit = JENNIE_REF if key == "jennie-enterprise-75" else main_commit
         base = Path(source)
         labbase = base if labpath == "." else base / labpath
         nodes = {}

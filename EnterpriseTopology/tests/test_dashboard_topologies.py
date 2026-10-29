@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 DASHBOARD = Path(__file__).resolve().parents[1] / "dashboard"
 spec = importlib.util.spec_from_file_location(
@@ -15,6 +16,11 @@ spec.loader.exec_module(server)
 
 
 class DashboardTopologyTests(unittest.TestCase):
+    def setUp(self):
+        validation = patch.object(server.generic_faults, 'validated', return_value=False)
+        validation.start()
+        self.addCleanup(validation.stop)
+
     def request(self, path):
         handler = object.__new__(server.Handler)
         handler.path = path
@@ -25,6 +31,10 @@ class DashboardTopologyTests(unittest.TestCase):
 
     def test_every_imported_device_and_edge_is_explorable(self):
         counts = {
+            "p20-enterprise": 75,
+            "sarah-enterprise-75": 75,
+            "sarah-service-75": 75,
+            "jennie-enterprise-75": 75,
             "multi-as-isp": 75,
             "multisite": 80,
             "jiayuan-75": 75,
@@ -58,12 +68,12 @@ class DashboardTopologyTests(unittest.TestCase):
     def test_catalog_and_existing_evaluation_stay_distinct(self):
         status, catalog = self.request("/api/topologies")
         self.assertEqual(status, 200)
-        self.assertEqual(len(catalog), 9)
+        self.assertEqual(len(catalog), 13)
         self.assertEqual(
-            [x["id"] for x in catalog if x["evaluation_enabled"]], ["enterprise-75"]
+            [x["id"] for x in catalog if x["evaluation_enabled"]], []
         )
         self.assertEqual(
-            self.request("/api/topology?id=enterprise-75")[1]["scenario_count"], 20
+            self.request("/api/topology?id=enterprise-75")[1]["scenario_count"], 5
         )
         self.assertEqual(self.request("/api/topology?id=../../secret")[0], 404)
         for excluded in (
@@ -76,28 +86,16 @@ class DashboardTopologyTests(unittest.TestCase):
         ):
             self.assertEqual(self.request("/api/topology?id=" + excluded)[0], 404)
 
-    def test_new_native_catalogs_preserve_identity_without_enabling_execution(self):
-        for key, count, target in [
-            ("kairos-enterprise", 8, "infra"),
-            ("campus80-eason", 1, "r01"),
-            ("enterprise80-eason", 1, "sydr1"),
-        ]:
+    def test_every_topology_offers_the_same_five_generic_cases(self):
+        for key in server.topologies():
             with self.subTest(topology=key):
-                status, rows = self.request("/api/faults?topology_id=" + key)
+                status, rows = self.request('/api/faults?topology_id=' + key)
                 self.assertEqual(status, 200)
-                self.assertEqual(len(rows), count)
-                self.assertTrue(any(target in row["targets"] for row in rows))
-                self.assertEqual(len({row["id"] for row in rows}), count)
-                inventory = self.request("/api/topology?id=" + key)[1]
-                self.assertEqual(
-                    set(inventory["scenarios"]), {row["id"] for row in rows}
-                )
+                self.assertEqual([row['id'] for row in rows], list(server.generic_faults.FAMILIES))
                 for row in rows:
-                    self.assertFalse(row["execution_enabled"])
-                    self.assertFalse(row["evaluation_enabled"])
-                    self.assertTrue(
-                        (DASHBOARD.parents[1] / row["source_path"]).is_file()
-                    )
+                    self.assertFalse(row['evaluation_enabled'])
+                    self.assertTrue(row['generic'])
+                    self.assertEqual(row['targets'], [] if row['kind'] == 'healthy' else [server.generic_faults.TARGETS[key]['source']['node']])
 
     def test_saved_snapshots_reproduce_from_their_pinned_revision(self):
         spec = importlib.util.spec_from_file_location(

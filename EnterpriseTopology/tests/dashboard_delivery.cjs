@@ -32,6 +32,8 @@ test('Client benchmark browser workflows (MOCK execution only)', {timeout: 12000
     await page.goto(url);
     await page.waitForFunction(() => !document.getElementById('runButton').disabled);
     assert.match(await page.locator('body').innerText(), /MOCK executor/);
+    await page.locator('#evaluationSettings > summary').click();
+    await choose(page, 'evaluationScope', 'Selected generic fault');
     return page;
   }
   async function choose(page, id, title) {
@@ -39,83 +41,119 @@ test('Client benchmark browser workflows (MOCK execution only)', {timeout: 12000
     await page.locator(`#${id}Menu`).getByText(title, {exact: true}).click();
   }
 
-  await t.test('selected topology/fault reaches the benchmark and its report', async () => {
+  await t.test('original suite submits twenty tickets with Opus and a fixed Haiku judge', async () => {
     const page = await open();
     try {
-      await choose(page, 'faultSelect', 'Gateway service · r8');
+      await choose(page, 'evaluationScope', 'Original Enterprise benchmark · 20 tickets');
+      await choose(page, 'model', 'Claude Opus 5.5');
+      await choose(page, 'judgeModel', 'Claude Haiku 5.5');
+      assert.match(await page.locator('#evaluationTarget').innerText(), /20 diagnoses/);
+      assert.equal(await page.locator('#faultSelect').isDisabled(), true);
+      const submitted = page.waitForRequest(request => request.url().endsWith('/api/run') && request.method() === 'POST');
+      await page.locator('#runButton').click();
+      const payload = (await submitted).postDataJSON();
+      assert.equal(payload.scope, 'enterprise20');
+      assert.equal(payload.repeats, 1);
+      assert.equal(payload.model, 'claude-opus-5-5');
+      assert.equal(payload.judge_model, 'claude-haiku-5-5');
+      await page.waitForFunction(() => document.getElementById('runBadge').textContent === 'Complete');
+      await page.waitForFunction(() => document.getElementById('runsTable').textContent.includes('compound-ospf-gateway'));
+    } finally { await page.close(); }
+  });
+
+  await t.test('GPT options explicitly submit Codex subscription agent and judge', async () => {
+    const page = await open();
+    try {
+      await choose(page, 'evaluationScope', 'Original Enterprise benchmark · 20 tickets');
+      await choose(page, 'model', 'GPT-6.1 Sol · Codex subscription');
+      await choose(page, 'judgeModel', 'GPT-6.1 Terra · Codex subscription');
+      const submitted = page.waitForRequest(request => request.url().endsWith('/api/run') && request.method() === 'POST');
+      await page.locator('#runButton').click();
+      const payload = (await submitted).postDataJSON();
+      assert.equal(payload.model, 'gpt-6.1-sol');
+      assert.equal(payload.judge_model, 'gpt-6.1-terra');
+      assert.equal(payload.scope, 'enterprise20');
+      await page.waitForFunction(() => document.getElementById('runBadge').textContent === 'Complete');
+    } finally { await page.close(); }
+  });
+
+  await t.test('selected generic fault and topology reach the benchmark report', async () => {
+    const page = await open();
+    try {
       const submitted = page.waitForRequest(request => request.url().endsWith('/api/run') && request.method() === 'POST');
       await page.locator('#runButton').click();
       const payload = (await submitted).postDataJSON();
       assert.equal(payload.topology_id, 'enterprise-75');
-      assert.equal(payload.fault_id, 'gateway-service-r8');
+      assert.equal(payload.fault_id, 'link_down');
       assert.equal(payload.scope, 'selected');
       await page.waitForFunction(() => document.getElementById('runBadge').textContent === 'Complete');
-      await page.waitForFunction(() => document.getElementById('runsTable').textContent.includes('gateway-service-r8'));
+      await page.waitForFunction(() => document.getElementById('runsTable').textContent.includes('link_down'));
       assert.match(await page.locator('#reportContext').innerText(), /MOCK FIXTURE/);
-      assert.equal(await page.locator('#manualTools').getAttribute('open'), null);
     } finally { await page.close(); }
   });
 
-  await t.test('topology selection refreshes faults and disables unadapted benchmark', async () => {
+  await t.test('all thirteen maps offer the same five generic faults', async () => {
     const page = await open();
     try {
-      // Use the real topology explorer selector, which synchronizes the run form.
+      assert.equal(await page.locator('#topologySelect option').count(), 13);
       await page.locator('#navTopology').click();
-      await page.locator('#mapTopologySelect').selectOption('multisite');
-      await page.waitForFunction(() => document.getElementById('faultSelect').options[0]?.value === 'F01');
-      assert.equal(await page.locator('#topologySelect').inputValue(), 'multisite');
-      assert.equal(await page.locator('#runButton').isDisabled(), true);
-      await page.locator('#navDashboard').click();
-      assert.match(await page.locator('#benchmarkSupport').innerText(), /not yet adapted/);
-      assert.match(await page.locator('#reportContext').innerText(), /Enterprise Topology/);
-    } finally { await page.close(); }
-  });
-
-  await t.test('partial compound injection blocks benchmark until targeted recovery', async () => {
-    const page = await open();
-    try {
-      await choose(page, 'faultSelect', 'Uplink + backend ACL');
-      await page.locator('#manualTools > summary').click();
-      await page.locator('#injectButton').click();
-      await page.waitForFunction(() => document.getElementById('manualStatus').textContent.includes('failed'));
-      assert.equal(await page.locator('#runButton').isDisabled(), true);
-      assert.match(await page.locator('#recoveryNoticeText').innerText(), /2 pending/);
-      await page.locator('#recoverButton').click();
-      await page.waitForFunction(() => document.getElementById('manualStatus').textContent.includes('recover') && document.getElementById('manualStatus').textContent.includes('succeeded'));
-      await page.waitForFunction(() => !document.getElementById('runButton').disabled);
-    } finally { await page.close(); }
-  });
-
-  await t.test('new native catalogs synchronize maps and keep execution disabled', async () => {
-    const page = await open();
-    try {
-      for (const [topology, count, target] of [['kairos-enterprise', 8, 'infra'],
-          ['campus80-eason', 1, 'r01'], ['enterprise80-eason', 1, 'sydr1']]) {
-        await page.locator('#navTopology').click();
-        await page.locator('#mapTopologySelect').selectOption(topology);
-        await page.waitForFunction(({id, count}) =>
-          document.getElementById('topologySelect').value === id &&
-          document.getElementById('faultSelect').options.length === count &&
-          document.getElementById('manualStatus').textContent.includes('Catalog only'),
-          {id: topology, count});
-        assert.equal(await page.locator('svg[aria-label*="network topology"]').count(), 1);
-        assert.equal(await page.locator('#runButton').isDisabled(), true);
-        for (const id of ['baselineButton', 'injectButton', 'verifyButton', 'recoverButton'])
-          assert.equal(await page.locator('#' + id).isDisabled(), true);
-        const faults = await (await page.request.get(`${url}/api/faults?topology_id=${topology}`)).json();
-        assert.ok(faults.some(row => row.targets.includes(target)));
-        assert.equal(await page.locator('#topologySelect').inputValue(), topology);
+      const ids = await page.locator('#mapTopologySelect option').evaluateAll(options => options.map(option => option.value));
+      for (const id of ids) {
+        await page.locator('#mapTopologySelect').selectOption(id);
+        await page.waitForFunction(id => document.getElementById('topologySelect').value === id &&
+          !document.getElementById('faultSelect').disabled && document.getElementById('faultSelect').options.length === 5, id);
+        assert.deepEqual(await page.locator('#faultSelect option').evaluateAll(options => options.map(option => option.value)),
+          ['link_down', 'wrong_gateway', 'route_blackhole', 'traffic_filter', 'healthy_control']);
+        const inventory = await (await page.request.get(`${url}/api/topology?id=${id}`)).json();
+        assert.ok(Object.values(inventory.nodes).filter(node => !node.virtual).length >= 75);
       }
     } finally { await page.close(); }
   });
 
-  await t.test('healthy control cannot be manually injected', async () => {
+  await t.test('validation enables only the selected topology and fault', async () => {
+    const page = await open();
+    try {
+      await page.locator('#navTopology').click();
+      await page.locator('#mapTopologySelect').selectOption('multisite');
+      await page.waitForFunction(() => document.getElementById('topologySelect').value === 'multisite' && !document.getElementById('validateFaultButton').disabled);
+      await page.locator('#navDashboard').click();
+      assert.equal(await page.locator('#runButton').isDisabled(), true);
+      await choose(page, 'faultSelect', 'Incorrect default gateway');
+      await page.locator('#validateFaultButton').click();
+      await page.waitForFunction(() => !document.getElementById('runButton').disabled);
+      await choose(page, 'faultSelect', 'Destination route blackhole');
+      assert.equal(await page.locator('#runButton').isDisabled(), true);
+      await choose(page, 'faultSelect', 'Incorrect default gateway');
+      const submitted = page.waitForRequest(request => request.url().endsWith('/api/run') && request.method() === 'POST');
+      await page.locator('#runButton').click();
+      const payload = (await submitted).postDataJSON();
+      assert.equal(payload.topology_id, 'multisite');
+      assert.equal(payload.fault_id, 'wrong_gateway');
+      await page.waitForFunction(() => document.getElementById('runBadge').textContent === 'Complete');
+    } finally { await page.close(); }
+  });
+
+  await t.test('pending generic injection blocks runs until recovery completes', async () => {
+    const page = await open();
+    try {
+      await page.locator('#manualTools > summary').click();
+      await page.locator('#injectButton').click();
+      await page.waitForFunction(() => document.getElementById('manualStatus').textContent.includes('succeeded'));
+      assert.equal(await page.locator('#runButton').isDisabled(), true);
+      assert.match(await page.locator('#recoveryNoticeText').innerText(), /1 pending/);
+      await page.locator('#recoverButton').click();
+      await page.waitForFunction(() => !document.getElementById('runButton').disabled);
+    } finally { await page.close(); }
+  });
+
+  await t.test('healthy control has no injection and can be validated independently', async () => {
     const page = await open();
     try {
       await choose(page, 'faultSelect', 'Healthy network');
       await page.locator('#manualTools > summary').click();
       assert.equal(await page.locator('#injectButton').isDisabled(), true);
-      assert.equal(await page.locator('#runButton').isDisabled(), false);
+      await page.locator('#validateFaultButton').click();
+      await page.waitForFunction(() => !document.getElementById('runButton').disabled);
       assert.match(await page.locator('#faultKind').innerText(), /no fault injected/);
     } finally { await page.close(); }
   });
@@ -128,7 +166,7 @@ test('Client benchmark browser workflows (MOCK execution only)', {timeout: 12000
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('End');
       await page.keyboard.press('Enter');
-      assert.equal(await page.locator('#faultSelect').inputValue(), 'compound-ospf-gateway');
+      assert.equal(await page.locator('#faultSelect').inputValue(), 'healthy_control');
     } finally { await page.close(); }
   });
 });

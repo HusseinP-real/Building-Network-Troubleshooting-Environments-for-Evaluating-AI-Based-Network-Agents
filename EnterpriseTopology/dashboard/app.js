@@ -13,7 +13,6 @@ const caseNames = {
   'database-acl': 'Database ACL',
 };
 let selectedReport = '';
-let lastRunning = false;
 let lastFinished = '';
 
 const iconPaths = {
@@ -276,6 +275,13 @@ function render(report) {
   const runs = report.runs || [];
   const mechanisms = [...new Set(runs.flatMap(run => run.faults?.length ? run.faults : [run.fault || 'healthy control']))];
   $('reportContext').textContent = `Saved report · ${report.topology_name || 'Enterprise Topology'} · ${report.attempted ?? runs.length} attempts · ${mechanisms.length <= 3 ? mechanisms.join(', ') : mechanisms.length + ' fault mechanisms / controls'}. Changing the configuration prepares a new run.`;
+  const versions = [...new Set(runs.map(r => r.source_scorer_version || r.score?.scorer_version || 'legacy'))];
+  const reviewCount = runs.filter(r => r.score?.repair_review_required).length;
+  const formatCount = runs.filter(r => r.score?.format_compliant === false).length;
+  $('reportContext').textContent += ` Scoring: ${versions.join(', ')} · ${reviewCount} repairs awaiting review · ${formatCount} summary-format warnings. Compare models with the same judge, scoring version and run settings.`;
+  if (runs.some(run => run.auth_mode === 'codex-subscription')) {
+    $('reportContext').textContent += ' GPT diagnosis uses your Codex subscription quota; dollar API cost is not recorded. Tool interaction uses a bounded JSON-to-MCP bridge.';
+  }
   const headline = report.metrics?.full_correct ? 'full_correct' : 'rca_exact';
   $('exactLabel').textContent = headline === 'full_correct' ? 'Full correctness' : 'Exact RCA fields · legacy';
   $('exactValue').textContent = report.metrics?.[headline]?.scored_denominator === 0 ? '—' : pct(rate(report, headline));
@@ -315,8 +321,11 @@ function render(report) {
     const tr = element('tr');
     tr.append(element('td', 'table-case', caseNames[run.case] || run.case));
     tr.append(element('td', '', run.model || '—'));
-    [run.score?.rca_exact, run.score?.explanation_correct, run.score?.repair_correct, run.score?.full_correct, run.state_verified ?? run.injection_verified, run.repair_verified].forEach(v => {
-      const td = element('td'); td.append(pill(v)); tr.append(td);
+    [run.score?.rca_exact, run.score?.explanation_correct, run.score?.repair_correct, run.score?.full_correct, run.state_verified ?? run.injection_verified, run.repair_verified].forEach((v, index) => {
+      const td = element('td');
+      const badge = pill(v);
+      if (v == null && run.score?.repair_review_required && [2, 3].includes(index)) badge.textContent = 'REVIEW';
+      td.append(badge); tr.append(td);
     });
     tr.append(element('td', '', typeof run.wall_seconds === 'number' ? `${fmtNumber(run.wall_seconds, 1)}s` : '—'));
     tr.append(element('td', '', run.tool_calls ?? '—'));
@@ -365,6 +374,8 @@ async function pollStatus() {
   try {
     const state = await json('/api/status');
     window.dispatchEvent(new CustomEvent('benchmark-status', {detail: state}));
+    const note = document.getElementById('claudeAuthMode');
+    if (note && state.claude_auth_preference) note.textContent = `Claude authentication: ${state.claude_auth_preference}. Applies to both diagnosis and judge.`;
     $('model').disabled = state.running;
     $('judgeModel').disabled = state.running;
     $('repeats').disabled = state.running;
@@ -379,11 +390,10 @@ async function pollStatus() {
       $('runBadge').className = `badge ${state.running ? 'running' : state.returncode === 0 ? 'done' : 'failed'}`;
       $('runBadge').textContent = state.running ? 'Running' : state.returncode === 0 ? 'Complete' : 'Check log';
     }
-    if (lastRunning && !state.running && state.finished_at !== lastFinished) {
+    if (!state.running && state.finished_at && state.finished_at !== lastFinished) {
       lastFinished = state.finished_at;
       await loadReports(state.report);
     }
-    lastRunning = state.running;
   } catch (error) {
     $('runTitle').textContent = `Connection issue: ${error.message}`;
   }

@@ -13,17 +13,18 @@ import shlex
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+ROOT = PROJECT_ROOT
 sys.path.insert(0, str(ROOT))
 import lab
 from environment_guard import Lease, evaluation_session
 
 CASES = json.loads((ROOT / "tools" / "sade_cases.json").read_text())
 BENCHMARK_VERSION = "3.0"
-SCORER_VERSION = "3.0"
+SCORER_VERSION = "4.0"
 MANIFEST_HASH = hashlib.sha256(json.dumps(CASES, sort_keys=True).encode()).hexdigest()
 INVENTORY = json.loads((ROOT / "inventory.json").read_text())
 ONTOLOGY = {
@@ -32,6 +33,21 @@ ONTOLOGY = {
     "ospf_passive_interface": "A routed OSPF interface is incorrectly configured passive.",
     "backend_acl_reject": "A source or destination firewall rejects application-to-backend traffic.",
 }
+GENERIC_TOPOLOGY = os.environ.get('SADE_GENERIC_TOPOLOGY')
+if GENERIC_TOPOLOGY:
+    import generic_faults
+    lab = generic_faults.Adapter(GENERIC_TOPOLOGY)
+    ROOT = lab.ROOT
+    CASES = lab.cases()
+    BENCHMARK_VERSION = 'generic-1.0'
+    MANIFEST_HASH = generic_faults.fingerprint(GENERIC_TOPOLOGY)
+    ONTOLOGY = {key: title for key, title in generic_faults.FAMILIES.items() if key != 'healthy_control'}
+    if GENERIC_TOPOLOGY == 'enterprise-75':
+        inventory_path = PROJECT_ROOT / 'inventory.json'
+    else:
+        inventory_path = PROJECT_ROOT / 'dashboard/topologies' / (GENERIC_TOPOLOGY + '.json')
+    INVENTORY = json.loads(inventory_path.read_text())
+
 SYSTEM_PROMPT = """You are SADE, a symptom-aware network diagnostician. Investigate this live Kathara lab and submit a structured root-cause diagnosis.
 
 Follow five phases:
@@ -98,7 +114,11 @@ def _agent_dir(nika_root: Path) -> Path:
 
 def _topology_overview() -> str:
     nodes = INVENTORY["nodes"]
-    lines = [f"{len(nodes)} devices, {len(INVENTORY['links'])} point-to-point links."]
+    if GENERIC_TOPOLOGY:
+        real_count = sum(not node.get('virtual') for node in nodes.values())
+        lines = [f"{real_count} real devices, {len(INVENTORY['links'])} drawn connections. Nodes prefixed lan: represent shared LANs, not additional devices."]
+    else:
+        lines = [f"{len(nodes)} devices, {len(INVENTORY['links'])} point-to-point links."]
     for role in ("router", "switch", "host"):
         names = [name for name, meta in nodes.items() if meta["role"] == role]
         lines.append(f"{role}s: {', '.join(names)}")
@@ -113,6 +133,12 @@ def _resource_catalog() -> str:
     # The resource catalog is public, as in NIKA. The expected pair remains
     # private until scoring; every router interface and possible owner appears.
     rows = []
+    if GENERIC_TOPOLOGY:
+        for name, meta in INVENTORY['nodes'].items():
+            if not meta.get('virtual'):
+                rows.extend(f'interface/{name}/{port["interface"]}' for port in meta['ports'])
+                rows.extend([f'routing/{name}/default', f'routing/{name}/blackhole', f'policy/{name}/output-icmp'])
+        return '\n'.join(rows)
     for name, meta in INVENTORY["nodes"].items():
         if meta["role"] == "router":
             rows.extend(
@@ -248,7 +274,41 @@ def expected_causes(case_name: str) -> list[dict]:
     )
 
 
-def repair_actions_correct(case_name: str, actions) -> bool:
+def canonical_repair(command):
+    """Conservative equivalence rules; never execute submitted commands."""
+    tokens = shlex.split(command)
+    if tokens[:3] == ["ip", "link", "set"]:
+        tail = tokens[3:]
+        if tail[:1] == ["dev"]:
+            tail = tail[1:]
+        if len(tail) == 2 and tail[1] in {"up", "down"}:
+            return ("ip-link", *tail)
+    if tokens[:1] == ["iptables"]:
+        aliases = {"--delete": "-D", "--source": "-s", "--destination": "-d",
+                   "--protocol": "-p", "--jump": "-j", "--match": "-m"}
+        parts = tokens[1:]
+        if len(parts) % 2 == 0:
+            opts = {}
+            for key, value in zip(parts[::2], parts[1::2]):
+                key = aliases.get(key, key)
+                if key in opts or key not in {"-D", "-s", "-d", "-p", "-j", "-m", "--dport", "--reject-with", "-t"}:
+                    return tuple(tokens)
+                opts[key] = value
+            if "-D" in opts:
+                for key in ("-s", "-d"):
+                    if opts.get(key, "").endswith("/32"):
+                        opts[key] = opts[key][:-3]
+                if opts.get("-m") == opts.get("-p") == "tcp":
+                    del opts["-m"]
+                if opts.get("-j") == "REJECT" and opts.get("--reject-with") == "icmp-port-unreachable":
+                    del opts["--reject-with"]
+                if opts.get("-t") == "filter":
+                    del opts["-t"]
+                return ("iptables-rule", *sorted(opts.items()))
+    return tuple(tokens)
+
+
+def repair_actions_correct(case_name: str, actions, *, equivalent=True) -> bool:
     """Only approved, targeted command plans earn repair credit; never execute model text."""
     if not isinstance(actions, list):
         return False
@@ -260,13 +320,13 @@ def repair_actions_correct(case_name: str, actions) -> bool:
         if not isinstance(action, dict) or set(action) != {"device", "command"}:
             return False
         try:
-            command = shlex.split(action["command"])
+            command = canonical_repair(action["command"]) if equivalent else shlex.split(action["command"])
         except (ValueError, TypeError):
             return False
         for ref in remaining:
             candidates = [ref["command"], *ref.get("alternatives", [])]
             if action["device"] == ref["device"] and any(
-                command == shlex.split(c) for c in candidates
+                command == (canonical_repair(c) if equivalent else shlex.split(c)) for c in candidates
             ):
                 remaining.remove(ref)
                 break
@@ -325,8 +385,9 @@ def score_prediction(
         if causes
         else "none"
     )
-    resource = resource and prediction.get("resource_id") == scalar_resource
-    fault_type = fault_type and prediction.get("fault_type") == scalar_type
+    format_compliant = (prediction.get("resource_id") == scalar_resource
+                        and prediction.get("fault_type") == scalar_type)
+    legacy_exact = detection and device and resource and fault_type and pairs and format_compliant
     exact = detection and device and resource and fault_type and pairs
     explanation = quality.get("explanation_correct") if quality else None
     actions_correct = repair_actions_correct(
@@ -335,7 +396,39 @@ def score_prediction(
     repair = (
         quality.get("repair_correct") is True and actions_correct if quality else None
     )
+    legacy_actions = repair_actions_correct(case_name, prediction.get("repair_actions"), equivalent=False)
+    # Unknown plans are not approved solely on an LLM verdict. Keep them reviewable.
+    review = bool(quality and quality.get("repair_correct") is True and not actions_correct)
+    actions = prediction.get("repair_actions")
+    expected_devices = {item["device"] for item in expected["remediation"]}
+    if review and (not isinstance(actions, list) or not actions or not expected_devices
+                   or {a.get("device") for a in actions} != expected_devices
+                   or any(re.search(r"[;&|`$<>\n]|\b(?:down|flush|pkill)\b|(?:^|\s)-F(?:\s|$)", a.get("command", "")) for a in actions)):
+        review = False
+    if review:
+        # Recognized operations with wrong arguments are errors, not novel equivalents.
+        for action in actions:
+            try:
+                normalized = canonical_repair(action["command"])
+            except (TypeError, ValueError):
+                review = False
+                break
+            if normalized and normalized[0] in {"ip-link", "iptables-rule"}:
+                if not any(action["device"] == ref["device"] and normalized == canonical_repair(cmd)
+                           for ref in expected["remediation"]
+                           for cmd in [ref["command"], *ref.get("alternatives", [])]):
+                    review = False
+                    break
+    if review:
+        repair = None
     return {
+        "scorer_version": SCORER_VERSION,
+        "format_compliant": format_compliant,
+        "repair_review_required": review,
+        "repair_validation": "verified-rule" if actions_correct else "needs-review" if review else "rejected",
+        "legacy_strict": {"rca_exact": legacy_exact,
+                          "repair_correct": quality.get("repair_correct") is True and legacy_actions if quality else None,
+                          "full_correct": legacy_exact and explanation is True and quality.get("repair_correct") is True and legacy_actions if quality else None},
         "detection_correct": detection,
         "device_correct": device,
         "localization_correct": resource,
@@ -343,9 +436,7 @@ def score_prediction(
         "rca_exact": exact,
         "explanation_correct": explanation,
         "repair_correct": repair,
-        "full_correct": exact and explanation is True and repair is True
-        if quality
-        else None,
+        "full_correct": (False if not exact or explanation is False or repair is False else True if explanation is True and repair is True else None),
         "repair_actions_correct": actions_correct,
         "quality_status": "scored" if quality else "unscored",
         "quality": quality,
@@ -369,21 +460,43 @@ def _model_env(model: str) -> dict[str, str]:
             "CLAUDE_CODE_USE_VERTEX": "0",
             "CLAUDE_CODE_USE_FOUNDRY": "0",
         }
-    return {
-        "ANTHROPIC_BASE_URL": "https://api.anthropic.com",
-        "ANTHROPIC_AUTH_TOKEN": "",
-        "CLAUDE_CODE_USE_BEDROCK": "0",
-        "CLAUDE_CODE_USE_VERTEX": "0",
-        "CLAUDE_CODE_USE_FOUNDRY": "0",
-    }
+    key = os.getenv("ANTHROPIC_API_KEY", "").strip()
+    env = {"ANTHROPIC_BASE_URL": "https://api.anthropic.com", "ANTHROPIC_API_KEY": key,
+           "ANTHROPIC_AUTH_TOKEN": "", "CLAUDE_CODE_USE_BEDROCK": "0",
+           "CLAUDE_CODE_USE_VERTEX": "0", "CLAUDE_CODE_USE_FOUNDRY": "0"}
+    if key:
+        env["CLAUDE_CODE_OAUTH_TOKEN"] = ""
+    return env
+
+
+def _claude_api_mode(model: str) -> bool:
+    return model.startswith("deepseek-") or bool(os.getenv("ANTHROPIC_API_KEY", "").strip())
+
+
+def _auth_mode(model: str) -> str:
+    if model.startswith("gpt-"):
+        return "codex-subscription"
+    if model.startswith(("gemini-", "deepseek-")) or _claude_api_mode(model):
+        return "provider-api-key"
+    return "claude-code-login"
+
+
+def _error_detail(exc: BaseException) -> str:
+    """Expose nested MCP TaskGroup failures without persisting provider secrets."""
+    if isinstance(exc, BaseExceptionGroup):
+        text = "; ".join(_error_detail(child) for child in exc.exceptions)
+    else:
+        text = f"{type(exc).__name__}: {exc}"
+    for name, value in os.environ.items():
+        if len(value) >= 6 and any(word in name.upper() for word in ("KEY", "TOKEN", "SECRET", "PASSWORD", "CREDENTIAL")):
+            text = text.replace(value, "[REDACTED]")
+    return text
 
 
 async def _judge_prediction(
     case_name: str, prediction: dict, agent: dict, model: str, mode: str
 ) -> dict:
     import tempfile
-
-    from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
 
     payload = {
         "ground_truth": CASES[case_name]["ground_truth"],
@@ -395,79 +508,109 @@ async def _judge_prediction(
             if row.get("kind") in ("tool", "tool_result")
         ],
     }
-    # Fresh empty workspace, no project settings, no continuation of the diagnosing agent.
-    with tempfile.TemporaryDirectory(prefix="sade-judge-") as cwd:
-        options = ClaudeAgentOptions(
-            system_prompt=JUDGE_PROMPT,
-            cwd=cwd,
-            setting_sources=[],
-            model=model,
-            env=_model_env(model),
-            max_turns=1,
-            tools=[],
-            allowed_tools=[],
-            mcp_servers={},
-            permission_mode="default",
-        )
-        result = None
-        async for message in query(prompt=json.dumps(payload), options=options):
-            if isinstance(message, ResultMessage):
-                result = message
-        if result is None or not result.result:
-            raise ValueError("Quality judge returned no result")
-        if result.is_error:
-            raise RuntimeError("Quality judge failed: " + str(result.result))
-        text = result.result.strip()
-        if text.startswith("```"):
-            text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
-        verdict = json.loads(text)
-        fields = {
-            "explanation_correct",
-            "repair_correct",
-            "explanation_reason",
-            "repair_reason",
-        }
-        if not isinstance(verdict, dict) or set(verdict) != fields:
-            raise ValueError("Invalid quality judge schema")
-        if any(
-            type(verdict[k]) is not bool
-            for k in ("explanation_correct", "repair_correct")
-        ) or any(
-            not isinstance(verdict[k], str) or not verdict[k].strip()
-            for k in ("explanation_reason", "repair_reason")
-        ):
-            raise ValueError("Invalid quality judge verdict types")
-        # Missing separate content cannot earn credit even if the judge is overly permissive.
-        if not prediction.get("diagnosis_text", "").strip():
-            verdict["explanation_correct"] = False
-        if not prediction.get("repair_text", "").strip():
-            verdict["repair_correct"] = False
-        return {
-            **verdict,
-            "model": model,
-            "rubric_version": SCORER_VERSION,
-            "usage": result.usage,
-            "total_cost_usd": getattr(result, "total_cost_usd", None),
-        }
+    if model.startswith("gpt-"):
+        from types import SimpleNamespace
+
+        import codex_runner
+        response = await codex_runner.judge(model, JUDGE_PROMPT, payload)
+        result = SimpleNamespace(result=response["text"], usage=response["usage"], total_cost_usd=None)
+    elif model.startswith("gemini-"):
+        from types import SimpleNamespace
+
+        import gemini_runner
+        response = await gemini_runner.judge(model, JUDGE_PROMPT, payload)
+        result = SimpleNamespace(result=response["text"], usage=response["usage"], total_cost_usd=None)
+    else:
+        from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
+        # Fresh empty workspace, no project settings, no continuation of the diagnosing agent.
+        with tempfile.TemporaryDirectory(prefix="sade-judge-") as cwd:
+            options = ClaudeAgentOptions(
+                system_prompt=JUDGE_PROMPT,
+                cwd=cwd,
+                setting_sources=[],
+                model=model,
+                env=_model_env(model),
+                extra_args={"bare": None} if _claude_api_mode(model) else {},
+                max_turns=1,
+                tools=[],
+                allowed_tools=[],
+                mcp_servers={},
+                permission_mode="default",
+            )
+            result = None
+            async for message in query(prompt=json.dumps(payload), options=options):
+                if isinstance(message, ResultMessage):
+                    result = message
+            if result is None or not result.result:
+                raise ValueError("Quality judge returned no result")
+            if result.is_error:
+                raise RuntimeError("Quality judge failed: " + str(result.result))
+    text = result.result.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
+    verdict = json.loads(text)
+    fields = {
+        "explanation_correct",
+        "repair_correct",
+        "explanation_reason",
+        "repair_reason",
+    }
+    if not isinstance(verdict, dict) or set(verdict) != fields:
+        raise ValueError("Invalid quality judge schema")
+    if any(
+        type(verdict[k]) is not bool
+        for k in ("explanation_correct", "repair_correct")
+    ) or any(
+        not isinstance(verdict[k], str) or not verdict[k].strip()
+        for k in ("explanation_reason", "repair_reason")
+    ):
+        raise ValueError("Invalid quality judge verdict types")
+    # Missing separate content cannot earn credit even if the judge is overly permissive.
+    if not prediction.get("diagnosis_text", "").strip():
+        verdict["explanation_correct"] = False
+    if not prediction.get("repair_text", "").strip():
+        verdict["repair_correct"] = False
+    return {
+        **verdict,
+        "model": model,
+        "rubric_version": SCORER_VERSION,
+        "usage": result.usage,
+        "total_cost_usd": getattr(result, "total_cost_usd", None),
+    }
 
 
 def _preflight(nika_root: Path, model: str = "claude-haiku-5-5", judge_model: str | None = None) -> None:
     agent_dir = _agent_dir(nika_root)
     if not (agent_dir / ".claude" / "skills").is_dir():
         raise RuntimeError(f"SADE skills not found at {agent_dir}; pass --nika-root")
-    if importlib.util.find_spec("claude_agent_sdk") is None:
-        raise RuntimeError("claude-agent-sdk is missing; install the NIKA sade extra")
     models = {model, judge_model or model}
+    if any(not selected.startswith(("gemini-", "gpt-")) for selected in models) and importlib.util.find_spec("claude_agent_sdk") is None:
+        raise RuntimeError("claude-agent-sdk is missing; install the NIKA sade extra")
     for selected in models:
-        _model_env(selected)
-    if any(not selected.startswith("deepseek-") for selected in models) and not os.getenv("ANTHROPIC_API_KEY"):
-        status = subprocess.run(
-            ["claude", "auth", "status"], text=True, capture_output=True, check=False
-        )
-        if status.returncode != 0:
-            raise RuntimeError(
-                "Set ANTHROPIC_API_KEY or log in with `claude auth login`"
-            )
+        if selected.startswith("gpt-"):
+            import codex_runner
+            asyncio.run(codex_runner.check_subscription(selected))
+        elif selected.startswith("gemini-"):
+            import gemini_runner
+            gemini_runner.api_key()
+            if importlib.util.find_spec("mcp") is None:
+                raise RuntimeError("MCP is missing; use the NIKA benchmark Python environment")
+        else:
+            _model_env(selected)
+            if not selected.startswith("deepseek-") and not _claude_api_mode(selected):
+                import claude_agent_sdk
+                cli = Path(claude_agent_sdk.__file__).parent / "_bundled" / "claude"
+                status = subprocess.run([str(cli), "auth", "status"], capture_output=True, text=True, timeout=10, check=False)
+                try:
+                    auth = json.loads(status.stdout)
+                except ValueError:
+                    auth = {}
+                if status.returncode != 0 or not auth.get("loggedIn"):
+                    raise RuntimeError("Claude API key is not set and Claude Code is not logged in. Configure ANTHROPIC_API_KEY or sign in to Claude Code.")
+    if GENERIC_TOPOLOGY:
+        if lab.check() != 0:
+            raise RuntimeError('Selected topology baseline failed')
+        return
     for node in ("r1", "r5", "app"):
         ok, output = lab.execute(node, "test -f /tmp/enterprise-ready")
         if not ok:
@@ -485,24 +628,17 @@ async def _run_sade(
     prompt_style: str = "generic",
     tool_profile: str = "atomic",
 ) -> dict:
-    from claude_agent_sdk import (
-        AssistantMessage,
-        ClaudeAgentOptions,
-        ResultMessage,
-        TextBlock,
-        ToolUseBlock,
-        UserMessage,
-        query,
-    )
-
     python = sys.executable
-    server = str(ROOT / "tools" / "sade_lab_mcp.py")
+    server = str(PROJECT_ROOT / "tools" / "sade_lab_mcp.py")
     common = {"command": python, "args": [server], "transport": "stdio"}
     server_env = {
         key: os.environ[key]
         for key in ("PATH", "DOCKER_HOST", "XDG_CONFIG_HOME")
         if key in os.environ
     }
+    if GENERIC_TOPOLOGY:
+        server_env["SADE_GENERIC_TOPOLOGY"] = GENERIC_TOPOLOGY
+        tool_profile = "atomic"
     servers = {
         "kathara_base_mcp_server": {
             **common,
@@ -523,7 +659,7 @@ async def _run_sade(
     }
     if tool_profile == "atomic":
         servers.pop("helper_server")
-    live_prompt = SYSTEM_PROMPT if prompt_style == "guided" else GENERIC_PROMPT
+    live_prompt = SYSTEM_PROMPT if prompt_style == "guided" and not GENERIC_TOPOLOGY else GENERIC_PROMPT
     if tool_profile == "atomic":
         # Keep the guided causal hints but replace unavailable helper instructions.
         live_prompt = live_prompt.replace(
@@ -542,18 +678,36 @@ async def _run_sade(
                 + "Bulk helpers are unavailable. Use individual read-only exec_shell commands. Do not repair the lab.\n\n"
                 + live_prompt[stop:]
             )
+    system_prompt = (
+        live_prompt if mode == "live" else
+        "Diagnose using only the supplied ticket and public topology. No tools are available. "
+        "The ticket may be inaccurate. Your final answer" + SYSTEM_PROMPT.split("Your final answer", 1)[1]
+    )
+    if model.startswith("gpt-"):
+        import codex_runner
+        return await codex_runner.run(model, prompt, system_prompt, max_turns,
+                                      servers if mode == "live" else {}, _agent_dir(nika_root))
+    if model.startswith("gemini-"):
+        import gemini_runner
+        return await gemini_runner.run(model, prompt, system_prompt, max_turns,
+                                       servers if mode == "live" else {}, _agent_dir(nika_root))
+    from claude_agent_sdk import (
+        AssistantMessage,
+        ClaudeAgentOptions,
+        ResultMessage,
+        TextBlock,
+        ToolUseBlock,
+        UserMessage,
+        query,
+    )
+
     options = ClaudeAgentOptions(
-        system_prompt=(
-            live_prompt
-            if mode == "live"
-            else "Diagnose using only the supplied ticket and public topology. No tools are available. "
-            "The ticket may be inaccurate. Your final answer"
-            + SYSTEM_PROMPT.split("Your final answer", 1)[1]
-        ),
+        system_prompt=system_prompt,
         cwd=str(_agent_dir(nika_root)),
         setting_sources=["project"] if mode == "live" else [],
         model=model,
         env=_model_env(model),
+        extra_args={"bare": None} if _claude_api_mode(model) else {},
         max_turns=max_turns,
         permission_mode="bypassPermissions",
         mcp_servers=servers if mode == "live" else {},
@@ -644,15 +798,21 @@ def run_case(
     tool_profile: str = "atomic",
     judge_model: str | None = None,
 ) -> Path:
+    if GENERIC_TOPOLOGY and not generic_faults.validated(GENERIC_TOPOLOGY, case_name):
+        raise RuntimeError('Validate this topology/fault cycle before running a model')
     _preflight(nika_root, model, judge_model)
-    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    out = ROOT / "results" / "sade" / now / f"{case_name}.json"
+    now = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
+    out = (PROJECT_ROOT if GENERIC_TOPOLOGY else ROOT) / "results" / "sade" / now / f"{case_name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     report = {
+        "topology_id": GENERIC_TOPOLOGY or "enterprise-75",
         "case": case_name,
         "timestamp": now,
         "model": model,
         "status": "running",
+        "agent_runner": "codex-subscription-sdk" if model.startswith("gpt-") else "gemini-native-rest" if model.startswith("gemini-") else "claude-agent-sdk",
+        "auth_mode": _auth_mode(model),
+        "judge_auth_mode": _auth_mode(judge_model or model),
         "agent_prompt": prompt_for(case_name),
         "injection_verified": False,
         "repair_verified": False,
@@ -672,11 +832,15 @@ def run_case(
     started = time.monotonic()
     injected = []
     try:
+        if GENERIC_TOPOLOGY:
+            report["failure_kind"] = "baseline_error"
         # Only one case at a time; a healthy baseline makes comparisons fair.
         if lab.check() != 0:
             raise RuntimeError(
                 "Healthy baseline failed; repair existing faults before running SADE"
             )
+        if GENERIC_TOPOLOGY:
+            report["failure_kind"] = "injection_error"
         for fault in case_faults(case_name):
             node, inject, repair = lab.FAULTS[fault]
             Lease(ROOT).mark(fault)  # Durable before an uncertain/partial mutation.
@@ -690,6 +854,8 @@ def run_case(
                 _assert_state(fault, "inject")
             report["injection_verified"] = True
         report["state_verified"] = True
+        if GENERIC_TOPOLOGY:
+            report["failure_kind"] = "agent_error"
         agent_started = time.monotonic()
         report["agent"] = asyncio.run(
             _run_sade(
@@ -721,12 +887,12 @@ def run_case(
             report["score"] = score_prediction(case_name, prediction, quality)
         except Exception as exc:  # noqa: BLE001 - preserve reports and always restore owned faults
             report["failure_kind"] = "judge_failed"
-            report["quality_error"] = f"{type(exc).__name__}: {exc}"
+            report["quality_error"] = _error_detail(exc)
         report["status"] = "scored"
     except Exception as exc:  # noqa: BLE001 - always attempt repair and save the result
         report["status"] = "error"
         report.setdefault("failure_kind", "execution_error")
-        report["error"] = f"{type(exc).__name__}: {exc}"
+        report["error"] = _error_detail(exc)
     finally:
         if injected:
             repair_errors = []

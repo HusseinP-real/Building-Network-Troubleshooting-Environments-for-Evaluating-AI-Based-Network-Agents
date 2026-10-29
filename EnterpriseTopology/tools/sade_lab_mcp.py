@@ -11,11 +11,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+import lab
 from mcp.server.fastmcp import FastMCP
 
-import lab
-
 NODES = json.loads((ROOT / "inventory.json").read_text())["nodes"]
+GENERIC_TOPOLOGY = os.environ.get('SADE_GENERIC_TOPOLOGY')
+if GENERIC_TOPOLOGY:
+    from generic_faults import Adapter
+    lab = Adapter(GENERIC_TOPOLOGY)
+    inventory = ROOT / 'inventory.json' if GENERIC_TOPOLOGY == 'enterprise-75' else ROOT / 'dashboard/topologies' / (GENERIC_TOPOLOGY + '.json')
+    NODES = {name: meta for name, meta in json.loads(inventory.read_text())['nodes'].items() if not meta.get('virtual')}
+
 KIND = os.environ.get("SADE_MCP_KIND", "base")
 mcp = FastMCP("helper_server" if KIND == "helper" else "kathara_base_mcp_server")
 
@@ -111,6 +117,9 @@ def _safe_command(command: str) -> str | None:
 
 
 def _reachability() -> dict:
+    if GENERIC_TOPOLOGY:
+        checks = [_query(lab.target[role]['node'], 'ping -n -c 2 -W 2 ' + lab.destination) for role in ('source', 'control')]
+        return {'checks': checks, 'all_expected': all(row['ok'] for row in checks)}
     # These are known-allowed flows. Guest-to-internal and direct office-to-DB
     # are policy-denied even in a healthy lab, so they are not anomaly probes.
     probes = [

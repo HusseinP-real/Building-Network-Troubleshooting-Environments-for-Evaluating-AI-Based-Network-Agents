@@ -12,3 +12,24 @@ __pycache__/
 *.py[cod]
 /Campus80_Eason/logs/
 /Enterprise80_Eason/logs/
+
+# Keep video and audio assets local.
+*.[mM][pP]4
+*.[mM][oO][vV]
+*.[mM]4[vV]
+*.[aA][vV][iI]
+*.[mM][kK][vV]
+*.[wW][eE][bB][mM]
+*.[wW][mM][vV]
+*.[mM][pP][eE][gG]
+*.[mM][pP][gG]
+*.[mM][pP]3
+*.[wW][aA][vV]
+*.[mM]4[aA]
+*.[aA][aA][cC]
+*.[fF][lL][aA][cC]
+*.[oO][gG][gG]
+*.[aA][iI][fF][fF]
+*.[aA][iI][fF]
+*.[oO][pP][uU][sS]
+*.[wW][mM][aA]
