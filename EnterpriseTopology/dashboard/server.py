@@ -19,7 +19,15 @@ ROOT = Path(__file__).resolve().parents[1]
 STATIC = Path(__file__).resolve().parent
 RESULTS = ROOT / "results" / "sade"
 sys.path.insert(0, str(STATIC))
-from fault_runtime import topologies, catalog, selected, support, Conflict
+from fault_runtime import (
+    Conflict,
+    catalog,
+    generic_faults,
+    native_support,
+    selected,
+    support,
+    topologies,
+)
 from operation_control import Operations, sanitized
 
 MODEL_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,99}$")
@@ -42,11 +50,13 @@ class RunState:
         self.operations = Operations(python)
         self.case_count = CASE_COUNT
         self.fault_id = None
+        self.topology_id = "enterprise-75"
         self.completion_count = 0
 
     def snapshot(self) -> dict:
         with self.lock:
             return {
+                "claude_auth_preference": "API key" if os.getenv("ANTHROPIC_API_KEY", "").strip() else "Claude Code login (subscription if signed in with Claude.ai)",
                 "running": self.running,
                 "started_at": self.started_at,
                 "finished_at": self.finished_at,
@@ -54,7 +64,7 @@ class RunState:
                 "report": self.report,
                 "repeats": self.repeats,
                 "case_count": self.case_count,
-                "topology_id": "enterprise-75",
+                "topology_id": self.topology_id,
                 "fault_id": self.fault_id,
                 "completion_count": self.completion_count,
                 "lines": self.lines[-160:],
@@ -69,13 +79,27 @@ class RunState:
         tool_profile: str = "atomic",
         judge_model: str | None = None,
         fault_id: str | None = None,
+        topology_id: str = "enterprise-75",
+        enterprise20: bool = False,
     ) -> bool:
         with self.lock:
             if self.running:
                 return False
-            count = len(selected("enterprise-75", fault_id)["case_ids"]) if fault_id else CASE_COUNT
-            lease = self.operations.reserve_auto("enterprise-75")
+            if enterprise20:
+                if topology_id != "enterprise-75" or fault_id is not None:
+                    raise ValueError("The original 20-ticket suite requires Enterprise Topology")
+                enabled, reason = native_support(topology_id)
+                if not enabled:
+                    raise ValueError(reason)
+                count = CASE_COUNT
+            else:
+                chosen = [fault_id] if fault_id else list(generic_faults.FAMILIES)
+                if not all(generic_faults.validated(topology_id, key) for key in chosen):
+                    raise ValueError('Validate each selected topology/fault combination first')
+                count = len(chosen)
+            lease = self.operations.reserve_auto(topology_id)
             self.fault_id = fault_id
+            self.topology_id = topology_id
             self.case_count = count
             self.completion_count = 0
             self.running = True
@@ -90,7 +114,7 @@ class RunState:
         try:
             threading.Thread(
                 target=self._run,
-                args=(model, repeats, mode, prompt_style, tool_profile, judge_model, fault_id, lease),
+                args=(model, repeats, mode, prompt_style, tool_profile, judge_model, fault_id, lease, topology_id, enterprise20),
                 daemon=True,
             ).start()
         except Exception:
@@ -110,6 +134,8 @@ class RunState:
         judge_model: str | None = None,
         fault_id: str | None = None,
         lease=None,
+        topology_id="enterprise-75",
+        enterprise20=False,
     ) -> None:
         command = [
             str(self.python),
@@ -129,12 +155,18 @@ class RunState:
             "--tool-profile",
             tool_profile,
         ]
+        if enterprise20:
+            command.extend(["--max-turns", "20", "--seed", "42"])
         if fault_id:
-            command.extend(["--cases", *selected("enterprise-75", fault_id)["case_ids"]])
+            command.extend(["--cases", *selected(topology_id, fault_id)["case_ids"]])
         if judge_model:
             command.extend(["--judge-model", judge_model])
         try:
             environment = os.environ.copy()
+            if enterprise20:
+                environment.pop("SADE_GENERIC_TOPOLOGY", None)
+            else:
+                environment["SADE_GENERIC_TOPOLOGY"] = topology_id
             environment["SADE_ENV_LOCK_FD"] = str(lease.file.fileno())
             process = subprocess.Popen(
                 command,
@@ -165,7 +197,7 @@ class RunState:
                         ):
                             self.report = candidate.name
             code = process.wait()
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - preserve run status when a worker cannot launch
             code = -1
             with self.lock:
                 self.lines.append(sanitized(f"Unable to start benchmark: {exc}"))
@@ -282,7 +314,7 @@ class Handler(BaseHTTPRequestHandler):
             except (OSError, ValueError):
                 return self._json(500, {"error": "Topology inventory is unavailable"})
             health = None
-            if topology["evaluation_enabled"]:
+            if topology_id == "enterprise-75":
                 try:
                     saved = json.loads((ROOT / "results/latest-health.json").read_text())
                     health = {
@@ -309,7 +341,7 @@ class Handler(BaseHTTPRequestHandler):
                 "note": runtime_note if executable else inventory.get("note"),
                 "source_path": inventory.get("source_path"),
                 "source_commit": inventory.get("source_commit"),
-                "scenarios": inventory.get("scenarios", []),
+                "scenarios": list(generic_faults.FAMILIES),
             })
         if parsed.path in ("/api/faults", "/api/manual/status"):
             topology_id = parse_qs(parsed.query).get("topology_id", [""])[0]
@@ -318,7 +350,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(200, data)
             except ValueError as exc:
                 return self._json(400, {"error": str(exc)})
-            except (OSError, KeyError) as exc:
+            except (OSError, KeyError):
                 return self._json(503, {"error": "Runtime journal or adapter unavailable"})
         if parsed.path == "/api/status":
             return self._json(200, self.state.snapshot())
@@ -355,7 +387,7 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Invalid request size")
             payload = json.loads(self.rfile.read(length))
             if not isinstance(payload, dict):
-                raise ValueError("Request must be a JSON object")
+                raise TypeError("Request must be a JSON object")
             allowed = {"topology_id", "fault_id", "action"} if self.path == "/api/manual" else {
                 "topology_id", "fault_id", "scope", "model", "judge_model", "repeats", "mode", "prompt_style", "tool_profile"}
             if set(payload) - allowed:
@@ -365,7 +397,7 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(topology_id, str) or topology_id not in topologies():
                 raise ValueError("Unknown topology ID")
             if not isinstance(fault_id, str):
-                raise ValueError("A fault ID is required")
+                raise TypeError("A fault ID is required")
             row = selected(topology_id, fault_id)
             if self.path == "/api/manual":
                 action = payload.get("action")
@@ -373,11 +405,16 @@ class Handler(BaseHTTPRequestHandler):
                     raise ValueError("A manual action is required")
                 self.state.operations.start(topology_id, action, fault_id)
                 return self._json(202, self.state.operations.snapshot(topology_id))
-            if topology_id != "enterprise-75":
-                raise ValueError("Automatic evaluation is not adapted for the selected topology")
             scope = payload.get("scope", "selected")
-            if scope not in ("selected", "all"):
+            if scope not in ("selected", "all", "enterprise20"):
                 raise ValueError("Invalid evaluation scope")
+            if scope == "enterprise20":
+                if topology_id != "enterprise-75":
+                    raise ValueError("The original 20-ticket suite requires Enterprise Topology")
+            elif fault_id not in generic_faults.FAMILIES or not row['evaluation_enabled']:
+                raise ValueError('Validate the selected generic fault before benchmarking')
+            if scope == 'all' and not all(generic_faults.validated(topology_id, key) for key in generic_faults.FAMILIES):
+                raise ValueError('Validate all five generic cases before running the full suite')
             model = payload.get("model", "claude-haiku-5-5")
             judge_model = payload.get("judge_model")
             if judge_model == "same":
@@ -393,6 +430,8 @@ class Handler(BaseHTTPRequestHandler):
                 "sweep",
             ):
                 raise ValueError("Invalid diagnostic profile")
+            if prompt_style != 'generic' or tool_profile != 'atomic':
+                raise ValueError('Generic faults currently require the generic prompt and atomic tools')
             if mode not in ("live", "no-tools"):
                 raise ValueError("Invalid evaluation mode")
             if not isinstance(model, str) or not MODEL_PATTERN.fullmatch(model):
@@ -405,15 +444,20 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(400, {"error": str(exc)})
         except (OSError, KeyError):
             return self._json(503, {"error": "Runtime recovery journal unavailable; inspect it before proceeding"})
+        if any(selected.startswith("gemini-") for selected in (model, judge_model or model)) and not (os.getenv("GEMINI_API_KEY", "").strip() or os.getenv("GOOGLE_API_KEY", "").strip()):
+            return self._json(400, {"error": "Set GEMINI_API_KEY in the server terminal, then restart the dashboard"})
         if any(selected.startswith("deepseek-") for selected in (model, judge_model or model)) and not os.getenv("DEEPSEEK_API_KEY", "").strip():
             return self._json(400, {"error": "Set DEEPSEEK_API_KEY in the server terminal, then restart the dashboard"})
         try:
+            options = {"enterprise20": True} if scope == "enterprise20" else {}
             if not self.state.start(model, repeats, mode, prompt_style, tool_profile, judge_model,
-                                    fault_id if scope == "selected" else None):
+                                    fault_id if scope == "selected" else None, topology_id, **options):
                 return self._json(409, {"error": "A benchmark is already running"})
+        except ValueError as exc:
+            return self._json(400, {"error": str(exc)})
         except Conflict as exc:
             return self._json(409, {"error": str(exc)})
-        except (OSError, ValueError, KeyError):
+        except (OSError, KeyError):
             return self._json(503, {"error": "Runtime recovery journal unavailable; inspect it before proceeding"})
         self._json(202, self.state.snapshot())
 

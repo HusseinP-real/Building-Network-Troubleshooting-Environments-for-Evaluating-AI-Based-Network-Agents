@@ -1,19 +1,20 @@
 """Browser QA fixture: real UI/HTTP/leases, MOCK execution, no containers/model APIs.
 
 python3 EnterpriseTopology/tests/serve_dashboard_fixture.py --port 8877
-Compound uplink+ACL injection deliberately fails its second component.
+Generic fault validation and execution are explicitly mocked.
 """
 import argparse
-from datetime import datetime, timezone
 import json
-from pathlib import Path
+import os
 import sys
 import tempfile
 import time
+from datetime import datetime, timezone
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'dashboard'))
-import server
 import operation_control as control
+import server
 from environment_guard import Lease
 
 
@@ -25,33 +26,39 @@ def main():
         control.Lease = lambda root: Lease(Path(tmp) / Path(root).name)
         server.RESULTS = Path(tmp) / 'sade'
         server.RESULTS.mkdir()
+        os.environ["ANTHROPIC_API_KEY"] = "fake-ui-test-api-key"
+        validated = {('enterprise-75', 'link_down')}
+        server.generic_faults.support = lambda topology: (True, 'MOCK adapter ready')
+        server.generic_faults.validated = lambda topology, family: (topology, family) in validated
         state = server.RunState(Path(sys.executable), Path(tmp))
         def step(lease, topology, action, fault=None):
             state.operations.log(lease, f'MOCK ONLY: {topology} · {action} · {fault or "full health baseline"}')
             time.sleep(.35)
             data = lease.read()
             state.operations.update(lease, completed=data['operation']['completed'] + 1, phase=f'{action}: {fault or topology}')
-            return not (action == 'inject' and fault == 'database-ingress-acl')
+            if action == 'validate':
+                validated.add((topology, fault))
+            return True
         state.operations._step = step
-        def automatic(model, repeats, mode, style, profile, judge, fault, lease):
+        def automatic(model, repeats, mode, style, profile, judge, fault, lease, topology, enterprise20=False):
             try:
                 for phase in ('baseline', 'injection', 'diagnosis (MOCK, no model API)', 'scoring (MOCK)', 'recovery'):
                     with state.lock:
                         state.lines.append(f'MOCK ONLY: {phase} · {fault or "all"}')
                     time.sleep(1)
             finally:
-                cases = server.selected('enterprise-75', fault)['case_ids'] if fault else list(server.catalog('enterprise-75'))
-                if not fault:
+                cases = list(__import__('fault_runtime').CASES) if enterprise20 else server.selected(topology, fault)['case_ids'] if fault else list(server.catalog(topology))
+                if not fault and not enterprise20:
                     cases = [case for row in cases for case in row['case_ids']]
                 axes = ['detection_correct', 'device_correct', 'localization_correct', 'fault_type_correct', 'rca_exact', 'explanation_correct', 'repair_correct', 'full_correct']
                 count = len(cases) * repeats
                 report = {'schema_version': 4, 'scorer_version': '3.0', 'generated_at': datetime.now(timezone.utc).isoformat(),
-                          'topology_name': 'Enterprise Topology · MOCK FIXTURE', 'attempted': count, 'scored': count, 'complete_runs': count,
+                          'topology_id': topology, 'topology_name': topology + ' · MOCK FIXTURE', 'attempted': count, 'scored': count, 'complete_runs': count,
                           'metrics': {axis: {'rate': 1, 'rate_scored': 1, 'correct': count, 'denominator': count, 'scored_denominator': count, 'unscored': 0} for axis in axes},
                           'runs': [{'case': case, 'fault': fault, 'model': 'MOCK:' + model, 'mode': mode, 'wall_seconds': 1, 'tool_calls': 0,
                                     'state_verified': True, 'repair_verified': True, 'score': {axis: True for axis in axes}}
                                    for _ in range(repeats) for case in cases]}
-                name = 'benchmark-mock-selected.json'
+                name = f'benchmark-mock-{time.time_ns()}.json'
                 (server.RESULTS / name).write_text(json.dumps(report))
                 lease.release()
                 with state.lock:
@@ -59,7 +66,7 @@ def main():
                     state.running = False
                     state.returncode = 0
                     state.completion_count = state.case_count * repeats
-                    state.finished_at = 'fixture-complete'
+                    state.finished_at = datetime.now(timezone.utc).isoformat()
         state._run = automatic
         class FixtureHandler(server.Handler):
             def _file(self, path, content_type):

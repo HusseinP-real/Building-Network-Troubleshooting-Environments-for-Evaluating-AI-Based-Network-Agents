@@ -15,7 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sade_eval
 
-ROOT = sade_eval.ROOT
+ROOT = sade_eval.PROJECT_ROOT
 RESULTS = ROOT / "results" / "sade"
 AXES = (
     "detection_correct",
@@ -56,6 +56,8 @@ def proportion(correct: int, total: int) -> dict:
 
 
 def summarize_metric(rows: list[dict], key: str) -> dict:
+    if sade_eval.GENERIC_TOPOLOGY:
+        rows = [row for row in rows if row["state_verified"]]
     correct = sum(bool(row["score"] and row["score"].get(key) is True) for row in rows)
     assessed = sum(
         bool(row["score"] and row["score"].get(key) is not None) for row in rows
@@ -83,27 +85,27 @@ def summarize(paths: list[Path]) -> dict:
             continue
         seen.add(path)
         data = json.loads(path.read_text())
+        if sade_eval.GENERIC_TOPOLOGY and data.get('topology_id') != sade_eval.GENERIC_TOPOLOGY:
+            continue
         if data.get("case") not in sade_eval.CASES:
             continue
         scored = data.get("status") == "scored" and isinstance(data.get("score"), dict)
-        # Rescore saved predictions under the current strict scorer; do not carry
-        # forward legacy partial-match exact RCA flags.
+        # Preserve historical scoring; explicit re-evaluation must produce a new artifact.
         if scored:
             prediction = data["score"].get("predicted")
             if isinstance(prediction, dict):
-                data["score"] = sade_eval.score_prediction(
-                    data["case"],
-                    prediction,
-                    data["score"].get("quality")
-                    if data.get("scorer_version") == sade_eval.SCORER_VERSION
-                    else None,
-                )
+                # Saved results retain their original rubric; never silently rescore history.
+                pass
             else:
                 scored = False
         row = {
             "case": data["case"],
             "timestamp": data.get("timestamp"),
             "model": data.get("model"),
+            "auth_mode": data.get("auth_mode"),
+            "judge_auth_mode": data.get("judge_auth_mode"),
+            "tool_transport": data.get("agent", {}).get("tool_transport"),
+            "interaction_rounds": data.get("agent", {}).get("interaction_rounds"),
             "max_turns": data.get("max_turns"),
             "judge_model": data.get("judge_model"),
             "failure_kind": data.get("failure_kind"),
@@ -114,6 +116,7 @@ def summarize(paths: list[Path]) -> dict:
             "mode": data.get("mode", "live"),
             "prompt_style": data.get("prompt_style", "guided"),
             "tool_profile": data.get("tool_profile", "sweep"),
+            "manifest_hash": data.get("manifest_hash"),
             "source_scorer_version": data.get("scorer_version", "1.0"),
             "quality_error": data.get("quality_error"),
             "quality": data.get("score", {}).get("quality"),
@@ -159,7 +162,8 @@ def summarize(paths: list[Path]) -> dict:
         "schema_version": 4,
         "budget_exhausted": sum(r["hit_max_turns"] for r in records),
         "by_configuration": {},
-        "scorer_version": sade_eval.SCORER_VERSION,
+        "scorer_version": next(iter({r["source_scorer_version"] for r in records}), sade_eval.SCORER_VERSION) if len({r["source_scorer_version"] for r in records}) <= 1 else "mixed",
+        "repair_review_required": sum(bool(r.get("score", {}).get("repair_review_required")) for r in records if r.get("score")),
         "manifest_hash": sade_eval.MANIFEST_HASH,
         "benchmark_versions": sorted({r["benchmark_version"] for r in records}),
         "modes": sorted({r["mode"] for r in records}),
@@ -188,8 +192,13 @@ def summarize(paths: list[Path]) -> dict:
         "by_case": by_case,
         "runs": records,
     }
+    summary["format_warnings"] = sum(r["score"].get("format_compliant") is False for r in records if r.get("score"))
+    summary["legacy_strict_metrics"] = {
+        axis: summarize_metric([{**r, "score": r["score"].get("legacy_strict", r["score"]) if r.get("score") else None} for r in records], axis)
+        for axis in ("rca_exact", "repair_correct", "full_correct")
+    }
     for row in records:
-        key = json.dumps([row[k] for k in ("model", "max_turns", "judge_model", "benchmark_version", "mode", "prompt_style", "tool_profile")])
+        key = json.dumps([row[k] for k in ("model", "max_turns", "judge_model", "benchmark_version", "source_scorer_version", "manifest_hash", "tool_transport", "mode", "prompt_style", "tool_profile")])
         summary["by_configuration"].setdefault(key, []).append(row)
     summary["by_configuration"] = {key: {"attempted": len(rows), "metrics": {axis: summarize_metric(rows, axis) for axis in AXES}} for key, rows in summary["by_configuration"].items()}
     summary["by_category"] = {
@@ -199,7 +208,7 @@ def summarize(paths: list[Path]) -> dict:
                 for r in records
                 if r["category"] == category
             ),
-            sum(r["category"] == category for r in records),
+            sum(r["category"] == category and (not sade_eval.GENERIC_TOPOLOGY or r["state_verified"]) for r in records),
         )
         for category in sorted({c["category"] for c in sade_eval.CASES.values()})
     }
@@ -257,6 +266,12 @@ def summarize(paths: list[Path]) -> dict:
                         4,
                     )
                 )
+    if sade_eval.GENERIC_TOPOLOGY:
+        summary['invalid_environment_attempts'] = sum(not row['state_verified'] for row in records)
+        summary['model_eligible_attempts'] = sum(row['state_verified'] for row in records)
+        summary['topology_id'] = sade_eval.GENERIC_TOPOLOGY
+        summary['topology_name'] = sade_eval.GENERIC_TOPOLOGY
+        summary['scope'] = 'Generic endpoint fault benchmark on ' + sade_eval.GENERIC_TOPOLOGY
     return summary
 
 
@@ -278,6 +293,7 @@ def print_summary(summary: dict) -> None:
     print(
         f"Quality scored: {summary.get('quality_scored', 0)}/{summary['attempted']}; full correctness requires field, explanation and repair credit."
     )
+    print(f"Scorer: {summary.get('scorer_version', 'legacy')}; repair review pending: {summary.get('repair_review_required', 0)}; summary-format warnings: {summary.get('format_warnings', 0)}")
     print(
         "\nScoring                    Correct/attempts   Rate    Correct/scored   Rate"
     )
@@ -415,12 +431,13 @@ def main() -> int:
             "judge_model": args.judge_model or args.model, "ablation": args.ablation,
             "selected_cases": selected_cases, "benchmark_version": sade_eval.BENCHMARK_VERSION,
             "manifest_hash": sade_eval.MANIFEST_HASH,
+            "scorer_version": sade_eval.SCORER_VERSION,
         }
         schedule = []
         for repeat in range(1, args.repeats + 1):
             trials = [(case, *profile) for case in selected_cases for profile in profiles]
             rng.shuffle(trials)
-            schedule.extend(dict(case=case, mode=mode, prompt_style=style, tool_profile=tools, repeat=repeat) for case, mode, style, tools in trials)
+            schedule.extend({"case": case, "mode": mode, "prompt_style": style, "tool_profile": tools, "repeat": repeat} for case, mode, style, tools in trials)
         out = RESULTS / f"benchmark-{datetime.now(timezone.utc):%Y%m%dT%H%M%S%fZ}.json"
         if args.resume:
             out = args.resume.resolve()
@@ -428,6 +445,8 @@ def main() -> int:
             config = saved["run_config"]
             if config.get("manifest_hash") != sade_eval.MANIFEST_HASH:
                 parser.error("Cannot resume a checkpoint from a different case manifest")
+            if config.get("scorer_version") != sade_eval.SCORER_VERSION:
+                parser.error("Cannot resume a checkpoint from a different scoring version; start a new run")
             schedule = config["schedule"]
             sade_eval._preflight(nika_root, config["model"], config["judge_model"])
         config["schedule"] = schedule

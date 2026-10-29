@@ -1,5 +1,33 @@
 [
   {
+    "id": "p20-enterprise",
+    "name": "P20 Enterprise \u00b7 75 devices",
+    "inventory": "p20-enterprise.json",
+    "scenario_count": 0,
+    "evaluation_enabled": false
+  },
+  {
+    "id": "sarah-enterprise-75",
+    "name": "Sarah Enterprise \u00b7 75 devices",
+    "inventory": "sarah-enterprise-75.json",
+    "scenario_count": 0,
+    "evaluation_enabled": false
+  },
+  {
+    "id": "sarah-service-75",
+    "name": "Sarah Service \u00b7 75 devices",
+    "inventory": "sarah-service-75.json",
+    "scenario_count": 0,
+    "evaluation_enabled": false
+  },
+  {
+    "id": "jennie-enterprise-75",
+    "name": "Jennie Enterprise \u00b7 75 devices (candidate)",
+    "inventory": "jennie-enterprise-75.json",
+    "scenario_count": 0,
+    "evaluation_enabled": false
+  },
+  {
     "id": "multi-as-isp",
     "name": "Multi-AS ISP Backbone \u00b7 75 devices",
     "inventory": "multi-as-isp.json",

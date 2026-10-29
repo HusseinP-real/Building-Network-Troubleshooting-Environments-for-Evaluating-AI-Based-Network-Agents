@@ -103,7 +103,7 @@
     byId('deviceSummary').textContent = 'Choose any node to highlight its neighbors and inspect its interfaces.';
     byId('deviceDetails').replaceChildren();
     svg.setAttribute('aria-label', `${data.name} network topology`);
-    byId('topologySelectionNote').textContent = `${Object.values(data.nodes).filter(node => !node.virtual).length} devices · ${data.evaluation_enabled ? 'Benchmark available' : data.execution_enabled ? 'Manual testing available' : 'Catalog only'}`;
+    byId('topologySelectionNote').textContent = `${Object.values(data.nodes).filter(node => !node.virtual).length} devices · ${data.evaluation_enabled ? 'Benchmark available' : data.execution_enabled ? 'Fault validation available' : 'Catalog only'}`;
     const counts = {router:0, switch:0, host:0};
     Object.values(data.nodes).forEach(node => {if (!node.virtual) counts[node.role] = (counts[node.role] || 0) + 1;});
     const metrics = byId('topologyMetrics'); metrics.replaceChildren();
@@ -144,7 +144,7 @@
     }
     const info = byId('topologyCatalog'); info.replaceChildren();
     const intro = document.createElement('p');
-    intro.textContent = `${data.protocols} · ${data.evaluation_enabled ? 'SADE evaluation available on Dashboard' : data.execution_enabled ? 'Manual fault controls available · automatic SADE adapter pending' : 'Catalog only · execution adapter pending'}`;
+    intro.textContent = `${data.protocols} · ${data.evaluation_enabled ? 'SADE evaluation available on Dashboard' : data.execution_enabled ? 'Generic faults mapped · validate each case before benchmarking' : 'Generic targets mapped · lab source or deployment required'}`;
     info.append(intro);
     if (data.source_path) {
       const source = document.createElement('p');
@@ -228,7 +228,7 @@
         topologies.forEach(topology => {
           const option = document.createElement('option');
           option.value = topology.id; option.textContent = topology.name.replace(/ · \d+ devices$/, '');
-          option.dataset.supportingText = topology.evaluation_enabled ? 'Automatic benchmark available' : 'Catalog browsing · automatic adapter pending';
+          option.dataset.supportingText = topology.evaluation_enabled ? 'Automatic benchmark available' : '5 generic cases · validation required';
           select.append(option);
         });
         select.disabled = false;

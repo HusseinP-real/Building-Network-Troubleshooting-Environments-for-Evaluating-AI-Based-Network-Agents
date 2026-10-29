@@ -2866,7 +2866,7 @@
   "layout": "generic",
   "protocols": "OSPF \u00b7 eBGP",
   "source_path": "MultiSite_BGP_OSPF_Benchmark",
-  "source_commit": "1711b1691b8287a06b4b0cc80206ef114dc9c88a",
+  "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
   "scenarios": [
     "F01",
     "F02",

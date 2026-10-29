@@ -136,7 +136,7 @@
 (() => {
   const el = id => document.getElementById(id);
   let topology = '', rows = [], state = null, automatic = false, autoSubmitting = false, submitted = false, sequence = 0, loading = true, mapReady = false;
-  const buttons = {baseline: 'baselineButton', inject: 'injectButton', verify: 'verifyButton', recover: 'recoverButton'};
+  const buttons = {baseline: 'baselineButton', inject: 'injectButton', verify: 'verifyButton', recover: 'recoverButton', validate: 'validateFaultButton'};
   const faultTitles = {'core-uplink': 'Core uplink · r5', 'core-uplink-r6': 'Core uplink · r6', 'gateway-service': 'Gateway service · r5', 'gateway-service-r8': 'Gateway service · r8', 'database-acl': 'Backend ACL · app', 'database-ingress-acl': 'Backend ACL · database', 'ospf-passive-r7': 'OSPF passive interface · r7', 'compound-uplink-acl': 'Uplink + backend ACL', 'compound-ospf-gateway': 'OSPF + gateway service', 'healthy': 'Healthy network'};
   const row = () => rows.find(item => item.id === el('faultSelect').value);
   async function request(url, options) {
@@ -147,39 +147,53 @@
   }
   function render() {
     const selected = row();
+    const originalOption = el('evaluationScope').querySelector('option[value=enterprise20]');
+    originalOption.disabled = topology !== 'enterprise-75';
+    if (originalOption.disabled && el('evaluationScope').value === 'enterprise20') el('evaluationScope').value = 'selected';
+    const enterprise20 = el('evaluationScope').value === 'enterprise20';
+    const canEvaluate = enterprise20 ? topology === 'enterprise-75' : selected?.evaluation_enabled;
     const pending = state?.pending || [];
     const busy = submitted || !!state?.busy || automatic || autoSubmitting;
     const ready = mapReady && !loading && selected?.execution_enabled && state?.execution_enabled;
-    el('faultSelect').disabled = busy || loading || !rows.length;
+    el('faultSelect').disabled = busy || loading || !rows.length || enterprise20;
     el('topologySelect').disabled = submitted || automatic || autoSubmitting;
     el('mapTopologySelect').disabled = el('topologySelect').disabled;
     Object.values(buttons).forEach(id => { el(id).disabled = !ready || busy; });
+    el('validateFaultButton').hidden = enterprise20;
+    el('validateFaultButton').disabled ||= !!pending.length;
     el('injectButton').disabled ||= selected?.kind === 'healthy' || !!pending.length;
     const owns = selected?.components.some(fault => pending.includes(fault));
     el('verifyButton').disabled ||= !owns;
     el('recoverButton').disabled ||= !owns;
-    el('runButton').disabled = !ready || loading || busy || !!pending.length || !selected?.evaluation_enabled;
-    el('evaluationScope').disabled = automatic || !selected?.evaluation_enabled;
-    const scope = !selected?.evaluation_enabled ? 'Fault catalog' : el('evaluationScope').value === 'all' ? '20 ticket cases' : `${selected?.case_ids.length || 0} ticket case${selected?.case_ids.length === 1 ? '' : 's'}`;
+    el('runButton').disabled = !ready || loading || busy || !!pending.length || !canEvaluate;
+    el('evaluationScope').disabled = automatic || loading;
+    const allReady = rows.filter(item => item.generic).length === 5 && rows.filter(item => item.generic).every(item => item.evaluation_enabled);
+    el('evaluationScope').querySelector('option[value=all]').disabled = !allReady;
+    if (!allReady && el('evaluationScope').value === 'all') el('evaluationScope').value = 'selected';
+    const scope = enterprise20 ? 'Original 20 tickets · ' + (20 * Number(el('repeats').value)) + ' diagnoses · max 20 turns each' : !selected?.evaluation_enabled ? 'Fault catalog' : el('evaluationScope').value === 'all' ? '5 generic cases' : `${selected?.case_ids.length || 0} ticket case${selected?.case_ids.length === 1 ? '' : 's'}`;
     el('evaluationTarget').textContent = `${el('topologySelect').selectedOptions[0]?.textContent || topology} · ${scope}`;
-    const status = !ready ? (!selected?.evaluation_enabled && !loading ? ['catalog', 'Benchmark unavailable'] : ['loading', 'Preparing'])
-      : pending.length ? ['recovery', 'Recovery required'] : busy ? ['running', automatic ? 'Benchmark running' : 'Lab busy'] : ['ready', 'Ready to run'];
+    const status = busy ? ['running', automatic ? 'Benchmark running' : state?.operation?.action === 'validate' ? 'Validating selected fault…' : 'Lab busy']
+      : pending.length ? ['recovery', 'Recovery required']
+      : !ready ? ['catalog', selected?.execution_enabled ? 'Preparing' : 'Lab unavailable']
+      : !canEvaluate ? ['catalog', 'Validation required'] : ['ready', 'Ready to run'];
     el('setupStatus').dataset.state = status[0];
     el('setupStatus').textContent = status[1];
     el('runLabel').textContent = automatic ? 'Benchmark running…' : 'Run benchmark';
-    el('benchmarkSupport').textContent = loading ? 'Loading supported fault scenarios…' : !selected?.evaluation_enabled
-      ? 'Benchmark execution is not yet adapted for this topology. You can explore its fault catalog; available manual tools are under Advanced laboratory debugging.'
+    el('benchmarkSupport').textContent = loading ? 'Loading supported fault scenarios…' : enterprise20 ? 'Original 20-ticket suite, seed 42, standard investigation and individual commands. Each ticket checks the full baseline, injects its own fault(s), scores the diagnosis and restores the network. Keep the judge on Haiku 5.5 to compare with the previous 55% result.' : !selected?.evaluation_enabled
+      ? selected?.execution_enabled ? 'Validate the selected fault first. This checks baseline, injects the fault, verifies its effect and restores the lab without calling a model.' : selected?.support_reason || 'Deploy the selected lab before validation.'
       : !mapReady ? 'Loading the selected topology…' : !state ? 'Unable to confirm laboratory status. Benchmark execution is disabled until the server responds.' : '';
-    el('recoveryNotice').hidden = !pending.length;
+    if (!busy && state?.operation?.action === 'validate' && state.operation.status === 'failed') el('benchmarkSupport').textContent = 'Validation failed. See Advanced laboratory debugging for the failed check and recovery details.';
+    el('validateFaultButton').textContent = busy && state?.operation?.action === 'validate' ? 'Validating & restoring…' : 'Validate selected fault & recovery';
+    el('recoveryNotice').hidden = !pending.length || busy;
     el('recoveryNoticeText').textContent = `${pending.length} pending laboratory change(s): ${pending.join(', ')}. Recover them to enable this benchmark.`;
     el('faultSupport').textContent = !mapReady ? 'Loading topology map; execution is disabled until the selected map is ready.' : selected?.support_reason || (loading ? 'Loading fault catalog…' : 'Fault catalog unavailable');
     el('executionTarget').textContent = state?.target ? `Execution target: ${state.target}` : 'Execution disabled for this topology.';
     el('pendingFaults').replaceChildren();
     el('pendingFaults').dataset.dirty = String(!!pending.length);
-    el('pendingFaults').append(document.createTextNode(pending.length ? `Pending recovery (${pending.length}): ` : selected?.execution_enabled ? 'No recorded pending faults. Run a live baseline to confirm health.' : 'Catalog only. Live environment state is unavailable.'));
+    el('pendingFaults').append(document.createTextNode(pending.length ? automatic ? `Benchmark changes awaiting automatic recovery (${pending.length}): ` : `Pending recovery (${pending.length}): ` : selected?.execution_enabled ? 'No recorded pending faults. Run a live baseline to confirm health.' : 'Catalog only. Live environment state is unavailable.'));
     pending.forEach(fault => {
       const button = document.createElement('button');
-      button.textContent = `${fault} · select for recovery`;
+      button.textContent = automatic ? `${fault} · benchmark in progress` : `${fault} · select for recovery`;
       button.disabled = busy;
       button.onclick = () => { el('faultSelect').value = fault; details(); render(); };
       el('pendingFaults').append(button);
@@ -220,6 +234,9 @@
       const data = await request(`/api/manual/status?topology_id=${encodeURIComponent(target)}`);
       if (expected !== sequence) return;
       state = data;
+      const catalog = await request(`/api/faults?topology_id=${encodeURIComponent(target)}`);
+      if (expected !== sequence) return;
+      rows = catalog;
       render();
     } catch (error) {
       if (expected !== sequence) return;
@@ -240,7 +257,7 @@
       data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.id;
-        option.textContent = faultTitles[item.id] || item.id.replace(/[-_]/g, ' ').replace(/\b(acl|ospf|bgp|dhcp|dns)\b/gi, word => word.toUpperCase()).replace(/^./, letter => letter.toUpperCase());
+        option.textContent = item.title || faultTitles[item.id] || item.id.replace(/[-_]/g, ' ').replace(/\b(acl|ospf|bgp|dhcp|dns)\b/gi, word => word.toUpperCase()).replace(/^./, letter => letter.toUpperCase());
         option.dataset.supportingText = `${{fault: 'Actual fault', healthy: 'Healthy control', compound: 'Compound fault'}[item.kind]}${item.targets.length ? ' · ' + item.targets.join(', ') : ' · no injection'}`;
         el('faultSelect').append(option);
       });
@@ -268,13 +285,14 @@
   el('reviewRecovery').onclick = () => { el('manualTools').open = true; el('manualTools').scrollIntoView({behavior: 'smooth', block: 'center'}); };
   el('faultSelect').onchange = () => { details(); render(); };
   el('evaluationScope').onchange = render;
+  el('repeats').addEventListener('change', render);
   window.addEventListener('topology-loaded', event => { if (event.detail.id === topology) { mapReady = true; render(); } });
   window.addEventListener('topology-error', event => { if (event.detail.id === topology) { mapReady = false; render(); el('faultSupport').textContent = 'Selected topology could not be loaded; execution is disabled.'; } });
   window.addEventListener('topology-selected', event => load(event.detail.id));
   window.addEventListener('benchmark-submitting', event => { autoSubmitting = event.detail; render(); });
   window.addEventListener('benchmark-status', event => { automatic = event.detail.running; render(); });
   window.faultWorkspace = {refresh, request: () => {
-    if (!mapReady || loading || !row() || !state || state.busy || state.pending.length || automatic || !row().evaluation_enabled) throw Error('Selected experiment is not ready for automatic evaluation');
+    if (!mapReady || loading || !row() || !state || state.busy || state.pending.length || automatic || (el('evaluationScope').value === 'enterprise20' ? topology !== 'enterprise-75' : !row().evaluation_enabled)) throw Error('Selected experiment is not ready for automatic evaluation');
     return {topology_id: topology, fault_id: row().id, scope: el('evaluationScope').value};
   }};
   setInterval(refresh, 1200);

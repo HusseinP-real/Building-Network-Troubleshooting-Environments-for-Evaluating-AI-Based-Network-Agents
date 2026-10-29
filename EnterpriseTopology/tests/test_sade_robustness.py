@@ -41,6 +41,11 @@ QUALITY = {
 
 
 class RobustnessTests(unittest.TestCase):
+    def setUp(self):
+        credentials = patch.dict(ev.os.environ, {"ANTHROPIC_API_KEY": "fake-test-api-key"})
+        credentials.start()
+        self.addCleanup(credentials.stop)
+
     def test_deepseek_credentials_and_routes_are_isolated(self):
         with patch.dict(ev.os.environ, {"DEEPSEEK_API_KEY": "fake-deepseek", "ANTHROPIC_API_KEY": "fake-claude"}, clear=True):
             env = ev._model_env("deepseek-flash")
@@ -55,6 +60,19 @@ class RobustnessTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "DEEPSEEK_API_KEY"):
                 ev._model_env("deepseek-v4-pro")
 
+
+    def test_claude_prefers_api_key_and_otherwise_uses_login(self):
+        with patch.dict(ev.os.environ, {"ANTHROPIC_API_KEY": "fake-api", "CLAUDE_CODE_OAUTH_TOKEN": "fake-subscription"}, clear=True):
+            env = ev._model_env("claude-sonnet-5-5")
+            self.assertEqual(env["ANTHROPIC_API_KEY"], "fake-api")
+            self.assertEqual(env["CLAUDE_CODE_OAUTH_TOKEN"], "")
+            self.assertEqual(ev._auth_mode("claude-sonnet-5-5"), "provider-api-key")
+        with patch.dict(ev.os.environ, {"CLAUDE_CODE_OAUTH_TOKEN": "fake-subscription"}, clear=True):
+            env = ev._model_env("claude-sonnet-5-5")
+            self.assertEqual(env["ANTHROPIC_API_KEY"], "")
+            self.assertNotIn("CLAUDE_CODE_OAUTH_TOKEN", env)
+            self.assertEqual(ev._auth_mode("claude-sonnet-5-5"), "claude-code-login")
+            self.assertFalse(ev._claude_api_mode("claude-sonnet-5-5"))
 
     def test_health_retries_failed_readonly_probe_and_records_history(self):
         with (
@@ -157,6 +175,8 @@ class RobustnessTests(unittest.TestCase):
                 )
             )
         control, live = captured
+        self.assertEqual(control.extra_args, {"bare": None})
+        self.assertEqual(live.extra_args, {"bare": None})
         self.assertEqual(control.tools, [])
         self.assertEqual(control.mcp_servers, {})
         self.assertEqual(control.allowed_tools, [])
@@ -217,8 +237,49 @@ class RobustnessTests(unittest.TestCase):
         for field in ("resource_id", "fault_type"):
             answer = prediction("core-uplink")
             answer[field] = "wrong"
+            self.assertTrue(ev.score_prediction("core-uplink", answer)["rca_exact"])
+            self.assertFalse(ev.score_prediction("core-uplink", answer)["format_compliant"])
+            answer["root_causes"][0][field] = "wrong"
             self.assertFalse(ev.score_prediction("core-uplink", answer)["rca_exact"])
         self.assertFalse(ev.score_prediction("core-uplink", {})["rca_exact"])
+
+    def test_summary_preserves_historical_scores(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "case.json"
+            old_score = ev.score_prediction("core-uplink", prediction("core-uplink"), QUALITY)
+            old_score["rca_exact"] = False
+            old_score["full_correct"] = False
+            path.write_text(json.dumps({"case": "core-uplink", "status": "scored", "scorer_version": "3.0", "score": old_score}))
+            report = bench.summarize([path])
+            self.assertFalse(report["runs"][0]["score"]["rca_exact"])
+            self.assertEqual(report["scorer_version"], "3.0")
+
+    def test_v4_equivalent_acl_and_wrong_parameters(self):
+        answer = prediction("database-acl")
+        answer["repair_actions"] = [{"device": "app", "command": "iptables -D OUTPUT -p tcp -m tcp -d 10.30.20.10/32 --dport 8080 -j REJECT --reject-with icmp-port-unreachable"}]
+        score = ev.score_prediction("database-acl", answer, QUALITY)
+        self.assertTrue(score["full_correct"])
+        self.assertFalse(score["legacy_strict"]["full_correct"])
+        for old, new in [("8080", "80"), ("OUTPUT", "INPUT"), ("10.30.20.10", "10.30.20.11"), ("REJECT", "ACCEPT")]:
+            changed = copy.deepcopy(answer)
+            changed["repair_actions"][0]["command"] = changed["repair_actions"][0]["command"].replace(old, new)
+            self.assertFalse(ev.repair_actions_correct("database-acl", changed["repair_actions"]))
+
+    def test_v4_compound_summary_and_review(self):
+        answer = prediction("compound-uplink-acl")
+        answer["resource_id"] = "interface/r6/eth0, firewall/database/INPUT"
+        score = ev.score_prediction("compound-uplink-acl", answer, QUALITY)
+        self.assertTrue(score["full_correct"])
+        self.assertFalse(score["format_compliant"])
+        self.assertFalse(score["legacy_strict"]["rca_exact"])
+        answer = prediction("gateway-service")
+        answer["repair_actions"] = [{"device": "r5", "command": "service keepalived start"}]
+        score = ev.score_prediction("gateway-service", answer, QUALITY)
+        self.assertIsNone(score["repair_correct"])
+        self.assertIsNone(score["full_correct"])
+        self.assertTrue(score["repair_review_required"])
+        score = ev.score_prediction("gateway-service", answer, {**QUALITY, "repair_correct": False})
+        self.assertFalse(score["repair_correct"])
 
     def test_invalid_output_rejected(self):
         for text in (
@@ -437,6 +498,7 @@ class RobustnessTests(unittest.TestCase):
             self.assertEqual(options.tools, [])
             self.assertEqual(options.setting_sources, [])
             self.assertEqual(options.mcp_servers, {})
+            self.assertEqual(options.extra_args, {"bare": None})
             verdict["explanation_correct"] = "true"
             with self.assertRaises(ValueError):
                 asyncio.run(

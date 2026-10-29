@@ -15,6 +15,7 @@ STATIC = Path(__file__).resolve().parent
 REPO = ROOT.parent
 sys.path.insert(0, str(ROOT / "tools"))
 # Compatibility exports used by the server and operation coordinator.
+import generic_faults
 from environment_guard import Conflict as Conflict  # noqa: PLC0414
 from environment_guard import Lease as Lease  # noqa: PLC0414
 
@@ -55,6 +56,9 @@ def topologies():
             **item,
             "inventory": STATIC / "topologies" / item["inventory"],
         }
+    for key, row in rows.items():
+        row["scenario_count"] = len(generic_faults.FAMILIES)
+        row["evaluation_enabled"] = any(generic_faults.validated(key, family) for family in generic_faults.FAMILIES)
     return {
         key: row
         for key, row in rows.items()
@@ -66,7 +70,7 @@ def topologies():
     }
 
 
-def support(topology):
+def native_support(topology):
     if topology not in LAB_ROOTS:
         return (
             False,
@@ -117,10 +121,10 @@ def support(topology):
     return True, f"Adapter ready · {lab.ROOT.name}/lab.py · live baseline required"
 
 
-def catalog(topology):
+def native_catalog(topology):
     if topology not in topologies():
         raise ValueError("Unknown topology ID")
-    enabled, reason = support(topology)
+    enabled, reason = native_support(topology)
     rows = []
     if topology in ("enterprise-75", "enterprise-75-standalone"):
         faults = load_lab(topology).FAULTS
@@ -254,8 +258,23 @@ def catalog(topology):
     return rows
 
 
+def support(topology):
+    return generic_faults.support(topology)
+
+
+def catalog(topology):
+    rows = generic_faults.catalog(topology)
+    # Preserve recovery access for older native mutations, without offering new ones.
+    folder = LAB_ROOTS.get(topology)
+    if folder and (folder / 'results/control/state.json').exists():
+        pending = Lease(folder).read()['pending']
+        if any(key not in generic_faults.FAMILIES for key in pending):
+            rows.extend(row for row in native_catalog(topology) if set(row['components']) & set(pending))
+    return rows
+
+
 def selected(topology, fault):
-    for row in catalog(topology):
+    for row in (catalog(topology) if fault in generic_faults.FAMILIES else native_catalog(topology)):
         if row["id"] == fault:
             return row
     raise ValueError("Unknown fault ID for this topology")
@@ -291,7 +310,17 @@ def verify(lab, topology, fault, repair=False):
 
 
 def step(topology, action, fault=None):
-    enabled, reason = support(topology)
+    if fault in generic_faults.FAMILIES:
+        if action == 'validate':
+            report = generic_faults.validate(topology, fault)
+            print(json.dumps(report), flush=True)
+            return report['passed']
+        adapter = generic_faults.Adapter(topology)
+        if action in ('baseline', 'restored-baseline'):
+            return adapter.check() == 0
+        adapter.action(action, fault)
+        return True
+    enabled, reason = native_support(topology)
     if not enabled:
         raise ValueError(reason)
     lab = load_lab(topology)
@@ -344,10 +373,11 @@ def step(topology, action, fault=None):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("topology", choices=LAB_ROOTS)
+    p.add_argument("topology", choices=generic_faults.TARGETS)
     p.add_argument(
         "action",
         choices=[
+            "validate",
             "baseline",
             "inject",
             "repair",

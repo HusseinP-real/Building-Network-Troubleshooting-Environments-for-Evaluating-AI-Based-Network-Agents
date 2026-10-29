@@ -1,13 +1,21 @@
 """Asynchronous manual operations with durable intent and per-environment exclusion."""
 from __future__ import annotations
+
 import os
 import re
 import subprocess
 import threading
 from datetime import datetime, timezone
-from pathlib import Path
 
-from fault_runtime import LAB_ROOTS, STATIC, selected, support, topologies, Lease, Conflict
+from fault_runtime import (
+    STATIC,
+    Conflict,
+    Lease,
+    generic_faults,
+    selected,
+    support,
+    topologies,
+)
 
 
 def sanitized(text):
@@ -25,14 +33,12 @@ class Operations:
     def lease(self, topology):
         if topology not in topologies():
             raise ValueError('Unknown topology ID')
-        if topology not in LAB_ROOTS:
-            raise ValueError(support(topology)[1])
-        return Lease(LAB_ROOTS[topology])
+        return Lease(generic_faults.root(topology))
 
     def snapshot(self, topology):
         if topology not in topologies():
             raise ValueError('Unknown topology ID')
-        if topology not in LAB_ROOTS:
+        if not support(topology)[0]:
             return {'pending': [], 'operation': None, 'busy': False, 'execution_enabled': False,
                     'support_reason': support(topology)[1]}
         lease = self.lease(topology)
@@ -51,11 +57,11 @@ class Operations:
                          'error': 'Previous operation stopped. Inspect and recover pending faults.'}
         enabled, reason = support(topology)
         return {**state, 'operation': operation, 'busy': busy, 'execution_enabled': enabled,
-                'support_reason': reason, 'target': str(LAB_ROOTS[topology])}
+                'support_reason': reason, 'target': str(generic_faults.root(topology))}
 
     def reserve_auto(self, topology):
-        if topology != 'enterprise-75':
-            raise ValueError('Automatic SADE evaluation is only adapted for EnterpriseTopology')
+        if not support(topology)[0]:
+            raise ValueError(support(topology)[1])
         lease = self.lease(topology).acquire()
         try:
             if lease.read()['pending']:
@@ -67,13 +73,15 @@ class Operations:
 
     def start(self, topology, action, fault):
         row = selected(topology, fault)
-        if action not in ('baseline', 'inject', 'verify', 'recover'):
+        if action not in ('baseline', 'inject', 'verify', 'recover', 'validate'):
             raise ValueError('Unknown manual action')
         if not row['execution_enabled']:
             raise ValueError(row['support_reason'])
         lease = self.lease(topology).acquire()
         try:
             state = lease.read()
+            if action == 'validate' and state['pending']:
+                raise Conflict('Recover pending faults before validation')
             if action == 'inject' and (state['pending'] or row['kind'] == 'healthy'):
                 raise Conflict('Injection requires a real fault and no pending recovery')
             if action in ('verify', 'recover') and not set(row['components']) & set(state['pending']):
@@ -105,7 +113,8 @@ class Operations:
         if fault:
             command.append(fault)
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                   pass_fds=(lease.file.fileno(),))
+                                   pass_fds=(lease.file.fileno(),),
+            env={**os.environ, 'SADE_ENV_LOCK_FD': str(lease.file.fileno())})
         # Bound even a hung baseline; each native per-device probe also has its own timeout.
         timer = threading.Timer(1200, process.kill)
         timer.start()
@@ -127,7 +136,9 @@ class Operations:
     def _run(self, lease, topology, action, row):
         try:
             components = row['components']
-            if action == 'baseline':
+            if action == 'validate':
+                steps = [('validate', row['id'])]
+            elif action == 'baseline':
                 steps = [('baseline', None)]
             elif action == 'inject':
                 steps = [('baseline', None)] + [('inject', f) for f in components] + [('verify', f) for f in components]
@@ -136,6 +147,8 @@ class Operations:
             else:
                 components = [f for f in reversed(components) if f in lease.read()['pending']]
                 steps = [('repair', f) for f in components] + [('repaired', f) for f in components] + [('restored-baseline', None)]
+            if row.get('generic'):
+                steps = [(step, fault or row['id']) for step, fault in steps]
             self.update(lease, total=len(steps))
             errors = []
             for step, fault in steps:
@@ -143,7 +156,7 @@ class Operations:
                     lease.mark(fault)  # MUST precede the command, even if it raises or times out.
                 try:
                     ok = self._step(lease, topology, step, fault)
-                except Exception as exc:
+                except Exception as exc:  # noqa: BLE001 - retain recovery intent on worker failures
                     ok = False
                     self.log(lease, f'{step} failed: {sanitized(str(exc))}')
                 if not ok:
@@ -156,7 +169,7 @@ class Operations:
             if action == 'recover':
                 lease.clear(components)
             self.update(lease, status='succeeded', phase='Complete', finished_at=datetime.now(timezone.utc).isoformat())
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - retain recovery intent on worker failures
             self.log(lease, sanitized(str(exc)))
             self.update(lease, status='failed', error=sanitized(str(exc)), finished_at=datetime.now(timezone.utc).isoformat())
         finally:

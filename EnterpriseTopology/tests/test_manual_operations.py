@@ -29,6 +29,9 @@ class ManualHarness(unittest.TestCase):
         self.patcher.start()
         self.addCleanup(self.patcher.stop)
         self.operations = control.Operations(Path(sys.executable))
+        validation = patch.object(runtime.generic_faults, 'validated', return_value=True)
+        validation.start()
+        self.addCleanup(validation.stop)
 
     def wait(self, topology='enterprise-75'):
         for _ in range(200):
@@ -47,7 +50,7 @@ class ManualHarness(unittest.TestCase):
 
 class ManualTests(ManualHarness):
     def test_catalog_deduplicates_tickets_and_filters_real_devices(self):
-        rows = runtime.catalog('enterprise-75')
+        rows = runtime.native_catalog('enterprise-75')
         self.assertEqual(len(rows), 10)
         self.assertEqual(sum(r['kind'] == 'fault' for r in rows), 7)
         self.assertEqual(sum(r['kind'] == 'healthy' for r in rows), 1)
@@ -57,13 +60,13 @@ class ManualTests(ManualHarness):
         for key, topology in runtime.topologies().items():
             inventory = json.loads(topology['inventory'].read_text())
             self.assertGreaterEqual(sum(not n.get('virtual') for n in inventory['nodes'].values()), 75)
-        self.assertEqual(len(runtime.catalog('enterprise-75-standalone')), 4)
-        self.assertEqual([r['id'] for r in runtime.catalog('multisite')], ['F01', 'F02', 'F03'])
+        self.assertEqual(len(runtime.native_catalog('enterprise-75-standalone')), 4)
+        self.assertEqual([r['id'] for r in runtime.native_catalog('multisite')], ['F01', 'F02', 'F03'])
         for key, count in [('multi-as-isp', 8), ('jiayuan-75', 5), ('nika-92', 6)]:
-            rows = runtime.catalog(key)
+            rows = runtime.native_catalog(key)
             self.assertEqual(len(rows), count)
             self.assertFalse(any(r['execution_enabled'] for r in rows))
-        nika = runtime.catalog('nika-92')
+        nika = runtime.native_catalog('nika-92')
         self.assertEqual(sum(r['kind'] == 'compound' for r in nika), 1)
 
     def test_no_device_renaming_compatibility_and_bad_ids(self):
@@ -72,14 +75,14 @@ class ManualTests(ManualHarness):
             with self.assertRaises(ValueError):
                 self.operations.start(topology, 'inject', fault)
         with self.assertRaises(ValueError):
-            self.operations.start('jiayuan-75', 'inject', runtime.catalog('jiayuan-75')[0]['id'])
+            self.operations.start('jiayuan-75', 'inject', runtime.native_catalog('jiayuan-75')[0]['id'])
         inventory = json.loads(runtime.topologies()['multisite']['inventory'].read_text())
         inventory['nodes']['a1']['ports'][0]['link'] = 'wrong-domain'
         original = runtime.topologies
         with patch.object(runtime, 'topologies', return_value={**original(), 'multisite': {
                 **original()['multisite'], 'inventory': self.directory / 'view.json'}}):
             (self.directory / 'view.json').write_text(json.dumps(inventory))
-            self.assertFalse(runtime.support('multisite')[0])
+            self.assertFalse(runtime.native_support('multisite')[0])
 
     def test_full_cycle_and_no_model_import(self):
         with patch.object(self.operations, '_step', side_effect=self.fake_step) as steps:
@@ -225,10 +228,10 @@ class ManualTests(ManualHarness):
         process.stdout = io.StringIO('safe output\n')
         process.wait.return_value = 0
         with patch.object(server.subprocess, 'Popen', return_value=process) as launch:
-            state._run('test-model', 1, fault_id='core-uplink', lease=lease)
+            state._run('test-model', 1, fault_id='link_down', lease=lease)
             arguments = launch.call_args.args[0]
             self.assertEqual(arguments[arguments.index('--cases') + 1:],
-                runtime.selected('enterprise-75', 'core-uplink')['case_ids'])
+                runtime.selected('enterprise-75', 'link_down')['case_ids'])
             self.assertEqual(launch.call_args.kwargs['pass_fds'], (descriptor,))
             self.assertEqual(launch.call_args.kwargs['env']['SADE_ENV_LOCK_FD'], str(descriptor))
         self.assertEqual(state.returncode, 0)
@@ -326,37 +329,37 @@ class HTTPTests(ManualHarness):
             self.assertTrue(entered.wait(1))
             try:
                 self.assertEqual(self.post(payload)[0], 409)
-                self.assertEqual(self.post({'topology_id': 'enterprise-75', 'fault_id': 'core-uplink'}, '/api/run')[0], 409)
+                self.assertEqual(self.post({'topology_id': 'enterprise-75', 'fault_id': 'link_down'}, '/api/run')[0], 409)
             finally:
                 block.set()
                 self.wait()
 
     def test_selected_scope_and_all_scope_use_existing_runner(self):
         calls = []
-        def finish(model, repeats, mode, style, profile, judge, fault, lease):
+        def finish(model, repeats, mode, style, profile, judge, fault, lease, topology):
             calls.append(fault)
             lease.release()
             self.state.running = False
         with patch.object(self.state, '_run', side_effect=finish):
-            payload = {'topology_id': 'enterprise-75', 'fault_id': 'core-uplink', 'scope': 'selected'}
+            payload = {'topology_id': 'enterprise-75', 'fault_id': 'link_down', 'scope': 'selected'}
             self.assertEqual(self.post(payload, '/api/run')[0], 202)
-            self.assertEqual(self.state.case_count, 3)
+            self.assertEqual(self.state.case_count, 1)
             for _ in range(100):
                 if not self.state.running: break
                 time.sleep(.01)
             self.assertEqual(self.post({**payload, 'scope': 'all'}, '/api/run')[0], 202)
-            self.assertEqual(self.state.case_count, 20)
+            self.assertEqual(self.state.case_count, 5)
             for _ in range(100):
                 if not self.state.running: break
                 time.sleep(.01)
-        self.assertEqual(calls, ['core-uplink', None])
+        self.assertEqual(calls, ['link_down', None])
 
     def test_pending_manual_fault_blocks_auto_over_http(self):
         with patch.object(self.operations, '_step', side_effect=self.fake_step):
             payload = {'topology_id': 'enterprise-75', 'fault_id': 'core-uplink', 'action': 'inject'}
             self.assertEqual(self.post(payload)[0], 202)
             self.wait()
-            self.assertEqual(self.post({'topology_id': 'enterprise-75', 'fault_id': 'core-uplink'}, '/api/run')[0], 409)
+            self.assertEqual(self.post({'topology_id': 'enterprise-75', 'fault_id': 'link_down'}, '/api/run')[0], 409)
             self.assertEqual(self.post({**payload, 'action': 'recover'})[0], 202)
             self.assertEqual(self.wait()['pending'], [])
 
