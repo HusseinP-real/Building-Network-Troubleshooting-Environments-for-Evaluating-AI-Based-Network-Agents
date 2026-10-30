@@ -15,11 +15,14 @@ from environment_guard import Lease
 
 
 class GenericFaultTests(unittest.TestCase):
-    def test_all_thirteen_mappings_have_distinct_real_targets(self):
-        self.assertEqual(len(g.TARGETS), 13)
+    def test_all_fourteen_mappings_have_distinct_real_targets(self):
+        self.assertEqual(len(g.TARGETS), 14)
         for key, target in g.TARGETS.items():
             with self.subTest(topology=key):
-                self.assertGreaterEqual(len(target["nodes"]), 75)
+                if key == "datacenter-fabric":
+                    self.assertEqual(len(target["nodes"]), 39)
+                else:
+                    self.assertGreaterEqual(len(target["nodes"]), 75)
                 self.assertEqual(
                     len(
                         {

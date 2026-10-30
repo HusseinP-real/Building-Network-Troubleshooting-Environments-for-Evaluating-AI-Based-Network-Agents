@@ -1,0 +1,1697 @@
+{
+  "nodes": {
+    "spine1": {
+      "role": "router",
+      "asn": 65000,
+      "loopback": "10.254.0.1/32",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf1",
+          "link": "wire01",
+          "kind": "fabric",
+          "address": "172.22.0.1/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "leaf2",
+          "link": "wire04",
+          "kind": "fabric",
+          "address": "172.22.0.7/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "leaf3",
+          "link": "wire07",
+          "kind": "fabric",
+          "address": "172.22.0.13/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "leaf4",
+          "link": "wire10",
+          "kind": "fabric",
+          "address": "172.22.0.19/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf5",
+          "link": "wire13",
+          "kind": "fabric",
+          "address": "172.22.0.25/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf6",
+          "link": "wire16",
+          "kind": "fabric",
+          "address": "172.22.0.31/31"
+        }
+      ],
+      "source_role": "spine"
+    },
+    "spine2": {
+      "role": "router",
+      "asn": 65000,
+      "loopback": "10.254.0.2/32",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf1",
+          "link": "wire02",
+          "kind": "fabric",
+          "address": "172.22.0.3/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "leaf2",
+          "link": "wire05",
+          "kind": "fabric",
+          "address": "172.22.0.9/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "leaf3",
+          "link": "wire08",
+          "kind": "fabric",
+          "address": "172.22.0.15/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "leaf4",
+          "link": "wire11",
+          "kind": "fabric",
+          "address": "172.22.0.21/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf5",
+          "link": "wire14",
+          "kind": "fabric",
+          "address": "172.22.0.27/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf6",
+          "link": "wire17",
+          "kind": "fabric",
+          "address": "172.22.0.33/31"
+        }
+      ],
+      "source_role": "spine"
+    },
+    "spine3": {
+      "role": "router",
+      "asn": 65000,
+      "loopback": "10.254.0.3/32",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf1",
+          "link": "wire03",
+          "kind": "fabric",
+          "address": "172.22.0.5/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "leaf2",
+          "link": "wire06",
+          "kind": "fabric",
+          "address": "172.22.0.11/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "leaf3",
+          "link": "wire09",
+          "kind": "fabric",
+          "address": "172.22.0.17/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "leaf4",
+          "link": "wire12",
+          "kind": "fabric",
+          "address": "172.22.0.23/31"
+        },
+        {
+          "interface": "eth4",
+          "peer": "leaf5",
+          "link": "wire15",
+          "kind": "fabric",
+          "address": "172.22.0.29/31"
+        },
+        {
+          "interface": "eth5",
+          "peer": "leaf6",
+          "link": "wire18",
+          "kind": "fabric",
+          "address": "172.22.0.35/31"
+        }
+      ],
+      "source_role": "spine"
+    },
+    "leaf1": {
+      "role": "router",
+      "asn": 65101,
+      "loopback": "10.254.1.1/32",
+      "rack": 1,
+      "subnet": "10.60.1.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire01",
+          "kind": "fabric",
+          "address": "172.22.0.0/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire02",
+          "kind": "fabric",
+          "address": "172.22.0.2/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire03",
+          "kind": "fabric",
+          "address": "172.22.0.4/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack1",
+          "link": "wire19",
+          "kind": "rack",
+          "address": "10.60.1.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack1": {
+      "role": "switch",
+      "rack": 1,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf1",
+          "link": "wire19",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack1h1",
+          "link": "wire20",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack1h2",
+          "link": "wire21",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack1h3",
+          "link": "wire22",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack1h4",
+          "link": "wire23",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack1h1": {
+      "role": "host",
+      "rack": 1,
+      "address": "10.60.1.11/24",
+      "gateway": "10.60.1.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack1",
+          "link": "wire20",
+          "kind": "access",
+          "address": "10.60.1.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack1h2": {
+      "role": "host",
+      "rack": 1,
+      "address": "10.60.1.12/24",
+      "gateway": "10.60.1.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack1",
+          "link": "wire21",
+          "kind": "access",
+          "address": "10.60.1.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack1h3": {
+      "role": "host",
+      "rack": 1,
+      "address": "10.60.1.13/24",
+      "gateway": "10.60.1.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack1",
+          "link": "wire22",
+          "kind": "access",
+          "address": "10.60.1.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack1h4": {
+      "role": "host",
+      "rack": 1,
+      "address": "10.60.1.14/24",
+      "gateway": "10.60.1.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack1",
+          "link": "wire23",
+          "kind": "access",
+          "address": "10.60.1.14/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "leaf2": {
+      "role": "router",
+      "asn": 65102,
+      "loopback": "10.254.1.2/32",
+      "rack": 2,
+      "subnet": "10.60.2.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire04",
+          "kind": "fabric",
+          "address": "172.22.0.6/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire05",
+          "kind": "fabric",
+          "address": "172.22.0.8/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire06",
+          "kind": "fabric",
+          "address": "172.22.0.10/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack2",
+          "link": "wire24",
+          "kind": "rack",
+          "address": "10.60.2.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack2": {
+      "role": "switch",
+      "rack": 2,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf2",
+          "link": "wire24",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack2h1",
+          "link": "wire25",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack2h2",
+          "link": "wire26",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack2h3",
+          "link": "wire27",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack2h4",
+          "link": "wire28",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack2h1": {
+      "role": "host",
+      "rack": 2,
+      "address": "10.60.2.11/24",
+      "gateway": "10.60.2.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack2",
+          "link": "wire25",
+          "kind": "access",
+          "address": "10.60.2.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack2h2": {
+      "role": "host",
+      "rack": 2,
+      "address": "10.60.2.12/24",
+      "gateway": "10.60.2.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack2",
+          "link": "wire26",
+          "kind": "access",
+          "address": "10.60.2.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack2h3": {
+      "role": "host",
+      "rack": 2,
+      "address": "10.60.2.13/24",
+      "gateway": "10.60.2.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack2",
+          "link": "wire27",
+          "kind": "access",
+          "address": "10.60.2.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack2h4": {
+      "role": "host",
+      "rack": 2,
+      "address": "10.60.2.14/24",
+      "gateway": "10.60.2.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack2",
+          "link": "wire28",
+          "kind": "access",
+          "address": "10.60.2.14/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "leaf3": {
+      "role": "router",
+      "asn": 65103,
+      "loopback": "10.254.1.3/32",
+      "rack": 3,
+      "subnet": "10.60.3.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire07",
+          "kind": "fabric",
+          "address": "172.22.0.12/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire08",
+          "kind": "fabric",
+          "address": "172.22.0.14/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire09",
+          "kind": "fabric",
+          "address": "172.22.0.16/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack3",
+          "link": "wire29",
+          "kind": "rack",
+          "address": "10.60.3.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack3": {
+      "role": "switch",
+      "rack": 3,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf3",
+          "link": "wire29",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack3h1",
+          "link": "wire30",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack3h2",
+          "link": "wire31",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack3h3",
+          "link": "wire32",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack3h4",
+          "link": "wire33",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack3h1": {
+      "role": "host",
+      "rack": 3,
+      "address": "10.60.3.11/24",
+      "gateway": "10.60.3.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack3",
+          "link": "wire30",
+          "kind": "access",
+          "address": "10.60.3.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack3h2": {
+      "role": "host",
+      "rack": 3,
+      "address": "10.60.3.12/24",
+      "gateway": "10.60.3.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack3",
+          "link": "wire31",
+          "kind": "access",
+          "address": "10.60.3.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack3h3": {
+      "role": "host",
+      "rack": 3,
+      "address": "10.60.3.13/24",
+      "gateway": "10.60.3.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack3",
+          "link": "wire32",
+          "kind": "access",
+          "address": "10.60.3.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack3h4": {
+      "role": "host",
+      "rack": 3,
+      "address": "10.60.3.14/24",
+      "gateway": "10.60.3.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack3",
+          "link": "wire33",
+          "kind": "access",
+          "address": "10.60.3.14/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "leaf4": {
+      "role": "router",
+      "asn": 65104,
+      "loopback": "10.254.1.4/32",
+      "rack": 4,
+      "subnet": "10.60.4.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire10",
+          "kind": "fabric",
+          "address": "172.22.0.18/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire11",
+          "kind": "fabric",
+          "address": "172.22.0.20/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire12",
+          "kind": "fabric",
+          "address": "172.22.0.22/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack4",
+          "link": "wire34",
+          "kind": "rack",
+          "address": "10.60.4.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack4": {
+      "role": "switch",
+      "rack": 4,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf4",
+          "link": "wire34",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack4h1",
+          "link": "wire35",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack4h2",
+          "link": "wire36",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack4h3",
+          "link": "wire37",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack4h4",
+          "link": "wire38",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack4h1": {
+      "role": "host",
+      "rack": 4,
+      "address": "10.60.4.11/24",
+      "gateway": "10.60.4.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack4",
+          "link": "wire35",
+          "kind": "access",
+          "address": "10.60.4.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack4h2": {
+      "role": "host",
+      "rack": 4,
+      "address": "10.60.4.12/24",
+      "gateway": "10.60.4.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack4",
+          "link": "wire36",
+          "kind": "access",
+          "address": "10.60.4.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack4h3": {
+      "role": "host",
+      "rack": 4,
+      "address": "10.60.4.13/24",
+      "gateway": "10.60.4.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack4",
+          "link": "wire37",
+          "kind": "access",
+          "address": "10.60.4.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack4h4": {
+      "role": "host",
+      "rack": 4,
+      "address": "10.60.4.14/24",
+      "gateway": "10.60.4.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack4",
+          "link": "wire38",
+          "kind": "access",
+          "address": "10.60.4.14/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "leaf5": {
+      "role": "router",
+      "asn": 65105,
+      "loopback": "10.254.1.5/32",
+      "rack": 5,
+      "subnet": "10.60.5.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire13",
+          "kind": "fabric",
+          "address": "172.22.0.24/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire14",
+          "kind": "fabric",
+          "address": "172.22.0.26/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire15",
+          "kind": "fabric",
+          "address": "172.22.0.28/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack5",
+          "link": "wire39",
+          "kind": "rack",
+          "address": "10.60.5.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack5": {
+      "role": "switch",
+      "rack": 5,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf5",
+          "link": "wire39",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack5h1",
+          "link": "wire40",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack5h2",
+          "link": "wire41",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack5h3",
+          "link": "wire42",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack5h4",
+          "link": "wire43",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack5h1": {
+      "role": "host",
+      "rack": 5,
+      "address": "10.60.5.11/24",
+      "gateway": "10.60.5.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack5",
+          "link": "wire40",
+          "kind": "access",
+          "address": "10.60.5.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack5h2": {
+      "role": "host",
+      "rack": 5,
+      "address": "10.60.5.12/24",
+      "gateway": "10.60.5.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack5",
+          "link": "wire41",
+          "kind": "access",
+          "address": "10.60.5.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack5h3": {
+      "role": "host",
+      "rack": 5,
+      "address": "10.60.5.13/24",
+      "gateway": "10.60.5.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack5",
+          "link": "wire42",
+          "kind": "access",
+          "address": "10.60.5.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack5h4": {
+      "role": "host",
+      "rack": 5,
+      "address": "10.60.5.14/24",
+      "gateway": "10.60.5.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack5",
+          "link": "wire43",
+          "kind": "access",
+          "address": "10.60.5.14/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "leaf6": {
+      "role": "router",
+      "asn": 65106,
+      "loopback": "10.254.1.6/32",
+      "rack": 6,
+      "subnet": "10.60.6.0/24",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "spine1",
+          "link": "wire16",
+          "kind": "fabric",
+          "address": "172.22.0.30/31"
+        },
+        {
+          "interface": "eth1",
+          "peer": "spine2",
+          "link": "wire17",
+          "kind": "fabric",
+          "address": "172.22.0.32/31"
+        },
+        {
+          "interface": "eth2",
+          "peer": "spine3",
+          "link": "wire18",
+          "kind": "fabric",
+          "address": "172.22.0.34/31"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack6",
+          "link": "wire44",
+          "kind": "rack",
+          "address": "10.60.6.1/24"
+        }
+      ],
+      "source_role": "leaf"
+    },
+    "rack6": {
+      "role": "switch",
+      "rack": 6,
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "leaf6",
+          "link": "wire44",
+          "kind": "rack"
+        },
+        {
+          "interface": "eth1",
+          "peer": "rack6h1",
+          "link": "wire45",
+          "kind": "access"
+        },
+        {
+          "interface": "eth2",
+          "peer": "rack6h2",
+          "link": "wire46",
+          "kind": "access"
+        },
+        {
+          "interface": "eth3",
+          "peer": "rack6h3",
+          "link": "wire47",
+          "kind": "access"
+        },
+        {
+          "interface": "eth4",
+          "peer": "rack6h4",
+          "link": "wire48",
+          "kind": "access"
+        }
+      ],
+      "source_role": "switch"
+    },
+    "rack6h1": {
+      "role": "host",
+      "rack": 6,
+      "address": "10.60.6.11/24",
+      "gateway": "10.60.6.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack6",
+          "link": "wire45",
+          "kind": "access",
+          "address": "10.60.6.11/24"
+        }
+      ],
+      "source_role": "server"
+    },
+    "rack6h2": {
+      "role": "host",
+      "rack": 6,
+      "address": "10.60.6.12/24",
+      "gateway": "10.60.6.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack6",
+          "link": "wire46",
+          "kind": "access",
+          "address": "10.60.6.12/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack6h3": {
+      "role": "host",
+      "rack": 6,
+      "address": "10.60.6.13/24",
+      "gateway": "10.60.6.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack6",
+          "link": "wire47",
+          "kind": "access",
+          "address": "10.60.6.13/24"
+        }
+      ],
+      "source_role": "client"
+    },
+    "rack6h4": {
+      "role": "host",
+      "rack": 6,
+      "address": "10.60.6.14/24",
+      "gateway": "10.60.6.1",
+      "ports": [
+        {
+          "interface": "eth0",
+          "peer": "rack6",
+          "link": "wire48",
+          "kind": "access",
+          "address": "10.60.6.14/24"
+        }
+      ],
+      "source_role": "client"
+    }
+  },
+  "links": [
+    {
+      "name": "wire01",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf1",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth0"
+        }
+      ],
+      "subnet": "172.22.0.0/31"
+    },
+    {
+      "name": "wire02",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf1",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth0"
+        }
+      ],
+      "subnet": "172.22.0.2/31"
+    },
+    {
+      "name": "wire03",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf1",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth0"
+        }
+      ],
+      "subnet": "172.22.0.4/31"
+    },
+    {
+      "name": "wire04",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf2",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth1"
+        }
+      ],
+      "subnet": "172.22.0.6/31"
+    },
+    {
+      "name": "wire05",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf2",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth1"
+        }
+      ],
+      "subnet": "172.22.0.8/31"
+    },
+    {
+      "name": "wire06",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf2",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth1"
+        }
+      ],
+      "subnet": "172.22.0.10/31"
+    },
+    {
+      "name": "wire07",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf3",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth2"
+        }
+      ],
+      "subnet": "172.22.0.12/31"
+    },
+    {
+      "name": "wire08",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf3",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth2"
+        }
+      ],
+      "subnet": "172.22.0.14/31"
+    },
+    {
+      "name": "wire09",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf3",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth2"
+        }
+      ],
+      "subnet": "172.22.0.16/31"
+    },
+    {
+      "name": "wire10",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf4",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth3"
+        }
+      ],
+      "subnet": "172.22.0.18/31"
+    },
+    {
+      "name": "wire11",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf4",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth3"
+        }
+      ],
+      "subnet": "172.22.0.20/31"
+    },
+    {
+      "name": "wire12",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf4",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth3"
+        }
+      ],
+      "subnet": "172.22.0.22/31"
+    },
+    {
+      "name": "wire13",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf5",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth4"
+        }
+      ],
+      "subnet": "172.22.0.24/31"
+    },
+    {
+      "name": "wire14",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf5",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth4"
+        }
+      ],
+      "subnet": "172.22.0.26/31"
+    },
+    {
+      "name": "wire15",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf5",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth4"
+        }
+      ],
+      "subnet": "172.22.0.28/31"
+    },
+    {
+      "name": "wire16",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf6",
+          "interface": "eth0"
+        },
+        {
+          "node": "spine1",
+          "interface": "eth5"
+        }
+      ],
+      "subnet": "172.22.0.30/31"
+    },
+    {
+      "name": "wire17",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf6",
+          "interface": "eth1"
+        },
+        {
+          "node": "spine2",
+          "interface": "eth5"
+        }
+      ],
+      "subnet": "172.22.0.32/31"
+    },
+    {
+      "name": "wire18",
+      "kind": "fabric",
+      "endpoints": [
+        {
+          "node": "leaf6",
+          "interface": "eth2"
+        },
+        {
+          "node": "spine3",
+          "interface": "eth5"
+        }
+      ],
+      "subnet": "172.22.0.34/31"
+    },
+    {
+      "name": "wire19",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf1",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire20",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack1",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack1h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire21",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack1",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack1h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire22",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack1",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack1h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire23",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack1",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack1h4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire24",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf2",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire25",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack2",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack2h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire26",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack2",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack2h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire27",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack2",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack2h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire28",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack2",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack2h4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire29",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf3",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire30",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack3",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack3h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire31",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack3",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack3h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire32",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack3",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack3h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire33",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack3",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack3h4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire34",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf4",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire35",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack4",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack4h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire36",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack4",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack4h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire37",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack4",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack4h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire38",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack4",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack4h4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire39",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf5",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack5",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire40",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack5",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack5h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire41",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack5",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack5h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire42",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack5",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack5h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire43",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack5",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack5h4",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire44",
+      "kind": "rack",
+      "endpoints": [
+        {
+          "node": "leaf6",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack6",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire45",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack6",
+          "interface": "eth1"
+        },
+        {
+          "node": "rack6h1",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire46",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack6",
+          "interface": "eth2"
+        },
+        {
+          "node": "rack6h2",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire47",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack6",
+          "interface": "eth3"
+        },
+        {
+          "node": "rack6h3",
+          "interface": "eth0"
+        }
+      ]
+    },
+    {
+      "name": "wire48",
+      "kind": "access",
+      "endpoints": [
+        {
+          "node": "rack6",
+          "interface": "eth4"
+        },
+        {
+          "node": "rack6h4",
+          "interface": "eth0"
+        }
+      ]
+    }
+  ],
+  "layout": "generic",
+  "protocols": "eBGP \u00b7 ECMP",
+  "source_path": "DatacenterFabric",
+  "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+  "scenarios": [
+    "healthy",
+    "uplink",
+    "wrong-gateway",
+    "backend-link",
+    "withdrawal",
+    "compound"
+  ],
+  "scenario_count": 6,
+  "fault_catalog": [],
+  "evaluation_enabled": false,
+  "note": "Imported topology and operator fault catalog \u00b7 runtime and automatic evaluation adapters pending",
+  "health": null
+}

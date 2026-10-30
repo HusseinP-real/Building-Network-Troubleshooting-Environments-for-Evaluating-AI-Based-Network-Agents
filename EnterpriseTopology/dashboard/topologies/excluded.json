@@ -1,13 +1,5 @@
 [
   {
-    "id": "datacenter-fabric",
-    "name": "Data Centre Fabric \u00b7 39 devices",
-    "source_path": "DatacenterFabric",
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
-    "device_count": 39,
-    "reason": "Below the dashboard minimum of 75 real devices."
-  },
-  {
     "id": "missing-return-route",
     "name": "Missing Return Route \u00b7 micro lab",
     "source_path": "kathara_scenario/missing_return_route",

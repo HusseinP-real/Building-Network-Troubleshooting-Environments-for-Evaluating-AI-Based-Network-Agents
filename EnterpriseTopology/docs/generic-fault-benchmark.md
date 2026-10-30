@@ -26,7 +26,7 @@ Restart the dashboard server after updating its Python code.
 
 ## Workflow
 
-1. Start the selected Kathara lab. The UI does not automatically start or stop 75–92 containers.
+1. Start the selected Kathara lab. The UI does not automatically start or stop 39–92 containers.
 2. Choose the topology and fault, then click **Validate selected fault & recovery**. Validation does not call a model.
 3. Validation checks the source endpoint address, interface, default route, and three baseline probe paths, then injects the fault, verifies its effect and an independent control, performs precise recovery, and rechecks the baseline. The healthy control runs baseline checks only.
 4. After validation passes, select a model and run the benchmark. All 5 generic cases becomes available only after all five cases pass validation.
@@ -50,6 +50,7 @@ This is an endpoint-connectivity benchmark. Traffic filtering checks ICMP and do
 |---|---|---|---|---|
 | enterprise-75 | app_client01 / eth0 | db_client01 / 10.30.20.20/24 | app_client02 | `EnterpriseTopology` |
 | enterprise-75-standalone | app_client01 / eth0 | db_client01 / 10.30.20.20/24 | app_client02 | `EnterpriseTopology75` |
+| datacenter-fabric | rack1h1 / eth0 | rack2h1 / 10.60.2.11/24 | rack1h2 | `DatacenterFabric` |
 | p20-enterprise | pc1 / eth0 | pc10 / 10.10.3.12/24 | pc11 | `FaulT-Bench/topology_kathara/P20Enterprise` |
 | sarah-enterprise-75 | pc1 / eth0 | pc3 / 10.10.2.10/24 | pc10 | `Sarah_Enterprise_75` |
 | sarah-service-75 | pc1 / eth0 | pc10 / 10.21.10.30/24 | pc11 | `Sarah_Service_75` |
@@ -85,7 +86,7 @@ python3 EnterpriseTopology/tools/build_generic_faults.py --ref origin/main
 
 ## Validation records and limitations
 
-All four real injections and the healthy control completed a full cycle on the current Enterprise lab. The original default route was restored and pending records were cleared. The other 12 topologies have target mappings and offline checks but require validation after their own labs start. This evaluation did not start those labs or call paid diagnosis models. Thirteen mapped topologies must not be reported as thirteen live-validated topologies.
+All four real injections and the healthy control completed a full cycle on the current Enterprise lab. The original default route was restored and pending records were cleared. The other 13 topologies have target mappings and offline checks but require validation after their own labs start. This evaluation did not start those labs or call paid diagnosis models. Fourteen mapped topologies must not be reported as fourteen live-validated topologies.
 
 Generic validation requires iproute2 and ping at the source endpoint; ICMP filtering additionally requires iptables and appropriate privileges. Missing capabilities or a failed baseline cause validation to fail and keep benchmarking disabled. Disabling an interface can remove the default route; recovery restores the route saved before injection.
 
