@@ -399,6 +399,8 @@ async function pollStatus() {
   }
 }
 $('runButton').addEventListener('click', async () => {
+  $('launchError').hidden = true;
+  $('launchError').textContent = '';
   try {
     const selection = window.faultWorkspace.request();
     window.dispatchEvent(new CustomEvent('benchmark-submitting', {detail: true}));
@@ -408,6 +410,8 @@ $('runButton').addEventListener('click', async () => {
     $('runPanel').scrollIntoView({behavior: 'smooth', block: 'center'});
     await pollStatus();
   } catch (error) {
+    $('launchError').textContent = `Could not start benchmark: ${error.message}`;
+    $('launchError').hidden = false;
     window.faultWorkspace.refresh();
     $('runPanel').hidden = false;
     $('runTitle').textContent = error.message;

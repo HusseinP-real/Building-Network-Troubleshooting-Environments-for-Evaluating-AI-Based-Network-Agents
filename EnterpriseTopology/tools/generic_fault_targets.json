@@ -635,6 +635,76 @@
       "pc03": "851d43653a20c16cf711773ee2228d36ed5dbc562cbd1a1870c10c2bc5e79f89"
     }
   },
+  "datacenter-fabric": {
+    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "lab_path": "DatacenterFabric",
+    "lab_conf_sha256": "6c1d1de5ee400578d3ddbe4507773f5b523d3bef26fc17b349cb6f0b6f3728be",
+    "nodes": [
+      "leaf1",
+      "leaf2",
+      "leaf3",
+      "leaf4",
+      "leaf5",
+      "leaf6",
+      "rack1",
+      "rack1h1",
+      "rack1h2",
+      "rack1h3",
+      "rack1h4",
+      "rack2",
+      "rack2h1",
+      "rack2h2",
+      "rack2h3",
+      "rack2h4",
+      "rack3",
+      "rack3h1",
+      "rack3h2",
+      "rack3h3",
+      "rack3h4",
+      "rack4",
+      "rack4h1",
+      "rack4h2",
+      "rack4h3",
+      "rack4h4",
+      "rack5",
+      "rack5h1",
+      "rack5h2",
+      "rack5h3",
+      "rack5h4",
+      "rack6",
+      "rack6h1",
+      "rack6h2",
+      "rack6h3",
+      "rack6h4",
+      "spine1",
+      "spine2",
+      "spine3"
+    ],
+    "source": {
+      "node": "rack1h1",
+      "address": "10.60.1.11/24",
+      "interface": "eth0",
+      "gateway": "10.60.1.1"
+    },
+    "remote": {
+      "node": "rack2h1",
+      "address": "10.60.2.11/24",
+      "interface": "eth0",
+      "gateway": "10.60.2.1"
+    },
+    "control": {
+      "node": "rack1h2",
+      "address": "10.60.1.12/24",
+      "interface": "eth0",
+      "gateway": "10.60.1.1"
+    },
+    "wrong_gateway": "192.0.2.254",
+    "startup_sha256": {
+      "rack1h1": "f6f01bfdf7277f62e032c5c92010c006c2ab528717ad27a7a6c8f53a04f0eb98",
+      "rack2h1": "6ad49d4f33f66d6a129572c79d75c7f9e85fa34fc49d02d516d3554de9121fee",
+      "rack1h2": "ebf4f3850ee6dbbf0c55dcf4f61932ab74d068cd4b0ae0464360dbb518f3687c"
+    }
+  },
   "multi-as-isp": {
     "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
     "lab_path": "Multi-AS-ISP-Backbone-W11-75/lab",

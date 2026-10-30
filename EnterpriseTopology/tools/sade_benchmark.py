@@ -144,7 +144,7 @@ def summarize(paths: list[Path]) -> dict:
             "total_cost_usd": data.get("agent", {}).get("total_cost_usd"),
             "usage": data.get("agent", {}).get("usage"),
             "error": data.get("error"),
-            "score": {key: data["score"].get(key) for key in AXES} if scored else None,
+            "score": {key: data["score"].get(key) for key in (*AXES, "format_compliant", "repair_review_required", "repair_validation", "legacy_strict", "scorer_version")} if scored else None,
         }
         records.append(row)
     records.sort(key=lambda row: (row["timestamp"] or "", row["case"]))

@@ -31,6 +31,7 @@ class DashboardTopologyTests(unittest.TestCase):
 
     def test_every_imported_device_and_edge_is_explorable(self):
         counts = {
+            "datacenter-fabric": 39,
             "p20-enterprise": 75,
             "sarah-enterprise-75": 75,
             "sarah-service-75": 75,
@@ -68,7 +69,7 @@ class DashboardTopologyTests(unittest.TestCase):
     def test_catalog_and_existing_evaluation_stay_distinct(self):
         status, catalog = self.request("/api/topologies")
         self.assertEqual(status, 200)
-        self.assertEqual(len(catalog), 13)
+        self.assertEqual(len(catalog), 14)
         self.assertEqual(
             [x["id"] for x in catalog if x["evaluation_enabled"]], []
         )
@@ -77,7 +78,6 @@ class DashboardTopologyTests(unittest.TestCase):
         )
         self.assertEqual(self.request("/api/topology?id=../../secret")[0], 404)
         for excluded in (
-            "datacenter-fabric",
             "missing-return-route",
             "abilene",
             "kairos-kath3",

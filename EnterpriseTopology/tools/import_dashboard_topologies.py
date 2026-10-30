@@ -332,7 +332,8 @@ def export(ref):
                         {"name": domain, "kind": "routed", "endpoints": endpoints}
                     )
         device_count = sum(not n.get("virtual") for n in nodes.values())
-        if device_count < 75:
+        # Keep the smaller fabric for its eBGP/ECMP topology diversity.
+        if device_count < 75 and key != "datacenter-fabric":
             excluded.append(
                 {
                     "id": key,
