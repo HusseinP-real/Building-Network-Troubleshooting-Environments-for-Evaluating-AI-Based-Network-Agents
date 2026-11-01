@@ -19,10 +19,7 @@ class GenericFaultTests(unittest.TestCase):
         self.assertEqual(len(g.TARGETS), 14)
         for key, target in g.TARGETS.items():
             with self.subTest(topology=key):
-                if key == "datacenter-fabric":
-                    self.assertEqual(len(target["nodes"]), 39)
-                else:
-                    self.assertGreaterEqual(len(target["nodes"]), 75)
+                self.assertGreaterEqual(len(target["nodes"]), 75)
                 self.assertEqual(
                     len(
                         {

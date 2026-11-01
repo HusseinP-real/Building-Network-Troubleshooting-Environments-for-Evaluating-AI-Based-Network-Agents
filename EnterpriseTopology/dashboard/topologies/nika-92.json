@@ -7089,7 +7089,7 @@
   "layout": "generic",
   "protocols": "BGP \u00b7 DHCP \u00b7 DNS \u00b7 HAProxy",
   "source_path": "FaulT-Bench/topology_kathara/NIKA_Clos_Jiayuan_92Devices",
-  "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+  "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
   "scenarios": [
     "nika92-client1-compound-gateway-and-tcp-filter",
     "nika92-dhcp1-wrong-router-option",

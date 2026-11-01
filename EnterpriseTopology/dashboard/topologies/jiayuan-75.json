@@ -2858,7 +2858,7 @@
   "layout": "generic",
   "protocols": "OSPF \u00b7 EIGRP \u00b7 DNS \u00b7 HTTP",
   "source_path": "FaulT-Bench/topology_kathara/Kath5_Jiayuan_75Devices",
-  "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+  "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
   "scenarios": [
     "jiayuan75-false-premise-internal-application",
     "jiayuan75-intapp1-http-stopped",

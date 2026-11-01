@@ -212,7 +212,7 @@
     }
   },
   "p20-enterprise": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "FaulT-Bench/topology_kathara/P20Enterprise",
     "lab_conf_sha256": "9902e907dea6744db4bb68e38a61e9bce25273d89601df8746cf38c462c42773",
     "nodes": [
@@ -318,7 +318,7 @@
     }
   },
   "sarah-enterprise-75": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "Sarah_Enterprise_75",
     "lab_conf_sha256": "7a36b073d91685bd77cdbeb0c67677c571565197e9b76ff32f395648189d9b46",
     "nodes": [
@@ -424,7 +424,7 @@
     }
   },
   "sarah-service-75": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "Sarah_Service_75",
     "lab_conf_sha256": "471cedc28fab2ebbe972a1b6129629b70c673f656a8c979db277eaff507f54a1",
     "nodes": [
@@ -636,9 +636,9 @@
     }
   },
   "datacenter-fabric": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "DatacenterFabric",
-    "lab_conf_sha256": "6c1d1de5ee400578d3ddbe4507773f5b523d3bef26fc17b349cb6f0b6f3728be",
+    "lab_conf_sha256": "695bfad195324945247d9b90fd1a9daa936d4fc504e55a081fba367f74ec9adf",
     "nodes": [
       "leaf1",
       "leaf2",
@@ -648,34 +648,70 @@
       "leaf6",
       "rack1",
       "rack1h1",
+      "rack1h10",
       "rack1h2",
       "rack1h3",
       "rack1h4",
+      "rack1h5",
+      "rack1h6",
+      "rack1h7",
+      "rack1h8",
+      "rack1h9",
       "rack2",
       "rack2h1",
+      "rack2h10",
       "rack2h2",
       "rack2h3",
       "rack2h4",
+      "rack2h5",
+      "rack2h6",
+      "rack2h7",
+      "rack2h8",
+      "rack2h9",
       "rack3",
       "rack3h1",
+      "rack3h10",
       "rack3h2",
       "rack3h3",
       "rack3h4",
+      "rack3h5",
+      "rack3h6",
+      "rack3h7",
+      "rack3h8",
+      "rack3h9",
       "rack4",
       "rack4h1",
+      "rack4h10",
       "rack4h2",
       "rack4h3",
       "rack4h4",
+      "rack4h5",
+      "rack4h6",
+      "rack4h7",
+      "rack4h8",
+      "rack4h9",
       "rack5",
       "rack5h1",
+      "rack5h10",
       "rack5h2",
       "rack5h3",
       "rack5h4",
+      "rack5h5",
+      "rack5h6",
+      "rack5h7",
+      "rack5h8",
+      "rack5h9",
       "rack6",
       "rack6h1",
+      "rack6h10",
       "rack6h2",
       "rack6h3",
       "rack6h4",
+      "rack6h5",
+      "rack6h6",
+      "rack6h7",
+      "rack6h8",
+      "rack6h9",
       "spine1",
       "spine2",
       "spine3"
@@ -693,8 +729,8 @@
       "gateway": "10.60.2.1"
     },
     "control": {
-      "node": "rack1h2",
-      "address": "10.60.1.12/24",
+      "node": "rack1h10",
+      "address": "10.60.1.20/24",
       "interface": "eth0",
       "gateway": "10.60.1.1"
     },
@@ -702,11 +738,11 @@
     "startup_sha256": {
       "rack1h1": "f6f01bfdf7277f62e032c5c92010c006c2ab528717ad27a7a6c8f53a04f0eb98",
       "rack2h1": "6ad49d4f33f66d6a129572c79d75c7f9e85fa34fc49d02d516d3554de9121fee",
-      "rack1h2": "ebf4f3850ee6dbbf0c55dcf4f61932ab74d068cd4b0ae0464360dbb518f3687c"
+      "rack1h10": "51b88118d4c9a1233f114c370306c3baddbdb40ba7d3092e6e69ad93930a63f8"
     }
   },
   "multi-as-isp": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "Multi-AS-ISP-Backbone-W11-75/lab",
     "lab_conf_sha256": "da77d433179d8506e4082dd059868c0e56bcc403758290a87f961d54621b485d",
     "nodes": [
@@ -812,7 +848,7 @@
     }
   },
   "multisite": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "MultiSite_BGP_OSPF_Benchmark",
     "lab_conf_sha256": "1647637b8a04ba8f90c73b937c5cf11da088adb1e6ab013822be583336ba5938",
     "nodes": [
@@ -923,7 +959,7 @@
     }
   },
   "jiayuan-75": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "FaulT-Bench/topology_kathara/Kath5_Jiayuan_75Devices",
     "lab_conf_sha256": "00a22381768b469c240f371a77dd1b107c2fdb4ee234d4caf9ef14a7df46553e",
     "nodes": [
@@ -1029,7 +1065,7 @@
     }
   },
   "nika-92": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "FaulT-Bench/topology_kathara/NIKA_Clos_Jiayuan_92Devices",
     "lab_conf_sha256": "4324d3685ea2a65e346b37c20fda662a9638a4d77fdd0a9d8be3da8ad69ff64e",
     "nodes": [
@@ -1152,7 +1188,7 @@
     }
   },
   "kairos-enterprise": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "EnterpriseTopology_Kairos",
     "lab_conf_sha256": "a8f6f1c0cae265ccbeda7dd96e4e62cba2a1e30e934ebacc2bf83248def70bb3",
     "nodes": [
@@ -1258,7 +1294,7 @@
     }
   },
   "campus80-eason": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "Campus80_Eason",
     "lab_conf_sha256": "b65016bfab5ee3d537b0290062747ba256df8be40ed1806bf4e999c536f623e3",
     "nodes": [
@@ -1369,7 +1405,7 @@
     }
   },
   "enterprise80-eason": {
-    "source_commit": "d0695b9d1ad40eb10e8471186dc6392622f6292e",
+    "source_commit": "1524395e70ebbc197af53b546f27124a24dd1754",
     "lab_path": "Enterprise80_Eason/topology_kathara/Enterprise80",
     "lab_conf_sha256": "248db23fc1032efea407dc9628b47244eb52d8131d2a4bfb4498b98a83b1f26d",
     "nodes": [

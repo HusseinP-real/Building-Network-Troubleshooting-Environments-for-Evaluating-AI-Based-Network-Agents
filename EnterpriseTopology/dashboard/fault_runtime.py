@@ -62,7 +62,7 @@ def topologies():
     return {
         key: row
         for key, row in rows.items()
-        if key == "datacenter-fabric" or sum(
+        if sum(
             not n.get("virtual", False)
             for n in json.loads(row["inventory"].read_text())["nodes"].values()
         )

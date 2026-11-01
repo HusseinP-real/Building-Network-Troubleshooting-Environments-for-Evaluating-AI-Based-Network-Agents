@@ -50,7 +50,7 @@ SPECS = [
     ),
     (
         "datacenter-fabric",
-        "Data Centre Fabric · 39 devices",
+        "Data Centre Fabric · 75 devices",
         "DatacenterFabric",
         ".",
         [
@@ -332,8 +332,7 @@ def export(ref):
                         {"name": domain, "kind": "routed", "endpoints": endpoints}
                     )
         device_count = sum(not n.get("virtual") for n in nodes.values())
-        # Keep the smaller fabric for its eBGP/ECMP topology diversity.
-        if device_count < 75 and key != "datacenter-fabric":
+        if device_count < 75:
             excluded.append(
                 {
                     "id": key,

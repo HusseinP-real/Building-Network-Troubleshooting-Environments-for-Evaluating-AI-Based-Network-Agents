@@ -29,7 +29,7 @@
   },
   {
     "id": "datacenter-fabric",
-    "name": "Data Centre Fabric \u00b7 39 devices",
+    "name": "Data Centre Fabric \u00b7 75 devices",
     "inventory": "datacenter-fabric.json",
     "scenario_count": 6,
     "evaluation_enabled": false

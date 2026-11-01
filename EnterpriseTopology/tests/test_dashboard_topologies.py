@@ -31,7 +31,7 @@ class DashboardTopologyTests(unittest.TestCase):
 
     def test_every_imported_device_and_edge_is_explorable(self):
         counts = {
-            "datacenter-fabric": 39,
+            "datacenter-fabric": 75,
             "p20-enterprise": 75,
             "sarah-enterprise-75": 75,
             "sarah-service-75": 75,
@@ -52,6 +52,11 @@ class DashboardTopologyTests(unittest.TestCase):
                 self.assertEqual(
                     sum(not n.get("virtual") for n in data["nodes"].values()), count
                 )
+                if key == "datacenter-fabric":
+                    self.assertEqual(len(data["links"]), 84)
+                    self.assertEqual(
+                        sum(n["role"] == "router" for n in data["nodes"].values()), 9
+                    )
                 self.assertEqual(len(data["source_commit"]), 40)
                 for link in data["links"]:
                     a, b = link["endpoints"]
