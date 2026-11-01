@@ -1,3 +1,15 @@
+# 75-device validation — 1 November 2026 (Australia/Sydney)
+
+The expanded topology contains 75 devices: three spines, six leaves, six rack bridges, six servers and 54 clients. Its 84 point-to-point links use 168 interfaces. All 75 startup scripts are checked offline.
+
+The live checker now plans 60×59 = 3,540 directed endpoint pings, 60 application checks, eleven ports per rack bridge, and the original BGP/three-path ECMP checks. Failover repeats every endpoint sweep and application check with two remaining leaf1 paths, then restores the uplink and reruns the baseline.
+
+The six scenario definitions, original device addresses/interfaces, original 48 wire identities, and router configurations are preserved. New clients h5–h10 use .15–.20 in each existing rack subnet.
+
+Offline validation passed: `python lab.py validate` parsed 75 devices and 84 links with Kathara integrity checks; `python -m unittest discover -s tests -v` passed all nine regressions. Both SVG and PNG diagrams were regenerated and visually reviewed. Docker reported that its daemon was unavailable, so 75-device live connectivity and failover have not been validated. The saved latest-health.json, latest-failover.json and environment.json below describe the historical 39-device run only; they are not evidence for this expansion. Reproduce with the README commands.
+
+## Historical 39-device live validation
+
 # Recorded validation — 19 October 2026 (Australia/Sydney)
 
 This report applies to **DatacenterFabric**, not another topology's historical reports. Live validation ran from the added directory in the team repository with 39 Kathara-managed Docker containers.

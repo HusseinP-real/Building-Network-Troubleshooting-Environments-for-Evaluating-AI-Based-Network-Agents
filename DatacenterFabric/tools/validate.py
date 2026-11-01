@@ -13,14 +13,20 @@ ROOT = Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
     inv = json.loads((root/'inventory.json').read_text())
     nodes, links = inv['nodes'], inv['links']
-    assert len(nodes) == 39 and len(links) == 48, 'Wrong device/link count'
+    assert len(nodes) == 75 and len(links) == 84, 'Wrong device/link count'
     roles = Counter(n['role'] for n in nodes.values())
-    assert roles == dict(spine=3, leaf=6, switch=6, server=6, client=18), roles
-    assert Counter(l['kind'] for l in links) == dict(fabric=18, rack=6, access=24)
+    assert roles == dict(spine=3, leaf=6, switch=6, server=6, client=54), roles
+    assert Counter(l['kind'] for l in links) == dict(fabric=18, rack=6, access=60)
+    for rack in range(1, 7):
+        switch = nodes[f'rack{rack}']
+        assert [p['peer'] for p in switch['ports']] == [f'leaf{rack}'] + [f'rack{rack}h{h}' for h in range(1, 11)], 'Wrong rack membership or port order'
+        script = (root/f'rack{rack}.startup').read_text()
+        for port in switch['ports']:
+            assert f'ip link set {port["interface"]} master br0' in script, 'Missing bridge port'
     used, addresses, graph = set(), set(), {name:set() for name in nodes}
     conf = (root/'lab.conf').read_text()
     wiring = dict(((n, f'eth{p}'), wire) for n,p,wire in re.findall(r'^(\w+)\[(\d+)\]=(\w+)$', conf, re.M))
-    assert len(wiring) == 96, 'Wrong lab.conf interface count'
+    assert len(wiring) == 168, 'Wrong lab.conf interface count'
     for link in links:
         assert len(link['endpoints']) == 2
         endpoints = link['endpoints']
@@ -74,9 +80,9 @@ def validate(root=ROOT):
             addresses.add(addr.ip)
             assert ipaddress.ip_address(node['gateway']) in addr.network
             assert f'ip route replace default via {node["gateway"]}' in script.read_text()
-    report = dict(passed=True, devices=39, roles=dict(roles), links=48, interfaces=96,
-                  connected_devices=len(reached), startup_scripts_checked=39,
-                  runtime_validation='See latest-health.json; offline checks do not prove routing or connectivity')
+    report = dict(passed=True, devices=75, roles=dict(roles), links=84, interfaces=168,
+                  connected_devices=len(reached), startup_scripts_checked=75,
+                  runtime_validation='75-device live validation pending; saved live reports describe the historical 39-device topology')
     (root/'results').mkdir(exist_ok=True)
     (root/'results/structural-validation.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report, indent=2))

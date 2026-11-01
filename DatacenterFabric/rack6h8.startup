@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+exec > /var/log/fabric-startup.log 2>&1
+ip link set lo up
+ip link set eth0 up
+ip addr add 10.60.6.18/24 dev eth0
+ip route replace default via 10.60.6.1
+touch /tmp/fabric-ready

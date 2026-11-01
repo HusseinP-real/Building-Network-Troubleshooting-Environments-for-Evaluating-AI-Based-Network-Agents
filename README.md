@@ -38,7 +38,7 @@ See the [FaulT-Bench README](FaulT-Bench/README.md) for external agent setup and
 
 ## Data centre fabric
 
-[DatacenterFabric](DatacenterFabric/README.md) provides 39 devices and 48 links with eBGP, three-path ECMP and an application/backend dependency. Its six evaluator-only fault/healthy cases, ground truth, injection checks and recovery plans are in [scenarios.json](DatacenterFabric/scenarios.json). See the [validation report](DatacenterFabric/docs/validation.md) for network and failover evidence; live SADE diagnosis evaluation remains pending.
+[DatacenterFabric](DatacenterFabric/README.md) provides 75 devices and 84 links with eBGP, three-path ECMP and an application/backend dependency. Its six evaluator-only fault/healthy cases, ground truth, injection checks and recovery plans are in [scenarios.json](DatacenterFabric/scenarios.json). See the [validation report](DatacenterFabric/docs/validation.md) for network and failover evidence; live SADE diagnosis evaluation remains pending.
 
 ## Other team topologies
 

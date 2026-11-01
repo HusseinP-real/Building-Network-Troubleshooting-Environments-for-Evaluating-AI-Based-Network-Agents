@@ -81,8 +81,8 @@ def checks():
                     prefix = f'10.60.{rack}.0/24'
                     items.append((f'{name}: three installed ECMP paths to {prefix}', name, ecmp_command(prefix)))
         if node['role'] == 'switch':
-            code = 'import json,sys; d=json.load(sys.stdin); assert len(d)==5; assert all(i["master"]=="br0" for i in d)'
-            items.append((f'{name}: five ports on isolated rack bridge', name, python_assert('ip -j link show master br0', code)))
+            code = f'import json,sys; d=json.load(sys.stdin); assert len(d)=={len(node["ports"])}; assert all(i["master"]=="br0" for i in d)'
+            items.append((f'{name}: {len(node["ports"])} ports on isolated rack bridge', name, python_assert('ip -j link show master br0', code)))
     for name, node in hosts.items():
         address = node['address'].split('/')[0]
         code = f'import json,sys; d=json.load(sys.stdin); assert any(a["local"]=={address!r} for i in d for a in i.get("addr_info",[]))'
@@ -91,7 +91,7 @@ def checks():
         items.append((f'{name}: address and gateway', name, cmd))
         targets = ' '.join(m['address'].split('/')[0] for n,m in hosts.items() if n != name)
         cmd = f'for target in {targets}; do ping -n -c 1 -W 2 "$target" >/dev/null || {{ echo "unreachable: $target"; exit 1; }}; done'
-        items.append((f'{name}: all 23 other endpoints reachable', name, cmd))
+        items.append((f'{name}: all {len(hosts)-1} other endpoints reachable', name, cmd))
         items.append((f'{name}: application and backend dependency healthy', name, "curl -fsS --max-time 6 http://10.60.5.11:8080/ | grep -F 'application: healthy'"))
     for rack in range(1, 7):
         expected = 'application: healthy' if rack == 5 else f'rack{rack}h1: healthy'
@@ -124,7 +124,7 @@ def check():
         if not row['passed']:
             print(row['output'][:1000])
     passed = all(r['passed'] for r in results)
-    save_report('health', dict(passed=passed, checks=results, endpoint_pairs=552))
+    save_report('health', dict(passed=passed, checks=results, endpoint_pairs=sum(n['role'] in ('server','client') for n in inventory()['nodes'].values()) * (sum(n['role'] in ('server','client') for n in inventory()['nodes'].values())-1)))
     print(f'{sum(r["passed"] for r in results)}/{len(results)} checks passed')
     return 0 if passed else 1
 
@@ -149,7 +149,7 @@ def failover():
         for rack in range(2, 7):
             require(f'Two remaining paths to rack{rack}', 'leaf1', ecmp_command(f'10.60.{rack}.0/24', 2))
         for title, node, cmd in checks():
-            if 'all 23 other endpoints' in title or 'dependency healthy' in title:
+            if 'other endpoints reachable' in title or 'dependency healthy' in title:
                 require(title, node, cmd)
         report['passed'] = True
     except Exception as exc:
@@ -199,8 +199,9 @@ def main():
         machines = manager().get_machines_api_objects(lab_name=NAME)
         for container in machines:
             print(container.name, container.status)
-        print(f'{len(machines)}/39 containers present')
-        return 0 if len(machines) == 39 else 1
+        expected = len(inventory()['nodes'])
+        print(f'{len(machines)}/{expected} containers present')
+        return 0 if len(machines) == expected else 1
     if args.action == 'check':
         return check()
     if args.action == 'failover':
