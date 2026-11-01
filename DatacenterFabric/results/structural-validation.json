@@ -1,16 +1,16 @@
 {
   "passed": true,
-  "devices": 39,
+  "devices": 75,
   "roles": {
     "spine": 3,
     "leaf": 6,
     "switch": 6,
     "server": 6,
-    "client": 18
+    "client": 54
   },
-  "links": 48,
-  "interfaces": 96,
-  "connected_devices": 39,
-  "startup_scripts_checked": 39,
-  "runtime_validation": "See latest-health.json; offline checks do not prove routing or connectivity"
+  "links": 84,
+  "interfaces": 168,
+  "connected_devices": 75,
+  "startup_scripts_checked": 75,
+  "runtime_validation": "75-device live validation pending; saved live reports describe the historical 39-device topology"
 }

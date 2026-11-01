@@ -1,6 +1,6 @@
 # Three-Spine Data Centre Fabric
 
-A new standalone Kathara lab for Week 11 goal 2: **39 independent devices and 48 point-to-point links**, using eBGP and three-path ECMP between six racks. This implementation lives alongside the team's existing topologies.
+A new standalone Kathara lab for Week 11 goal 2: **75 independent devices and 84 point-to-point links**, using eBGP and three-path ECMP between six racks. This implementation lives alongside the team's existing topologies.
 
 ![All devices and links](docs/topology.png)
 
@@ -10,7 +10,7 @@ A new standalone Kathara lab for Week 11 goal 2: **39 independent devices and 48
 
 The team's enterprise labs focus on OSPF, VLANs and gateway redundancy; Abilene uses IS-IS; the multi-site benchmark combines OSPF and eBGP at ISP boundaries. Here, **every fabric hop uses eBGP**, and each leaf installs three equal-cost paths to every remote rack. Prefix filters constrain what each rack can advertise. The application in rack 5 calls a backend in rack 6 on every request, making network state observable at the application layer.
 
-Clos/leaf-spine is an established architecture, and the repository includes a NIKA Clos reference dataset. This is a newly generated lab with its own source, addresses, route filters, services and validation; it does not claim to invent Clos or reproduce the NIKA reference. It adds routing/path diversity, rather than exceeding the 75/80-device enterprise labs in device count.
+Clos/leaf-spine is an established architecture, and the repository includes a NIKA Clos reference dataset. This is a newly generated lab with its own source, addresses, route filters, services and validation; it does not claim to invent Clos or reproduce the NIKA reference. It adds routing/path diversity, with 75 devices matching the enterprise labs in scale.
 
 | Component | Count | Role |
 | --- | ---: | --- |
@@ -18,14 +18,14 @@ Clos/leaf-spine is an established architecture, and the repository includes a NI
 | `leaf1`–`leaf6` | 6 | FRR, AS65101–AS65106 |
 | `rack1`–`rack6` | 6 | Independent Linux bridges |
 | `rackNh1` | 6 | HTTP servers; rack5 is the application, rack6 its backend |
-| `rackNh2`–`rackNh4` | 18 | Client endpoints |
-| **Total** | **39** | **39 Docker containers; one shared image** |
+| `rackNh2`–`rackNh10` | 54 | Client endpoints |
+| **Total** | **75** | **75 Docker containers; one shared image** |
 
-Links: 18 leaf↔spine, 6 leaf↔rack-switch, 24 switch↔endpoint. All 48 collision domains connect exactly two devices. The software switches bridge five interfaces in each rack. Host traffic between racks crosses leaf→spine→leaf. There are no spine↔spine or leaf↔leaf links.
+Links: 18 leaf↔spine, 6 leaf↔rack-switch, 60 switch↔endpoint. All 84 collision domains connect exactly two devices. The software switches bridge eleven interfaces in each rack. Host traffic between racks crosses leaf→spine→leaf. There are no spine↔spine or leaf↔leaf links.
 
 ## Setup
 
-Requirements: Docker Desktop running, Python 3.10+, and the Kathara Python SDK. The successful development run used an Apple Silicon Mac with 8 GiB assigned to Docker. Initial image build requires Internet access. No API key or model subscription is required.
+Requirements: Docker Desktop running, Python 3.10+, and the Kathara Python SDK. The historical 39-device development run used an Apple Silicon Mac with 8 GiB assigned to Docker; resource requirements for 75 live devices have not yet been measured. Initial image build requires Internet access. No API key or model subscription is required.
 
 ```bash
 cd /path/to/SOFT3888_TU14_04/DatacenterFabric
@@ -37,7 +37,7 @@ python lab.py build
 python lab.py start
 ```
 
-`start` launches all 39 containers, waits 25 seconds for convergence, and runs the full baseline. If a slow machine has convergence failures, inspect startup logs before rerunning `check`. If startup is interrupted, use `status`, then `stop` before a fresh start.
+`start` launches all 75 containers, waits 25 seconds for convergence, and runs the full baseline. If a slow machine has convergence failures, inspect startup logs before rerunning `check`. If startup is interrupted, use `status`, then `stop` before a fresh start.
 
 This launcher uses the **Kathara Python SDK**, so a separate `kathara` executable is unnecessary. On the development Mac, the system executable failed with a macOS `pyexpat` compatibility error; the installed SDK worked. The existing local environment can be used directly:
 
@@ -77,7 +77,7 @@ The application returns HTTP 503 when its backend request fails. It is a small H
 python lab.py failover
 ```
 
-This requires a passing full baseline. It disables **leaf1 eth0 only**, checks that five remote rack routes each retain **two** installed ECMP next hops, repeats all 552 endpoint pings and all 24 application checks, then restores the interface in `finally` and runs the full baseline again. Recovery failure makes the command fail. A forced process kill can interrupt cleanup; restore with:
+This requires a passing full baseline. It disables **leaf1 eth0 only**, checks that five remote rack routes each retain **two** installed ECMP next hops, repeats all 3,540 endpoint pings and all 60 application checks, then restores the interface in `finally` and runs the full baseline again. Recovery failure makes the command fail. A forced process kill can interrupt cleanup; restore with:
 
 ```bash
 python lab.py exec leaf1 ip link set eth0 up
@@ -102,9 +102,9 @@ Only the named `soft3888_datacenter_fabric_v1` lab is removed. No global Docker 
 - `tools/draw_topology.py`: inventory-based SVG diagram; optionally creates PNG with Pillow.
 - `tests/test_fabric.py`: regressions for miswiring, missing export policy, incorrect ECMP evidence and recovery after partial injection.
 - `results/structural-validation.json`: offline evidence.
-- `results/latest-health.json`: latest live baseline, including commands and raw outputs.
-- `results/latest-failover.json`: latest resilience and recovery evidence.
-- `results/environment.json`: tested versions and image identity.
+- `results/latest-health.json`: historical 39-device live baseline, including commands and raw outputs.
+- `results/latest-failover.json`: historical 39-device resilience and recovery evidence.
+- `results/environment.json`: historical 39-device tested versions and image identity.
 
 ```bash
 python tools/generate.py

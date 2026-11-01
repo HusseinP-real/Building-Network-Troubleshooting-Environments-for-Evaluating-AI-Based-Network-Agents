@@ -13,7 +13,7 @@ The comparison is based on the checked-out `main` tree and its member README fil
 | Abilene/YUMAng | IS-IS backbone and synthetic site | Rack-based Clos with a full three-spine mesh |
 | Extended Kath labs | Branches, gateway/routing faults, server zones | Uniform rack generation, all-pairs endpoint checks and kernel ECMP assertions |
 
-This lab is smaller in device count than the enterprise labs; its contribution is a different routing structure and validation coverage. Six rack switches have one upstream leaf each. Spine redundancy preserves inter-rack paths after an uplink failure, but leaf or rack-switch failure isolates that rack. There is no dual-homed host, EVPN/VXLAN overlay, VLAN tenant isolation or VRRP.
+This lab has 75 devices, with a different routing structure and validation coverage. Six rack switches have one upstream leaf each. Spine redundancy preserves inter-rack paths after an uplink failure, but leaf or rack-switch failure isolates that rack. There is no dual-homed host, EVPN/VXLAN overlay, VLAN tenant isolation or VRRP.
 
 ## Routing
 
@@ -29,13 +29,13 @@ The design follows FRR's documented [ECMP configuration](https://docs.frrouting.
 | --- | --- |
 | Rack N subnet | `10.60.N.0/24` |
 | Rack N gateway / leaf `eth3` | `10.60.N.1/24` |
-| Rack N endpoints h1–h4 | `10.60.N.11`–`10.60.N.14` |
+| Rack N endpoints h1–h10 | `10.60.N.11`–`10.60.N.20` |
 | Spine S loopback | `10.254.0.S/32` |
 | Leaf N loopback | `10.254.1.N/32` |
 | Fabric leaf/spine pairs | Sequential `/31`s from `172.22.0.0/31` to `172.22.0.34/31` |
 | Application | `10.60.5.11:8080` |
 | Backend | `10.60.6.11:8080` |
 
-Fabric pairs are generated in rack order, then spine order. The even `/31` address is assigned to the leaf and odd address to the spine. Leaf eth0/eth1/eth2 connect to spine1/spine2/spine3. Each spine's eth0–eth5 connect to leaf1–leaf6. Rack-switch eth0 goes to its leaf and eth1–eth4 to h1–h4. The machine-readable source of truth is `inventory.json`, with exact ports in `docs/interfaces.csv`.
+Fabric pairs are generated in rack order, then spine order. The even `/31` address is assigned to the leaf and odd address to the spine. Leaf eth0/eth1/eth2 connect to spine1/spine2/spine3. Each spine's eth0–eth5 connect to leaf1–leaf6. Rack-switch eth0 goes to its leaf and eth1–eth10 to h1–h10. The machine-readable source of truth is `inventory.json`, with exact ports in `docs/interfaces.csv`.
 
 Each rack bridge is its own Layer 2 segment. Static addresses and gateways make baseline connectivity independent of DHCP/DNS. All endpoints can reach one another; no tenant access isolation is claimed. Linux IP forwarding is enabled only on spines and leaves. ECMP checks prove installed next hops; they do not prove balanced bandwidth or packet-by-packet spreading.

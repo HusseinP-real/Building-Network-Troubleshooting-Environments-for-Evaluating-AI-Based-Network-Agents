@@ -16,7 +16,7 @@ def inventory():
     for r in range(1, 7):
         nodes[f'leaf{r}'] = dict(role='leaf', asn=65100+r, loopback=f'10.254.1.{r}/32', rack=r, subnet=f'10.60.{r}.0/24', ports=[])
         nodes[f'rack{r}'] = dict(role='switch', rack=r, ports=[])
-        for h in range(1, 5):
+        for h in range(1, 11):
             nodes[f'rack{r}h{h}'] = dict(role='server' if h == 1 else 'client', rack=r, address=f'10.60.{r}.{10+h}/24', gateway=f'10.60.{r}.1', ports=[])
     links = []
 
@@ -40,6 +40,9 @@ def inventory():
         link(f'leaf{r}', f'rack{r}', 'rack')
         nodes[f'leaf{r}']['ports'][-1]['address'] = f'10.60.{r}.1/24'
         for h in range(1, 5):
+            link(f'rack{r}', f'rack{r}h{h}', 'access')
+    for r in range(1, 7):
+        for h in range(5, 11):
             link(f'rack{r}', f'rack{r}h{h}', 'access')
     return dict(schema_version=1, image=IMAGE, nodes=nodes, links=links,
                 services=dict(application='rack5h1', backend='rack6h1', port=8080))
@@ -108,7 +111,7 @@ HTTPServer(('0.0.0.0', 8080), Handler).serve_forever()
 
 def generate(root=ROOT):
     inv = inventory()
-    conf = ['LAB_NAME="SOFT3888 Three-Spine Data Centre Fabric"', 'LAB_DESCRIPTION="39 devices, 48 links, eBGP and three-path ECMP"']
+    conf = ['LAB_NAME="SOFT3888 Three-Spine Data Centre Fabric"', 'LAB_DESCRIPTION="75 devices, 84 links, eBGP and three-path ECMP"']
     for name, node in inv['nodes'].items():
         router = node['role'] in ('spine', 'leaf')
         conf += [f'{name}[image]="{IMAGE}"', f'{name}[sysctl]="net.ipv4.ip_forward={int(router)}"', f'{name}[sysctl]="net.ipv4.conf.all.rp_filter=0"', f'{name}[sysctl]="net.ipv4.conf.default.rp_filter=0"']

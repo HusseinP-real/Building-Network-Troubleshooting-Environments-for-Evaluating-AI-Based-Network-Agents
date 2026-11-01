@@ -9,23 +9,23 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def draw():
     inv = json.loads((ROOT/'inventory.json').read_text())
-    width, height = 2400, 1480
+    width, height = 3000, 1900
     positions = {}
     for i in range(1,4):
-        positions[f'spine{i}'] = (600*i, 290)
+        positions[f'spine{i}'] = (750*i, 290)
     for rack in range(1,7):
-        x = 200+400*(rack-1)
+        x = 250+500*(rack-1)
         positions[f'leaf{rack}'] = (x, 640)
         positions[f'rack{rack}'] = (x, 860)
-        for host in range(1,5):
-            positions[f'rack{rack}h{host}'] = (x+((-125 if host % 2 else 125) if host <= 2 else (-70 if host % 2 else 70)), 1100+(130 if host>2 else 0))
+        for host in range(1,11):
+            positions[f'rack{rack}h{host}'] = (x + (-120 if host % 2 else 120), 1080+130*((host-1)//2))
     colors = dict(spine='#2563eb', leaf='#087e8b', switch='#b77916', server='#7c3aed', client='#475569')
     elements = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">', '<rect width="100%" height="100%" fill="#f8fafc"/>']
     labels = [(100,80,'DATA CENTRE / THREE-SPINE FABRIC',48,'#0f172a'),
-              (100,135,'39 devices  ·  48 links  ·  6 racks  ·  eBGP + three-path ECMP',30,'#475569'),
-              (100,185,'Each leaf connects to all three spines; each rack has one leaf, one switch and four endpoints.',25,'#475569'),
-              (100,1380,'Application: rack5h1 / 10.60.5.11:8080  →  Backend: rack6h1 / 10.60.6.11:8080',28,'#475569'),
-              (100,1430,'All devices and physical links are read from inventory.json. No overlay, VRRP or inter-rack Layer 2.',24,'#64748b')]
+              (100,135,'75 devices  ·  84 links  ·  6 racks  ·  eBGP + three-path ECMP',30,'#475569'),
+              (100,185,'Each leaf connects to all three spines; each rack has one leaf, one switch and ten endpoints.',25,'#475569'),
+              (100,1780,'Application: rack5h1 / 10.60.5.11:8080  →  Backend: rack6h1 / 10.60.6.11:8080',28,'#475569'),
+              (100,1830,'All devices and physical links are read from inventory.json. No overlay, VRRP or inter-rack Layer 2.',24,'#64748b')]
     segments = []
     for link in inv['links']:
         a,b = (e['node'] for e in link['endpoints'])
@@ -35,7 +35,7 @@ def draw():
         segments.append((xa,ya,xb,yb,color))
     boxes=[]
     for name,node in inv['nodes'].items():
-        x,y=positions[name]; w=125 if 'h' in name and node['role'] in ('client','server') else 230; h=74
+        x,y=positions[name]; w=180 if 'h' in name and node['role'] in ('client','server') else 230; h=74
         color=colors[node['role']]
         extra = f'AS {node["asn"]}' if 'asn' in node else f'10.60.{node["rack"]}.0/24' if node['role']=='switch' else node['address'].split('/')[0]
         elements.append(f'<rect x="{x-w/2}" y="{y-h/2}" width="{w}" height="{h}" rx="12" fill="{color}"/>')

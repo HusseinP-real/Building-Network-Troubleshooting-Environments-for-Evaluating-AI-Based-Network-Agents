@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import lab
-from tools.generate import generate
+from tools.generate import generate, inventory, router_config
 from tools.validate import validate
 
 
@@ -19,6 +19,44 @@ class FabricTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             generate(Path(tmp))
             self.assertTrue(validate(Path(tmp))['passed'])
+
+    def test_expansion_preserves_original_routing_and_wires(self):
+        inv = inventory()
+        self.assertEqual(len(inv['nodes']), 75)
+        self.assertEqual(len(inv['links']), 84)
+        # Reconstruct the original six-rack, four-endpoint fabric.
+        original = json.loads(json.dumps(inv))
+        original['nodes'] = {n: m for n, m in original['nodes'].items()
+                             if m['role'] not in ('client', 'server') or int(n.split('h')[1]) <= 4}
+        original['links'] = original['links'][:48]
+        for n, m in original['nodes'].items():
+            m['ports'] = [p for p in m['ports'] if p['peer'] in original['nodes']]
+            self.assertEqual(inv['nodes'][n]['ports'][:len(m['ports'])], m['ports'])
+            if m['role'] in ('spine', 'leaf'):
+                self.assertEqual(router_config(n, m, original), router_config(n, inv['nodes'][n], inv))
+        for rack in range(1, 7):
+            self.assertEqual(len(inv['nodes'][f'rack{rack}']['ports']), 11)
+            for host in range(1, 11):
+                self.assertEqual(inv['nodes'][f'rack{rack}h{host}']['address'], f'10.60.{rack}.{10+host}/24')
+
+    def test_live_checks_cover_all_expanded_endpoints(self):
+        with patch.object(lab, 'inventory', return_value=inventory()):
+            items = lab.checks()
+        sweeps = [i for i in items if 'other endpoints reachable' in i[0]]
+        self.assertEqual(len(sweeps), 60)
+        for title, node, command in sweeps:
+            self.assertIn('all 59 other endpoints', title)
+            self.assertEqual(len(command.split('for target in ')[1].split('; do')[0].split()), 59)
+        self.assertEqual(sum('dependency healthy' in i[0] for i in items), 60)
+        self.assertEqual(sum('11 ports on isolated rack bridge' in i[0] for i in items), 6)
+
+    def test_successful_failover_probes_every_expanded_endpoint(self):
+        with patch.object(lab, 'inventory', return_value=inventory()), patch.object(lab, 'check', return_value=0), patch.object(lab, 'execute', return_value=(True, 'ok')) as execute, patch.object(lab.time, 'sleep'), patch.object(lab, 'save_report'):
+            self.assertEqual(lab.failover(), 0)
+        commands = [call.args[1] for call in execute.call_args_list]
+        self.assertEqual(sum('for target in' in c for c in commands), 60)
+        self.assertEqual(sum('curl -fsS' in c for c in commands), 60)
+        self.assertEqual(execute.call_args_list[-1].args, ('leaf1', 'ip link set eth0 up'))
 
     def test_validator_rejects_miswired_interface(self):
         with tempfile.TemporaryDirectory() as tmp:
