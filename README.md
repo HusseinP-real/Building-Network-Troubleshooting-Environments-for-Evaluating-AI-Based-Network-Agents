@@ -51,5 +51,8 @@ See the [FaulT-Bench README](FaulT-Bench/README.md) for external agent setup and
 - [Kairos enterprise topology](EnterpriseTopology_Kairos/README.md) and [Kath3 wrong gateway scenario](FaulT-Bench/topology_kathara/Kath3_Kairos/kairos_wrong_gateway/README.md).
 - [Eason Campus80](Campus80_Eason/README.md) and [Enterprise80](Enterprise80_Eason/README.md).
 - [Sarah enterprise](Sarah_Enterprise_Network/README.md) and [DNS/DHCP service network](Sarah_Service_Network/README.md).
+- [Enterprise-SADE-W11 candidate](Enterprise-SADE-W11-75/README.md): 75-device topology, statically validated only; not deployed or end-to-end tested.
+- [Kath6 static-route example](Own/README.md): small proof-of-concept scenario.
+- [NIKA complex enterprise OSPF run guide](README_RUN.md): installation notes for a separately supplied patch package.
 
 Additional member documentation is in `Topology_README-wk7/`.
