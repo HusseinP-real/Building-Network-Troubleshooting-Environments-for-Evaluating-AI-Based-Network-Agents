@@ -1,47 +1,47 @@
-# Campus80：完整拓扑与 OSPF 故障注入
+# Campus80: Complete Topology and OSPF Fault Injection
 
-此包保留 campus80_fixed.zip 的 80 节点拓扑和启动配置，新增可复现的 healthy → fault → recovery 流程。Python 3 标准库即可运行；宿主机需有 Docker、Kathará，镜像内需有 FRR、ip、ping、pgrep、pkill。
+This package retains the 80-node topology and startup configurations from `campus80_fixed.zip`, while adding a reproducible "healthy → fault → recovery" workflow. It can be executed using the Python 3 standard library. The host machine must have Docker and Kathará installed, and the container images must include FRR, `ip`, `ping`, `pgrep`, and `pkill`.
 
-## 两个拓扑能否使用同一种 fault？
+## Can the same type of fault be applied to both topologies?
 
-可以。采用 Enterprise80_Final_v2 相同的 `routing_daemon_down`：先停止 watchfrr，防止自动拉起，再停止网关的 ospfd。接口、地址、zebra 和容器保持运行。
+Yes. We use the same `routing_daemon_down` fault as in `Enterprise80_Final_v2`: first, `watchfrr` is stopped to prevent automatic restarts, followed by stopping `ospfd` on the gateway. Network interfaces, IP addresses, the `zebra` daemon, and the containers themselves remain active.
 
-| 项目 | Enterprise80 v2 | Campus80 |
+| Item | Enterprise80 v2 | Campus80 |
 |---|---|---|
-| 故障设备 | sydr1 | r01 |
-| 故障组件 | ospfd | ospfd |
-| 受影响 LAN | 10.10.10.0/24 | 10.10.1.0/24 |
-| 受影响终端 | sydpc1–sydpc9 | pc01–pc05 |
-| 本地网关 | 10.10.10.1 | 10.10.1.1 |
-| 远端探针 | web1 | srv01，10.10.3.100 |
+| Faulty Device | sydr1 | r01 |
+| Faulty Component | ospfd | ospfd |
+| Affected LAN | 10.10.10.0/24 | 10.10.1.0/24 |
+| Affected Endpoints | sydpc1–sydpc9 | pc01–pc05 |
+| Local Gateway | 10.10.10.1 | 10.10.1.1 |
+| Remote Probe | web1 | srv01 (10.10.3.100) |
 
-这是“一种故障类型、两个拓扑上的两个实例”。设备与 IP 参数不同，不能原样运行 Enterprise 的硬编码脚本。相同故障类型适合比较跨拓扑诊断表现，但不能据此声称覆盖多种故障，或两个拓扑具有相同难度。r01 同时承担转发任务，其停止参与 OSPF 后其他路径会重收敛。
+This represents "one fault type applied as two distinct instances across two topologies." Because the device and IP parameters differ, the hard-coded scripts from the Enterprise topology cannot be used directly. While using the same fault type facilitates a comparison of diagnostic performance across topologies, it does not imply that a wide range of fault types is covered, nor does it suggest that both topologies present the same level of difficulty. Since `r01` also handles packet forwarding, its withdrawal from OSPF triggers a network-wide re-convergence.
 
-## 网络是否完成？
+## Is the network complete?
 
-文件包含 12 路由器、60 PC、8 服务器、20 条 /30 链路、12 个 /24 LAN、主机默认路由和 OSPF area 0 配置。静态一致性检查已通过。网络基线是否工作，以本机 `verify_healthy.sh` 的运行结果为准。HTTP 是可选启动服务，当前验收覆盖 IPv4/ICMP 和 OSPF，不验证 HTTP 应用；未实现外网、DNS、DHCP 等额外服务。
+The files include 12 routers, 60 PCs, 8 servers, 20 `/30` links, 12 `/24` LANs, default routes for the hosts, and an OSPF Area 0 configuration. Static consistency checks have passed. Please refer to the output of the local `verify_healthy.sh` script to determine whether the network baseline is functioning correctly. HTTP is an optional service; the current acceptance criteria cover IPv4/ICMP and OSPF, but not HTTP applications. Additional services such as external network access, DNS, and DHCP are not implemented.
 
-## 使用已有的 Campus80
+## Using an Existing Campus80 Instance
 
-解压后进入本文件所在目录。如果当前已运行同一份 Campus80，无需重新启动，直接：
+After extracting the files, navigate to the directory containing this document. If an instance of Campus80 is already running, there is no need to restart it; simply execute the following:
 
 ```bash
 bash scripts/verify_healthy.sh
 bash scripts/inject_fault.sh
 bash scripts/verify_fault.sh
-# 在故障状态进行诊断、记录结果；完成后恢复：
+# Perform diagnostics and record results while in the faulted state; then, restore the system:
 bash scripts/recover.sh
 ```
 
-注入脚本会先完整验证健康状态，失败则不注入。注入成功后保持故障状态，直到恢复。若注入过程中报错，可能已停止部分进程，请运行恢复脚本。不要把再次注入当成恢复方法。
+The injection script first performs a full health check; if this fails, no fault will be injected. Once a fault is injected, the system will remain in that state until the recovery script is run. If an error occurs during injection—which may result in some processes being terminated—please run the recovery script. Do not attempt to "recover" the system by performing another injection.
 
-## 从新目录启动
+## Starting from a New Directory
 
-仅在没有运行 Campus80 时：
+Use this procedure only when no Campus80 instance is currently running:
 
 ```bash
 kathara lstart -d . --noterminals
-# 等待启动脚本完成、OSPF 收敛；繁忙机器可能需要更多时间。
+# Wait for the startup scripts to complete and for OSPF to converge; this may take longer on heavily loaded machines.
 sleep 90
 bash scripts/verify_healthy.sh
 bash scripts/inject_fault.sh
@@ -49,44 +49,43 @@ bash scripts/verify_fault.sh
 bash scripts/recover.sh
 ```
 
-若旧目录的 Campus80 正在运行，继续使用已有实例，或自行从旧目录停止旧实例后再启动新目录。不要混用两份实例。Enterprise 和其他实验可以同时运行，脚本只匹配选中的 Campus 容器。
+If an instance of Campus80 from a different directory is already running, either continue using that instance or stop it from its original directory before starting a new one. Do not mix instances from different directories. This setup can run concurrently with "Enterprise" or other experiments, as the scripts only target the relevant Campus containers.
 
-## 一键实验（要求实验已启动）
+## Automated Experiment Execution (Requires the experiment to be already running)
 
 ```bash
 bash scripts/run_demo.sh
 ```
 
-该命令检查健康基线、注入并验证故障，然后恢复并重新验证基线。进入注入阶段后使用 finally 尝试恢复，包含注入验证失败的情况；宿主机崩溃、强制杀进程等仍需手动恢复。不会启动或清理任何实验。
+This command verifies the health baseline, injects and validates a fault, restores the system, and then re-verifies the baseline. The script includes a `finally` block to ensure recovery is attempted after the injection phase, even if the fault validation fails. Note that in cases such as a host machine crash or the forced termination of processes, manual recovery will still be required. This command does not initiate or clean up any experiments.
 
-## 容器选择与日志
+## Container Selection and Logging
 
-脚本要求恰好一个运行中的 Kathará `r01`，并用其完整前缀和实验后缀匹配所有 80 台设备；不会选择第一个模糊匹配的容器。执行前检查 r01 地址与 manifest 一致。
+The script requires exactly one running Kathará `r01` container, identified by its full prefix and experiment suffix, to match all 80 devices; it will not select a container based on a partial or ambiguous match. Before execution, the script verifies that the `r01` address aligns with the manifest.
 
-多份 Campus 同时运行时，先查看 `docker ps --format '{{.Names}}'`，再设置准确的名称：
+When multiple "Campus" environments are running simultaneously, first identify the correct container name using `docker ps --format '{{.Names}}'`, then set the variable accordingly:
 
 ```bash
-export CAMPUS_ANCHOR='填入目标实验的完整r01容器名'
+export CAMPUS_ANCHOR='[Insert the full r01 container name for the target experiment]'
 bash scripts/verify_healthy.sh
 ```
 
-所有运行命令、输出、退出码与 UTC 时间保存在 `logs/`。错误不会被当作“故障注入成功”：ping 要解析收到的报文数，Docker 失败、命令不存在、无法解析输出均报错。
+All executed commands, their outputs, exit codes, and UTC timestamps are logged in the `logs/` directory. Errors are not interpreted as "successful fault injection"—for instance, `ping` results are parsed based on the number of packets received; Docker failures, missing commands, or an inability to parse command output are all treated as errors.
 
-## 验收内容
+## Validation Criteria
 
-- 健康：80 台设备的接口及 IP、12 台路由器的 ospfd/zebra 与转发开关、所有预期 FULL 邻居、68 个终端的跨 LAN 探针。
-- 故障：r01 全部接口和地址保留、ospfd/watchfrr 不运行、zebra 仍运行；其余路由器的预期邻居与 LAN01 路由撤销；5 台受影响 PC 能访问网关但不能访问 srv01；同 LAN 通信正常；反向探针失败；其他 11 个 LAN 的代表 PC 能访问 srv01。
-- 恢复：重启 r01 FRR，从持久化 frr.conf 重新加载配置，健康检查全部通过，watchfrr 恢复。
+- **Healthy State:** All 80 devices have the correct interfaces and IP addresses; the 12 routers have `ospfd`/`zebra` and forwarding enabled; all expected OSPF adjacencies reach the `FULL` state; and cross-LAN probes from 68 end-hosts are successful.
+- **Fault State:** On `r01`, all interfaces and IP addresses remain, `ospfd`/`watchfrr` are stopped, but `zebra` continues to run. For other routers, expected OSPF adjacencies are lost, and routes to `LAN01` are withdrawn. The 5 affected PCs can reach their gateway but cannot access `srv01`; intra-LAN communication remains functional; reverse probes fail; and PCs in the other 11 LANs retain access to `srv01`.
+- **Recovery State:** `FRR` services on `r01` are restarted, configurations are reloaded from the persistent `frr.conf`, all health checks pass, and `watchfrr` is restored.
 
-故障/恢复阶段重复检测实际状态，最多等待约 180 秒加上单轮检查耗时；不是只睡固定秒数便宣告成功。端点探针不是全网任意两点的全组合测试。
+During the fault and recovery phases, the script continuously monitors the actual system state—waiting for up to ~180 seconds (plus the duration of a single check cycle) rather than relying on a fixed-duration sleep timer to declare success. End-host probing does not constitute an exhaustive, all-pairs connectivity test across the entire network.
 
-## 文件
+## Files
 
-- `fault.py`：完整实现；`python3 fault.py static` 可离线检查。
-- `scripts/*.sh`：与 Enterprise 接近的命令入口。
-- `lab.conf`、`*.startup`、`rXX/etc/frr/frr.conf`：完整网络。
-- `ground_truth.json`：正确答案与预期现象。
-- `dataset/campus80_Q/base/`：场景描述。
-- `VALIDATION.md`：交付时的测试范围与结果。
+- `fault.py`: The complete implementation; can be used for offline verification via `python3 fault.py static`.
+- `scripts/*.sh`: Command entry points, similar to those used in the "Enterprise" scenario. - `lab.conf`, `*.startup`, `rXX/etc/frr/frr.conf`: Complete network configuration.
+- `ground_truth.json`: Correct answers and expected behaviors.
+- `dataset/campus80_Q/base/`: Scenario description.
+- `VALIDATION.md`: Scope and results of tests conducted at the time of delivery.
 
-评估诊断 Agent 时只提供场景的 PROMPT 和观察权限，不应把 ground truth、注入源码和修复答案同时提供给它。本包没有自动集成 NIKA/SADE/FaulT-Bench runner。
+When evaluating a diagnostic agent, provide only the scenario prompt and observation access; do not disclose the ground truth, the injected source code, or the fix/solution. This package does not include an automated integration for NIKA, SADE, or FaulT-Bench runners.
