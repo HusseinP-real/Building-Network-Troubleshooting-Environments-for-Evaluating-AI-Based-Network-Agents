@@ -10,7 +10,7 @@ Yes. We use the same `routing_daemon_down` fault as in `Enterprise80_Final_v2`: 
 |---|---|---|
 | Faulty Device | sydr1 | r01 |
 | Faulty Component | ospfd | ospfd |
-| Affected LAN | 10.10.10.0/24 | 10.10.1.1/24 |
+| Affected LAN | 10.10.10.0/24 | 10.10.1.0/24 |
 | Affected Endpoints | sydpc1–sydpc9 | pc01–pc05 |
 | Local Gateway | 10.10.10.1 | 10.10.1.1 |
 | Remote Probe | web1 | srv01 (10.10.3.100) |
@@ -57,7 +57,9 @@ If an instance of Campus80 from a different directory is already running, either
 bash scripts/run_demo.sh
 ```
 
-This command verifies the health baseline, injects and validates a fault, restores the system, and then re-verifies the baseline. The script includes a `finally` block to ensure recovery is attempted after the injection phase, even if the fault validation fails. Note that in cases such as a host machine crash or the forced termination of processes, manual recovery will still be required. This command does not initiate or clean up any experiments. ## Container Selection and Logging
+This command verifies the health baseline, injects and validates a fault, restores the system, and then re-verifies the baseline. The script includes a `finally` block to ensure recovery is attempted after the injection phase, even if the fault validation fails. Note that in cases such as a host machine crash or the forced termination of processes, manual recovery will still be required. This command does not initiate or clean up any experiments.
+
+## Container Selection and Logging
 
 The script requires exactly one running Kathará `r01` container, identified by its full prefix and experiment suffix, to match all 80 devices; it will not select a container based on a partial or ambiguous match. Before execution, the script verifies that the `r01` address aligns with the manifest.
 
