@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+ip link set lo up
+ip link set eth0 up
+ip addr replace 10.0.0.6/30 dev eth0
+ip link set eth1 up
+ip addr replace 10.0.0.9/30 dev eth1
+ip link set eth2 up
+ip addr replace 10.0.0.33/30 dev eth2
+ip link set eth3 up
+ip addr replace 10.0.0.50/30 dev eth3
+ip link set eth4 up
+ip addr replace 10.0.0.82/30 dev eth4
+ip link set eth5 up
+ip addr replace 10.0.0.118/30 dev eth5
+ip link set eth6 up
+ip addr replace 10.0.0.130/30 dev eth6
+sysctl -w net.ipv4.ip_forward=1 >/dev/null
+mkdir -p /etc/frr
+cp /hostlab/core2/frr.conf /etc/frr/frr.conf
+cp /hostlab/core2/daemons /etc/frr/daemons
+chown frr:frr /etc/frr/frr.conf || true
+chmod 640 /etc/frr/frr.conf
+/etc/init.d/frr start
+sleep 2
+vtysh -b

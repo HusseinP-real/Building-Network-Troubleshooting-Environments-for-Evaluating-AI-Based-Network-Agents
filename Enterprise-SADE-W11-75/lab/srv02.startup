@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+ip link set lo up
+ip link set eth0 up
+ip addr replace 10.20.9.11/24 dev eth0
+ip route replace default via 10.20.9.1
+printf "nameserver 10.20.9.10\n" > /etc/resolv.conf
+mkdir -p /tmp/www
+printf "Enterprise benchmark HTTP service\n" > /tmp/www/index.html
+cd /tmp/www
+python3 -m http.server 8000 --bind 10.20.9.11 >/tmp/http.log 2>&1 & echo $! >/tmp/http.pid
