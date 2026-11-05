@@ -1,0 +1,46 @@
+Scenario: kath6-r1-static-route-removed
+Topology: Kath6
+Fault family: routing
+Ticket style: standard
+
+[PROMPT-TO-AGENT]
+A user on pc1 reports that the local gateway is reachable, but pc2 at 10.2.0.10 on the remote subnet is unreachable. The connection worked before the incident. Please diagnose the network and identify the root cause.
+
+[PRE-CHECK]
+pc1 ping -c 2 -W 1 10.2.0.10 => expect 0% loss
+r1 ip route show 10.2.0.0/24 => expect nonempty
+
+[INJECTION]
+device: r1
+action: remove_static_route
+cmd: ip route del 10.2.0.0/24 via 10.12.0.2
+note: |
+  Remove the healthy-state static route on r1 that reaches the right-hand LAN.
+  Interfaces and the r1-r2 transit link remain up, so the injected fault is a routing-table fault rather than a physical link failure.
+
+[POST-INJECT-CHECK]
+r1 ip route show 10.2.0.0/24 => expect empty
+pc1 ping -c 3 -W 1 10.2.0.10 => expect loss>0
+
+[GROUND-TRUTH]
+A real fault is present on r1. The static route to 10.2.0.0/24 via next hop 10.12.0.2 has been removed. pc1 can still reach its directly connected gateway r1 (10.1.0.1), but r1 no longer has a route to pc2's subnet. The r1-r2 link itself is still up.
+
+[FIX]
+Restore the missing route on r1:
+  ip route replace 10.2.0.0/24 via 10.12.0.2
+Then verify that pc1 can again reach 10.2.0.10. For a persistent repair, restore the same route in r1's startup/network configuration.
+
+[SCORING-AXES]
+assert-identifies: r1
+must: identify the missing route to 10.2.0.0/24 on r1 as the root cause
+must: distinguish the routing-table fault from a physical r1-r2 link failure
+bonus: identify 10.12.0.2 as the correct next hop for the missing route
+bonus: propose restoring the route and verifying end-to-end reachability afterward
+
+[DIAGNOSTIC-PROCESS]
+1. Check pc1 addressing and default route with `ip addr` and `ip route`.
+2. Ping pc1's local gateway 10.1.0.1 to show that the local LAN is working.
+3. Ping or traceroute toward 10.2.0.10 to localize the failure beyond pc1's gateway.
+4. Inspect r1 interfaces and routes. The r1-r2 transit interface should be up, but there is no route for 10.2.0.0/24.
+5. Inspect r2 only as needed to confirm that 10.2.0.0/24 is directly connected there and that the return route to 10.1.0.0/24 exists.
+6. Conclude that r1's missing static route is the root cause, restore it, and re-test pc1-to-pc2 reachability.
