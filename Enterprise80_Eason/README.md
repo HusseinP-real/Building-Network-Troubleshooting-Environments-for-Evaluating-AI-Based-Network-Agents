@@ -11,7 +11,7 @@ The package includes topology definitions, device startup configurations, an add
 ```text
 Enterprise80_Final_v2/
 ├── README.md
-├── USAGE_GUIDE_CN.md
+├── USAGE_GUIDE.md
 ├── addressing.csv
 ├── ground_truth.json
 ├── docs/
@@ -37,7 +37,7 @@ Enterprise80_Final_v2/
 - [addressing.csv](addressing.csv) lists every configured device address and host gateway.
 - [ground_truth.json](ground_truth.json) contains a compact scenario label, expected symptoms, and a nominal repair command.
 - The [scenario file](dataset/enterprise80_Q/base/enterprise80-sydr1-ospfd-down.txt) contains the agent-facing ticket, injection description, ground truth, diagnostic example, scoring axes, and supplied taxonomy labels.
-- [USAGE_GUIDE_CN.md](USAGE_GUIDE_CN.md) provides the original Chinese operating guide.
+- [USAGE_GUIDE.md](USAGE_GUIDE.md) provides the operating guide in English.
 
 ## 2. Network architecture
 
