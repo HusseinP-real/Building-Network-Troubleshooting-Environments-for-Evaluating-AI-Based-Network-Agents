@@ -7,9 +7,12 @@
 # Local runtime leases and recovery journals (no credentials)
 **/results/control/
 
-# Interpreter caches and newly generated native experiment logs.
+# Local Python environments, tool caches, and native experiment logs.
 __pycache__/
 *.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
 /Campus80_Eason/logs/
 /Enterprise80_Eason/logs/
 
